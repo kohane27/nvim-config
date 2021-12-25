@@ -1,4 +1,9 @@
-require('lightspeed').setup {
+local status_ok, lightspeed = pcall(require, "lightspeed")
+if not status_ok then
+	return
+end
+
+lightspeed.setup {
   exit_after_idle_msecs = { labeled = nil, unlabeled = 10000 },
   -- s/x
   grey_out_search_area = true,

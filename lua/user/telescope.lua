@@ -3,11 +3,30 @@ if not status_ok then
   return
 end
 
-local actions = require "telescope.actions"
+local actions = require("telescope.actions")
 
 telescope.setup {
   defaults = {
-
+    layout_config = {
+      vertical = { width = 0.9 },
+      horizontal = { 
+                  width = 0.9,
+                  preview_cutoff = 0
+      }
+    },
+    file_ignore_patterns = {
+        ".mp4", ".webm", ".mkv", ".avi", ".m4a",
+        ".mp3", ".dll", ".db", ".exe", ".ogg",
+        ".png", ".jpg", ".jpeg", ".pdf",
+        ".7z", ".rar", ".tar", ".zip",
+        ".doc", ".docx", ".gif",
+        "node_modules", ".cache", ".icons",
+        ".undodir", ".PlayOnLinux", 
+        "Calibre Library", "Games", "PlayOnLinux's virtual drives", 
+        "snap", "Videos"
+    },
+    -- Hidden files and directories can be searched with --hidden
+    find_command = { "rg", "--hidden", "--ignore-case"},
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
@@ -87,10 +106,16 @@ telescope.setup {
     -- builtin picker
   },
   extensions = {
-    -- Your extension configuration goes here:
-    -- extension_name = {
-    --   extension_config_key = value,
-    -- }
-    -- please take a look at the readme of the extension you want to configure
-  },
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                                       -- the default case_mode is "smart_case"
+    }
+  }
 }
+
+-- get fzf loaded after setup function
+telescope.load_extension("fzf")
+telescope.load_extension("projects")
