@@ -118,4 +118,3 @@ telescope.setup {
 
 -- get fzf loaded after setup function
 telescope.load_extension("fzf")
-telescope.load_extension("projects")
