@@ -1,5 +1,4 @@
-vim.api.nvim_exec(
-[[
+vim.cmd([[
 """" => General Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
@@ -98,5 +97,4 @@ set laststatus=2
 
 " Uncomment to prevent non-normal modes showing in powerline and below powerline.
 set noshowmode
-]],
-true)
+]])

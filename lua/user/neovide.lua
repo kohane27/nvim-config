@@ -1,5 +1,4 @@
-vim.api.nvim_exec(
-[[
+vim.cmd([[
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
@@ -13,6 +12,4 @@ let g:neovide_cursor_animation_length=0
 let g:neovide_cursor_trail_length=0
 let g:neovide_cursor_antialiasing=v:true
 let g:neovide_cursor_vfx_mode = ""
-]],
-true)
-
+]])

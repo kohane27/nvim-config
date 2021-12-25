@@ -1,10 +1,9 @@
-local status_ok, nerdcommenter = pcall(require, "nerdcommenter")
-if not status_ok then
-	return
-end
+--local status_ok, nerdcommenter = pcall(require, "nerdcommenter")
+--if not status_ok then
+--	return
+--end
 
-vim.api.nvim_exec(
-[[
+vim.cmd([[
 " Create default mappings
 let g:NERDCreateDefaultMappings = 1
 
@@ -31,6 +30,4 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
-]],
-true)
-
+]])

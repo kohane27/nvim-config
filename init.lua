@@ -32,6 +32,7 @@ require "user.vimwiki"
 require "user.executioner"
 require "user.floaterm"
 require "user.nerdcommenter"
+--require "user.dashboard-nvim"
 
 -- manual import
 require "user.neovide"
