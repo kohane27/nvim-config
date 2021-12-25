@@ -1,10 +1,9 @@
-local status_ok, undotree = pcall(require, "undotree")
-if not status_ok then
-	return
-end
+--local status_ok, undotree = pcall(require, "undotree")
+--if not status_ok then
+--	return
+--end
 
-vim.api.nvim_exec(
-[[
+vim.cmd([[
 if has("persistent_undo")
    let target_path = expand('~/.undodir')
 
@@ -17,6 +16,4 @@ if has("persistent_undo")
     let &undodir=target_path
     set undofile
 endif
-]],
-true)
-
+]])

@@ -1,9 +1,9 @@
-local status_ok, dashboard = pcall(require, "dashboard-nvim")
-if not status_ok then
-	return
-end
+--local status_ok, dashboard = pcall(require, "dashboard-nvim")
+--if not status_ok then
+--	return
+--end
 
-vim.cmd [[
+vim.cmd([[
 let g:dashboard_default_executive ='telescope'
 
 let g:dashboard_custom_shortcut={
@@ -24,4 +24,4 @@ let g:dashboard_custom_shortcut={
 " let g:dashboard_custom_shortcut_icon['change_colorscheme'] = ' '
 " let g:dashboard_custom_shortcut_icon['find_word'] = ' '
 " let g:dashboard_custom_shortcut_icon['book_marks'] = ' '
-]]
+]])

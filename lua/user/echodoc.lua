@@ -1,9 +1,10 @@
-local status_ok, echodoc = pcall(require, "echodoc")
-if not status_ok then
-	return
-end
+--local status_ok, _ = pcall(require, "echodoc")
+--if not status_ok then
+--    vim.notify("dfdfdf")
+--	--return
+--end
 
-vim.cmd [[
+vim.cmd([[
 set cmdheight=2
 set noshowmode
 
@@ -14,5 +15,4 @@ let g:echodoc#type = 'floating'
 " To use a custom highlight for the float window,
 " change Pmenu to your highlight group
 highlight link EchoDocFloat Pmenu
-]]
-
+]])
