@@ -6,7 +6,7 @@ end
 local setup = {
     plugins = {
         marks = false, -- shows a list of your marks on ' and `
-        registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+        registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
         spelling = {
             enabled = true, -- show WhichKey when pressing z= to select spelling suggestions
             suggestions = 20 -- number of suggestions in the list
@@ -103,8 +103,8 @@ local mappings = {
     },
 
     ["<leader>"] = {
+        q = {"<cmd>Sayonara!<cr>", "sayonara"},
         cc = {"<plug>NERDCommenterToggle", "NERDCommenterToggle"}, -- TODO working why?
-        q = {"<cmd>sayonara!<cr>", "sayonara"}, -- TODO
         t = {
             name = "Terminal",
             -- n = {"<cmd>FloatermNew<cr>", "FloatermNew"},
@@ -129,6 +129,7 @@ local mappings = {
         --    v = {"<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical"}
         --},
         l = {
+            -- more keybindings in handlers.lua
             name = "LSP",
             a = {"<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action"},
             d = { "<cmd>Telescope lsp_document_diagnostics<cr>", "Document Diagnostics" },

@@ -46,20 +46,23 @@ return packer.startup(function(use)
   --use "numToStr/Comment.nvim" -- Easily comment stuff
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
-  use "akinsho/bufferline.nvim"
+  -- use "akinsho/bufferline.nvim"
+  use "romgrk/barbar.nvim"
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
   use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
-  use "goolord/alpha-nvim"
+  -- use "goolord/alpha-nvim"
+  -- use "glepnir/dashboard-nvim"
   use "antoinemadec/FixCursorHold.nvim" -- needed to fix lsp doc highlight
   use "folke/which-key.nvim"
 
   -- Colorschemes
    use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-  use "lunarvim/darkplus.nvim"
+   use "lunarvim/darkplus.nvim"
+   use "NTBBloodbath/doom-one.nvim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -114,14 +117,13 @@ return packer.startup(function(use)
   use "rmagatti/auto-session"
   use "jremmen/vim-ripgrep"
   use "farmergreg/vim-lastplace"
-  use "Pocco81/AutoSave.nvim"
+  -- use "Pocco81/AutoSave.nvim"
   use "Shougo/echodoc.vim"
   use "mbbill/undotree"
   use "vimwiki/vimwiki"
   use "EvanQuan/vim-executioner"
   use "voldikss/vim-floaterm"
   use "preservim/nerdcommenter"
-  use "glepnir/dashboard-nvim"
 
   -- without its own file
   use "p00f/nvim-ts-rainbow"

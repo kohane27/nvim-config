@@ -13,12 +13,6 @@ vim.cmd [[
     autocmd FileType gitcommit setlocal spell
   augroup end
 
-  augroup _markdown
-    autocmd!
-    autocmd FileType markdown setlocal wrap
-    autocmd FileType markdown setlocal spell
-  augroup end
-
   augroup _auto_resize
     autocmd!
     autocmd VimResized * tabdo wincmd = 
@@ -28,10 +22,11 @@ vim.cmd [[
     autocmd!
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
+
+   augroup _lsp
+     autocmd!
+     autocmd BufWritePre * lua vim.lsp.buf.formatting()
+   augroup end
 ]]
 
 -- Autoformat
--- augroup _lsp
---   autocmd!
---   autocmd BufWritePre * lua vim.lsp.buf.formatting()
--- augroup end
