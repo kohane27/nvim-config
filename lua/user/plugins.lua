@@ -121,6 +121,7 @@ return packer.startup(function(use)
   use "EvanQuan/vim-executioner"
   use "voldikss/vim-floaterm"
   use "preservim/nerdcommenter"
+  use "glepnir/dashboard-nvim"
 
   -- without its own file
   use "p00f/nvim-ts-rainbow"

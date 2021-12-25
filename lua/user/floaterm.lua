@@ -3,8 +3,7 @@ if not status_ok then
 	return
 end
 
-vim.api.nvim_exec(
-[[
+vim.cmd [[
 let g:floaterm_gitcommit='floaterm'
 let g:floaterm_width=0.9
 let g:floaterm_height=0.9
@@ -26,5 +25,4 @@ let g:floaterm_opener='tabe'
 "    autocmd ColorScheme * highlight FloatermBorder guibg=none
 "augroup END
 "
-]],
-true)
+]]

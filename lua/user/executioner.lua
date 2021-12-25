@@ -3,8 +3,7 @@ if not status_ok then
 	return
 end
 
-vim.api.nvim_exec(
-[[
+vim.cmd [[
 " Run current buffer with input redirected from input.txt
 "nnoremap <silent> <leader>ri :ExecutionerBuffer % < input.txt<cr>
 "nnoremap <silent> <leader>hri :ExecutionerHorizontalBuffer % < input.txt<cr>
@@ -20,6 +19,5 @@ vim.api.nvim_exec(
 "nnoremap <silent> <leader>rm :Executioner makefile<cr>
 "nnoremap <silent> <leader>hrm :ExecutionerHorizontal makefile<cr>
 "nnoremap <silent> <leader>vrm :ExecutionerVertical makefile<cr>
-]],
-true)
+]]
 
