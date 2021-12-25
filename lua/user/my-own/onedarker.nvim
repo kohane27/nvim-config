@@ -1,0 +1,3 @@
+Plug 'LunarVim/onedarker.nvim'
+set background=dark
+
