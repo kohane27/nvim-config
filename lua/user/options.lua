@@ -1,46 +1,95 @@
-local options = {
-  backup = false,                          -- creates a backup file
-  clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
-  cmdheight = 2,                           -- more space in the neovim command line for displaying messages
-  completeopt = { "menuone", "noselect" }, -- mostly just for cmp
-  conceallevel = 0,                        -- so that `` is visible in markdown files
-  fileencoding = "utf-8",                  -- the encoding written to a file
-  hlsearch = true,                         -- highlight all matches on previous search pattern
-  ignorecase = true,                       -- ignore case in search patterns
-  mouse = "a",                             -- allow the mouse to be used in neovim
-  pumheight = 10,                          -- pop up menu height
-  showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
-  showtabline = 2,                         -- always show tabs
-  smartcase = true,                        -- smart case
-  smartindent = true,                      -- make indenting smarter again
-  splitbelow = true,                       -- force all horizontal splits to go below current window
-  splitright = true,                       -- force all vertical splits to go to the right of current window
-  swapfile = false,                        -- creates a swapfile
-  -- termguicolors = true,                    -- set term gui colors (most terminals support this)
-  timeoutlen = 100,                        -- time to wait for a mapped sequence to complete (in milliseconds)
-  undofile = true,                         -- enable persistent undo
-  updatetime = 300,                        -- faster completion (4000ms default)
-  writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-  expandtab = true,                        -- convert tabs to spaces
-  shiftwidth = 2,                          -- the number of spaces inserted for each indentation
-  tabstop = 2,                             -- insert 2 spaces for a tab
-  cursorline = true,                       -- highlight the current line
-  number = true,                           -- set numbered lines
-  relativenumber = false,                  -- set relative numbered lines
-  numberwidth = 4,                         -- set number column width to 2 {default 4}
-  signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
-  wrap = false,                            -- display lines as one long line
-  scrolloff = 8,                           -- is one of my fav
-  sidescrolloff = 8,
-  guifont = "monospace:h17",               -- the font used in graphical neovim applications
-}
+vim.api.nvim_exec(
+[[
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" " => General Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible
+filetype off
+set path+=**                    " Searches current directory recursively
+set wildmenu                    " Display all matches when tab complete
+set hidden                      " Needed keep multiple buffers open
+set fileencoding=utf-8
+set t_Co=256                    " Set if term supports 256 colors
+set termguicolors
+let g:rehash256 = 1
+set showmatch                   " show matching 
+set wrap                        " soft wrapping text
+set linebreak
+"set nolist
+set ignorecase                  " case insensitive
+set hlsearch                    " highlight search 
+set incsearch                   " incremental search
+set number relativenumber       " Display line numbers
+set wildmode=longest,list       " get bash-like tab completions
+set cursorline                  " highlight current line
+set noshowmatch                 " no jumping for matching brackets
 
-vim.opt.shortmess:append "c"
+" from jess
+set signcolumn=yes:2
+set title
+" set smartcase
+set wildmode=longest:full,full
+set list
+set listchars=tab:▸\ ,trail:·
+set scrolloff=8            " cursor won't go the bottom
+set sidescrolloff=8
+set nojoinspaces
+set splitright
+set confirm
+set exrc
+set updatetime=300    " coc: reduce time for highlighting other references
+set redrawtime=10000  " allow more time for loading syntax on large files
+" end jess
 
-for k, v in pairs(options) do
-  vim.opt[k] = v
-end
+" from chris
+set completeopt=menuone,noselect          " for cmp
+set pumheight=10                          " pop up menu height
+set showmode                              " No -- INSERT --
+set showtabline=2                         " always show tabs
+set smartindent
+set timeoutlen=100                        " time to wait for a mapped sequence to complete
+set undofile                              " enable persistent undo
+set nowritebackup                         " disable editing a file that is being edited
+set shiftwidth=2                          " spaces inserted for each indentation
+set tabstop=2                             " 2 spaces for a tab
+set iskeyword+=-
+" end chris
 
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+" scroll 14 lines with <C-D> or <C-U>
+" autocmd VimResized * :set scroll=14
+
+filetype plugin indent on                       " allow auto-indenting depending on file type
+syntax on
+set clipboard=unnamedplus                       " Copy/paste between vim and other programs
+filetype plugin on
+set encoding=utf-8
+set backup                                      " keep a backup file
+set backupdir=~/.local/share/nvim/backup//      " store backup files
+set dir=~/.cache/vim                            " store swap files
+
+"enable relative numbers only in Normal mode
+"absolute numbers only in Insert mode.
+augroup toggle_relative_number
+autocmd InsertEnter * :setlocal norelativenumber
+autocmd InsertLeave * :setlocal relativenumber
+
+set shortmess+=I           " Disable intro message
+set sessionoptions+=globals " for obsession.vim
+set inccommand=nosplit     " Live substitution
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set expandtab                   " Use spaces instead of tabs.
+set smarttab                    " Be smart using tabs ;)
+set shiftwidth=4                " One tab == four spaces.
+set tabstop=4                   " One tab == four spaces.
+set softtabstop=4               " see multiple spaces as tabstops so <BS> does the right thing
+set autoindent                  " indent a new line the same amount as the line just typed
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Mouse Scrolling
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set mouse=nicr
+set mouse=a                 " enable mouse click
+" set mouse=r                 " middle-click to paste
+]],
+true)
