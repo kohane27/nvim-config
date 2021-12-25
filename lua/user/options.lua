@@ -27,6 +27,7 @@ set signcolumn=yes:2
 set title
 " set smartcase
 set wildmode=longest:full,full
+set nospell
 set list
 set listchars=tab:▸\ ,trail:·
 set scrolloff=8            " cursor won't go the bottom
