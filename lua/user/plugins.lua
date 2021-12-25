@@ -58,7 +58,7 @@ return packer.startup(function(use)
   use "folke/which-key.nvim"
 
   -- Colorschemes
-  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
+   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
 
   -- cmp plugins
@@ -105,13 +105,38 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
 
-  use "JoosepAlviste/nvim-ts-context-commentstring"
-
   -- Git
   use "lewis6991/gitsigns.nvim"
 
+  -- with its own file
+  use "norcalli/nvim-colorizer.lua"
   use "ggandor/lightspeed.nvim"
+  use "rmagatti/auto-session"
+  use "jremmen/vim-ripgrep"
+  use "farmergreg/vim-lastplace"
+  use "Pocco81/AutoSave.nvim"
+  use "Shougo/echodoc.vim"
+  use "mbbill/undotree"
+  use "vimwiki/vimwiki"
+  use "EvanQuan/vim-executioner"
 
+  -- without its own file
+  use "p00f/nvim-ts-rainbow"
+  use "JoosepAlviste/nvim-ts-context-commentstring"
+  use "ThePrimeagen/harpoon"
+  use "junegunn/vim-emoji"
+  use "sheerun/vim-polyglot"
+  use "kovetskiy/sxhkd-vim"
+  use "junegunn/vim-easy-align"
+  use {'mg979/vim-visual-multi', branch = 'master' }
+  use "junegunn/vim-peekaboo"
+  use "tpope/vim-surround"
+  use "tpope/vim-repeat"
+  use "psliwka/vim-smoothie"
+  use "wellle/targets.vim"
+  use "kevinhwang91/nvim-bqf"
+  use "andymass/vim-matchup"
+  use "mhinz/vim-sayonara"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

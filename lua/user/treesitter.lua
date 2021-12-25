@@ -16,8 +16,25 @@ configs.setup {
     additional_vim_regex_highlighting = true,
   },
   indent = { enable = true, disable = { "yaml" } },
+rainbow = {
+    enable = true,
+    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    -- disable = { "jsx", "cpp" }, list of languages
+    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    -- termcolors = { "#bf616a", "#d08770", "#ebcb8b", "#a3be8c", "#88c0d0", "#5e81ac", "#b48ead" }
+},
   context_commentstring = {
     enable = true,
     enable_autocmd = false,
   },
+  -- TODO what does it do?
+  --  incremental_selection = {
+  --      enable = true,
+  --      keymaps = {
+  --          init_selection = "gnn",
+  --          node_incremental = "grn",
+  --          scope_incremental = "grc",
+  --          node_decremental = "grm"
+  --      }
+  --  },
 }

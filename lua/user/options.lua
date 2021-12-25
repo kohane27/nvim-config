@@ -91,5 +91,12 @@ set autoindent                  " indent a new line the same amount as the line 
 set mouse=nicr
 set mouse=a                 " enable mouse click
 " set mouse=r                 " middle-click to paste
+
+" from lightline.vim
+" Always show statusline
+set laststatus=2
+
+" Uncomment to prevent non-normal modes showing in powerline and below powerline.
+set noshowmode
 ]],
 true)
