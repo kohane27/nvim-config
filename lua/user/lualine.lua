@@ -74,11 +74,11 @@ lualine.setup({
 	sections = {
 		lualine_a = { branch, diagnostics },
 		lualine_b = { mode },
-		lualine_c = {},
+		lualine_c = {require('auto-session-library').current_session_name},
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_x = { diff, spaces, "encoding", filetype },
-		lualine_y = { location },
-		lualine_z = { progress },
+		--lualine_y = { location },
+		--lualine_z = { progress },
 	},
 	inactive_sections = {
 		lualine_a = {},

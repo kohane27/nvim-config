@@ -9,7 +9,7 @@ vim.api.nvim_exec(
 let g:NERDCreateDefaultMappings = 1
 
 " Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 2
+let g:NERDSpaceDelims = 6
 
 " Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1

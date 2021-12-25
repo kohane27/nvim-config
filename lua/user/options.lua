@@ -1,6 +1,6 @@
 vim.api.nvim_exec(
 [[
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" " => General Settings
+"""" => General Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
 filetype off
