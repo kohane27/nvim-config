@@ -43,7 +43,7 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  use "numToStr/Comment.nvim" -- Easily comment stuff
+  --use "numToStr/Comment.nvim" -- Easily comment stuff
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
   use "akinsho/bufferline.nvim"
@@ -119,6 +119,8 @@ return packer.startup(function(use)
   use "mbbill/undotree"
   use "vimwiki/vimwiki"
   use "EvanQuan/vim-executioner"
+  use "voldikss/vim-floaterm"
+  use "preservim/nerdcommenter"
 
   -- without its own file
   use "p00f/nvim-ts-rainbow"
@@ -137,6 +139,9 @@ return packer.startup(function(use)
   use "kevinhwang91/nvim-bqf"
   use "andymass/vim-matchup"
   use "mhinz/vim-sayonara"
+  --use 'mhartington/formatter.nvim'
+  --use "tpope/vim-obsession"
+  --use "tpope/vim-fugitive"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
