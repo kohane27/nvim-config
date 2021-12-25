@@ -17,7 +17,7 @@ local setup = {
             operators = false, -- adds help for operators like d, y
             motions = false, -- adds help for motions
             text_objects = false, -- help for text objects triggered after entering an operator
-            windows = true, -- default bindings on <c-w>
+            windows = false, -- default bindings on <c-w>
             nav = true, -- misc bindings to work with windows
             z = true, -- bindings for folds, spelling and others prefixed with z
             g = true -- bindings for prefixed with g
@@ -89,6 +89,8 @@ local mappings = {
     g = {
         name = "Git",
         --g = {"<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit"},
+        f = {"<cmd>edit <cfile><cr>", "open non-existent files"},
+        e = {"<cmd>NvimTreeToggle<cr>", "Explorer"},
         j = {"<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk"},
         k = {"<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk"},
         l = {"<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame"},
@@ -96,19 +98,13 @@ local mappings = {
         r = {"<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk"},
         R = {"<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer"},
         s = {"<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk"},
-        u = {
-            "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-            "Undo Stage Hunk"
-        },
-        d = {
-            "<cmd>Gitsigns diffthis HEAD<cr>",
-            "Diff"
-        },
+        u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk" },
+        d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
     },
 
     ["<leader>"] = {
-        cc = {"<plug>NERDCommenterToggle", "NERDCommenterToggle"},
-        q = {"<cmd>sayonara!<cr>", "sayonara"},
+        cc = {"<plug>NERDCommenterToggle", "NERDCommenterToggle"}, -- TODO working why?
+        q = {"<cmd>sayonara!<cr>", "sayonara"}, -- TODO
         t = {
             name = "Terminal",
             -- n = {"<cmd>FloatermNew<cr>", "FloatermNew"},
@@ -120,6 +116,12 @@ local mappings = {
             b = {"<cmd>FloatermNew broot<cr>", "broot"},
             g = {"<cmd>FloatermNew rg<cr>", "rg"}
         },
+        v = {
+            name = "Config",
+            e = {"<cmd>edit ~/.config/nvim/init.vim<cr>", "edit nvim config"},
+            r = {"<cmd>source ~/.config/nvim/init.vim<cr>", "source config"},
+            w = {"<cmd>edit ~/.config/nvim/plugins/which-key.lua<cr>", "edit which-key config"}
+        },
         --t = {
         --    name = "Terminal",
         --    f = {"<cmd>ToggleTerm direction=float<cr>", "Float"},
@@ -129,33 +131,18 @@ local mappings = {
         l = {
             name = "LSP",
             a = {"<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action"},
-            d = {
-                "<cmd>Telescope lsp_document_diagnostics<cr>",
-                "Document Diagnostics"
-            },
-            w = {
-                "<cmd>Telescope lsp_workspace_diagnostics<cr>",
-                "Workspace Diagnostics"
-            },
+            d = { "<cmd>Telescope lsp_document_diagnostics<cr>", "Document Diagnostics" },
+            w = { "<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics" },
             f = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format"},
             i = {"<cmd>LspInfo<cr>", "Info"},
             I = {"<cmd>LspInstallInfo<cr>", "Installer Info"},
-            j = {
-                "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-                "Next Diagnostic"
-            },
-            k = {
-                "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
-                "Prev Diagnostic"
-            },
+            j = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic" },
+            k = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
             l = {"<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action"},
             q = {"<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix"},
             r = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
             s = {"<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols"},
-            S = {
-                "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-                "Workspace Symbols"
-            }
+            S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" }
         },
         s = {
             name = "Search",
