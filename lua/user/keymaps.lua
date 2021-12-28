@@ -1,7 +1,4 @@
 vim.cmd([[
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Key maps
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " escape to normal mode
 inoremap jk <Esc>
 let mapleader = "\<Space>"
@@ -32,12 +29,12 @@ nnoremap <Leader>y "*y
 nnoremap <Leader>d "*d
 
 " Paste replace visual selection without copying it
-vnoremap <leader>p "_dP
+vnoremap p "_dP
+" vnoremap <leader>p "_dP
 
 " insert empty new line without entering insert mode
 nnoremap <Leader>o o<Esc>
 nnoremap <Leader>O O<Esc>
-
 
 " Select all
 nmap <C-a> gg<S-v>G
