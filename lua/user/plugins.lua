@@ -117,7 +117,7 @@ return packer.startup(function(use)
   -- use "rmagatti/auto-session"
   use "jremmen/vim-ripgrep"
   use "farmergreg/vim-lastplace"
-  use "Pocco81/AutoSave.nvim"
+  -- use "Pocco81/AutoSave.nvim"
   use "Shougo/echodoc.vim"
   use "mbbill/undotree"
   use "vimwiki/vimwiki"
