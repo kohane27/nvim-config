@@ -30,8 +30,8 @@ set wildmode=longest:full,full
 set nospell
 set list
 set listchars=tab:▸\ ,trail:·
-set scrolloff=8            " cursor won't go the bottom
-set sidescrolloff=8
+set scrolloff=4            " cursor won't go the bottom
+set sidescrolloff=4
 set nojoinspaces
 set splitright
 set confirm

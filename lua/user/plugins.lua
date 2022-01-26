@@ -51,6 +51,7 @@ return packer.startup(function(use)
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
   use "akinsho/toggleterm.nvim"
+  use "tpope/vim-unimpaired"
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
@@ -142,7 +143,8 @@ return packer.startup(function(use)
   use "kevinhwang91/nvim-bqf"
   use "andymass/vim-matchup"
   use "mhinz/vim-sayonara"
-  --use 'mhartington/formatter.nvim'
+  use 'mfussenegger/nvim-jdtls'
+
   --use "tpope/vim-obsession"
   --use "tpope/vim-fugitive"
 
