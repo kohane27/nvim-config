@@ -87,24 +87,15 @@ local mappings = {
     ["<C-s>"] = { "<cmd>wa<CR>", "Save" },
 
     g = {
-        name = "Git",
-        --g = {"<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit"},
+        name = "g",
+        -- g = {"<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit"},
         f = {"<cmd>edit <cfile><cr>", "open non-existent files"},
-        e = {"<cmd>NvimTreeToggle<cr>", "Explorer"},
-        j = {"<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk"},
-        k = {"<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk"},
-        l = {"<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame"},
-        p = {"<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk"},
-        r = {"<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk"},
-        R = {"<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer"},
-        s = {"<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk"},
-        u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk" },
-        d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
     },
 
     ["<leader>"] = {
         q = {"<cmd>Sayonara!<cr>", "sayonara"},
-        cc = {"<plug>NERDCommenterToggle", "NERDCommenterToggle"}, -- TODO working why?
+        e = {"<cmd>NvimTreeToggle<cr>", "Explorer"},
+        cc = {"<plug>NERDCommenterToggle", "NERDCommenterToggle"},
         t = {
             name = "Terminal",
             -- n = {"<cmd>FloatermNew<cr>", "FloatermNew"},
@@ -116,35 +107,12 @@ local mappings = {
             b = {"<cmd>FloatermNew broot<cr>", "broot"},
             g = {"<cmd>FloatermNew rg<cr>", "rg"}
         },
-        v = {
-            name = "Config",
-            e = {"<cmd>edit ~/.config/nvim/init.vim<cr>", "edit nvim config"},
-            r = {"<cmd>source ~/.config/nvim/init.vim<cr>", "source config"},
-            w = {"<cmd>edit ~/.config/nvim/plugins/which-key.lua<cr>", "edit which-key config"}
-        },
         --t = {
-        --    name = "Terminal",
+           -- name = "Terminal",
         --    f = {"<cmd>ToggleTerm direction=float<cr>", "Float"},
         --    h = {"<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal"},
         --    v = {"<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical"}
         --},
-        l = {
-            -- more keybindings in handlers.lua
-            name = "LSP",
-            a = {"<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action"},
-            d = { "<cmd>Telescope lsp_document_diagnostics<cr>", "Document Diagnostics" },
-            w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
-            f = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format"},
-            i = {"<cmd>LspInfo<cr>", "Info"},
-            I = {"<cmd>LspInstallInfo<cr>", "Installer Info"},
-            j = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic" },
-            k = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
-            l = {"<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action"},
-            q = {"<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix"},
-            r = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
-            s = {"<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols"},
-            S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" }
-        },
         s = {
             name = "Search",
             f = {"<cmd>Telescope find_files<cr>", "Find files"},
@@ -163,6 +131,42 @@ local mappings = {
             c = {"<cmd>Telescope git_commits<cr>", "Checkout commit"},
             B = {"<cmd>Telescope git_branches<cr>", "Checkout branch"}
         },
+        g = {
+            name = "Git",
+            j = {"<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk"},
+            k = {"<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk"},
+            l = {"<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame"},
+            p = {"<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk"},
+            r = {"<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk"},
+            R = {"<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer"},
+            s = {"<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk"},
+            u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk" },
+            d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
+        },
+
+        v = {
+            name = "Config",
+            e = {"<cmd>edit ~/.config/nvim/lua/user/keymaps.lua<cr>", "edit keymaps config"},
+            o = {"<cmd>edit ~/.config/nvim/lua/user/options.lua<cr>", "edit options config"},
+            w = {"<cmd>edit ~/.config/nvim/lua/user/whichkey.lua<cr>", "edit which-key config"},
+        },
+        l = {
+            -- more keybindings in handlers.lua
+            name = "LSP",
+            a = {"<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action"},
+            d = { "<cmd>Telescope lsp_document_diagnostics<cr>", "Document Diagnostics" },
+            w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
+            f = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format"},
+            i = {"<cmd>LspInfo<cr>", "Info"},
+            I = {"<cmd>LspInstallInfo<cr>", "Installer Info"},
+            j = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic" },
+            k = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
+            l = {"<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action"},
+            q = {"<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix"},
+            r = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
+            s = {"<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols"},
+            S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" }
+        },
         h = {
             name = "Harpoon",
             a = {"<cmd>lua require('harpoon.mark').add_file()<CR>", "mark files"},
@@ -180,14 +184,15 @@ local mappings = {
             d = {"<cmd>InstantMarkdownPreview<cr>", "Previews markdown"},
             s = {"<cmd>InstantMarkdownStop<cr>", "kill previews"}
         },
-        n = {
-            name = "NvimTree",
-            -- t = {"<cmd>NvimTreeToggle<cr>", "NvimTreeToggle"}, -- probably <C-n>
-            r = {"<cmd>NvimTreeRefresh<cr>", "NvimTreeRefresh"},
-            n = {"<cmd>NvimTreeFindFile<cr>", "NvimTreeFindFile"},
-            f = {"<cmd>NvimTreeFocus<cr>", "NvimTreeFocus"}
-        },
-        e = {
+        --e = {
+        --    name = "Explorer",
+        --    -- t = {"<cmd>NvimTreeToggle<cr>", "NvimTreeToggle"}, -- probably <C-n>
+        --    e = {"<cmd>NvimTreeToggle<cr>", "Explorer"},
+        --    r = {"<cmd>NvimTreeRefresh<cr>", "NvimTreeRefresh"},
+        --    n = {"<cmd>NvimTreeFindFile<cr>", "NvimTreeFindFile"},
+        --    f = {"<cmd>NvimTreeFocus<cr>", "NvimTreeFocus"}
+        --},
+        r = {
             name = "executioner",
             e = {"<cmd>Executioner<cr>", "Executioner"},
             h = {"<cmd>ExecutionerHorizontal<cr>", "ExecutionerHorizontal"},

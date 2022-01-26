@@ -29,22 +29,23 @@ nnoremap <Leader>y "*y
 nnoremap <Leader>d "*d
 
 " Paste replace visual selection without copying it
-vnoremap p "_dP
-" vnoremap <leader>p "_dP
+"vnoremap p "_dP delete weird space don't use this
+vnoremap <leader>p "_dP
 
 " insert empty new line without entering insert mode
 nnoremap <Leader>o o<Esc>
 nnoremap <Leader>O O<Esc>
 
 " Select all
-nmap <C-a> gg<S-v>G
+" nmap <C-a> gg<S-v>G
 
 " backspace to black hole registry
 nnoremap <BS> "_
 vnoremap <BS> "_
 
 "paste in new line
-nnoremap p :pu<CR>
+"bug if paste to new buffer
+" nnoremap p :pu<CR> 
 
 " save
 nnoremap <c-s> :wa<CR>
@@ -154,7 +155,7 @@ let g:netrw_browse_split=2
 let g:netrw_banner=0
 let g:netrw_winsize=25
 
-" Remap splits navigation to just CTRL + hjkl
+" splits navigation to just CTRL + hjkl
 "nnoremap <silent> <C-h> : <C-w>h
 "nnoremap <silent> <C-l> : <C-w>l
 "nnoremap <silent> <C-j> : <C-w>j
