@@ -1,11 +1,12 @@
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
+
 local config = {
   -- The command that starts the language server
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   cmd = {
     -- 💀
     'java', -- or '/path/to/java11_or_newer/bin/java'
-            -- depends on if `java` is in your $PATH env variable and if it points to the right version.
+            -- depends on if `java` is in your $PATH env variable
 
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
     '-Dosgi.bundles.defaultStartLevel=4',
@@ -18,16 +19,14 @@ local config = {
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 
     -- 💀
+     -- Must point to the  eclipse.jdt.ls installation
+     -- Change this to the actual version
     '-jar', '/home/hin/.local/share/nvim/lsp_servers/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
-         -- Must point to the                                                     Change this to
-         -- eclipse.jdt.ls installation                                           the actual version
-
 
     -- 💀
-    '-configuration', '/home/hin/.local/share/nvim/lsp_servers/jdtls/config_linux',
-                    -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
-                    -- Must point to the                      Change to one of `linux`, `win` or `mac`
-                    -- eclipse.jdt.ls installation            Depending on your system.
+    -- Must point to the eclipse.jdt.ls installation
+    -- Change to one of `linux` or `win`
+    '-configuration', '/home/hin/.local/share/nvim/lsp_servers/jdtls/config_linux/',
 
 
     -- 💀
