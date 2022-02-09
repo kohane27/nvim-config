@@ -1,0 +1,83 @@
+{
+    "println": {
+        "prefix": "ln",
+        "body": [
+            "System.out.println($1);"
+        ]
+    },
+    "Main": {
+        "prefix": "Main",
+        "body": [
+            "public class Main {",
+            "    public static void main(String[] args) {",
+            "        $1",
+            "    }",
+            "}"
+        ]
+    },
+    "Iterate Iterable | Array": {
+        "prefix": "I",
+        "body": [
+            "for (var $1 : $2) {",
+            "   $3",
+            "}"
+        ],
+        "description": "Iterate Iterable | Array"
+    },
+    "private static final": {
+        "prefix": "prsf",
+        "body": [
+            "private static final "
+        ],
+        "description": "private static final"
+    },
+    "public static void": {
+        "prefix": "psv",
+        "body": [
+            "public static void "
+        ],
+        "description": "public static void"
+    },
+    "Prints a formatted string to System.out": {
+        "prefix": "pf",
+        "body": [
+            "System.out.printf(\"$1\");"
+        ],
+        "description": "Prints a formatted string to System.out"
+    },
+    "String": {
+        "prefix": "St",
+        "body": [
+            "String"
+        ],
+        "description": "String"
+    },
+    "private final String": {
+        "prefix": "pfS",
+        "body": [
+            "private final String "
+        ],
+        "description": "private final String"
+    },
+    "private final int": {
+        "prefix": "pfi",
+        "body": [
+            "private final int "
+        ],
+        "description": "private final int"
+    },
+    "private final Double": {
+        "prefix": "pfD",
+        "body": [
+            "private final Double "
+        ],
+        "description": "private final Double"
+    },
+    "private final long": {
+        "prefix": "pfl",
+        "body": [
+            "private final long "
+        ],
+        "description": "private final long"
+    }
+}

@@ -1,0 +1,45 @@
+{
+    "Print to console": {
+        "prefix": "log",
+        "body": [
+            "console.log($1)"
+        ],
+        "description": "Log output to console"
+    },
+    "Class Component": {
+        "prefix": "Basic",
+        "body": [
+            "class $1 extends Component {",
+            "  constructor(props) {",
+            "    super(props);",
+            "    this.changeState = this.changeState.bind(this);",
+            "  }",
+            "  changeState() { }",
+            "  render() {",
+            "    return",
+            "  }",
+            "}"
+        ],
+        "description": "Basic class compnent structure"
+    },
+    "Comment in JSX": {
+        "prefix": "comment",
+        "body": [
+            "{/* $1 */}"
+        ],
+        "description": "Comment in JSX"
+    },
+    "Function body": {
+        "prefix": "Function",
+        "body": [
+            "function $1(props) {",
+            "  return (",
+            "    <>",
+            "    $2",
+            "    </>",
+            "  )",
+            "}"
+        ],
+        "description": "function template"
+    }
+}
