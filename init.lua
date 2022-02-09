@@ -34,6 +34,7 @@ require "user.executioner"
 require "user.floaterm"
 require "user.nerdcommenter"
 require "user.doom-one"
+require "user.luasnip"
 
 -- manual import
 require "user.neovide"

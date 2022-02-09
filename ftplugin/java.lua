@@ -21,12 +21,14 @@ local config = {
     -- 💀
      -- Must point to the  eclipse.jdt.ls installation
      -- Change this to the actual version
-    '-jar', '/home/***REMOVED***/.local/share/nvim/lsp_servers/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+    -- '-jar', '/home/***REMOVED***/.local/share/nvim/lsp_servers/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+    '-jar', '/home/***REMOVED***/.config/nvim/jdtls/jdt-language-server-1.8.0-202201261434/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
 
     -- 💀
     -- Must point to the eclipse.jdt.ls installation
     -- Change to one of `linux` or `win`
-    '-configuration', '/home/***REMOVED***/.local/share/nvim/lsp_servers/jdtls/config_linux/',
+        -- '-configuration', '/home/***REMOVED***/.local/share/nvim/lsp_servers/jdtls/config_linux/',
+    '-configuration', '/home/***REMOVED***/.config/nvim/jdtls/jdt-language-server-1.8.0-202201261434/config_linux/',
 
 
     -- 💀
