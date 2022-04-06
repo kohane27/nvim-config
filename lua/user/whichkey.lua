@@ -85,6 +85,18 @@ local mappings = {
 	["<C-e>"] = { "<cmd>Executioner<cr>", "Executioner" },
 	["<C-q>"] = { "<cmd>wqa<cr>", "Save and Quit" },
 	["<C-s>"] = { "<cmd>wa<cr>", "Save" },
+  ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
+  ["b"] = {
+    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    "Buffers",
+  },
+  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  ["f"] = {
+    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    "Find files",
+  },
+  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
 	g = {
 		name = "g",
