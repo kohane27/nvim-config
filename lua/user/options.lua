@@ -7,7 +7,7 @@ set path+=**                    " Searches current directory recursively
 set wildmenu                    " Display all matches when tab complete
 set hidden                      " Needed keep multiple buffers open
 set fileencoding=utf-8
-set t_Co=256                    " Set if term supports 256 colors
+set t_Co=256
 set termguicolors
 let g:rehash256 = 1
 set showmatch                   " show matching 
@@ -36,7 +36,7 @@ set nojoinspaces
 set splitright
 set confirm
 set exrc
-set updatetime=300    " coc: reduce time for highlighting other references
+"set updatetime=300    " coc: reduce time for highlighting other references
 set redrawtime=10000  " allow more time for loading syntax on large files
 " end jess
 
@@ -53,9 +53,6 @@ set shiftwidth=2                          " spaces inserted for each indentation
 set tabstop=2                             " 2 spaces for a tab
 set iskeyword+=-
 " end chris
-
-" scroll 14 lines with <C-D> or <C-U>
-" autocmd VimResized * :set scroll=14
 
 filetype plugin indent on                       " allow auto-indenting depending on file type
 syntax on
