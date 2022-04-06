@@ -23,6 +23,8 @@ require "user.autocommands"
 
 require "user.colorizer"
 require "user.lightspeed"
+require "user.surround"
+
 -- require "user.autosession"
 require "user.ripgrep"
 require "user.lastplace"
@@ -35,7 +37,7 @@ require "user.floaterm"
 require "user.nerdcommenter"
 require "user.doom-one"
 require "user.luasnip"
+require "user.trouble"
 
 -- manual import
-require "user.neovide"
 require "user.tmux"
