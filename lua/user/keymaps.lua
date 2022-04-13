@@ -27,13 +27,7 @@ nnoremap <Leader>k K
 
 " Delete without yank
 nnoremap x "_x
-nnoremap <Leader>y "*y
-nnoremap <Leader>d "*d
 
-" Paste replace visual selection without copying it
-"vnoremap p "_dP delete weird space don't use this
-"vnoremap <leader>p "_dP
-vnoremap p "_dP
 
 " insert empty new line without entering insert mode
 nnoremap <Leader>o o<Esc>
@@ -49,6 +43,12 @@ vnoremap <BS> "_
 "paste in new line
 "bug if paste to new buffer
 " nnoremap p :pu<CR> 
+
+" yank till end of line
+nnoremap Y y$
+
+" get rid of bad habit for D/C
+nnoremap d$ <Nop>
 
 "yank full line without new line character
 "nnoremap yy 0y$
@@ -76,12 +76,16 @@ xnoremap J 5j
 xnoremap K 5k
 
 "Mappings to move lines
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
+" conflicting with jabirali/tmux-tilish
+" TODO consider https://github.com/matze/vim-move
+"nnoremap <A-j> :m .+1<CR>==
+"nnoremap <A-k> :m .-2<CR>==
+"inoremap <A-j> <Esc>:m .+1<CR>==gi
+"inoremap <A-k> <Esc>:m .-2<CR>==gi
+"vnoremap <A-j> :m '>+1<CR>gv=gv
+"vnoremap <A-k> :m '<-2<CR>gv=gv
+
+nnoremap <A-c> : Bdelete<cr>
 
 " Reselect visual selection after indenting
 vnoremap < <gv
@@ -92,15 +96,40 @@ vnoremap > >gv
 vnoremap y myy`y
 vnoremap Y myY`y
 
-" Keep it centered
+"ThePrimeagen below"
+
+" Keep it centered when searching
 nnoremap n nzzzv
 nnoremap N Nzzzv
+" nnoremap J mzJ`z " not sure what it does
+nnoremap m zz
+" unlearn bad habit
+nnoremap zz <Nop>
+
+" Undo break points
+inoremap , ,<C-g>u
+inoremap . .<C-g>u
+inoremap ! !<C-g>u
+inoremap ? ?<C-g>u
+inoremap [ [<C-g>u
+
+xnoremap <leader>p "_dP
+
+" replace visual selection without copying it
+"vnoremap p "_dP delete weird space don't use this
+vnoremap <leader>p "_dP
+
+nnoremap <Leader>y "*y
+vnoremap <leader>y "*y
+
+"yank till end of line
+nmap <leader>Y "*Y 
+
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
 
 " Allow gf to open non-existent files
 map gf :edit <cfile><cr>
-
-" Open the current file in the default program
-nmap <leader>x :!xdg-open %<cr><cr>
 
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
@@ -152,8 +181,8 @@ let g:netrw_banner=0
 let g:netrw_winsize=25
 
 " easier split size adjustment
-"noremap <silent> <C-Left> :vertical resize +3<CR>
-"noremap <silent> <C-Right> :vertical resize -3<CR>
-"noremap <silent> <C-Up> :resize +3<CR>
-"noremap <silent> <C-Down> :resize -3<CR>
+noremap <silent> <C-Left> :vertical resize +3<CR>
+noremap <silent> <C-Right> :vertical resize -3<CR>
+noremap <silent> <C-Up> :resize +3<CR>
+noremap <silent> <C-Down> :resize -3<CR>
 ]])

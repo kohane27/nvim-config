@@ -17,15 +17,23 @@ local sources = {
 null_ls.setup({
 	debug = true,
 	sources = sources,
-	-- you can reuse a shared lspconfig on_attach callback here
+	-- format on save
 	on_attach = function(client)
-		if client.resolved_capabilities.document_formatting then
-			vim.cmd([[
-            augroup LspFormatting
-                autocmd! * <buffer>
-                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-            augroup END
-            ]])
-		end
+		require("lsp_signature").on_attach({
+			bind = true, -- This is mandatory, otherwise border config won't get registered.
+			handler_opts = {
+				border = "rounded",
+			},
+			fix_pos = true,
+			floating_window = true,
+		})
+		-- if client.resolved_capabilities.document_formatting then
+		--     vim.cmd([[
+		--     augroup LspFormatting
+		--         autocmd! * <buffer>
+		--         autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+		--     augroup END
+		--     ]])
+		-- end
 	end,
 })
