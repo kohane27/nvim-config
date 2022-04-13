@@ -81,7 +81,7 @@ local opts = {
 
 local mappings = {
 	["<C-e>"] = { "<cmd>Executioner<cr>", "Executioner" },
-	["<C-n>"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+	["<C-t>"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["<C-g>"] = {
 		'<cmd>lua vim.diagnostic.open_float(0, {scope="line", border = "rounded" })<cr>',
 		"Line Diagnostic",
@@ -110,7 +110,6 @@ local mappings = {
 
 		t = {
 			name = "Tree",
-			r = { "<cmd>NvimTreeRefresh<cr>", "Refresh" },
 			n = { "<cmd>NvimTreeFindFile<cr>", "Find files" },
 			f = { "<cmd>NvimTreeFocus<cr>", "Focus" },
         },
