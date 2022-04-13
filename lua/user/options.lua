@@ -51,7 +51,7 @@ set undofile                              " enable persistent undo
 set nowritebackup                         " disable editing a file that is being edited
 set shiftwidth=2                          " spaces inserted for each indentation
 set tabstop=2                             " 2 spaces for a tab
-set iskeyword+=-
+" set iskeyword+=-
 " end chris
 
 filetype plugin indent on                       " allow auto-indenting depending on file type
