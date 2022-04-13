@@ -1,43 +1,44 @@
-require "user.options"
-require "user.keymaps"
-require "user.plugins"
-require "user.colorscheme"
-require "user.cmp"
-require "user.lsp"
-require "user.telescope"
-require "user.treesitter"
-require "user.autopairs"
-require "user.comment"
-require "user.gitsigns"
-require "user.nvim-tree"
-require "user.barbar"
-require "user.lualine"
---require "user.toggleterm"
-require "user.project"
-require "user.impatient"
-require "user.indentline"
--- require "user.alpha"
--- require "user.dashboard-nvim"
-require "user.whichkey"
-require "user.autocommands"
+require("user.options")
+require("user.keymaps")
+require("user.plugins")
+require("user.colorscheme")
+require("user.cmp")
+require("user.lsp")
+require("user.telescope")
+require("user.treesitter")
+require("user.autopairs")
+require("user.Comment")
+require("user.gitsigns")
+require("user.nvim-tree")
+-- require("user.barbar")
+require("user.bufferline")
+require("user.lualine")
+require("user.project")
+require("user.impatient")
+require("user.indentline")
+require("user.alpha")
+require("user.whichkey")
+require("user.autocommands")
 
-require "user.colorizer"
-require "user.lightspeed"
-require "user.surround"
+require("user.colorizer")
+require("user.lightspeed")
+require("user.surround")
 
 -- require "user.autosession"
-require "user.ripgrep"
-require "user.lastplace"
+require("user.ripgrep")
+require("user.lastplace")
 -- require "user.autosave"
-require "user.echodoc"
-require "user.undotree"
-require "user.vimwiki"
-require "user.executioner"
-require "user.floaterm"
-require "user.nerdcommenter"
-require "user.doom-one"
-require "user.luasnip"
-require "user.trouble"
+require("user.undotree")
+require("user.vimwiki")
+require("user.executioner")
+require("user.floaterm")
+require("user.doom-one")
+require("user.luasnip")
+require("user.trouble")
+require("user.indent-blankline")
+require("user.nvim-bqf")
 
+-- require("user.startify")
+-- require("user.navigator")
 -- manual import
-require "user.tmux"
+-- require("user.tmux")

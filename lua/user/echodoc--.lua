@@ -1,6 +1,6 @@
 --local status_ok, _ = pcall(require, "echodoc")
 --if not status_ok then
---    vim.notify("dfdfdf")
+--    print("dfdfdf")
 --	--return
 --end
 

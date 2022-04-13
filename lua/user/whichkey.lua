@@ -17,7 +17,7 @@ local setup = {
 			operators = false, -- adds help for operators like d, y
 			motions = false, -- adds help for motions
 			text_objects = false, -- help for text objects triggered after entering an operator
-			windows = false, -- default bindings on <c-w>
+			windows = true, -- default bindings on <c-w>
 			nav = true, -- misc bindings to work with windows
 			z = true, -- bindings for folds, spelling and others prefixed with z
 			g = true, -- bindings for prefixed with g
@@ -80,53 +80,53 @@ local opts = {
 }
 
 local mappings = {
-	--["a"] = {"<cmd>Alpha<cr>", "Alpha"}, conflict with tmux
-	["<C-t>"] = { "<cmd>FloatermNew --height=0.4 --width=0.9 --wintype=split --position=botright<cr>", "FloatermNew" },
 	["<C-e>"] = { "<cmd>Executioner<cr>", "Executioner" },
-	["<C-q>"] = { "<cmd>wqa<cr>", "Save and Quit" },
-	["<C-s>"] = { "<cmd>wa<cr>", "Save" },
-  ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-  ["b"] = {
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Buffers",
-  },
-  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Find files",
-  },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-  ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+	["<C-g>"] = { "<cmd>BufferLinePick<cr>", "BufferLine Pick" },
+	["<C-j>"] = {
+		'<cmd>lua vim.diagnostic.open_float(0, {scope="line", border = "rounded" })<cr>',
+		"Line Diagnostic",
+	},
 
 	g = {
 		name = "g",
-		-- g = {"<cmd>lua _LAZYGIT_TOGGLE()<cr>", "Lazygit"},
-		f = { "<cmd>edit <cfile><cr>", "open non-existent files" },
+		c = { "<cmd>BufferLinePickClose<cr>", "Close Buffer" },
+		["1"] = { "<cmd>BufferLineGoToBuffer 1<cr>", "Buffer 1" },
+		["2"] = { "<cmd>BufferLineGoToBuffer 2<cr>", "Buffer 2" },
+		["3"] = { "<cmd>BufferLineGoToBuffer 3<cr>", "Buffer 3" },
+		["4"] = { "<cmd>BufferLineGoToBuffer 4<cr>", "Buffer 4" },
+		["5"] = { "<cmd>BufferLineGoToBuffer 5<cr>", "Buffer 5" },
+		["6"] = { "<cmd>BufferLineGoToBuffer 6<cr>", "Buffer 6" },
+		["7"] = { "<cmd>BufferLineGoToBuffer 7<cr>", "Buffer 7" },
+		["8"] = { "<cmd>BufferLineGoToBuffer 8<cr>", "Buffer 8" },
+		["9"] = { "<cmd>BufferLineGoToBuffer 9<cr>", "Buffer 9" },
 	},
-
 	["<leader>"] = {
 		q = { "<cmd>Sayonara!<cr>", "sayonara" },
 		e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-		cc = { "<plug>NERDCommenterToggle", "NERDCommenterToggle" },
+		T = { "<cmd>TagbarToggle<CR>", "Tagbar Toggle" },
 		t = {
-			name = "Terminal",
-			-- n = {"<cmd>FloatermNew<cr>", "FloatermNew"},
+			name = "Float Terminal",
+			-- FloatTerm
+			t = {
+				"<cmd>FloatermNew --height=0.4 --width=0.9 --wintype=split --position=botright<cr>",
+				"FloatermNew",
+			},
+			T = { "<cmd>FloatermToggle<cr>", "FloatermToggle" },
 			n = { "<cmd>FloatermNext<cr>", "FloatermNext" },
 			p = { "<cmd>FloatermPrev<cr>", "FloatermPrev" },
-			t = { "<cmd>FloatermToggle<cr>", "FloatermToggle" },
-			r = { "<cmd>FloatermNew ranger<cr>", "ranger" },
-			l = { "<cmd>FloatermNew lazygit<cr>", "lazygit" },
-			b = { "<cmd>FloatermNew broot<cr>", "broot" },
-			g = { "<cmd>FloatermNew rg<cr>", "rg" },
+			--r = { "<cmd>FloatermNew ranger<cr>", "ranger" },
+			--n = { "<cmd>FloatermNew<cr>", "FloatermNew" },
+			--b = { "<cmd>FloatermNew broot<cr>", "broot" },
+			--g = { "<cmd>FloatermNew rg<cr>", "rg" },
+
+			-- ToggleTerm
+			--f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
+			--h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
+			--v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 		},
-		--t = {
-		-- name = "Terminal",
-		--    f = {"<cmd>ToggleTerm direction=float<cr>", "Float"},
-		--    h = {"<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal"},
-		--    v = {"<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical"}
-		--},
-		s = {
-			name = "Search",
+
+		f = {
+			name = "Find",
 			f = { "<cmd>Telescope find_files<cr>", "Find files" },
 			F = { "<cmd>Telescope live_grep<cr>", "Find Text" },
 			b = { "<cmd>Telescope current_buffer_fuzzy_find fuzzy=true case_mode=ignore_case<cr>", "Buffers" },
@@ -143,22 +143,33 @@ local mappings = {
 			c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
 			B = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		},
+
+		s = {
+			name = "Search",
+			s = { "<cmd>lua require('spectre').open_file_search()<cr>", "Search Current File" },
+		},
 		g = {
 			name = "Git",
+			l = {
+				"<cmd>FloatermNew --height=0.9 --width=0.9 --wintype=float --position=center lazygit<cr>",
+				"lazygit",
+			},
+			d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
 			j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
 			k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-			l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
 			p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-			r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-			R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-			s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-			u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk" },
-			d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
+			-- l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+			-- r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+			-- R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+			-- s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+			-- u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk" },
+			-- s = { "<cmd>:G<cr>", "Status" },
 		},
 
 		v = {
 			name = "Config",
-			e = { "<cmd>edit ~/.config/nvim/lua/user/keymaps.lua<cr>", "edit keymaps config" },
+			k = { "<cmd>edit ~/.config/nvim/lua/user/keymaps.lua<cr>", "edit keymaps config" },
+			p = { "<cmd>edit ~/.config/nvim/lua/user/plugins.lua<cr>", "edit plugins config" },
 			o = { "<cmd>edit ~/.config/nvim/lua/user/options.lua<cr>", "edit options config" },
 			w = { "<cmd>edit ~/.config/nvim/lua/user/whichkey.lua<cr>", "edit which-key config" },
 		},
@@ -177,10 +188,6 @@ local mappings = {
 			rf = { "<cmd>Trouble lsp_references<cr>", "References" },
 			rn = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 			ca = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-			s = {
-				'<cmd>lua vim.diagnostic.open_float(0, {scope="line", border = "rounded" })<cr>',
-				"Line Diagnostic",
-			},
 			k = { "<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<cr>", "Prev Diagnostic" },
 			j = { "<cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<cr>", "Next Diagnostic" },
 			f = { "<cmd>lua vim.lsp.buf.formatting_sync()<cr>", "Format" },
@@ -217,8 +224,6 @@ local mappings = {
 		w = {
 			name = "VimWiki",
 			w = { "<cmd>VimwikiIndex<cr>", "open wiki index" },
-			d = { "<Plug>VimwikiDeleteFile", "delete current wiki" },
-			r = { "<Plug>VimwikiRenameFile", "rename current wiki" },
 		},
 		u = {
 			name = "UndoTree",
