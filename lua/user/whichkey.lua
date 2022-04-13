@@ -81,14 +81,15 @@ local opts = {
 
 local mappings = {
 	["<C-e>"] = { "<cmd>Executioner<cr>", "Executioner" },
-	["<C-g>"] = { "<cmd>BufferLinePick<cr>", "BufferLine Pick" },
-	["<C-j>"] = {
+	["<C-n>"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+	["<C-g>"] = {
 		'<cmd>lua vim.diagnostic.open_float(0, {scope="line", border = "rounded" })<cr>',
 		"Line Diagnostic",
 	},
 
 	g = {
 		name = "g",
+		p = { "<cmd>BufferLinePick<cr>", "BufferLine Pick" },
 		c = { "<cmd>BufferLinePickClose<cr>", "Close Buffer" },
 		["1"] = { "<cmd>BufferLineGoToBuffer 1<cr>", "Buffer 1" },
 		["2"] = { "<cmd>BufferLineGoToBuffer 2<cr>", "Buffer 2" },
@@ -101,29 +102,39 @@ local mappings = {
 		["9"] = { "<cmd>BufferLineGoToBuffer 9<cr>", "Buffer 9" },
 	},
 	["<leader>"] = {
+		-- n = { "let g:VM_maps['Find Under'] " }
 		q = { "<cmd>Sayonara!<cr>", "sayonara" },
-		e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-		T = { "<cmd>TagbarToggle<CR>", "Tagbar Toggle" },
-		t = {
-			name = "Float Terminal",
-			-- FloatTerm
-			t = {
-				"<cmd>FloatermNew --height=0.4 --width=0.9 --wintype=split --position=botright<cr>",
-				"FloatermNew",
-			},
-			T = { "<cmd>FloatermToggle<cr>", "FloatermToggle" },
-			n = { "<cmd>FloatermNext<cr>", "FloatermNext" },
-			p = { "<cmd>FloatermPrev<cr>", "FloatermPrev" },
-			--r = { "<cmd>FloatermNew ranger<cr>", "ranger" },
-			--n = { "<cmd>FloatermNew<cr>", "FloatermNew" },
-			--b = { "<cmd>FloatermNew broot<cr>", "broot" },
-			--g = { "<cmd>FloatermNew rg<cr>", "rg" },
+		T = { "<cmd>TagbarToggle<cr>", "Tagbar Toggle" },
+		w = { "<cmd>VimwikiIndex<cr>", "open wiki index" },
+		u = { "<cmd>UndotreeToggle<cr>", "UndotreeToggle" },
 
-			-- ToggleTerm
-			--f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-			--h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-			--v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
-		},
+		t = {
+			name = "Tree",
+			r = { "<cmd>NvimTreeRefresh<cr>", "Refresh" },
+			n = { "<cmd>NvimTreeFindFile<cr>", "Find files" },
+			f = { "<cmd>NvimTreeFocus<cr>", "Focus" },
+        },
+
+		-- t = {
+		-- 	-- FloatTerm; don't relly need; I use tmux
+		-- 	name = "Float Terminal",
+		-- 	t = {
+		-- 		"<cmd>FloatermNew --height=0.4 --width=0.9 --wintype=split --position=botright<cr>",
+		-- 		"FloatermNew",
+		-- 	},
+		-- 	T = { "<cmd>FloatermToggle<cr>", "FloatermToggle" },
+		-- 	n = { "<cmd>FloatermNext<cr>", "FloatermNext" },
+		-- 	p = { "<cmd>FloatermPrev<cr>", "FloatermPrev" },
+		-- 	--r = { "<cmd>FloatermNew ranger<cr>", "ranger" },
+		-- 	--n = { "<cmd>FloatermNew<cr>", "FloatermNew" },
+		-- 	--b = { "<cmd>FloatermNew broot<cr>", "broot" },
+		-- 	--g = { "<cmd>FloatermNew rg<cr>", "rg" },
+		--
+		-- 	-- ToggleTerm
+		-- 	--f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
+		-- 	--h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
+		-- 	--v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+		-- },
 
 		f = {
 			name = "Find",
@@ -220,14 +231,6 @@ local mappings = {
 			e = { "<cmd>Executioner<cr>", "Executioner" },
 			h = { "<cmd>ExecutionerHorizontal<cr>", "ExecutionerHorizontal" },
 			v = { "<cmd>ExecutionerVertical<cr>", "ExecutionerVertical" },
-		},
-		w = {
-			name = "VimWiki",
-			w = { "<cmd>VimwikiIndex<cr>", "open wiki index" },
-		},
-		u = {
-			name = "UndoTree",
-			t = { "<cmd>UndotreeToggle<cr>", "UndotreeToggle" },
 		},
 		p = {
 			name = "Packer",

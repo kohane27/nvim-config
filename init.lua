@@ -37,6 +37,7 @@ require("user.luasnip")
 require("user.trouble")
 require("user.indent-blankline")
 require("user.nvim-bqf")
+require("user.vim-visual-multi")
 
 -- require("user.startify")
 -- require("user.navigator")
