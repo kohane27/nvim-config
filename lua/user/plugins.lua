@@ -43,29 +43,34 @@ return packer.startup(function(use)
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
-	--use "numToStr/Comment.nvim" -- Easily comment stuff
+	use("numToStr/Comment.nvim") -- Easily comment stuff
+	use("ryanoasis/vim-devicons")
 	use("kyazdani42/nvim-web-devicons")
 	use("kyazdani42/nvim-tree.lua")
-	-- use "akinsho/bufferline.nvim"
-	use("romgrk/barbar.nvim")
+	use({ "akinsho/bufferline.nvim", tag = "*", requires = "kyazdani42/nvim-web-devicons" })
+	use("famiu/bufdelete.nvim")
+	-- use("romgrk/barbar.nvim")
 	use("moll/vim-bbye")
 	use("nvim-lualine/lualine.nvim")
 	use("akinsho/toggleterm.nvim")
-	use("tpope/vim-unimpaired")
+	-- use("tpope/vim-unimpaired")
+	-- use("tpope/vim-fugitive")
+	use("tpope/vim-obsession")
+	use("sindrets/diffview.nvim")
+	-- use("whiteinge/diffconflicts")
 	use("ahmedkhalf/project.nvim")
 	use("lewis6991/impatient.nvim")
-	use("lukas-reineke/indent-blankline.nvim")
-	-- use "goolord/alpha-nvim"
-	-- use "glepnir/dashboard-nvim"
+	use("goolord/alpha-nvim")
 	use("antoinemadec/FixCursorHold.nvim") -- needed to fix lsp doc highlight
 	use("folke/which-key.nvim")
 	use("folke/lsp-colors.nvim")
-	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
-
-	-- Colorschemes
-	use("lunarvim/colorschemes") -- A bunch of colorschemes you can try out
+	use("folke/trouble.nvim")
+	-- use({ "ray-x/navigator.lua", requires = { "ray-x/guihua.lua", run = "cd lua/fzy && make" } })
+	-- Colorschemes/theme
+	use("lunarvim/colorschemes") -- A bunch of colorschemes
 	use("lunarvim/darkplus.nvim")
 	use("NTBBloodbath/doom-one.nvim")
+	-- use("EdenEast/nightfox.nvim")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -121,35 +126,38 @@ return packer.startup(function(use)
 	use("jremmen/vim-ripgrep")
 	use("farmergreg/vim-lastplace")
 	-- use "Pocco81/AutoSave.nvim"
-	use("Shougo/echodoc.vim")
 	use("mbbill/undotree")
 	use("vimwiki/vimwiki")
 	use("EvanQuan/vim-executioner")
 	use("voldikss/vim-floaterm")
-	use("preservim/nerdcommenter")
 	use("tpope/vim-surround")
+	use("preservim/tagbar")
+	use("ray-x/lsp_signature.nvim")
+	-- use("nvim-pack/nvim-spectre")
+	use("windwp/nvim-ts-autotag")
+	use("lukas-reineke/indent-blankline.nvim")
 
 	-- without its own file
 	use("p00f/nvim-ts-rainbow")
-	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use("ThePrimeagen/harpoon")
 	use("junegunn/vim-emoji")
 	use("sheerun/vim-polyglot")
 	use("kovetskiy/sxhkd-vim")
-	--use "junegunn/vim-easy-align"
+	use("romainl/vim-cool") -- remove search result highlight
 	use({ "mg979/vim-visual-multi", branch = "master" })
 	use("junegunn/vim-peekaboo")
 	use("tpope/vim-repeat")
 	use("psliwka/vim-smoothie")
 	use("wellle/targets.vim")
 	use("kevinhwang91/nvim-bqf")
+	use("mhinz/vim-grepper")
+	use("junegunn/fzf.vim") -- for nvim-bqf
+
 	use("andymass/vim-matchup")
 	use("mhinz/vim-sayonara")
 	use("danilamihailov/beacon.nvim")
 	use("mfussenegger/nvim-jdtls")
-
-	--use "tpope/vim-obsession"
-	--use "tpope/vim-fugitive"
+	use("sunaku/tmux-navigate")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

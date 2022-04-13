@@ -46,7 +46,7 @@ set pumheight=10                          " pop up menu height
 set showmode                              " No -- INSERT --
 set showtabline=2                         " always show tabs
 set smartindent
-set timeoutlen=100                        " time to wait for a mapped sequence to complete
+set timeoutlen=500                       " time to wait for a mapped sequence to complete
 set undofile                              " enable persistent undo
 set nowritebackup                         " disable editing a file that is being edited
 set shiftwidth=2                          " spaces inserted for each indentation
