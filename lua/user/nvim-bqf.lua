@@ -13,8 +13,8 @@ vim.cmd(([[
 ]]):format([[call setqflist([], 'r', {'context': {'bqf': {'pattern_hl': '\%#' . getreg('/')}}})]]))
 
 -- try `gsiw` under word
-vim.cmd([[
-    nmap gs  <plug>(GrepperOperator)
-    xmap gs  <plug>(GrepperOperator)
-]])
+-- vim.cmd([[
+--     nmap gs  <plug>(GrepperOperator)
+--     xmap gs  <plug>(GrepperOperator)
+-- ]])
 

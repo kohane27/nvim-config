@@ -110,6 +110,7 @@ nvim_tree.setup({
 				{ key = "]c", action = "" },
 				{ key = "s", action = "" },
 				{ key = "<C-k>", action = "" },
+				{ key = "<C-t>", action = "" },
 				{ key = "<C-e>", action = "" },
 				{ key = "<", action = "" },
 				{ key = ">", action = "" },

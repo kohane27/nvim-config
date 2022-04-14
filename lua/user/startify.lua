@@ -1,8 +1,3 @@
-local status_ok, startify = pcall(require, "startify")
-if not status_ok then
-    print("NotOk")
-end
-
 vim.cmd([[
 let g:startify_session_dir = '~/.config/nvim/session'
 

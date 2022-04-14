@@ -1,8 +1,3 @@
---local status_ok, undotree = pcall(require, "undotree")
---if not status_ok then
---	return
---end
-
 vim.cmd([[
 if has("persistent_undo")
    let target_path = expand('~/.undodir')
