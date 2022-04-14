@@ -1,9 +1,3 @@
---local status_ok, _ = pcall(require, "echodoc")
---if not status_ok then
---    print("dfdfdf")
---	--return
---end
-
 vim.cmd([[
 set cmdheight=2
 set noshowmode

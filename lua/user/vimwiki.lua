@@ -1,9 +1,3 @@
---local status_ok, vimwiki = pcall(require, "vimwiki")
---if not status_ok then
-    --vim.notify("vimwiki not working")
-	--return
---end
-
 vim.cmd([[
 " text is shown normally; don't hide markers
 let g:vimwiki_conceallevel=0

@@ -1,8 +1,3 @@
---local status_ok, floaterm = pcall(require, "floaterm")
---if not status_ok then
---	return
---end
-
 vim.cmd([[
 let g:floaterm_gitcommit='floaterm'
 let g:floaterm_width=0.9
