@@ -1,8 +1,3 @@
---local status_ok, executioner = pcall(require, "executioner")
---if not status_ok then
---	return
---end
-
 vim.cmd([[
 " Run current buffer with input redirected from input.txt
 "nnoremap <silent> <leader>ri :ExecutionerBuffer % < input.txt<cr>

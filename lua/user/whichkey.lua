@@ -20,7 +20,7 @@ local setup = {
 			windows = true, -- default bindings on <c-w>
 			nav = true, -- misc bindings to work with windows
 			z = true, -- bindings for folds, spelling and others prefixed with z
-			g = true, -- bindings for prefixed with g
+			g = false, -- bindings for prefixed with g
 		},
 	},
 	-- add operators that will trigger motion and text object completion
@@ -88,6 +88,7 @@ local mappings = {
 	},
 
 	g = {
+        -- can't use gs and gS; taken by surround/lightspeed
 		name = "g",
 		p = { "<cmd>BufferLinePick<cr>", "BufferLine Pick" },
 		c = { "<cmd>BufferLinePickClose<cr>", "Close Buffer" },
@@ -102,7 +103,6 @@ local mappings = {
 		["9"] = { "<cmd>BufferLineGoToBuffer 9<cr>", "Buffer 9" },
 	},
 	["<leader>"] = {
-		-- n = { "let g:VM_maps['Find Under'] " }
 		q = { "<cmd>Sayonara!<cr>", "sayonara" },
 		T = { "<cmd>TagbarToggle<cr>", "Tagbar Toggle" },
 		w = { "<cmd>VimwikiIndex<cr>", "open wiki index" },
@@ -154,10 +154,6 @@ local mappings = {
 			B = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		},
 
-		s = {
-			name = "Search",
-			s = { "<cmd>lua require('spectre').open_file_search()<cr>", "Search Current File" },
-		},
 		g = {
 			name = "Git",
 			l = {
