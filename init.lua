@@ -41,5 +41,3 @@ require("user.vim-visual-multi")
 
 -- require("user.startify")
 -- require("user.navigator")
--- manual import
--- require("user.tmux")
