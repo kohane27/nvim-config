@@ -1,9 +1,9 @@
 local status_ok, lsp_signature = pcall(require, "lsp_signature")
 if not status_ok then
-	return
+	print("lsp_signature failing")
 end
 
-cfg = {
+lsp_signature.setup({
 	debug = false, -- set to true to enable debug logging
 	log_path = vim.fn.stdpath("cache") .. "/lsp_signature.log", -- log dir when debug is on
 	-- default is  ~/.cache/nvim/lsp_signature.log
@@ -50,6 +50,4 @@ cfg = {
 	shadow_guibg = "Black", -- if you using shadow as border use this set the color e.g. 'Green' or '#121315'
 	timer_interval = 200, -- default timer check interval set to lower value if you want to reduce latency
 	toggle_key = nil, -- toggle signature on and off in insert mode,  e.g. toggle_key = '<M-x>'
-}
-
-lsp_signature.setup(cfg)
+})

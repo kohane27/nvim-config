@@ -28,7 +28,6 @@ nnoremap <Leader>k K
 " Delete without yank
 nnoremap x "_x
 
-
 " insert empty new line without entering insert mode
 nnoremap <Leader>o o<Esc>
 nnoremap <Leader>O O<Esc>
@@ -77,7 +76,6 @@ xnoremap K 5k
 
 "Mappings to move lines
 " conflicting with jabirali/tmux-tilish
-" TODO consider https://github.com/matze/vim-move
 "nnoremap <A-j> :m .+1<CR>==
 "nnoremap <A-k> :m .-2<CR>==
 "inoremap <A-j> <Esc>:m .+1<CR>==gi
