@@ -1,8 +1,3 @@
-local status_ok, _ = pcall(require, "nvim-bqf")
-if not status_ok then
-	print("nvim-bqf not working")
-end
-
 -- https://github.com/mhinz/vim-grepper
 vim.g.grepper = {tools = {'rg', 'grep'}, searchreg = 1}
 vim.cmd(([[
