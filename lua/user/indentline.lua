@@ -12,8 +12,8 @@ vim.g.indent_blankline_filetype_exclude = {
 	"neogitstatus",
 	"NvimTree",
 	"Trouble",
-    "help",
-    "vim"
+	"help",
+	"vim",
 }
 vim.g.indentLine_enabled = 1
 -- vim.g.indent_blankline_char = "│"
