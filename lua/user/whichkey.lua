@@ -105,7 +105,6 @@ local mappings = {
 	["<leader>"] = {
 		q = { "<cmd>Sayonara!<cr>", "sayonara" },
 		T = { "<cmd>TagbarToggle<cr>", "Tagbar Toggle" },
-		w = { "<cmd>VimwikiIndex<cr>", "open wiki index" },
 		u = { "<cmd>UndotreeToggle<cr>", "UndotreeToggle" },
 
 		t = {

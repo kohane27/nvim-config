@@ -27,7 +27,6 @@ require("user.ripgrep")
 require("user.lastplace")
 -- require "user.autosave"
 require("user.undotree")
-require("user.vimwiki")
 require("user.executioner")
 require("user.floaterm")
 require("user.doom-one")

@@ -129,18 +129,15 @@ vnoremap <leader>d "_d
 " Allow gf to open non-existent files
 map gf :edit <cfile><cr>
 
-" Search for selected text, forwards or backwards.
-vnoremap <silent> * :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy/<C-R><C-R>=substitute(
-  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>
+" Emoji shortcuts
+ab :due: 📅
+ab :sch: ⏳
+ab :sta: 🛫
 
-vnoremap <silent> # :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy?<C-R><C-R>=substitute(
-  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>
+ab :re: 🔁
+ab :hp: ⏫
+ab :mp: 🔼
+ab :lp: 🔽
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Insert mode Ctrls
