@@ -91,15 +91,14 @@ nvim_tree.setup({
 				{ key = "J", action = "last_sibling" },
 				{ key = "<C-r>", action = "full_rename" },
 
-				{ key = "x", action = "cut" },
+				{ key = "dd", action = "cut" },
+				{ key = "pp", action = "paste" },
 				{ key = "c", action = "copy" },
-				{ key = "p", action = "paste" },
 				{ key = "y", action = "copy_name" },
 				{ key = "Y", action = "copy_path" },
 				{ key = "gy", action = "copy_absolute_path" },
-
 				{ key = "q", action = "close" },
-				{ key = "g?", action = "toggle_help" },
+				{ key = "?", action = "toggle_help" },
 				{ key = "W", action = "collapse_all" },
 				{ key = ".", action = "run_file_command" },
 				{ key = "O", action = "" },
