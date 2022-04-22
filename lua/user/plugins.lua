@@ -80,7 +80,7 @@ return packer.startup(function(use)
     use("saadparwaiz1/cmp_luasnip") -- snippet completions
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-nvim-lua")
-    use("b0o/schemastore.nvim" )
+    use("b0o/schemastore.nvim")
     -- snippets
     use("L3MON4D3/LuaSnip") --snippet engine
     use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
@@ -128,7 +128,7 @@ return packer.startup(function(use)
     use("farmergreg/vim-lastplace")
     -- use "Pocco81/AutoSave.nvim"
     use("mbbill/undotree")
-    use("vimwiki/vimwiki")
+    -- use("vimwiki/vimwiki")
     use("EvanQuan/vim-executioner")
     use("voldikss/vim-floaterm")
     use("tpope/vim-surround")
