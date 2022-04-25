@@ -11,6 +11,9 @@ vim.cmd [[
     autocmd VimResized * tabdo wincmd = 
   augroup end
 
+  " open all folds by default
+    au FileType markdown setlocal foldlevel=99
+
 "  augroup _alpha
 "    autocmd!
 "    autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2

@@ -51,6 +51,11 @@ set undofile                              " enable persistent undo
 set nowritebackup                         " disable editing a file that is being edited
 set shiftwidth=2                          " spaces inserted for each indentation
 set tabstop=2                             " 2 spaces for a tab
+
+let g:markdown_folding = 0
+" folding using treesitter
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 " set iskeyword+=-
 " end chris
 
@@ -91,7 +96,8 @@ set mouse=a                 " enable mouse click
 
 " from lightline.vim
 " Always show statusline
-set laststatus=2
+" 2022-04-24 global status ilne is 3
+set laststatus=3
 
 " Uncomment to prevent non-normal modes showing in powerline and below powerline.
 set noshowmode
