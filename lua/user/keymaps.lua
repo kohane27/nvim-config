@@ -129,7 +129,7 @@ vnoremap <leader>d "_d
 " Allow gf to open non-existent files
 map gf :edit <cfile><cr>
 
-" Emoji shortcuts
+" Emoji shortcuts for Obsidian Tasks
 ab :due: 📅
 ab :sch: ⏳
 ab :sta: 🛫
@@ -138,6 +138,8 @@ ab :re: 🔁
 ab :hp: ⏫
 ab :mp: 🔼
 ab :lp: 🔽
+
+inoremap td - [ ] 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Insert mode Ctrls
