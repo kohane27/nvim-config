@@ -53,6 +53,7 @@ set shiftwidth=2                          " spaces inserted for each indentation
 set tabstop=2                             " 2 spaces for a tab
 
 let g:markdown_folding = 0
+set foldlevelstart=999
 " folding using treesitter
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()

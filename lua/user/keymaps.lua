@@ -129,6 +129,9 @@ vnoremap <leader>d "_d
 " Allow gf to open non-existent files
 map gf :edit <cfile><cr>
 
+" wean off `:wq` and `:q` in favor of zz
+cnoremap <expr> <CR> getcmdtype() == ":" && index(["q", "wq"], getcmdline()) >= 0 ? "<C-u>" : "<CR>"
+
 " Emoji shortcuts for Obsidian Tasks
 ab :due: 📅
 ab :sch: ⏳
