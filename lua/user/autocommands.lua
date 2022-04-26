@@ -1,4 +1,4 @@
-vim.cmd [[
+vim.cmd([[
   augroup _general_settings
     autocmd!
     autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
@@ -11,8 +11,6 @@ vim.cmd [[
     autocmd VimResized * tabdo wincmd = 
   augroup end
 
-  " open all folds by default
-    au FileType markdown setlocal foldlevel=99
 
 "  augroup _alpha
 "    autocmd!
@@ -20,4 +18,4 @@ vim.cmd [[
 "  augroup end
 " from https://github.com/kyazdani42/nvim-tree.lua#tips--reminders
 autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
-]]
+]])

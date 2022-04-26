@@ -1,6 +1,9 @@
 # Compiled Lua sources
 luac.out
 
+# Java
+jdtls
+
 # luarocks build files
 *.src.rock
 *.zip
