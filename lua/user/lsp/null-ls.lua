@@ -19,14 +19,6 @@ null_ls.setup({
 	sources = sources,
 	-- format on save
 	on_attach = function(client)
-		require("lsp_signature").on_attach({
-			bind = true, -- This is mandatory, otherwise border config won't get registered.
-			handler_opts = {
-				border = "rounded",
-			},
-			fix_pos = true,
-			floating_window = true,
-		})
 		-- if client.resolved_capabilities.document_formatting then
 		--     vim.cmd([[
 		--     augroup LspFormatting
