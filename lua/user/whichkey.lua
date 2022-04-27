@@ -82,14 +82,21 @@ local opts = {
 local mappings = {
 	["<C-e>"] = { "<cmd>Executioner<cr>", "Executioner" },
 	["<C-t>"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	["<C-j>"] = {
+	["<C-j>"]  = {
 		'<cmd>lua vim.diagnostic.open_float(0, {scope="line", border = "rounded" })<cr>',
 		"Line Diagnostic",
 	},
-
+	["<C-k>"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
 	g = {
 		-- can't use gs and gS; taken by surround/lightspeed
 		name = "g",
+        d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition" },
+		D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration" },
+		t = { "<cmd>lua vim.lsp.buf.type_definition()<cr>", "Type Definition" },
+		i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Implementation" },
+		r = { "<cmd>Trouble lsp_references<cr>", "References" },
+
+		-- buffer below
 		p = { "<cmd>BufferLinePick<cr>", "BufferLine Pick" },
 		c = { "<cmd>BufferLinePickClose<cr>", "Close Buffer" },
 		["1"] = { "<cmd>BufferLineGoToBuffer 1<cr>", "Buffer 1" },
@@ -107,33 +114,25 @@ local mappings = {
 		T = { "<cmd>TagbarToggle<cr>", "Tagbar Toggle" },
 		u = { "<cmd>UndotreeToggle<cr>", "UndotreeToggle" },
 
-		t = {
+		x = {
 			name = "Trouble",
-			rf = { "<cmd>Trouble lsp_references<cr>", "References" },
 			d = { "<cmd>Trouble document_diagnostics<cr>", "Document Diagnostics" },
-			wd = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
+			D = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
 			q = { "<cmd>Trouble quickfix<cr>", "Quickfix" },
 			l = { "<cmd>Trouble loclist<cr>", "Location List" },
-			-- n = { "<cmd>NvimTreeFindFile<cr>", "Find files" },
-			-- f = { "<cmd>NvimTreeFocus<cr>", "Focus" },
 		},
 
 		l = {
 			name = "LSP",
 			ts = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-			--ts = {"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
-			D = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition" },
-			h = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
-			--i = {"<cmd>lua vim.lsp.buf.implementation()<cr>", "Implementation" },
-			--sh = {"<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
+			-- ts = {"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
+			s = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
 			rn = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 			ca = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-			k = { "<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<cr>", "Prev Diagnostic" },
-			j = { "<cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<cr>", "Next Diagnostic" },
-			f = { "<cmd>lua vim.lsp.buf.formatting_sync()<cr>", "Format" },
 			cl = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+			f = { "<cmd>lua vim.lsp.buf.formatting_sync()<cr>", "Format" },
 			i = { "<cmd>LspInfo<cr>", "Info" },
-			If = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+			li = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
 		},
 		f = {
 			name = "Find",
