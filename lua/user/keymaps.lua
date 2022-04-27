@@ -6,7 +6,7 @@ let mapleader = "\<Space>"
 " go Normal mode in Terminal
 tnoremap <C-\> <C-\><C-n>
 
-" easy accidents
+" avoid easy accidents
 nnoremap <C-a> <Nop>
 nnoremap <C-x> <Nop>
 
@@ -27,13 +27,11 @@ nnoremap <Leader>k K
 
 " Delete without yank
 nnoremap x "_x
+vnoremap x "_x
 
 " insert empty new line without entering insert mode
 nnoremap <Leader>o o<Esc>
 nnoremap <Leader>O O<Esc>
-
-" Select all
-" nmap <C-a> gg<S-v>G
 
 " backspace to black hole registry
 nnoremap <BS> "_
@@ -54,10 +52,6 @@ nnoremap d$ <Nop>
 
 " save
 nnoremap <c-s> :wa<CR>
-
-" Next/Previous Tab
-nnoremap g[ gT
-nnoremap g] gt
 
 " operate on display lines rather than real lines
 nnoremap k gk
@@ -126,12 +120,24 @@ nmap <leader>Y "*Y
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
+"Delete one word forward in Insert mode
+inoremap <C-e> <C-o>de
+
+"CTRL-R * will insert clipboard contents
+"CTRL-R " (the unnamed register) inserts the last delete or yank
+
+"insert mode: paste yanked / deleted
+inoremap <C-f> <C-R>"
+"insert mode: paste clipboard content
+inoremap <C-v> <C-R>*
+
 " Allow gf to open non-existent files
 map gf :edit <cfile><cr>
 
 " wean off `:wq` and `:q` in favor of zz
 cnoremap <expr> <CR> getcmdtype() == ":" && index(["q", "wq"], getcmdline()) >= 0 ? "<C-u>" : "<CR>"
 
+" For Obsidian
 " Emoji shortcuts for Obsidian Tasks
 ab :due: 📅
 ab :sch: ⏳
@@ -150,27 +156,20 @@ inoremap td - [ ]
 "Keep these
 "CTRL-J	    Begin new line.
 "CTRL-A		Insert previously inserted text.
-"
+
 " kept except visual mode
 "CTRL-C		Quit insert mode, go back to Normal mode.
 
-" copy visual selected
-vnoremap <C-c> "*y
-
-"Delete one word forward in Insert mode
-inoremap <C-e> <C-o>de
-
-"CTRL-R * will insert clipboard contents
-"CTRL-R " (the unnamed register) inserts the last delete or yank
-
-"insert mode: paste yanked / deleted
-inoremap <C-f> <C-R>"
-"insert mode: paste clipboard content
-inoremap <C-v> <C-R>*
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Splits and Tabbed Files (using i3 or tmux)
+" => Splits (using i3 or tmux)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" easier split size adjustment
+noremap <silent> <Left> :vertical resize +3<CR>
+noremap <silent> <Right> :vertical resize -3<CR>
+noremap <silent> <Up> :resize +3<CR>
+noremap <silent> <Down> :resize -3<CR>
+
 set guifont=FiraCode\ Nerd\ Font:h19
 set splitbelow splitright
 " Removes pipes | that act as seperators on splits
@@ -180,9 +179,4 @@ let g:netrw_browse_split=2
 let g:netrw_banner=0
 let g:netrw_winsize=25
 
-" easier split size adjustment
-noremap <silent> <C-Left> :vertical resize +3<CR>
-noremap <silent> <C-Right> :vertical resize -3<CR>
-noremap <silent> <C-Up> :resize +3<CR>
-noremap <silent> <C-Down> :resize -3<CR>
 ]])
