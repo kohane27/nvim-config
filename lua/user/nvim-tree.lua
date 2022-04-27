@@ -72,8 +72,8 @@ nvim_tree.setup({
 			custom_only = false,
 			list = {
 				-- action = "" means removing default
-				{ key = "v", action = "vsplit" },
-				{ key = "h", action = "split" },
+				{ key = "<C-w>v", action = "vsplit" },
+				{ key = "<C-w>s", action = "split" },
 				{ key = "t", action = "tabnew" },
 
 				{ key = "R", action = "refresh" },
