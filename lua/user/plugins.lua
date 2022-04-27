@@ -140,6 +140,10 @@ return packer.startup(function(use)
 	use("ray-x/lsp_signature.nvim")
 	use("windwp/nvim-ts-autotag")
 	use("lukas-reineke/indent-blankline.nvim")
+    use {
+    'glacambre/firenvim',
+    run = function() vim.fn['firenvim#install'](0) end 
+    }
 
 	-- without its own file
 	use("p00f/nvim-ts-rainbow")
