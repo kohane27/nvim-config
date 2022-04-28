@@ -3,13 +3,14 @@ if not status_ok then
 	return
 end
 
-vim.g.indent_blankline_buftype_exclude = { "terminal", "nofile" }
+vim.g.indent_blankline_buftype_exclude = { "terminal", "nofile", "markdown" }
 vim.g.indent_blankline_filetype_exclude = {
 	"help",
 	"startify",
 	"dashboard",
 	"packer",
 	"neogitstatus",
+    "markdown",
 	"NvimTree",
 	"Trouble",
 	"help",
