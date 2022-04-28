@@ -68,13 +68,14 @@ return packer.startup(function(use)
 	use("folke/lsp-colors.nvim")
 	use("folke/trouble.nvim")
 	-- use({ "ray-x/navigator.lua", requires = { "ray-x/guihua.lua", run = "cd lua/fzy && make" } })
+
 	-- Colorschemes/theme
 	use("lunarvim/colorschemes") -- A bunch of colorschemes
 	use("lunarvim/darkplus.nvim")
 	use("NTBBloodbath/doom-one.nvim")
 	use("EdenEast/nightfox.nvim")
 	use("ellisonleao/gruvbox.nvim")
-    use('anuvyklack/pretty-fold.nvim')
+	use("anuvyklack/pretty-fold.nvim")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -126,7 +127,6 @@ return packer.startup(function(use)
 	-- with its own file
 	use("norcalli/nvim-colorizer.lua")
 	use("ggandor/lightspeed.nvim")
-	--use 'ggandor/leap.nvim'
 	-- use "rmagatti/auto-session"
 	use("jremmen/vim-ripgrep")
 	use("farmergreg/vim-lastplace")
@@ -140,10 +140,12 @@ return packer.startup(function(use)
 	use("ray-x/lsp_signature.nvim")
 	use("windwp/nvim-ts-autotag")
 	use("lukas-reineke/indent-blankline.nvim")
-    use {
-    'glacambre/firenvim',
-    run = function() vim.fn['firenvim#install'](0) end 
-    }
+	use({
+		"glacambre/firenvim",
+		run = function()
+			vim.fn["firenvim#install"](0)
+		end,
+	})
 
 	-- without its own file
 	use("p00f/nvim-ts-rainbow")
@@ -166,7 +168,7 @@ return packer.startup(function(use)
 	use("danilamihailov/beacon.nvim")
 	use("mfussenegger/nvim-jdtls")
 	use("sunaku/tmux-navigate")
-
+	--
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
