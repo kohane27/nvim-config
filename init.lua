@@ -36,6 +36,7 @@ require("user.vim-visual-multi")
 require("user.trouble")
 -- require("user.hardtime")
 require("user.lsp_signature")
+require("user.firenvim")
 -- require("user.nvim-bqf")
 
 -- require("user.startify")
