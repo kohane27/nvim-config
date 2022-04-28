@@ -1,8 +1,4 @@
 vim.cmd([[
-
-" doesn't seem to need it?
-" set guifont=FiraCode_Nerd_Font_Mono:h11
-
 let g:firenvim_config = { 
     \ 'globalSettings': {
         \ 'alt': 'all',
@@ -19,9 +15,9 @@ let g:firenvim_config = {
         \ },
     \ }
 \ }
-
 if exists('g:started_by_firenvim')
-
+    au BufEnter github.com_*.txt set filetype=markdown
+    :set guifont=FiraCode_Nerd_Font_Mono:h11
+    :set laststatus=0
 endif
-
 ]])

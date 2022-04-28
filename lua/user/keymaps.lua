@@ -94,9 +94,9 @@ vnoremap Y myY`y
 nnoremap n nzzzv
 nnoremap N Nzzzv
 " nnoremap J mzJ`z " not sure what it does
-nnoremap m zz
+" nnoremap m zz
 " unlearn bad habit
-nnoremap zz <Nop>
+" nnoremap zz <Nop>
 
 " Undo break points
 inoremap , ,<C-g>u

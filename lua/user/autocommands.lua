@@ -19,4 +19,8 @@ vim.cmd([[
 
 " from https://github.com/kyazdani42/nvim-tree.lua#tips--reminders
 autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+
+" trigger linting
+" using efm-langserver now
+" au BufWritePost <buffer> lua require('lint').try_lint()
 ]])
