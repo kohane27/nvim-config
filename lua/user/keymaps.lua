@@ -170,7 +170,7 @@ noremap <silent> <Right> :vertical resize -3<CR>
 noremap <silent> <Up> :resize +3<CR>
 noremap <silent> <Down> :resize -3<CR>
 
-set guifont=FiraCode\ Nerd\ Font:h19
+" set guifont=FiraCode\ Nerd\ Font:h19
 set splitbelow splitright
 " Removes pipes | that act as seperators on splits
 set fillchars+=vert:\ 

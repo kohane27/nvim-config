@@ -88,6 +88,7 @@ set shiftwidth=4                " One tab == four spaces.
 set tabstop=4                   " One tab == four spaces.
 set softtabstop=4               " see multiple spaces as tabstops so <BS> does the right thing
 set autoindent                  " indent a new line the same amount as the line just typed
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mouse Scrolling
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -95,8 +96,6 @@ set mouse=nicr
 set mouse=a                 " enable mouse click
 " set mouse=r                 " middle-click to paste
 
-" from lightline.vim
-" Always show statusline
 " 2022-04-24 global status ilne is 3
 set laststatus=3
 
