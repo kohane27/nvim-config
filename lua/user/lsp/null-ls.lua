@@ -32,7 +32,6 @@ local sources = {
 	formatting.black.with({ extra_args = { "--fast" } }),
 	formatting.stylua,
 	builtins.formatting.shfmt,
-	-- builtins.formatting.fixjson,
 	builtins.formatting.isort,
 	with_root_file(builtins.formatting.stylua, "stylua.toml"),
 
@@ -42,8 +41,8 @@ local sources = {
 	-- builtins.diagnostics.eslint_d,
 	builtins.diagnostics.flake8,
 	builtins.diagnostics.tsc,
-	with_root_file(builtins.diagnostics.selene, "selene.toml"),
 	with_diagnostics_code(builtins.diagnostics.shellcheck),
+    -- with_root_file(builtins.diagnostics.selene, "selene.toml"),
 
 	-- code actions
 	builtins.code_actions.gitsigns,
