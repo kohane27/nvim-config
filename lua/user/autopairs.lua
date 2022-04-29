@@ -14,17 +14,6 @@ npairs.setup({
 		java = false, -- don't check treesitter on java
 	},
 	disable_filetype = { "TelescopePrompt" },
-	-- fast_wrap = {
-	-- 	map = "<M-e>",
-	-- 	chars = { "{", "[", "(", '"', "'" },
-	-- 	pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
-	-- 	offset = 0, -- Offset from pattern match
-	-- 	end_key = "$",
-	-- 	keys = "qwertyuiopzxcvbnmasdfghjkl",
-	-- 	check_comma = true,
-	-- 	highlight = "PmenuSel",
-	-- 	highlight_grey = "LineNr",
-	-- },
 })
 
 -- You need to add mapping `CR` on nvim-cmp setup. Check readme.md on nvim-cmp repo.
