@@ -78,7 +78,7 @@ return packer.startup(function(use)
 	-- use("anuvyklack/pretty-fold.nvim")
 
 	-- cmp plugins
-	use("hrsh7th/nvim-cmp") -- The completion plugin
+	use("hrsh7th/nvim-cmp") -- auto-completion plugin
 	use("hrsh7th/cmp-buffer") -- buffer completions
 	use("hrsh7th/cmp-path") -- path completions
 	use("hrsh7th/cmp-cmdline") -- cmdline completions
@@ -110,18 +110,21 @@ return packer.startup(function(use)
 	use("williamboman/nvim-lsp-installer") -- language server installer
 	use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
-    -- use("mfussenegger/nvim-lint")
+	-- use("mfussenegger/nvim-lint")
+	use("lukas-reineke/lsp-format.nvim")
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
-	-- Treesitter
+	-- Highlight, edit, and navigate code using a fast incremental parsing library
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
 
+	-- Additional textobjects for treesitter
+	use("nvim-treesitter/nvim-treesitter-textobjects")
 	-- git
 	use("lewis6991/gitsigns.nvim")
 
@@ -137,10 +140,11 @@ return packer.startup(function(use)
 	use("EvanQuan/vim-executioner")
 	use("voldikss/vim-floaterm")
 	-- use("tpope/vim-surround") # sandwich is better
-    use("machakann/vim-sandwich")
+	use("machakann/vim-sandwich")
 	use("preservim/tagbar")
 	use("ray-x/lsp_signature.nvim")
 	use("windwp/nvim-ts-autotag")
+	-- Add indentation guides even on blank lines
 	use("lukas-reineke/indent-blankline.nvim")
 	use({
 		"glacambre/firenvim",

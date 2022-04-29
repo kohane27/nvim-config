@@ -82,15 +82,16 @@ local opts = {
 local mappings = {
 	["<C-e>"] = { "<cmd>Executioner<cr>", "Executioner" },
 	["<C-t>"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	["<C-j>"]  = {
+	["<C-j>"] = {
 		'<cmd>lua vim.diagnostic.open_float(0, {scope="line", border = "rounded" })<cr>',
 		"Line Diagnostic",
 	},
 	["<C-k>"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
+	K = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
 	g = {
 		-- can't use gs and gS; taken by surround/lightspeed
 		name = "g",
-        d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition" },
+		d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition" },
 		D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration" },
 		t = { "<cmd>lua vim.lsp.buf.type_definition()<cr>", "Type Definition" },
 		i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Implementation" },
@@ -126,7 +127,6 @@ local mappings = {
 			name = "LSP",
 			ts = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 			-- ts = {"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
-			s = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
 			rn = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 			ca = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
 			cl = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
