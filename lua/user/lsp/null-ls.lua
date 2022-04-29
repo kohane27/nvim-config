@@ -39,10 +39,10 @@ local sources = {
 	-- builtins.diagnostics.write_good,
 	-- builtins.diagnostics.markdownlint,
 	-- builtins.diagnostics.eslint_d,
-	builtins.diagnostics.flake8,
-	builtins.diagnostics.tsc,
+	-- builtins.diagnostics.flake8,
+	-- builtins.diagnostics.tsc,
 	with_diagnostics_code(builtins.diagnostics.shellcheck),
-    -- with_root_file(builtins.diagnostics.selene, "selene.toml"),
+	-- with_root_file(builtins.diagnostics.selene, "selene.toml"),
 
 	-- code actions
 	builtins.code_actions.gitsigns,
