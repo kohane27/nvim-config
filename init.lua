@@ -39,6 +39,7 @@ require("user.lsp_signature")
 require("user.firenvim")
 require("user.sandwitch")
 require("user.targets")
+require("user.lsp-format")
 -- require("user.nvim-bqf")
 
 -- require("user.startify")
