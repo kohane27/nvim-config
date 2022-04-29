@@ -140,15 +140,18 @@ cnoremap <expr> <CR> getcmdtype() == ":" && index(["q", "wq"], getcmdline()) >= 
 " For Obsidian
 " Emoji shortcuts for Obsidian Tasks
 ab :due: 📅
-ab :sch: ⏳
-ab :sta: 🛫
+ab :done: ✅
+" ab :sch: ⏳
+" ab :sta: 🛫
 
 ab :re: 🔁
 ab :hp: ⏫
 ab :mp: 🔼
 ab :lp: 🔽
 
-inoremap td - [ ] 
+iab td - [ ]
+iab doto ✅ <c-r>=strftime("%Y-%m-%d")<cr>
+iab duto 📅 <c-r>=strftime("%Y-%m-%d")<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Insert mode Ctrls

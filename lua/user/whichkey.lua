@@ -98,7 +98,7 @@ local mappings = {
 
 		-- buffer below
 		p = { "<cmd>BufferLinePick<cr>", "BufferLine Pick" },
-		c = { "<cmd>BufferLinePickClose<cr>", "Close Buffer" },
+		-- c = { "<cmd>BufferLinePickClose<cr>", "Close Buffer" },
 		["1"] = { "<cmd>BufferLineGoToBuffer 1<cr>", "Buffer 1" },
 		["2"] = { "<cmd>BufferLineGoToBuffer 2<cr>", "Buffer 2" },
 		["3"] = { "<cmd>BufferLineGoToBuffer 3<cr>", "Buffer 3" },
@@ -169,10 +169,6 @@ local mappings = {
 			-- s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
 			-- u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk" },
 			-- s = { "<cmd>:G<cr>", "Status" },
-		},
-		m = {
-			name = "Misc",
-			d = { "<cmd>put =strftime('%Y-%m-%d')<cr>", "insert today date" },
 		},
 		r = {
 			name = "executioner",
