@@ -132,7 +132,7 @@ local mappings = {
 			cl = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 			f = { "<cmd>lua vim.lsp.buf.formatting_sync()<cr>", "Format" },
 			i = { "<cmd>LspInfo<cr>", "Info" },
-			li = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+			I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
 		},
 		f = {
 			name = "Find",
@@ -172,7 +172,7 @@ local mappings = {
 		},
 		m = {
 			name = "Misc",
-			d = { "<cmd>put =strftime('## %Y-%m-%d')<cr>", "insert today date" },
+			d = { "<cmd>put =strftime('%Y-%m-%d')<cr>", "insert today date" },
 		},
 		r = {
 			name = "executioner",
