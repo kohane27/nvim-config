@@ -74,8 +74,8 @@ return packer.startup(function(use)
 	use("lunarvim/darkplus.nvim")
 	use("NTBBloodbath/doom-one.nvim")
 	use("EdenEast/nightfox.nvim")
-	use("ellisonleao/gruvbox.nvim")
-	use("anuvyklack/pretty-fold.nvim")
+	-- use("ellisonleao/gruvbox.nvim")
+	-- use("anuvyklack/pretty-fold.nvim")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
