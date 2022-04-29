@@ -32,7 +32,7 @@ local sources = {
 	formatting.black.with({ extra_args = { "--fast" } }),
 	formatting.stylua,
 	builtins.formatting.shfmt,
-	builtins.formatting.fixjson,
+	-- builtins.formatting.fixjson,
 	builtins.formatting.isort,
 	with_root_file(builtins.formatting.stylua, "stylua.toml"),
 
