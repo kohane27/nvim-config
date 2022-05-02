@@ -149,7 +149,7 @@ ab :hp: ⏫
 ab :mp: 🔼
 ab :lp: 🔽
 
-inoremap td - [ ]
+inoremap td - [ ] 
 iab doto ✅ <c-r>=strftime("%Y-%m-%d")<cr>
 iab duto 📅 <c-r>=strftime("%Y-%m-%d")<cr>
 
