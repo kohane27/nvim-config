@@ -25,7 +25,7 @@ require("user.lightspeed")
 -- require "user.autosession"
 require("user.ripgrep")
 require("user.lastplace")
--- require "user.autosave"
+-- require("user.autosave")
 require("user.undotree")
 require("user.executioner")
 require("user.floaterm")
@@ -39,7 +39,8 @@ require("user.lsp_signature")
 require("user.firenvim")
 require("user.sandwitch")
 require("user.targets")
-require("user.lsp-format")
+require("user.neoscroll")
+require("user.better-escape")
 -- require("user.nvim-bqf")
 
 -- require("user.startify")
