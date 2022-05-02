@@ -3,4 +3,6 @@ if not status_ok then
 	print("better_escape failing")
 end
 
-better_escape.setup({})
+better_escape.setup({
+	mapping = { "jk" },
+})
