@@ -19,4 +19,7 @@ autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tab
 " autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
 let ftToIgnore = ['c', 'markdown']
     autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | lua vim.lsp.buf.formatting_sync()
+
+" https://neovim.io/doc/user/lua.html#lua-highlight
+au TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false}
 ]])

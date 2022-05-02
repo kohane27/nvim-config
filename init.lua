@@ -25,6 +25,7 @@ require("user.lightspeed")
 -- require "user.autosession"
 require("user.ripgrep")
 require("user.lastplace")
+require("user.beacon")
 -- require("user.autosave")
 require("user.undotree")
 require("user.executioner")
