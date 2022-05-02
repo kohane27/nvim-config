@@ -15,3 +15,9 @@ lightspeed.setup({
 	limit_ft_matches = 4,
 	repeat_ft_with_target_char = false,
 })
+
+vim.cmd([[
+" just press s to search
+nnoremap s <Plug>Lightspeed_omni_s
+nnoremap S <Plug>Lightspeed_omni_s
+]])
