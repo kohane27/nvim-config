@@ -133,7 +133,7 @@ return packer.startup(function(use)
 	use("ggandor/lightspeed.nvim")
 	-- use "rmagatti/auto-session"
 	use("jremmen/vim-ripgrep")
-	use("farmergreg/vim-lastplace")
+	use("ethanholz/nvim-lastplace")
 	-- use "Pocco81/AutoSave.nvim"
 	use("mbbill/undotree")
 	-- use("vimwiki/vimwiki")
@@ -163,7 +163,8 @@ return packer.startup(function(use)
 	use({ "mg979/vim-visual-multi", branch = "master" })
 	use("junegunn/vim-peekaboo")
 	use("tpope/vim-repeat")
-	use("psliwka/vim-smoothie")
+	use("karb94/neoscroll.nvim")
+	use("max397574/better-escape.nvim")
 	use("wellle/targets.vim")
 	use("kevinhwang91/nvim-bqf")
 	use("junegunn/fzf.vim") -- for nvim-bqf

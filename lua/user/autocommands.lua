@@ -17,6 +17,6 @@ autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tab
 
 " format on save except c for qmk
 " autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-let ftToIgnore = ['c']
+let ftToIgnore = ['c', 'markdown']
     autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | lua vim.lsp.buf.formatting_sync()
 ]])
