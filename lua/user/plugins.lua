@@ -174,6 +174,8 @@ return packer.startup(function(use)
     use("danilamihailov/beacon.nvim")
     use("mfussenegger/nvim-jdtls")
     use("sunaku/tmux-navigate")
+    use("chaoren/vim-wordmotion")
+
     --
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
