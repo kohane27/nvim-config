@@ -9,6 +9,7 @@ tnoremap <C-\> <C-\><C-n>
 " avoid easy accidents
 nnoremap <C-a> <Nop>
 nnoremap <C-x> <Nop>
+nnoremap ZZ <Nop>
 
 " unlearn bad navigation habits
 nnoremap J <nop>
