@@ -42,6 +42,7 @@ require("user.sandwitch")
 require("user.targets")
 require("user.neoscroll")
 require("user.better-escape")
+require("user.substitute")
 -- require("user.nvim-bqf")
 
 -- require("user.startify")
