@@ -112,7 +112,6 @@ local mappings = {
 	},
 	["<leader>"] = {
 		q = { "<cmd>Sayonara!<cr>", "sayonara" },
-		-- T = { "<cmd>TagbarToggle<cr>", "Tagbar Toggle" },
 		u = { "<cmd>UndotreeToggle<cr>", "UndotreeToggle" },
 
 		x = {
