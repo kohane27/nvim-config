@@ -1,13 +1,20 @@
--- Highlight on yank
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function()
-        vim.highlight.on_yank()
-    end,
-    group = highlight_group,
-    pattern = '*',
-})
+-- https://github.com/Pocco81/TheSupercalifragilisticexpialidociousDots/blob/main/.config/nvim/lua/nvdope/initialization/lsp/lspconfig.lua
+-- suppress error messages from lang servers
+vim.notify = function(msg, log_level, _opts)
+    -- if msg:match("exit code") then
+    --     return
+    -- end
+    if msg:match("Unable to find checker") then
+        return
+    end
+    -- if log_level == vim.log.levels.ERROR then
+    --     vim.api.nvim_err_writeln(msg)
+    -- else
+    --     vim.api.nvim_echo({{msg}}, true, {})
+    -- end
+end
 
+-- TODO migrate to lua
 vim.cmd([[
 """" => General Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

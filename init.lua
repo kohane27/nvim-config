@@ -45,6 +45,6 @@ require("user.better-escape")
 require("user.substitute")
 require("user.navigator")
 require("user.sad")
--- require("user.startify")
+require("user.startify")
 
 -- require("user.nvim-bqf")

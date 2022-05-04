@@ -32,7 +32,7 @@ local config = {
 
         -- 💀
         -- See `data directory configuration` section in the README
-        '-data', '/home/***REMOVED***/Documents/prac-proj/pracProj'
+        -- '-data', '/home/***REMOVED***/Documents/prac-proj/pracProj'
     },
 
     -- 💀
