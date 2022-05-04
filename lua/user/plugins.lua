@@ -162,7 +162,7 @@ return packer.startup(function(use)
     use("romainl/vim-cool") -- remove search result highlight
     use("junegunn/fzf.vim") -- for nvim-bqf
     use("andymass/vim-matchup")
-    use("mhinz/vim-sayonara")
+    -- use("mhinz/vim-sayonara")
     use("mfussenegger/nvim-jdtls")
     use("sunaku/tmux-navigate")
     use("famiu/bufdelete.nvim")
