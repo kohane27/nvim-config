@@ -47,34 +47,29 @@ return packer.startup(function(use)
     use("ryanoasis/vim-devicons")
     use("kyazdani42/nvim-web-devicons")
     use("kyazdani42/nvim-tree.lua")
-    use({ "akinsho/bufferline.nvim", tag = "*", requires = "kyazdani42/nvim-web-devicons" })
-    use("famiu/bufdelete.nvim")
-    use("moll/vim-bbye")
+    use({ "akinsho/bufferline.nvim", tag = "*" })
     use("nvim-lualine/lualine.nvim")
     use("akinsho/toggleterm.nvim")
     -- use("tpope/vim-unimpaired")
     -- use("tpope/vim-fugitive")
-    use("takac/vim-hardtime")
     use("tpope/vim-obsession")
+    use("tpope/vim-repeat")
     -- use("tpope/vim-markdown")
+    -- use("anuvyklack/pretty-fold.nvim")
     use("sindrets/diffview.nvim")
     -- use("whiteinge/diffconflicts")
     use("ahmedkhalf/project.nvim")
     use("lewis6991/impatient.nvim")
-    use("goolord/alpha-nvim")
+    -- use("goolord/alpha-nvim")
+    use("mhinz/vim-startify")
     use("antoinemadec/FixCursorHold.nvim") -- needed to fix lsp doc highlight
     use("folke/which-key.nvim")
     use("folke/lsp-colors.nvim")
-    use("folke/trouble.nvim")
-    -- use({ "ray-x/navigator.lua", requires = { "ray-x/guihua.lua", run = "cd lua/fzy && make" } })
 
     -- Colorschemes/theme
     use("lunarvim/colorschemes") -- A bunch of colorschemes
-    use("lunarvim/darkplus.nvim")
     use("NTBBloodbath/doom-one.nvim")
     use("EdenEast/nightfox.nvim")
-    -- use("ellisonleao/gruvbox.nvim")
-    -- use("anuvyklack/pretty-fold.nvim")
 
     -- cmp plugins
     use("hrsh7th/nvim-cmp") -- auto-completion plugin
@@ -89,17 +84,22 @@ return packer.startup(function(use)
     use("L3MON4D3/LuaSnip") --snippet engine
     use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
-    -- TODO For vsnip users
+    -- Telescope
+    use("nvim-telescope/telescope.nvim")
+    use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+
+    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+    -- Additional textobjects for treesitter
+    use("nvim-treesitter/nvim-treesitter-textobjects")
+
+    -- For vsnip users
     -- use 'hrsh7th/cmp-vsnip'
     -- use 'hrsh7th/vim-vsnip'
-
     -- For luasnip users
     -- use 'saadparwaiz1/cmp_luasnip'
-
     -- For ultisnips users
     -- use 'SirVer/ultisnips'
     -- use 'quangnguyen30192/cmp-nvim-ultisnips'
-
     -- For snippy users
     -- use 'dcampos/nvim-snippy'
     -- use 'dcampos/cmp-snippy'
@@ -111,39 +111,40 @@ return packer.startup(function(use)
     use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
     -- use("mfussenegger/nvim-lint")
     use("lukas-reineke/lsp-format.nvim")
-
-    -- Telescope
-    use("nvim-telescope/telescope.nvim")
-    use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-
-    -- Highlight, edit, and navigate code using a fast incremental parsing library
-    use({
-        "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate",
-    })
-
-    -- Additional textobjects for treesitter
-    use("nvim-treesitter/nvim-treesitter-textobjects")
-    -- git
     use("lewis6991/gitsigns.nvim")
 
-    -- with its own file
     use("norcalli/nvim-colorizer.lua")
     use("ggandor/lightspeed.nvim")
     -- use "rmagatti/auto-session"
-    use("jremmen/vim-ripgrep")
     -- use "Pocco81/AutoSave.nvim"
+    use("jremmen/vim-ripgrep")
     use("mbbill/undotree")
-    -- use("vimwiki/vimwiki")
     use("EvanQuan/vim-executioner")
     use("voldikss/vim-floaterm")
-    -- use("tpope/vim-surround") # sandwich is better
-    use("machakann/vim-sandwich")
-    use("preservim/tagbar")
-    use("ray-x/lsp_signature.nvim")
     use("windwp/nvim-ts-autotag")
+
     -- Add indentation guides even on blank lines
     use("lukas-reineke/indent-blankline.nvim")
+    use("machakann/vim-sandwich") -- better than surround
+
+    -- use("preservim/tagbar")
+    use { 'ray-x/navigator.lua',
+        requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' }
+    }
+    use("ray-x/sad.nvim")
+    use("ray-x/lsp_signature.nvim")
+
+    use({ "mg979/vim-visual-multi", branch = "master" })
+    use("ethanholz/nvim-lastplace")
+    use("karb94/neoscroll.nvim")
+    use("max397574/better-escape.nvim")
+    use("gbprod/substitute.nvim")
+    use("wellle/targets.vim")
+    use("kevinhwang91/nvim-bqf")
+    use("mhinz/vim-grepper")
+    use("danilamihailov/beacon.nvim")
+    use("folke/trouble.nvim")
+
     use({
         "glacambre/firenvim",
         run = function()
@@ -157,26 +158,18 @@ return packer.startup(function(use)
     use("junegunn/vim-emoji")
     use("sheerun/vim-polyglot")
     use("kovetskiy/sxhkd-vim")
-    use("romainl/vim-cool") -- remove search result highlight
-    use({ "mg979/vim-visual-multi", branch = "master" })
     use("junegunn/vim-peekaboo")
-    use("tpope/vim-repeat")
-    use("ethanholz/nvim-lastplace")
-    use("karb94/neoscroll.nvim")
-    use("max397574/better-escape.nvim")
-    use("gbprod/substitute.nvim")
-    use("wellle/targets.vim")
-    use("kevinhwang91/nvim-bqf")
+    use("romainl/vim-cool") -- remove search result highlight
     use("junegunn/fzf.vim") -- for nvim-bqf
-    use("mhinz/vim-grepper")
     use("andymass/vim-matchup")
     use("mhinz/vim-sayonara")
-    use("danilamihailov/beacon.nvim")
     use("mfussenegger/nvim-jdtls")
     use("sunaku/tmux-navigate")
-    use("chaoren/vim-wordmotion")
+    use("famiu/bufdelete.nvim")
+    use("moll/vim-bbye")
+    -- use("chaoren/vim-wordmotion")
+    use("takac/vim-hardtime")
 
-    --
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
