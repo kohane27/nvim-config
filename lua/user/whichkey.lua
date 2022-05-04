@@ -89,7 +89,7 @@ local mappings = {
 	["<C-k>"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
 	K = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
 	g = {
-		-- can't use gs and gS; taken by surround/lightspeed
+		-- can't use gs and gS; taken by lightspeed
 		name = "g",
 		d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition" },
 		D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration" },
@@ -112,7 +112,7 @@ local mappings = {
 	},
 	["<leader>"] = {
 		q = { "<cmd>Sayonara!<cr>", "sayonara" },
-		T = { "<cmd>TagbarToggle<cr>", "Tagbar Toggle" },
+		-- T = { "<cmd>TagbarToggle<cr>", "Tagbar Toggle" },
 		u = { "<cmd>UndotreeToggle<cr>", "UndotreeToggle" },
 
 		x = {

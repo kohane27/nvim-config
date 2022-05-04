@@ -16,8 +16,10 @@ let g:firenvim_config = {
     \ }
 \ }
 if exists('g:started_by_firenvim')
+    let g:startify_disable_at_vimenter = 1
     au BufEnter github.com_*.txt set filetype=markdown
-    :set guifont=FiraCode_Nerd_Font_Mono:h11
-    :set laststatus=0
+    set guifont=FiraCode_Nerd_Font_Mono:h11
+    set shortmess=a
+    set laststatus=0
 endif
 ]])

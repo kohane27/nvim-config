@@ -43,7 +43,8 @@ require("user.targets")
 require("user.neoscroll")
 require("user.better-escape")
 require("user.substitute")
--- require("user.nvim-bqf")
-
+require("user.navigator")
+require("user.sad")
 -- require("user.startify")
--- require("user.navigator")
+
+-- require("user.nvim-bqf")
