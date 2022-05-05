@@ -62,12 +62,9 @@ end
 M.on_attach = function(client)
     if client.name == "tsserver" then
         client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
     end
     if client.name == "html" then
-        -- client.server_capabilities.document_formatting = false
         client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
     end
     lsp_highlight_document(client)
 end

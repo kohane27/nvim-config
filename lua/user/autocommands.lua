@@ -15,9 +15,8 @@ vim.cmd([[
 " from https://github.com/kyazdani42/nvim-tree.lua#tips--reminders
 autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 
-" format on save except c and markdown
-" autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-let ftToIgnore = ['c', 'markdown']
+" format on save except the following
+let ftToIgnore = ['c', 'markdown', 'javascript']
     autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | lua vim.lsp.buf.formatting_sync()
 
 " https://neovim.io/doc/user/lua.html#lua-highlight
