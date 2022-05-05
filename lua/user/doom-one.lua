@@ -1,10 +1,10 @@
-local status_ok, doomone = pcall(require, "doom-one")
-if not status_ok then
-    vim.notify("Doom one not working")
-	return
-end
+-- local status_ok, doomone = pcall(require, "doom-one")
+-- if not status_ok then
+--     print("Doom one failing")
+-- 	return
+-- end
 
-doomone.setup({
+require('doom-one').setup({
     cursor_coloring = false,
     terminal_colors = false,
     italic_comments = false,
