@@ -1,4 +1,6 @@
 vim.cmd([[
+
+" let g:executioner#extensions['py'] = 'python %'
 " Run current buffer with input redirected from input.txt
 "nnoremap <silent> <leader>ri :ExecutionerBuffer % < input.txt<cr>
 "nnoremap <silent> <leader>hri :ExecutionerHorizontalBuffer % < input.txt<cr>
