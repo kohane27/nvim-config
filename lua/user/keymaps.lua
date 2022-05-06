@@ -26,10 +26,6 @@ nnoremap <C-b> 30k
 nnoremap <Leader>j J
 nnoremap <Leader>k K
 
-" Delete without yank
-nnoremap x "_x
-vnoremap x "_x
-
 " insert empty new line without entering insert mode
 nnoremap <Leader>o o<Esc>
 nnoremap <Leader>O O<Esc>

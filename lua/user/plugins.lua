@@ -67,9 +67,13 @@ return packer.startup(function(use)
     use("folke/lsp-colors.nvim")
 
     -- Colorschemes/theme
-    use("lunarvim/colorschemes") -- A bunch of colorschemes
+    -- use("lunarvim/colorschemes") -- A bunch of colorschemes
     use("NTBBloodbath/doom-one.nvim")
+    use("marko-cerovac/material.nvim")
     use("EdenEast/nightfox.nvim")
+    use("joshdick/onedark.vim")
+    use("LunarVim/onedarker.nvim")
+    use("bluz71/vim-moonfly-colors")
 
     -- cmp plugins
     use("hrsh7th/nvim-cmp") -- auto-completion plugin
@@ -96,7 +100,6 @@ return packer.startup(function(use)
     -- use 'hrsh7th/cmp-vsnip'
     -- use 'hrsh7th/vim-vsnip'
     -- For luasnip users
-    -- use 'saadparwaiz1/cmp_luasnip'
     -- For ultisnips users
     -- use 'SirVer/ultisnips'
     -- use 'quangnguyen30192/cmp-nvim-ultisnips'
@@ -127,18 +130,29 @@ return packer.startup(function(use)
     use("lukas-reineke/indent-blankline.nvim")
     use("machakann/vim-sandwich") -- better than surround
 
+    use("takac/vim-hardtime")
+    use("jose-elias-alvarez/typescript.nvim")
+    use("gbprod/cutlass.nvim")
+    use("gbprod/substitute.nvim")
+    -- use("gbprod/yanky.nvim") --BUG FREEZES nvim
+    -- use("svermeulen/vim-yoink")
+
     -- use("preservim/tagbar")
-    use { 'ray-x/navigator.lua',
-        requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' }
-    }
+    -- use { 'ray-x/navigator.lua',
+    --     requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' }
+    -- }
     use("ray-x/sad.nvim")
     use("ray-x/lsp_signature.nvim")
+
+    use {
+        "luukvbaal/stabilize.nvim",
+        config = function() require("stabilize").setup() end
+    }
 
     use({ "mg979/vim-visual-multi", branch = "master" })
     use("ethanholz/nvim-lastplace")
     use("karb94/neoscroll.nvim")
     use("max397574/better-escape.nvim")
-    use("gbprod/substitute.nvim")
     use("wellle/targets.vim")
     use("kevinhwang91/nvim-bqf")
     use("mhinz/vim-grepper")
@@ -168,9 +182,6 @@ return packer.startup(function(use)
     use("famiu/bufdelete.nvim")
     use("moll/vim-bbye")
     -- use("chaoren/vim-wordmotion")
-    use("takac/vim-hardtime")
-    use("jose-elias-alvarez/typescript.nvim")
-
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
