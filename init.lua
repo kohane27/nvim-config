@@ -45,6 +45,7 @@ require("user.substitute")
 -- require("user.sad")
 require("user.startify")
 -- require("user.typescript")
--- require("user.yanky")
-require("user.cutlass")
+-- require("user.yanky") BUG?
+-- require("user.cutlass") BUG?
+require("user.yoink")
 -- require("user.nvim-bqf")

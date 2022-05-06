@@ -132,10 +132,10 @@ return packer.startup(function(use)
 
     use("takac/vim-hardtime")
     use("jose-elias-alvarez/typescript.nvim")
-    use("gbprod/cutlass.nvim")
     use("gbprod/substitute.nvim")
-    -- use("gbprod/yanky.nvim") --BUG FREEZES nvim
-    -- use("svermeulen/vim-yoink")
+    -- use("gbprod/cutlass.nvim") -- BUG FREEZES nvim
+    -- use("gbprod/yanky.nvim") -- BUG FREEZES nvim not really?
+    use("svermeulen/vim-yoink")
 
     -- use("preservim/tagbar")
     -- use { 'ray-x/navigator.lua',
