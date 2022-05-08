@@ -54,9 +54,9 @@ autocmd('TextYankPost', {
   end
 })
 
--- Enable spellchecking in markdown, text and gitcommit files
+-- Enable spellchecking in text and gitcommit files
 autocmd("FileType", {
-   pattern = { "gitcommit", "markdown", "text" },
+   pattern = { "gitcommit", "text" },
    callback = function()
       vim.opt_local.spell = true
    end,

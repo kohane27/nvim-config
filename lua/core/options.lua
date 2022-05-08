@@ -8,11 +8,6 @@
 local g = vim.g       -- Global variables
 local opt = vim.opt   -- Set options (global/buffer/windows-scoped)
 
-opt.cmdheight = 1
-
--- disable tilde on end of buffer: https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
-opt.fillchars = { eob = " " }
-
 vim.cmd([[
 
 if has("persistent_undo")
@@ -83,9 +78,10 @@ opt.confirm = true
 opt.undofile = true -- enable persistent undo
 opt.timeoutlen = 500 -- time to wait for a mapped sequence to complete
 
-
 g.did_load_filetypes = 0 -- use filetype.lua instead of filetype.vim
 g.do_filetype_lua = 1
+-- disable tilde on end of buffer: https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
+opt.fillchars = { eob = " " }
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
@@ -94,6 +90,7 @@ opt.numberwidth = 2
 opt.relativenumber = true   -- Show relative line number
 opt.showmatch = true        -- Highlight matching parenthesis
 opt.foldmethod = 'marker'   -- Enable folding (default 'foldmarker')
+opt.cmdheight = 2
 
 -- let g:markdown_folding = 0
 -- set foldlevelstart=999
