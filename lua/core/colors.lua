@@ -13,7 +13,6 @@ if not status_ok then
 end
 
 -- vim.cmd [[
---   set background=dark
 --   colorscheme doom-one
 --   " for vsplits
 --   set fillchars=vert:┃ 
