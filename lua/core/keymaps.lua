@@ -1,7 +1,7 @@
 -----------------------------------------------------------
--- Define keymaps of Neovim
+-- Define keymaps
+-- leader key is set as <space> in options.lua
 -----------------------------------------------------------
-
 local function map(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }
   if opts then
@@ -10,22 +10,25 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- Change leader to a comma
-vim.g.mapleader = ','
-
 -----------------------------------------------------------
 -- Neovim shortcuts
 -----------------------------------------------------------
-
--- Map Esc to kk
 map('i', 'jk', '<Esc>')
 
+-- unlearn bad habits
+map('n', '<C-a>', '<nop>')
+map('n', '<C-x>', '<nop>')
+map('n', 'ZZ', '<nop>')
+map('n', 'J', '<nop>')
+map('n', 'K', '<nop>')
+map('n', 'd$', '<nop>')
 
 -- Reload configuration without restart nvim
 map('n', '<leader>r', ':so %<CR>')
 
--- Fast saving with <leader> and s
-map('n', '<leader>s', ':w<CR>')
+-- saving
+map('n', '<c-s>', ':wa<CR>')
+
 map('i', '<leader>s', '<C-c>:w<CR>')
 
 -- Close all windows and exit from Neovim with <leader> and q
@@ -40,22 +43,11 @@ map('n', '<C-t>', ':Term<CR>', { noremap = true })  -- open
 map('t', '<Esc>', '<C-\\><C-n>')                    -- exit
 
 
+-- TODO migrate to lua
 vim.cmd([[
-let mapleader = "\<Space>"
 
 " go Normal mode in Terminal
 tnoremap <C-\> <C-\><C-n>
-
-" avoid easy accidents
-nnoremap <C-a> <Nop>
-nnoremap <C-x> <Nop>
-nnoremap ZZ <Nop>
-
-" unlearn bad navigation habits
-nnoremap J <nop>
-nnoremap K <nop>
-"nnoremap J 5gj
-"nnoremap K 5gk
 
 nnoremap <C-d> 13j
 nnoremap <C-u> 13k
@@ -80,19 +72,10 @@ vnoremap <BS> "_
 
 "paste in new line
 "bug if paste to new buffer
-" nnoremap p :pu<CR> 
+" nnoremap p :pu<CR>
 
 " yank till end of line
 nnoremap Y y$
-
-" get rid of bad habit for D/C
-nnoremap d$ <Nop>
-
-"yank full line without new line character
-"nnoremap yy 0y$
-
-" save
-nnoremap <c-s> :wa<CR>
 
 " operate on display lines rather than real lines
 nnoremap k gk
@@ -202,7 +185,6 @@ iab duto 📅 <c-r>=strftime("%Y-%m-%d")<cr>
 " kept except visual mode
 "CTRL-C		Quit insert mode, go back to Normal mode.
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Splits (using i3 or tmux)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -211,14 +193,5 @@ noremap <silent> <Left> :vertical resize +3<CR>
 noremap <silent> <Right> :vertical resize -3<CR>
 noremap <silent> <Up> :resize +3<CR>
 noremap <silent> <Down> :resize -3<CR>
-
-" set guifont=FiraCode\ Nerd\ Font:h19
-set splitbelow splitright
-" Removes pipes | that act as seperators on splits
-set fillchars+=vert:\ 
-
-let g:netrw_browse_split=2
-let g:netrw_banner=0
-let g:netrw_winsize=25
 
 ]])

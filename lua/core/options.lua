@@ -65,6 +65,9 @@ set shiftwidth=2                          " spaces inserted for each indentation
 " set iskeyword+=-
 " end chris
 set inccommand=nosplit     " Live substitution
+
+" Removes pipes | that act as seperators on splits
+set fillchars+=vert:\ 
 ]])
 
 

@@ -30,8 +30,22 @@ let ftToIgnore = ['c', 'markdown', 'javascript']
 local augroup = vim.api.nvim_create_augroup   -- Create/get autocommand group
 local autocmd = vim.api.nvim_create_autocmd   -- Create autocommand
 
+
 -- Highlight on yank
 augroup('YankHighlight', { clear = true })
+
+
+-- Open a file from its last left off position
+autocmd("BufReadPost", {
+   callback = function()
+      if not vim.fn.expand("%:p"):match ".git" and vim.fn.line "'\"" > 1 and vim.fn.line "'\"" <= vim.fn.line "$" then
+         vim.cmd "normal! g'\""
+         vim.cmd "normal zz"
+      end
+   end,
+})
+
+
 
 autocmd('TextYankPost', {
   group = 'YankHighlight',
@@ -39,6 +53,25 @@ autocmd('TextYankPost', {
     vim.highlight.on_yank({ higroup = 'IncSearch', timeout = '350' })
   end
 })
+
+-- Enable spellchecking in markdown, text and gitcommit files
+autocmd("FileType", {
+   pattern = { "gitcommit", "markdown", "text" },
+   callback = function()
+      vim.opt_local.spell = true
+   end,
+})
+
+-- -- File extension specific tabbing
+-- autocmd("Filetype", {
+--    pattern = "python",
+--    callback = function()
+--       vim.opt_local.expandtab = true
+--       vim.opt_local.tabstop = 4
+--       vim.opt_local.shiftwidth = 4
+--       vim.opt_local.softtabstop = 4
+--    end,
+-- })
 
 -- Remove whitespace on save
 -- autocmd('BufWritePre', {
