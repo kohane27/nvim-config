@@ -47,5 +47,5 @@ require("user.startify")
 -- require("user.typescript")
 -- require("user.yanky") BUG?
 -- require("user.cutlass") BUG?
-require("user.yoink")
+-- require("user.yoink")
 -- require("user.nvim-bqf")

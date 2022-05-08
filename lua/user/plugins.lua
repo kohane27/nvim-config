@@ -135,7 +135,7 @@ return packer.startup(function(use)
     use("gbprod/substitute.nvim")
     -- use("gbprod/cutlass.nvim") -- BUG FREEZES nvim
     -- use("gbprod/yanky.nvim") -- BUG FREEZES nvim not really?
-    use("svermeulen/vim-yoink")
+    -- use("svermeulen/vim-yoink")
 
     -- use("preservim/tagbar")
     -- use { 'ray-x/navigator.lua',
@@ -158,7 +158,7 @@ return packer.startup(function(use)
     use("mhinz/vim-grepper")
     use("danilamihailov/beacon.nvim")
     use("folke/trouble.nvim")
-
+    use("nathom/filetype.nvim") -- jspeed up startup time
     use({
         "glacambre/firenvim",
         run = function()
