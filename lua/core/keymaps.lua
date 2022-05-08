@@ -1,6 +1,46 @@
+-----------------------------------------------------------
+-- Define keymaps of Neovim
+-----------------------------------------------------------
+
+local function map(mode, lhs, rhs, opts)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend('force', options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+-- Change leader to a comma
+vim.g.mapleader = ','
+
+-----------------------------------------------------------
+-- Neovim shortcuts
+-----------------------------------------------------------
+
+-- Map Esc to kk
+map('i', 'jk', '<Esc>')
+
+
+-- Reload configuration without restart nvim
+map('n', '<leader>r', ':so %<CR>')
+
+-- Fast saving with <leader> and s
+map('n', '<leader>s', ':w<CR>')
+map('i', '<leader>s', '<C-c>:w<CR>')
+
+-- Close all windows and exit from Neovim with <leader> and q
+map('n', '<leader>q', ':qa!<CR>')
+
+-----------------------------------------------------------
+-- Applications and Plugins shortcuts
+-----------------------------------------------------------
+
+-- Terminal mappings
+map('n', '<C-t>', ':Term<CR>', { noremap = true })  -- open
+map('t', '<Esc>', '<C-\\><C-n>')                    -- exit
+
+
 vim.cmd([[
-" escape to normal mode
-inoremap jk <Esc>
 let mapleader = "\<Space>"
 
 " go Normal mode in Terminal
