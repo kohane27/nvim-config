@@ -156,7 +156,7 @@ return packer.startup(function(use)
     use("ray-x/lsp_signature.nvim")
 
     use({ "mg979/vim-visual-multi", branch = "master" })
-    use("ethanholz/nvim-lastplace")
+    -- use("ethanholz/nvim-lastplace")
     use("karb94/neoscroll.nvim")
     use("max397574/better-escape.nvim")
     use("wellle/targets.vim")
