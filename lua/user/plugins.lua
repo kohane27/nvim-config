@@ -149,11 +149,6 @@ return packer.startup(function(use)
     -- use("ray-x/sad.nvim")
     use("ray-x/lsp_signature.nvim")
 
-    use {
-        "luukvbaal/stabilize.nvim",
-        config = function() require("stabilize").setup() end
-    }
-
     use({ "mg979/vim-visual-multi", branch = "master" })
     use("ethanholz/nvim-lastplace")
     use("karb94/neoscroll.nvim")
@@ -163,7 +158,11 @@ return packer.startup(function(use)
     use("mhinz/vim-grepper")
     use("danilamihailov/beacon.nvim")
     use("folke/trouble.nvim")
-    use("nathom/filetype.nvim") -- jspeed up startup time
+    use("nathom/filetype.nvim") -- speed up startup time
+    use {
+        "luukvbaal/stabilize.nvim",
+        config = function() require("stabilize").setup() end
+    }
     use({
         "glacambre/firenvim",
         run = function()
