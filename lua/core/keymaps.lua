@@ -49,6 +49,16 @@ map('x', 'gj', 'j')
 map('x', 'J', '5j')
 map('x', 'K', '5k')
 
+-- moving lines
+-- BUG: conflicting with jabirali/tmux-tilish
+-- map("n", "<A-j>", ":m .+1<CR>==")
+-- map("n", "<A-k>", ":m .-2<CR>==")
+-- map("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
+-- map("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
+map("v", "<C-j>", ":m '>+1<CR>gv=gv")
+map("v", "<C-k>", ":m '<-2<CR>gv=gv")
+
+map("n", "<A-c>", ": Bdelete<cr>")
 
 -- backspace to black hole registry
 map('n', '<BS>', '"_')
@@ -58,14 +68,67 @@ map('v', '<BS>', '"_')
 map('n', '<Leader>o', 'o<Esc>')
 map('n', '<Leader>O', 'O<Esc>')
 
+-- reselect visual selection after indenting
+map("v", "<", "<gv")
+map("v", ">", ">gv")
+
+-- Maintain the cursor position when yanking a visual selection
+map("v", "y", "myy`y")
+map("v", "Y", "myY`y")
+
+-- Keep it centered when searching
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
+
+-- map("n", "J", "mzJ`z") -- not sure what it does
+
+-- undo break points in insert mode
+map("i", ",", ",<C-g>u")
+map("i", ".", ".<C-g>u")
+map("i", "!", "!<C-g>u")
+map("i", "?", "?<C-g>u")
+map("i", "[", "[<C-g>u")
+
+-- replace visual selection without copying it
+--vnoremap p "_dP delete weird space don't use this
+map("v", "<leader>p", '"_dP')
+
+map("n", "<leader>y", '"*y')
+map("v", "<leader>y", '"*y')
+
+-- yank till end of line
+map("n", "<leader>Y", '"*Y')
+
+map("n", "<leader>d", '"_d')
+map("v", "<leader>d", '"_d')
+
+-- delete one word forward in Insert mode
+map("i", "<C-e>", '<C-o>de')
+
+-- CTRL-R * will insert clipboard contents
+-- CTRL-R " (the unnamed register) inserts the last delete or yank
+
+-- insert mode: paste yanked / deleted
+map("i", "<C-f>", '<C-R>"')
+-- insert mode: paste clipboard content
+map("i", "<C-v>", '<C-R>*')
+
+-- allow gf to open non-existent files
+-- map("n", "gf", ':edit <cfile><cr>')
 -- saving
 map('n', '<c-s>', ':wa<CR>')
 -- map('i', '<leader>s', '<C-c>:w<CR>')
 
--- Reload configuration without restart nvim
+-- => Splits (using i3 or tmux)
+-- easier split size adjustment
+map("n", "<Left>", ":vertical resize +3<CR>")
+map("n", "<Right>", ":vertical resize -3<CR>")
+map("n", "<Up>", ":resize +3<CR>")
+map("n", "<Down>", ":resize -3<CR>")
+
+-- reload configuration without restart nvim
 -- map('n', '<leader>r', ':so %<CR>')
--- Close all windows and exit from Neovim with <leader> and q
--- map('n', '<leader>q', ':qa!<CR>')
+
 -----------------------------------------------------------
 -- Applications and Plugins shortcuts
 -----------------------------------------------------------
@@ -73,89 +136,18 @@ map('n', '<c-s>', ':wa<CR>')
 -- Terminal mappings
 map('n', '<C-t>', ':Term<CR>', { noremap = true })  -- open
 map('t', '<Esc>', '<C-\\><C-n>')                    -- exit
+map('t', '<C-\>', '<C-\><C-n>')                     -- go Normal mode in Terminal
 
+-- Delete without yank
+map("n", "x", '"_x')
+map("v", "x", '"_x')
+
+-- paste in new line
+-- BUG: if paste to new buffer
+map("n", "p", ":pu<CR>")
 
 -- TODO migrate to lua
 vim.cmd([[
-
-" go Normal mode in Terminal
-tnoremap <C-\> <C-\><C-n>
-
-
-" " Delete without yank
-" nnoremap x "_x
-" vnoremap x "_x
-
-
-"paste in new line
-"bug if paste to new buffer
-" nnoremap p :pu<CR>
-
-
-
-"Mappings to move lines
-" conflicting with jabirali/tmux-tilish
-"nnoremap <A-j> :m .+1<CR>==
-"nnoremap <A-k> :m .-2<CR>==
-"inoremap <A-j> <Esc>:m .+1<CR>==gi
-"inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
-
-nnoremap <A-c> : Bdelete<cr>
-
-" Reselect visual selection after indenting
-vnoremap < <gv
-vnoremap > >gv
-
-" Maintain the cursor position when yanking a visual selection
-" http://ddrscott.github.io/blog/2016/yank-without-jank/
-vnoremap y myy`y
-vnoremap Y myY`y
-
-"ThePrimeagen below"
-
-" Keep it centered when searching
-nnoremap n nzzzv
-nnoremap N Nzzzv
-" nnoremap J mzJ`z " not sure what it does
-" nnoremap m zz
-" unlearn bad habit
-" nnoremap zz <Nop>
-
-" Undo break points
-inoremap , ,<C-g>u
-inoremap . .<C-g>u
-inoremap ! !<C-g>u
-inoremap ? ?<C-g>u
-inoremap [ [<C-g>u
-
-" replace visual selection without copying it
-"vnoremap p "_dP delete weird space don't use this
-vnoremap <leader>p "_dP
-
-nnoremap <Leader>y "*y
-vnoremap <leader>y "*y
-
-"yank till end of line
-nmap <leader>Y "*Y 
-
-nnoremap <leader>d "_d
-vnoremap <leader>d "_d
-
-"Delete one word forward in Insert mode
-inoremap <C-e> <C-o>de
-
-"CTRL-R * will insert clipboard contents
-"CTRL-R " (the unnamed register) inserts the last delete or yank
-
-"insert mode: paste yanked / deleted
-inoremap <C-f> <C-R>"
-"insert mode: paste clipboard content
-inoremap <C-v> <C-R>*
-
-" Allow gf to open non-existent files
-map gf :edit <cfile><cr>
 
 " wean off `:wq` and `:q` in favor of zz
 cnoremap <expr> <CR> getcmdtype() == ":" && index(["q", "wq"], getcmdline()) >= 0 ? "<C-u>" : "<CR>"
@@ -176,23 +168,11 @@ inoremap td - [ ]
 iab doto ✅ <c-r>=strftime("%Y-%m-%d")<cr>
 iab duto 📅 <c-r>=strftime("%Y-%m-%d")<cr>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Insert mode Ctrls
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Keep these
-"CTRL-J	    Begin new line.
-"CTRL-A		Insert previously inserted text.
+"CTRL-J     Begin new line.
+"CTRL-A     Insert previously inserted text.
 
 " kept except visual mode
-"CTRL-C		Quit insert mode, go back to Normal mode.
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Splits (using i3 or tmux)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" easier split size adjustment
-noremap <silent> <Left> :vertical resize +3<CR>
-noremap <silent> <Right> :vertical resize -3<CR>
-noremap <silent> <Up> :resize +3<CR>
-noremap <silent> <Down> :resize -3<CR>
-
+"CTRL-C     Quit insert mode, go back to Normal mode.
 ]])
