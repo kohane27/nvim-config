@@ -1,29 +1,45 @@
--- https://github.com/Pocco81/TheSupercalifragilisticexpialidociousDots/blob/main/.config/nvim/lua/nvdope/initialization/lsp/lspconfig.lua
--- suppress error messages from lang servers
-vim.notify = function(msg, log_level, _opts)
-    -- if msg:match("exit code") then
-    --     return
-    -- end
-    if msg:match("Unable to find checker") then
-        return
-    end
-    -- if log_level == vim.log.levels.ERROR then
-    --     vim.api.nvim_err_writeln(msg)
-    -- else
-    --     vim.api.nvim_echo({{msg}}, true, {})
-    -- end
-end
+-----------------------------------------------------------
+-- General Neovim settings and configuration
+-----------------------------------------------------------
 
--- TODO migrate to lua
+-- Default options are not included
+-- See: https://neovim.io/doc/user/vim_diff.html
+-- [2] Defaults - *nvim-defaults*
+
+
 vim.cmd([[
 """" => General Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible
-filetype off
+
+" remove default if these are set as default in neovim
+"" 'backspace' defaults to "indent,eol,start"
+"" 'complete' excludes "i"
+"" 'display' defaults to "lastline,msgsep"
+"" 'fillchars' defaults (in effect) to "vert:│,fold:·,sep:│"
+"" 'formatoptions' defaults to "tcqj"
+"" 'joinspaces' is disabled
+"" 'langnoremap' is enabled
+"" 'langremap' is disabled
+"" 'listchars' defaults to "tab:> ,trail:-,nbsp:+"
+"" 'nrformats' defaults to "bin,hex"
+"" 'sessionoptions' includes "unix,slash", excludes "options"
+"" 'shortmess' includes "F", excludes "S"
+"" 'showcmd' is enabled
+"" 'sidescroll' defaults to 1
+"" 'smarttab' is enabled
+"" 'startofline' is disabled
+"" 'switchbuf' defaults to "uselast"
+"" 'tabpagemax' defaults to 50
+"" 'tags' defaults to "./tags;,tags"
+"" 'ttimeoutlen' defaults to 50
+"" 'undodir' defaults to ~/.local/share/nvim/undo// (|xdg|), auto-created
+"" 'viewoptions' includes "unix,slash", excludes "options"
+"" 'viminfo' includes "!"
+"" 'wildoptions' defaults to "pum,tagfile"
+""
+"" |g:vimsyn_embed| defaults to "l" to enable Lua highlighting
+
 set path+=**                    " Searches current directory recursively
-set wildmenu                    " Display all matches when tab complete
-set hidden                      " Needed keep multiple buffers open
-set fileencoding=utf-8
 set t_Co=256
 set termguicolors
 let g:rehash256 = 1
@@ -32,8 +48,6 @@ set wrap                        " soft wrapping text
 set linebreak
 "set nolist
 set ignorecase                  " case insensitive
-set hlsearch                    " highlight search 
-set incsearch                   " incremental search
 set number relativenumber       " Display line numbers
 set wildmode=longest,list       " get bash-like tab completions
 set cursorline                  " highlight current line
@@ -53,14 +67,13 @@ set nojoinspaces
 set splitright
 set confirm
 set exrc
-set updatetime=750    " 
+set updatetime=750
 set redrawtime=10000  " allow more time for loading syntax on large files
 " end jess
 
 " from chris
 set completeopt=menuone,noselect          " for cmp
 set pumheight=10                          " pop up menu height
-set showmode                              " No -- INSERT --
 set showtabline=2                         " always show tabs
 set smartindent
 set timeoutlen=500                       " time to wait for a mapped sequence to complete
@@ -78,13 +91,9 @@ set foldexpr=nvim_treesitter#foldexpr()
 " end chris
 
 filetype plugin indent on                       " allow auto-indenting depending on file type
-syntax on
 set clipboard=unnamedplus                       " Copy/paste between vim and other programs
 filetype plugin on
-set encoding=utf-8
 set backup                                      " keep a backup file
-set backupdir=~/.local/share/nvim/backup//      " store backup files
-set dir=~/.cache/vim                            " store swap files
 
 "enable relative numbers only in Normal mode
 "absolute numbers only in Insert mode.
@@ -104,7 +113,6 @@ set smarttab                    " Be smart using tabs ;)
 set shiftwidth=4                " One tab == four spaces.
 set tabstop=4                   " One tab == four spaces.
 set softtabstop=4               " see multiple spaces as tabstops so <BS> does the right thing
-set autoindent                  " indent a new line the same amount as the line just typed
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mouse Scrolling
@@ -116,6 +124,7 @@ set mouse=a                 " enable mouse click
 " 2022-04-24 global status ilne is 3
 set laststatus=3
 
+set showmode                              " No -- INSERT --
 " Uncomment to prevent non-normal modes showing in powerline and below powerline.
 set noshowmode
 
