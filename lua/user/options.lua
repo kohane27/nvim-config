@@ -53,7 +53,7 @@ set nojoinspaces
 set splitright
 set confirm
 set exrc
-"set updatetime=300    " coc: reduce time for highlighting other references
+set updatetime=750    " 
 set redrawtime=10000  " allow more time for loading syntax on large files
 " end jess
 
