@@ -13,20 +13,14 @@ if not status_ok then
 end
 
 -- vim.cmd [[
--- try
---     set background=dark
---     colorscheme doom-one
---     " for vsplits
---     set fillchars=vert:┃ 
---     " for folds
---     set fillchars+=fold:· 
---     " TODO not working
---     hi VertSplit guifg=#FF5C8F ctermfg=123
---
--- catch /^Vim\%((\a\+)\)\=:E185/
---       set background=dark
---       colorscheme default
--- endtry
+--   set background=dark
+--   colorscheme doom-one
+--   " for vsplits
+--   set fillchars=vert:┃ 
+--   " for folds
+--   set fillchars+=fold:· 
+--   " TODO not working
+--   hi VertSplit guifg=#FF5C8F ctermfg=123
 -- ]]
 
 -- OneDark styles: dark, darker, cool, deep, warm, warmer, light
