@@ -42,8 +42,10 @@ require("user.targets")
 require("user.neoscroll")
 require("user.better-escape")
 require("user.substitute")
--- require("user.sad")
 require("user.startify")
+require("user.wilder")
+require("user.symbols-outline")
+-- require("user.sad")
 
 -- require("user.typescript")
 -- require("user.yanky") BUG?
