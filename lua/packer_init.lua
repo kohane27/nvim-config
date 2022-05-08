@@ -1,7 +1,11 @@
-local fn = vim.fn
+-----------------------------------------------------------
+-- Plugin manager configuration file
+-----------------------------------------------------------
 
 -- Automatically install packer
+local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+
 if fn.empty(fn.glob(install_path)) > 0 then
     PACKER_BOOTSTRAP = fn.system({
         "git",
@@ -15,13 +19,13 @@ if fn.empty(fn.glob(install_path)) > 0 then
     vim.cmd([[packadd packer.nvim]])
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
+-- Autocommand that reloads neovim whenever you save this packer_init.lua file
+vim.cmd [[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    autocmd BufWritePost packer_init.lua source <afile> | PackerSync
   augroup end
-]])
+]]
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -65,19 +69,25 @@ return packer.startup(function(use)
     use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
     use("lukas-reineke/lsp-format.nvim")
 
-    -- cmp plugins
-    use("hrsh7th/nvim-cmp") -- auto-completion plugin
-    use("hrsh7th/cmp-buffer") -- buffer completions
-    use("hrsh7th/cmp-path") -- path completions
-    use("hrsh7th/cmp-cmdline") -- cmdline completions
-    use("saadparwaiz1/cmp_luasnip") -- snippet completions
-    use("hrsh7th/cmp-nvim-lsp")
-    use("hrsh7th/cmp-nvim-lua")
+
+      -- Autocomplete
+      use {
+        'hrsh7th/nvim-cmp',
+        requires = {
+          'hrsh7th/cmp-nvim-lsp',
+          'hrsh7th/cmp-nvim-lua',
+          'hrsh7th/cmp-path',
+          'hrsh7th/cmp-buffer',
+          'hrsh7th/cmp-cmdline', -- cmdline completions
+        },
+      }
+
     use("b0o/schemastore.nvim")
 
     -- snippets
     use("L3MON4D3/LuaSnip") --snippet engine
     use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
+    use('saadparwaiz1/cmp_luasnip')
     -- For vsnip users
     -- use 'hrsh7th/cmp-vsnip'
     -- use 'hrsh7th/vim-vsnip'
@@ -192,6 +202,7 @@ return packer.startup(function(use)
     use("sunaku/tmux-navigate")
     use("famiu/bufdelete.nvim")
     use("moll/vim-bbye")
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
