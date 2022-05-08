@@ -6,138 +6,78 @@
 -- See: https://neovim.io/doc/user/vim_diff.html
 -- [2] Defaults - *nvim-defaults*
 
+local g = vim.g       -- Global variables
+local opt = vim.opt   -- Set options (global/buffer/windows-scoped)
 
-vim.cmd([[
-"""" => General Settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+-----------------------------------------------------------
+-- General
+-----------------------------------------------------------
+opt.mouse = 'a'                       -- Enable mouse support
+opt.clipboard = 'unnamedplus'         -- Copy/paste to system clipboard
+opt.swapfile = false                  -- Don't use swapfile
+opt.completeopt = 'menuone,noinsert,noselect'  -- Autocomplete options
 
-" remove default if these are set as default in neovim
-"" 'backspace' defaults to "indent,eol,start"
-"" 'complete' excludes "i"
-"" 'display' defaults to "lastline,msgsep"
-"" 'fillchars' defaults (in effect) to "vert:│,fold:·,sep:│"
-"" 'formatoptions' defaults to "tcqj"
-"" 'joinspaces' is disabled
-"" 'langnoremap' is enabled
-"" 'langremap' is disabled
-"" 'listchars' defaults to "tab:> ,trail:-,nbsp:+"
-"" 'nrformats' defaults to "bin,hex"
-"" 'sessionoptions' includes "unix,slash", excludes "options"
-"" 'shortmess' includes "F", excludes "S"
-"" 'showcmd' is enabled
-"" 'sidescroll' defaults to 1
-"" 'smarttab' is enabled
-"" 'startofline' is disabled
-"" 'switchbuf' defaults to "uselast"
-"" 'tabpagemax' defaults to 50
-"" 'tags' defaults to "./tags;,tags"
-"" 'ttimeoutlen' defaults to 50
-"" 'undodir' defaults to ~/.local/share/nvim/undo// (|xdg|), auto-created
-"" 'viewoptions' includes "unix,slash", excludes "options"
-"" 'viminfo' includes "!"
-"" 'wildoptions' defaults to "pum,tagfile"
-""
-"" |g:vimsyn_embed| defaults to "l" to enable Lua highlighting
+-----------------------------------------------------------
+-- Neovim UI
+-----------------------------------------------------------
+opt.number = true           -- Show line number
+opt.showmatch = true        -- Highlight matching parenthesis
+opt.foldmethod = 'marker'   -- Enable folding (default 'foldmarker')
+opt.colorcolumn = '80'      -- Line lenght marker at 80 columns
+opt.splitright = true       -- Vertical split to the right
+opt.splitbelow = true       -- Horizontal split to the bottom
+opt.ignorecase = true       -- Ignore case letters when search
+opt.smartcase = true        -- Ignore lowercase for the whole pattern
+opt.linebreak = true        -- Wrap on word boundary
+opt.termguicolors = true    -- Enable 24-bit RGB colors
+opt.laststatus=3            -- Set global statusline
 
-set path+=**                    " Searches current directory recursively
-set t_Co=256
-set termguicolors
-let g:rehash256 = 1
-set showmatch                   " show matching 
-set wrap                        " soft wrapping text
-set linebreak
-"set nolist
-set ignorecase                  " case insensitive
-set number relativenumber       " Display line numbers
-set wildmode=longest,list       " get bash-like tab completions
-set cursorline                  " highlight current line
-set noshowmatch                 " no jumping for matching brackets
+-----------------------------------------------------------
+-- Tabs, indent
+-----------------------------------------------------------
+opt.expandtab = true        -- Use spaces instead of tabs
+opt.shiftwidth = 4          -- Shift 4 spaces when tab
+opt.tabstop = 4             -- 1 tab == 4 spaces
+opt.smartindent = true      -- Autoindent new lines
 
-" from jess
-set signcolumn=yes:2
-set title
-" set smartcase
-set wildmode=longest:full,full
-set nospell
-set list
-set listchars=tab:▸\ ,trail:·
-set scrolloff=4            " cursor won't go the bottom
-set sidescrolloff=4
-set nojoinspaces
-set splitright
-set confirm
-set exrc
-set updatetime=750
-set redrawtime=10000  " allow more time for loading syntax on large files
-" end jess
+-----------------------------------------------------------
+-- Memory, CPU
+-----------------------------------------------------------
+opt.hidden = true           -- Enable background buffers
+opt.history = 100           -- Remember N lines in history
+opt.lazyredraw = true       -- Faster scrolling
+opt.synmaxcol = 240         -- Max column for syntax highlight
+opt.updatetime = 700        -- ms to wait for trigger an event
 
-" from chris
-set completeopt=menuone,noselect          " for cmp
-set pumheight=10                          " pop up menu height
-set showtabline=2                         " always show tabs
-set smartindent
-set timeoutlen=500                       " time to wait for a mapped sequence to complete
-set undofile                              " enable persistent undo
-set nowritebackup                         " disable editing a file that is being edited
-set shiftwidth=2                          " spaces inserted for each indentation
-set tabstop=2                             " 2 spaces for a tab
+-----------------------------------------------------------
+-- Startup
+-----------------------------------------------------------
+-- Disable nvim intro
+opt.shortmess:append "sI"
 
-let g:markdown_folding = 0
-set foldlevelstart=999
-" folding using treesitter
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
-" set iskeyword+=-
-" end chris
+-- Disable builtins plugins
+local disabled_built_ins = {
+  "netrw",
+  "netrwPlugin",
+  "netrwSettings",
+  "netrwFileHandlers",
+  "gzip",
+  "zip",
+  "zipPlugin",
+  "tar",
+  "tarPlugin",
+  "getscript",
+  "getscriptPlugin",
+  "vimball",
+  "vimballPlugin",
+  "2html_plugin",
+  "logipat",
+  "rrhelper",
+  "spellfile_plugin",
+  "matchit"
+}
 
-filetype plugin indent on                       " allow auto-indenting depending on file type
-set clipboard=unnamedplus                       " Copy/paste between vim and other programs
-filetype plugin on
-set backup                                      " keep a backup file
+for _, plugin in pairs(disabled_built_ins) do
+  g["loaded_" .. plugin] = 1
+end
 
-"enable relative numbers only in Normal mode
-"absolute numbers only in Insert mode.
-augroup toggle_relative_number
-autocmd InsertEnter * :setlocal norelativenumber
-autocmd InsertLeave * :setlocal relativenumber
-
-set shortmess+=I           " Disable intro message
-set sessionoptions+=globals " for obsession.vim
-set inccommand=nosplit     " Live substitution
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set expandtab                   " Use spaces instead of tabs.
-set smarttab                    " Be smart using tabs ;)
-set shiftwidth=4                " One tab == four spaces.
-set tabstop=4                   " One tab == four spaces.
-set softtabstop=4               " see multiple spaces as tabstops so <BS> does the right thing
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Mouse Scrolling
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set mouse=nicr
-set mouse=a                 " enable mouse click
-" set mouse=r                 " middle-click to paste
-
-" 2022-04-24 global status ilne is 3
-set laststatus=3
-
-set showmode                              " No -- INSERT --
-" Uncomment to prevent non-normal modes showing in powerline and below powerline.
-set noshowmode
-
-if has("persistent_undo")
-   let target_path = expand('~/.undodir')
-
-    " create the directory and any parent directories
-    " if the location does not exist.
-    if !isdirectory(target_path)
-        call mkdir(target_path, "p", 0700)
-    endif
-
-    let &undodir=target_path
-    set undofile
-endif
-]])
