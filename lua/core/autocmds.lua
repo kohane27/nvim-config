@@ -1,3 +1,9 @@
+-----------------------------------------------------------
+-- Autocommand functions
+-- Define autocommands with Lua APIs
+-- See: h:api-autocmd, h:augroup
+-----------------------------------------------------------
+
 vim.cmd([[
   augroup _general_settings
     autocmd!
@@ -19,6 +25,49 @@ autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tab
 let ftToIgnore = ['c', 'markdown', 'javascript']
     autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | lua vim.lsp.buf.formatting_sync()
 
-" https://neovim.io/doc/user/lua.html#lua-highlight
-au TextYankPost * silent! lua vim.highlight.on_yank {on_visual=true, timeout=350}
 ]])
+
+local augroup = vim.api.nvim_create_augroup   -- Create/get autocommand group
+local autocmd = vim.api.nvim_create_autocmd   -- Create autocommand
+
+-- Highlight on yank
+augroup('YankHighlight', { clear = true })
+
+autocmd('TextYankPost', {
+  group = 'YankHighlight',
+  callback = function()
+    vim.highlight.on_yank({ higroup = 'IncSearch', timeout = '350' })
+  end
+})
+
+-- Remove whitespace on save
+-- autocmd('BufWritePre', {
+--   pattern = '*',
+--   command = ":%s/\\s\\+$//e"
+-- })
+
+-- -- Don't auto commenting new lines
+-- autocmd('BufEnter', {
+--   pattern = '*',
+--   command = 'set fo-=c fo-=r fo-=o'
+-- })
+
+-- Settings for fyletypes:
+-- Disable line lenght marker
+-- augroup('setLineLenght', { clear = true })
+-- autocmd('Filetype', {
+--   group = 'setLineLenght',
+--   pattern = { 'text', 'markdown', 'html', 'xhtml', 'javascript', 'typescript' },
+--   command = 'setlocal cc=0'
+-- })
+
+-- Set indentation to 2 spaces
+-- augroup('setIndent', { clear = true })
+-- autocmd('Filetype', {
+--   group = 'setIndent',
+--   pattern = { 'xml', 'html', 'xhtml', 'css', 'scss', 'javascript', 'typescript',
+--     'yaml', 'lua'
+--   },
+--   command = 'setlocal shiftwidth=2 tabstop=2'
+-- })
+
