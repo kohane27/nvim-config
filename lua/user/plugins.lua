@@ -91,6 +91,7 @@ return packer.startup(function(use)
     -- Telescope
     use("nvim-telescope/telescope.nvim")
     use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+    use("romgrk/fzy-lua-native")
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     -- Additional textobjects for treesitter
     use("nvim-treesitter/nvim-treesitter-textobjects")
@@ -133,15 +134,15 @@ return packer.startup(function(use)
     use("takac/vim-hardtime")
     use("jose-elias-alvarez/typescript.nvim")
     use("gbprod/substitute.nvim")
-    -- use("gbprod/cutlass.nvim") -- BUG FREEZES nvim
-    -- use("gbprod/yanky.nvim") -- BUG FREEZES nvim not really?
-    -- use("svermeulen/vim-yoink")
+    -- use("gbprod/cutlass.nvim") -- BUG FREEZES nvim?
+    -- use("gbprod/yanky.nvim") -- BUG FREEZES nvim?
+    -- use("svermeulen/vim-yoink") -- BUG FREEZES nvim?
     use("gelguy/wilder.nvim")
     use("tami5/sqlite.lua") -- required by telescope-frecency
     use("simrat39/symbols-outline.nvim")
     use("mtdl9/vim-log-highlighting")
     use("dstein64/nvim-scrollview")
-    use("romgrk/fzy-lua-native")
+    use("rcarriga/nvim-notify")
 
     -- use { 'ray-x/navigator.lua',
     --     requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' }
