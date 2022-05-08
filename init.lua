@@ -45,6 +45,7 @@ require("user.substitute")
 require("user.startify")
 require("user.wilder")
 require("user.symbols-outline")
+require("user.scrollview")
 -- require("user.sad")
 
 -- require("user.typescript")

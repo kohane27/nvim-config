@@ -112,9 +112,8 @@ return packer.startup(function(use)
     -- LSP
     use("neovim/nvim-lspconfig") -- enable LSP
     use("williamboman/nvim-lsp-installer") -- language server installer
-    use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
+    use("tamago324/nlsp-settings.nvim") -- language server settings defined in json
     use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
-    -- use("mfussenegger/nvim-lint")
     use("lukas-reineke/lsp-format.nvim")
     use("lewis6991/gitsigns.nvim")
 
@@ -128,8 +127,7 @@ return packer.startup(function(use)
     use("voldikss/vim-floaterm")
     use("windwp/nvim-ts-autotag")
 
-    -- Add indentation guides even on blank lines
-    use("lukas-reineke/indent-blankline.nvim")
+    use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
     use("machakann/vim-sandwich") -- better than surround
 
     use("takac/vim-hardtime")
@@ -142,6 +140,8 @@ return packer.startup(function(use)
     use("tami5/sqlite.lua") -- required by telescope-frecency
     use("simrat39/symbols-outline.nvim")
     use("mtdl9/vim-log-highlighting")
+    use("dstein64/nvim-scrollview")
+    use("romgrk/fzy-lua-native")
 
     -- use { 'ray-x/navigator.lua',
     --     requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' }
