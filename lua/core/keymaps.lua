@@ -32,9 +32,6 @@ map('n', '<C-b>', '30k')
 map('n', '<Leader>j', 'J')
 map('n', '<Leader>k', 'K')
 
--- yank till end of line
-map('n', 'Y', 'y$')
-
 -- operate on display lines rather than real lines
 map('n', 'k', 'gk')
 map('n', 'gk', 'k')
@@ -79,7 +76,6 @@ map("v", "Y", "myY`y")
 -- Keep it centered when searching
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
-
 -- map("n", "J", "mzJ`z") -- not sure what it does
 
 -- undo break points in insert mode
@@ -93,7 +89,10 @@ map("i", "[", "[<C-g>u")
 --vnoremap p "_dP delete weird space don't use this
 map("v", "<leader>p", '"_dP')
 
-map("n", "<leader>y", '"*y')
+-- yank till end of line
+map('n', 'Y', 'y$')
+
+-- map("n", "<leader>y", '"*y')
 map("v", "<leader>y", '"*y')
 
 -- yank till end of line
@@ -104,6 +103,9 @@ map("v", "<leader>d", '"_d')
 
 -- delete one word forward in Insert mode
 map("i", "<C-e>", '<C-o>de')
+
+-- don't copy the replaced text after pasting in visual mode
+map("v", "p", "p:let @+=@0<CR>")
 
 -- CTRL-R * will insert clipboard contents
 -- CTRL-R " (the unnamed register) inserts the last delete or yank
@@ -134,9 +136,8 @@ map("n", "<Down>", ":resize -3<CR>")
 -----------------------------------------------------------
 
 -- Terminal mappings
-map('n', '<C-t>', ':Term<CR>', { noremap = true })  -- open
-map('t', '<Esc>', '<C-\\><C-n>')                    -- exit
-map('t', '<C-\>', '<C-\><C-n>')                     -- go Normal mode in Terminal
+-- map('n', '<C-t>', ':Term<CR>', { noremap = true })  -- open
+-- map('t', '<Esc>', '<C-\\><C-n>')                    -- exit
 
 -- Delete without yank
 map("n", "x", '"_x')
@@ -144,11 +145,9 @@ map("v", "x", '"_x')
 
 -- paste in new line
 -- BUG: if paste to new buffer
-map("n", "p", ":pu<CR>")
+-- map("n", "p", ":pu<CR>")
 
--- TODO migrate to lua
 vim.cmd([[
-
 " wean off `:wq` and `:q` in favor of zz
 cnoremap <expr> <CR> getcmdtype() == ":" && index(["q", "wq"], getcmdline()) >= 0 ? "<C-u>" : "<CR>"
 
@@ -167,12 +166,4 @@ ab :lp: 🔽
 inoremap td - [ ] 
 iab doto ✅ <c-r>=strftime("%Y-%m-%d")<cr>
 iab duto 📅 <c-r>=strftime("%Y-%m-%d")<cr>
-
-" => Insert mode Ctrls
-"Keep these
-"CTRL-J     Begin new line.
-"CTRL-A     Insert previously inserted text.
-
-" kept except visual mode
-"CTRL-C     Quit insert mode, go back to Normal mode.
 ]])
