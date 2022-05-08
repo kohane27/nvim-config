@@ -4,10 +4,9 @@ if not status_ok then
 end
 
 scrollview.setup({
-    scrollview_on_startup = false,
-    excluded_filetypes = { 'nerdtree', 'nvim-tree' },
+    on_startup = false,
+    auto_mouse = true,
     current_only = true,
-    winblend = 75,
-    base = 'buffer',
-    column = 80
+    excluded_filetypes = { 'nerdtree', 'nvim-tree' },
 })
+
