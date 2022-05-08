@@ -23,17 +23,49 @@ map('n', 'J', '<nop>')
 map('n', 'K', '<nop>')
 map('n', 'd$', '<nop>')
 
--- Reload configuration without restart nvim
-map('n', '<leader>r', ':so %<CR>')
+map('n', '<C-d>', '13j')
+map('n', '<C-u>', '13k')
+
+map('n', '<C-f>', '30j')
+map('n', '<C-b>', '30k')
+
+map('n', '<Leader>j', 'J')
+map('n', '<Leader>k', 'K')
+
+-- yank till end of line
+map('n', 'Y', 'y$')
+
+-- operate on display lines rather than real lines
+map('n', 'k', 'gk')
+map('n', 'gk', 'k')
+map('n', 'j', 'gj')
+map('n', 'gj', 'j')
+map('x', 'k', 'gk')
+map('x', 'gk', 'k')
+map('x', 'j', 'gj')
+map('x', 'gj', 'j')
+
+-- select 5 lines in visual mode
+map('x', 'J', '5j')
+map('x', 'K', '5k')
+
+
+-- backspace to black hole registry
+map('n', '<BS>', '"_')
+map('v', '<BS>', '"_')
+
+-- insert empty new line without entering insert mode
+map('n', '<Leader>o', 'o<Esc>')
+map('n', '<Leader>O', 'O<Esc>')
 
 -- saving
 map('n', '<c-s>', ':wa<CR>')
+-- map('i', '<leader>s', '<C-c>:w<CR>')
 
-map('i', '<leader>s', '<C-c>:w<CR>')
-
+-- Reload configuration without restart nvim
+-- map('n', '<leader>r', ':so %<CR>')
 -- Close all windows and exit from Neovim with <leader> and q
-map('n', '<leader>q', ':qa!<CR>')
-
+-- map('n', '<leader>q', ':qa!<CR>')
 -----------------------------------------------------------
 -- Applications and Plugins shortcuts
 -----------------------------------------------------------
@@ -49,48 +81,17 @@ vim.cmd([[
 " go Normal mode in Terminal
 tnoremap <C-\> <C-\><C-n>
 
-nnoremap <C-d> 13j
-nnoremap <C-u> 13k
-
-nnoremap <C-f> 30j
-nnoremap <C-b> 30k
-
-nnoremap <Leader>j J
-nnoremap <Leader>k K
 
 " " Delete without yank
 " nnoremap x "_x
 " vnoremap x "_x
 
-" insert empty new line without entering insert mode
-nnoremap <Leader>o o<Esc>
-nnoremap <Leader>O O<Esc>
-
-" backspace to black hole registry
-nnoremap <BS> "_
-vnoremap <BS> "_
 
 "paste in new line
 "bug if paste to new buffer
 " nnoremap p :pu<CR>
 
-" yank till end of line
-nnoremap Y y$
 
-" operate on display lines rather than real lines
-nnoremap k gk
-nnoremap gk k
-nnoremap j gj
-nnoremap gj j
-
-xnoremap k gk
-xnoremap gk k
-xnoremap j gj
-xnoremap gj j
-
-"select 5 lines in visual mode
-xnoremap J 5j
-xnoremap K 5k
 
 "Mappings to move lines
 " conflicting with jabirali/tmux-tilish
