@@ -35,6 +35,6 @@ local sources = {
 
 null_ls.setup({
     debug = false,
-    sources = sources,
+    -- sources = sources,
     root_dir = nls_utils.root_pattern(".git"),
 })
