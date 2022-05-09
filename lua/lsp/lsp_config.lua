@@ -8,16 +8,56 @@ if not cmp_status_ok then
   print("cmp_nvim_lsp failing")
 end
 
--- Diagnostic options
-vim.diagnostic.config({ virtual_text = false })
+local signs = {
+  { name = "DiagnosticSignError", text = "" },
+  { name = "DiagnosticSignWarn", text = "" },
+  { name = "DiagnosticSignHint", text = "" },
+  { name = "DiagnosticSignInfo", text = "" },
+}
 
--- Show line diagnostics automatically in hover window
+for _, sign in ipairs(signs) do
+  vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+end
+
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = "rounded",
+})
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  border = "rounded",
+})
+
+-- Diagnostic options
+vim.diagnostic.config({
+  -- disable virtual text
+  virtual_text = false,
+  -- show signs
+  signs = {
+    active = signs,
+  },
+  update_in_insert = false,
+  underline = true,
+  severity_sort = true,
+  float = {
+    focusable = false,
+    style = "minimal",
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = "",
+  },
+})
+
 vim.cmd([[
+  "" show line diagnostics automatically in hover window
   autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })
+  "" code action listener
+  autocmd CursorHold,CursorHoldI * lua require('lsp/code_action_utils').code_action_listener()
 ]])
 
 -- Add additional capabilities supported by nvim-cmp
--- See: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
+-- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
@@ -113,7 +153,7 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- `tsserver` is managed by `typescript.nvim`
 
-local servers = { 'bashls', 'pyright', 'html', 'cssls' }
+local servers = { 'bashls', 'pyright', 'html', 'cssls', 'emmet_ls', 'jsonls' }
 
 -- Call setup
 for _, lsp in ipairs(servers) do
@@ -126,6 +166,10 @@ end
 
 
 -- custom language server not listed above
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
+
 lspconfig.sumneko_lua.setup {
   on_attach = on_attach,
   root_dir = root_dir,
@@ -135,9 +179,23 @@ lspconfig.sumneko_lua.setup {
       format = {
         enable = true
       },
-      diagnostics = {
-        globals = { "P" },
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+        -- Setup your lua path
+        path = runtime_path,
       },
-    }
-  }
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = { 'vim', 'P' },
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
 }
