@@ -17,31 +17,30 @@ local sources = {
     formatting.prettier.with({ extra_args = { "--single-quote", "--jsx-single-quote" } }),
     formatting.black.with({ extra_args = { "--fast" } }),
     -- formatting.stylua,
-    builtins.formatting.shfmt,
-    builtins.formatting.isort,
-    formatting.shfmt.with {
-        filetypes = { 'sh', 'bash' },
-    },
+    formatting.shfmt,
+    formatting.isort,
+    -- formatting.shfmt.with {
+    --     filetypes = { 'sh', 'bash' },
+    -- },
 
-    -- diagnostics
-    -- builtins.diagnostics.write_good,
-    -- builtins.diagnostics.markdownlint,
-    -- builtins.diagnostics.flake8,
-    -- builtins.diagnostics.tsc,
+    -- DIAGNOSTICS
+    -- diagnostics.write_good,
+    -- diagnostics.markdownlint,
+    -- diagnostics.flake8,
+    -- diagnostics.tsc,
     diagnostics.eslint_d,
-    diagnostics.shellcheck,
     diagnostics.pylint,
     diagnostics.shellcheck.with {
         filetypes = { 'sh', 'bash' },
     },
 
-    -- code actions
+    -- CODE ACTIONS
     builtins.code_actions.gitsigns,
     builtins.code_actions.gitrebase,
 }
 
 null_ls.setup({
     debug = false,
-    -- sources = sources,
+    sources = sources,
     root_dir = nls_utils.root_pattern(".git"),
 })
