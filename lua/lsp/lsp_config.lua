@@ -17,10 +17,6 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 })
 
 vim.cmd([[
-" format on save except the following
-" let ftToIgnore = ['c', 'markdown', 'json']
-"autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | lua vim.lsp.buf.formatting_sync()
-
 "" show line diagnostics automatically in hover window
 autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })
 
@@ -94,9 +90,6 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 
 HTML/CSS/JSON --> vscode-html-languageserver
 https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
-
-JavaScript/TypeScript --> tsserver
-https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
 
 --]]
 
