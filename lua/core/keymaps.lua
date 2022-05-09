@@ -126,6 +126,8 @@ map("n", "<Right>", ":vertical resize -3<CR>")
 map("n", "<Up>", ":resize +3<CR>")
 map("n", "<Down>", ":resize -3<CR>")
 
+map("n", "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
+
 -- reload configuration without restart nvim
 -- map('n', '<leader>r', ':so %<CR>')
 
