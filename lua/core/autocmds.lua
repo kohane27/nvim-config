@@ -25,7 +25,7 @@ autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tab
 let ftToIgnore = ['c', 'markdown']
 autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | lua vim.lsp.buf.formatting_sync()
 
-" https://github.com/neovim/nvim-lspconfig/wiki/Code-Actions
+" " https://github.com/neovim/nvim-lspconfig/wiki/Code-Actions
 autocmd CursorHold,CursorHoldI * lua require('lsp/code_action_utils').code_action_listener()
 ]])
 
