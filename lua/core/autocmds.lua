@@ -22,9 +22,11 @@ vim.cmd([[
 autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 
 " format on save except the following
-let ftToIgnore = ['c', 'markdown', 'javascript']
-    autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | lua vim.lsp.buf.formatting_sync()
+let ftToIgnore = ['c', 'markdown']
+autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | lua vim.lsp.buf.formatting_sync()
 
+" https://github.com/neovim/nvim-lspconfig/wiki/Code-Actions
+autocmd CursorHold,CursorHoldI * lua require('lsp/code_action_utils').code_action_listener()
 ]])
 
 local augroup = vim.api.nvim_create_augroup   -- Create/get autocommand group
@@ -44,7 +46,6 @@ autocmd("BufReadPost", {
       end
    end,
 })
-
 
 autocmd('TextYankPost', {
   group = 'YankHighlight',

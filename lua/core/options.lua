@@ -25,8 +25,9 @@ endif
 
 set path+=**                    " Searches current directory recursively
 set t_Co=256
-set listchars="tab:▸\ ,trail:·"
-set fillchars"+=vert:\"  -- removes pipes | that act as seperators on splits
+set listchars=tab:▸\ ,trail:·
+" removes pipes | that act as seperators on splits
+set fillchars+=vert:\
 ]])
 
 -----------------------------------------------------------
