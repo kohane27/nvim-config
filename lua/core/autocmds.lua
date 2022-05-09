@@ -25,12 +25,10 @@ autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tab
 let ftToIgnore = ['c', 'markdown']
 autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | lua vim.lsp.buf.formatting_sync()
 
-" " https://github.com/neovim/nvim-lspconfig/wiki/Code-Actions
-autocmd CursorHold,CursorHoldI * lua require('lsp/code_action_utils').code_action_listener()
 ]])
 
-local augroup = vim.api.nvim_create_augroup   -- Create/get autocommand group
-local autocmd = vim.api.nvim_create_autocmd   -- Create autocommand
+local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
+local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
 
 
 -- Highlight on yank
@@ -39,12 +37,12 @@ augroup('YankHighlight', { clear = true })
 
 -- Open a file from its last left off position
 autocmd("BufReadPost", {
-   callback = function()
-      if not vim.fn.expand("%:p"):match ".git" and vim.fn.line "'\"" > 1 and vim.fn.line "'\"" <= vim.fn.line "$" then
-         vim.cmd "normal! g'\""
-         vim.cmd "normal zz"
-      end
-   end,
+  callback = function()
+    if not vim.fn.expand("%:p"):match ".git" and vim.fn.line "'\"" > 1 and vim.fn.line "'\"" <= vim.fn.line "$" then
+      vim.cmd "normal! g'\""
+      vim.cmd "normal zz"
+    end
+  end,
 })
 
 autocmd('TextYankPost', {
@@ -56,10 +54,10 @@ autocmd('TextYankPost', {
 
 -- Enable spellchecking in text and gitcommit files
 autocmd("FileType", {
-   pattern = { "gitcommit", "text" },
-   callback = function()
-      vim.opt_local.spell = true
-   end,
+  pattern = { "gitcommit", "text" },
+  callback = function()
+    vim.opt_local.spell = true
+  end,
 })
 
 -- Disable diagnostics in node_modules (0 is current buffer only)
@@ -108,4 +106,3 @@ autocmd("BufNewFile", { pattern = "*/node_modules/*", command = "lua vim.diagnos
 --   },
 --   command = 'setlocal shiftwidth=2 tabstop=2'
 -- })
-
