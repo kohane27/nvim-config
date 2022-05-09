@@ -8,18 +8,6 @@ if not cmp_status_ok then
   print("cmp_nvim_lsp failing")
 end
 
-local signs = {
-  { name = "DiagnosticSignError", text = "" },
-  { name = "DiagnosticSignWarn", text = "" },
-  { name = "DiagnosticSignHint", text = "" },
-  { name = "DiagnosticSignInfo", text = "" },
-}
-
-for _, sign in ipairs(signs) do
-  vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-end
-
-
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = "rounded",
 })
@@ -28,32 +16,14 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
   border = "rounded",
 })
 
--- Diagnostic options
-vim.diagnostic.config({
-  -- disable virtual text
-  virtual_text = false,
-  -- show signs
-  signs = {
-    active = signs,
-  },
-  update_in_insert = false,
-  underline = true,
-  severity_sort = true,
-  float = {
-    focusable = false,
-    style = "minimal",
-    border = "rounded",
-    source = "always",
-    header = "",
-    prefix = "",
-  },
-})
-
 vim.cmd([[
-  "" show line diagnostics automatically in hover window
-  autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })
-  "" code action listener
-  autocmd CursorHold,CursorHoldI * lua require('lsp/code_action_utils').code_action_listener()
+" format on save except the following
+" let ftToIgnore = ['c', 'markdown', 'json']
+"autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | lua vim.lsp.buf.formatting_sync()
+
+"" show line diagnostics automatically in hover window
+autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })
+
 ]])
 
 -- Add additional capabilities supported by nvim-cmp
@@ -80,14 +50,16 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+  require "lsp-format".on_attach(client)
+
+  -- TODO code action listener attach it here
+  -- autocmd CursorHold,CursorHoldI * lua require('lsp/code_action_utils').code_action_listener()
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   -- Mappings
   local opts = { noremap = true, silent = true }
-
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
@@ -120,6 +92,9 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 Python --> pyright
 https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pyright
 
+HTML/CSS/JSON --> vscode-html-languageserver
+https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
+
 JavaScript/TypeScript --> tsserver
 https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
 
@@ -134,7 +109,7 @@ end
 
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
--- `tsserver` is managed by `typescript.nvim`
+-- `tsserver` is managed by `typescript.nvim` below
 
 local servers = { 'bashls', 'pyright', 'html', 'cssls', 'emmet_ls', 'jsonls' }
 
@@ -147,6 +122,13 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig.jsonls.setup {
+  settings = {
+    json = {
+      schemas = require("schemastore").json.schemas(),
+    },
+  },
+}
 
 -- custom language server not listed above
 local runtime_path = vim.split(package.path, ';')
@@ -182,3 +164,15 @@ lspconfig.sumneko_lua.setup {
     },
   },
 }
+
+
+local status_ok, typescript = pcall(require, "typescript")
+if not status_ok then
+  print("typescript failing")
+end
+
+typescript.setup({
+  disable_commands = false, -- prevent the plugin from creating Vim commands
+  disable_formatting = true, -- disable tsserver's formatting capabilities
+  debug = false, -- enable debug logging for commands
+})
