@@ -11,20 +11,6 @@ local formatting = null_ls.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 local diagnostics = null_ls.builtins.diagnostics
 
-local with_diagnostics_code = function(builtin)
-    return builtin.with({
-        diagnostics_format = "#{m} [#{c}]",
-    })
-end
-
-local with_root_file = function(builtin, file)
-    return builtin.with({
-        condition = function(utils)
-            return utils.root_has_file(file)
-        end,
-    })
-end
-
 local sources = {
 
     -- formatting
@@ -33,16 +19,14 @@ local sources = {
     -- formatting.stylua,
     builtins.formatting.shfmt,
     builtins.formatting.isort,
-    with_root_file(builtins.formatting.stylua, "stylua.toml"),
 
     -- diagnostics
     -- builtins.diagnostics.write_good,
     -- builtins.diagnostics.markdownlint,
-    -- builtins.diagnostics.eslint_d,
+    builtins.diagnostics.eslint_d,
     -- builtins.diagnostics.flake8,
     -- builtins.diagnostics.tsc,
-    with_diagnostics_code(builtins.diagnostics.shellcheck),
-    -- with_root_file(builtins.diagnostics.selene, "selene.toml"),
+    builtins.diagnostics.shellcheck,
 
     -- code actions
     builtins.code_actions.gitsigns,

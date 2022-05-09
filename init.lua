@@ -11,6 +11,7 @@ require("lsp/lsp_config")
 require("lsp/nvim_cmp")
 require("lsp/code_action_utils")
 require("lsp/lsp_signature")
+require("lsp/null_ls")
 
 
 require("plugins/telescope")
