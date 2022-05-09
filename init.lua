@@ -9,6 +9,7 @@ require("core/colors")
 require("lsp/lsp_installer") -- need to come before lsp_config
 require("lsp/lsp_config")
 require("lsp/nvim_cmp")
+require("lsp/code_action_utils")
 
 require("plugins/telescope")
 require("plugins/treesitter")

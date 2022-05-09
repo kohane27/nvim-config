@@ -100,7 +100,7 @@ return packer.startup(function(use)
     -- use 'dcampos/cmp-snippy'
 
     -- General
-    use("numToStr/Comment.nvim") -- Easily comment stuff
+    use("numToStr/Comment.nvim")
     use("ryanoasis/vim-devicons")
     use("kyazdani42/nvim-web-devicons")
     use("kyazdani42/nvim-tree.lua")
