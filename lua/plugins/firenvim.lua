@@ -18,6 +18,8 @@ let g:firenvim_config = {
 if exists('g:started_by_firenvim')
     " don't run Startify
     let g:startify_disable_at_vimenter = 0
+    " don't run nill-ls
+    let g:null_ls_disable = 1
 
     au BufEnter github.com_*.txt set filetype=markdown
     set guifont=FiraCode_Nerd_Font_Mono:h11
