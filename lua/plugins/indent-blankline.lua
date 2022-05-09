@@ -4,10 +4,28 @@ if not status_ok then
 end
 
 indent_blankline.setup({
-	-- context is off by default
-	show_current_context = true,
+show_current_context = true,
 	show_current_context_start = true,
 	show_end_of_line = true,
-	char = "┊",
 	show_trailing_blankline_indent = false,
+  char = "▏",
+  use_treesitter = true,
+  show_first_indent_level = false,
+  filetype_exclude = {
+	'help',
+	'dashboard',
+	'git',
+	'markdown',
+	'text',
+	'terminal',
+	'lspinfo',
+	'packer',
+	'NvimTree',
+  },
+  buftype_exclude = {
+	'terminal',
+	'nofile',
+  },
 })
+
+

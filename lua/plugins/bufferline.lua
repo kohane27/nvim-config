@@ -5,7 +5,9 @@ end
 
 bufferline.setup({
 	options = {
+	  offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
 		mode = "buffers", -- "tabs" to only show tabpages instead
+      view = "multiwindow",
 		numbers = "ordinal", -- | "ordinal" | "buffer_id" | "both"
 		close_command = "bdelete! %d",
 		right_mouse_command = "bdelete! %d",
@@ -31,42 +33,32 @@ bufferline.setup({
 		max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
 		tab_size = 18,
 		diagnostics = "nvim_lsp",
-		diagnostics_update_in_insert = false,
-		diagnostics_indicator = function(count, level, diagnostics_dict, context)
-			return "(" .. count .. ")"
-		end,
-		-- NOTE: this will be called a lot so don't do any heavy processing here
-		custom_filter = function(buf_number, buf_numbers)
-			-- filter out filetypes you don't want to see
-			if vim.bo[buf_number].filetype ~= "<i-dont-want-to-see-this>" then
-				return true
-			end
-			-- filter out by buffer name
-			if vim.fn.bufname(buf_number) ~= "<buffer-name-I-dont-want>" then
-				return true
-			end
-			-- filter out based on arbitrary rules
-			-- e.g. filter out vim wiki buffer from tabline in your work repo
-			if vim.fn.getcwd() == "<work-repo>" and vim.bo[buf_number].filetype ~= "wiki" then
-				return true
-			end
-			-- filter out by it's index number in list (don't show first buffer)
-			if buf_numbers[1] ~= buf_number then
-				return true
-			end
-		end,
-		offsets = { { filetype = "NvimTree", text = "File Explorer" } },
 		color_icons = true, -- whether to add the filetype icon highlights
 		show_buffer_icons = true, -- disable filetype icons for buffers
 		show_buffer_close_icons = true,
 		show_buffer_default_icon = true, -- whether an unrecognised filetype should show a default icon
 		show_close_icon = true,
 		show_tab_indicators = true,
-		persist_buffer_sort = true, -- whether custom sorted buffers should persist
-		-- can also be a table containing 2 custom separators
-		-- [focused and unfocused]. eg: { '|', '|' }
 		separator_style = "thick", --"slant" | "thick" | "thin",
 		enforce_regular_tabs = false,
 		always_show_bufferline = true,
+      themable = true,
+      custom_filter = function(buf_number)
+         -- Func to filter out our managed/persistent split terms
+         local present_type, type = pcall(function()
+            return vim.api.nvim_buf_get_var(buf_number, "term_type")
+         end)
+
+         if present_type then
+            if type == "vert" then
+               return false
+            elseif type == "hori" then
+               return false
+            end
+            return true
+         end
+
+         return true
+      end,
 	},
 })

@@ -50,7 +50,7 @@ telescope.setup({
         },
         -- Hidden files and directories can be searched with --hidden
         find_command = { "rg", "--hidden", "--ignore-case" },
-        prompt_prefix = " ",
+        prompt_prefix = "   ",
         selection_caret = " ",
         path_display = { "smart" },
 
