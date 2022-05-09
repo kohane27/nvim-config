@@ -6,10 +6,6 @@ end
 wilder.setup({
     modes                = { ':', '/', '?' },
     enable_cmdline_enter = 0,
-    next_key             = '<C-n>', -- Pressing key next_key will activate wilder
-    previous_key         = '<C-p>',
-    -- accept_key           = '<Enter>',
-    -- reject_key           = '<Up>',
 }
 )
 
