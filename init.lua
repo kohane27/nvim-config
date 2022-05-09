@@ -45,13 +45,13 @@ require("plugins.neoscroll")
 require("plugins.better-escape")
 require("plugins.substitute")
 require("plugins.startify")
+require("plugins.typescript")
 require("plugins.wilder")
 require("plugins.symbols-outline")
 require("plugins/scrollview")
 -- require("plugins.sad")
 -- require("plugins.nvim-bqf")
 
--- require("plugins.typescript")
 -- require("plugins.yanky") BUG?
 -- require("plugins.cutlass") BUG?
 -- require("plugins.yoink")

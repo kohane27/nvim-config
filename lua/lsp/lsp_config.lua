@@ -41,6 +41,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   -- -- Highlighting references
@@ -108,10 +109,11 @@ local root_dir = function()
   return vim.fn.getcwd()
 end
 
+
 -- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches.
--- Add your language server below:
-local servers = { 'bashls', 'pyright', 'clangd', 'html', 'cssls', 'tsserver' }
+-- `tsserver` is managed by `typescript.nvim`
+
+local servers = { 'bashls', 'pyright', 'html', 'cssls' }
 
 -- Call setup
 for _, lsp in ipairs(servers) do
@@ -121,3 +123,21 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+
+-- custom language server not listed above
+lspconfig.sumneko_lua.setup {
+  on_attach = on_attach,
+  root_dir = root_dir,
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      format = {
+        enable = true
+      },
+      diagnostics = {
+        globals = { "P" },
+      },
+    }
+  }
+}
