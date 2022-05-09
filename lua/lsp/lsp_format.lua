@@ -4,6 +4,7 @@ if not lsp_status_ok then
 end
 
 lspformat.setup {
+  sync = true,
   markdown = {
     exclude = { "null-ls" }
   },
