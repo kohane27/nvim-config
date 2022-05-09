@@ -15,9 +15,9 @@ end
 -- vim.cmd [[
 --   colorscheme doom-one
 --   " for vsplits
---   set fillchars=vert:┃ 
+--   set fillchars=vert:┃
 --   " for folds
---   set fillchars+=fold:· 
+--   set fillchars+=fold:·
 --   " TODO not working
 --   hi VertSplit guifg=#FF5C8F ctermfg=123
 -- ]]
@@ -60,5 +60,3 @@ M.monokai = {
 }
 
 return M
-
-

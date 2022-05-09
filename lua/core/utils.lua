@@ -57,7 +57,6 @@ local function user_setting_table(module)
   return settings
 end
 
-
 function M.vim_opts(options)
   for scope, table in pairs(options) do
     for setting, value in pairs(table) do
@@ -118,18 +117,6 @@ function M.list_registered_linters(filetype)
   return registered_providers[formatter_method] or {}
 end
 
-function M.url_opener_cmd()
-  local cmd = function()
-    vim.notify("gx is not supported on this OS!", "error", M.base_notification)
-  end
-  if vim.fn.has "mac" == 1 then
-    cmd = '<Cmd>call jobstart(["open", expand("<cfile>")], {"detach": v:true})<CR>'
-  elseif vim.fn.has "unix" == 1 then
-    cmd = '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>'
-  end
-  return cmd
-end
-
 -- term_details can be either a string for just a command or
 -- a complete table to provide full access to configuration when calling Terminal:new()
 function M.toggle_term_cmd(term_details)
@@ -171,31 +158,6 @@ function M.add_user_cmp_source(source)
   end
 end
 
-function M.alpha_button(sc, txt)
-  local sc_ = sc:gsub("%s", ""):gsub("LDR", "<leader>")
-  if vim.g.mapleader then
-    sc = sc:gsub("LDR", vim.g.mapleader == " " and "SPC" or vim.g.mapleader)
-  end
-  return {
-    type = "button",
-    val = txt,
-    on_press = function()
-      local key = vim.api.nvim_replace_termcodes(sc_, true, false, true)
-      vim.api.nvim_feedkeys(key, "normal", false)
-    end,
-    opts = {
-      position = "center",
-      text = txt,
-      shortcut = sc,
-      cursor = 5,
-      width = 36,
-      align_shortcut = "right",
-      hl = "DashboardCenter",
-      hl_shortcut = "DashboardShortcut",
-    },
-  }
-end
-
 function M.label_plugins(plugins)
   local labelled = {}
   for _, plugin in ipairs(plugins) do
@@ -214,45 +176,21 @@ function M.is_available(plugin)
   return packer_plugins ~= nil and packer_plugins[plugin] ~= nil
 end
 
-function M.delete_url_match()
-  for _, match in ipairs(vim.fn.getmatches()) do
-    if match.group == "HighlightURL" then
-      vim.fn.matchdelete(match.id)
-    end
-  end
-end
-
-function M.set_url_match()
-  M.delete_url_match()
-  if vim.g.highlighturl_enabled then
-    vim.fn.matchadd(
-      "HighlightURL",
-      "\\v\\c%(%(h?ttps?|ftp|file|ssh|git)://|[a-z]+[@][a-z]+[.][a-z]+:)%([&:#*@~%_\\-=?!+;/0-9a-z]+%(%([.;/?]|[.][.]+)[&:#*@~%_\\-=?!+/0-9a-z]+|:\\d+|,%(%(%(h?ttps?|ftp|file|ssh|git)://|[a-z]+[@][a-z]+[.][a-z]+:)@![0-9a-z]+))*|\\([&:#*@~%_\\-=?!+;/.0-9a-z]*\\)|\\[[&:#*@~%_\\-=?!+;/.0-9a-z]*\\]|\\{%([&:#*@~%_\\-=?!+;/.0-9a-z]*|\\{[&:#*@~%_\\-=?!+;/.0-9a-z]*})\\})+",
-      15
-    )
-  end
-end
-
-function M.toggle_url_match()
-  vim.g.highlighturl_enabled = not vim.g.highlighturl_enabled
-  M.set_url_match()
-end
-
 function M.update()
   (require "plenary.job")
-    :new({
-      command = "git",
-      args = { "pull", "--ff-only" },
-      cwd = vim.fn.stdpath "config",
-      on_exit = function(_, return_val)
-        if return_val == 0 then
-          vim.notify("Updated!", "info", M.base_notification)
-        else
-          vim.notify("Update failed! Please try pulling manually.", "error", M.base_notification)
-        end
-      end,
-    })
-    :sync()
+      :new({
+        command = "git",
+        args = { "pull", "--ff-only" },
+        cwd = vim.fn.stdpath "config",
+        on_exit = function(_, return_val)
+          if return_val == 0 then
+            vim.notify("Updated!", "info", M.base_notification)
+          else
+            vim.notify("Update failed! Please try pulling manually.", "error", M.base_notification)
+          end
+        end,
+      })
+      :sync()
 end
 
 return M
