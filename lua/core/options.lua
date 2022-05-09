@@ -23,74 +23,48 @@ if has("persistent_undo")
     set undofile
 endif
 
-" neovim defaults
-" 'backspace' defaults to "indent,eol,start"
-" 'complete' excludes "i"
-"
-" 'sidescroll' defaults to 1
-" 'tags' defaults to "./tags;,tags"
-" 'ttimeoutlen' defaults to 50
-" 'viewoptions' includes "unix,slash", excludes "options"
-" 'viminfo' includes "!"
-" 'wildoptions' defaults to "pum,tagfile"
-
 set path+=**                    " Searches current directory recursively
 set t_Co=256
-let g:rehash256 = 1
-set wrap                        " soft wrapping text
-set wildmode=longest,list       " get bash-like tab completions
-
-" from jess
-set wildmode=longest:full,full
-set nospell
-set list
-set listchars=tab:▸\ ,trail:·
-set scrolloff=4            " cursor won't go the bottom
-set sidescrolloff=4
-set exrc
-set redrawtime=10000  " allow more time for loading syntax on large files
-" end jess
-
-" from chris
-set pumheight=10                          " pop up menu height
-set showmode                              " No -- INSERT --
-set showtabline=2                         " always show tabs
-set nowritebackup                         " disable editing a file that is being edited
-set shiftwidth=2                          " spaces inserted for each indentation
-" set iskeyword+=-
-" end chris
-set inccommand=nosplit     " Live substitution
-
-" Removes pipes | that act as seperators on splits
-set fillchars+=vert:\ 
+set listchars="tab:▸\ ,trail:·"
+set fillchars"+=vert:\"  -- removes pipes | that act as seperators on splits
 ]])
-
 
 -----------------------------------------------------------
 -- General
 -----------------------------------------------------------
 g.mapleader = " "
-opt.mouse = 'a'                       -- Enable mouse support
-opt.clipboard = 'unnamedplus'         -- Copy/paste to system clipboard
-opt.swapfile = false                  -- Don't use swapfile
+opt.mouse = 'a'                                -- Enable mouse support
+opt.clipboard = 'unnamedplus'                  -- Copy/paste to system clipboard
+opt.swapfile = false                           -- Don't use swapfile
 opt.completeopt = 'menuone,noinsert,noselect'  -- Autocomplete options
 opt.confirm = true
-opt.undofile = true -- enable persistent undo
-opt.timeoutlen = 500 -- time to wait for a mapped sequence to complete
-
-g.did_load_filetypes = 0 -- use filetype.lua instead of filetype.vim
+opt.undofile = true                            -- enable persistent undo
+opt.timeoutlen = 500                           -- time to wait for a mapped sequence to complete
+opt.writebackup = false                        -- disable editing a file that is being edited
+opt.list = true
+g.did_load_filetypes = 0                       -- use filetype.lua instead of filetype.vim
 g.do_filetype_lua = 1
--- disable tilde on end of buffer: https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
+g.rehash256 = 1
+
+-- disable tilde on end of buffer:
+-- https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
 opt.fillchars = { eob = " " }
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
 opt.number = true           -- Show line number
+opt.wrap = true             -- soft wrapping textj
 opt.numberwidth = 2
 opt.relativenumber = true   -- Show relative line number
 opt.showmatch = true        -- Highlight matching parenthesis
 opt.foldmethod = 'marker'   -- Enable folding (default 'foldmarker')
 opt.cmdheight = 2
+opt.showmode = false        -- No -- INSERT --
+opt.scrolloff = 4           -- cursor won't go the bottom
+opt.sidescrolloff = 4
+opt.pumheight = 10          -- pop up menu height
+opt.showtabline = 2         -- always show tabs
+opt.shiftwidth = 2          -- spaces inserted for each indentation
 
 -- let g:markdown_folding = 0
 -- set foldlevelstart=999
@@ -105,8 +79,9 @@ opt.colorcolumn = '80'      -- Line lenght marker at 80 columns
 opt.splitright = true       -- Vertical split to the right
 opt.splitbelow = true       -- Horizontal split to the bottom
 opt.ignorecase = true       -- Ignore case letters when search
-opt.smartcase = false       -- Ignore lowercase for the whole pattern
+opt.smartcase = true        -- Ignore lowercase for the whole pattern
 opt.linebreak = true        -- Wrap on word boundary
+opt.breakindent = true      -- Enable break indent
 opt.termguicolors = true    -- Enable 24-bit RGB colors
 opt.laststatus=3            -- Set global statusline
 opt.shortmess:append "sI"   -- Disable nvim intro
@@ -132,7 +107,7 @@ opt.updatetime = 700        -- ms to wait for trigger an event
 
 -- Disable builtins plugins
 local disabled_built_ins = {
-  "netrw",
+  -- "netrw", -- need it for gx
   "netrwPlugin",
   "netrwSettings",
   "netrwFileHandlers",
