@@ -26,12 +26,23 @@ end
 
 local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
 if not config_status_ok then
-  print("nvim-tree.config config_status_ok NO")
+  print("nvim-tree.config config_status_ok failing")
 end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup({
+  
+  -- renderer = {
+  --   indent_markers = {
+  --     enable = false,
+  --     icons = {
+  --       corner = "└ ",
+  --       edge = "│ ",
+  --       none = "  ",
+  --     },
+  --   },
+  -- },
   update_cwd = true,
   actions = {
     change_dir = {
@@ -64,12 +75,15 @@ nvim_tree.setup({
     update_cwd = true,
     ignore_list = {},
   },
+  filters = {
+    custom = { 'node_modules', '.cache', '.bin' },
+  },
   view = {
     number = false,
     relativenumber = false,
     signcolumn = "yes",
     mappings = {
-      custom_only = false,
+      custom_only = true,
       list = {
         -- action = "" means removing default
         { key = "<C-w>v", action = "vsplit" },
@@ -101,33 +115,8 @@ nvim_tree.setup({
         { key = "?", action = "toggle_help" },
         { key = "W", action = "collapse_all" },
         { key = ".", action = "run_file_command" },
-        { key = "O", action = "" },
-        { key = "-", action = "" },
-        { key = "I", action = "" },
-        { key = "S", action = "" }, -- conflict with lightspeed
-        { key = "[c", action = "" },
-        { key = "]c", action = "" },
-        { key = "s", action = "" },
-        { key = "<C-k>", action = "" },
-        { key = "<C-t>", action = "" },
-        { key = "<C-e>", action = "" },
-        { key = "<", action = "" },
-        { key = ">", action = "" },
       },
     },
   },
 })
 
--- old config
--- nvim_tree.setup({
--- 	git_hl = 1,
--- 	disable_window_picker = 0,
--- 	root_folder_modifier = ":t",
--- 	show_icons = {
--- 		git = 1,
--- 		folders = 1,
--- 		files = 1,
--- 		folder_arrows = 1,
--- 		tree_width = 30,
--- 	},
--- })

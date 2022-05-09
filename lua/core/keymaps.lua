@@ -52,8 +52,8 @@ map('x', 'K', '5k')
 -- map("n", "<A-k>", ":m .-2<CR>==")
 -- map("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
 -- map("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
-map("v", "<C-j>", ":m '>+1<CR>gv=gv")
-map("v", "<C-k>", ":m '<-2<CR>gv=gv")
+map("v", "<C-j>", ":move '>+1<CR>gv=gv")
+map("v", "<C-k>", ":move '<-2<CR>gv=gv")
 
 map("n", "<A-c>", ": Bdelete<cr>")
 
@@ -85,27 +85,25 @@ map("i", "!", "!<C-g>u")
 map("i", "?", "?<C-g>u")
 map("i", "[", "[<C-g>u")
 
--- replace visual selection without copying it
---vnoremap p "_dP delete weird space don't use this
-map("v", "<leader>p", '"_dP')
+-- don't copy the replaced text after pasting
+map("v", "p", "p:let @+=@0<CR>")
+-- map("v", "<leader>p", '"_dP')
+-- map("v", "p", '"_dP') -- delete weird space don't use this
 
 -- yank till end of line
 map('n', 'Y', 'y$')
 
--- map("n", "<leader>y", '"*y')
-map("v", "<leader>y", '"*y')
-
--- yank till end of line
-map("n", "<leader>Y", '"*Y')
-
-map("n", "<leader>d", '"_d')
-map("v", "<leader>d", '"_d')
+-- TODO: use cutlass.lua to remove these to save precious <leader>d
+-- map("n", "<leader>d", '"_d')
+-- map("v", "<leader>d", '"_d')
+-- Don't yank on delete char
+map("n", "x", '"_x')
+map("v", "x", '"_x')
+map("n", "X", '"_X')
+map("v", "X", '"_X')
 
 -- delete one word forward in Insert mode
 map("i", "<C-e>", '<C-o>de')
-
--- don't copy the replaced text after pasting in visual mode
-map("v", "p", "p:let @+=@0<CR>")
 
 -- CTRL-R * will insert clipboard contents
 -- CTRL-R " (the unnamed register) inserts the last delete or yank
@@ -117,9 +115,9 @@ map("i", "<C-v>", '<C-R>*')
 
 -- allow gf to open non-existent files
 -- map("n", "gf", ':edit <cfile><cr>')
+
 -- saving
 map('n', '<c-s>', ':wa<CR>')
--- map('i', '<leader>s', '<C-c>:w<CR>')
 
 -- => Splits (using i3 or tmux)
 -- easier split size adjustment
@@ -138,10 +136,6 @@ map("n", "<Down>", ":resize -3<CR>")
 -- Terminal mappings
 -- map('n', '<C-t>', ':Term<CR>', { noremap = true })  -- open
 -- map('t', '<Esc>', '<C-\\><C-n>')                    -- exit
-
--- Delete without yank
-map("n", "x", '"_x')
-map("v", "x", '"_x')
 
 -- paste in new line
 -- BUG: if paste to new buffer

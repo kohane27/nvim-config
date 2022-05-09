@@ -46,11 +46,10 @@ autocmd("BufReadPost", {
 })
 
 
-
 autocmd('TextYankPost', {
   group = 'YankHighlight',
   callback = function()
-    vim.highlight.on_yank({ higroup = 'IncSearch', timeout = '350' })
+    vim.highlight.on_yank({ higroup = 'IncSearch', timeout = '300' })
   end
 })
 
@@ -61,6 +60,11 @@ autocmd("FileType", {
       vim.opt_local.spell = true
    end,
 })
+
+-- Disable diagnostics in node_modules (0 is current buffer only)
+autocmd("BufRead", { pattern = "*/node_modules/*", command = "lua vim.diagnostic.disable(0)" })
+autocmd("BufNewFile", { pattern = "*/node_modules/*", command = "lua vim.diagnostic.disable(0)" })
+
 
 -- -- File extension specific tabbing
 -- autocmd("Filetype", {
