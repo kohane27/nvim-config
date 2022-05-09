@@ -19,14 +19,21 @@ local sources = {
     -- formatting.stylua,
     builtins.formatting.shfmt,
     builtins.formatting.isort,
+    formatting.shfmt.with {
+        filetypes = { 'sh', 'bash' },
+    },
 
     -- diagnostics
     -- builtins.diagnostics.write_good,
     -- builtins.diagnostics.markdownlint,
-    builtins.diagnostics.eslint_d,
     -- builtins.diagnostics.flake8,
     -- builtins.diagnostics.tsc,
-    builtins.diagnostics.shellcheck,
+    diagnostics.eslint_d,
+    diagnostics.shellcheck,
+    diagnostics.pylint,
+    diagnostics.shellcheck.with {
+        filetypes = { 'sh', 'bash' },
+    },
 
     -- code actions
     builtins.code_actions.gitsigns,

@@ -19,7 +19,6 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 vim.cmd([[
 "" show line diagnostics automatically in hover window
 autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })
-
 ]])
 
 -- Add additional capabilities supported by nvim-cmp
