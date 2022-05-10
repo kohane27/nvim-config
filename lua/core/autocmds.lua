@@ -17,14 +17,6 @@ vim.cmd([[
     autocmd VimResized * tabdo wincmd = 
   augroup end
 
-
-" from https://github.com/kyazdani42/nvim-tree.lua#tips--reminders
-autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
-
-" format on save except the following
-let ftToIgnore = ['c', 'markdown']
-autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | lua vim.lsp.buf.formatting_sync()
-
 ]])
 
 local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
