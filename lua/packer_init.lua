@@ -52,13 +52,12 @@ return packer.startup(function(use)
     use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
     use("romgrk/fzy-lua-native")
     use("nvim-telescope/telescope-frecency.nvim")
-    use("nvim-telescope/telescope-file-browser.nvim")
-    
+
     -- Treesitter
     -- Additional textobjects for treesitter
+    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     use("nvim-treesitter/nvim-treesitter-textobjects")
     use("nvim-treesitter/nvim-treesitter-refactor")
-    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     use("windwp/nvim-ts-autotag")
     use("windwp/nvim-autopairs") -- integrated with both cmp and treesitter
 
@@ -67,22 +66,20 @@ return packer.startup(function(use)
     use("williamboman/nvim-lsp-installer")
     use("tamago324/nlsp-settings.nvim") -- language server settings defined in json
     use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
-    use("lukas-reineke/lsp-format.nvim")
+    use("lukas-reineke/lsp-format.nvim") -- formatting management
+    use("b0o/schemastore.nvim")
 
-
-      -- Autocomplete
-      use {
+    -- Autocomplete engine
+    use {
         'hrsh7th/nvim-cmp',
         requires = {
-          'hrsh7th/cmp-nvim-lsp',
-          'hrsh7th/cmp-nvim-lua',
-          'hrsh7th/cmp-path',
-          'hrsh7th/cmp-buffer',
-          'hrsh7th/cmp-cmdline', -- cmdline completions
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-nvim-lua',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-cmdline',
         },
-      }
-
-    use("b0o/schemastore.nvim")
+    }
 
     -- snippets
     use("L3MON4D3/LuaSnip") --snippet engine
@@ -126,6 +123,7 @@ return packer.startup(function(use)
     use("lewis6991/gitsigns.nvim")
     use("norcalli/nvim-colorizer.lua")
     use("ggandor/lightspeed.nvim")
+    -- use("ggandor/leap.nvim")
     -- use "rmagatti/auto-session"
     -- use "Pocco81/AutoSave.nvim"
     use("jremmen/vim-ripgrep")
@@ -186,7 +184,7 @@ return packer.startup(function(use)
     use("navarasu/onedark.nvim")
     use("LunarVim/onedarker.nvim")
     use("bluz71/vim-moonfly-colors")
-    
+
     -- without its own file
     use("p00f/nvim-ts-rainbow")
     use("ThePrimeagen/harpoon")

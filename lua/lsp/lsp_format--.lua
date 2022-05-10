@@ -1,10 +1,12 @@
+-- BUG: saving removes my changes
+-- on save reverted changes if LSP is not yet attached
+
 local lsp_status_ok, lspformat = pcall(require, 'lsp-format')
 if not lsp_status_ok then
   print("lsp_format failing")
 end
 
 lspformat.setup {
-  sync = true,
   markdown = {
     exclude = { "null-ls" }
   },
