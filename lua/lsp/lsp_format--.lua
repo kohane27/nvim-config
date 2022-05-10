@@ -22,3 +22,10 @@ lspformat.setup {
 -- below code is in lsp_config.lua
 -- local on_attach = function(client)
 --     require "lsp-format".on_attach(client)
+
+
+-- vim.cmd([[
+-- " format on save except the following
+-- let ftToIgnore = ['c', 'markdown']
+-- autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | lua vim.lsp.buf.formatting_sync()
+-- ]])

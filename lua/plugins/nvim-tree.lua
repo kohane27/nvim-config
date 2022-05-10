@@ -31,6 +31,14 @@ end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
+
+vim.cmd([[
+
+" automatically close the tab when nvim-tree is the last window in the tab
+autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+
+]])
+
 nvim_tree.setup({
   
   -- renderer = {
