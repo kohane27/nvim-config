@@ -5,6 +5,8 @@
 -- [2] Defaults - *nvim-defaults*
 -----------------------------------------------------------
 
+-- stylua: ignore start
+
 local g = vim.g -- Global variables
 local opt = vim.opt -- Set options (global/buffer/windows-scoped)
 
@@ -138,3 +140,5 @@ vim.schedule(function()
   vim.opt.shadafile = vim.fn.expand "$HOME" .. "/.local/share/nvim/shada/main.shada"
   vim.cmd [[ silent! rsh ]]
 end)
+
+-- stylua: ignore end
