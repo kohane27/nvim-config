@@ -130,9 +130,9 @@ lspconfig.jsonls.setup({
 })
 
 -- 2. sumneko_lua
-local runtime_path = vim.split(package.path, ";")
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
+-- local runtime_path = vim.split(package.path, ";")
+-- table.insert(runtime_path, "lua/?.lua")
+-- table.insert(runtime_path, "lua/?/init.lua")
 
 lspconfig.sumneko_lua.setup({
   on_attach = on_attach,
@@ -146,16 +146,16 @@ lspconfig.sumneko_lua.setup({
       runtime = {
         version = "LuaJIT",
         -- Setup your lua path
-        path = runtime_path,
+        -- path = runtime_path,
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
         globals = { "vim", "P" },
       },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
+      -- workspace = {
+      --   -- Make the server aware of Neovim runtime files
+      --   library = vim.api.nvim_get_runtime_file("", true),
+      -- },
       telemetry = {
         enable = false,
       },

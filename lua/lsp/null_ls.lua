@@ -17,7 +17,7 @@ local sources = {
   -- conflict with LSP html
   -- formatting.prettier.with({ extra_args = { "--single-quote", "--jsx-single-quote" } }),
   formatting.black.with({ extra_args = { "--fast" } }),
-  -- formatting.stylua, -- lua
+  formatting.stylua, -- lua
   formatting.shfmt, -- shellscripts
   -- formatting.isort,
   -- formatting.shfmt.with {

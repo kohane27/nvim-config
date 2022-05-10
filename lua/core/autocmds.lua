@@ -16,16 +16,10 @@ vim.cmd([[
     autocmd!
     autocmd VimResized * tabdo wincmd = 
   augroup end
-
 ]])
 
 local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
 local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
-
-
--- Highlight on yank
-augroup('YankHighlight', { clear = true })
-
 
 -- Open a file from its last left off position
 autocmd("BufReadPost", {
@@ -37,6 +31,8 @@ autocmd("BufReadPost", {
   end,
 })
 
+-- Highlight on yank
+augroup('YankHighlight', { clear = true })
 autocmd('TextYankPost', {
   group = 'YankHighlight',
   callback = function()
