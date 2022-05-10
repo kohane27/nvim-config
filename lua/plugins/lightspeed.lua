@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 lightspeed.setup({
-    ignore_case = false,
+    ignore_case = true,
     exit_after_idle_msecs = { unlabeled = 5000, labeled = nil },
     --- s/x ---
     jump_to_unique_chars = { safety_timeout = 800 },
@@ -19,5 +19,5 @@ lightspeed.setup({
 vim.cmd([[
 " just press s to search
 nnoremap s <Plug>Lightspeed_omni_s
-nnoremap S <Plug>Lightspeed_omni_s
+" nnoremap S <Plug>Lightspeed_omni_s
 ]])
