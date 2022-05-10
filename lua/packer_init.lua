@@ -106,6 +106,7 @@ return packer.startup(function(use)
     use("akinsho/toggleterm.nvim")
     -- use("tpope/vim-unimpaired")
     -- use("tpope/vim-fugitive")
+    use("machakann/vim-sandwich")
     use("tpope/vim-obsession")
     use("tpope/vim-repeat")
     -- use("tpope/vim-markdown")
@@ -132,7 +133,6 @@ return packer.startup(function(use)
     use("voldikss/vim-floaterm")
 
     use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
-    use("machakann/vim-sandwich") -- better than surround
 
     use("takac/vim-hardtime")
     use("jose-elias-alvarez/typescript.nvim")
