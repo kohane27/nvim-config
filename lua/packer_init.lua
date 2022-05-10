@@ -66,7 +66,7 @@ return packer.startup(function(use)
     use("williamboman/nvim-lsp-installer")
     use("tamago324/nlsp-settings.nvim") -- language server settings defined in json
     use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
-    use("lukas-reineke/lsp-format.nvim") -- formatting management
+    -- use("lukas-reineke/lsp-format.nvim") -- formatting management
     use("b0o/schemastore.nvim")
 
     -- Autocomplete engine

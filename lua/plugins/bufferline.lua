@@ -7,7 +7,7 @@ bufferline.setup({
 	options = {
 	  offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
 		mode = "buffers", -- "tabs" to only show tabpages instead
-      view = "multiwindow",
+        view = "multiwindow",
 		numbers = "ordinal", -- | "ordinal" | "buffer_id" | "both"
 		close_command = "bdelete! %d",
 		right_mouse_command = "bdelete! %d",
