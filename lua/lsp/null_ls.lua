@@ -1,6 +1,6 @@
 local null_ls_status_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_status_ok then
-    return
+  return
 end
 
 local nls_utils = require("null-ls.utils")
@@ -13,34 +13,35 @@ local diagnostics = null_ls.builtins.diagnostics
 
 local sources = {
 
-    -- formatting
-    formatting.prettier.with({ extra_args = { "--single-quote", "--jsx-single-quote" } }),
-    formatting.black.with({ extra_args = { "--fast" } }),
-    -- formatting.stylua,
-    formatting.shfmt,
-    formatting.isort,
-    -- formatting.shfmt.with {
-    --     filetypes = { 'sh', 'bash' },
-    -- },
+  -- formatting
+  -- conflict with LSP html
+  -- formatting.prettier.with({ extra_args = { "--single-quote", "--jsx-single-quote" } }),
+  formatting.black.with({ extra_args = { "--fast" } }),
+  -- formatting.stylua, -- lua
+  formatting.shfmt, -- shellscripts
+  -- formatting.isort,
+  -- formatting.shfmt.with {
+  --     filetypes = { 'sh', 'bash' },
+  -- },
 
-    -- DIAGNOSTICS
-    -- diagnostics.write_good,
-    -- diagnostics.markdownlint,
-    -- diagnostics.flake8,
-    -- diagnostics.tsc,
-    diagnostics.eslint_d,
-    diagnostics.pylint,
-    diagnostics.shellcheck.with {
-        filetypes = { 'sh', 'bash' },
-    },
+  -- DIAGNOSTICS
+  diagnostics.shellcheck.with({
+    filetypes = { "sh", "bash" },
+  }),
+  -- diagnostics.write_good,
+  -- diagnostics.markdownlint,
+  -- diagnostics.flake8,
+  -- diagnostics.tsc,
+  -- diagnostics.eslint_d,
+  -- diagnostics.pylint,
 
-    -- CODE ACTIONS
-    builtins.code_actions.gitsigns,
-    builtins.code_actions.gitrebase,
+  -- CODE ACTIONS
+  builtins.code_actions.gitsigns,
+  builtins.code_actions.gitrebase,
 }
 
 null_ls.setup({
-    debug = false,
-    sources = sources,
-    root_dir = nls_utils.root_pattern(".git"),
+  debug = false,
+  sources = sources,
+  root_dir = nls_utils.root_pattern(".git"),
 })
