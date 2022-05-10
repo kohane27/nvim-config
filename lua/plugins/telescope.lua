@@ -138,7 +138,7 @@ telescope.setup({
         },
         frecency = {
             show_scores = false,
-            show_unindexed = true,
+            show_unindexed = false,
             ignore_patterns = { "*.git/*", "*/tmp/*" },
             disable_devicons = false,
             workspaces = {
