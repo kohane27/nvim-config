@@ -156,13 +156,14 @@ return packer.startup(function(use)
     use({ "mg979/vim-visual-multi", branch = "master" })
     -- use("ethanholz/nvim-lastplace")
     use("karb94/neoscroll.nvim")
-    use("max397574/better-escape.nvim")
+    -- use("max397574/better-escape.nvim")
     use("wellle/targets.vim")
     use("kevinhwang91/nvim-bqf")
     use("mhinz/vim-grepper")
     use("danilamihailov/beacon.nvim")
     use("folke/trouble.nvim")
     use("nathom/filetype.nvim") -- speed up startup time
+    use("vim-scripts/LargeFile")
     use {
         "luukvbaal/stabilize.nvim",
         config = function() require("stabilize").setup() end
