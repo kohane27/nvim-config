@@ -8,6 +8,9 @@ lspformat.setup {
   markdown = {
     exclude = { "null-ls" }
   },
+  lua = {
+    sync = true,
+  },
   c = {
     exclude = { "null-ls" }
   }
