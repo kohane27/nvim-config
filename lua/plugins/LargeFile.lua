@@ -1,3 +1,3 @@
 vim.cmd([[
-let g:LargeFile=10
+let g:LargeFile=5
 ]])

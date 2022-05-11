@@ -17,7 +17,7 @@ vim.cmd([[
     autocmd VimResized * tabdo wincmd = 
   augroup end
 
-" disable auto-indentation for lists
+" disable auto-indentation for markdown
 autocmd filetype markdown set indentexpr=
 ]])
 
@@ -55,7 +55,6 @@ autocmd("FileType", {
 autocmd("BufRead", { pattern = "*/node_modules/*", command = "lua vim.diagnostic.disable(0)" })
 autocmd("BufNewFile", { pattern = "*/node_modules/*", command = "lua vim.diagnostic.disable(0)" })
 
-
 -- -- File extension specific tabbing
 -- autocmd("Filetype", {
 --    pattern = "python",
@@ -67,12 +66,6 @@ autocmd("BufNewFile", { pattern = "*/node_modules/*", command = "lua vim.diagnos
 --    end,
 -- })
 
--- Remove whitespace on save
--- autocmd('BufWritePre', {
---   pattern = '*',
---   command = ":%s/\\s\\+$//e"
--- })
-
 -- -- Don't auto commenting new lines
 -- autocmd('BufEnter', {
 --   pattern = '*',
@@ -80,7 +73,7 @@ autocmd("BufNewFile", { pattern = "*/node_modules/*", command = "lua vim.diagnos
 -- })
 
 -- Settings for fyletypes:
--- Disable line lenght marker
+-- Disable line lengh marker
 -- augroup('setLineLenght', { clear = true })
 -- autocmd('Filetype', {
 --   group = 'setLineLenght',
