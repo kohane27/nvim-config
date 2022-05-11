@@ -55,7 +55,7 @@ opt.fillchars = { eob = " " }
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
-opt.number = true -- Show line number
+opt.number = true            -- Show line number
 opt.wrap = true -- soft wrapping textj
 opt.numberwidth = 2
 opt.relativenumber = true -- Show relative line number
