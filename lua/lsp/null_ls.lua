@@ -13,7 +13,7 @@ local diagnostics = null_ls.builtins.diagnostics
 
 local sources = {
 
-  -- formatting
+  --FORMATTING
   formatting.prettier.with({ extra_args = { "--single-quote", "--jsx-single-quote" } }),
   formatting.black.with({ extra_args = { "--fast" } }),
   formatting.stylua.with({
@@ -21,13 +21,10 @@ local sources = {
   }),
   formatting.shfmt, -- shellscripts
   -- formatting.isort,
-  -- formatting.shfmt.with {
-  --     filetypes = { 'sh', 'bash' },
-  -- },
 
   -- DIAGNOSTICS
   diagnostics.shellcheck.with({
-    filetypes = { "sh", "bash" },
+    filetypes = { "sh", "bash", "zsh" },
   }),
   -- diagnostics.write_good,
   -- diagnostics.markdownlint,
@@ -42,7 +39,7 @@ local sources = {
 }
 
 null_ls.setup({
-  debug = true,
+  debug = false,
   sources = sources,
   root_dir = nls_utils.root_pattern(".git"),
 })
