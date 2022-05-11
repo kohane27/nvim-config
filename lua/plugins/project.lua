@@ -4,19 +4,19 @@ if not status_ok then
 end
 
 project.setup({
-  -- When set to false, you will get a message when project.nvim changes your
-  -- directory.
-  silent_chdir = true,
+	-- When set to false, you will get a message when project.nvim changes your
+	-- directory.
+	silent_chdir = true,
 })
 
 -- lua tree integration
 vim.g.nvim_tree_respect_buf_cwd = 1
 require("nvim-tree").setup({
-  update_cwd = true,
-  update_focused_file = {
-    enable = true,
-    update_cwd = true
-  },
+	update_cwd = true,
+	update_focused_file = {
+		enable = true,
+		update_cwd = true,
+	},
 })
 
 -- telescope integration
@@ -25,4 +25,4 @@ if not tele_status_ok then
 	return
 end
 
-telescope.load_extension('projects')
+telescope.load_extension("projects")

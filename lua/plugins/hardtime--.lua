@@ -1,4 +1,4 @@
-vim.cmd [[
+vim.cmd([[
 "run in every buffer
 let g:hardtime_default_on = 1
 "tweak the timeout allowed between keypresses in milliseconds
@@ -18,5 +18,4 @@ let g:hardtime_ignore_buffer_patterns = [ "NvimTree.*", "NERD.*" ]
 
 "Ignore Quickfix
 let g:hardtime_ignore_quickfix = 1
-]]
-
+]])
