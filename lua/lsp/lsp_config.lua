@@ -51,10 +51,7 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
   end
 
-  local function buf_set_option(...)
-    vim.api.nvim_buf_set_option(bufnr, ...)
-  end
-
+  -- TODO consider getting rid of keymappings here; we use WhichKey
   -- Mappings
   local opts = { noremap = true, silent = true }
   buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -134,6 +131,7 @@ lspconfig.jsonls.setup({
   },
 })
 
+-- 2. html
 lspconfig.html.setup({
   on_attach = function(client, _)
     client.resolved_capabilities.document_formatting = false
@@ -143,7 +141,7 @@ lspconfig.html.setup({
   capabilities = capabilities,
 })
 
--- 2. sumneko_lua
+-- 3. sumneko_lua
 -- local runtime_path = vim.split(package.path, ";")
 -- table.insert(runtime_path, "lua/?.lua")
 -- table.insert(runtime_path, "lua/?/init.lua")
@@ -181,7 +179,7 @@ lspconfig.sumneko_lua.setup({
   },
 })
 
--- 3. typescript
+-- 4. typescript
 local status_ok, typescript = pcall(require, "typescript")
 if not status_ok then
   print("typescript failing")
