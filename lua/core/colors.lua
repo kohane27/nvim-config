@@ -7,7 +7,7 @@
 -- Load nvim color scheme:
 -- Change the "require" values with your color scheme
 -- Available color schemes: onedark, monokai
-local status_ok, color_scheme = pcall(require, 'doom-one')
+local status_ok, color_scheme = pcall(require, "doom-one")
 if not status_ok then
   return
 end
@@ -28,10 +28,10 @@ end
 -- }
 --color_scheme.load()
 
-color_scheme.setup {
+color_scheme.setup({
   cursor_coloring = false,
   terminal_colors = true,
-  italic_comments = true,
+  italic_comments = false,
   enable_treesitter = true,
   transparent_background = true,
   pumblend = {
@@ -54,9 +54,7 @@ color_scheme.setup {
     neogit = false,
     lspsaga = false,
   },
-}
-
-
+})
 
 -- TODO not sure what below does
 -- statusline color schemes:
