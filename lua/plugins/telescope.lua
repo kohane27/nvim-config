@@ -136,17 +136,17 @@ telescope.setup({
             case_mode = "smart_case", -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
         },
-        frecency = {
-            show_scores = false,
-            show_unindexed = false,
-            ignore_patterns = { "*.git/*", "*/tmp/*" },
-            disable_devicons = false,
-            workspaces = {
-                ["conf"]    = "/home/hin/.config",
-                ["data"]    = "/home/hin/.local/share",
-                ["project"] = "/home/hin/projects",
-            }
-        }
+        -- frecency = {
+        --     show_scores = false,
+        --     show_unindexed = false,
+        --     ignore_patterns = { "*.git/*", "*/tmp/*" },
+        --     disable_devicons = false,
+        --     workspaces = {
+        --         ["conf"]    = "/home/hin/.config",
+        --         ["data"]    = "/home/hin/.local/share",
+        --         ["project"] = "/home/hin/projects",
+        --     }
+        -- }
     },
 })
 
@@ -154,4 +154,4 @@ telescope.setup({
 telescope.load_extension("fzf")
 
 -- load frecency
-telescope.load_extension("frecency")
+-- telescope.load_extension("frecency")

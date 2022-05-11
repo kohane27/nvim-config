@@ -16,6 +16,9 @@ vim.cmd([[
     autocmd!
     autocmd VimResized * tabdo wincmd = 
   augroup end
+
+" disable auto-indentation for lists
+autocmd filetype markdown set indentexpr=
 ]])
 
 local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
