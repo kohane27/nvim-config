@@ -5,9 +5,9 @@ end
 
 bufferline.setup({
 	options = {
-	  offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+		offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
 		mode = "buffers", -- "tabs" to only show tabpages instead
-        view = "multiwindow",
+		view = "multiwindow",
 		numbers = "ordinal", -- | "ordinal" | "buffer_id" | "both"
 		close_command = "bdelete! %d",
 		right_mouse_command = "bdelete! %d",
@@ -42,23 +42,23 @@ bufferline.setup({
 		separator_style = "thick", --"slant" | "thick" | "thin",
 		enforce_regular_tabs = false,
 		always_show_bufferline = true,
-      themable = true,
-      custom_filter = function(buf_number)
-         -- Func to filter out our managed/persistent split terms
-         local present_type, type = pcall(function()
-            return vim.api.nvim_buf_get_var(buf_number, "term_type")
-         end)
+		themable = true,
+		custom_filter = function(buf_number)
+			-- Func to filter out our managed/persistent split terms
+			local present_type, type = pcall(function()
+				return vim.api.nvim_buf_get_var(buf_number, "term_type")
+			end)
 
-         if present_type then
-            if type == "vert" then
-               return false
-            elseif type == "hori" then
-               return false
-            end
-            return true
-         end
+			if present_type then
+				if type == "vert" then
+					return false
+				elseif type == "hori" then
+					return false
+				end
+				return true
+			end
 
-         return true
-      end,
+			return true
+		end,
 	},
 })

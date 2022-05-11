@@ -1,5 +1,5 @@
 -- https://github.com/mhinz/vim-grepper
-vim.g.grepper = {tools = {'rg', 'grep'}, searchreg = 1}
+vim.g.grepper = { tools = { "rg", "grep" }, searchreg = 1 }
 vim.cmd(([[
     aug Grepper
         au!
@@ -12,4 +12,3 @@ vim.cmd(([[
 --     nmap gs  <plug>(GrepperOperator)
 --     xmap gs  <plug>(GrepperOperator)
 -- ]])
-

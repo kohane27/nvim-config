@@ -7,4 +7,3 @@ end
 better_escape.setup({
 	mapping = { "jk" },
 })
-

@@ -1,17 +1,17 @@
 local status_ok, yanky = pcall(require, "yanky")
 if not status_ok then
-    return
+	return
 end
 
 yanky.setup({
-    ring = {
-        history_length = 10,
-    },
-    highlight = {
-        on_put = true,
-        on_yank = true,
-        timer = 300,
-    },
+	ring = {
+		history_length = 10,
+	},
+	highlight = {
+		on_put = true,
+		on_yank = true,
+		timer = 300,
+	},
 })
 
 vim.api.nvim_set_keymap("n", "p", "<Plug>(YankyPutAfter)", {})

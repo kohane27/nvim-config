@@ -17,4 +17,3 @@ vim.cmd([[
 "nnoremap <silent> <leader>hrm :ExecutionerHorizontal makefile<cr>
 "nnoremap <silent> <leader>vrm :ExecutionerVertical makefile<cr>
 ]])
-
