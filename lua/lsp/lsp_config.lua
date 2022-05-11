@@ -102,10 +102,15 @@ local root_dir = function()
   return vim.fn.getcwd()
 end
 
+vim.cmd([[
+" format on save except the following
+let ftToIgnore = ['c', 'markdown']
+autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | lua vim.lsp.buf.formatting_sync()
+]])
+
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- `tsserver` is managed by `typescript.nvim` below
-
-local servers = { "bashls", "pyright", "html", "cssls", "emmet_ls" }
+local servers = { "bashls", "pyright", "cssls", "emmet_ls" }
 
 -- Call setup
 for _, lsp in ipairs(servers) do
@@ -129,13 +134,26 @@ lspconfig.jsonls.setup({
   },
 })
 
+lspconfig.html.setup({
+  on_attach = function(client, _)
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+  end,
+  root_dir = root_dir,
+  capabilities = capabilities,
+})
+
 -- 2. sumneko_lua
 -- local runtime_path = vim.split(package.path, ";")
 -- table.insert(runtime_path, "lua/?.lua")
 -- table.insert(runtime_path, "lua/?/init.lua")
 
 lspconfig.sumneko_lua.setup({
-  on_attach = on_attach,
+  on_attach = function(client, _)
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+  end,
+
   root_dir = root_dir,
   capabilities = capabilities,
   settings = {
