@@ -182,10 +182,14 @@ return packer.startup(function(use)
   use("NTBBloodbath/doom-one.nvim")
   use("marko-cerovac/material.nvim")
   use("EdenEast/nightfox.nvim")
-  -- use("joshdick/onedark.vim")
   use("navarasu/onedark.nvim")
   use("LunarVim/onedarker.nvim")
   use("bluz71/vim-moonfly-colors")
+  use("bluz71/vim-nightfly-guicolors")
+  use("sainnhe/sonokai")
+  use("Shatur/neovim-ayu")
+  use("sainnhe/edge")
+  use("projekt0n/github-nvim-theme")
 
   -- without its own file
   use("p00f/nvim-ts-rainbow")
@@ -193,7 +197,7 @@ return packer.startup(function(use)
   use("junegunn/vim-emoji")
   use("sheerun/vim-polyglot")
   use("kovetskiy/sxhkd-vim")
-  use("junegunn/vim-peekaboo")
+  use("junegunn/vim-peekaboo") -- see register contents
   use("romainl/vim-cool") -- remove search result highlight
   use("junegunn/fzf.vim") -- for nvim-bqf
   use("junegunn/vim-easy-align")
