@@ -86,9 +86,11 @@ map("i", "?", "?<C-g>u")
 map("i", "[", "[<C-g>u")
 
 -- don't copy the replaced text after pasting
-map("v", "p", "p:let @+=@0<CR>")
+map("v", "p", ":<C-U>let @p = @+<CR>gvp:let @+ = @p<CR>")
+-- if the above doesn't work, try below:
+-- vnoremap p "_c<C-r><C-o>+<Esc>
+
 -- map("v", "<leader>p", '"_dP')
--- map("v", "p", '"_dP') -- delete weird space don't use this
 
 -- yank till end of line
 map("n", "Y", "y$")
