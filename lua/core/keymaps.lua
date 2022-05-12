@@ -5,7 +5,7 @@
 local function map(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }
   if opts then
-    options = vim.tbl_extend('force', options, opts)
+    options = vim.tbl_extend("force", options, opts)
   end
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
@@ -13,38 +13,38 @@ end
 -----------------------------------------------------------
 -- Neovim shortcuts
 -----------------------------------------------------------
-map('i', 'jk', '<Esc>')
+map("i", "jk", "<Esc>")
 
 -- unlearn bad habits
-map('n', '<C-a>', '<nop>')
-map('n', '<C-x>', '<nop>')
-map('n', 'ZZ', '<nop>')
-map('n', 'J', '<nop>')
-map('n', 'K', '<nop>')
-map('n', 'd$', '<nop>')
+map("n", "<C-a>", "<nop>")
+map("n", "<C-x>", "<nop>")
+map("n", "ZZ", "<nop>")
+map("n", "J", "<nop>")
+map("n", "K", "<nop>")
+map("n", "d$", "<nop>")
 
-map('n', '<C-d>', '13j')
-map('n', '<C-u>', '13k')
+map("n", "<C-d>", "13j")
+map("n", "<C-u>", "13k")
 
-map('n', '<C-f>', '30j')
-map('n', '<C-b>', '30k')
+map("n", "<C-f>", "30j")
+map("n", "<C-b>", "30k")
 
-map('n', '<Leader>j', 'J')
-map('n', '<Leader>k', 'K')
+map("n", "<Leader>j", "J")
+map("n", "<Leader>k", "K")
 
 -- operate on display lines rather than real lines
-map('n', 'k', 'gk')
-map('n', 'gk', 'k')
-map('n', 'j', 'gj')
-map('n', 'gj', 'j')
-map('x', 'k', 'gk')
-map('x', 'gk', 'k')
-map('x', 'j', 'gj')
-map('x', 'gj', 'j')
+map("n", "k", "gk")
+map("n", "gk", "k")
+map("n", "j", "gj")
+map("n", "gj", "j")
+map("x", "k", "gk")
+map("x", "gk", "k")
+map("x", "j", "gj")
+map("x", "gj", "j")
 
 -- select 5 lines in visual mode
-map('x', 'J', '5j')
-map('x', 'K', '5k')
+map("x", "J", "5j")
+map("x", "K", "5k")
 
 -- moving lines
 -- BUG: conflicting with jabirali/tmux-tilish
@@ -58,12 +58,12 @@ map("v", "<C-k>", ":move '<-2<CR>gv=gv")
 map("n", "<A-c>", ": Bdelete<cr>")
 
 -- backspace to black hole registry
-map('n', '<BS>', '"_')
-map('v', '<BS>', '"_')
+map("n", "<BS>", '"_')
+map("v", "<BS>", '"_')
 
 -- insert empty new line without entering insert mode
-map('n', '<Leader>o', 'o<Esc>')
-map('n', '<Leader>O', 'O<Esc>')
+map("n", "<Leader>o", "o<Esc>")
+map("n", "<Leader>O", "O<Esc>")
 
 -- reselect visual selection after indenting
 map("v", "<", "<gv")
@@ -91,7 +91,7 @@ map("v", "p", "p:let @+=@0<CR>")
 -- map("v", "p", '"_dP') -- delete weird space don't use this
 
 -- yank till end of line
-map('n', 'Y', 'y$')
+map("n", "Y", "y$")
 
 -- TODO: use cutlass.lua to remove these to save precious <leader>d
 -- map("n", "<leader>d", '"_d')
@@ -103,7 +103,7 @@ map("n", "X", '"_X')
 map("v", "X", '"_X')
 
 -- delete one word forward in Insert mode
-map("i", "<C-e>", '<C-o>de')
+map("i", "<C-e>", "<C-o>de")
 
 -- CTRL-R * will insert clipboard contents
 -- CTRL-R " (the unnamed register) inserts the last delete or yank
@@ -111,13 +111,13 @@ map("i", "<C-e>", '<C-o>de')
 -- insert mode: paste yanked / deleted
 map("i", "<C-f>", '<C-R>"')
 -- insert mode: paste clipboard content
-map("i", "<C-v>", '<C-R>*')
+map("i", "<C-v>", "<C-R>*")
 
 -- allow gf to open non-existent files
--- map("n", "gf", ':edit <cfile><cr>')
+map("n", "gf", ":edit <cfile><cr>")
 
 -- saving
-map('n', '<c-s>', ':wa<CR>')
+map("n", "<c-s>", ":wa<CR>")
 
 -- => Splits (using i3 or tmux)
 -- easier split size adjustment
