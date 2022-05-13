@@ -5,5 +5,5 @@ end
 
 cutlass.setup({
   -- lightspeed.nvim integration
-  exclude = { "ns", "nS", "ndd", "nD" },
+  exclude = { "ns", "nS", "ndd", "nD", "vd", "xd" },
 })
