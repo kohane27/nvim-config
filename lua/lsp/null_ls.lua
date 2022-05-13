@@ -19,7 +19,7 @@ local sources = {
   formatting.stylua.with({
     extra_args = { "--indent-type", "Spaces", "--indent-width", "2", "--line-endings", "Unix" },
   }),
-  formatting.shfmt, -- shellscripts
+  formatting.shfmt.with({ extra_args = { "-i", "2" } }),
   -- formatting.isort,
 
   -- DIAGNOSTICS
