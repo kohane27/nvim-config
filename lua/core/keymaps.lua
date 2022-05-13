@@ -99,10 +99,10 @@ map("n", "Y", "y$")
 -- map("n", "<leader>d", '"_d')
 -- map("v", "<leader>d", '"_d')
 -- Don't yank on delete char
-map("n", "x", '"_x')
-map("v", "x", '"_x')
-map("n", "X", '"_X')
-map("v", "X", '"_X')
+-- map("n", "x", '"_x')
+-- map("v", "x", '"_x')
+-- map("n", "X", '"_X')
+-- map("v", "X", '"_X')
 
 -- delete one word forward in Insert mode
 map("i", "<C-e>", "<C-o>de")

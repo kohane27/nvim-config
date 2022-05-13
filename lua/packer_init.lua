@@ -137,7 +137,7 @@ return packer.startup(function(use)
   use("takac/vim-hardtime")
   use("jose-elias-alvarez/typescript.nvim")
   use("gbprod/substitute.nvim")
-  -- use("gbprod/cutlass.nvim") -- BUG FREEZES nvim?
+  use("gbprod/cutlass.nvim") -- BUG FREEZES nvim?
   -- use("gbprod/yanky.nvim") -- BUG FREEZES nvim?
   -- use("svermeulen/vim-yoink") -- BUG FREEZES nvim?
   use("gelguy/wilder.nvim")

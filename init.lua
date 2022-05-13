@@ -55,6 +55,6 @@ require("plugins/scrollview")
 -- require("plugins.sad")
 -- require("plugins.nvim-bqf")
 
--- require("plugins.yanky") BUG?
--- require("plugins.cutlass") BUG?
--- require("plugins.yoink")
+require("plugins.cutlass") -- BUG?
+-- require("plugins.yanky") -- BUG?
+-- require("plugins.yoink") -- BUG?
