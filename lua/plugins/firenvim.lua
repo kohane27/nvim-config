@@ -17,7 +17,9 @@ let g:firenvim_config = {
 \ }
 if exists('g:started_by_firenvim')
     " don't run Startify
-    let g:startify_disable_at_vimenter = 0
+    let g:startify_disable_at_vimenter = 1
+    " let g:startify_new_tab = 1
+
     " don't run nill-ls
     let g:null_ls_disable = 1
 
