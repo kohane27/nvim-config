@@ -138,7 +138,7 @@ return packer.startup(function(use)
   use("jose-elias-alvarez/typescript.nvim")
   use("gbprod/substitute.nvim")
   use("gbprod/cutlass.nvim") -- BUG FREEZES nvim?
-  -- use("gbprod/yanky.nvim") -- BUG FREEZES nvim?
+  -- use("gbprod/yanky.nvim") -- BUG likely this FREEZES nvim
   -- use("svermeulen/vim-yoink") -- BUG FREEZES nvim?
   use("gelguy/wilder.nvim")
   use("tami5/sqlite.lua") -- required by telescope-frecency
