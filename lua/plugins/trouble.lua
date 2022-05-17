@@ -1,8 +1,8 @@
 local status_ok, trouble = pcall(require, "trouble")
 if not status_ok then
-	return
+  return
 end
 
 trouble.setup({
-	-- leave it empty to use the default settings
+  -- leave it empty to use the default settings
 })
