@@ -1,10 +1,10 @@
 local status_ok, neoscroll = pcall(require, "neoscroll")
 if not status_ok then
-	return
+  return
 end
 
 neoscroll.setup({
-	-- Set any options as needed
+  -- Set any options as needed
 })
 
 local t = {}

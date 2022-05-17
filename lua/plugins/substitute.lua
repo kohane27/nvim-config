@@ -1,19 +1,19 @@
 local status_ok, substitute = pcall(require, "substitute")
 if not status_ok then
-	return
+  return
 end
 
 substitute.setup({
-	{
-		on_substitute = nil,
-		yank_substitued_text = false,
-		range = {
-			prefix = "",
-		},
-		exchange = {
-			motion = false,
-		},
-	},
+  {
+    on_substitute = nil,
+    yank_substitued_text = false,
+    range = {
+      prefix = "",
+    },
+    exchange = {
+      motion = false,
+    },
+  },
 })
 
 vim.api.nvim_set_keymap("n", "cx", "<cmd>lua require('substitute.exchange').operator()<cr>", { noremap = true })
