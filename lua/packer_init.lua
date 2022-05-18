@@ -197,7 +197,8 @@ return packer.startup(function(use)
   use("junegunn/vim-emoji")
   use("sheerun/vim-polyglot")
   use("kovetskiy/sxhkd-vim")
-  use("junegunn/vim-peekaboo") -- see register contents
+  -- use("junegunn/vim-peekaboo") -- see register contents
+  use("tversteeg/registers.nvim") -- better than peekaboo
   use("romainl/vim-cool") -- remove search result highlight
   use("junegunn/fzf.vim") -- for nvim-bqf
   use("junegunn/vim-easy-align")
