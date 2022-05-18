@@ -141,4 +141,18 @@ vim.schedule(function()
   vim.cmd [[ silent! rsh ]]
 end)
 
+-- https://github.com/svermeulen/vim-yoink/issues/16#issuecomment-632234373
+g.clipboard  = {
+      name = 'xsel_override',
+      copy = {
+        ['+'] = 'xsel --input --clipboard',
+        ['*'] = 'xsel --input --primary',
+      },
+      paste = {
+        ['+'] = 'xsel --output --clipboard',
+        ['*'] = 'xsel --output --primary',
+      },
+      cache_enabled = 1,
+}
+
 -- stylua: ignore end
