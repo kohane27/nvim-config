@@ -86,7 +86,7 @@ map("i", "?", "?<C-g>u")
 map("i", "[", "[<C-g>u")
 
 -- don't copy the replaced text after pasting
-map("v", "p", ":<C-U>let @p = @+<CR>gvp:let @+ = @p<CR>")
+map("v", "<leader>p", ":<C-U>let @p = @+<CR>gvp:let @+ = @p<CR>")
 -- if the above doesn't work, try below:
 -- vnoremap p "_c<C-r><C-o>+<Esc>
 
@@ -95,9 +95,7 @@ map("v", "p", ":<C-U>let @p = @+<CR>gvp:let @+ = @p<CR>")
 -- yank till end of line
 map("n", "Y", "y$")
 
--- TODO: use cutlass.lua to remove these to save precious <leader>d
--- map("n", "<leader>d", '"_d')
--- map("v", "<leader>d", '"_d')
+-- TODO: use cutlass.lua to remove these
 -- Don't yank on delete char
 -- map("n", "x", '"_x')
 -- map("v", "x", '"_x')
@@ -162,6 +160,6 @@ ab :mp: 🔼
 ab :lp: 🔽
 
 inoremap td - [ ] 
-iab doto ✅ <c-r>=strftime("%Y-%m-%d")<cr>
-iab duto 📅 <c-r>=strftime("%Y-%m-%d")<cr>
+inoremap doto ✅ <c-r>=strftime("%Y-%m-%d")<cr>
+inoremap duto 📅 <c-r>=strftime("%Y-%m-%d")<cr>
 ]])
