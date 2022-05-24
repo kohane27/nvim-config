@@ -57,5 +57,5 @@ require("plugins/scrollview")
 -- BUG plugins below?
 
 require("plugins.cutlass")
--- require("plugins.yanky") -- BUG likely this one
+require("plugins.yanky") -- BUG likely this one
 -- require("plugins.yoink") -- BUG?
