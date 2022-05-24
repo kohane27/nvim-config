@@ -54,7 +54,8 @@ require("plugins.symbols-outline")
 require("plugins/scrollview")
 -- require("plugins.sad")
 -- require("plugins.nvim-bqf")
+-- BUG plugins below?
 
--- require("plugins.cutlass") -- BUG?
+require("plugins.cutlass")
 -- require("plugins.yanky") -- BUG likely this one
 -- require("plugins.yoink") -- BUG?
