@@ -137,7 +137,7 @@ return packer.startup(function(use)
   use("takac/vim-hardtime")
   use("jose-elias-alvarez/typescript.nvim")
   use("gbprod/substitute.nvim")
-  use("gbprod/cutlass.nvim") -- BUG FREEZES nvim?
+  use("gbprod/cutlass.nvim")
   -- use("gbprod/yanky.nvim") -- BUG likely this FREEZES nvim
   -- use("svermeulen/vim-yoink") -- BUG FREEZES nvim?
   use("gelguy/wilder.nvim")
@@ -146,6 +146,7 @@ return packer.startup(function(use)
   use("mtdl9/vim-log-highlighting")
   use("dstein64/nvim-scrollview")
   use("rcarriga/nvim-notify")
+  use("ledger/vim-ledger")
 
   -- use { 'ray-x/navigator.lua',
   --     requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' }
