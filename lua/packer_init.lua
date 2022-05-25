@@ -139,7 +139,7 @@ return packer.startup(function(use)
   use("gbprod/substitute.nvim")
   use("gbprod/cutlass.nvim")
   -- use("gbprod/yanky.nvim") -- BUG THIS FREEZES nvim
-  use("svermeulen/vim-yoink") -- BUG FREEZES nvim?
+  -- use("svermeulen/vim-yoink") -- BUG FREEZES nvim?
   use("gelguy/wilder.nvim")
   use("tami5/sqlite.lua") -- required by telescope-frecency
   use("simrat39/symbols-outline.nvim")
@@ -179,17 +179,13 @@ return packer.startup(function(use)
   })
 
   -- Colorschemes/theme
-  use("lunarvim/colorschemes") -- a bunch of colorschemes
+  use("lunarvim/colorschemes")
   use("NTBBloodbath/doom-one.nvim")
   use("marko-cerovac/material.nvim")
   use("EdenEast/nightfox.nvim")
   use("navarasu/onedark.nvim")
-  use("LunarVim/onedarker.nvim")
   use("bluz71/vim-moonfly-colors")
   use("bluz71/vim-nightfly-guicolors")
-  use("sainnhe/sonokai")
-  use("Shatur/neovim-ayu")
-  use("sainnhe/edge")
   use("projekt0n/github-nvim-theme")
 
   -- without its own file
