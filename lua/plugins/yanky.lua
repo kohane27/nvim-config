@@ -4,9 +4,9 @@ if not status_ok then
 end
 
 yanky.setup({
-  ring = {
-    history_length = 10,
-  },
+  -- ring = {
+  --   history_length = 10,
+  -- },
   highlight = {
     on_put = true,
     on_yank = true,
