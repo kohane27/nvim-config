@@ -6,6 +6,10 @@ end
 wilder.setup({
   modes = { ":", "/", "?" },
   enable_cmdline_enter = 0,
+  next_key = "<C-n>",
+  previous_key = "<C-p>",
+  -- accept_key = "<Down>",
+  -- reject_key = "<Up>",
 })
 
 -- Disable Python remote plugin
