@@ -99,7 +99,6 @@ nvim_tree.setup({
 
         { key = "R", action = "refresh" },
         { key = "a", action = "create" },
-        { key = "d", action = "remove" },
         { key = "D", action = "trash" },
         { key = "r", action = "rename" },
         { key = { "<CR>", "o", "L" }, action = "edit" },

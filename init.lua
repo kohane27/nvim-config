@@ -52,9 +52,10 @@ require("plugins.startify")
 require("plugins.wilder")
 require("plugins.symbols-outline")
 require("plugins/scrollview")
+require("plugins/registers")
 -- require("plugins.sad")
 -- require("plugins.nvim-bqf")
 require("plugins.cutlass")
 
--- require("plugins.yanky") -- BUG THIS one
+require("plugins.yanky") -- BUG THIS one
 -- require("plugins.yoink") -- BUG THIS one too
