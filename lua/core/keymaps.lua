@@ -85,6 +85,9 @@ map("i", "!", "!<C-g>u")
 map("i", "?", "?<C-g>u")
 map("i", "[", "[<C-g>u")
 
+-- record into register 'q', playback with 'Q'
+map("n", "Q", "@q")
+
 -- don't copy the replaced text after pasting
 map("v", "<leader>p", ":<C-U>let @p = @+<CR>gvp:let @+ = @p<CR>")
 -- if the above doesn't work, try below:

@@ -145,8 +145,8 @@ end)
 g.clipboard  = {
       name = 'xsel_override',
       copy = {
-        ['+'] = 'xsel --input --clipboard',
-        ['*'] = 'xsel --input --primary',
+        ['+'] = 'xsel --nodetach --input --clipboard',
+        ['*'] = 'xsel --nodetach --input --primary',
       },
       paste = {
         ['+'] = 'xsel --output --clipboard',
