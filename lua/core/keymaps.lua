@@ -91,6 +91,8 @@ map("n", "Q", "@q")
 -- select current line excluding newline character
 map("x", "$", "g_")
 
+map("n", "<leader>a", "<C-u>marks<CR>:normal!")
+
 -- map("n", "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
 
 -- don't copy the replaced text after pasting
