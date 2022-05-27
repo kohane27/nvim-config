@@ -137,7 +137,8 @@ local mappings = {
     f = {
       name = "Find",
       f = { "<cmd>Telescope find_files<cr>", "Find files" },
-      F = { "<cmd>Telescope live_grep<cr>", "Find Text" },
+      F = { "<cmd>Telescope frecency<cr>", "Find frecency" },
+      g = { "<cmd>Telescope live_grep<cr>", "Find text" },
       b = { "<cmd>Telescope current_buffer_fuzzy_find fuzzy=true case_mode=ignore_case<cr>", "Buffers" },
       r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
       p = { "<cmd>Telescope projects<cr>", "Projects" },
@@ -146,11 +147,7 @@ local mappings = {
       M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
       R = { "<cmd>Telescope registers<cr>", "Registers" },
       k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-      C = { "<cmd>Telescope commands<cr>", "Commands" },
-      -- git
-      o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-      c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-      B = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+      c = { "<cmd>Telescope commands<cr>", "Commands" },
     },
 
     g = {
