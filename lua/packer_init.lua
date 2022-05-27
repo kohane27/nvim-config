@@ -143,7 +143,7 @@ return packer.startup(function(use)
   use("gbprod/substitute.nvim")
   use("gbprod/cutlass.nvim")
   -- use("gbprod/yanky.nvim") -- BUG THIS DEFINITELY FREEZES nvim
-  use("svermeulen/vim-yoink") -- BUG FREEZES nvim?
+  -- use("svermeulen/vim-yoink") -- BUG FREEZES nvim?
   use("gelguy/wilder.nvim")
   use("tami5/sqlite.lua") -- required by telescope-frecency
   use("simrat39/symbols-outline.nvim")
@@ -151,7 +151,6 @@ return packer.startup(function(use)
   use("dstein64/nvim-scrollview")
   use("rcarriga/nvim-notify")
   use("ledger/vim-ledger")
-  use("tyru/open-browser.vim")
 
   -- use { 'ray-x/navigator.lua',
   --     requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' }
