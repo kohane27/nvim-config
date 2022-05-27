@@ -187,6 +187,11 @@ end
 
 typescript.setup({
   disable_commands = false, -- prevent the plugin from creating Vim commands
-  disable_formatting = true, -- disable tsserver's formatting capabilities
-  debug = false, -- enable debug logging for commands
+  debug = false,
+  server = { -- pass options to lspconfig's setup method
+    on_attach = function(client, _)
+      client.resolved_capabilities.document_formatting = false
+      client.resolved_capabilities.document_range_formatting = false
+    end,
+  },
 })
