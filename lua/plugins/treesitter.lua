@@ -15,7 +15,6 @@ ts_configs.setup({
   -- windwp/nvim-ts-autotag
   autotag = { enable = true, disable = { "markdown" } },
   autopairs = { enable = true },
-  -- JoosepAlviste/nvim-ts-context-commentstring
   context_commentstring = { enable = true, enable_autocmd = false },
   indent = { enable = true, disable = { "yaml", "json", "markdown" } },
   rainbow = {

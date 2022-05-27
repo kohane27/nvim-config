@@ -88,6 +88,11 @@ map("i", "[", "[<C-g>u")
 -- record into register 'q', playback with 'Q'
 map("n", "Q", "@q")
 
+-- select current line excluding newline character
+map("x", "$", "g_")
+
+-- map("n", "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
+
 -- don't copy the replaced text after pasting
 map("v", "<leader>p", ":<C-U>let @p = @+<CR>gvp:let @+ = @p<CR>")
 -- if the above doesn't work, try below:
@@ -128,8 +133,6 @@ map("n", "<Left>", ":vertical resize +3<CR>")
 map("n", "<Right>", ":vertical resize -3<CR>")
 map("n", "<Up>", ":resize +3<CR>")
 map("n", "<Down>", ":resize -3<CR>")
-
-map("n", "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
 
 -- reload configuration without restart nvim
 -- map('n', '<leader>r', ':so %<CR>')
