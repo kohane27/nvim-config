@@ -56,8 +56,8 @@ require("plugins/registers")
 -- require("plugins.sad")
 -- require("plugins.nvim-bqf")
 require("plugins.cutlass")
-require("plugins.open-browser")
+-- require("plugins.open-browser")
 require("plugins.vim-markdown")
 
 -- require("plugins.yanky") -- BUG freezes nvim
-require("plugins.yoink") -- BUG THIS one too
+-- require("plugins.yoink") -- BUG THIS one too
