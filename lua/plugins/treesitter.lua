@@ -13,10 +13,10 @@ ts_configs.setup({
     additional_vim_regex_highlighting = false,
   },
   -- windwp/nvim-ts-autotag
-  autotag = { enable = true, disable = { "markdown" } },
+  autotag = { enable = true },
   autopairs = { enable = true },
   context_commentstring = { enable = true, enable_autocmd = false },
-  indent = { enable = true, disable = { "yaml", "json", "markdown" } },
+  indent = { enable = true, disable = { "yaml", "json" } },
   rainbow = {
     enable = true,
     extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
