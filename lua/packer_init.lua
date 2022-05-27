@@ -111,8 +111,8 @@ return packer.startup(function(use)
   use("tpope/vim-repeat")
   -- use("tpope/vim-obsession")
   -- use("tpope/vim-markdown")
-  -- use("preservim/vim-markdown")
-  -- use("godlygeek/tabular") -- needed for vim-markdown
+  use("preservim/vim-markdown")
+  use("godlygeek/tabular") -- needed for vim-markdown
 
   -- use("anuvyklack/pretty-fold.nvim")
   use("sindrets/diffview.nvim")
