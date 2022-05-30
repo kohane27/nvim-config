@@ -113,6 +113,9 @@ map("n", "Y", "y$")
 -- delete one word forward in Insert mode
 map("i", "<C-e>", "<C-o>de")
 
+-- vim-visual-multi remap
+map("n", "<C-g>", ":call vm#commands#add_cursor_down(0, v:count1)<cr>")
+
 -- CTRL-R * will insert clipboard contents
 -- CTRL-R " (the unnamed register) inserts the last delete or yank
 
