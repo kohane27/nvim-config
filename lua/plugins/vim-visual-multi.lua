@@ -4,5 +4,5 @@ vim.cmd([[
     " To change any mapping you must first initialize the variable:
     let g:VM_maps = {}
 " Visual Cursors         \\c        create a column of cursors from visual mode
-    let g:VM_maps['Add Cursor Down']    = '<C-Down>'
+    " let g:VM_maps['Add Cursor Down']    = '<C-Down>'
 ]])
