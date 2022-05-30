@@ -10,7 +10,7 @@ ts_configs.setup({
   highlight = {
     enable = true, -- false will disable the whole extension
     disable = { "yaml", "json" },
-    additional_vim_regex_highlighting = false,
+    additional_vim_regex_highlighting = true,
   },
   -- windwp/nvim-ts-autotag
   autotag = { enable = true },
