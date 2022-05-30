@@ -110,7 +110,7 @@ opt.updatetime = 700      -- ms to wait for trigger an event
 
 -- Disable builtins plugins
 local disabled_built_ins = {
-  "netrw", -- need it for gx
+  -- "netrw", -- need it for gx
   "netrwPlugin",
   "netrwSettings",
   "netrwFileHandlers",
