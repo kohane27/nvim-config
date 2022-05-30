@@ -18,6 +18,8 @@ vim.cmd([[
     " omap is <Plug>(textobj-sandwich-query-i)
     " omap as <Plug>(textobj-sandwich-query-a)
 
+    vmap <C-s> <Plug>(sandwich-add)
     " remap to override again
     xmap S <Plug>Lightspeed_S
+
 ]])

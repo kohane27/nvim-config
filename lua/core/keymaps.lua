@@ -114,7 +114,7 @@ map("n", "Y", "y$")
 map("i", "<C-e>", "<C-o>de")
 
 -- vim-visual-multi remap
-map("n", "<C-g>", ":call vm#commands#add_cursor_down(0, v:count1)<cr>")
+map("n", "<A-m>", ":call vm#commands#add_cursor_down(0, v:count1)<cr>")
 
 -- CTRL-R * will insert clipboard contents
 -- CTRL-R " (the unnamed register) inserts the last delete or yank
@@ -144,9 +144,9 @@ map("n", "<Down>", ":resize -3<CR>")
 -- Applications and Plugins shortcuts
 -----------------------------------------------------------
 
--- Terminal mappings
--- map('n', '<C-t>', ':Term<CR>', { noremap = true })  -- open
--- map('t', '<Esc>', '<C-\\><C-n>')                    -- exit
+-- <C-m> is <CR> and <CR> is <C-m>
+-- They are the same key so you can't map something to <C-m> without mapping it to <CR> and vice-versa.
+-- You'll need to find another key combo for your mapping.
 
 -- paste in new line
 -- BUG: if paste to new buffer
