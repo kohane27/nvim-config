@@ -9,16 +9,6 @@ project.setup({
   silent_chdir = true,
 })
 
--- lua tree integration
-vim.g.nvim_tree_respect_buf_cwd = 1
-require("nvim-tree").setup({
-  update_cwd = true,
-  update_focused_file = {
-    enable = true,
-    update_cwd = true,
-  },
-})
-
 -- telescope integration
 local tele_status_ok, telescope = pcall(require, "telescope")
 if not tele_status_ok then

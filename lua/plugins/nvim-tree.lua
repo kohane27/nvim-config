@@ -1,56 +1,24 @@
-vim.g.nvim_tree_icons = {
-  default = "",
-  symlink = "",
-  git = {
-    unstaged = "",
-    staged = "S",
-    unmerged = "",
-    renamed = "➜",
-    deleted = "",
-    untracked = "U",
-    ignored = "◌",
-  },
-  folder = {
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
-  },
-}
-
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
   return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
+local config_status_ok, _ = pcall(require, "nvim-tree.config")
 if not config_status_ok then
   print("nvim-tree.config config_status_ok failing")
 end
 
-local tree_cb = nvim_tree_config.nvim_tree_callback
+-- local tree_cb = nvim_tree_config.nvim_tree_callback
 
 vim.cmd([[
-
 " automatically close the tab when nvim-tree is the last window in the tab
 autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
-
 ]])
 
 nvim_tree.setup({
-
-  -- renderer = {
-  --   indent_markers = {
-  --     enable = false,
-  --     icons = {
-  --       corner = "└ ",
-  --       edge = "│ ",
-  --       none = "  ",
-  --     },
-  --   },
-  -- },
+  auto_reload_on_write = true,
   update_cwd = true,
+  respect_buf_cwd = true,
   actions = {
     change_dir = {
       enable = true,
@@ -85,10 +53,58 @@ nvim_tree.setup({
   filters = {
     custom = { "node_modules", ".cache", ".bin" },
   },
+  renderer = {
+    add_trailing = false,
+    group_empty = false,
+    highlight_git = false,
+    highlight_opened_files = "none",
+    root_folder_modifier = ":~",
+    indent_markers = {
+      enable = false,
+      icons = {
+        corner = "└ ",
+        edge = "│ ",
+        none = "  ",
+      },
+    },
+    icons = {
+      webdev_colors = true,
+      git_placement = "before",
+      padding = " ",
+      symlink_arrow = " ➛ ",
+      show = {
+        file = true,
+        folder = true,
+        folder_arrow = true,
+        git = true,
+      },
+      glyphs = {
+        default = "",
+        symlink = "",
+        folder = {
+          arrow_closed = "",
+          arrow_open = "",
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+          symlink = "",
+          symlink_open = "",
+        },
+        git = {
+          unstaged = "✗",
+          staged = "✓",
+          unmerged = "",
+          renamed = "➜",
+          untracked = "★",
+          deleted = "",
+          ignored = "◌",
+        },
+      },
+    },
+    special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
+  },
   view = {
-    number = false,
-    relativenumber = false,
-    signcolumn = "yes",
     mappings = {
       custom_only = true,
       list = {

@@ -151,6 +151,9 @@ return packer.startup(function(use)
   use("dstein64/nvim-scrollview")
   use("rcarriga/nvim-notify")
   use("ledger/vim-ledger")
+  use("chrisbra/csv.vim")
+  use("ldelossa/litee.nvim") -- required by gh.nvim
+  use("ldelossa/gh.nvim")
 
   -- use { 'ray-x/navigator.lua',
   --     requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' }
