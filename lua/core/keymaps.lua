@@ -156,6 +156,10 @@ vim.cmd([[
 " wean off `:wq` and `:q` in favor of zz
 cnoremap <expr> <CR> getcmdtype() == ":" && index(["q", "wq"], getcmdline()) >= 0 ? "<C-u>" : "<CR>"
 
+" previous and next command key mapping to be compatible for `wilder.nvim`
+cnoremap <expr> <C-j> wildmenumode() ? "\<C-N>" : "\<Down>"
+cnoremap <expr> <C-k> wildmenumode() ? "\<C-P>" : "\<Up>"
+
 " For Obsidian
 " Emoji shortcuts for Obsidian Tasks
 ab :due: 📅
