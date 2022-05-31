@@ -110,12 +110,13 @@ return packer.startup(function(use)
   use("machakann/vim-sandwich")
   use("tpope/vim-repeat")
   -- use("tpope/vim-obsession")
-  -- use("tpope/vim-markdown")
   use("preservim/vim-markdown")
   use("godlygeek/tabular") -- format tables
 
   -- use("anuvyklack/pretty-fold.nvim")
-  use("sindrets/diffview.nvim")
+  use("akinsho/git-conflict.nvim")
+  -- use("rhysd/conflict-marker.vim") -- git-conflict.nvim better
+  -- use("sindrets/diffview.nvim")
   -- use("whiteinge/diffconflicts")
   use("ahmedkhalf/project.nvim")
   use("lewis6991/impatient.nvim")
@@ -205,6 +206,7 @@ return packer.startup(function(use)
   use("tversteeg/registers.nvim") -- better than peekaboo
   use("romainl/vim-cool") -- remove search result highlight
   use("junegunn/fzf.vim") -- for nvim-bqf
+  use("ibhagwan/fzf-lua")
   use("junegunn/vim-easy-align")
   use("andymass/vim-matchup")
   -- use("mhinz/vim-sayonara")
