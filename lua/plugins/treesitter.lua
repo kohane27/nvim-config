@@ -10,10 +10,9 @@ ts_configs.setup({
   highlight = {
     enable = true, -- false will disable the whole extension
     disable = { "yaml", "json" },
-    additional_vim_regex_highlighting = true,
+    additional_vim_regex_highlighting = { "markdown" }, -- false and gx won't work
   },
-  -- windwp/nvim-ts-autotag
-  autotag = { enable = true },
+  autotag = { enable = true }, -- windwp/nvim-ts-autotag
   autopairs = { enable = true },
   context_commentstring = { enable = true, enable_autocmd = false },
   indent = { enable = true, disable = { "yaml", "json" } },

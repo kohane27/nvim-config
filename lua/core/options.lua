@@ -93,6 +93,7 @@ opt.shortmess:append "sI"   -- Disable nvim intro
 -----------------------------------------------------------
 opt.expandtab   = true   -- Use spaces instead of tabs
 opt.shiftwidth  = 4      -- Shift 4 spaces when tab
+opt.softtabstop  = 4
 opt.smartindent = true   -- Autoindent new lines
 opt.tabstop     = 4      -- 1 tab == 4 spaces
 
