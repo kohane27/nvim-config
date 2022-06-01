@@ -137,10 +137,10 @@ return packer.startup(function(use)
   -- use "Pocco81/AutoSave.nvim"
   use("jremmen/vim-ripgrep")
   use("mbbill/undotree")
+  use("erietz/vim-terminator")
   -- use("EvanQuan/vim-executioner")
   -- use("pianocomposer321/yabs.nvim")
-  -- use("erietz/vim-terminator")
-  use("CRAG666/code_runner.nvim")
+  -- use("CRAG666/code_runner.nvim")
 
   use("voldikss/vim-floaterm")
 

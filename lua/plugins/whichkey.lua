@@ -80,7 +80,7 @@ local opts = {
 }
 
 local mappings = {
-  ["<C-e>"] = { "<cmd>RunCode<cr>", "RunCode" },
+  ["<C-e>"] = { "<cmd>TerminatorOutputBufferToggle<cr>", "Toggle Terminator" },
   ["<C-t>"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["<C-j>"] = {
     '<cmd>lua vim.diagnostic.open_float(0, {scope="line", border = "rounded" })<cr>',
@@ -168,10 +168,10 @@ local mappings = {
       -- s = { "<cmd>:G<cr>", "Status" },
     },
     r = {
-      name = "executioner",
-      e = { "<cmd>Executioner<cr>", "Executioner" },
-      h = { "<cmd>ExecutionerHorizontal<cr>", "ExecutionerHorizontal" },
-      v = { "<cmd>ExecutionerVertical<cr>", "ExecutionerVertical" },
+      name = "Terminator",
+      -- vnoremap <leader>rf :TerminatorRunPartOfFileInOutputBuffer<CR>
+      f = { "<cmd>TerminatorRunFileInOutputBuffer<cr>", "Run File" },
+      s = { "<cmd>TerminatorStopRun<cr>", "Stop File" },
     },
     h = {
       name = "Harpoon",
