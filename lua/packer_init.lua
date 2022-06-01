@@ -137,7 +137,11 @@ return packer.startup(function(use)
   -- use "Pocco81/AutoSave.nvim"
   use("jremmen/vim-ripgrep")
   use("mbbill/undotree")
-  use("EvanQuan/vim-executioner")
+  -- use("EvanQuan/vim-executioner")
+  -- use("pianocomposer321/yabs.nvim")
+  -- use("erietz/vim-terminator")
+  use("CRAG666/code_runner.nvim")
+
   use("voldikss/vim-floaterm")
 
   use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines

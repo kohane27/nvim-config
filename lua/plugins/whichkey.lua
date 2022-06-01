@@ -80,7 +80,7 @@ local opts = {
 }
 
 local mappings = {
-  ["<C-e>"] = { "<cmd>Executioner<cr>", "Executioner" },
+  ["<C-e>"] = { "<cmd>RunCode<cr>", "RunCode" },
   ["<C-t>"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["<C-j>"] = {
     '<cmd>lua vim.diagnostic.open_float(0, {scope="line", border = "rounded" })<cr>',

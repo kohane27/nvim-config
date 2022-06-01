@@ -35,7 +35,6 @@ require("plugins.ripgrep")
 -- require("plugins.lastplace")
 require("plugins.beacon")
 require("plugins.undotree")
-require("plugins.executioner")
 require("plugins.floaterm")
 require("plugins.luasnip")
 require("plugins.indent-blankline")
@@ -59,6 +58,7 @@ require("plugins.cutlass")
 -- require("plugins.open-browser")
 require("plugins.vim-markdown")
 require("plugins.git-conflict")
+require("plugins.code_runner")
 
 -- require("plugins.yanky") -- BUG freezes nvim
 -- require("plugins.yoink") -- BUG THIS one too
