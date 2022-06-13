@@ -35,4 +35,5 @@ function _G.set_terminal_keymaps()
   vim.api.nvim_buf_set_keymap(0, "t", "<A-l>", [[<C-\><C-n><C-W>l]], opts)
 end
 
-vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+-- mappings for only toggle term
+vim.cmd("autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()")
