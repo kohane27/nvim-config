@@ -156,6 +156,7 @@ local mappings = {
         "<cmd>FloatermNew --height=0.9 --width=0.9 --wintype=float --position=center lazygit<cr>",
         "lazygit",
       },
+      -- FloatermNew ranger
       d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
       j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
       k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
