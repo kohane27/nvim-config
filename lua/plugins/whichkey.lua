@@ -115,6 +115,15 @@ local mappings = {
     q = { "<cmd>Sayonara!<cr>", "sayonara" },
     u = { "<cmd>UndotreeToggle<cr>", "UndotreeToggle" },
 
+    t = {
+      name = "Terminal",
+      r = { "<cmd>FloatermNew ranger<cr>", "Ranger" },
+      l = {
+        "<cmd>FloatermNew --height=0.9 --width=0.9 --wintype=float --position=center lazygit<cr>",
+        -- "<cmd>FloatermNew lazygit<cr>",
+        "lazygit",
+      },
+    },
     x = {
       name = "Trouble",
       d = { "<cmd>Trouble document_diagnostics<cr>", "Document Diagnostics" },
@@ -152,11 +161,6 @@ local mappings = {
 
     g = {
       name = "Git",
-      l = {
-        "<cmd>FloatermNew --height=0.9 --width=0.9 --wintype=float --position=center lazygit<cr>",
-        "lazygit",
-      },
-      -- FloatermNew ranger
       d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
       j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
       k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
