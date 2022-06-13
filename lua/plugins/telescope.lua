@@ -56,20 +56,16 @@ telescope.setup({
 
     mappings = {
       i = {
-        ["<Up>"] = actions.cycle_history_prev,
-        ["<Down>"] = actions.cycle_history_next,
+        ["<C-j>"] = actions.cycle_history_next,
+        ["<C-k>"] = actions.cycle_history_prev,
 
         ["<C-p>"] = actions.move_selection_previous,
         ["<C-n>"] = actions.move_selection_next,
 
-        ["<C-c>"] = actions.close,
-
-        -- ["<Down>"] = actions.move_selection_next,
-        -- ["<Up>"] = actions.move_selection_previous,
-
         ["<CR>"] = actions.select_default,
-        ["<C-x>"] = actions.select_horizontal,
-        ["<C-v>"] = actions.select_vertical,
+        ["<C-c>"] = actions.close,
+        ["<C-w>s"] = actions.select_horizontal,
+        ["<C-w>v"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
 
         ["<C-u>"] = actions.preview_scrolling_up,
@@ -78,44 +74,38 @@ telescope.setup({
         -- ["<PageUp>"] = actions.results_scrolling_up,
         -- ["<PageDown>"] = actions.results_scrolling_down,
 
-        ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-        ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-        ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-        ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-        ["<C-l>"] = actions.complete_tag,
-        ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
+        -- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+        -- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+        -- ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+        -- ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+        -- ["<C-l>"] = actions.complete_tag,
+        -- ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
       },
 
       n = {
-        ["<esc>"] = actions.close,
+        ["<C-c>"] = actions.close,
         ["<CR>"] = actions.select_default,
         ["<C-x>"] = actions.select_horizontal,
         ["<C-v>"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
 
-        ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-        ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-        ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-        ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-
         ["j"] = actions.move_selection_next,
         ["k"] = actions.move_selection_previous,
+        ["gg"] = actions.move_to_top,
+        ["G"] = actions.move_to_bottom,
         ["H"] = actions.move_to_top,
         ["M"] = actions.move_to_middle,
         ["L"] = actions.move_to_bottom,
 
-        -- ["<Down>"] = actions.move_selection_next,
-        -- ["<Up>"] = actions.move_selection_previous,
-        ["gg"] = actions.move_to_top,
-        ["G"] = actions.move_to_bottom,
-
         ["<C-u>"] = actions.preview_scrolling_up,
         ["<C-d>"] = actions.preview_scrolling_down,
 
-        -- ["<PageUp>"] = actions.results_scrolling_up,
-        -- ["<PageDown>"] = actions.results_scrolling_down,
+        -- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+        -- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+        -- ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+        -- ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 
-        ["?"] = actions.which_key,
+        -- ["?"] = actions.which_key,
       },
     },
   },
@@ -144,14 +134,13 @@ telescope.setup({
       workspaces = {
         ["conf"] = "/home/***REMOVED***/.config",
         ["data"] = "/home/***REMOVED***/.local/share",
-        ["project"] = "/home/***REMOVED***/projects",
+        ["project"] = "~/Documents",
       },
     },
   },
 })
 
--- get fzf loaded after setup function
 telescope.load_extension("fzf")
-
--- load frecency
+telescope.load_extension("file_browser")
+telescope.load_extension("projects")
 telescope.load_extension("frecency")
