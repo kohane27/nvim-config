@@ -48,7 +48,6 @@ nvim_tree.setup({
   update_focused_file = {
     enable = true,
     update_cwd = true,
-    ignore_list = {},
   },
   filters = {
     custom = { "node_modules", ".cache", ".bin" },
@@ -108,34 +107,40 @@ nvim_tree.setup({
     mappings = {
       custom_only = true,
       list = {
-        -- action = "" means removing default
+        { key = "t", action = "tabnew" },
         { key = "<C-w>v", action = "vsplit" },
         { key = "<C-w>s", action = "split" },
-        { key = "t", action = "tabnew" },
 
-        { key = "R", action = "refresh" },
+        { key = "<C-r>", action = "refresh" },
         { key = "a", action = "create" },
+        { key = "rn", action = "rename" },
+        { key = "rN", action = "full_rename" },
+        { key = { "o", "l" }, action = "edit" },
+        { key = "h", action = "close_node" },
+
         { key = "D", action = "trash" },
-        { key = "r", action = "rename" },
-        { key = { "<CR>", "o", "L" }, action = "edit" },
-        { key = { "<C-]>" }, action = "cd" },
-        { key = "P", action = "parent_node" },
-        { key = "H", action = "close_node" },
-        { key = "<Tab>", action = "preview" },
-
-        { key = "K", action = "first_sibling" },
-        { key = "J", action = "last_sibling" },
-        { key = "<C-r>", action = "full_rename" },
-
         { key = "dd", action = "cut" },
         { key = "pp", action = "paste" },
-        { key = "c", action = "copy" },
-        { key = "y", action = "copy_name" },
-        { key = "Y", action = "copy_path" },
-        { key = "gy", action = "copy_absolute_path" },
+        { key = "yy", action = "copy" },
+        { key = "yn", action = "copy_name" },
+        { key = "yp", action = "copy_path" },
+        { key = "ya", action = "copy_absolute_path" },
         { key = "q", action = "close" },
+        { key = "<Tab>", action = "preview" },
+        { key = "-", action = "dir_up" },
         { key = "?", action = "toggle_help" },
+
+        -- useful to search
+        { key = "f", action = "live_filter" },
+        { key = "F", action = "clear_live_filter" },
+
+        -- rarely
+        { key = "cd", action = "cd" },
+        { key = "P", action = "parent_node" },
         { key = "W", action = "collapse_all" },
+        { key = "E", action = "expand_all" },
+        { key = "K", action = "first_sibling" },
+        { key = "J", action = "last_sibling" },
         { key = ".", action = "run_file_command" },
       },
     },

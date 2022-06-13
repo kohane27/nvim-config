@@ -91,30 +91,22 @@ local mappings = {
   g = {
     -- can't use gs and gS; taken by lightspeed
     name = "g",
-    d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition" },
-    D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration" },
-    t = { "<cmd>lua vim.lsp.buf.type_definition()<cr>", "Type Definition" },
-    -- conflict with default gi
-    -- i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Implementation" },
-    r = { "<cmd>Trouble lsp_references<cr>", "References" },
 
     -- buffer below
-    p = { "<cmd>BufferLinePick<cr>", "BufferLine Pick" },
+    p = { "<cmd>BufferPick<cr>", "Buffer Picking" },
     -- c = { "<cmd>BufferLinePickClose<cr>", "Close Buffer" },
-    ["1"] = { "<cmd>BufferLineGoToBuffer 1<cr>", "Buffer 1" },
-    ["2"] = { "<cmd>BufferLineGoToBuffer 2<cr>", "Buffer 2" },
-    ["3"] = { "<cmd>BufferLineGoToBuffer 3<cr>", "Buffer 3" },
-    ["4"] = { "<cmd>BufferLineGoToBuffer 4<cr>", "Buffer 4" },
-    ["5"] = { "<cmd>BufferLineGoToBuffer 5<cr>", "Buffer 5" },
-    ["6"] = { "<cmd>BufferLineGoToBuffer 6<cr>", "Buffer 6" },
-    ["7"] = { "<cmd>BufferLineGoToBuffer 7<cr>", "Buffer 7" },
-    ["8"] = { "<cmd>BufferLineGoToBuffer 8<cr>", "Buffer 8" },
-    ["9"] = { "<cmd>BufferLineGoToBuffer 9<cr>", "Buffer 9" },
+    ["1"] = { "<cmd>BufferGoto 1<cr>", "Buffer 1" },
+    ["2"] = { "<cmd>BufferGoto 2<cr>", "Buffer 2" },
+    ["3"] = { "<cmd>BufferGoto 3<cr>", "Buffer 3" },
+    ["4"] = { "<cmd>BufferGoto 4<cr>", "Buffer 4" },
+    ["5"] = { "<cmd>BufferGoto 5<cr>", "Buffer 5" },
+    ["6"] = { "<cmd>BufferGoto 6<cr>", "Buffer 6" },
+    ["7"] = { "<cmd>BufferGoto 7<cr>", "Buffer 7" },
+    ["8"] = { "<cmd>BufferGoto 8<cr>", "Buffer 8" },
+    ["9"] = { "<cmd>BufferGoto 9<cr>", "Buffer 9" },
+    ["0"] = { "<cmd>BufferLast<cr>", "Buffer 10" },
   },
   ["<leader>"] = {
-    q = { "<cmd>Sayonara!<cr>", "sayonara" },
-    u = { "<cmd>UndotreeToggle<cr>", "UndotreeToggle" },
-
     t = {
       name = "Terminal",
       r = { "<cmd>FloatermNew ranger<cr>", "Ranger" },
@@ -131,18 +123,6 @@ local mappings = {
       q = { "<cmd>Trouble quickfix<cr>", "Quickfix" },
       l = { "<cmd>Trouble loclist<cr>", "Location List" },
     },
-
-    l = {
-      name = "LSP",
-      ts = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-      -- ts = {"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
-      rn = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-      ca = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-      cl = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-      f = { "<cmd>lua vim.lsp.buf.formatting_sync()<cr>", "Format" },
-      i = { "<cmd>LspInfo<cr>", "Info" },
-      I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-    },
     f = {
       name = "Find",
       f = { "<cmd>Telescope find_files<cr>", "Find files" },
@@ -154,9 +134,9 @@ local mappings = {
       -- rarely use
       h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
       M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-      R = { "<cmd>Telescope registers<cr>", "Registers" },
-      k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-      c = { "<cmd>Telescope commands<cr>", "Commands" },
+      -- R = { "<cmd>Telescope registers<cr>", "Registers" },
+      -- k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+      -- c = { "<cmd>Telescope commands<cr>", "Commands" },
     },
 
     g = {
@@ -179,6 +159,13 @@ local mappings = {
       -- vnoremap <leader>rs :<Plug>SnipRun<CR>
       s = { "<cmd>SnipRun<cr>", "Run Snip" },
       c = { "<cmd>SnipClose<cr>", "Close Snip" },
+    },
+    m = {
+      name = "Miscellaneous",
+      u = { "<cmd>UndotreeToggle<cr>", "UndotreeToggle" },
+      p = { "<cmd>PasteImg<cr>", "Paste Image" },
+      i = { "<cmd>LspInfo<cr>", "LspInfo" },
+      I = { "<cmd>LspInstallInfo<cr>", "LspInstallInfo" },
     },
     h = {
       name = "Harpoon",
