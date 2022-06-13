@@ -164,17 +164,17 @@ cnoremap <expr> <C-k> wildmenumode() ? "\<C-P>" : "\<Up>"
 
 " For Obsidian
 " Emoji shortcuts for Obsidian Tasks
-ab :due: 📅
-ab :done: ✅
-" ab :sch: ⏳
-" ab :sta: 🛫
+ab :due: 📅 
+ab :don: ✅ 
+ab :sta: 🛫 <c-r>=strftime("%Y-%m-%d")<cr>
+" ab :sch: ⏳ 
 
 ab :re: 🔁
 ab :hp: ⏫
 ab :mp: 🔼
 ab :lp: 🔽
 
-inoremap td - [ ] 
+inoremap td - [ ]  🛫 <c-r>=strftime("%Y-%m-%d")<cr><left><left><left><left><left><left><left><left><left><left><left><left><left>
 inoremap doto ✅ <c-r>=strftime("%Y-%m-%d")<cr>
 inoremap duto 📅 <c-r>=strftime("%Y-%m-%d")<cr>
 ]])

@@ -5,7 +5,7 @@ end
 
 yanky.setup({
   system_clipboard = {
-    sync_with_ring = false,
+    sync_with_ring = true,
   },
   highlight = {
     on_put = true,
