@@ -162,6 +162,7 @@ return packer.startup(function(use)
   use("chrisbra/csv.vim")
   use("ldelossa/litee.nvim") -- required by gh.nvim
   use("ldelossa/gh.nvim")
+  use({ "michaelb/sniprun", run = "bash ./install.sh" })
 
   -- use { 'ray-x/navigator.lua',
   --     requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' }

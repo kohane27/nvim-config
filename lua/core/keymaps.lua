@@ -23,6 +23,9 @@ map("n", "J", "<nop>")
 map("n", "K", "<nop>")
 map("n", "d$", "<nop>")
 
+map("n", "J", "5j")
+map("n", "K", "5k")
+
 map("n", "<C-d>", "13j")
 map("n", "<C-u>", "13k")
 
