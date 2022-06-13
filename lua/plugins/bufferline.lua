@@ -29,9 +29,9 @@ bufferline.setup({
         return vim.fn.fnamemodify(buf.name, ":t:r")
       end
     end,
-    max_name_length = 18,
+    max_name_length = 10,
     max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
-    tab_size = 18,
+    tab_size = 10,
     diagnostics = "nvim_lsp",
     color_icons = true, -- whether to add the filetype icon highlights
     show_buffer_icons = true, -- disable filetype icons for buffers
