@@ -122,6 +122,8 @@ map("n", "<A-m>", ":call vm#commands#add_cursor_down(0, v:count1)<cr>")
 -- CTRL-R * will insert clipboard contents
 -- CTRL-R " (the unnamed register) inserts the last delete or yank
 
+-- delete backwards till whitespace
+map("i", "<C-b>", "<C-o>dB")
 -- insert mode: paste yanked / deleted
 map("i", "<C-f>", '<C-R>"')
 -- insert mode: paste clipboard content
