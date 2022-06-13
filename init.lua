@@ -61,6 +61,7 @@ require("plugins.vim-markdown")
 require("plugins.git-conflict")
 require("plugins.vim-terminator")
 require("plugins.sniprun")
+require("plugins.clipboard-image")
 
 -- require("plugins.yanky") -- BUG freezes nvim
 -- require("plugins.yoink") -- BUG THIS one too
