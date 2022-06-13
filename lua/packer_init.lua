@@ -107,7 +107,8 @@ return packer.startup(function(use)
   use("kyazdani42/nvim-tree.lua")
   use({ "akinsho/bufferline.nvim", tag = "*" })
   use("nvim-lualine/lualine.nvim")
-  use("akinsho/toggleterm.nvim") -- needed for lazygit
+  use("voldikss/vim-floaterm")
+  use("akinsho/toggleterm.nvim") -- needed for lazygit can migrate to floaterm but oh well
   -- use("tpope/vim-unimpaired")
   -- use("tpope/vim-fugitive")
   use("machakann/vim-sandwich")
@@ -141,8 +142,6 @@ return packer.startup(function(use)
   -- use("EvanQuan/vim-executioner")
   -- use("pianocomposer321/yabs.nvim")
   -- use("CRAG666/code_runner.nvim")
-
-  use("voldikss/vim-floaterm")
 
   use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
 

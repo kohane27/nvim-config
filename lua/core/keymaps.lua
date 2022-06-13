@@ -142,9 +142,6 @@ map("n", "<Right>", ":vertical resize -3<CR>")
 map("n", "<Up>", ":resize +3<CR>")
 map("n", "<Down>", ":resize -3<CR>")
 
--- reload configuration without restart nvim
--- map('n', '<leader>r', ':so %<CR>')
-
 -----------------------------------------------------------
 -- Applications and Plugins shortcuts
 -----------------------------------------------------------
