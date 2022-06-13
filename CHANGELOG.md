@@ -361,3 +361,4 @@ All notable changes to this project will be documented in this file. See [standa
 * working `typescript.nvim` ([ce8ffdd](https://github.com/kohane27/nvim-config/commit/ce8ffdd107453c6915c1646f37454f225d6a49b6))
 * working null_ls ([8e2dddc](https://github.com/kohane27/nvim-config/commit/8e2dddc01925a8e5fa29470005b7d1c5e3ef1a1c))
 * working snippets ([66f2874](https://github.com/kohane27/nvim-config/commit/66f28742ef0c267077d24254fafe14a74ced8b10))
+* working snippets ([66f2874](https://github.com/kohane27/nvim-config/commit/66f28742ef0c267077d24254fafe14a74ced8b10))
