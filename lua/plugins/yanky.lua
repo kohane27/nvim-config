@@ -19,7 +19,7 @@ vim.api.nvim_set_keymap("n", "P", "<Plug>(YankyPutBefore)", {})
 vim.api.nvim_set_keymap("x", "p", "<Plug>(YankyPutAfter)", {})
 vim.api.nvim_set_keymap("x", "P", "<Plug>(YankyPutBefore)", {})
 
--- after performing a paste, you can cycle through the history by hitting <c-n> and <c-p>.
+-- after performing a paste, you can cycle through the history
 -- Any modifications done after pasting will cancel the possibility to cycle.
--- vim.api.nvim_set_keymap("n", "<leader>mn", "<Plug>(YankyCycleForward)", {})
--- vim.api.nvim_set_keymap("n", "<leader>mp", "<Plug>(YankyCycleBackward)", {})
+vim.api.nvim_set_keymap("n", "<A-n>", "<Plug>(YankyCycleBackward)", {})
+vim.api.nvim_set_keymap("n", "<A-p>", "<Plug>(YankyCycleForward)", {})

@@ -63,10 +63,10 @@ map("n", "<A-.>", ":BufferNext<CR>", opts)
 map("n", "<A-<>", ":BufferMovePrevious<CR>", opts)
 map("n", "<A->>", " :BufferMoveNext<CR>", opts)
 
--- toggle pin
-map("n", "<A-p>", ":BufferPin<CR>", opts)
 -- close buffer
 map("n", "<A-c>", ":BufferClose<CR>", opts)
+-- toggle pin
+-- map("n", "<A-p>", ":BufferPin<CR>", opts)
 
 -- Close commands
 -- :BufferCloseAllButCurrent<CR>
