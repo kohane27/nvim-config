@@ -87,7 +87,7 @@ local mappings = {
     "Line Diagnostic",
   },
   ["<C-k>"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
-  K = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
+  -- K = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
   g = {
     -- can't use gs and gS; taken by lightspeed
     name = "g",
@@ -168,10 +168,12 @@ local mappings = {
       -- s = { "<cmd>:G<cr>", "Status" },
     },
     r = {
-      name = "Terminator",
+      name = "Run Code",
       -- vnoremap <leader>rf :TerminatorRunPartOfFileInOutputBuffer<CR>
       f = { "<cmd>TerminatorRunFileInOutputBuffer<cr>", "Run File" },
-      s = { "<cmd>TerminatorStopRun<cr>", "Stop File" },
+      -- vnoremap <leader>rs :<Plug>SnipRun<CR>
+      s = { "<cmd>SnipRun<cr>", "Run Snip" },
+      c = { "<cmd>SnipClose<cr>", "Close Snip" },
     },
     h = {
       name = "Harpoon",
