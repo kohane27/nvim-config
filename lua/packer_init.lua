@@ -138,6 +138,8 @@ return packer.startup(function(use)
   -- use "Pocco81/AutoSave.nvim"
   use("jremmen/vim-ripgrep")
   use("mbbill/undotree")
+
+  -- run code within nvim
   use("erietz/vim-terminator")
   -- use("EvanQuan/vim-executioner")
   -- use("pianocomposer321/yabs.nvim")
@@ -162,6 +164,7 @@ return packer.startup(function(use)
   use("ldelossa/litee.nvim") -- required by gh.nvim
   use("ldelossa/gh.nvim")
   use({ "michaelb/sniprun", run = "bash ./install.sh" })
+  use("ekickx/clipboard-image.nvim")
 
   -- use { 'ray-x/navigator.lua',
   --     requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' }
