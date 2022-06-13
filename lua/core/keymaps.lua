@@ -10,6 +10,13 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+--custom keymaps in the following
+--leap--.lua
+--barbar.lua
+--yanky.lua
+--sniprun.lua
+--substitute.lua
+
 -----------------------------------------------------------
 -- Neovim shortcuts
 -----------------------------------------------------------
@@ -58,7 +65,8 @@ map("x", "K", "5k")
 map("v", "<C-j>", ":move '>+1<CR>gv=gv")
 map("v", "<C-k>", ":move '<-2<CR>gv=gv")
 
-map("n", "<A-c>", ": Bdelete<cr>")
+-- handle by barbar.nvim
+-- map("n", "<A-c>", ": Bdelete<cr>")
 
 -- backspace to black hole registry
 map("n", "<BS>", '"_')
@@ -106,13 +114,6 @@ map("v", "<leader>p", ":<C-U>let @p = @+<CR>gvp:let @+ = @p<CR>")
 -- yank till end of line
 map("n", "Y", "y$")
 
--- TODO: use cutlass.lua to remove these
--- Don't yank on delete char
--- map("n", "x", '"_x')
--- map("v", "x", '"_x')
--- map("n", "X", '"_X')
--- map("v", "X", '"_X')
-
 -- delete one word forward in Insert mode
 map("i", "<C-e>", "<C-o>de")
 
@@ -135,8 +136,7 @@ map("n", "gf", ":edit <cfile><cr>")
 -- saving
 map("n", "<c-s>", ":wa<CR>")
 
--- => Splits (using i3 or tmux)
--- easier split size adjustment
+-- easier split size adjustment (using tmux)
 map("n", "<Left>", ":vertical resize +3<CR>")
 map("n", "<Right>", ":vertical resize -3<CR>")
 map("n", "<Up>", ":resize +3<CR>")

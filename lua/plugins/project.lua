@@ -4,15 +4,6 @@ if not status_ok then
 end
 
 project.setup({
-  -- When set to false, you will get a message when project.nvim changes your
-  -- directory.
+  -- false and you'll get a message when project.nvim changes your directory
   silent_chdir = true,
 })
-
--- telescope integration
-local tele_status_ok, telescope = pcall(require, "telescope")
-if not tele_status_ok then
-  return
-end
-
-telescope.load_extension("projects")

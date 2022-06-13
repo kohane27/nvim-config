@@ -54,13 +54,19 @@ return packer.startup(function(use)
     run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   })
   use("romgrk/fzy-lua-native")
+
+  -- Telescope extensions
   use("nvim-telescope/telescope-frecency.nvim")
+  use("ahmedkhalf/project.nvim")
+  use("nvim-telescope/telescope-file-browser.nvim") -- required by project.nvim
+  -- use("nvim-telescope/telescope-project.nvim")
 
   -- Treesitter
   -- Additional textobjects for treesitter
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
   use("nvim-treesitter/nvim-treesitter-textobjects")
   use("nvim-treesitter/nvim-treesitter-refactor")
+  use("nvim-treesitter/nvim-treesitter-context")
   use("JoosepAlviste/nvim-ts-context-commentstring")
   use("windwp/nvim-ts-autotag")
   use("windwp/nvim-autopairs") -- integrated with both cmp and treesitter
@@ -86,26 +92,17 @@ return packer.startup(function(use)
   })
 
   -- snippets
-  use("L3MON4D3/LuaSnip") --snippet engine
+  use("L3MON4D3/LuaSnip") -- snippet engine
   use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
   use("saadparwaiz1/cmp_luasnip")
-  -- For vsnip users
-  -- use 'hrsh7th/cmp-vsnip'
-  -- use 'hrsh7th/vim-vsnip'
-  -- For luasnip users
-  -- For ultisnips users
-  -- use 'SirVer/ultisnips'
-  -- use 'quangnguyen30192/cmp-nvim-ultisnips'
-  -- For snippy users
-  -- use 'dcampos/nvim-snippy'
-  -- use 'dcampos/cmp-snippy'
 
   -- General
   use("numToStr/Comment.nvim")
   use("ryanoasis/vim-devicons")
   use("kyazdani42/nvim-web-devicons")
   use("kyazdani42/nvim-tree.lua")
-  use({ "akinsho/bufferline.nvim", tag = "*" })
+  -- use({ "akinsho/bufferline.nvim", tag = "v2.*" })
+  use("romgrk/barbar.nvim")
   use("nvim-lualine/lualine.nvim")
   use("voldikss/vim-floaterm")
   use("akinsho/toggleterm.nvim") -- needed for lazygit can migrate to floaterm but oh well
@@ -117,13 +114,15 @@ return packer.startup(function(use)
   use("preservim/vim-markdown")
   use("godlygeek/tabular") -- format tables
 
+  use("sindrets/diffview.nvim") -- tabpage interface for diffs
   -- use("anuvyklack/pretty-fold.nvim")
   use("akinsho/git-conflict.nvim")
   -- use("rhysd/conflict-marker.vim") -- git-conflict.nvim better
-  -- use("sindrets/diffview.nvim")
+  -- use("christoomey/vim-conflicted")
   -- use("whiteinge/diffconflicts")
-  use("ahmedkhalf/project.nvim")
+
   use("lewis6991/impatient.nvim")
+
   -- use("goolord/alpha-nvim")
   use("mhinz/vim-startify")
   use("antoinemadec/FixCursorHold.nvim") -- needed to fix lsp doc highlight
@@ -151,14 +150,16 @@ return packer.startup(function(use)
   use("jose-elias-alvarez/typescript.nvim")
   use("gbprod/substitute.nvim")
   use("gbprod/cutlass.nvim")
-  use("gbprod/yanky.nvim") -- BUG THIS DEFINITELY FREEZES nvim
+
+  use({ "gbprod/yanky.nvim", branch = "main" })
+  -- use("gbprod/yanky.nvim") -- BUG THIS DEFINITELY FREEZES nvim
   -- use("svermeulen/vim-yoink") -- BUG FREEZES nvim?
   use("gelguy/wilder.nvim")
   use("tami5/sqlite.lua") -- required by telescope-frecency
   use("simrat39/symbols-outline.nvim")
   use("mtdl9/vim-log-highlighting")
   use("dstein64/nvim-scrollview")
-  use("rcarriga/nvim-notify")
+  -- use("rcarriga/nvim-notify")
   use("ledger/vim-ledger")
   use("chrisbra/csv.vim")
   use("ldelossa/litee.nvim") -- required by gh.nvim
@@ -173,7 +174,6 @@ return packer.startup(function(use)
   use("ray-x/lsp_signature.nvim")
 
   use({ "mg979/vim-visual-multi", branch = "master" })
-  -- use("ethanholz/nvim-lastplace")
   use("karb94/neoscroll.nvim")
   -- use("max397574/better-escape.nvim")
   use("wellle/targets.vim")
@@ -183,12 +183,7 @@ return packer.startup(function(use)
   use("folke/trouble.nvim")
   use("nathom/filetype.nvim") -- speed up startup time
   use("vim-scripts/LargeFile")
-  use({
-    "luukvbaal/stabilize.nvim",
-    config = function()
-      require("stabilize").setup()
-    end,
-  })
+  use("luukvbaal/stabilize.nvim")
   use({
     "glacambre/firenvim",
     run = function()
@@ -212,19 +207,19 @@ return packer.startup(function(use)
   use("junegunn/vim-emoji")
   use("sheerun/vim-polyglot")
   use("kovetskiy/sxhkd-vim")
-  -- use("junegunn/vim-peekaboo") -- see register contents
-  use("tversteeg/registers.nvim") -- better than peekaboo
+  use("tversteeg/registers.nvim") -- see register contents
   use("romainl/vim-cool") -- remove search result highlight
   use("junegunn/fzf.vim") -- for nvim-bqf
   use("ibhagwan/fzf-lua")
   use("junegunn/vim-easy-align")
   use("andymass/vim-matchup")
-  -- use("mhinz/vim-sayonara")
   -- use("chaoren/vim-wordmotion")
   use("mfussenegger/nvim-jdtls")
   use("sunaku/tmux-navigate")
   use("famiu/bufdelete.nvim")
   use("moll/vim-bbye")
+  -- use("ethanholz/nvim-lastplace")
+  use("farmergreg/vim-lastplace")
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
