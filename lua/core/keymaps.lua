@@ -124,6 +124,10 @@ map("n", "<A-m>", ":call vm#commands#add_cursor_down(0, v:count1)<cr>")
 map("n", "<A-o>", "g;")
 map("n", "<A-i>", "g,")
 
+-- move quickfix list
+map("n", "<A-p>", "<cmd>cprev<cr>")
+map("n", "<A-n>", "<cmd>cnext<cr>")
+
 -- delete backwards till whitespace
 map("i", "<C-b>", "<C-o>dB")
 -- insert mode: paste yanked / deleted
