@@ -172,7 +172,8 @@ return packer.startup(function(use)
   -- use { 'ray-x/navigator.lua',
   --     requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' }
   -- }
-  -- use("ray-x/sad.nvim")
+  use("ray-x/guihua.lua") -- required by sad.nvim
+  use("ray-x/sad.nvim")
   use("ray-x/lsp_signature.nvim")
 
   use({ "mg979/vim-visual-multi", branch = "master" })
@@ -220,7 +221,6 @@ return packer.startup(function(use)
   use("sunaku/tmux-navigate")
   use("famiu/bufdelete.nvim")
   use("moll/vim-bbye")
-  -- use("ethanholz/nvim-lastplace")
   use("farmergreg/vim-lastplace")
 
   -- Automatically set up your configuration after cloning packer.nvim
