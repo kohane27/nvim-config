@@ -59,6 +59,7 @@ return packer.startup(function(use)
   use("nvim-telescope/telescope-frecency.nvim")
   use("ahmedkhalf/project.nvim")
   use("nvim-telescope/telescope-file-browser.nvim") -- required by project.nvim
+  use("tami5/sqlite.lua") -- required by telescope-frecency
   -- use("nvim-telescope/telescope-project.nvim")
 
   -- Treesitter
@@ -125,7 +126,7 @@ return packer.startup(function(use)
 
   -- use("goolord/alpha-nvim")
   use("mhinz/vim-startify")
-  use("antoinemadec/FixCursorHold.nvim") -- needed to fix lsp doc highlight
+  use("antoinemadec/FixCursorHold.nvim") -- needed to fix LSP doc highlight
   use("folke/which-key.nvim")
   use("folke/lsp-colors.nvim")
 
@@ -151,11 +152,10 @@ return packer.startup(function(use)
   use("gbprod/substitute.nvim")
   use("gbprod/cutlass.nvim")
 
-  use({ "gbprod/yanky.nvim", branch = "main" })
-  -- use("gbprod/yanky.nvim") -- BUG THIS DEFINITELY FREEZES nvim
+  -- use({ "gbprod/yanky.nvim", branch = "main" })
+  use("gbprod/yanky.nvim") -- BUG THIS DEFINITELY FREEZES nvim
   -- use("svermeulen/vim-yoink") -- BUG FREEZES nvim?
   use("gelguy/wilder.nvim")
-  use("tami5/sqlite.lua") -- required by telescope-frecency
   use("simrat39/symbols-outline.nvim")
   use("mtdl9/vim-log-highlighting")
   use("dstein64/nvim-scrollview")
