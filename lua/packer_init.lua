@@ -126,6 +126,7 @@ return packer.startup(function(use)
 
   -- use("goolord/alpha-nvim")
   use("mhinz/vim-startify")
+
   use("antoinemadec/FixCursorHold.nvim") -- needed to fix LSP doc highlight
   use("folke/which-key.nvim")
   use("folke/lsp-colors.nvim")
@@ -145,6 +146,7 @@ return packer.startup(function(use)
   -- use("pianocomposer321/yabs.nvim")
   -- use("CRAG666/code_runner.nvim")
 
+  -- use("kwkarlwang/bufjump.nvim") -- interesting
   use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
 
   use("takac/vim-hardtime")
