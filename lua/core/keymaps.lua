@@ -117,17 +117,20 @@ map("n", "Y", "y$")
 -- delete one word forward in Insert mode
 map("i", "<C-e>", "<C-o>de")
 
--- vim-visual-multi remap
+-- vim-visual-*m*ulti remap
 map("n", "<A-m>", ":call vm#commands#add_cursor_down(0, v:count1)<cr>")
 
--- CTRL-R * will insert clipboard contents
--- CTRL-R " (the unnamed register) inserts the last delete or yank
+-- move changelist: jump between edit locations
+map("n", "<A-o>", "g;")
+map("n", "<A-i>", "g,")
 
 -- delete backwards till whitespace
 map("i", "<C-b>", "<C-o>dB")
 -- insert mode: paste yanked / deleted
+-- CTRL-R " (the unnamed register) inserts the last delete or yank
 map("i", "<C-f>", '<C-R>"')
 -- insert mode: paste clipboard content
+-- CTRL-R * will insert clipboard contents
 map("i", "<C-v>", "<C-R>*")
 
 -- allow gf to open non-existent files
