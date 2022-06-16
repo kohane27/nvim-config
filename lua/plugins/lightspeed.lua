@@ -13,10 +13,16 @@ lightspeed.setup({
   -- Display characters in a custom way in the highlighted matches.
   --- f/t ---
   limit_ft_matches = 4,
-  repeat_ft_with_target_char = true,
+  repeat_ft_with_target_char = false,
 })
 
 vim.cmd([[
 " just press s to search
 nnoremap s <Plug>Lightspeed_omni_s
+
+" using clever-f
+silent! unmap f
+silent! unmap F
+silent! unmap t
+silent! unmap T
 ]])
