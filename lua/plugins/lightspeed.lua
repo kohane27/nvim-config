@@ -13,7 +13,7 @@ lightspeed.setup({
   -- Display characters in a custom way in the highlighted matches.
   --- f/t ---
   limit_ft_matches = 4,
-  repeat_ft_with_target_char = false,
+  repeat_ft_with_target_char = true,
 })
 
 vim.cmd([[

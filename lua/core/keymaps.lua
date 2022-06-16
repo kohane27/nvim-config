@@ -184,4 +184,6 @@ ab :lp: 🔽
 inoremap td - [ ]  🛫 <c-r>=strftime("%Y-%m-%d")<cr><left><left><left><left><left><left><left><left><left><left><left><left><left>
 inoremap doto ✅ <c-r>=strftime("%Y-%m-%d")<cr>
 inoremap duto 📅 <c-r>=strftime("%Y-%m-%d")<cr>
+inoremap #to #tonight
+inoremap #at #atwork
 ]])
