@@ -133,8 +133,8 @@ return packer.startup(function(use)
 
   use("lewis6991/gitsigns.nvim")
   use("norcalli/nvim-colorizer.lua")
-  use("ggandor/lightspeed.nvim")
   -- use("ggandor/leap.nvim")
+  use("ggandor/lightspeed.nvim")
   -- use "rmagatti/auto-session"
   -- use "Pocco81/AutoSave.nvim"
   use("jremmen/vim-ripgrep")
@@ -172,9 +172,10 @@ return packer.startup(function(use)
   -- use { 'ray-x/navigator.lua',
   --     requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' }
   -- }
-  use("ray-x/guihua.lua") -- required by sad.nvim
-  use("ray-x/sad.nvim")
+  -- use("ray-x/guihua.lua") -- required by sad.nvim
+  -- use("ray-x/sad.nvim")
   use("ray-x/lsp_signature.nvim")
+  use("windwp/nvim-spectre")
 
   use({ "mg979/vim-visual-multi", branch = "master" })
   use("karb94/neoscroll.nvim")
