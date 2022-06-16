@@ -138,7 +138,8 @@ map("i", "<C-f>", '<C-R>"')
 map("i", "<C-v>", "<C-R>*")
 
 -- allow gf to open non-existent files
-map("n", "gf", ":edit <cfile><cr>")
+-- BUG: will create non-existent file instead of jumping
+-- map("n", "gf", ":edit <cfile><cr>")
 
 -- saving
 map("n", "<c-s>", ":wa<CR>")
@@ -186,4 +187,5 @@ inoremap doto ✅ <c-r>=strftime("%Y-%m-%d")<cr>
 inoremap duto 📅 <c-r>=strftime("%Y-%m-%d")<cr>
 inoremap #to #tonight
 inoremap #at #atwork
+inoremap #ob #Obsidian
 ]])

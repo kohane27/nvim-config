@@ -60,7 +60,7 @@ return packer.startup(function(use)
   use("ahmedkhalf/project.nvim")
   use("nvim-telescope/telescope-file-browser.nvim") -- required by project.nvim
   use("tami5/sqlite.lua") -- required by telescope-frecency
-  -- use("nvim-telescope/telescope-project.nvim")
+  -- use("nvim-telescope/telescope-project.nvim") #using ahmedkhalf/project.nvim
 
   -- Treesitter
   -- Additional textobjects for treesitter
