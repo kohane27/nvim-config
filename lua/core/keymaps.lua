@@ -141,8 +141,9 @@ map("i", "<C-v>", "<C-R>*")
 -- BUG: will create non-existent file instead of jumping
 -- map("n", "gf", ":edit <cfile><cr>")
 
--- saving
+-- save
 map("n", "<c-s>", ":wa<CR>")
+map("i", "<c-s>", "<c-o>:w<CR>")
 
 -- easier split size adjustment (using tmux)
 map("n", "<Left>", ":vertical resize +3<CR>")
@@ -183,9 +184,9 @@ ab :mp: 🔼
 ab :lp: 🔽
 
 inoremap td - [ ]  🛫 <c-r>=strftime("%Y-%m-%d")<cr><left><left><left><left><left><left><left><left><left><left><left><left><left>
-inoremap doto ✅ <c-r>=strftime("%Y-%m-%d")<cr>
-inoremap duto 📅 <c-r>=strftime("%Y-%m-%d")<cr>
-inoremap #to #tonight
-inoremap #at #atwork
-inoremap #ob #Obsidian
+inoremap doto ✅ <c-r>=strftime("%Y-%m-%d")<cr><Esc>:w<CR>
+inoremap duto 📅 <c-r>=strftime("%Y-%m-%d")<cr><Esc>:w<CR>
+inoremap #to #tonight<Esc>:w<CR>
+inoremap #at #atwork<Esc>:w<CR>
+inoremap #ob #Obsidian<Esc>:w<CR>
 ]])

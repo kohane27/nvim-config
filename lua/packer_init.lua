@@ -150,7 +150,7 @@ return packer.startup(function(use)
   -- use("kwkarlwang/bufjump.nvim") -- interesting
   use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
 
-  use("takac/vim-hardtime")
+  -- use("takac/vim-hardtime")
   use("jose-elias-alvarez/typescript.nvim")
   use("gbprod/substitute.nvim")
   use("gbprod/cutlass.nvim")
