@@ -137,7 +137,7 @@ return packer.startup(function(use)
   use("ggandor/lightspeed.nvim")
   use("rhysd/clever-f.vim")
   -- use "rmagatti/auto-session"
-  use("Pocco81/AutoSave.nvim")
+  -- use("Pocco81/AutoSave.nvim")
   use("jremmen/vim-ripgrep")
   use("mbbill/undotree")
 
