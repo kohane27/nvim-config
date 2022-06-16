@@ -146,10 +146,7 @@ local mappings = {
       k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
       p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
       -- l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-      -- r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
       -- R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-      -- s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-      -- u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk" },
       -- s = { "<cmd>:G<cr>", "Status" },
     },
     r = {
@@ -166,6 +163,10 @@ local mappings = {
       p = { "<cmd>PasteImg<cr>", "Paste Image" },
       i = { "<cmd>LspInfo<cr>", "LspInfo" },
       I = { "<cmd>LspInstallInfo<cr>", "LspInstallInfo" },
+      so = { "<cmd>SymbolsOutline<cr>", "SymbolsOutline" },
+      ss = { "<cmd>lua require('spectre').open()<CR>", "Spectre" },
+      sw = { "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "search current word" },
+      sf = { "<cmd>lua require('spectre').open_file_search()<cr>", "search in current file" },
     },
     h = {
       name = "Harpoon",

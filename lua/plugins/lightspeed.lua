@@ -19,5 +19,4 @@ lightspeed.setup({
 vim.cmd([[
 " just press s to search
 nnoremap s <Plug>Lightspeed_omni_s
-" nnoremap S <Plug>Lightspeed_omni_s
 ]])
