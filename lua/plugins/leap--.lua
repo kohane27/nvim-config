@@ -11,9 +11,7 @@ leap.set_default_keymaps(true)
 -- }
 
 function Leap_Bidirectional()
-  require("leap").leap({
-    ["target-windows"] = { vim.fn.getwininfo(vim.fn.win_getid())[1] },
-  })
+  require("leap").leap({ ["target-windows"] = { vim.api.nvim_get_current_win() } })
 end
 
 vim.api.nvim_set_keymap("n", "s", ":lua Leap_Bidirectional()<CR>", { noremap = true, silent = true })
