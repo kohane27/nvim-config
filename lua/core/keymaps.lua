@@ -184,9 +184,9 @@ ab :mp: 🔼
 ab :lp: 🔽
 
 inoremap td - [ ]  🛫 <c-r>=strftime("%Y-%m-%d")<cr><left><left><left><left><left><left><left><left><left><left><left><left><left>
-inoremap doto ✅ <c-r>=strftime("%Y-%m-%d")<cr><Esc>:w<CR>
-inoremap duto 📅 <c-r>=strftime("%Y-%m-%d")<cr><Esc>:w<CR>
-inoremap #to #tonight<Esc>:w<CR>
-inoremap #at #atwork<Esc>:w<CR>
-inoremap #ob #Obsidian<Esc>:w<CR>
+inoremap doto ✅ <c-r>=strftime("%Y-%m-%d")<cr><Esc>
+inoremap duto 📅 <c-r>=strftime("%Y-%m-%d")<cr><Esc>
+inoremap #to #tonight<Esc>
+inoremap #at #atwork<Esc>
+inoremap #ob #Obsidian<Esc>
 ]])
