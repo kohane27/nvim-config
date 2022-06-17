@@ -20,12 +20,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Autocommand that reloads neovim whenever you save this packer_init.lua file
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost packer_init.lua source <afile> | PackerSync
-  augroup end
-]])
+-- vim.cmd([[
+--   augroup packer_user_config
+--     autocmd!
+--     autocmd BufWritePost packer_init.lua source <afile> | PackerSync
+--   augroup end
+-- ]])
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -107,7 +107,7 @@ return packer.startup(function(use)
   use("nvim-lualine/lualine.nvim")
   use("voldikss/vim-floaterm")
   use("akinsho/toggleterm.nvim") -- needed for lazygit can migrate to floaterm but oh well
-  -- use("tpope/vim-unimpaired")
+  use("tpope/vim-unimpaired")
   -- use("tpope/vim-fugitive")
   use("machakann/vim-sandwich")
   use("tpope/vim-repeat")
