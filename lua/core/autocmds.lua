@@ -5,6 +5,9 @@
 -----------------------------------------------------------
 
 vim.cmd([[
+" disable auto-indentation for markdown
+autocmd filetype markdown set indentexpr=
+
   augroup _general_settings
     autocmd!
     autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
@@ -17,8 +20,15 @@ vim.cmd([[
     autocmd VimResized * tabdo wincmd = 
   augroup end
 
-" disable auto-indentation for markdown
-autocmd filetype markdown set indentexpr=
+  augroup _remap_in_todo
+    autocmd!
+    autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> td - [ ]  🛫 <c-r>=strftime("%Y-%m-%d")<cr><left><left><left><left><left><left><left><left><left><left><left><left><left>
+    autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> do ✅ <c-r>=strftime("%Y-%m-%d")<cr><Esc>:w<CR>
+    autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> du 📅 <c-r>=strftime("%Y-%m-%d")<cr><Esc>:w<CR>
+    autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> #t #tonight<Esc>:w<CR>
+    autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> #a #atwork<Esc>:w<CR>
+    autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> #o #Obsidian<Esc>:w<CR>
+  augroup end
 ]])
 
 local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
