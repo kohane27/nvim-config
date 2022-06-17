@@ -133,8 +133,8 @@ return packer.startup(function(use)
 
   use("lewis6991/gitsigns.nvim")
   use("norcalli/nvim-colorizer.lua")
-  -- use("ggandor/leap.nvim")
-  use("ggandor/lightspeed.nvim")
+  use("ggandor/leap.nvim")
+  -- use("ggandor/lightspeed.nvim")
   use("rhysd/clever-f.vim")
   -- use "rmagatti/auto-session"
   -- use("Pocco81/AutoSave.nvim")
