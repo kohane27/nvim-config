@@ -17,10 +17,10 @@ lightspeed.setup({
 })
 
 vim.cmd([[
-" just press s to search
+" s for bi-directional search
 nnoremap s <Plug>Lightspeed_omni_s
 
-" using clever-f
+" use clever-f
 silent! unmap f
 silent! unmap F
 silent! unmap t

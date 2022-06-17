@@ -1,5 +1,7 @@
 vim.cmd([[
-hi CharColor guifg=#ffffff guibg=NONE guisp=NONE gui=undercurl
+" hi CharColor guifg=white guibg=NONE guisp=NONE gui=undercurl
+highlight CharColor ctermfg=white ctermbg=NONE cterm=bold,underline guifg=white guibg=NONE gui=bold,underline
+
 " search a char only in current line
 let g:clever_f_across_no_line=1
 " ignore case

@@ -171,23 +171,4 @@ cnoremap <expr> <CR> getcmdtype() == ":" && index(["q", "wq"], getcmdline()) >= 
 " previous and next command key mapping to be compatible for `wilder.nvim`
 cnoremap <expr> <C-j> wildmenumode() ? "\<C-N>" : "\<Down>"
 cnoremap <expr> <C-k> wildmenumode() ? "\<C-P>" : "\<Up>"
-
-" For Obsidian
-" Emoji shortcuts for Obsidian Tasks
-ab :due: 📅 
-ab :don: ✅ 
-ab :sta: 🛫 <c-r>=strftime("%Y-%m-%d")<cr>
-" ab :sch: ⏳ 
-
-ab :re: 🔁
-ab :hp: ⏫
-ab :mp: 🔼
-ab :lp: 🔽
-
-inoremap td - [ ]  🛫 <c-r>=strftime("%Y-%m-%d")<cr><left><left><left><left><left><left><left><left><left><left><left><left><left>
-inoremap doto ✅ <c-r>=strftime("%Y-%m-%d")<cr><Esc>:w<CR>
-inoremap duto 📅 <c-r>=strftime("%Y-%m-%d")<cr><Esc>:w<CR>
-inoremap #to #tonight<Esc>:w<CR>
-inoremap #at #atwork<Esc>:w<CR>
-inoremap #ob #Obsidian<Esc>:w<CR>
 ]])
