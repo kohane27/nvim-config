@@ -176,7 +176,8 @@ return packer.startup(function(use)
   -- }
   use("windwp/nvim-spectre")
   use("brooth/far.vim")
-  use("nyngwang/NeoZoom.lua")
+  use("nyngwang/NeoZoom.lua") -- doesn't work on spectre
+  -- use("dhruvasagar/vim-zoom")
 
   use({ "mg979/vim-visual-multi", branch = "master" })
   use("karb94/neoscroll.nvim")

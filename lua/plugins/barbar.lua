@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 barbar.setup({
-  animation = true,
+  animation = false,
   auto_hide = false,
   tabpages = true,
   closable = true,
