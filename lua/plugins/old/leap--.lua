@@ -23,6 +23,31 @@ leap.setup({
   },
 })
 
+-- vim.cmd([[
+-- autocmd ColorScheme * lua require('leap').init_highlight(true)
+-- ]])
+--
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+--   callback = function()
+--     vim.api.nvim_set_hl(0, "LeapMatch", { ctermfg = "#99ddff" })
+--     vim.api.nvim_set_hl(0, "LeapLabelPrimary", { ctermfg = "#99ddff" })
+--     vim.api.nvim_set_hl(0, "LeapLabelSecondary", { ctermfg = "#99ddff" })
+--   end,
+-- })
+
+--
+-- {val}    Highlight definition map, like |synIDattr()|. In
+--          addition, the following keys are recognized:
+--          • default: Don't override existing definition
+--            |:hi-default|
+--          • ctermfg: Sets foreground of cterm color
+--            |highlight-ctermfg|
+--          • ctermbg: Sets background of cterm color
+--            |highlight-ctermbg|
+--          • cterm: cterm attribute map, like
+--            |highlight-args|. Note: Attributes default to
+--            those set for `gui` if not set.
+
 -- Bidirectional search
 function leap_bidirectional()
   require("leap").leap({ ["target-windows"] = { vim.api.nvim_get_current_win() } })
