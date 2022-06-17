@@ -138,6 +138,8 @@ return packer.startup(function(use)
   use("rhysd/clever-f.vim")
   -- use "rmagatti/auto-session"
   -- use("Pocco81/AutoSave.nvim")
+  use("907th/vim-auto-save")
+
   use("jremmen/vim-ripgrep")
   use("mbbill/undotree")
 
@@ -176,8 +178,8 @@ return packer.startup(function(use)
   -- }
   use("windwp/nvim-spectre")
   use("brooth/far.vim")
-  use("nyngwang/NeoZoom.lua") -- doesn't work on spectre
-  -- use("dhruvasagar/vim-zoom")
+  -- use("nyngwang/NeoZoom.lua") -- doesn't work on Spectre
+  use("dhruvasagar/vim-zoom") -- works on Spectre
 
   use({ "mg979/vim-visual-multi", branch = "master" })
   use("karb94/neoscroll.nvim")
