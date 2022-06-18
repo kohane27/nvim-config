@@ -20,12 +20,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Autocommand that reloads neovim whenever you save this packer_init.lua file
--- vim.cmd([[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost packer_init.lua source <afile> | PackerSync
---   augroup end
--- ]])
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost packer_init.lua source <afile> | PackerSync
+  augroup end
+]])
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -137,8 +137,10 @@ return packer.startup(function(use)
   use("ggandor/lightspeed.nvim")
   use("rhysd/clever-f.vim")
   -- use "rmagatti/auto-session"
-  -- use("Pocco81/AutoSave.nvim")
-  use("907th/vim-auto-save")
+
+  -- both plugins auto-format when saving
+  use("Pocco81/AutoSave.nvim")
+  -- use("907th/vim-auto-save")
 
   use("jremmen/vim-ripgrep")
   use("mbbill/undotree")

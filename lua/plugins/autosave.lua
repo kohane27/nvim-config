@@ -9,12 +9,12 @@ autosave.setup({
   events = { "InsertLeave" },
   conditions = {
     exists = true,
-    filename_is_not = {},
+    filename_is_not = { "packer_init.lua" },
     filetype_is_not = {},
     modifiable = true,
   },
   write_all_buffers = false,
-  on_off_commands = true,
+  on_off_commands = false,
   clean_command_line_interval = 0,
-  debounce_delay = 150,
+  debounce_delay = 170,
 })
