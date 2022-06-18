@@ -160,6 +160,7 @@ local mappings = {
     m = {
       name = "Miscellaneous",
       u = { "<cmd>UndotreeToggle<cr>", "UndotreeToggle" },
+      a = { "<cmd>ASToggle<cr>", "Toggle AutoSave" },
       p = { "<cmd>PasteImg<cr>", "Paste Image" },
       i = { "<cmd>LspInfo<cr>", "LspInfo" },
       I = { "<cmd>LspInstallInfo<cr>", "LspInstallInfo" },
