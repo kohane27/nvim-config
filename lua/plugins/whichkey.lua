@@ -165,6 +165,8 @@ local mappings = {
       i = { "<cmd>LspInfo<cr>", "LspInfo" },
       I = { "<cmd>LspInstallInfo<cr>", "LspInstallInfo" },
       S = { "<cmd>SymbolsOutline<cr>", "SymbolsOutline" },
+      ch = { "<cmd>VCoolor<cr>", "HEX Insertion" },
+      cr = { "<cmd>VCoolIns r<cr>", "RGB Insertion" },
       s = { "<cmd>lua require('spectre').open()<CR>", "Spectre" },
       -- sw = { "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "search current word" },
       -- sf = { "<cmd>lua require('spectre').open_file_search()<cr>", "search in current file" },
