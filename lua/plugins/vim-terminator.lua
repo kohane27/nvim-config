@@ -1,7 +1,8 @@
 vim.cmd([[
-  let g:terminator_clear_default_mappings = "true"
-  " let g:terminator_auto_shrink_output = 1
+let g:terminator_clear_default_mappings = "true"
+" let g:terminator_auto_shrink_output = 1
 
+" TODO use sniprun
 vnoremap <silent> <leader>rf :TerminatorRunPartOfFileInOutputBuffer<CR>
 
 let g:terminator_runfile_map = {
