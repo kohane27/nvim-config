@@ -66,7 +66,7 @@ require("plugins.vim-markdown")
 require("plugins.stabilize")
 require("plugins.git-conflict")
 require("plugins.vim-terminator")
-require("plugins.sniprun")
+-- require("plugins.sniprun")
 require("plugins.clipboard-image")
 -- require("plugins.neoclip")
 
