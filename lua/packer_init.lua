@@ -182,6 +182,7 @@ return packer.startup(function(use)
   use("brooth/far.vim")
   use("nyngwang/NeoZoom.lua")
   -- use("dhruvasagar/vim-zoom") -- works on Spectre
+  use("beauwilliams/focus.nvim")
 
   use("KabbAmine/vCoolor.vim")
   use({ "mg979/vim-visual-multi", branch = "master" })
