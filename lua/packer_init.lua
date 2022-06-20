@@ -133,8 +133,8 @@ return packer.startup(function(use)
 
   use("lewis6991/gitsigns.nvim")
   use("norcalli/nvim-colorizer.lua")
-  -- use("ggandor/leap.nvim")
-  use("ggandor/lightspeed.nvim")
+  use("ggandor/leap.nvim")
+  -- use("ggandor/lightspeed.nvim")
   use("rhysd/clever-f.vim")
   -- use "rmagatti/auto-session"
 
@@ -180,9 +180,10 @@ return packer.startup(function(use)
   -- }
   use("windwp/nvim-spectre")
   use("brooth/far.vim")
-  -- use("nyngwang/NeoZoom.lua") -- doesn't work on Spectre
-  use("dhruvasagar/vim-zoom") -- works on Spectre
+  use("nyngwang/NeoZoom.lua")
+  -- use("dhruvasagar/vim-zoom") -- works on Spectre
 
+  use("KabbAmine/vCoolor.vim")
   use({ "mg979/vim-visual-multi", branch = "master" })
   use("karb94/neoscroll.nvim")
   -- use("max397574/better-escape.nvim")
