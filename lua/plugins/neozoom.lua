@@ -10,6 +10,9 @@ neo_zoom.setup({
   height_ratio = 1.0,
   border = "single",
 
+  exclude_filetype = {
+    "spectre-panel",
+  },
   -- default
   -- left_ratio = 0.2,
   -- top_ratio = 0.03,
