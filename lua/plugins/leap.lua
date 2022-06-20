@@ -23,6 +23,22 @@ leap.setup({
   },
 })
 
+-- Bidirectional search
+function leap_bidirectional()
+  require("leap").leap({ ["target-windows"] = { vim.api.nvim_get_current_win() } })
+end
+
+-- Map them to your preferred key, like:
+vim.keymap.set("n", "s", leap_bidirectional, { silent = true })
+
+vim.cmd([[
+" use clever-f
+silent! unmap f
+silent! unmap F
+silent! unmap t
+silent! unmap T
+]])
+
 -- vim.cmd([[
 -- autocmd ColorScheme * lua require('leap').init_highlight(true)
 -- ]])
@@ -47,19 +63,3 @@ leap.setup({
 --          • cterm: cterm attribute map, like
 --            |highlight-args|. Note: Attributes default to
 --            those set for `gui` if not set.
-
--- Bidirectional search
-function leap_bidirectional()
-  require("leap").leap({ ["target-windows"] = { vim.api.nvim_get_current_win() } })
-end
-
--- Map them to your preferred key, like:
-vim.keymap.set("n", "s", leap_bidirectional, { silent = true })
-
-vim.cmd([[
-" use clever-f
-silent! unmap f
-silent! unmap F
-silent! unmap t
-silent! unmap T
-]])
