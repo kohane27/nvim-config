@@ -138,7 +138,6 @@ ins_left({
 
 ins_left({
   "diff",
-  -- Is it me or the symbol for modified us really weird
   symbols = { added = " ", modified = "柳 ", removed = " " },
   diff_color = {
     added = { fg = colors.green },
@@ -148,16 +147,13 @@ ins_left({
   cond = conditions.hide_in_width,
 })
 
-ins_left({
-  function()
-    return " "
-  end,
-  color = { fg = colors.blue },
-  padding = { left = 1 },
-})
--- ins_left { 'location' }
-
--- ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
+-- ins_left({
+--   function()
+--     return "▊"
+--   end,
+--   color = { fg = colors.blue },
+--   padding = { left = 1 },
+-- })
 
 ins_left({
   "diagnostics",
@@ -209,8 +205,13 @@ ins_right({
 
 ins_right({
   "fileformat",
-  fmt = string.upper,
-  icons_enabled = false, -- Eviline doesn't have them
+  -- fmt = string.upper,
+  icons_enabled = true,
+  symbols = {
+    unix = "",
+    dos = "",
+    mac = "",
+  },
   color = { fg = colors.green, gui = "bold" },
 })
 
@@ -220,5 +221,9 @@ ins_right({
   color = { fg = colors.magenta, gui = "bold" },
 })
 
--- Now don't forget to initialize lualine
+ins_right({ "location" })
+
+ins_right({ "progress", color = { fg = colors.fg, gui = "bold" } })
+
+-- initialize lualine
 lualine.setup(config)
