@@ -154,8 +154,8 @@ local mappings = {
       -- vnoremap <leader>rf :TerminatorRunPartOfFileInOutputBuffer<CR>
       f = { "<cmd>TerminatorRunFileInOutputBuffer<cr>", "Run File" },
       -- vnoremap <leader>rs :<Plug>SnipRun<CR>
-      s = { "<cmd>SnipRun<cr>", "Run Snip" },
-      c = { "<cmd>SnipClose<cr>", "Close Snip" },
+      -- s = { "<cmd>SnipRun<cr>", "Run Snip" },
+      -- c = { "<cmd>SnipClose<cr>", "Close Snip" },
     },
     m = {
       name = "Miscellaneous",

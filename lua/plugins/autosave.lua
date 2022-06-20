@@ -6,7 +6,8 @@ end
 autosave.setup({
   enabled = true,
   execution_message = "",
-  events = { "InsertLeave", "TextChanged" },
+  events = { "InsertLeave" },
+  -- events = { "InsertLeave", "TextChanged" },
   conditions = {
     exists = true,
     filename_is_not = { "packer_init.lua" },
