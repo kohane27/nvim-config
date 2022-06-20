@@ -147,6 +147,7 @@ return packer.startup(function(use)
 
   -- run code within nvim
   use("erietz/vim-terminator")
+  -- use({ "michaelb/sniprun", run = "bash ./install.sh" })
   -- use("EvanQuan/vim-executioner")
   -- use("pianocomposer321/yabs.nvim")
   -- use("CRAG666/code_runner.nvim")
@@ -171,7 +172,6 @@ return packer.startup(function(use)
   use("chrisbra/csv.vim")
   use("ldelossa/litee.nvim") -- required by gh.nvim
   use("ldelossa/gh.nvim")
-  use({ "michaelb/sniprun", run = "bash ./install.sh" })
   use("ekickx/clipboard-image.nvim")
 
   use("ray-x/lsp_signature.nvim")
@@ -182,7 +182,7 @@ return packer.startup(function(use)
   use("brooth/far.vim")
   use("nyngwang/NeoZoom.lua")
   -- use("dhruvasagar/vim-zoom") -- works on Spectre
-  use("beauwilliams/focus.nvim")
+  -- use("beauwilliams/focus.nvim")
 
   use("KabbAmine/vCoolor.vim")
   use({ "mg979/vim-visual-multi", branch = "master" })

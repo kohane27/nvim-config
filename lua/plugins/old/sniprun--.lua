@@ -14,6 +14,7 @@ vim.api.nvim_set_keymap("v", "<leader>rs", "<cmd>SnipRun<CR>", { noremap = true,
 sniprun.setup({
   display = {
     "Classic",                    --# display results in the command-line  area
+    "Terminal",
     -- "VirtualTextOk",              --# display ok results as virtual text
     -- "VirtualTextErr",             --# display error results as virtual text
     -- "TerminalWithCode",        --# display results and code history in a vertical split
