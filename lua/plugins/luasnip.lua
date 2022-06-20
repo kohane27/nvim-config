@@ -15,6 +15,7 @@ luasnip.config.set_config({
   ext_prio_increase = 1,
   enable_autosnippets = true,
 })
+
 -- vsnip
 require("luasnip.loaders.from_vscode").load({
   paths = {
@@ -22,3 +23,7 @@ require("luasnip.loaders.from_vscode").load({
     "~/.config/nvim/snippets",
   },
 })
+
+-- React snippets
+luasnip.filetype_extend("javascript", { "javascriptreact" })
+luasnip.filetype_extend("javascript", { "html" })
