@@ -141,6 +141,9 @@ return packer.startup(function(use)
   -- both plugins auto-format when saving
   use("Pocco81/AutoSave.nvim")
   -- use("907th/vim-auto-save")
+  use("kevinhwang91/nvim-bqf")
+  use("junegunn/fzf.vim") -- for nvim-bqf
+  use("https://gitlab.com/yorickpeterse/nvim-pqf") -- pretty list
 
   use("jremmen/vim-ripgrep")
   use("mbbill/undotree")
@@ -189,7 +192,6 @@ return packer.startup(function(use)
   use("karb94/neoscroll.nvim")
   -- use("max397574/better-escape.nvim")
   use("wellle/targets.vim")
-  use("kevinhwang91/nvim-bqf")
   use("mhinz/vim-grepper")
   use("danilamihailov/beacon.nvim")
   use("folke/trouble.nvim")
@@ -221,7 +223,6 @@ return packer.startup(function(use)
   use("kovetskiy/sxhkd-vim")
   use("tversteeg/registers.nvim") -- see register contents
   use("romainl/vim-cool") -- remove search result highlight
-  use("junegunn/fzf.vim") -- for nvim-bqf
   use("ibhagwan/fzf-lua")
   use("junegunn/vim-easy-align")
   use("andymass/vim-matchup")
