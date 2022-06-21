@@ -11,7 +11,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 --custom keymaps in the following
---leap--.lua
+--leap.lua
 --barbar.lua
 --yanky.lua
 --sniprun.lua
@@ -105,7 +105,8 @@ map("x", "$", "g_")
 map("n", "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
 
 -- don't copy the replaced text after pasting
-map("v", "<leader>p", ":<C-U>let @p = @+<CR>gvp:let @+ = @p<CR>")
+map("v", "p", ":<C-U>let @p = @+<CR>gvp:let @+ = @p<CR>")
+-- map("v", "<leader>p", ":<C-U>let @p = @+<CR>gvp:let @+ = @p<CR>")
 -- if the above doesn't work, try below:
 -- vnoremap p "_c<C-r><C-o>+<Esc>
 
