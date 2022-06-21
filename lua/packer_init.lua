@@ -164,7 +164,7 @@ return packer.startup(function(use)
   use("gbprod/cutlass.nvim")
 
   -- use({ "gbprod/yanky.nvim", branch = "main" })
-  use("gbprod/yanky.nvim") -- BUG THIS DEFINITELY FREEZES nvim
+  -- use("gbprod/yanky.nvim") -- BUG THIS DEFINITELY FREEZES nvim
   -- use("svermeulen/vim-yoink") -- BUG FREEZES nvim?
   use("gelguy/wilder.nvim")
   use("simrat39/symbols-outline.nvim")
