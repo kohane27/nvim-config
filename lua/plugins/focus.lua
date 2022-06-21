@@ -3,4 +3,4 @@ if not status_ok then
   return
 end
 
-focus.setup({ hybridnumber = true, excluded_filetypes = { "toggleterm" }, autoresize = true })
+focus.setup({ excluded_filetypes = { "toggleterm" }, excluded_buftypes = { "help" } })
