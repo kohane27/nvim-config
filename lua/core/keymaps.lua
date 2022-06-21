@@ -16,6 +16,7 @@ end
 --yanky.lua
 --sniprun.lua
 --substitute.lua
+--tmux.lua
 
 -----------------------------------------------------------
 -- Neovim shortcuts
@@ -142,12 +143,6 @@ map("i", "<C-v>", "<C-R>*")
 -- save
 map("n", "<c-s>", ":wa<CR>")
 map("i", "<c-s>", "<c-o>:w<CR>")
-
--- easier split size adjustment (using tmux)
-map("n", "<Left>", ":vertical resize +3<CR>")
-map("n", "<Right>", ":vertical resize -3<CR>")
-map("n", "<Up>", ":resize +3<CR>")
-map("n", "<Down>", ":resize -3<CR>")
 
 -----------------------------------------------------------
 -- Applications and Plugins shortcuts

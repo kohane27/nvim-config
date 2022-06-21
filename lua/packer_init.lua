@@ -164,7 +164,7 @@ return packer.startup(function(use)
   use("gbprod/cutlass.nvim")
 
   -- use({ "gbprod/yanky.nvim", branch = "main" })
-  -- use("gbprod/yanky.nvim") -- BUG THIS DEFINITELY FREEZES nvim
+  use("gbprod/yanky.nvim") -- BUG THIS DEFINITELY FREEZES nvim
   -- use("svermeulen/vim-yoink") -- BUG FREEZES nvim?
   use("gelguy/wilder.nvim")
   use("simrat39/symbols-outline.nvim")
@@ -229,7 +229,9 @@ return packer.startup(function(use)
   use("andymass/vim-matchup")
   -- use("chaoren/vim-wordmotion")
   use("mfussenegger/nvim-jdtls")
-  use("sunaku/tmux-navigate")
+  use("aserowy/tmux.nvim")
+  -- use("sunaku/tmux-navigate")
+  -- use("numToStr/Navigator.nvim")
   use("famiu/bufdelete.nvim")
   use("moll/vim-bbye")
   use("farmergreg/vim-lastplace")
