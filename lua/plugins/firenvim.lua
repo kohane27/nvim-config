@@ -25,7 +25,7 @@ if exists('g:started_by_firenvim')
     let g:startify_disable_at_vimenter = 1
     " let g:startify_new_tab = 1
 
-    " don't run nill-ls
+    " don't run null-ls
     let g:null_ls_disable = 1
 
     au BufEnter github.com_*.txt set filetype=markdown

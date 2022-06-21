@@ -70,7 +70,6 @@ require("plugins.vim-terminator")
 require("plugins.clipboard-image")
 require("plugins.pqf")
 require("plugins.fidget")
+require("plugins.tmux")
+require("plugins.yanky")
 -- require("plugins.neoclip")
-
--- require("plugins.yanky") -- BUG freezes nvim
--- require("plugins.yoink") -- BUG THIS one too
