@@ -136,7 +136,7 @@ return packer.startup(function(use)
   use("ggandor/leap.nvim")
   -- use("ggandor/lightspeed.nvim")
   use("rhysd/clever-f.vim")
-  -- use "rmagatti/auto-session"
+  -- use ("rmagatti/auto-session")
 
   -- both plugins auto-format when saving
   use("Pocco81/AutoSave.nvim")
@@ -147,6 +147,7 @@ return packer.startup(function(use)
 
   use("jremmen/vim-ripgrep")
   use("mbbill/undotree")
+  use("beauwilliams/focus.nvim")
 
   -- run code within nvim
   use("erietz/vim-terminator")
@@ -163,17 +164,12 @@ return packer.startup(function(use)
   use("gbprod/substitute.nvim")
   use("gbprod/cutlass.nvim")
 
-  -- use({ "gbprod/yanky.nvim", branch = "main" })
-  use("gbprod/yanky.nvim") -- BUG THIS DEFINITELY FREEZES nvim
-  -- use("svermeulen/vim-yoink") -- BUG FREEZES nvim?
   use("gelguy/wilder.nvim")
   use("simrat39/symbols-outline.nvim")
-  use("mtdl9/vim-log-highlighting")
-  use("dstein64/nvim-scrollview")
   -- use("rcarriga/nvim-notify")
   use("ledger/vim-ledger")
   use("chrisbra/csv.vim")
-  use("ldelossa/litee.nvim") -- required by gh.nvim
+  -- use("ldelossa/litee.nvim") -- required by gh.nvim
   -- use("ldelossa/gh.nvim")
   use("ekickx/clipboard-image.nvim")
 
@@ -181,12 +177,20 @@ return packer.startup(function(use)
   -- use { 'ray-x/navigator.lua',
   --     requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' }
   -- }
+
+  -- use("gbprod/yanky.nvim")
+  -- use("svermeulen/vim-yoink")
+
   use("windwp/nvim-spectre")
   use("brooth/far.vim")
+
+  -- aesthetics
+  use("mtdl9/vim-log-highlighting")
+  use("dstein64/nvim-scrollview")
   use("nyngwang/NeoZoom.lua")
-  use("j-hui/fidget.nvim")
   -- use("dhruvasagar/vim-zoom") -- works on Spectre
-  -- use("beauwilliams/focus.nvim")
+  use("j-hui/fidget.nvim")
+  use("danilamihailov/beacon.nvim")
 
   use("KabbAmine/vCoolor.vim")
   use({ "mg979/vim-visual-multi", branch = "master" })
@@ -194,7 +198,6 @@ return packer.startup(function(use)
   -- use("max397574/better-escape.nvim")
   use("wellle/targets.vim")
   use("mhinz/vim-grepper")
-  use("danilamihailov/beacon.nvim")
   use("folke/trouble.nvim")
   use("nathom/filetype.nvim") -- speed up startup time
   use("vim-scripts/LargeFile")
