@@ -69,6 +69,7 @@ require("plugins.vim-terminator")
 -- require("plugins.sniprun")
 require("plugins.clipboard-image")
 require("plugins.pqf")
+require("plugins.fidget")
 -- require("plugins.neoclip")
 
 -- require("plugins.yanky") -- BUG freezes nvim

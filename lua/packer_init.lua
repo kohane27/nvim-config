@@ -174,7 +174,7 @@ return packer.startup(function(use)
   use("ledger/vim-ledger")
   use("chrisbra/csv.vim")
   use("ldelossa/litee.nvim") -- required by gh.nvim
-  use("ldelossa/gh.nvim")
+  -- use("ldelossa/gh.nvim")
   use("ekickx/clipboard-image.nvim")
 
   use("ray-x/lsp_signature.nvim")
@@ -184,6 +184,7 @@ return packer.startup(function(use)
   use("windwp/nvim-spectre")
   use("brooth/far.vim")
   use("nyngwang/NeoZoom.lua")
+  use("j-hui/fidget.nvim")
   -- use("dhruvasagar/vim-zoom") -- works on Spectre
   -- use("beauwilliams/focus.nvim")
 
