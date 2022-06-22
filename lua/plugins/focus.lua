@@ -3,4 +3,17 @@ if not status_ok then
   return
 end
 
-focus.setup({ excluded_filetypes = { "toggleterm" }, excluded_buftypes = { "help" } })
+focus.setup({
+  excluded_filetypes = {
+    "toggleterm",
+    "qf",
+    "help",
+    "TelescopePrompt",
+    "harpoon",
+  },
+  excluded_buftypes = {
+    "help",
+    "prompt",
+    "popup",
+  },
+})
