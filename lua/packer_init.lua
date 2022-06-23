@@ -111,7 +111,6 @@ return packer.startup(function(use)
   -- use("tpope/vim-fugitive")
   use("machakann/vim-sandwich")
   use("tpope/vim-repeat")
-  -- use("tpope/vim-obsession")
   use("preservim/vim-markdown")
   use("godlygeek/tabular") -- format tables
 
@@ -126,6 +125,10 @@ return packer.startup(function(use)
 
   -- use("goolord/alpha-nvim")
   use("mhinz/vim-startify")
+
+  -- session management
+  use("rmagatti/auto-session")
+  use("rmagatti/session-lens")
 
   use("antoinemadec/FixCursorHold.nvim") -- needed to fix LSP doc highlight
   use("folke/which-key.nvim")
@@ -208,6 +211,12 @@ return packer.startup(function(use)
       vim.fn["firenvim#install"](0)
     end,
   })
+
+  -- debug
+  use("mfussenegger/nvim-dap")
+  use("rcarriga/nvim-dap-ui")
+  -- test
+  use("vim-test/vim-test")
 
   -- Colorschemes/theme
   use("lunarvim/colorschemes")
