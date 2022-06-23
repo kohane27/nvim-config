@@ -122,13 +122,13 @@ return packer.startup(function(use)
   -- use("whiteinge/diffconflicts")
 
   use("lewis6991/impatient.nvim")
-
+  use({ "echasnovski/mini.nvim", branch = "stable" })
   -- use("goolord/alpha-nvim")
-  use("mhinz/vim-startify")
+  -- use("mhinz/vim-startify")
 
   -- session management
   use("rmagatti/auto-session")
-  use("rmagatti/session-lens")
+  use("rmagatti/session-lens") -- telescope integration
 
   use("antoinemadec/FixCursorHold.nvim") -- needed to fix LSP doc highlight
   use("folke/which-key.nvim")

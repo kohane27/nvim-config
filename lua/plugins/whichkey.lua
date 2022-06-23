@@ -165,9 +165,10 @@ local mappings = {
       ch = { "<cmd>VCoolor<cr>", "HEX Insertion" },
       cr = { "<cmd>VCoolIns r<cr>", "RGB Insertion" },
       u = { "<cmd>UndotreeToggle<cr>", "UndotreeToggle" },
-      a = { "<cmd>ASToggle<cr>", "Toggle AutoSave" },
+      a = { "<cmd>ASToggle<cr>", "AutoSave Toggle" },
       p = { "<cmd>PasteImg<cr>", "Paste Image" },
       S = { "<cmd>SymbolsOutline<cr>", "SymbolsOutline" },
+
       -- sw = { "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "search current word" },
       -- sf = { "<cmd>lua require('spectre').open_file_search()<cr>", "search in current file" },
     },
@@ -182,6 +183,13 @@ local mappings = {
       ["3"] = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", "navigates to file 3" },
       ["4"] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", "navigates to file 4" },
       ["5"] = { "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", "navigates to file 5" },
+    },
+    o = {
+      name = "ObSession",
+      s = { "<cmd>SaveSession<cr>", "SaveSession" },
+      r = { "<cmd>RestoreSession<cr>", "RestoreSession" },
+      d = { "<cmd>DeleteSession<cr>", "DeleteSession" },
+      l = { "<cmd>lua require('session-lens').search_session()<cr>", "Search session" },
     },
     p = {
       name = "Packer",
