@@ -136,10 +136,6 @@ map("i", "<C-f>", '<C-R>"')
 -- CTRL-R * will insert clipboard contents
 map("i", "<C-v>", "<C-R>*")
 
--- allow gf to open non-existent files
--- BUG: will create non-existent file instead of jumping
--- map("n", "gf", ":edit <cfile><cr>")
-
 -- save
 map("n", "<c-s>", ":wa<CR>")
 map("i", "<c-s>", "<c-o>:w<CR>")
@@ -157,6 +153,8 @@ map("i", "<c-s>", "<c-o>:w<CR>")
 -- map("n", "p", ":pu<CR>")
 
 vim.cmd([[
+" close and save all buffer
+cnoremap x xa
 " wean off `:wq` and `:q` in favor of zz
 cnoremap <expr> <CR> getcmdtype() == ":" && index(["q", "wq"], getcmdline()) >= 0 ? "<C-u>" : "<CR>"
 

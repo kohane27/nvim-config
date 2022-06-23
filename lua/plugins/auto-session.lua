@@ -11,3 +11,9 @@ auto_session.setup({
   auto_save_enabled = true,
   auto_restore_enabled = true,
 })
+
+require("session-lens").setup({
+  -- path_display = { "shorten" },
+  theme_conf = { border = true },
+  previewer = true,
+})
