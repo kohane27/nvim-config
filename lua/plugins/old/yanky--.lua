@@ -14,10 +14,10 @@ yanky.setup({
   },
 })
 
-vim.api.nvim_set_keymap("n", "p", "<Plug>(YankyPutAfter)", {})
-vim.api.nvim_set_keymap("n", "P", "<Plug>(YankyPutBefore)", {})
-vim.api.nvim_set_keymap("x", "p", "<Plug>(YankyPutAfter)", {})
-vim.api.nvim_set_keymap("x", "P", "<Plug>(YankyPutBefore)", {})
+-- vim.api.nvim_set_keymap("n", "p", "<Plug>(YankyPutAfter)", {})
+-- vim.api.nvim_set_keymap("n", "P", "<Plug>(YankyPutBefore)", {})
+-- vim.api.nvim_set_keymap("x", "p", "<Plug>(YankyPutAfter)", {})
+-- vim.api.nvim_set_keymap("x", "P", "<Plug>(YankyPutBefore)", {})
 
 -- after performing a paste, you can cycle through the history
 -- Any modifications done after pasting will cancel the possibility to cycle.
