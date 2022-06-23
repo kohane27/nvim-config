@@ -7,7 +7,7 @@ end
 leap.set_default_keymaps(true)
 
 leap.setup({
-  case_insensitive = true,
+  case_sensitive = false,
   -- Leaving the appropriate list empty effectively disables "smart" mode,
   -- and forces auto-jump to be on or off.
   -- safe_labels = { . . . },

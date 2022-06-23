@@ -28,6 +28,9 @@ if exists('g:started_by_firenvim')
     " don't run null-ls
     let g:null_ls_disable = 1
 
+    " don't use auto-session
+    let g:auto_session_enabled = v:false
+
     au BufEnter github.com_*.txt set filetype=markdown
 endif
 ]])
