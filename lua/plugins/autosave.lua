@@ -11,7 +11,7 @@ autosave.setup({
   conditions = {
     exists = true,
     filename_is_not = { "packer_init.lua" },
-    filetype_is_not = {},
+    filetype_is_not = { "lua" },
     modifiable = true,
   },
   write_all_buffers = false,
@@ -19,3 +19,9 @@ autosave.setup({
   clean_command_line_interval = 0,
   debounce_delay = 170,
 })
+
+-- autosave.hook_before_saving = function ()
+--     if vim.bo.filetype ~= "rust" then
+--         vim.g.auto_save_abort = true -- abort saving non rust files/ only save rust files
+--     end
+-- end

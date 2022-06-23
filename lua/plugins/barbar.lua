@@ -15,7 +15,7 @@ barbar.setup({
   exclude_name = {},
 
   icons = "both",
-  icon_custom_colors = false,
+  icon_custom_colors = true,
   icon_separator_active = "▎",
   icon_separator_inactive = "▎",
   icon_close_tab = "",

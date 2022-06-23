@@ -116,6 +116,7 @@ return packer.startup(function(use)
 
   use("sindrets/diffview.nvim") -- tabpage interface for diffs
   -- use("anuvyklack/pretty-fold.nvim")
+  -- use("kevinhwang91/nvim-ufo")
   use("akinsho/git-conflict.nvim")
   -- use("rhysd/conflict-marker.vim") -- git-conflict.nvim better
   -- use("christoomey/vim-conflicted")
