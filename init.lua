@@ -72,5 +72,6 @@ require("plugins.pqf")
 require("plugins.fidget")
 require("plugins.focus")
 require("plugins.tmux")
+require("plugins.auto-session")
+
 -- require("plugins.yanky")
--- require("plugins.neoclip")
