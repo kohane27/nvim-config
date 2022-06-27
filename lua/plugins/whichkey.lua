@@ -162,8 +162,8 @@ local mappings = {
       i = { "<cmd>LspInfo<cr>", "LspInfo" },
       I = { "<cmd>LspInstallInfo<cr>", "LspInstallInfo" },
       s = { "<cmd>lua require('spectre').open_file_search()<CR>", "Spectre" },
-      ch = { "<cmd>VCoolor<cr>", "HEX Insertion" },
-      cr = { "<cmd>VCoolIns r<cr>", "RGB Insertion" },
+      c = { "<cmd>VCoolor<cr>", "HEX Insertion" },
+      -- cr = { "<cmd>VCoolIns r<cr>", "RGB Insertion" },
       u = { "<cmd>UndotreeToggle<cr>", "UndotreeToggle" },
       a = { "<cmd>ASToggle<cr>", "AutoSave Toggle" },
       p = { "<cmd>PasteImg<cr>", "Paste Image" },
@@ -186,9 +186,9 @@ local mappings = {
     },
     o = {
       name = "ObSession",
-      s = { "<cmd>SaveSession<cr>", "SaveSession" },
-      r = { "<cmd>RestoreSession<cr>", "RestoreSession" },
-      d = { "<cmd>DeleteSession<cr>", "DeleteSession" },
+      s = { "<cmd>SaveSession<cr>", "Save session" },
+      r = { "<cmd>RestoreSession<cr>", "Restore session" },
+      d = { "<cmd>DeleteSession<cr>", "Delete session" },
       l = { "<cmd>lua require('session-lens').search_session()<cr>", "Search session" },
     },
     p = {

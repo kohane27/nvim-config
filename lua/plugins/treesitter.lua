@@ -4,8 +4,28 @@ if not status_ok then
 end
 
 ts_configs.setup({
-  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+  ensure_installed = {
+    "cmake",
+    "css",
+    "java",
+    "javascript",
+    "typescript",
+    "markdown",
+    -- "markdown_inline",
+    "make",
+    "nix",
+    "regex",
+    "graphql",
+    "html",
+    "toml",
+    "todotxt",
+    "yaml",
+    "json",
+    "vim",
+    "jsdoc",
+    "help",
+  }, -- or "all"
+  sync_install = true, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = { "" }, -- List of parsers to ignore installing
   highlight = {
     enable = true, -- false will disable the whole extension

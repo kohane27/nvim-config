@@ -6,6 +6,7 @@ end
 focus.setup({
   excluded_filetypes = {
     "toggleterm",
+    "NvimTree",
     "qf",
     "help",
     "TelescopePrompt",

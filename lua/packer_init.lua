@@ -123,7 +123,6 @@ return packer.startup(function(use)
   -- use("whiteinge/diffconflicts")
 
   use("lewis6991/impatient.nvim")
-  use({ "echasnovski/mini.nvim", branch = "stable" })
   -- use("goolord/alpha-nvim")
   -- use("mhinz/vim-startify")
 
@@ -175,7 +174,7 @@ return packer.startup(function(use)
   use("chrisbra/csv.vim")
   -- use("ldelossa/litee.nvim") -- required by gh.nvim
   -- use("ldelossa/gh.nvim")
-  use("ekickx/clipboard-image.nvim")
+  -- use("ekickx/clipboard-image.nvim")
 
   use("ray-x/lsp_signature.nvim")
   -- use { 'ray-x/navigator.lua',
