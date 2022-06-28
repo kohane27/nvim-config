@@ -174,7 +174,7 @@ return packer.startup(function(use)
   use("chrisbra/csv.vim")
   -- use("ldelossa/litee.nvim") -- required by gh.nvim
   -- use("ldelossa/gh.nvim")
-  -- use("ekickx/clipboard-image.nvim")
+  use("ekickx/clipboard-image.nvim")
 
   use("ray-x/lsp_signature.nvim")
   -- use { 'ray-x/navigator.lua',
@@ -232,8 +232,8 @@ return packer.startup(function(use)
   use("p00f/nvim-ts-rainbow")
   use("ThePrimeagen/harpoon")
   use("junegunn/vim-emoji")
-  use("sheerun/vim-polyglot")
-  use("kovetskiy/sxhkd-vim")
+  --use("sheerun/vim-polyglot")
+  -- use("kovetskiy/sxhkd-vim")
   use("tversteeg/registers.nvim") -- see register contents
   use("romainl/vim-cool") -- remove search result highlight
   use("ibhagwan/fzf-lua")
@@ -244,7 +244,7 @@ return packer.startup(function(use)
   use("aserowy/tmux.nvim")
   -- use("sunaku/tmux-navigate")
   -- use("numToStr/Navigator.nvim")
-  use("famiu/bufdelete.nvim")
+  -- use("famiu/bufdelete.nvim")
   use("moll/vim-bbye")
   use("farmergreg/vim-lastplace")
 
