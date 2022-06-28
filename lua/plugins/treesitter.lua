@@ -4,27 +4,28 @@ if not status_ok then
 end
 
 ts_configs.setup({
-  ensure_installed = {
-    "cmake",
-    "css",
-    "java",
-    "javascript",
-    "typescript",
-    "markdown",
-    -- "markdown_inline",
-    "make",
-    "nix",
-    "regex",
-    "graphql",
-    "html",
-    "toml",
-    "todotxt",
-    "yaml",
-    "json",
-    "vim",
-    "jsdoc",
-    "help",
-  }, -- or "all"
+  ensure_installed = "all",
+  -- ensure_installed = {
+  --  "cmake",
+  --  "css",
+  --  "java",
+  --  "javascript",
+  --  "typescript",
+  --  "markdown",
+  --  "markdown_inline",
+  --  "make",
+  --  "nix",
+  --  "regex",
+  --  "graphql",
+  --  "html",
+  --  "toml",
+  --  "todotxt",
+  --  "yaml",
+  --  "json",
+  --  "vim",
+  --  "jsdoc",
+  --  "help",
+  -- },
   sync_install = true, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = { "" }, -- List of parsers to ignore installing
   highlight = {

@@ -74,8 +74,8 @@ map("n", "<BS>", '"_')
 map("v", "<BS>", '"_')
 
 -- -- insert empty new line without entering insert mode
--- map("n", "<Leader>o", "o<Esc>")
--- map("n", "<Leader>O", "O<Esc>")
+map("n", "<Leader>o", "o<Esc>")
+map("n", "<Leader>O", "O<Esc>")
 
 -- reselect visual selection after indenting
 map("v", "<", "<gv")
