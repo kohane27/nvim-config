@@ -1,6 +1,6 @@
 local status_ok, clipboard_image = pcall(require, "clipboard-image")
 if not status_ok then
-  print("BufferLine failing")
+  print("clipboard-image failing")
 end
 
 clipboard_image.setup({

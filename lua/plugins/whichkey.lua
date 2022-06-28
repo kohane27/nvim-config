@@ -184,8 +184,8 @@ local mappings = {
       ["4"] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", "navigates to file 4" },
       ["5"] = { "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", "navigates to file 5" },
     },
-    o = {
-      name = "ObSession",
+    l = {
+      name = "Session Len",
       s = { "<cmd>SaveSession<cr>", "Save session" },
       r = { "<cmd>RestoreSession<cr>", "Restore session" },
       d = { "<cmd>DeleteSession<cr>", "Delete session" },
