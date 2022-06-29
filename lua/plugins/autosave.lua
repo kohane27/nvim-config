@@ -6,8 +6,9 @@ end
 autosave.setup({
   enabled = true,
   execution_message = "",
-  -- events = { "InsertLeave" },
-  events = { "InsertLeave", "TextChanged" },
+  events = { "InsertLeave" },
+  -- following bug with Spectre
+  -- events = { "InsertLeave", "TextChanged" },
   conditions = {
     exists = true,
     filename_is_not = { "packer_init.lua" },
