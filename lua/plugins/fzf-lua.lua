@@ -9,8 +9,8 @@ fzf_lua.setup({
   winopts = {
     -- Only valid when using a float window
     -- (i.e. when 'split' is not defined, default)
-    height = 0.85, -- window height
-    width = 0.85, -- window width
+    height = 0.95, -- window height
+    width = 0.95, -- window width
     row = 0.35, -- window row position (0=top, 1=bottom)
     col = 0.50, -- window col position (0=left, 1=right)
     preview = {
@@ -18,7 +18,7 @@ fzf_lua.setup({
       wrap = "nowrap", -- wrap|nowrap
       hidden = "nohidden", -- hidden|nohidden
       vertical = "down:45%", -- up|down:size
-      horizontal = "right:65%", -- right|left:size
+      horizontal = "right:60%", -- right|left:size
       layout = "horizontal", -- horizontal|vertical|flex
       flip_columns = 999, -- #cols to switch to horizontal on flex
       title = true, -- preview border title (file/buf)?

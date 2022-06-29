@@ -80,8 +80,11 @@ local opts = {
 }
 
 local mappings = {
+  ["<C-g>"] = { "<cmd>lua require('fzf-lua').files()<cr>", "Find files" },
+  ["<C-t>"] = { "<cmd>NvimTreeToggle<cr>", "Tree" },
   ["<C-e>"] = { "<cmd>TerminatorOutputBufferToggle<cr>", "Toggle Terminator" },
-  ["<C-t>"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  ["<C-n>"] = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "navigates to next mark" },
+  ["<C-p>"] = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "navigates to previous mark" },
   ["<C-j>"] = {
     '<cmd>lua vim.diagnostic.open_float(0, {scope="line", border = "rounded" })<cr>',
     "Line Diagnostic",
@@ -89,8 +92,8 @@ local mappings = {
   ["<C-k>"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
   -- K = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
   g = {
-    -- can't use gs and gS; taken by lightspeed
     name = "g",
+    -- can't use gs and gS; taken by lightspeed
 
     -- buffer below
     p = { "<cmd>BufferPick<cr>", "Buffer Picking" },
@@ -105,8 +108,18 @@ local mappings = {
     ["8"] = { "<cmd>BufferGoto 8<cr>", "Buffer 8" },
     ["9"] = { "<cmd>BufferGoto 9<cr>", "Buffer 9" },
     ["0"] = { "<cmd>BufferLast<cr>", "Buffer 10" },
-  },
-  ["<leader>"] = {
+
+    h = {
+      name = "Harpoon",
+      a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "mark file" },
+      m = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "view all project marks" },
+      ["1"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "navigates to file 1" },
+      ["2"] = { "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", "navigates to file 2" },
+      ["3"] = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", "navigates to file 3" },
+      ["4"] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", "navigates to file 4" },
+      ["5"] = { "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", "navigates to file 5" },
+    },
+
     t = {
       name = "Terminal",
       r = { "<cmd>FloatermNew ranger<cr>", "Ranger" },
@@ -116,6 +129,35 @@ local mappings = {
         "lazygit",
       },
     },
+  },
+
+  ["<leader>"] = {
+    -- "<leader>n": g:VM_maps['Find Under']
+    t = {
+      name = "Test",
+      t = { "<cmd>TestNearest<cr>", "Nearest" },
+      T = { "<cmd>TestFile<cr>", "File" },
+      a = { "<cmd>TestSuite<cr>", "Suite" },
+      l = { "<cmd>TestLast<cr>", "Last" },
+      g = { "<cmd>TestVisit<cr>", "Visit" },
+    },
+    f = {
+      name = "Find",
+      -- f = { "<cmd>Telescope find_files<cr>", "Find files" },
+
+      -- g = { "<cmd>Telescope live_grep<cr>", "Find text" },
+      g = { "<cmd>lua require('fzf-lua').live_grep_native()<cr>", "Find text" },
+
+      b = { "<cmd>lua require('fzf-lua').lgrep_curbuf()<cr>", "Buffers" },
+      -- b = { "<cmd>Telescope current_buffer_fuzzy_find case_mode=ignore_case<cr>", "Buffers" },
+      w = { "<cmd>lua require('fzf-lua').grep_cword()<cr>", "word under cursor" },
+
+      F = { "<cmd>Telescope frecency<cr>", "Find frecency" },
+      r = { "<cmd>lua require('fzf-lua').oldfiles()<cr>", "Open Recent File" },
+      -- r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+
+      p = { "<cmd>Telescope projects<cr>", "Projects" },
+    },
     x = {
       name = "Trouble",
       d = { "<cmd>Trouble document_diagnostics<cr>", "Document Diagnostics" },
@@ -123,26 +165,6 @@ local mappings = {
       q = { "<cmd>BqfToggle<cr>", "Quickfix" },
       l = { "<cmd>Trouble loclist<cr>", "Location List" },
     },
-    f = {
-      name = "Find",
-      -- f = { "<cmd>Telescope find_files<cr>", "Find files" },
-      f = { "<cmd>lua require('fzf-lua').files()<cr>", "Find files" },
-      F = { "<cmd>Telescope frecency<cr>", "Find frecency" },
-
-      -- g = { "<cmd>Telescope live_grep<cr>", "Find text" },
-      g = { "<cmd>lua require('fzf-lua').live_grep_native()<cr>", "Find text" },
-
-      b = { "<cmd>Telescope current_buffer_fuzzy_find fuzzy=true case_mode=ignore_case<cr>", "Buffers" },
-      r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-      p = { "<cmd>Telescope projects<cr>", "Projects" },
-      -- rarely use
-      h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-      M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-      -- R = { "<cmd>Telescope registers<cr>", "Registers" },
-      -- k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-      -- c = { "<cmd>Telescope commands<cr>", "Commands" },
-    },
-
     g = {
       name = "Git",
       d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
@@ -172,21 +194,6 @@ local mappings = {
       a = { "<cmd>ASToggle<cr>", "AutoSave Toggle" },
       p = { "<cmd>PasteImg<cr>", "Paste Image" },
       S = { "<cmd>SymbolsOutline<cr>", "SymbolsOutline" },
-
-      -- sw = { "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "search current word" },
-      -- sf = { "<cmd>lua require('spectre').open_file_search()<cr>", "search in current file" },
-    },
-    h = {
-      name = "Harpoon",
-      a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "mark files" },
-      m = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "view all project marks" },
-      n = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "navigates to next mark" },
-      p = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "navigates to previous mark" },
-      ["1"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "navigates to file 1" },
-      ["2"] = { "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", "navigates to file 2" },
-      ["3"] = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", "navigates to file 3" },
-      ["4"] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", "navigates to file 4" },
-      ["5"] = { "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", "navigates to file 5" },
     },
     l = {
       name = "Session Len",

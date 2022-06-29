@@ -23,11 +23,11 @@ autocmd filetype markdown set indentexpr=
   augroup _remap_in_todo
     autocmd!
     autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> td - [ ]  🛫 <c-r>=strftime("%Y-%m-%d")<cr><left><left><left><left><left><left><left><left><left><left><left><left><left>
-    autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> do ✅ <c-r>=strftime("%Y-%m-%d")<cr><Esc>
-    autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> du 📅 <c-r>=strftime("%Y-%m-%d")<cr><Esc>
+    autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> #do ✅ <c-r>=strftime("%Y-%m-%d")<cr><Esc>
+    autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> #du 📅 <c-r>=strftime("%Y-%m-%d")<cr><Esc>
     autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> #t #tonight<Esc>
     autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> #a #atwork<Esc>
-    autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> #o #Obsidian<Esc>
+    autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> #O #Obsidian<Esc>
     autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> #s #someday<Esc>
   augroup end
 ]])

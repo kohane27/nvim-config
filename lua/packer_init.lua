@@ -136,16 +136,15 @@ return packer.startup(function(use)
 
   use("lewis6991/gitsigns.nvim")
   use("norcalli/nvim-colorizer.lua")
+
   use("ggandor/leap.nvim")
   -- use("ggandor/lightspeed.nvim")
   use("rhysd/clever-f.vim")
-  -- use ("rmagatti/auto-session")
 
-  -- both plugins auto-format when saving
+  -- auto-format when saving
   use("Pocco81/AutoSave.nvim")
   -- use("907th/vim-auto-save")
   use("kevinhwang91/nvim-bqf")
-  use("junegunn/fzf.vim") -- required by nvim-bqf
   use("https://gitlab.com/yorickpeterse/nvim-pqf") -- pretty list
 
   use("jremmen/vim-ripgrep")
@@ -212,11 +211,18 @@ return packer.startup(function(use)
     end,
   })
 
-  -- debug
+  -- debugger
   use("mfussenegger/nvim-dap")
   use("rcarriga/nvim-dap-ui")
+  -- use("puremourning/vimspector")
+
   -- test
   use("vim-test/vim-test")
+
+  use("ibhagwan/fzf-lua")
+  use("aserowy/tmux.nvim")
+  -- use("sunaku/tmux-navigate")
+  -- use("numToStr/Navigator.nvim")
 
   -- Colorschemes/theme
   use("lunarvim/colorschemes")
@@ -229,6 +235,7 @@ return packer.startup(function(use)
   use("projekt0n/github-nvim-theme")
 
   -- without its own file
+  use("mfussenegger/nvim-jdtls")
   use("p00f/nvim-ts-rainbow")
   use("ThePrimeagen/harpoon")
   use("junegunn/vim-emoji")
@@ -236,14 +243,9 @@ return packer.startup(function(use)
   -- use("kovetskiy/sxhkd-vim")
   use("tversteeg/registers.nvim") -- see register contents
   use("romainl/vim-cool") -- remove search result highlight
-  use("ibhagwan/fzf-lua")
   use("junegunn/vim-easy-align")
   use("andymass/vim-matchup")
   -- use("chaoren/vim-wordmotion")
-  use("mfussenegger/nvim-jdtls")
-  use("aserowy/tmux.nvim")
-  -- use("sunaku/tmux-navigate")
-  -- use("numToStr/Navigator.nvim")
   use("moll/vim-bbye")
   use("farmergreg/vim-lastplace")
 

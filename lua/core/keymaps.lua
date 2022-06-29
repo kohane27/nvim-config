@@ -119,10 +119,6 @@ map("n", "Y", "y$")
 -- delete one word forward in Insert mode
 map("i", "<C-e>", "<C-o>de")
 
--- vim-visual-*m*ulti remap
--- create a column of cursors from visual mode
-map("n", "<A-m>", ":call vm#commands#add_cursor_down(0, v:count1)<cr>")
-
 -- move changelist: jump between edit locations
 map("n", "<A-o>", "g;")
 map("n", "<A-i>", "g,")
