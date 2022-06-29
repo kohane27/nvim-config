@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 auto_session.setup({
-  log_level = "info",
+  log_level = "error", -- info, error, debug
   auto_session_suppress_dirs = { "~/", "~/Projects" },
   auto_session_enable_last_session = false,
   auto_session_enabled = true,
