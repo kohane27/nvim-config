@@ -11,6 +11,7 @@ focus.setup({
     "help",
     "TelescopePrompt",
     "harpoon",
+    "fzf",
   },
   excluded_buftypes = {
     "help",
