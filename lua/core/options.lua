@@ -30,6 +30,7 @@ set t_Co=256
 set listchars=tab:▸\ ,trail:·
 " removes pipes | that act as seperators on splits
 set fillchars+=vert:\
+set wildignore+=**/node_modules/**
 ]])
 
 -----------------------------------------------------------

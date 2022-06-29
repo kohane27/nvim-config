@@ -125,9 +125,13 @@ local mappings = {
     },
     f = {
       name = "Find",
-      f = { "<cmd>Telescope find_files<cr>", "Find files" },
+      -- f = { "<cmd>Telescope find_files<cr>", "Find files" },
+      f = { "<cmd>lua require('fzf-lua').files()<cr>", "Find files" },
       F = { "<cmd>Telescope frecency<cr>", "Find frecency" },
-      g = { "<cmd>Telescope live_grep<cr>", "Find text" },
+
+      -- g = { "<cmd>Telescope live_grep<cr>", "Find text" },
+      g = { "<cmd>lua require('fzf-lua').live_grep_native()<cr>", "Find text" },
+
       b = { "<cmd>Telescope current_buffer_fuzzy_find fuzzy=true case_mode=ignore_case<cr>", "Buffers" },
       r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
       p = { "<cmd>Telescope projects<cr>", "Projects" },
