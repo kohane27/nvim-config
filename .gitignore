@@ -2,7 +2,7 @@
 ftplugin/java.lua
 snippets/
 lua/plugins/old/
-**/--.lua
+**/*--.lua
 
 plugin/packer_compiled.lua
 
