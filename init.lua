@@ -15,6 +15,7 @@ require("lsp.lsp_signature")
 require("lsp.vim_diagnostics")
 --require("lsp.lsp_format")
 
+require("plugins.fzf-lua")
 require("plugins.telescope")
 require("plugins.treesitter")
 require("plugins.treesitter-context")

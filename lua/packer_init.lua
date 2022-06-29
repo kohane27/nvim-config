@@ -145,7 +145,7 @@ return packer.startup(function(use)
   use("Pocco81/AutoSave.nvim")
   -- use("907th/vim-auto-save")
   use("kevinhwang91/nvim-bqf")
-  use("junegunn/fzf.vim") -- for nvim-bqf
+  use("junegunn/fzf.vim") -- required by nvim-bqf
   use("https://gitlab.com/yorickpeterse/nvim-pqf") -- pretty list
 
   use("jremmen/vim-ripgrep")
@@ -244,7 +244,6 @@ return packer.startup(function(use)
   use("aserowy/tmux.nvim")
   -- use("sunaku/tmux-navigate")
   -- use("numToStr/Navigator.nvim")
-  -- use("famiu/bufdelete.nvim")
   use("moll/vim-bbye")
   use("farmergreg/vim-lastplace")
 
