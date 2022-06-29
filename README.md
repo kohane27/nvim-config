@@ -1,8 +1,10 @@
-<h1 align="center">Welcome to my peronal neovim config 👋</h1>
+<h1 align="center">Welcome to my neovim config 👋</h1>
 <p>
 </p>
 
-> My personal neovim config
+I started off with [LunarVim/Neovim-from-scratch](https://github.com/LunarVim/Neovim-from-scratch).
+
+It's always fun to look how other people configure their nvim. The most interesting part should be `lua/packer_init.lua`. Take whatever you need.
 
 ## CHANGELOG
 
