@@ -1,3 +1,11 @@
+# personal
+ftplugin/java.lua
+snippets/
+lua/plugins/old/
+**/--.lua
+
+plugin/packer_compiled.lua
+
 # Compiled Lua sources
 luac.out
 
@@ -43,5 +51,3 @@ jdtls
 *.hex
 
 
-plugin/packer_compiled.lua
-ftplugin/java.lua

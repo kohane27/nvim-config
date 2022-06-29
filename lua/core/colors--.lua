@@ -12,22 +12,6 @@ if not status_ok then
   return
 end
 
--- vim.cmd [[
---   " for vsplits
---   set fillchars=vert:┃
---   " for folds
---   set fillchars+=fold:·
---   " TODO not working
---   hi VertSplit guifg=#FF5C8F ctermfg=123
--- ]]
-
--- OneDark styles: dark, darker, cool, deep, warm, warmer, light
--- color_scheme.setup {
---   style = 'dark',
---   colors = { fg = '#b2bbcc' }, --default: #a0a8b7
--- }
---color_scheme.load()
-
 color_scheme.setup({
   cursor_coloring = false,
   terminal_colors = true,

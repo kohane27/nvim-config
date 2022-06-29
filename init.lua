@@ -4,7 +4,7 @@ require("packer_init")
 require("core.options")
 require("core.keymaps")
 require("core.autocmds")
-require("core.colors")
+-- require("core.colors")
 
 require("lsp.lsp_installer")
 require("lsp.lsp_config")
