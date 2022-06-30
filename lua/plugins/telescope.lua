@@ -129,7 +129,7 @@ telescope.setup({
       show_scores = false,
       show_unindexed = false,
       auto_validate = true,
-      ignore_patterns = { "*.git/*", "*/tmp/*" },
+      ignore_patterns = { "*.git/*", "*/tmp/*", "*/node_modules/*" },
       disable_devicons = false,
       workspaces = {
         ["conf"] = "/home/***REMOVED***/.config",
@@ -141,6 +141,6 @@ telescope.setup({
 })
 
 telescope.load_extension("fzf")
-telescope.load_extension("file_browser")
+-- telescope.load_extension("file_browser")
 telescope.load_extension("projects")
 telescope.load_extension("frecency")

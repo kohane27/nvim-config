@@ -65,6 +65,21 @@ fzf_lua.setup({
     ["--layout"] = "reverse",
     ["--border"] = "none",
   },
+  files = {
+    prompt = "Files❯ ",
+    -- path_shorten   = 1,              -- 'true' or number, shorten path?
+    -- otherwise auto-detect prioritizes `fd`:`rg`:`find`
+    -- default options are controlled by 'fd|rg|find|_opts'
+    -- cmd            = "find . -type f -printf '%P\n'",
+    find_opts = [[-type f -not -path '*/\.git/*' -not -path '*/node_modules/*' -printf '%P\n']],
+    rg_opts = "--color=never --files --hidden --follow -g '!.git' '!node_modules'",
+    fd_opts = "--color=never --type f --hidden --follow --exclude node_modules --exclude .git",
+  },
+  grep = {
+    prompt = "Rg❯ ",
+    input_prompt = "Grep For❯ ",
+    rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=512 --no-require-git",
+  },
   previewers = {
     bat = {
       cmd = "bat",
