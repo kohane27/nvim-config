@@ -8,5 +8,9 @@ ufo.setup({
 })
 
 vim.wo.foldcolumn = "1"
-vim.wo.foldlevel = 99 -- feel free to decrease the value
+vim.wo.foldlevel = 99
 vim.wo.foldenable = true
+
+vim.cmd([[
+hi default link UfoFoldedEllipsis Comment
+]])

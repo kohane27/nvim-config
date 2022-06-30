@@ -1,5 +1,6 @@
 -- Import Lua modules
 require("packer_init")
+require("plugins.impatient") -- need to be at the top
 
 require("core.options")
 require("core.keymaps")
@@ -28,7 +29,6 @@ require("plugins.nvim-tree")
 require("plugins.barbar")
 require("plugins.lualine")
 require("plugins.project")
-require("plugins.impatient")
 require("plugins.indentline")
 require("plugins.whichkey")
 require("plugins.colorizer")
