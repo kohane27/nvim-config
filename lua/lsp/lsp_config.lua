@@ -24,8 +24,8 @@ autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = fa
 -- Add additional capabilities supported by nvim-cmp
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
+capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.preselectSupport = true
@@ -40,6 +40,12 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
     "detail",
     "additionalTextEdits",
   },
+}
+
+-- nvim-ufo: tell the server the capability of foldingRange
+capabilities.textDocument.foldingRange = {
+  dynamicRegistration = false,
+  lineFoldingOnly = true,
 }
 
 -- Use an on_attach function to only map the following keys

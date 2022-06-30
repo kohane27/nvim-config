@@ -79,6 +79,7 @@ return packer.startup(function(use)
   use("jose-elias-alvarez/null-ls.nvim") -- formatters and linters
   -- use("lukas-reineke/lsp-format.nvim") -- formatting management
   use("b0o/schemastore.nvim")
+  use("jose-elias-alvarez/typescript.nvim")
 
   -- Autocomplete engine
   use({
@@ -98,6 +99,7 @@ return packer.startup(function(use)
   use("saadparwaiz1/cmp_luasnip")
 
   -- General
+  use("tpope/vim-repeat")
   use("numToStr/Comment.nvim")
   use("ryanoasis/vim-devicons")
   use("kyazdani42/nvim-web-devicons")
@@ -110,12 +112,12 @@ return packer.startup(function(use)
   use("tpope/vim-unimpaired")
   -- use("tpope/vim-fugitive") -- use lazygit
   use("machakann/vim-sandwich") -- better than surround
-  use("tpope/vim-repeat")
   use("preservim/vim-markdown")
   use("godlygeek/tabular") -- format tables
 
-  use("anuvyklack/pretty-fold.nvim")
+  -- use("anuvyklack/pretty-fold.nvim")
   use("kevinhwang91/nvim-ufo")
+  use("kevinhwang91/promise-async") -- required by nvim-ufo
 
   use("sindrets/diffview.nvim") -- tabpage interface for diffs
   use("akinsho/git-conflict.nvim")
@@ -163,7 +165,6 @@ return packer.startup(function(use)
   use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
 
   -- use("takac/vim-hardtime")
-  use("jose-elias-alvarez/typescript.nvim")
   use("gbprod/substitute.nvim")
   use("gbprod/cutlass.nvim")
 
@@ -189,15 +190,14 @@ return packer.startup(function(use)
 
   -- aesthetics
   use("mtdl9/vim-log-highlighting")
-  use("dstein64/nvim-scrollview")
-  use("nyngwang/NeoZoom.lua")
-  -- use("dhruvasagar/vim-zoom") -- works on Spectre
-  use("j-hui/fidget.nvim")
-  use("danilamihailov/beacon.nvim")
+  use("dstein64/nvim-scrollview") -- scrollbars
+  use("j-hui/fidget.nvim") -- display nvim-lsp progress
+  use("danilamihailov/beacon.nvim") -- flash cursor when jumping
 
-  use("KabbAmine/vCoolor.vim")
+  use("nyngwang/NeoZoom.lua") -- `<C-w>m` to maximize window without closing other buffers
+  use("KabbAmine/vCoolor.vim") -- color picker
   use({ "mg979/vim-visual-multi", branch = "master" })
-  use("karb94/neoscroll.nvim")
+  use("karb94/neoscroll.nvim") -- smooth scrolling
   -- use("max397574/better-escape.nvim")
   use("wellle/targets.vim")
   use("mhinz/vim-grepper")
@@ -225,6 +225,21 @@ return packer.startup(function(use)
   -- use("sunaku/tmux-navigate")
   -- use("numToStr/Navigator.nvim")
 
+  -- without its own file
+  use("farmergreg/vim-lastplace") -- reopen files at last edit position
+  use("mfussenegger/nvim-jdtls")
+  use("p00f/nvim-ts-rainbow")
+  use("ThePrimeagen/harpoon")
+  use("junegunn/vim-emoji")
+  --use("sheerun/vim-polyglot")
+  -- use("kovetskiy/sxhkd-vim")
+  use("tversteeg/registers.nvim") -- see register contents
+  use("romainl/vim-cool") -- search highlighting when done
+  use("junegunn/vim-easy-align")
+  use("andymass/vim-matchup")
+  -- use("chaoren/vim-wordmotion")
+  use("moll/vim-bbye") -- delete buffers without closing windows
+
   -- Colorschemes/theme
   use("lunarvim/colorschemes")
   use("NTBBloodbath/doom-one.nvim")
@@ -234,21 +249,6 @@ return packer.startup(function(use)
   use("bluz71/vim-moonfly-colors")
   use("bluz71/vim-nightfly-guicolors")
   use("projekt0n/github-nvim-theme")
-
-  -- without its own file
-  use("mfussenegger/nvim-jdtls")
-  use("p00f/nvim-ts-rainbow")
-  use("ThePrimeagen/harpoon")
-  use("junegunn/vim-emoji")
-  --use("sheerun/vim-polyglot")
-  -- use("kovetskiy/sxhkd-vim")
-  use("tversteeg/registers.nvim") -- see register contents
-  use("romainl/vim-cool") -- remove search result highlight
-  use("junegunn/vim-easy-align")
-  use("andymass/vim-matchup")
-  -- use("chaoren/vim-wordmotion")
-  use("moll/vim-bbye")
-  use("farmergreg/vim-lastplace")
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
