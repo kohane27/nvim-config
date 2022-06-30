@@ -88,7 +88,6 @@ map("v", "Y", "myY`y")
 -- Keep it centered when searching
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
--- map("n", "J", "mzJ`z") -- not sure what it does
 
 -- undo break points in insert mode
 map("i", ",", ",<C-g>u")

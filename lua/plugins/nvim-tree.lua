@@ -109,7 +109,7 @@ nvim_tree.setup({
       list = {
         { key = "<C-v>", action = "vsplit" },
         { key = "<C-s>", action = "split" },
-        { key = "<C-t>", action = "tabnew" },
+        { key = "<C-w>t", action = "tabnew" }, -- <C-t> to close tree
 
         { key = "<CR>", action = "preview" },
         { key = { "o" }, action = "edit" },
