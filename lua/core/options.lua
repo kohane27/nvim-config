@@ -62,7 +62,7 @@ opt.wrap           = true     -- soft wrapping textj
 opt.numberwidth    = 2
 opt.relativenumber = true     -- Show relative line number
 opt.showmatch      = false    -- Highlight matching parenthesis
-opt.foldmethod     = 'marker' -- Enable folding (default 'foldmarker')
+-- opt.foldmethod     = 'marker' -- disable for nvim-ufo
 opt.cmdheight      = 2
 opt.showmode       = false    -- No -- INSERT --
 opt.scrolloff      = 4        -- cursor won't go the bottom
@@ -104,7 +104,7 @@ opt.tabstop     = 4      -- 1 tab == 4 spaces
 -- Memory, CPU
 -----------------------------------------------------------
 opt.hidden     = true     -- Enable background buffers
-opt.lazyredraw = true     -- Faster scrolling
+opt.lazyredraw = false    -- `nzzzv` search result works
 opt.synmaxcol  = 240      -- Max column for syntax highlight
 opt.updatetime = 700      -- ms to wait for trigger an event
 -- interval for writing swap file to disk, also used by gitsigns
