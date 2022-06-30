@@ -1,11 +1,11 @@
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
-  return
+  print("nvim-tree failing")
 end
 
 local config_status_ok, _ = pcall(require, "nvim-tree.config")
 if not config_status_ok then
-  print("nvim-tree.config config_status_ok failing")
+  print("nvim-tree.config failing")
 end
 
 -- local tree_cb = nvim_tree_config.nvim_tree_callback
@@ -107,15 +107,17 @@ nvim_tree.setup({
     mappings = {
       custom_only = true,
       list = {
-        { key = "t", action = "tabnew" },
-        { key = "<C-w>v", action = "vsplit" },
-        { key = "<C-w>s", action = "split" },
+        { key = "<C-v>", action = "vsplit" },
+        { key = "<C-s>", action = "split" },
+        { key = "<C-t>", action = "tabnew" },
+
+        { key = "<CR>", action = "preview" },
+        { key = { "o" }, action = "edit" },
 
         { key = "<C-r>", action = "refresh" },
         { key = "a", action = "create" },
         { key = "rn", action = "rename" },
         { key = "rN", action = "full_rename" },
-        { key = { "o", "l" }, action = "edit" },
         { key = "h", action = "close_node" },
 
         { key = "D", action = "trash" },
@@ -126,7 +128,6 @@ nvim_tree.setup({
         { key = "yp", action = "copy_path" },
         { key = "ya", action = "copy_absolute_path" },
         { key = "q", action = "close" },
-        { key = "<Tab>", action = "preview" },
         { key = "-", action = "dir_up" },
         { key = "?", action = "toggle_help" },
 
