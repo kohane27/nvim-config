@@ -64,20 +64,21 @@ telescope.setup({
 
         ["<CR>"] = actions.select_default,
         ["<C-c>"] = actions.close,
-        ["<C-w>s"] = actions.select_horizontal,
-        ["<C-w>v"] = actions.select_vertical,
+        ["<C-s>"] = actions.select_horizontal,
+        ["<C-v>"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
 
-        ["<C-u>"] = actions.preview_scrolling_up,
-        ["<C-d>"] = actions.preview_scrolling_down,
+        ["<C-u>"] = actions.results_scrolling_up,
+        ["<C-d>"] = actions.results_scrolling_down,
 
-        -- ["<PageUp>"] = actions.results_scrolling_up,
-        -- ["<PageDown>"] = actions.results_scrolling_down,
-
-        -- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-        -- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-        -- ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+        ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+        ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+        ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
         -- ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+
+        -- ["<C-u>"] = actions.preview_scrolling_up,
+        -- ["<C-d>"] = actions.preview_scrolling_down,
+
         -- ["<C-l>"] = actions.complete_tag,
         -- ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
       },
@@ -85,7 +86,7 @@ telescope.setup({
       n = {
         ["<C-c>"] = actions.close,
         ["<CR>"] = actions.select_default,
-        ["<C-x>"] = actions.select_horizontal,
+        ["<C-s>"] = actions.select_horizontal,
         ["<C-v>"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
 

@@ -18,7 +18,7 @@ fzf_lua.setup({
       wrap = "nowrap", -- wrap|nowrap
       hidden = "nohidden", -- hidden|nohidden
       vertical = "down:45%", -- up|down:size
-      horizontal = "right:60%", -- right|left:size
+      horizontal = "right:50%", -- right|left:size
       layout = "horizontal", -- horizontal|vertical|flex
       flip_columns = 999, -- #cols to switch to horizontal on flex
       title = true, -- preview border title (file/buf)?
@@ -31,15 +31,14 @@ fzf_lua.setup({
   keymap = {
     fzf = {
       -- fzf '--bind=' options
-      ["ctrl-z"] = "abort",
-      ["ctrl-u"] = "unix-line-discard",
-      ["ctrl-f"] = "half-page-down",
-      ["ctrl-b"] = "half-page-up",
-      ["ctrl-e"] = "end-of-line",
+      ["ctrl-c"] = "abort",
+      ["ctrl-d"] = "half-page-down",
+      ["ctrl-u"] = "half-page-up",
       ["alt-a"] = "toggle-all",
-      -- Only valid with fzf previewers (bat/cat/git/etc)
-      ["shift-down"] = "preview-page-down",
-      ["shift-up"] = "preview-page-up",
+      -- ["ctrl-u"] = "unix-line-discard",
+      -- ["ctrl-e"] = "end-of-line",
+      -- ["shift-down"] = "preview-page-down",
+      -- ["shift-up"] = "preview-page-up",
     },
   },
   actions = {
@@ -48,7 +47,7 @@ fzf_lua.setup({
       ["ctrl-s"] = actions.file_split,
       ["ctrl-v"] = actions.file_vsplit,
       ["ctrl-t"] = actions.file_tabedit,
-      ["alt-q"] = actions.file_sel_to_qf,
+      ["ctrl-q"] = actions.file_sel_to_qf,
     },
     buffers = {
       ["default"] = actions.buf_edit,
@@ -59,14 +58,14 @@ fzf_lua.setup({
   },
   fzf_opts = {
     ["--ansi"] = "",
-    ["--prompt"] = "> ",
+    ["--prompt"] = " ",
     ["--info"] = "inline",
     ["--height"] = "100%",
     ["--layout"] = "reverse",
     ["--border"] = "none",
   },
   files = {
-    prompt = "Files❯ ",
+    prompt = "Files  ❯ ",
     -- path_shorten   = 1,              -- 'true' or number, shorten path?
     -- otherwise auto-detect prioritizes `fd`:`rg`:`find`
     -- default options are controlled by 'fd|rg|find|_opts'
@@ -76,8 +75,8 @@ fzf_lua.setup({
     fd_opts = "--color=never --type f --hidden --follow --exclude node_modules --exclude .git",
   },
   grep = {
-    prompt = "Rg❯ ",
-    input_prompt = "Grep For❯ ",
+    prompt = "Rg  ❯ ",
+    input_prompt = "Grep  ❯ ",
     rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=512 --no-require-git",
   },
   previewers = {

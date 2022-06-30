@@ -106,17 +106,18 @@ return packer.startup(function(use)
   use("romgrk/barbar.nvim")
   use("nvim-lualine/lualine.nvim")
   use("voldikss/vim-floaterm")
-  use("akinsho/toggleterm.nvim") -- needed for lazygit can migrate to floaterm but oh well
+  use("akinsho/toggleterm.nvim") -- need for lazygit can migrate to floaterm but oh well
   use("tpope/vim-unimpaired")
-  -- use("tpope/vim-fugitive")
-  use("machakann/vim-sandwich")
+  -- use("tpope/vim-fugitive") -- use lazygit
+  use("machakann/vim-sandwich") -- better than surround
   use("tpope/vim-repeat")
   use("preservim/vim-markdown")
   use("godlygeek/tabular") -- format tables
 
+  use("anuvyklack/pretty-fold.nvim")
+  use("kevinhwang91/nvim-ufo")
+
   use("sindrets/diffview.nvim") -- tabpage interface for diffs
-  -- use("anuvyklack/pretty-fold.nvim")
-  -- use("kevinhwang91/nvim-ufo")
   use("akinsho/git-conflict.nvim")
   -- use("rhysd/conflict-marker.vim") -- git-conflict.nvim better
   -- use("christoomey/vim-conflicted")
