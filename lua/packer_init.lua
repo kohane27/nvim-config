@@ -80,6 +80,7 @@ return packer.startup(function(use)
   -- use("lukas-reineke/lsp-format.nvim") -- formatting management
   use("b0o/schemastore.nvim")
   use("jose-elias-alvarez/typescript.nvim")
+  use("antoinemadec/FixCursorHold.nvim") -- fix LSP doc highlight
 
   -- Autocomplete engine
   use({
@@ -126,6 +127,7 @@ return packer.startup(function(use)
   -- use("whiteinge/diffconflicts")
 
   use("lewis6991/impatient.nvim")
+  use("dstein64/vim-startuptime")
   -- use("goolord/alpha-nvim")
   -- use("mhinz/vim-startify")
 
@@ -133,7 +135,6 @@ return packer.startup(function(use)
   use("rmagatti/auto-session")
   use("rmagatti/session-lens") -- telescope integration
 
-  use("antoinemadec/FixCursorHold.nvim") -- needed to fix LSP doc highlight
   use("folke/which-key.nvim")
   use("folke/lsp-colors.nvim")
 
@@ -147,12 +148,13 @@ return packer.startup(function(use)
   -- auto-format when saving
   use("Pocco81/AutoSave.nvim")
   -- use("907th/vim-auto-save")
+
   use("kevinhwang91/nvim-bqf")
   use("https://gitlab.com/yorickpeterse/nvim-pqf") -- pretty list
 
   use("jremmen/vim-ripgrep")
   use("mbbill/undotree")
-  use("beauwilliams/focus.nvim")
+  -- use("beauwilliams/focus.nvim")
 
   -- run code within nvim
   use("erietz/vim-terminator")
