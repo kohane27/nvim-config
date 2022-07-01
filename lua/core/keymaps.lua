@@ -23,6 +23,9 @@ end
 -----------------------------------------------------------
 map("i", "jk", "<Esc>")
 
+-- avoid command history
+map("n", "q:", ":q<cr>")
+
 -- unlearn bad habits
 map("n", "<C-a>", "<nop>")
 map("n", "<C-x>", "<nop>")
