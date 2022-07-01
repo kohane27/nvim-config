@@ -85,11 +85,12 @@ local mappings = {
   ["<C-e>"] = { "<cmd>TerminatorOutputBufferToggle<cr>", "Toggle Terminator" },
   ["<C-n>"] = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "navigates to next mark" },
   ["<C-p>"] = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "navigates to previous mark" },
-  ["<C-j>"] = {
-    '<cmd>lua vim.diagnostic.open_float(0, {scope="line", border = "rounded" })<cr>',
-    "Line Diagnostic",
-  },
-  ["<C-k>"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
+  -- TODO remap <C-j> <C-k>
+  -- ["<C-j>"] = {
+  --   '<cmd>lua vim.diagnostic.open_float(0, {scope="line", border = "rounded" })<cr>',
+  --   "Line Diagnostic",
+  -- },
+  -- ["<C-k>"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
   -- K = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
   g = {
     name = "g",
