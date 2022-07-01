@@ -77,5 +77,6 @@ require("plugins.fidget")
 require("plugins.tmux")
 require("plugins.auto-session")
 require("plugins.vim-test")
+require("plugins.vim-EnhancedJumps")
 
 -- require("plugins.yanky")
