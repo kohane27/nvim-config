@@ -42,11 +42,11 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   },
 }
 
--- nvim-ufo: tell the server the capability of foldingRange
-capabilities.textDocument.foldingRange = {
-  dynamicRegistration = false,
-  lineFoldingOnly = true,
-}
+-- -- nvim-ufo: tell the server the capability of foldingRange
+-- capabilities.textDocument.foldingRange = {
+--   dynamicRegistration = false,
+--   lineFoldingOnly = true,
+-- }
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
