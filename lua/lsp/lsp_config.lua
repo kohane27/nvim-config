@@ -74,7 +74,13 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
   buf_set_keymap("n", "gr", "<cmd>Trouble lsp_references<cr>", opts)
-  buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+  -- TODO another key
+  -- ["<C-j>"] = {
+  --   '<cmd>lua vim.diagnostic.open_float(0, {scope="line", border = "rounded" })<cr>',
+  --   "Line Diagnostic",
+  -- },
+  -- ["<C-k>"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
+  -- K = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
   buf_set_keymap("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
   buf_set_keymap("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
   buf_set_keymap("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
@@ -87,7 +93,9 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
   buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
   buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
-  buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
+
+  -- TODO another key
+  -- buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
   buf_set_keymap("n", "<space>ts", "<cmd>Telescope lsp_document_symbols<CR>", opts)
   -- buf_set_keymap("n", "<space>ts", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", opts)
 end
