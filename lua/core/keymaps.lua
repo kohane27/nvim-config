@@ -118,7 +118,7 @@ map("n", "Y", "y$")
 -- delete one word forward in Insert mode
 map("i", "<C-e>", "<C-o>de")
 
--- move changelist: jump between edit locations
+-- changelist: jump between edit locations
 map("n", "<A-o>", "g;")
 map("n", "<A-i>", "g,")
 

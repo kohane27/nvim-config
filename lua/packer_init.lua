@@ -47,6 +47,8 @@ return packer.startup(function(use)
   use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
   use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 
+  use("ibhagwan/fzf-lua")
+
   -- Telescope
   use("nvim-telescope/telescope.nvim")
   use({
@@ -81,6 +83,8 @@ return packer.startup(function(use)
   use("b0o/schemastore.nvim")
   use("jose-elias-alvarez/typescript.nvim")
   use("antoinemadec/FixCursorHold.nvim") -- fix LSP doc highlight
+  use("mfussenegger/nvim-jdtls")
+  use("ray-x/lsp_signature.nvim")
 
   -- Autocomplete engine
   use({
@@ -113,8 +117,9 @@ return packer.startup(function(use)
   use("tpope/vim-unimpaired")
   -- use("tpope/vim-fugitive") -- use lazygit
   use("machakann/vim-sandwich") -- better than surround
-  use("preservim/vim-markdown")
-  use("godlygeek/tabular") -- format tables
+  use("wellle/targets.vim") -- more text objects
+  use("andymass/vim-matchup") -- navigate matching text
+  -- use("chaoren/vim-wordmotion")
 
   -- use("anuvyklack/pretty-fold.nvim")
   use("kevinhwang91/nvim-ufo")
@@ -141,9 +146,13 @@ return packer.startup(function(use)
   use("lewis6991/gitsigns.nvim")
   use("norcalli/nvim-colorizer.lua")
 
+  -- navigation
   use("ggandor/leap.nvim")
   -- use("ggandor/lightspeed.nvim")
   use("rhysd/clever-f.vim")
+
+  use("inkarkat/vim-EnhancedJumps")
+  use("inkarkat/vim-ingo-library") -- required by vim-EnhancedJumps
 
   -- auto-format when saving
   use("Pocco81/AutoSave.nvim")
@@ -156,14 +165,20 @@ return packer.startup(function(use)
   use("mbbill/undotree")
   -- use("beauwilliams/focus.nvim")
 
-  -- run code within nvim
+  -- filetypes
+  use("preservim/vim-markdown")
+  use("godlygeek/tabular") -- format tables
+  use("mtdl9/vim-log-highlighting")
+  use("ledger/vim-ledger")
+  use("chrisbra/csv.vim")
+
+  -- Code runners
   use("erietz/vim-terminator")
   -- use({ "michaelb/sniprun", run = "bash ./install.sh" })
   -- use("EvanQuan/vim-executioner")
   -- use("pianocomposer321/yabs.nvim")
   -- use("CRAG666/code_runner.nvim")
 
-  -- use("kwkarlwang/bufjump.nvim") -- interesting
   use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
 
   -- use("takac/vim-hardtime")
@@ -172,41 +187,32 @@ return packer.startup(function(use)
 
   use("gelguy/wilder.nvim")
   use("simrat39/symbols-outline.nvim")
-  -- use("rcarriga/nvim-notify")
-  use("ledger/vim-ledger")
-  use("chrisbra/csv.vim")
-  -- use("ldelossa/litee.nvim") -- required by gh.nvim
-  -- use("ldelossa/gh.nvim")
-  use("ekickx/clipboard-image.nvim")
-
-  use("ray-x/lsp_signature.nvim")
-  -- use { 'ray-x/navigator.lua',
-  --     requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' }
-  -- }
+  use("ekickx/clipboard-image.nvim") -- copy clipboard image to nvim
 
   -- use("gbprod/yanky.nvim")
   -- use("svermeulen/vim-yoink")
 
+  -- find and replace
   use("windwp/nvim-spectre")
-  use("brooth/far.vim")
+  -- use("brooth/far.vim")
 
   -- aesthetics
-  use("mtdl9/vim-log-highlighting")
   use("dstein64/nvim-scrollview") -- scrollbars
+  use("karb94/neoscroll.nvim") -- smooth scrolling
   use("j-hui/fidget.nvim") -- display nvim-lsp progress
   use("danilamihailov/beacon.nvim") -- flash cursor when jumping
+  use("luukvbaal/stabilize.nvim") -- stabilize buffer content on window open/close events
+  use("romainl/vim-cool") -- search highlighting when done
 
   use("nyngwang/NeoZoom.lua") -- `<C-w>m` to maximize window without closing other buffers
+  use("farmergreg/vim-lastplace") -- reopen files at last edit position
   use("KabbAmine/vCoolor.vim") -- color picker
   use({ "mg979/vim-visual-multi", branch = "master" })
-  use("karb94/neoscroll.nvim") -- smooth scrolling
   -- use("max397574/better-escape.nvim")
-  use("wellle/targets.vim")
   use("mhinz/vim-grepper")
   use("folke/trouble.nvim")
   use("nathom/filetype.nvim") -- speed up startup time
   use("vim-scripts/LargeFile")
-  use("luukvbaal/stabilize.nvim")
   use({
     "glacambre/firenvim",
     run = function()
@@ -222,24 +228,17 @@ return packer.startup(function(use)
   -- test
   use("vim-test/vim-test")
 
-  use("ibhagwan/fzf-lua")
   use("aserowy/tmux.nvim")
   -- use("sunaku/tmux-navigate")
   -- use("numToStr/Navigator.nvim")
 
-  -- without its own file
-  use("farmergreg/vim-lastplace") -- reopen files at last edit position
-  use("mfussenegger/nvim-jdtls")
   use("p00f/nvim-ts-rainbow")
   use("ThePrimeagen/harpoon")
   use("junegunn/vim-emoji")
   --use("sheerun/vim-polyglot")
   -- use("kovetskiy/sxhkd-vim")
   use("tversteeg/registers.nvim") -- see register contents
-  use("romainl/vim-cool") -- search highlighting when done
   use("junegunn/vim-easy-align")
-  use("andymass/vim-matchup")
-  -- use("chaoren/vim-wordmotion")
   use("moll/vim-bbye") -- delete buffers without closing windows
 
   -- Colorschemes/theme
