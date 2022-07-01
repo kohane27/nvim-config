@@ -122,8 +122,8 @@ return packer.startup(function(use)
   -- use("chaoren/vim-wordmotion")
 
   -- use("anuvyklack/pretty-fold.nvim")
-  use("kevinhwang91/nvim-ufo")
-  use("kevinhwang91/promise-async") -- required by nvim-ufo
+  -- use("kevinhwang91/nvim-ufo")
+  -- use("kevinhwang91/promise-async") -- required by nvim-ufo
 
   use("sindrets/diffview.nvim") -- tabpage interface for diffs
   use("akinsho/git-conflict.nvim")
@@ -155,7 +155,7 @@ return packer.startup(function(use)
   use("inkarkat/vim-ingo-library") -- required by vim-EnhancedJumps
 
   -- auto-format when saving
-  use("Pocco81/AutoSave.nvim")
+  -- use("Pocco81/AutoSave.nvim")
   -- use("907th/vim-auto-save")
 
   use("kevinhwang91/nvim-bqf")
