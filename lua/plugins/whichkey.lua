@@ -83,15 +83,6 @@ local mappings = {
   ["<C-g>"] = { "<cmd>lua require('fzf-lua').files()<cr>", "Find files" },
   ["<C-t>"] = { "<cmd>NvimTreeToggle<cr>", "Tree" },
   ["<C-e>"] = { "<cmd>TerminatorOutputBufferToggle<cr>", "Toggle Terminator" },
-  ["<C-n>"] = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "navigates to next mark" },
-  ["<C-p>"] = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "navigates to previous mark" },
-  -- TODO remap <C-j> <C-k>
-  -- ["<C-j>"] = {
-  --   '<cmd>lua vim.diagnostic.open_float(0, {scope="line", border = "rounded" })<cr>',
-  --   "Line Diagnostic",
-  -- },
-  -- ["<C-k>"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
-  -- K = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
   g = {
     name = "g",
     -- can't use gs and gS; taken by lightspeed
@@ -112,6 +103,8 @@ local mappings = {
 
     h = {
       name = "Harpoon",
+      ["<C-n>"] = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "navigates to next mark" },
+      ["<C-p>"] = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "navigates to previous mark" },
       a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "mark file" },
       m = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "view all project marks" },
       ["1"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "navigates to file 1" },
