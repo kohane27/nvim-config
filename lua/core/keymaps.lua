@@ -40,12 +40,7 @@ map("n", "<C-i>", "<nop>")
 map("n", "J", "m'5j")
 map("n", "K", "m'5k")
 
-map("n", "<C-d>", "m'13j")
-map("n", "<C-u>", "m'13k")
-
-map("n", "<C-f>", "m'30j")
-map("n", "<C-b>", "m'30k")
-
+-- change list
 map("n", "<C-j>", "g;")
 map("n", "<C-k>", "g,")
 
@@ -146,10 +141,6 @@ map("i", "<c-s>", "<c-o>:w<CR>")
 -- <C-m> is <CR> and <CR> is <C-m>
 -- They are the same key so you can't map something to <C-m> without mapping it to <CR> and vice-versa.
 -- You'll need to find another key combo for your mapping.
-
--- paste in new line
--- BUG: if paste to new buffer
--- map("n", "p", ":pu<CR>")
 
 vim.cmd([[
 " close and save all buffer
