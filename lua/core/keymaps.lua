@@ -26,19 +26,28 @@ map("i", "jk", "<Esc>")
 -- unlearn bad habits
 map("n", "<C-a>", "<nop>")
 map("n", "<C-x>", "<nop>")
+
 map("n", "ZZ", "<nop>")
 map("n", "J", "<nop>")
 map("n", "K", "<nop>")
 map("n", "d$", "<nop>")
 
-map("n", "J", "5j")
-map("n", "K", "5k")
+-- use vim-EnhancedJumps
+map("n", "<C-o>", "<nop>")
+map("n", "<C-i>", "<nop>")
 
-map("n", "<C-d>", "13j")
-map("n", "<C-u>", "13k")
+-- add marks to populate jump list
+map("n", "J", "m'5j")
+map("n", "K", "m'5k")
 
-map("n", "<C-f>", "30j")
-map("n", "<C-b>", "30k")
+map("n", "<C-d>", "m'13j")
+map("n", "<C-u>", "m'13k")
+
+map("n", "<C-f>", "m'30j")
+map("n", "<C-b>", "m'30k")
+
+map("n", "<C-j>", "g;")
+map("n", "<C-k>", "g,")
 
 map("n", "<Leader>j", "J")
 map("n", "<Leader>k", "K")
@@ -118,17 +127,12 @@ map("n", "Y", "y$")
 -- delete one word forward in Insert mode
 map("i", "<C-e>", "<C-o>de")
 
--- changelist: jump between edit locations
-map("n", "<A-o>", "g;")
-map("n", "<A-i>", "g,")
-
 -- delete backwards till whitespace
 map("i", "<C-b>", "<C-o>dB")
--- insert mode: paste yanked / deleted
--- CTRL-R " (the unnamed register) inserts the last delete or yank
+
+-- paste last yanked / deleted
 map("i", "<C-f>", '<C-R>"')
--- insert mode: paste clipboard content
--- CTRL-R * will insert clipboard contents
+-- paste clipboard content
 map("i", "<C-v>", "<C-R>*")
 
 -- save
@@ -153,7 +157,7 @@ cnoremap x xa
 " wean off `:wq` and `:q` in favor of zz
 cnoremap <expr> <CR> getcmdtype() == ":" && index(["q", "wq"], getcmdline()) >= 0 ? "<C-u>" : "<CR>"
 
-" previous and next command key mapping to be compatible for `wilder.nvim`
+" `wilder.nvim`: previous and next command key mapping to be compatible
 cnoremap <expr> <C-j> wildmenumode() ? "\<C-N>" : "\<Down>"
 cnoremap <expr> <C-k> wildmenumode() ? "\<C-P>" : "\<Up>"
 ]])
