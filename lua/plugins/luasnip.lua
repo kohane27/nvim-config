@@ -24,6 +24,8 @@ require("luasnip.loaders.from_vscode").load({
   },
 })
 
--- React snippets
+-- snippets to framework
+luasnip.filetype_extend("javascript", { "javascript" })
+luasnip.filetype_extend("javascript", { "typescript" })
 luasnip.filetype_extend("javascript", { "javascriptreact" })
 luasnip.filetype_extend("javascript", { "html" })

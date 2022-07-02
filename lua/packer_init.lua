@@ -44,10 +44,8 @@ packer.init({
 
 return packer.startup(function(use)
   use("wbthomason/packer.nvim") -- Have packer manage itself
-  use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
-  use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
-
-  use("ibhagwan/fzf-lua")
+  use("nvim-lua/popup.nvim") -- implementation of Popup API to Neovim
+  use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
 
   -- Telescope
   use("nvim-telescope/telescope.nvim")
@@ -104,17 +102,18 @@ return packer.startup(function(use)
   use("saadparwaiz1/cmp_luasnip")
 
   -- General
+  use("ibhagwan/fzf-lua")
   use("tpope/vim-repeat")
+  use("tpope/vim-unimpaired")
   use("numToStr/Comment.nvim")
-  use("ryanoasis/vim-devicons")
-  use("kyazdani42/nvim-web-devicons")
+  -- use("ryanoasis/vim-devicons") --icons
+  use("kyazdani42/nvim-web-devicons") -- lua fork of vim-devicons
   use("kyazdani42/nvim-tree.lua")
   -- use({ "akinsho/bufferline.nvim", tag = "v2.*" })
-  use("romgrk/barbar.nvim")
-  use("nvim-lualine/lualine.nvim")
-  use("voldikss/vim-floaterm")
-  use("akinsho/toggleterm.nvim") -- need for lazygit can migrate to floaterm but oh well
-  use("tpope/vim-unimpaired")
+  use("romgrk/barbar.nvim") -- tabline
+  use("nvim-lualine/lualine.nvim") -- statusline
+  use("voldikss/vim-floaterm") -- need for `lazygit` and `ranger`
+  use("akinsho/toggleterm.nvim") -- general terminal
   -- use("tpope/vim-fugitive") -- use lazygit
   use("machakann/vim-sandwich") -- better than surround
   use("wellle/targets.vim") -- more text objects
@@ -132,7 +131,7 @@ return packer.startup(function(use)
   -- use("whiteinge/diffconflicts")
 
   use("lewis6991/impatient.nvim")
-  use("dstein64/vim-startuptime")
+  -- use("dstein64/vim-startuptime") -- test impatient
   -- use("goolord/alpha-nvim")
   -- use("mhinz/vim-startify")
 
@@ -141,7 +140,7 @@ return packer.startup(function(use)
   use("rmagatti/session-lens") -- telescope integration
 
   use("folke/which-key.nvim")
-  use("folke/lsp-colors.nvim")
+  use("folke/lsp-colors.nvim") -- creates missing LSP diagnostics highlight groups for colorschemes that don't yet support LSP
 
   use("lewis6991/gitsigns.nvim")
   use("norcalli/nvim-colorizer.lua")
@@ -155,7 +154,7 @@ return packer.startup(function(use)
   use("inkarkat/vim-ingo-library") -- required by vim-EnhancedJumps
 
   -- auto-format when saving
-  -- use("Pocco81/AutoSave.nvim")
+  use("Pocco81/AutoSave.nvim")
   -- use("907th/vim-auto-save")
 
   use("kevinhwang91/nvim-bqf")
@@ -166,6 +165,7 @@ return packer.startup(function(use)
   -- use("beauwilliams/focus.nvim")
 
   -- filetypes
+  use("nathom/filetype.nvim") -- speed up startup time
   use("preservim/vim-markdown")
   use("godlygeek/tabular") -- format tables
   use("mtdl9/vim-log-highlighting")
@@ -199,7 +199,7 @@ return packer.startup(function(use)
   -- aesthetics
   use("dstein64/nvim-scrollview") -- scrollbars
   use("karb94/neoscroll.nvim") -- smooth scrolling
-  use("j-hui/fidget.nvim") -- display nvim-lsp progress
+  -- use("j-hui/fidget.nvim") -- display nvim-lsp progress
   use("danilamihailov/beacon.nvim") -- flash cursor when jumping
   use("luukvbaal/stabilize.nvim") -- stabilize buffer content on window open/close events
   use("romainl/vim-cool") -- search highlighting when done
@@ -211,7 +211,6 @@ return packer.startup(function(use)
   -- use("max397574/better-escape.nvim")
   use("mhinz/vim-grepper")
   use("folke/trouble.nvim")
-  use("nathom/filetype.nvim") -- speed up startup time
   use("vim-scripts/LargeFile")
   use({
     "glacambre/firenvim",
