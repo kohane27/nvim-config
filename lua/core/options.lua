@@ -32,7 +32,6 @@ set listchars=tab:▸\ ,trail:·
 set fillchars+=vert:\
 set wildignore+=**/node_modules/**
 ]])
-
 -----------------------------------------------------------
 -- General
 -----------------------------------------------------------
@@ -50,10 +49,14 @@ opt.list             = true
 g.did_load_filetypes = 0                           -- use filetype.lua instead of filetype.vim
 g.do_filetype_lua    = 1
 g.rehash256          = 1
+-- vim.env.XDG_SESSION_TYPE="x11"                     -- in order to make clipboard-image.nvim work
 
 -- disable tilde on end of buffer:
 -- https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
 opt.fillchars = { eob = " " }
+
+-- https://vi.stackexchange.com/questions/26628/make-jumplist-behave-like-stack
+opt.jumpoptions="stack"
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
