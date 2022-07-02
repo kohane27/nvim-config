@@ -6,13 +6,15 @@ end
 wilder.setup({
   modes = { ":", "/", "?" },
   enable_cmdline_enter = 0,
-  next_key = "<C-n>",
-  previous_key = "<C-p>",
+  next_key = "<Tab>",
+  previous_key = "<S-Tab>",
+  -- next_key = "<C-n>",
+  -- previous_key = "<C-p>",
   -- accept_key = "<Down>",
   -- reject_key = "<Up>",
 })
 
--- Disable Python remote plugin
+-- disable Python remote plugin
 wilder.set_option("use_python_remote_plugin", 0)
 
 wilder.set_option("pipeline", {

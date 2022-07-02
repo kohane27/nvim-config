@@ -117,6 +117,7 @@ local mappings = {
     t = {
       name = "Terminal",
       r = { "<cmd>FloatermNew ranger<cr>", "Ranger" },
+      n = { "<cmd>ToggleTerm<cr>", "New" },
       l = {
         "<cmd>FloatermNew --height=0.9 --width=0.9 --wintype=float --position=center lazygit<cr>",
         -- "<cmd>FloatermNew lazygit<cr>",
