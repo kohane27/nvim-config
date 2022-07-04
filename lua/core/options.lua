@@ -49,7 +49,7 @@ opt.list             = true
 g.did_load_filetypes = 0                           -- use filetype.lua instead of filetype.vim
 g.do_filetype_lua    = 1
 g.rehash256          = 1
--- vim.env.XDG_SESSION_TYPE="x11"                     -- in order to make clipboard-image.nvim work
+vim.env.XDG_SESSION_TYPE="x11"                     -- in order to make clipboard-image.nvim work
 
 -- disable tilde on end of buffer:
 -- https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
@@ -65,7 +65,7 @@ opt.wrap           = true     -- soft wrapping textj
 opt.numberwidth    = 2
 opt.relativenumber = true     -- Show relative line number
 opt.showmatch      = false    -- Highlight matching parenthesis
--- opt.foldmethod     = 'marker' -- disable for nvim-ufo
+opt.foldmethod     = 'marker' -- disable for nvim-ufo
 opt.cmdheight      = 2
 opt.showmode       = false    -- No -- INSERT --
 opt.scrolloff      = 4        -- cursor won't go the bottom
