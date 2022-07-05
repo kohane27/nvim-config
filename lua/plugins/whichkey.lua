@@ -101,28 +101,22 @@ local mappings = {
     ["9"] = { "<cmd>BufferGoto 9<cr>", "Buffer 9" },
     ["0"] = { "<cmd>BufferLast<cr>", "Buffer 10" },
 
-    h = {
-      name = "Harpoon",
-      ["<C-n>"] = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "navigates to next mark" },
-      ["<C-p>"] = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "navigates to previous mark" },
-      a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "mark file" },
-      m = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "view all project marks" },
-      ["1"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "navigates to file 1" },
-      ["2"] = { "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", "navigates to file 2" },
-      ["3"] = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", "navigates to file 3" },
-      ["4"] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", "navigates to file 4" },
-      ["5"] = { "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", "navigates to file 5" },
-    },
-
+    -- h = {
+    --   name = "Harpoon",
+    --   ["<C-n>"] = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "navigates to next mark" },
+    --   ["<C-p>"] = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "navigates to previous mark" },
+    --   a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "mark file" },
+    --   m = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "view all project marks" },
+    --   ["1"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "navigates to file 1" },
+    --   ["2"] = { "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", "navigates to file 2" },
+    --   ["3"] = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", "navigates to file 3" },
+    --   ["4"] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", "navigates to file 4" },
+    --   ["5"] = { "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", "navigates to file 5" },
+    -- },
     t = {
       name = "Terminal",
-      r = { "<cmd>FloatermNew ranger<cr>", "Ranger" },
-      n = { "<cmd>ToggleTerm<cr>", "New" },
-      l = {
-        "<cmd>FloatermNew --height=0.9 --width=0.9 --wintype=float --position=center lazygit<cr>",
-        -- "<cmd>FloatermNew lazygit<cr>",
-        "lazygit",
-      },
+      -- n = { "toggleterm", "New" }, in `toggleterm`
+      r = { "<cmd>FloatermNew --height=0.9 --width=0.9 --wintype=float ranger<cr>", "Ranger" },
     },
   },
 
@@ -162,13 +156,9 @@ local mappings = {
     },
     g = {
       name = "Git",
-      d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
-      j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-      k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-      p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-      -- l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-      -- R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-      -- s = { "<cmd>:G<cr>", "Status" },
+      l = { "<cmd>FloatermNew --height=1.0 --width=1.0 --wintype=float lazygit<cr>", "lazygit" },
+      d = { "<cmd>DiffviewOpen<cr>", "Diff index" },
+      f = { "<cmd>DiffviewFileHistory<cr>", "FileHistory" },
     },
     r = {
       name = "Run Code",
