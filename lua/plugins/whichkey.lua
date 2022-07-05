@@ -114,21 +114,21 @@ local mappings = {
     --   ["5"] = { "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", "navigates to file 5" },
     -- },
     t = {
-      name = "Terminal",
-      -- n = { "toggleterm", "New" }, in `toggleterm`
-      r = { "<cmd>FloatermNew --height=0.9 --width=0.9 --wintype=float ranger<cr>", "Ranger" },
-    },
-  },
-
-  ["<leader>"] = {
-    -- "<leader>n": g:VM_maps['Find Under']
-    t = {
       name = "Test",
       t = { "<cmd>TestNearest<cr>", "Nearest" },
       T = { "<cmd>TestFile<cr>", "File" },
       a = { "<cmd>TestSuite<cr>", "Suite" },
       l = { "<cmd>TestLast<cr>", "Last" },
       g = { "<cmd>TestVisit<cr>", "Visit" },
+    },
+  },
+
+  ["<leader>"] = {
+    -- "<leader>n": g:VM_maps['Find Under']
+    t = {
+      name = "Terminal",
+      -- n = { "toggleterm", "New" }, in `toggleterm`
+      r = { "<cmd>FloatermNew --height=0.9 --width=0.9 --wintype=float ranger<cr>", "Ranger" },
     },
     f = {
       name = "Find",

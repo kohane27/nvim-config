@@ -14,8 +14,8 @@ autosave.setup({
     -- filetype_is_not = { "lua" },
     filetype_is_not = {
       "lua",
-      -- "javascript",
-      -- "typescript",
+      "javascript",
+      "typescript",
       "javascriptreact",
       "typescriptreact",
       "tsx",
