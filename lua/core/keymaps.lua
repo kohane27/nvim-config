@@ -109,7 +109,9 @@ map("n", "Q", "@q")
 -- select current line excluding newline character
 map("x", "$", "g_")
 
-map("n", "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
+-- map("n", "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
+-- anyywhere on the line
+map("n", "gx", "<Plug>Markdown_OpenUrlUnderCursor<CR>")
 
 -- don't copy the replaced text after pasting
 map("v", "p", ":<C-U>let @p = @+<CR>gvp:let @+ = @p<CR>")
