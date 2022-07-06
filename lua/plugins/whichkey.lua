@@ -182,13 +182,13 @@ local mappings = {
       p = { "<cmd>PasteImg<cr>", "Paste Image" },
       S = { "<cmd>SymbolsOutline<cr>", "SymbolsOutline" },
     },
-    l = {
-      name = "Session Len",
-      s = { "<cmd>SaveSession<cr>", "Save session" },
-      r = { "<cmd>RestoreSession<cr>", "Restore session" },
-      d = { "<cmd>DeleteSession<cr>", "Delete session" },
-      l = { "<cmd>lua require('session-lens').search_session()<cr>", "Search session" },
-    },
+    -- l = {
+    --   name = "Session Len",
+    --   s = { "<cmd>SaveSession<cr>", "Save session" },
+    --   r = { "<cmd>RestoreSession<cr>", "Restore session" },
+    --   d = { "<cmd>DeleteSession<cr>", "Delete session" },
+    --   l = { "<cmd>lua require('session-lens').search_session()<cr>", "Search session" },
+    -- },
     p = {
       name = "Packer",
       c = { "<cmd>PackerCompile<cr>", "Compile" },
