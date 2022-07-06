@@ -26,13 +26,17 @@ local sources = {
   formatting.stylelint,
   diagnostics.stylelint,
 
-  -- format and xml
+  -- format and lint
   formatting.xmllint,
+
+  -- SQL
+  formatting.sql_formatter,
 
   -- Python
   formatting.black.with({ extra_args = { "--fast" } }),
   diagnostics.pylint,
 
+  -- Lua
   formatting.stylua.with({
     extra_args = { "--indent-type", "Spaces", "--indent-width", "2", "--line-endings", "Unix" },
   }),
@@ -43,12 +47,8 @@ local sources = {
     filetypes = { "sh", "bash", "zsh" },
   }),
 
-  -- SQL
-  formatting.sql_formatter,
-
   -- diagnostics.tsc,
   -- diagnostics.markdownlint,
-  -- diagnostics.write_good,
   -- diagnostics.flake8,
 
   -- CODE ACTIONS
