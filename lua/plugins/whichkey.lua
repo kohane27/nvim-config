@@ -159,6 +159,8 @@ local mappings = {
       l = { "<cmd>FloatermNew --height=1.0 --width=1.0 --wintype=float lazygit<cr>", "lazygit" },
       d = { "<cmd>DiffviewOpen<cr>", "Diff index" },
       f = { "<cmd>DiffviewFileHistory<cr>", "FileHistory" },
+      s = { "<cmd>Telescope git_status<cr>", "Status" },
+      c = { "<cmd>Telescope git_commits<cr>", "Commits" },
     },
     r = {
       name = "Run Code",

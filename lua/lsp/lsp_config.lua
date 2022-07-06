@@ -142,7 +142,7 @@ local servers = {
   "lemminx",
   "pyright",
   "sqls",
-  "stylelint_lsp",
+  -- "stylelint_lsp", -- conflict with prettier in js files
 }
 
 -- Call setup

@@ -131,7 +131,7 @@ return packer.startup(function(use)
   -- use("whiteinge/diffconflicts")
 
   use("lewis6991/impatient.nvim")
-  -- use("dstein64/vim-startuptime") -- test impatient
+  use("dstein64/vim-startuptime") -- test impatient
   -- use("goolord/alpha-nvim")
   -- use("mhinz/vim-startify")
 
