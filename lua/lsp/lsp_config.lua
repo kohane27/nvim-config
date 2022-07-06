@@ -53,45 +53,49 @@ local on_attach = function(client, bufnr)
 
   -- NOTE no keymappings in WhichKey
   -- NOTE document what's here so no conflict in WhichKey
-  -- Mappings
   local opts = { noremap = true, silent = true }
 
-  -- K mapped to 5gk
-  -- buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+  -- line diagnostic
+  -- buf_set_keymap("n", "<leader>lld", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 
-  -- conflict with switching tabs
-  -- buf_set_keymap("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+  -- go to implementation
+  buf_set_keymap("n", "<space>li", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 
-  -- -- conflict with default gi
-  -- buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+  -- go to definition
+  buf_set_keymap("n", "<space>ld", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 
-  buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  buf_set_keymap("n", "gr", "<cmd>Trouble lsp_references<cr>", opts)
-  -- TODO another key
-  -- ["<C-j>"] = {
-  --   '<cmd>lua vim.diagnostic.open_float(0, {scope="line", border = "rounded" })<cr>',
-  --   "Line Diagnostic",
-  -- },
-  -- ["<C-k>"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
-  -- K = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
-  buf_set_keymap("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
-  buf_set_keymap("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
-  buf_set_keymap("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
-  buf_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-  buf_set_keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  buf_set_keymap("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-  buf_set_keymap("n", "<space>cl", "<cmd>lua vim.lsp.codelens.run()<CR>", opts)
-  buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  buf_set_keymap("n", "<space>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
-  buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
-  buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
-  buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
+  -- preview definition
+  -- TODO go into preview not working
+  -- buf_set_keymap("n", "<space>lD", "<cmd>Lspsaga preview_definition<CR>", opts)
+  buf_set_keymap("n", "<space>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 
-  -- TODO another key
-  -- buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
-  buf_set_keymap("n", "<space>ts", "<cmd>Telescope lsp_document_symbols<CR>", opts)
-  -- buf_set_keymap("n", "<space>ts", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", opts)
+  -- get a list of references
+  buf_set_keymap("n", "<space>lr", "<cmd>Trouble lsp_references<cr>", opts)
+
+  -- code action
+  buf_set_keymap("n", "<space>lca", "<cmd>Lspsaga code_action<CR>", opts)
+
+  -- code lens
+  buf_set_keymap("n", "<space>lcl", "<cmd>lua vim.lsp.codelens.run()<CR>", opts)
+
+  -- rename
+  buf_set_keymap("n", "<space>lrn", "<cmd>Lspsaga rename<CR>", opts)
+
+  -- show hover doc
+  buf_set_keymap("n", "<space>lh", "<cmd>Lspsaga hover_doc<CR>", opts)
+
+  -- show signature help
+  buf_set_keymap("n", "<space>ls", "<Cmd>Lspsaga signature_help<CR>", opts)
+
+  -- jump diagnostics
+  buf_set_keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+  buf_set_keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+
+  -- formatting
+  buf_set_keymap("n", "<space>lf", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
+
+  -- not needed
+  buf_set_keymap("n", "<space>lq", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
 end
 
 --[[
