@@ -14,23 +14,24 @@ local diagnostics = null_ls.builtins.diagnostics
 local sources = {
 
   formatting.prettier.with({
-    disabled_filetypes = { "json" }, -- use `jsonls`
+    disabled_filetypes = { "json", "html" }, -- they're in `lsp_config.lua`
     -- extra_args = { "--single-quote", "--jsx-single-quote" },
   }),
 
-  -- eslint not suitable for formatting on save. Use eslint_d
-  formatting.eslint_d,
-  diagnostics.eslint_d,
+  -- use LSP in `lsp_config.lua`
+  -- formatting.eslint_d,
+  -- diagnostics.eslint_d,
 
-  -- css
-  formatting.stylelint,
-  diagnostics.stylelint,
+  -- use LSP in `lsp_config.lua`
+  -- formatting.stylelint,
+  -- diagnostics.stylelint,
 
+  -- use LSP in `lsp_config.lua`
   -- format and lint
-  formatting.xmllint,
+  -- formatting.xmllint,
 
-  -- SQL
-  formatting.sql_formatter,
+  -- use LSP in `lsp_config.lua`
+  -- formatting.sql_formatter,
 
   -- Python
   formatting.black.with({ extra_args = { "--fast" } }),
