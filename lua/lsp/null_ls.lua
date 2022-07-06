@@ -13,29 +13,49 @@ local diagnostics = null_ls.builtins.diagnostics
 
 local sources = {
 
-  --FORMATTING
-  formatting.prettier.with({ extra_args = { "--single-quote", "--jsx-single-quote" } }),
+  formatting.prettier.with({
+    disabled_filetypes = { "json" }, -- use `jsonls`
+    -- extra_args = { "--single-quote", "--jsx-single-quote" },
+  }),
+
+  -- eslint not suitable for formatting on save. Use eslint_d
+  formatting.eslint_d,
+  diagnostics.eslint_d,
+
+  -- css
+  formatting.stylelint,
+  diagnostics.stylelint,
+
+  -- format and xml
+  formatting.xmllint,
+
+  -- Python
   formatting.black.with({ extra_args = { "--fast" } }),
+  diagnostics.pylint,
+
   formatting.stylua.with({
     extra_args = { "--indent-type", "Spaces", "--indent-width", "2", "--line-endings", "Unix" },
   }),
-  formatting.shfmt.with({ extra_args = { "-i", "2" } }),
-  -- formatting.isort,
 
-  -- DIAGNOSTICS
+  -- shell
+  formatting.shfmt.with({ extra_args = { "-i", "2" } }),
   diagnostics.shellcheck.with({
     filetypes = { "sh", "bash", "zsh" },
   }),
-  -- diagnostics.write_good,
-  -- diagnostics.markdownlint,
-  -- diagnostics.flake8,
+
+  -- SQL
+  formatting.sql_formatter,
+
   -- diagnostics.tsc,
-  -- diagnostics.eslint_d,
-  -- diagnostics.pylint,
+  -- diagnostics.markdownlint,
+  -- diagnostics.write_good,
+  -- diagnostics.flake8,
 
   -- CODE ACTIONS
   builtins.code_actions.gitsigns,
   builtins.code_actions.gitrebase,
+  -- injects actions to fix ESLint issues or ignore broken rules
+  builtins.code_actions.eslint_d,
 }
 
 null_ls.setup({
