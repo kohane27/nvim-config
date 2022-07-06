@@ -43,9 +43,9 @@ map("n", "<C-i>", "<nop>")
 map("n", "J", "m'5j")
 map("n", "K", "m'5k")
 
--- change list
-map("n", "<C-j>", "g;")
-map("n", "<C-k>", "g,")
+-- -- change list
+-- map("n", "<C-j>", "g;")
+-- map("n", "<C-k>", "g,")
 
 map("n", "<Leader>j", "J")
 map("n", "<Leader>k", "K")
