@@ -76,7 +76,8 @@ return packer.startup(function(use)
   use("neovim/nvim-lspconfig")
   use("williamboman/nvim-lsp-installer")
   use("tamago324/nlsp-settings.nvim") -- language server settings defined in json
-  use("jose-elias-alvarez/null-ls.nvim") -- formatters and linters
+  use("jose-elias-alvarez/null-ls.nvim") -- formatters and linters when LSP is not present
+  use({ "glepnir/lspsaga.nvim", branch = "main" })
   -- use("lukas-reineke/lsp-format.nvim") -- formatting management
   use("b0o/schemastore.nvim")
   use("jose-elias-alvarez/typescript.nvim")
@@ -131,7 +132,7 @@ return packer.startup(function(use)
   -- use("whiteinge/diffconflicts")
 
   use("lewis6991/impatient.nvim")
-  use("dstein64/vim-startuptime") -- test impatient
+  -- use("dstein64/vim-startuptime") -- test impatient
   -- use("goolord/alpha-nvim")
   -- use("mhinz/vim-startify")
 
