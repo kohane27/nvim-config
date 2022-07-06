@@ -42,12 +42,6 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   },
 }
 
--- -- nvim-ufo: tell the server the capability of foldingRange
--- capabilities.textDocument.foldingRange = {
---   dynamicRegistration = false,
---   lineFoldingOnly = true,
--- }
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -101,21 +95,19 @@ local on_attach = function(client, bufnr)
 end
 
 --[[
-
 Language servers setup:
 
 For language servers list see:
 https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
-Bash --> bashls
+Bash -> bashls
 https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#bashls
 
-Python --> pyright
+Python -> pyright
 https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pyright
 
-HTML/CSS/JSON --> vscode-html-languageserver
+HTML/CSS/JSON -> vscode-html-languageserver
 https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
-
 --]]
 
 -- Define `root_dir` when needed
@@ -131,9 +123,27 @@ let ftToIgnore = ['c', 'markdown']
 autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | lua vim.lsp.buf.formatting_sync()
 ]])
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- `tsserver` is managed by `typescript.nvim` below
-local servers = { "bashls", "pyright", "cssls", "emmet_ls" }
+-- custom language servers not listed here:
+-- 1. jsonls
+-- 2. sumneko_lua
+-- 3. `tsserver` is managed by `typescript.nvim`
+
+-- Use a loop to call 'setup' on multiple servers
+local servers = {
+  "awk_ls",
+  "bashls",
+  "cssls",
+  "cssmodules_ls",
+  "dockerls",
+  "emmet_ls",
+  "eslint",
+  "graphql",
+  "html",
+  "lemminx",
+  "pyright",
+  "sqls",
+  "stylelint_lsp",
+}
 
 -- Call setup
 for _, lsp in ipairs(servers) do
@@ -157,17 +167,7 @@ lspconfig.jsonls.setup({
   },
 })
 
--- 2. html
-lspconfig.html.setup({
-  on_attach = function(client, _)
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
-  end,
-  root_dir = root_dir,
-  capabilities = capabilities,
-})
-
--- 3. sumneko_lua
+-- 2. sumneko_lua
 -- local runtime_path = vim.split(package.path, ";")
 -- table.insert(runtime_path, "lua/?.lua")
 -- table.insert(runtime_path, "lua/?/init.lua")
@@ -205,7 +205,7 @@ lspconfig.sumneko_lua.setup({
   },
 })
 
--- 4. typescript
+-- 3. typescript
 local status_ok, typescript = pcall(require, "typescript")
 if not status_ok then
   print("typescript failing")
