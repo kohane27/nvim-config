@@ -182,6 +182,7 @@ local mappings = {
       p = { "<cmd>PasteImg<cr>", "Paste Image" },
       S = { "<cmd>SymbolsOutline<cr>", "SymbolsOutline" },
     },
+    -- TODO find another key
     -- l = {
     --   name = "Session Len",
     --   s = { "<cmd>SaveSession<cr>", "Save session" },

@@ -66,7 +66,7 @@ local on_attach = function(client, bufnr)
 
   -- preview definition
   -- TODO go into preview not working
-  -- buf_set_keymap("n", "<space>lD", "<cmd>Lspsaga preview_definition<CR>", opts)
+  buf_set_keymap("n", "<space>h", "<cmd>Lspsaga preview_definition<CR>", opts)
   buf_set_keymap("n", "<space>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 
   -- get a list of references
@@ -93,9 +93,6 @@ local on_attach = function(client, bufnr)
 
   -- formatting
   buf_set_keymap("n", "<space>lf", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
-
-  -- not needed
-  buf_set_keymap("n", "<space>lq", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
 end
 
 --[[

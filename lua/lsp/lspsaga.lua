@@ -29,7 +29,7 @@ saga.init_lsp_saga({
     virtual_text = false,
   },
   -- preview lines of lsp_finder and definition preview
-  max_preview_lines = 10,
+  max_preview_lines = 50,
   finder_action_keys = {
     open = "o",
     vsplit = "s",

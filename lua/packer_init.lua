@@ -194,8 +194,8 @@ return packer.startup(function(use)
   -- use("svermeulen/vim-yoink")
 
   -- find and replace
-  use("windwp/nvim-spectre")
-  -- use("brooth/far.vim")
+  use("windwp/nvim-spectre") -- buggy
+  use("brooth/far.vim")
 
   -- aesthetics
   use("dstein64/nvim-scrollview") -- scrollbars
