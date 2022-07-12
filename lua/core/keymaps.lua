@@ -1,7 +1,8 @@
------------------------------------------------------------
--- Define keymaps
--- leader key is set as <space> in options.lua
------------------------------------------------------------
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Define keymaps                                           │
+-- │ leader key is set as <space> in options.lua              │
+-- ╰──────────────────────────────────────────────────────────╯
+
 local function map(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }
   if opts then
@@ -17,6 +18,7 @@ end
 --sniprun.lua
 --substitute.lua
 --tmux.lua
+--comment-box.lua
 
 -----------------------------------------------------------
 -- Neovim shortcuts
