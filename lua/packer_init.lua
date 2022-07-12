@@ -194,8 +194,10 @@ return packer.startup(function(use)
   -- use("svermeulen/vim-yoink")
 
   -- find and replace
-  use("windwp/nvim-spectre") -- buggy
+  -- use("windwp/nvim-spectre") -- buggy
   use("brooth/far.vim")
+
+  use("vimwiki/vimwiki") -- note-taking
 
   -- aesthetics
   use("dstein64/nvim-scrollview") -- scrollbars
@@ -204,6 +206,7 @@ return packer.startup(function(use)
   use("danilamihailov/beacon.nvim") -- flash cursor when jumping
   use("luukvbaal/stabilize.nvim") -- stabilize buffer content on window open/close events
   use("romainl/vim-cool") -- search highlighting when done
+  use("LudoPinelli/comment-box.nvim") -- create comment box
 
   use("nyngwang/NeoZoom.lua") -- `<C-w>m` to maximize window without closing other buffers
   use("farmergreg/vim-lastplace") -- reopen files at last edit position
