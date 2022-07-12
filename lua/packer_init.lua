@@ -197,7 +197,9 @@ return packer.startup(function(use)
   -- use("windwp/nvim-spectre") -- buggy
   use("brooth/far.vim")
 
-  use("vimwiki/vimwiki") -- note-taking
+  -- note-taking
+  use("renerocksai/telekasten.nvim")
+  use("vimwiki/vimwiki")
 
   -- aesthetics
   use("dstein64/nvim-scrollview") -- scrollbars
