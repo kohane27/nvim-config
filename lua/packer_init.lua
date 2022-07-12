@@ -194,11 +194,11 @@ return packer.startup(function(use)
   -- use("svermeulen/vim-yoink")
 
   -- find and replace
-  -- use("windwp/nvim-spectre") -- buggy
+  use("windwp/nvim-spectre") -- buggy
   use("brooth/far.vim")
 
   -- note-taking
-  use("vimwiki/vimwiki")
+  -- use("vimwiki/vimwiki")
   -- use("renerocksai/telekasten.nvim")
   -- use("renerocksai/calendar-vim")
 
