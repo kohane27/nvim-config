@@ -77,7 +77,7 @@ require("plugins.tmux")
 -- require("plugins.auto-session")
 require("plugins.vim-test")
 require("plugins.vim-EnhancedJumps")
-require("plugins.vim-wiki")
+-- require("plugins.vim-wiki")
 require("plugins.telekasten")
 require("plugins.comment-box")
 
