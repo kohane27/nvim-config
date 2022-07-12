@@ -9,6 +9,11 @@ vim.cmd([[
   autocmd filetype markdown set indentexpr=
   " autocmd fileType markdown setl conceallevel=1
 
+  " augroup _conceal_in_todo
+  "   autocmd!
+  "   autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md setl conceallevel=1
+  " augroup end
+
   augroup _general_settings
     autocmd!
     autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
@@ -23,7 +28,6 @@ vim.cmd([[
 
   augroup _remap_in_todo
     autocmd!
-    autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md setl conceallevel=1
     autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> td - [ ]  🛫 <c-r>=strftime("%Y-%m-%d")<cr><left><left><left><left><left><left><left><left><left><left><left><left><left>
     autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> #do ✅ <c-r>=strftime("%Y-%m-%d")<cr><Esc>
     autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> #du 📅 <c-r>=strftime("%Y-%m-%d")<cr><Esc>
