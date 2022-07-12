@@ -1,8 +1,8 @@
------------------------------------------------------------
--- Autocommand functions
--- Define autocommands with Lua APIs
--- See: h:api-autocmd, h:augroup
------------------------------------------------------------
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Autocommand functions                                    │
+-- │ Define autocommands with Lua APIs                        │
+-- │ See: h:api-autocmd, h:augroup                            │
+-- ╰──────────────────────────────────────────────────────────╯
 
 vim.cmd([[
   " disable auto-indentation
