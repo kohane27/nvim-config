@@ -199,7 +199,8 @@ return packer.startup(function(use)
 
   -- note-taking
   use("renerocksai/telekasten.nvim")
-  use("vimwiki/vimwiki")
+  use("renerocksai/calendar-vim")
+  -- use("vimwiki/vimwiki")
 
   -- aesthetics
   use("dstein64/nvim-scrollview") -- scrollbars
