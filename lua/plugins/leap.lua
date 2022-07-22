@@ -24,12 +24,12 @@ leap.setup({
 })
 
 -- Bidirectional search
-function leap_bidirectional()
-  require("leap").leap({ ["target-windows"] = { vim.api.nvim_get_current_win() } })
+function leap_current_window()
+  require("leap").leap({ target_windows = { vim.fn.win_getid() } })
 end
 
 -- Map them to your preferred key, like:
-vim.keymap.set("n", "s", leap_bidirectional, { silent = true })
+vim.keymap.set("n", "s", leap_current_window, { silent = true })
 
 vim.cmd([[
 " use clever-f
