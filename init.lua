@@ -7,7 +7,7 @@ require("core.keymaps")
 require("core.autocmds")
 -- require("core.colors")
 
-require("lsp.lsp_installer")
+require("lsp.mason")
 require("lsp.lsp_config")
 require("lsp.null_ls")
 require("lsp.cmp")
