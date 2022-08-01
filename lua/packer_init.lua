@@ -75,6 +75,7 @@ return packer.startup(function(use)
   -- LSP
   use("neovim/nvim-lspconfig")
   use("williamboman/mason.nvim")
+  use("williamboman/mason-lspconfig.nvim")
   use("tamago324/nlsp-settings.nvim") -- language server settings defined in json
   use("jose-elias-alvarez/null-ls.nvim") -- formatters and linters when LSP is not present
   use({ "glepnir/lspsaga.nvim", branch = "main" })
