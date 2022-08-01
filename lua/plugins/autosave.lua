@@ -1,16 +1,17 @@
-local status_ok, autosave = pcall(require, "autosave")
+local status_ok, autosave = pcall(require, "auto-save")
 if not status_ok then
   return
 end
 
 autosave.setup({
-  enabled = true,
+  enabled = false,
   execution_message = "",
-  events = { "InsertLeave" },
+  -- events = { "InsertLeave" },
+  -- making react project error prone
+  events = { "InsertLeave", "TextChanged" },
   conditions = {
     exists = true,
     filename_is_not = { "packer_init.lua" },
-    -- filetype_is_not = { "lua" },
     filetype_is_not = {
       "lua",
       "javascript",
