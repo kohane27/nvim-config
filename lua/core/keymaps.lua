@@ -42,8 +42,8 @@ map("n", "<C-o>", "<nop>")
 map("n", "<C-i>", "<nop>")
 
 -- add marks to populate jump list
-map("n", "J", "m'5j")
-map("n", "K", "m'5k")
+map("n", "J", "m'5gj")
+map("n", "K", "m'5gk")
 
 -- -- change list
 -- map("n", "<C-j>", "g;")
