@@ -156,7 +156,7 @@ return packer.startup(function(use)
   use("inkarkat/vim-ingo-library") -- required by vim-EnhancedJumps
 
   -- auto-format when saving
-  use("Pocco81/AutoSave.nvim")
+  use("Pocco81/auto-save.nvim")
   -- use("907th/vim-auto-save")
 
   use("kevinhwang91/nvim-bqf")
