@@ -4,35 +4,41 @@ if not status_ok then
 end
 
 autosave.setup({
-  enabled = false,
-  execution_message = "",
-  -- events = { "InsertLeave" },
-  -- making react project error prone
-  events = { "InsertLeave", "TextChanged" },
-  conditions = {
-    exists = true,
-    filename_is_not = { "packer_init.lua" },
-    filetype_is_not = {
-      "lua",
-      "javascript",
-      "typescript",
-      "javascriptreact",
-      "typescriptreact",
-      "tsx",
-      "jsx",
-      "svelte",
-      "vue",
-    },
-    modifiable = true,
+  enabled = true,
+  execution_message = {
+    message = function() -- message to print on save
+      return ""
+    end,
+    dim = 0.18, -- dim the color of `message`
+    cleaning_interval = 1250, -- (milliseconds) clean MsgArea after displaying `message`
   },
-  write_all_buffers = false,
-  on_off_commands = false,
-  clean_command_line_interval = 0,
-  debounce_delay = 170,
-})
 
--- autosave.hook_before_saving = function ()
---     if vim.bo.filetype ~= "rust" then
---         vim.g.auto_save_abort = true -- abort saving non rust files/ only save rust files
---     end
--- end
+  -- trigger_events = { "InsertLeave" },
+  -- making react project error prone
+  -- trigger_events = { "InsertLeave", "TextChanged" },
+  trigger_events = { "InsertLeave", "TextChanged" },
+  -- determines whether to save the current buffer or not
+  condition = function(buf)
+    local fn = vim.fn
+    local utils = require("auto-save.utils.data")
+    if
+      fn.getbufvar(buf, "&modifiable") == 1
+      and utils.not_in(fn.getbufvar(buf, "&filetype"), {
+        "lua",
+        "javascript",
+        "typescript",
+        "javascriptreact",
+        "typescriptreact",
+        "tsx",
+        "jsx",
+        "svelte",
+        "vue",
+      })
+    then
+      return true -- met condition(s), can save
+    end
+    return false -- can't save
+  end,
+  write_all_buffers = false, -- write all buffers when the current one meets `condition`
+  debounce_delay = 135, -- saves the file at most every `debounce_delay` milliseconds
+})
