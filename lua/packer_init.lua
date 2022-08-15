@@ -111,7 +111,7 @@ return packer.startup(function(use)
   -- use("ryanoasis/vim-devicons") --icons
   use("kyazdani42/nvim-web-devicons") -- lua fork of vim-devicons
   use("kyazdani42/nvim-tree.lua")
-  -- use({ "akinsho/bufferline.nvim", tag = "v2.*" })
+  -- use("akinsho/bufferline.nvim")
   use("romgrk/barbar.nvim") -- tabline
   use("nvim-lualine/lualine.nvim") -- statusline
   use("voldikss/vim-floaterm") -- need for `lazygit` and `ranger`
