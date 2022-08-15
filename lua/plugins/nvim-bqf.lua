@@ -7,15 +7,7 @@ vim.cmd(([[
     aug END
 ]]):format([[call setqflist([], 'r', {'context': {'bqf': {'pattern_hl': '\%#' . getreg('/')}}})]]))
 
--- try `gsiw` under word
--- vim.cmd([[
---     nmap gs  <plug>(GrepperOperator)
---     xmap gs  <plug>(GrepperOperator)
--- ]])
-
 require("bqf").setup({
-  auto_enable = true,
-  auto_resize_height = true,
   preview = {
     win_height = 12,
     win_vheight = 12,

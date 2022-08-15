@@ -150,7 +150,7 @@ local mappings = {
       name = "Trouble",
       d = { "<cmd>Trouble document_diagnostics<cr>", "Document Diagnostics" },
       D = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
-      q = { "<cmd>BqfToggle<cr>", "Quickfix" },
+      q = { "<cmd>copen<cr>", "Quickfix" },
       l = { "<cmd>Trouble loclist<cr>", "Location List" },
     },
     g = {
