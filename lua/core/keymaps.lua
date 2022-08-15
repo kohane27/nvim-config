@@ -31,19 +31,21 @@ map("n", "q:", ":q<cr>")
 -- unlearn bad habits
 map("n", "<C-a>", "<nop>")
 map("n", "<C-x>", "<nop>")
-
 map("n", "ZZ", "<nop>")
-map("n", "J", "<nop>")
-map("n", "K", "<nop>")
 map("n", "d$", "<nop>")
+map("v", "u", "<nop>")
+map("v", "U", "<nop>")
 
 -- use vim-EnhancedJumps
 map("n", "<C-o>", "<nop>")
 map("n", "<C-i>", "<nop>")
 
 -- add marks to populate jump list
-map("n", "J", "m'5gj")
-map("n", "K", "m'5gk")
+-- map("n", "J", "m'5gj")
+-- map("n", "K", "m'5gk")
+
+map("n", "J", "5gj")
+map("n", "K", "5gk")
 
 -- -- change list
 -- map("n", "<C-j>", "g;")
@@ -77,6 +79,14 @@ map("v", "<C-k>", ":move '<-2<CR>gv=gv")
 
 -- handle by barbar.nvim
 -- map("n", "<A-c>", ": Bdelete<cr>")
+
+vim.keymap.set("n", "<C-G>", function()
+  -- create an empty buffer before running fzf-lua
+  if vim.bo.filetype == "NvimTree" then
+    vim.cmd("enew")
+  end
+  require("fzf-lua").files()
+end, { noremap = true, silent = true, nowait = true })
 
 -- backspace to black hole registry
 map("n", "<BS>", '"_')
