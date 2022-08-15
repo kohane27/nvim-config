@@ -43,13 +43,16 @@ map("n", "<C-i>", "<nop>")
 -- add marks to populate jump list
 -- map("n", "J", "m'5gj")
 -- map("n", "K", "m'5gk")
-
 map("n", "J", "5gj")
 map("n", "K", "5gk")
 
--- -- change list
--- map("n", "<C-j>", "g;")
--- map("n", "<C-k>", "g,")
+-- change list
+map("n", "<C-j>", "g;")
+map("n", "<C-k>", "g,")
+
+-- quickfix list
+map("n", "<A-p>", "<cmd>cp<cr>")
+map("n", "<A-n>", "<cmd>cn<cr>")
 
 map("n", "<Leader>j", "J")
 map("n", "<Leader>k", "K")
