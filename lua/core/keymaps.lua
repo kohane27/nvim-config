@@ -80,13 +80,13 @@ map("v", "<C-k>", ":move '<-2<CR>gv=gv")
 -- handle by barbar.nvim
 -- map("n", "<A-c>", ": Bdelete<cr>")
 
-vim.keymap.set("n", "<C-G>", function()
-  -- create an empty buffer before running fzf-lua
-  if vim.bo.filetype == "NvimTree" then
-    vim.cmd("enew")
-  end
-  require("fzf-lua").files()
-end, { noremap = true, silent = true, nowait = true })
+-- vim.keymap.set("n", "<C-G>", function()
+--   -- create an empty buffer before running fzf-lua
+--   if vim.bo.filetype == "NvimTree" then
+--     vim.cmd("enew")
+--   end
+--   require("fzf-lua").files()
+-- end, { noremap = true, silent = true, nowait = true })
 
 -- backspace to black hole registry
 map("n", "<BS>", '"_')

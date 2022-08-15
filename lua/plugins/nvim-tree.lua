@@ -120,6 +120,21 @@ nvim_tree.setup({
         { key = "rN", action = "full_rename" },
         { key = "h", action = "close_node" },
 
+        {
+          key = "J",
+          action = "move_down_fast",
+          action_cb = function()
+            vim.cmd(":normal 5j")
+          end,
+        },
+        {
+          key = "K",
+          action = "move_up_fast",
+          action_cb = function()
+            vim.cmd(":normal 5k")
+          end,
+        },
+
         { key = "D", action = "trash" },
         { key = "dd", action = "cut" },
         { key = "pp", action = "paste" },
@@ -140,8 +155,6 @@ nvim_tree.setup({
         { key = "P", action = "parent_node" },
         { key = "W", action = "collapse_all" },
         { key = "E", action = "expand_all" },
-        { key = "K", action = "first_sibling" },
-        { key = "J", action = "last_sibling" },
         { key = ".", action = "run_file_command" },
       },
     },
