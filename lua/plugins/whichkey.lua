@@ -80,8 +80,7 @@ local opts = {
 }
 
 local mappings = {
-  -- handled in `keymaps.lua`
-  -- ["<C-g>"] = { "<cmd>lua require('fzf-lua').files()<cr>", "Find files" },
+  ["<C-g>"] = { "<cmd>Telescope find_files<cr>", "Find files" },
   ["<C-t>"] = { "<cmd>NvimTreeToggle<cr>", "Tree" },
   ["<C-e>"] = { "<cmd>TerminatorOutputBufferToggle<cr>", "Toggle Terminator" },
   g = {
@@ -133,7 +132,6 @@ local mappings = {
     },
     f = {
       name = "Find",
-      f = { "<cmd>Telescope find_files<cr>", "Find files" },
 
       g = { "<cmd>Telescope live_grep<cr>", "Find text" },
       -- g = { "<cmd>lua require('fzf-lua').live_grep_native()<cr>", "Find text" },
