@@ -79,7 +79,7 @@ return packer.startup(function(use)
   use("tamago324/nlsp-settings.nvim") -- language server settings defined in json
   use("jose-elias-alvarez/null-ls.nvim") -- formatters and linters when LSP is not present
   use({ "glepnir/lspsaga.nvim", branch = "main" })
-  -- use("lukas-reineke/lsp-format.nvim") -- formatting management
+  use("rmagatti/goto-preview")
   use("b0o/schemastore.nvim")
   use("jose-elias-alvarez/typescript.nvim")
   use("antoinemadec/FixCursorHold.nvim") -- fix LSP doc highlight
@@ -106,7 +106,6 @@ return packer.startup(function(use)
   -- General
   -- use("ibhagwan/fzf-lua")
   use("tpope/vim-repeat")
-  use("tpope/vim-unimpaired")
   use("numToStr/Comment.nvim")
   -- use("ryanoasis/vim-devicons") --icons
   use("kyazdani42/nvim-web-devicons") -- lua fork of vim-devicons

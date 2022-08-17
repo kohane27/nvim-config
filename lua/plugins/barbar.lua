@@ -51,27 +51,3 @@ end)
 nvim_tree_events.on_tree_close(function()
   bufferline_state.set_offset(0)
 end)
-
--- mappings
-local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-
--- Move to previous/next
-map("n", "<A-,>", ":BufferPrevious<CR>", opts)
-map("n", "<A-.>", ":BufferNext<CR>", opts)
-
--- Re-order to previous/next
-map("n", "<A-<>", ":BufferMovePrevious<CR>", opts)
-map("n", "<A->>", " :BufferMoveNext<CR>", opts)
-
--- close buffer
-map("n", "<A-c>", ":BufferClose<CR>", opts)
--- toggle pin
--- map("n", "<A-p>", ":BufferPin<CR>", opts)
-
--- Close commands
--- :BufferCloseAllButCurrent<CR>
--- :BufferCloseAllButPinned<CR>
--- :BufferCloseAllButCurrentOrPinned<CR>
--- :BufferCloseBuffersLeft<CR>
--- :BufferCloseBuffersRight<CR>
