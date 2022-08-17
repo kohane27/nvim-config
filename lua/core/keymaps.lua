@@ -150,8 +150,8 @@ map("i", "<c-s>", "<c-o>:w<CR>")
 -- │ LSP                                                      │
 -- ╰──────────────────────────────────────────────────────────╯
 
--- map("n", "<leader>lh", "<cmd>Lspsaga preview_definition<CR>")
-
+-- not working
+-- map("n", "<leader>lp", "<cmd>Lspsaga preview_definition<CR>")
 map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 map("n", "gD", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
 
@@ -169,7 +169,8 @@ map("n", "<leader>la", "<cmd>Lspsaga code_action<CR>")
 map("n", "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<CR>")
 
 -- reference list
-map("n", "<leader>lr", "<cmd>Trouble lsp_references<cr>")
+map("n", "<leader>lr", "<cmd>Trouble lsp_references<CR>")
+map("n", "<leader>lR", "<cmd>lua require('goto-preview').goto_preview_references()<CR>")
 
 -- rename
 map("n", "<leader>ln", "<cmd>Lspsaga rename<CR>")
@@ -208,6 +209,13 @@ map("n", "<A-C>", ":BufferCloseAllButCurrent<CR>")
 -- ╰──────────────────────────────────────────────────────────╯
 -- left aligned fixed size box with left aligned text
 map("v", "<leader>mb", "<cmd>lua require('comment-box').lbox()<cr>")
+
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ neozoom                                                  │
+-- ╰──────────────────────────────────────────────────────────╯
+vim.keymap.set("n", "<C-w>o", function()
+  vim.cmd("NeoZoomToggle")
+end, { noremap = true, silent = true, nowait = true })
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ substitute.lua                                           │
