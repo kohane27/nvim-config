@@ -149,6 +149,7 @@ local mappings = {
       name = "Trouble",
       d = { "<cmd>Trouble document_diagnostics<cr>", "Document Diagnostics" },
       D = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
+      -- using nvim-bqf
       q = { "<cmd>copen<cr>", "Quickfix" },
       l = { "<cmd>Trouble loclist<cr>", "Location List" },
     },

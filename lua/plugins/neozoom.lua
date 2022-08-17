@@ -8,11 +8,14 @@ neo_zoom.setup({
   top_ratio = 0.0,
   width_ratio = 1.0,
   height_ratio = 1.0,
-  border = "single",
-
+  border = "double",
   exclude_filetype = {
+    "fzf",
+    "qf",
+    "dashboard",
     "spectre-panel",
   },
+
   -- default
   -- left_ratio = 0.2,
   -- top_ratio = 0.03,
@@ -20,8 +23,3 @@ neo_zoom.setup({
   -- height_ratio = 0.9,
   -- border = 'double',
 })
-
-local noref_noerr_trunc = { noremap = true, silent = true, nowait = true }
-vim.keymap.set("n", "<C-w>m", function()
-  vim.cmd("NeoZoomToggle")
-end, noref_noerr_trunc)
