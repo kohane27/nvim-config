@@ -150,13 +150,10 @@ map("i", "<c-s>", "<c-o>:w<CR>")
 -- │ LSP                                                      │
 -- ╰──────────────────────────────────────────────────────────╯
 
-map("n", "gd", "<nop>")
-map("n", "gD", "<nop>")
-
 -- map("n", "<leader>lh", "<cmd>Lspsaga preview_definition<CR>")
 
-map("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<CR>")
-map("n", "<leader>pd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
+map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
+map("n", "gD", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
 
 map("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
 map("n", "<leader>pt", "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>")
@@ -165,17 +162,17 @@ map("n", "<leader>pt", "<cmd>lua require('goto-preview').goto_preview_type_defin
 map("n", "<leader>li", "<cmd>lua vim.lsp.buf.implementation()<CR>")
 map("n", "<leader>pi", "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>")
 
--- list of references
-map("n", "<leader>lr", "<cmd>Trouble lsp_references<cr>")
-
 -- code action
 map("n", "<leader>la", "<cmd>Lspsaga code_action<CR>")
 
 -- code lens
 map("n", "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<CR>")
 
+-- reference list
+map("n", "<leader>lr", "<cmd>Trouble lsp_references<cr>")
+
 -- rename
-map("n", "<leader>lrn", "<cmd>Lspsaga rename<CR>")
+map("n", "<leader>ln", "<cmd>Lspsaga rename<CR>")
 
 -- show hover doc
 map("n", "<leader>lh", "<cmd>Lspsaga hover_doc<CR>")
