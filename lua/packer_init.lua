@@ -85,6 +85,7 @@ return packer.startup(function(use)
   use("antoinemadec/FixCursorHold.nvim") -- fix LSP doc highlight
   use("mfussenegger/nvim-jdtls")
   use("ray-x/lsp_signature.nvim")
+  use("onsails/lspkind.nvim") -- pictograms to LSP
 
   -- Autocomplete engine
   use({
@@ -107,7 +108,6 @@ return packer.startup(function(use)
   -- use("ibhagwan/fzf-lua")
   use("tpope/vim-repeat")
   use("numToStr/Comment.nvim")
-  -- use("ryanoasis/vim-devicons") --icons
   use("kyazdani42/nvim-web-devicons") -- lua fork of vim-devicons
   use("kyazdani42/nvim-tree.lua")
   -- use("akinsho/bufferline.nvim")
