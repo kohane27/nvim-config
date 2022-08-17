@@ -3,22 +3,18 @@
 -- │ leader key is set as <space> in options.lua              │
 -- ╰──────────────────────────────────────────────────────────╯
 
-local function map(mode, lhs, rhs, opts)
+local function map(mode, lhs, rhs)
   local options = { noremap = true, silent = true }
   if opts then
-    options = vim.tbl_extend("force", options, opts)
+    options = vim.tbl_extend("force", options)
   end
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
---custom keymaps in the following
+--custom keymaps in files:
 --leap.lua
---barbar.lua
 --yanky.lua
 --sniprun.lua
---substitute.lua
---tmux.lua
---comment-box.lua
 
 -----------------------------------------------------------
 -- Neovim shortcuts
@@ -146,9 +142,96 @@ map("i", "<C-v>", "<C-R>*")
 map("n", "<c-s>", ":wa<CR>")
 map("i", "<c-s>", "<c-o>:w<CR>")
 
------------------------------------------------------------
--- Applications and Plugins shortcuts
------------------------------------------------------------
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Applications and Plugins shortcuts                       │
+-- ╰──────────────────────────────────────────────────────────╯
+
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ LSP                                                      │
+-- ╰──────────────────────────────────────────────────────────╯
+
+map("n", "gd", "<nop>")
+map("n", "gD", "<nop>")
+
+-- map("n", "<leader>lh", "<cmd>Lspsaga preview_definition<CR>")
+
+map("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<CR>")
+map("n", "<leader>pd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
+
+map("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
+map("n", "<leader>pt", "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>")
+
+-- implementation (rarely)
+map("n", "<leader>li", "<cmd>lua vim.lsp.buf.implementation()<CR>")
+map("n", "<leader>pi", "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>")
+
+-- list of references
+map("n", "<leader>lr", "<cmd>Trouble lsp_references<cr>")
+
+-- code action
+map("n", "<leader>la", "<cmd>Lspsaga code_action<CR>")
+
+-- code lens
+map("n", "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<CR>")
+
+-- rename
+map("n", "<leader>lrn", "<cmd>Lspsaga rename<CR>")
+
+-- show hover doc
+map("n", "<leader>lh", "<cmd>Lspsaga hover_doc<CR>")
+
+-- show signature help
+map("n", "<leader>ls", "<Cmd>Lspsaga signature_help<CR>")
+
+-- formatting
+map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>")
+
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ barbar.lua                                               │
+-- ╰──────────────────────────────────────────────────────────╯
+-- Move to previous/next
+map("n", "<A-,>", ":BufferPrevious<CR>")
+map("n", "<A-.>", ":BufferNext<CR>")
+
+-- Re-order to previous/next
+map("n", "<A-<>", ":BufferMovePrevious<CR>")
+map("n", "<A->>", " :BufferMoveNext<CR>")
+
+-- close buffer
+map("n", "<A-c>", ":BufferClose<CR>")
+map("n", "<A-C>", ":BufferCloseAllButCurrent<CR>")
+
+-- toggle pin
+-- map("n", "<A-p>", ":BufferPin<CR>")
+-- map("n", "<A-C>", ":BufferCloseAllButPinned<CR>")
+-- map("n", "<A-C>", ":BufferCloseAllButCurrentOrPinned<CR>")
+
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ comment_box                                              │
+-- ╰──────────────────────────────────────────────────────────╯
+-- left aligned fixed size box with left aligned text
+map("v", "<leader>mb", "<cmd>lua require('comment-box').lbox()<cr>")
+
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ substitute.lua                                           │
+-- ╰──────────────────────────────────────────────────────────╯
+map("n", "cx", "<cmd>lua require('substitute.exchange').operator()<cr>")
+map("n", "cxx", "<cmd>lua require('substitute.exchange').line()<cr>")
+map("x", "cx", "<cmd>lua require('substitute.exchange').visual()<cr>")
+map("n", "cxc", "<cmd>lua require('substitute.exchange').cancel()<cr>")
+
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ tmux.lua                                                 │
+-- ╰──────────────────────────────────────────────────────────╯
+map("n", "<A-h>", '<cmd>lua require("tmux").move_left()<cr>')
+map("n", "<A-l>", '<cmd>lua require("tmux").move_right()<cr>')
+map("n", "<A-k>", '<cmd>lua require("tmux").move_top()<cr>')
+map("n", "<A-j>", '<cmd>lua require("tmux").move_bottom()<cr>')
+
+map("n", "<C-Left>", '<cmd>lua require("tmux").resize_left()<cr>')
+map("n", "<C-Right>", '<cmd>lua require("tmux").resize_right()<cr>')
+map("n", "<C-Up>", '<cmd>lua require("tmux").resize_top()<cr>')
+map("n", "<C-Down>", '<cmd>lua require("tmux").resize_bottom()<cr>')
 
 -- <C-m> is <CR> and <CR> is <C-m>
 -- They are the same key so you can't map something to <C-m> without mapping it to <CR> and vice-versa.
