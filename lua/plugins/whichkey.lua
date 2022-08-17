@@ -180,22 +180,21 @@ local mappings = {
       p = { "<cmd>PasteImg<cr>", "Paste Image" },
       S = { "<cmd>SymbolsOutline<cr>", "SymbolsOutline" },
     },
-    -- TODO find another key; used by LSP
-    -- l = {
-    --   name = "Session Len",
-    --   s = { "<cmd>SaveSession<cr>", "Save session" },
-    --   r = { "<cmd>RestoreSession<cr>", "Restore session" },
-    --   d = { "<cmd>DeleteSession<cr>", "Delete session" },
-    --   l = { "<cmd>lua require('session-lens').search_session()<cr>", "Search session" },
-    -- },
-    -- p = {
-    --   name = "Packer",
-    --   c = { "<cmd>PackerCompile<cr>", "Compile" },
-    --   i = { "<cmd>PackerInstall<cr>", "Install" },
-    --   s = { "<cmd>PackerSync<cr>", "Sync" },
-    --   S = { "<cmd>PackerStatus<cr>", "Status" },
-    --   u = { "<cmd>PackerUpdate<cr>", "Update" },
-    -- },
+    s = {
+      name = "Session Len",
+      s = { "<cmd>SaveSession<cr>", "Save session" },
+      r = { "<cmd>RestoreSession<cr>", "Restore session" },
+      d = { "<cmd>DeleteSession<cr>", "Delete session" },
+      l = { "<cmd>lua require('session-lens').search_session()<cr>", "Search session" },
+    },
+    p = {
+      name = "Packer",
+      c = { "<cmd>PackerCompile<cr>", "Compile" },
+      i = { "<cmd>PackerInstall<cr>", "Install" },
+      s = { "<cmd>PackerSync<cr>", "Sync" },
+      S = { "<cmd>PackerStatus<cr>", "Status" },
+      u = { "<cmd>PackerUpdate<cr>", "Update" },
+    },
   },
 }
 
