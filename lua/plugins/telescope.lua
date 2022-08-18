@@ -59,8 +59,8 @@ telescope.setup({
 
         ["<CR>"] = actions.select_default,
         ["<C-c>"] = actions.close,
-        ["<C-s>"] = actions.select_horizontal,
-        ["<C-v>"] = actions.select_vertical,
+        ["<C-w>s"] = actions.select_horizontal,
+        ["<C-w>v"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
 
         ["<C-u>"] = actions.results_scrolling_up,
@@ -81,8 +81,8 @@ telescope.setup({
       n = {
         ["<C-c>"] = actions.close,
         ["<CR>"] = actions.select_default,
-        ["<C-s>"] = actions.select_horizontal,
-        ["<C-v>"] = actions.select_vertical,
+        ["<C-w>s"] = actions.select_horizontal,
+        ["<C-w>v"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
 
         ["j"] = actions.move_selection_next,
@@ -138,4 +138,4 @@ telescope.setup({
 
 telescope.load_extension("fzf")
 telescope.load_extension("projects")
--- telescope.load_extension("frecency")
+telescope.load_extension("frecency")

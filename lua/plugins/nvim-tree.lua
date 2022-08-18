@@ -108,8 +108,8 @@ nvim_tree.setup({
     mappings = {
       custom_only = true,
       list = {
-        { key = "<C-v>", action = "vsplit" },
-        { key = "<C-s>", action = "split" },
+        { key = "<C-w>v", action = "vsplit" },
+        { key = "<C-w>s", action = "split" },
         { key = "<C-w>t", action = "tabnew" }, -- <C-t> to close tree
 
         { key = "<CR>", action = "preview" },
