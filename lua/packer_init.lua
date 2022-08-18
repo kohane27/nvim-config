@@ -255,44 +255,7 @@ return packer.startup(function(use)
   use("bluz71/vim-moonfly-colors")
   -- use("bluz71/vim-nightfly-guicolors")
   use("projekt0n/github-nvim-theme")
-  -- use("NTBBloodbath/doom-one.nvim")
-  use({
-    "NTBBloodbath/doom-one.nvim",
-    setup = function()
-      -- Add color to cursor
-      vim.g.doom_one_cursor_coloring = false
-      -- Set :terminal colors
-      vim.g.doom_one_terminal_colors = false
-      -- Enable italic comments
-      vim.g.doom_one_italic_comments = false
-      -- Enable TS support
-      vim.g.doom_one_enable_treesitter = true
-      -- Color whole diagnostic text or only underline
-      vim.g.doom_one_diagnostics_text_color = false
-      -- Enable transparent background
-      vim.g.doom_one_transparent_background = false
-
-      -- Pumblend transparency
-      vim.g.doom_one_pumblend_enable = false
-      vim.g.doom_one_pumblend_transparency = 20
-
-      -- Plugins integration
-      vim.g.doom_one_plugin_nvim_tree = true
-      vim.g.doom_one_plugin_whichkey = true
-      vim.g.doom_one_plugin_indent_blankline = true
-      vim.g.doom_one_plugin_lspsaga = true
-      vim.g.doom_one_plugin_barbar = true
-      vim.g.doom_one_plugin_neorg = false
-      vim.g.doom_one_plugin_telescope = false
-      vim.g.doom_one_plugin_neogit = false
-      vim.g.doom_one_plugin_dashboard = false
-      vim.g.doom_one_plugin_startify = false
-      vim.g.doom_one_plugin_vim_illuminate = false
-    end,
-    config = function()
-      vim.cmd("colorscheme doom-one")
-    end,
-  })
+  use("NTBBloodbath/doom-one.nvim")
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
