@@ -3,7 +3,6 @@ if not status_ok then
   print("saga failing")
 end
 
--- use custom config
 saga.init_lsp_saga({
   -- "single" | "double" | "rounded" | "bold" | "plus"
   border_style = "single",
@@ -13,7 +12,6 @@ saga.init_lsp_saga({
   -- diagnostic_header = { " ", " ", " ", "ﴞ " },
   diagnostic_header = { "🙀", "😿", "😾", "😺" },
   -- diagnostic_header = { "😡", "😥", "😤", "😐" },
-  -- show diagnostic source
   show_diagnostic_source = true,
   -- add bracket or something with diagnostic source, just have 2 elements
   diagnostic_source_bracket = {},
