@@ -152,7 +152,7 @@ map("i", "<c-s>", "<c-o>:w<CR>")
 -- ╰──────────────────────────────────────────────────────────╯
 
 -- not working
--- map("n", "<leader>lp", "<cmd>Lspsaga preview_definition<CR>")
+map("n", "<leader>h", "<cmd>Lspsaga preview_definition<CR>")
 map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 map("n", "gD", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
 
