@@ -134,7 +134,8 @@ local mappings = {
       name = "Find",
       g = { "<cmd>Telescope live_grep<cr>", "Find text" },
       f = { "<cmd>Telescope current_buffer_fuzzy_find case_mode=ignore_case<cr>", "Buffers" },
-      F = { "<cmd>Telescope frecency<cr>", "Find frecency" },
+      -- annoying msg
+      -- F = { "<cmd>Telescope frecency<cr>", "Find frecency" },
       o = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
       p = { "<cmd>Telescope projects<cr>", "Projects" },
 
