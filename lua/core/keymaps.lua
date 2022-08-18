@@ -12,9 +12,10 @@ local function map(mode, lhs, rhs)
 end
 
 --custom keymaps in files:
---leap.lua
---yanky.lua
---sniprun.lua
+-- leap.lua
+-- yanky.lua
+-- sniprun.lua
+-- vim-EnhancedJumps.lua
 
 -----------------------------------------------------------
 -- Neovim shortcuts
@@ -156,11 +157,11 @@ map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 map("n", "gD", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
 
 map("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
-map("n", "<leader>pt", "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>")
+map("n", "<leader>lT", "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>")
 
 -- implementation (rarely)
 map("n", "<leader>li", "<cmd>lua vim.lsp.buf.implementation()<CR>")
-map("n", "<leader>pi", "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>")
+map("n", "<leader>lI", "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>")
 
 -- code action
 map("n", "<leader>la", "<cmd>Lspsaga code_action<CR>")

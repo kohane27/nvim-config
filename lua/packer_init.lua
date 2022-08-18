@@ -78,8 +78,8 @@ return packer.startup(function(use)
   use("williamboman/mason-lspconfig.nvim")
   use("tamago324/nlsp-settings.nvim") -- language server settings defined in json
   use("jose-elias-alvarez/null-ls.nvim") -- formatters and linters when LSP is not present
-  use({ "glepnir/lspsaga.nvim", branch = "main" })
   use("rmagatti/goto-preview")
+  use("glepnir/lspsaga.nvim")
   use("b0o/schemastore.nvim")
   use("jose-elias-alvarez/typescript.nvim")
   use("antoinemadec/FixCursorHold.nvim") -- fix LSP doc highlight
@@ -251,7 +251,7 @@ return packer.startup(function(use)
   use("lunarvim/colorschemes")
   --use("NTBBloodbath/doom-one.nvim")
   use("marko-cerovac/material.nvim")
-  -- use("EdenEast/nightfox.nvim")
+  use("EdenEast/nightfox.nvim") -- used by firenvim
   use("navarasu/onedark.nvim")
   use("bluz71/vim-moonfly-colors")
   -- use("bluz71/vim-nightfly-guicolors")
