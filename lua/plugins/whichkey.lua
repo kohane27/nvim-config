@@ -133,17 +133,15 @@ local mappings = {
     f = {
       name = "Find",
       g = { "<cmd>Telescope live_grep<cr>", "Find text" },
-      -- g = { "<cmd>lua require('fzf-lua').live_grep_native()<cr>", "Find text" },
-
-      b = { "<cmd>lua require('fzf-lua').lgrep_curbuf()<cr>", "Buffers" },
-      -- b = { "<cmd>Telescope current_buffer_fuzzy_find case_mode=ignore_case<cr>", "Buffers" },
-      w = { "<cmd>lua require('fzf-lua').grep_cword()<cr>", "word under cursor" },
-
+      f = { "<cmd>Telescope current_buffer_fuzzy_find case_mode=ignore_case<cr>", "Buffers" },
       F = { "<cmd>Telescope frecency<cr>", "Find frecency" },
-      r = { "<cmd>lua require('fzf-lua').oldfiles()<cr>", "Open Recent File" },
-      -- r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-
+      o = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
       p = { "<cmd>Telescope projects<cr>", "Projects" },
+
+      -- g = { "<cmd>lua require('fzf-lua').live_grep_native()<cr>", "Find text" },
+      -- b = { "<cmd>lua require('fzf-lua').lgrep_curbuf()<cr>", "Buffers" },
+      -- w = { "<cmd>lua require('fzf-lua').grep_cword()<cr>", "word under cursor" },
+      -- r = { "<cmd>lua require('fzf-lua').oldfiles()<cr>", "Open Recent File" },
     },
     x = {
       name = "Trouble",
