@@ -22,19 +22,22 @@ autosave.setup({
     local fn = vim.fn
     local utils = require("auto-save.utils.data")
     if
-      vim.fn.expand("%") ~= "packer_init.lua"
-      or fn.getbufvar(buf, "&modifiable") == 1
-        and utils.not_in(fn.getbufvar(buf, "&filetype"), {
-          "lua",
-          "javascript",
-          "typescript",
-          "javascriptreact",
-          "typescriptreact",
-          "tsx",
-          "jsx",
-          "svelte",
-          "vue",
-        })
+      fn.getbufvar(buf, "&modifiable") == 1
+      and utils.not_in(fn.getbufvar(buf, "&filetype"), {
+        "lua",
+        "javascript",
+        "typescript",
+        "javascriptreact",
+        "typescriptreact",
+        "tsx",
+        "jsx",
+        "svelte",
+        "vue",
+      })
+      and utils.not_in(fn.bufname(), {
+        "packer_init.lua",
+        "auto-save.lua",
+      })
     then
       return true -- met condition(s), can save
     end

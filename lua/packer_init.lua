@@ -249,13 +249,13 @@ return packer.startup(function(use)
 
   -- Colorschemes/theme
   use("lunarvim/colorschemes")
-  --use("NTBBloodbath/doom-one.nvim")
   use("marko-cerovac/material.nvim")
   use("EdenEast/nightfox.nvim") -- used by firenvim
   use("navarasu/onedark.nvim")
   use("bluz71/vim-moonfly-colors")
   -- use("bluz71/vim-nightfly-guicolors")
   use("projekt0n/github-nvim-theme")
+  -- use("NTBBloodbath/doom-one.nvim")
   use({
     "NTBBloodbath/doom-one.nvim",
     setup = function()
