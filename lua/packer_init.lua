@@ -248,6 +248,7 @@ return packer.startup(function(use)
   use("moll/vim-bbye") -- delete buffers without closing windows
 
   -- Colorschemes/theme
+  use("NTBBloodbath/doom-one.nvim")
   use("lunarvim/colorschemes")
   use("marko-cerovac/material.nvim")
   use("EdenEast/nightfox.nvim") -- used by firenvim
@@ -255,7 +256,6 @@ return packer.startup(function(use)
   use("bluz71/vim-moonfly-colors")
   -- use("bluz71/vim-nightfly-guicolors")
   use("projekt0n/github-nvim-theme")
-  use("NTBBloodbath/doom-one.nvim")
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
