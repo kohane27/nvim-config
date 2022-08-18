@@ -17,6 +17,10 @@ let g:firenvim_config = {
 \ }
 if exists('g:started_by_firenvim')
 
+    " xremap's config.yml
+    " C-w: C-KEY_BACKSPACE
+    imap <C-BS> <C-W>
+
     colorscheme nightfox
     " nightfly or material also ok
     set guifont=FiraCode_Nerd_Font_Mono:h11
