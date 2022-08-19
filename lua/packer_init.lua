@@ -82,8 +82,8 @@ return packer.startup(function(use)
   use("glepnir/lspsaga.nvim")
   use("b0o/schemastore.nvim")
   use("jose-elias-alvarez/typescript.nvim")
-  use("antoinemadec/FixCursorHold.nvim") -- fix LSP doc highlight
   use("mfussenegger/nvim-jdtls")
+  use("antoinemadec/FixCursorHold.nvim") -- fix LSP doc highlight
   use("ray-x/lsp_signature.nvim")
   use("onsails/lspkind.nvim") -- pictograms to LSP
 
