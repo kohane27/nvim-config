@@ -24,7 +24,6 @@ autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = fa
 -- Add additional capabilities supported by nvim-cmp
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-
 capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -44,17 +43,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  -- require("lsp-format").on_attach(client)
-
-  local function buf_set_keymap(...)
-    vim.api.nvim_buf_set_keymap(bufnr, ...)
-  end
-
-  -- NOTE no keymappings in WhichKey
-  -- NOTE document what's here so no conflict in WhichKey
-  local opts = { noremap = true, silent = true }
-end
+local on_attach = function(client, bufnr) end
 
 --[[
 Language servers setup:
@@ -78,12 +67,6 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 local root_dir = function()
   return vim.fn.getcwd()
 end
-
-vim.cmd([[
-" format on save except the following
-let ftToIgnore = ['c', 'markdown']
-autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | lua vim.lsp.buf.formatting_sync()
-]])
 
 -- custom language servers not listed here:
 -- 1. jsonls
@@ -110,7 +93,7 @@ local servers = {
 -- Call setup
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({
-    on_attach = on_attach,
+    -- on_attach = on_attach,
     root_dir = root_dir,
     capabilities = capabilities,
   })
@@ -119,7 +102,7 @@ end
 -- custom language server not listed above
 -- 1. jsonls
 lspconfig.jsonls.setup({
-  on_attach = on_attach,
+  -- on_attach = on_attach,
   root_dir = root_dir,
   capabilities = capabilities,
   settings = {

@@ -1,6 +1,12 @@
 local status_ok, mason = pcall(require, "mason")
 if not status_ok then
-  return
+  print("mason failing")
 end
 
-mason.setup({})
+mason.setup({
+  ui = {
+    icons = {
+      package_installed = "✓",
+    },
+  },
+})
