@@ -25,6 +25,7 @@ autosave.setup({
       fn.getbufvar(buf, "&modifiable") == 1
       and utils.not_in(fn.getbufvar(buf, "&filetype"), {
         "lua",
+        "lava",
         "javascript",
         "typescript",
         "javascriptreact",

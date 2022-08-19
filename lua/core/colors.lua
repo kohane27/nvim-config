@@ -1,3 +1,8 @@
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Color schemes configuration file                         │
+-- │ See:https://github.com/brainfucksec/neovim-lua#appearance│
+-- ╰──────────────────────────────────────────────────────────╯
+
 -- Add color to cursor
 vim.g.doom_one_cursor_coloring = false
 -- terminal colors

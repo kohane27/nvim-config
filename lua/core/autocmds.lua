@@ -14,6 +14,10 @@ vim.cmd([[
   "   autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md setl conceallevel=1
   " augroup end
 
+  " format on save except the following
+  let ftToIgnore = ['c', 'markdown']
+  autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | lua vim.lsp.buf.formatting_sync()
+
   augroup _general_settings
     autocmd!
     autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
