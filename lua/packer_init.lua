@@ -79,7 +79,7 @@ return packer.startup(function(use)
   use("tamago324/nlsp-settings.nvim") -- language server settings defined in json
   use("jose-elias-alvarez/null-ls.nvim") -- formatters and linters when LSP is not present
   use("rmagatti/goto-preview")
-  use("glepnir/lspsaga.nvim")
+  -- use("glepnir/lspsaga.nvim")
   use("b0o/schemastore.nvim")
   use("jose-elias-alvarez/typescript.nvim")
   use("mfussenegger/nvim-jdtls")
@@ -194,8 +194,8 @@ return packer.startup(function(use)
   -- use("svermeulen/vim-yoink")
 
   -- find and replace
-  use("windwp/nvim-spectre") -- buggy
-  use("brooth/far.vim")
+  use("windwp/nvim-spectre")
+  -- use("brooth/far.vim")
 
   -- note-taking
   -- use("vimwiki/vimwiki")
