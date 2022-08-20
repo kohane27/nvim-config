@@ -13,6 +13,7 @@ end
 
 --custom keymaps in files:
 -- leap.lua
+-- toggleterm.lua
 -- yanky.lua
 -- sniprun.lua
 -- vim-EnhancedJumps.lua
