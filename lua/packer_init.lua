@@ -59,7 +59,7 @@ return packer.startup(function(use)
   use("nvim-telescope/telescope-frecency.nvim")
   use("ahmedkhalf/project.nvim")
   use("nvim-telescope/telescope-file-browser.nvim") -- required by project.nvim
-  use("tami5/sqlite.lua") -- required by telescope-frecency
+  use("kkharji/sqlite.lua") -- required by telescope-frecency
   -- use("nvim-telescope/telescope-project.nvim") #using ahmedkhalf/project.nvim
 
   -- Treesitter
@@ -79,7 +79,7 @@ return packer.startup(function(use)
   use("tamago324/nlsp-settings.nvim") -- language server settings defined in json
   use("jose-elias-alvarez/null-ls.nvim") -- formatters and linters when LSP is not present
   use("rmagatti/goto-preview")
-  -- use("glepnir/lspsaga.nvim")
+  use("glepnir/lspsaga.nvim")
   use("b0o/schemastore.nvim")
   use("jose-elias-alvarez/typescript.nvim")
   use("mfussenegger/nvim-jdtls")
@@ -249,13 +249,13 @@ return packer.startup(function(use)
 
   -- Colorschemes/theme
   use("NTBBloodbath/doom-one.nvim")
-  use("lunarvim/colorschemes")
-  use("marko-cerovac/material.nvim")
   use("EdenEast/nightfox.nvim") -- used by firenvim
-  use("navarasu/onedark.nvim")
-  use("bluz71/vim-moonfly-colors")
+  -- use("lunarvim/colorschemes")
+  -- use("marko-cerovac/material.nvim")
+  -- use("navarasu/onedark.nvim")
+  -- use("bluz71/vim-moonfly-colors")
   -- use("bluz71/vim-nightfly-guicolors")
-  use("projekt0n/github-nvim-theme")
+  -- use("projekt0n/github-nvim-theme")
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
