@@ -9,10 +9,10 @@ I started off with [LunarVim/Neovim-from-scratch](https://github.com/LunarVim/Ne
 ### My system config
 
 OS: EndeavourOS Linux x86_64
-WM: sway
-Terminal: kitty
 
-I'm on Wayland hence you'd need [bugaevc/wl-clipboard](https://github.com/bugaevc/wl-clipboard).
+WM: sway (I'm on Wayland hence you'd need [bugaevc/wl-clipboard](https://github.com/bugaevc/wl-clipboard))
+
+Terminal: kitty
 
 ### Dependecies
 
