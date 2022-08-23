@@ -82,7 +82,6 @@ local opts = {
 local mappings = {
   ["<C-g>"] = { "<cmd>Telescope find_files<cr>", "Find files" },
   ["<C-t>"] = { "<cmd>NvimTreeToggle<cr>", "Tree" },
-  ["<C-e>"] = { "<cmd>TerminatorOutputBufferToggle<cr>", "Toggle Terminator" },
   g = {
     name = "g",
     -- can't use gs and gS; taken by lightspeed
@@ -161,10 +160,8 @@ local mappings = {
     },
     r = {
       name = "Run Code",
-      -- vnoremap <leader>rf :TerminatorRunPartOfFileInOutputBuffer<CR>
-      f = { "<cmd>TerminatorRunFileInOutputBuffer<cr>", "Run File" },
-      -- vnoremap <leader>rs :<Plug>SnipRun<CR>
-      -- s = { "<cmd>SnipRun<cr>", "Run Snip" },
+      f = { "<cmd>RunCode<cr>", "Run File" },
+      s = { "<cmd>SnipRun<cr>", "Run Snip" },
       -- c = { "<cmd>SnipClose<cr>", "Close Snip" },
     },
     m = {

@@ -174,11 +174,10 @@ return packer.startup(function(use)
   use("chrisbra/csv.vim")
 
   -- Code runners
-  use("erietz/vim-terminator")
-  -- use({ "michaelb/sniprun", run = "bash ./install.sh" })
+  --use("erietz/vim-terminator")
+  use({ "michaelb/sniprun", run = "bash ./install.sh" })
   -- use("EvanQuan/vim-executioner")
-  -- use("pianocomposer321/yabs.nvim")
-  -- use("CRAG666/code_runner.nvim")
+  use("CRAG666/code_runner.nvim")
 
   use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
 
