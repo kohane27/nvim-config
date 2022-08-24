@@ -9,14 +9,9 @@ vim.cmd([[
   autocmd filetype markdown set indentexpr=
   " autocmd fileType markdown setl conceallevel=1
 
-  " augroup _conceal_in_todo
-  "   autocmd!
-  "   autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md setl conceallevel=1
-  " augroup end
-
   " format on save except the following
-  let ftToIgnore = ['c', 'markdown']
-  autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | lua vim.lsp.buf.formatting_sync()
+  "let ftToIgnore = ['c', 'markdown']
+  "autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | lua vim.lsp.buf.formatting_sync()
 
   augroup _general_settings
     autocmd!
@@ -28,17 +23,6 @@ vim.cmd([[
   augroup _auto_resize
     autocmd!
     autocmd VimResized * tabdo wincmd = 
-  augroup end
-
-  augroup _remap_in_todo
-    autocmd!
-    autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> td - [ ]  🛫 <c-r>=strftime("%Y-%m-%d")<cr><left><left><left><left><left><left><left><left><left><left><left><left><left>
-    autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> #do ✅ <c-r>=strftime("%Y-%m-%d")<cr><Esc>
-    autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> #du 📅 <c-r>=strftime("%Y-%m-%d")<cr><Esc>
-    autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> #t #tonight<Esc>
-    autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> #a #atwork<Esc>
-    autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> #O #Obsidian<Esc>
-    autocmd BufRead ~/Documents/Obsidian/SecondBrain/TODO_Database.md inoremap <silent> <buffer> #s #someday<Esc>
   augroup end
 ]])
 
@@ -54,7 +38,7 @@ autocmd("TextYankPost", {
   end,
 })
 
--- Enable spellchecking in text and gitcommit files
+-- Enable spellcheck in text and gitcommit files
 autocmd("FileType", {
   pattern = { "gitcommit", "text" },
   callback = function()
