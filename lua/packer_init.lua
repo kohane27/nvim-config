@@ -204,7 +204,7 @@ return packer.startup(function(use)
   -- aesthetics
   use("dstein64/nvim-scrollview") -- scrollbars
   use("karb94/neoscroll.nvim") -- smooth scrolling
-  -- use("j-hui/fidget.nvim") -- display nvim-lsp progress
+  use("lukas-reineke/headlines.nvim") -- prettier markdown
   use("danilamihailov/beacon.nvim") -- flash cursor when jumping
   use("luukvbaal/stabilize.nvim") -- stabilize buffer content on window open/close events
   use("romainl/vim-cool") -- search highlighting when done
@@ -214,7 +214,7 @@ return packer.startup(function(use)
   use("farmergreg/vim-lastplace") -- reopen files at last edit position
   use("KabbAmine/vCoolor.vim") -- color picker
   use({ "mg979/vim-visual-multi", branch = "master" })
-  -- use("max397574/better-escape.nvim")
+  use("max397574/better-escape.nvim")
   use("mhinz/vim-grepper")
   use("folke/trouble.nvim")
   use("vim-scripts/LargeFile")
