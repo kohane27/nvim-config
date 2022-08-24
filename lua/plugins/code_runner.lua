@@ -4,11 +4,14 @@ if not status_ok then
 end
 
 code_runner.setup({
+  focus = false,
   filetype = {
     -- java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
+    -- java = 'cd $dir && cd ../../../../../ && mvn -nsu -e -q compile -T 4 exec:java -Dexec.mainClass="com.prac.App"',
+    java = "mvn -nsu -e -q compile -T 4 exec:java",
     python = "python3 -u",
-    typescript = "deno run",
-    java = 'cd $dir && cd ../../../../../ && mvn -nsu -e -q compile -T 4 exec:java -Dexec.mainClass="com.prac.App"',
+    javascript = "node",
+    typescript = "node --no-warnings --experimental-specifier-resolution=node --loader ts-node/esm",
     rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
   },
 })
