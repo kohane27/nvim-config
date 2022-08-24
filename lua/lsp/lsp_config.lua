@@ -69,38 +69,29 @@ local root_dir = function()
 end
 
 -- custom language servers not listed here:
--- 1. jsonls
--- 2. sumneko_lua
--- 3. `tsserver` is managed by `typescript.nvim`
+-- 1. `tsserver` is managed by `typescript.nvim`
+-- 2. jsonls
+-- 3. sumneko_lua
 
--- Use a loop to call 'setup' on multiple servers
-local servers = {
-  "awk_ls",
-  "bashls",
-  "cssls",
-  "cssmodules_ls",
-  "dockerls",
-  "emmet_ls",
-  "eslint",
-  "graphql",
-  "html",
-  "lemminx",
-  "pyright",
-  "sqls",
-  -- "stylelint_lsp", -- conflict with prettier in js files
-}
-
--- Call setup
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup({
-    -- on_attach = on_attach,
-    root_dir = root_dir,
-    capabilities = capabilities,
-  })
+-- custom language servers
+-- 1. typescript
+local status_ok, typescript = pcall(require, "typescript")
+if not status_ok then
+  print("typescript failing")
 end
 
--- custom language server not listed above
--- 1. jsonls
+typescript.setup({
+  disable_commands = false, -- prevent the plugin from creating Vim commands
+  debug = false,
+  server = { -- pass options to lspconfig's setup method
+    on_attach = function(client, _)
+      client.resolved_capabilities.document_formatting = false
+      client.resolved_capabilities.document_range_formatting = false
+    end,
+  },
+})
+
+-- 2. jsonls
 lspconfig.jsonls.setup({
   -- on_attach = on_attach,
   root_dir = root_dir,
@@ -112,7 +103,7 @@ lspconfig.jsonls.setup({
   },
 })
 
--- 2. sumneko_lua
+-- 3. sumneko_lua
 -- local runtime_path = vim.split(package.path, ";")
 -- table.insert(runtime_path, "lua/?.lua")
 -- table.insert(runtime_path, "lua/?/init.lua")
@@ -150,19 +141,28 @@ lspconfig.sumneko_lua.setup({
   },
 })
 
--- 3. typescript
-local status_ok, typescript = pcall(require, "typescript")
-if not status_ok then
-  print("typescript failing")
-end
+-- Use a loop to call 'setup' on multiple servers
+local servers = {
+  "awk_ls",
+  "bashls",
+  "cssls",
+  "cssmodules_ls",
+  "dockerls",
+  "emmet_ls",
+  "eslint",
+  "graphql",
+  "html",
+  "lemminx",
+  "pyright",
+  "sqls",
+  -- "stylelint_lsp", -- conflict with prettier in js files
+}
 
-typescript.setup({
-  disable_commands = false, -- prevent the plugin from creating Vim commands
-  debug = false,
-  server = { -- pass options to lspconfig's setup method
-    on_attach = function(client, _)
-      client.resolved_capabilities.document_formatting = false
-      client.resolved_capabilities.document_range_formatting = false
-    end,
-  },
-})
+-- Call setup
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup({
+    -- on_attach = on_attach,
+    root_dir = root_dir,
+    capabilities = capabilities,
+  })
+end
