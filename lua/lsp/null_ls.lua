@@ -35,7 +35,8 @@ local sources = {
 
   -- Python
   formatting.black.with({ extra_args = { "--fast" } }),
-  diagnostics.pylint,
+  -- always import error
+  -- diagnostics.pylint,
 
   -- Lua
   formatting.stylua.with({
@@ -44,9 +45,11 @@ local sources = {
 
   -- shell
   formatting.shfmt.with({ extra_args = { "-i", "2" } }),
-  diagnostics.shellcheck.with({
-    filetypes = { "sh", "bash", "zsh" },
-  }),
+  formatting.shellharden,
+  -- use bashls
+  -- diagnostics.shellcheck.with({
+  --   filetypes = { "sh", "bash", "zsh" },
+  -- }),
 
   -- diagnostics.tsc,
   -- diagnostics.markdownlint,
