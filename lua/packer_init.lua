@@ -187,7 +187,7 @@ return packer.startup(function(use)
 
   use("gelguy/wilder.nvim")
   use("simrat39/symbols-outline.nvim")
-  use("ekickx/clipboard-image.nvim") -- copy clipboard image to nvim
+  -- use("ekickx/clipboard-image.nvim") -- copy clipboard image to nvim
 
   -- use("gbprod/yanky.nvim")
   -- use("svermeulen/vim-yoink")
