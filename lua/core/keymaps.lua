@@ -152,8 +152,6 @@ map("i", "<c-s>", "<c-o>:w<CR>")
 -- │ LSP                                                      │
 -- ╰──────────────────────────────────────────────────────────╯
 
--- not working
-map("n", "<leader>h", "<cmd>Lspsaga preview_definition<CR>")
 map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 map("n", "gD", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
 
@@ -178,6 +176,7 @@ map("n", "<leader>lR", "<cmd>lua require('goto-preview').goto_preview_references
 map("n", "<leader>ln", "<cmd>Lspsaga rename<CR>")
 
 -- show hover doc
+map("n", "<leader>ld", "<cmd>Lspsaga preview_definition<CR>")
 map("n", "<leader>lh", "<cmd>Lspsaga hover_doc<CR>")
 
 -- show signature help
