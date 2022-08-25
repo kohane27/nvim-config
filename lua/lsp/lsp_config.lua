@@ -47,18 +47,7 @@ local on_attach = function(client, bufnr) end
 
 --[[
 Language servers setup:
-
-For language servers list see:
 https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-
-Bash -> bashls
-https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#bashls
-
-Python -> pyright
-https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pyright
-
-HTML/CSS/JSON -> vscode-html-languageserver
-https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
 --]]
 
 -- Define `root_dir` when needed
