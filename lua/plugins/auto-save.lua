@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 autosave.setup({
-  enabled = false,
+  enabled = true,
   execution_message = {
     message = function() -- message to print on save
       return ""
@@ -25,13 +25,11 @@ autosave.setup({
       fn.getbufvar(buf, "&modifiable") == 1
       and utils.not_in(fn.getbufvar(buf, "&filetype"), {
         "lua",
-        "lava",
+        "java",
         "javascript",
         "typescript",
         "javascriptreact",
         "typescriptreact",
-        "tsx",
-        "jsx",
         "svelte",
         "vue",
       })
