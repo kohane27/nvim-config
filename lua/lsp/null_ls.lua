@@ -45,7 +45,6 @@ local sources = {
 
   -- shell
   formatting.shfmt.with({ extra_args = { "-i", "2" } }),
-  formatting.shellharden,
   -- use bashls
   -- diagnostics.shellcheck.with({
   --   filetypes = { "sh", "bash", "zsh" },
