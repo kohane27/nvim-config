@@ -5,7 +5,7 @@ end
 
 saga.init_lsp_saga({
   -- "single" | "double" | "rounded" | "bold" | "plus"
-  border_style = "single",
+  border_style = "rounded",
   -- when cursor in saga window you config these to move
   move_in_saga = { prev = "<C-p>", next = "<C-n>" },
   -- Error, Warn, Info, Hint
@@ -44,14 +44,3 @@ saga.init_lsp_saga({
   rename_action_quit = "<C-c>",
   definition_preview_icon = "  ",
 })
-
-local action = require("lspsaga.action")
--- scroll down hover doc or scroll in definition preview
-vim.keymap.set("n", "<C-f>", function()
-  action.smart_scroll_with_saga(1)
-end, { silent = true })
--- scroll up hover doc
-vim.keymap.set("n", "<C-b>", function()
-  action.smart_scroll_with_saga(-1)
-end, { silent = true })
--- END show hover doc
