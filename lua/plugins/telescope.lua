@@ -86,6 +86,8 @@ telescope.setup({
         ["<C-t>"] = actions.select_tab,
 
         ["j"] = actions.move_selection_next,
+        -- TODO
+        -- ["J"] = ":5j",
         ["k"] = actions.move_selection_previous,
         ["gg"] = actions.move_to_top,
         ["G"] = actions.move_to_bottom,
