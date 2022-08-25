@@ -13,5 +13,6 @@ code_runner.setup({
     javascript = "node",
     typescript = "node --no-warnings --experimental-specifier-resolution=node --loader ts-node/esm",
     rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
+    sh = "cd $dir && ./$fileName",
   },
 })
