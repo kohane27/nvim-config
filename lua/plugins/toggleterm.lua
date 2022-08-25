@@ -4,19 +4,16 @@ if not status_ok then
 end
 
 toggleterm.setup({
-  size = 20,
+  size = 10,
   open_mapping = [[<leader>tn]],
-  -- open_mapping = [[<c-\>]],
   hide_numbers = true,
-  shade_terminals = true,
+  shade_terminals = false,
   shading_factor = 1,
   start_in_insert = true,
   insert_mappings = true,
-  persist_size = true,
-  direction = "horizontal",
+  direction = "horizontal", -- 'vertical' | 'horizontal' | 'tab' | 'float'
   close_on_exit = true,
   shade_filetypes = { "none", "fzf" },
-  shell = vim.o.shell,
   float_opts = {
     border = "curved",
     winblend = 0,
@@ -30,10 +27,11 @@ toggleterm.setup({
 function _G.set_terminal_keymaps()
   local opts = { noremap = true }
   vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<C-W>h>", [[<C-\><C-n><C-W>h]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<C-W>j>", [[<C-\><C-n><C-W>j]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<C-W>k>", [[<C-\><C-n><C-W>k]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<C-W>l>", [[<C-\><C-n><C-W>l]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<C-c>", [[<C-\><C-n>]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<A-h>", [[<C-\><C-n><C-W>h]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<A-j>", [[<C-\><C-n><C-W>j]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<A-k>", [[<C-\><C-n><C-W>k]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<A-l>", [[<C-\><C-n><C-W>l]], opts)
 end
 
 -- mappings for only toggle term
