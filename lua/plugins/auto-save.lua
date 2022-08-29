@@ -33,10 +33,10 @@ autosave.setup({
         "svelte",
         "vue",
       })
-      -- and utils.not_in(fn.bufname(), {
-      --   "packer_init.lua",
-      --   "auto-save.lua",
-      -- })
+      and utils.not_in(fn.expand("%:t"), {
+        "packer_init.lua",
+        "auto-save.lua",
+      })
     then
       return true -- met condition(s), can save
     end
