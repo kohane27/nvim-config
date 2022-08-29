@@ -33,8 +33,8 @@ local sources = {
   -- use LSP in `lsp_config.lua`
   -- formatting.sql_formatter,
 
-  -- Python
-  formatting.black.with({ extra_args = { "--fast" } }),
+  -- Python (using pylsp)
+  -- formatting.black.with({ extra_args = { "--fast" } }),
   -- always import error
   -- diagnostics.pylint,
 

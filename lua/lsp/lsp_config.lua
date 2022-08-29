@@ -142,7 +142,7 @@ local servers = {
   "graphql",
   "html",
   "lemminx",
-  "pyright",
+  "pylsp",
   "sqls",
   -- "stylelint_lsp", -- conflict with prettier in js files
 }
