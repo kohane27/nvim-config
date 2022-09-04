@@ -137,8 +137,8 @@ return packer.startup(function(use)
   -- use("mhinz/vim-startify")
 
   -- session management
-  use("rmagatti/auto-session")
-  use("rmagatti/session-lens") -- telescope integration
+  -- use("rmagatti/auto-session")
+  -- use("rmagatti/session-lens") -- telescope integration
 
   use("folke/which-key.nvim")
   use("folke/lsp-colors.nvim") -- creates missing LSP diagnostics highlight groups for colorschemes that don't yet support LSP
