@@ -118,6 +118,10 @@ map("n", "Q", "@q")
 -- select current line excluding newline character
 map("x", "$", "g_")
 
+map("x", "jk", "<esc>")
+
+map("n", "0", "^")
+
 -- map("n", "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
 -- anyywhere on the line
 map("n", "gx", "<Plug>Markdown_OpenUrlUnderCursor<CR>")
