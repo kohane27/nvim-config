@@ -144,6 +144,7 @@ local servers = {
   "lemminx",
   "pylsp",
   "sqls",
+  "marksman",
   -- "stylelint_lsp", -- conflict with prettier in js files
 }
 
