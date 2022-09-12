@@ -182,14 +182,17 @@ map("n", "<leader>lR", "<cmd>lua require('goto-preview').goto_preview_references
 map("n", "<leader>ln", "<cmd>Lspsaga rename<CR>")
 
 -- show hover doc
-map("n", "<leader>ld", "<cmd>Lspsaga preview_definition<CR>")
 map("n", "<leader>lh", "<cmd>Lspsaga hover_doc<CR>")
+map("n", "<leader>lH", "<cmd>Lspsaga peek_definition<CR>")
 
 -- show signature help
-map("n", "<leader>ls", "<Cmd>Lspsaga signature_help<CR>")
+map("n", "<leader>ls", "<cmd>Lspsaga signature_help<CR>")
 
 -- formatting
 map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>")
+
+map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ barbar.lua                                               │
