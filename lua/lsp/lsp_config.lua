@@ -74,8 +74,8 @@ typescript.setup({
   debug = false,
   server = { -- pass options to lspconfig's setup method
     on_attach = function(client, _)
-      client.resolved_capabilities.document_formatting = false
-      client.resolved_capabilities.document_range_formatting = false
+      client.server_capabilities.document_formatting = false
+      client.server_capabilities.document_range_formatting = false
     end,
   },
 })
@@ -99,8 +99,8 @@ lspconfig.jsonls.setup({
 
 lspconfig.sumneko_lua.setup({
   on_attach = function(client, _)
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
   end,
 
   root_dir = root_dir,
