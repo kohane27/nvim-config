@@ -189,7 +189,7 @@ map("n", "<leader>lH", "<cmd>Lspsaga peek_definition<CR>")
 map("n", "<leader>ls", "<cmd>Lspsaga signature_help<CR>")
 
 -- formatting
-map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>")
+map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>")
 
 map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
 map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
