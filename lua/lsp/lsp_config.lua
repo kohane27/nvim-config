@@ -56,6 +56,9 @@ end
 typescript.setup({
   disable_commands = false, -- prevent the plugin from creating Vim commands
   debug = false,
+  go_to_source_definition = {
+    fallback = true, -- fall back to standard LSP definition on failure
+  },
   server = { -- pass options to lspconfig's setup method
     on_attach = function(client, _)
       client.server_capabilities.document_formatting = false
