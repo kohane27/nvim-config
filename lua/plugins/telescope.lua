@@ -39,7 +39,7 @@ telescope.setup({
       ".class",
       "node_modules",
       ".cache",
-      "package.json",
+      -- "package.json",
       "package-lock.json",
       "yarn.lock",
     },
