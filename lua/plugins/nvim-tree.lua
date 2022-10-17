@@ -16,6 +16,10 @@ end
 -- autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 -- ]])
 
+-- disable netrw (note: need it for `gx` to work)
+-- vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 nvim_tree.setup({
   auto_reload_on_write = true,
   update_cwd = true,
@@ -46,6 +50,7 @@ nvim_tree.setup({
     special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
   },
   view = {
+    adaptive_size = true,
     mappings = {
       custom_only = true,
       list = {
