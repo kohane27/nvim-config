@@ -147,8 +147,8 @@ return packer.startup(function(use)
   use("norcalli/nvim-colorizer.lua")
 
   -- navigation
-  -- use("ggandor/leap.nvim")
-  use("ggandor/lightspeed.nvim")
+  use("ggandor/leap.nvim")
+  -- use("ggandor/lightspeed.nvim")
   use("rhysd/clever-f.vim")
 
   use("inkarkat/vim-EnhancedJumps")
