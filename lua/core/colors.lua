@@ -33,6 +33,11 @@ vim.g.doom_one_plugin_dashboard = false
 vim.g.doom_one_plugin_startify = false
 vim.g.doom_one_plugin_vim_illuminate = false
 
-vim.cmd([[
-colorscheme doom-one
-]])
+--vim.cmd([[
+--colorscheme doom-one
+--]])
+
+require("onedark").setup({
+  style = "cool",
+})
+require("onedark").load()
