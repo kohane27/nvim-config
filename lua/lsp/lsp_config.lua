@@ -124,6 +124,7 @@ local servers = {
   "cssls",
   "cssmodules_ls",
   "dockerls",
+  "angularls",
   "emmet_ls",
   "eslint",
   "graphql",
