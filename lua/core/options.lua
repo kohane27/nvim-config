@@ -64,8 +64,6 @@ opt.wrap           = true     -- soft wrapping textj
 opt.numberwidth    = 2
 opt.relativenumber = true     -- Show relative line number
 opt.showmatch      = false    -- Highlight matching parenthesis
--- opt.foldmethod     = 'marker' -- disable for nvim-ufo
-opt.foldmethod     = 'expr'
 opt.cmdheight      = 2
 opt.showmode       = false    -- No -- INSERT --
 opt.scrolloff      = 4        -- cursor won't go the bottom
@@ -141,6 +139,11 @@ for _, plugin in pairs(disabled_built_ins) do
   g["loaded_" .. plugin] = 1
 end
 
+vim.cmd[[
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set nofoldenable                     " Disable folding at startup.
+]]
 
 -- from NvChad
 vim.schedule(function()
