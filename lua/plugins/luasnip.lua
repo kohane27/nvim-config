@@ -20,7 +20,8 @@ luasnip.config.set_config({
 require("luasnip.loaders.from_vscode").load({
   paths = {
     "~/.local/share/nvim/site/pack/packer/start/friendly-snippets",
-    "~/.config/nvim/snippets",
+    -- "~/.config/nvim/snippets",
+    "~/.config/nvim/snippets/angular",
   },
 })
 
