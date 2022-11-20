@@ -150,7 +150,7 @@ map("i", "<C-v>", "<C-R>*")
 -- save
 -- map("n", "<c-s>", ":wa<CR>")
 -- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
-map("n", "<c-s>", ":write | edit | TSBufEnable highlight<CR><CR>")
+map("n", "<c-s>", ":write | edit | TSBufEnable highlight<CR>")
 map("i", "<c-s>", "<c-o>:w<CR>")
 
 -- ╭──────────────────────────────────────────────────────────╮
