@@ -148,7 +148,9 @@ map("i", "<C-f>", '<C-R>"')
 map("i", "<C-v>", "<C-R>*")
 
 -- save
-map("n", "<c-s>", ":wa<CR>")
+-- map("n", "<c-s>", ":wa<CR>")
+-- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
+map("n", "<c-s>", ":write | edit | TSBufEnable highlight<CR><CR>")
 map("i", "<c-s>", "<c-o>:w<CR>")
 
 -- ╭──────────────────────────────────────────────────────────╮
@@ -186,7 +188,7 @@ map("n", "<leader>ln", "<cmd>Lspsaga rename<CR>")
 map("n", "<leader>lh", "<cmd>Lspsaga hover_doc<CR>")
 map("n", "<leader>lH", "<cmd>Lspsaga peek_definition<CR>")
 
--- show signature help
+-- TODO not working show signature help
 map("n", "<leader>ls", "<cmd>Lspsaga signature_help<CR>")
 
 -- formatting
