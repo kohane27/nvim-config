@@ -6,7 +6,7 @@ end
 mason_lspconfig.setup({
   ensure_installed = {
     "sumneko_lua",
-    "rust_analyzer",
+    -- "rust_analyzer",
     "tsserver",
     "awk_ls",
     "bashls",
@@ -15,12 +15,12 @@ mason_lspconfig.setup({
     "dockerls",
     "emmet_ls",
     "eslint",
-    "graphql",
+    -- "graphql",
     "html",
     "lemminx",
     "pyright",
     "sqls",
     "jsonls",
   },
-  automatic_installation = true,
+  automatic_installation = false,
 })
