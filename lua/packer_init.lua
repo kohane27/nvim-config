@@ -68,6 +68,7 @@ return packer.startup(function(use)
   use("nvim-treesitter/nvim-treesitter-textobjects")
   use("nvim-treesitter/nvim-treesitter-refactor")
   use("nvim-treesitter/nvim-treesitter-context")
+  use({ "elgiano/nvim-treesitter-angular", branch = "topic/jsx-fix" })
   use("JoosepAlviste/nvim-ts-context-commentstring")
   use("windwp/nvim-ts-autotag")
   use("windwp/nvim-autopairs") -- integrated with both cmp and treesitter
