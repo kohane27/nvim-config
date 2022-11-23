@@ -6,7 +6,7 @@ end
 mason_lspconfig.setup({
   ensure_installed = {
     "sumneko_lua",
-    -- "rust_analyzer",
+    "angularls",
     "tsserver",
     "awk_ls",
     "bashls",
@@ -19,6 +19,7 @@ mason_lspconfig.setup({
     "html",
     "lemminx",
     "pyright",
+    "pylsp",
     "sqls",
     "jsonls",
   },

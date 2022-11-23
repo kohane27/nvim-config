@@ -80,10 +80,6 @@ lspconfig.jsonls.setup({
 })
 
 -- 3. sumneko_lua
--- local runtime_path = vim.split(package.path, ";")
--- table.insert(runtime_path, "lua/?.lua")
--- table.insert(runtime_path, "lua/?/init.lua")
-
 lspconfig.sumneko_lua.setup({
   on_attach = function(client, _)
     client.server_capabilities.document_formatting = false
@@ -117,36 +113,25 @@ lspconfig.sumneko_lua.setup({
   },
 })
 
-lspconfig.emmet_ls.setup({
+-- 4. cssls
+lspconfig.cssls.setup({
   capabilities = capabilities,
-  filetypes = {
-    "html",
-    "typescriptreact",
-    "javascriptreact",
-    "css",
-    "sass",
-    "scss",
-    "less",
-    "typescript",
-    "javascript",
-  },
-  init_options = {
-    html = {
-      options = {
-        -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-        ["bem.enabled"] = true,
-      },
-    },
-  },
+  filetypes = { "typescript", "css", "sass", "scss", "less" },
+})
+
+-- 5. cssmodules_ls
+lspconfig.cssmodules_ls.setup({
+  capabilities = capabilities,
+  filetypes = { "typescript", "css", "sass", "scss", "less" },
 })
 
 -- Use a loop to call 'setup' on multiple servers
 local servers = {
   "awk_ls",
   "bashls",
-  -- add filetype for typescript file
-  "cssls",
-  "cssmodules_ls",
+  -- "cssls",
+  -- "cssmodules_ls",
+  "emmet_ls",
   "dockerls",
   "angularls",
   "eslint",
