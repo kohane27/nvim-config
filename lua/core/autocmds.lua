@@ -6,7 +6,7 @@
 
 vim.cmd([[
   " disable auto-indentation
-  autocmd filetype markdown set indentexpr=
+  " autocmd filetype markdown set indentexpr=
   " autocmd fileType markdown setl conceallevel=1
 
   " format on save except the following
