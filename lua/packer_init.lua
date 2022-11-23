@@ -212,7 +212,7 @@ return packer.startup(function(use)
   use("LudoPinelli/comment-box.nvim") -- create comment box
 
   use("nyngwang/NeoZoom.lua") -- `<C-w>m` to maximize window without closing other buffers
-  use("farmergreg/vim-lastplace") -- reopen files at last edit position
+  use("ethanholz/nvim-lastplace") -- reopen files at last edit position
   use("KabbAmine/vCoolor.vim") -- color picker
   use({ "mg979/vim-visual-multi", branch = "master" })
   -- use("max397574/better-escape.nvim")
@@ -233,7 +233,6 @@ return packer.startup(function(use)
 
   -- test
   use("vim-test/vim-test")
-
   use("aserowy/tmux.nvim")
   -- use("sunaku/tmux-navigate")
   -- use("numToStr/Navigator.nvim")
