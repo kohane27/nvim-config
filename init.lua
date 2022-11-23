@@ -82,6 +82,7 @@ require("plugins.tmux")
 require("plugins.vim-test")
 require("plugins.comment-box")
 require("plugins.vim-EnhancedJumps")
+require("plugins.nvim-lastplace")
 -- require("plugins.vim-wiki")
 
 -- require("plugins.yanky")
