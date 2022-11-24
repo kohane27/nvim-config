@@ -79,6 +79,11 @@ lspconfig.jsonls.setup({
   },
 })
 
+-- lspconfig.cssls.setup({
+--   capabilities = capabilities,
+--   filetypes = { "typescript", "css", "scss", "less" },
+-- })
+
 -- 3. sumneko_lua
 lspconfig.sumneko_lua.setup({
   on_attach = function(client, _)
@@ -113,30 +118,18 @@ lspconfig.sumneko_lua.setup({
   },
 })
 
--- 4. cssls
-lspconfig.cssls.setup({
-  capabilities = capabilities,
-  filetypes = { "typescript", "css", "sass", "scss", "less" },
-})
-
--- 5. cssmodules_ls
-lspconfig.cssmodules_ls.setup({
-  capabilities = capabilities,
-  filetypes = { "typescript", "css", "sass", "scss", "less" },
-})
-
 -- Use a loop to call 'setup' on multiple servers
 local servers = {
+  "angularls",
+  "html",
+  "emmet_ls",
+  "cssls",
+  "cssmodules_ls",
   "awk_ls",
   "bashls",
-  -- "cssls",
-  -- "cssmodules_ls",
-  "emmet_ls",
   "dockerls",
-  "angularls",
   "eslint",
   "graphql",
-  "html",
   "lemminx",
   "pylsp",
   "sqls",
