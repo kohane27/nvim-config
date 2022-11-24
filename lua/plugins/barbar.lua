@@ -31,7 +31,7 @@ barbar.setup({
   -- max padding width surrounding each tab
   maximum_padding = 1,
   -- max buffer name length
-  maximum_length = 15,
+  maximum_length = 50,
   semantic_letters = true,
   letters = "asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP",
 
