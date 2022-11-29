@@ -5,12 +5,10 @@ end
 
 neoclip.setup({
   history = 1000,
-  enable_persistent_history = false,
+  enable_persistent_history = true,
   length_limit = 1048576,
   continuous_sync = false,
   db_path = vim.fn.stdpath("data") .. "/databases/neoclip.sqlite3",
-  filter = nil,
-  prompt = nil,
   default_register = '"',
   default_register_macros = "q",
   enable_macro_history = false,
@@ -27,9 +25,7 @@ neoclip.setup({
         select = "<cr>",
         paste = "<c-p>",
         paste_behind = "<c-k>",
-        replay = "<c-q>", -- replay a macro
         delete = "<c-d>", -- delete an entry
-        custom = {},
       },
       n = {
         select = "<cr>",
@@ -37,9 +33,7 @@ neoclip.setup({
         --- It is possible to map to more than one key.
         -- paste = { 'p', '<c-p>' },
         paste_behind = "P",
-        replay = "q",
         delete = "d",
-        custom = {},
       },
     },
   },
