@@ -116,10 +116,10 @@ return packer.startup(function(use)
   use("nvim-lualine/lualine.nvim") -- statusline
   use("voldikss/vim-floaterm") -- need for `lazygit` and `ranger`
   use("akinsho/toggleterm.nvim") -- general terminal
-  -- use("tpope/vim-fugitive") -- use lazygit
   use("machakann/vim-sandwich") -- better than surround
-  use("wellle/targets.vim") -- more text objects
-  use("andymass/vim-matchup") -- navigate matching text
+  use("kylechui/nvim-surround")
+  use("wellle/targets.vim") -- more text objects TODO should have treesitter nvim version
+  use("andymass/vim-matchup") -- navigate matching text TODO should have treesitter nvim version
   -- use("chaoren/vim-wordmotion")
 
   -- use("anuvyklack/pretty-fold.nvim")
@@ -129,8 +129,6 @@ return packer.startup(function(use)
   use("sindrets/diffview.nvim") -- tabpage interface for diffs
   use("akinsho/git-conflict.nvim")
   -- use("rhysd/conflict-marker.vim") -- git-conflict.nvim better
-  -- use("christoomey/vim-conflicted")
-  -- use("whiteinge/diffconflicts")
 
   use("lewis6991/impatient.nvim")
   -- use("dstein64/vim-startuptime") -- test impatient
@@ -149,6 +147,9 @@ return packer.startup(function(use)
 
   -- navigation
   use("ggandor/leap.nvim")
+  -- use("ggandor/leap-spooky.nvim") -- TODO look into
+  -- use("ggandor/flit.nvim") -- TODO look into
+  -- use("ggandor/leap-ast.nvim") -- TODO look into
   -- use("ggandor/lightspeed.nvim")
   use("rhysd/clever-f.vim")
 
@@ -157,7 +158,6 @@ return packer.startup(function(use)
 
   -- auto-format when saving
   use("Pocco81/auto-save.nvim")
-  -- use("907th/vim-auto-save")
 
   use("kevinhwang91/nvim-bqf")
   use("https://gitlab.com/yorickpeterse/nvim-pqf") -- pretty list
@@ -182,16 +182,16 @@ return packer.startup(function(use)
 
   use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
 
+  -- use("ja-ford/delaytrain.nvim")
   -- use("takac/vim-hardtime")
   use("gbprod/substitute.nvim")
   use("gbprod/cutlass.nvim")
+  -- use("gbprod/yanky.nvim")
+  use("AckslD/nvim-neoclip.lua")
 
   use("gelguy/wilder.nvim")
   use("simrat39/symbols-outline.nvim")
   -- use("ekickx/clipboard-image.nvim") -- copy clipboard image to nvim
-
-  -- use("gbprod/yanky.nvim")
-  -- use("svermeulen/vim-yoink")
 
   -- find and replace
   use("windwp/nvim-spectre")
@@ -207,15 +207,15 @@ return packer.startup(function(use)
   use("karb94/neoscroll.nvim") -- smooth scrolling
   -- use("lukas-reineke/headlines.nvim") -- prettier markdown
   use("danilamihailov/beacon.nvim") -- flash cursor when jumping
+  -- TODO check if below is merged to core in stable
   use("luukvbaal/stabilize.nvim") -- stabilize buffer content on window open/close events
   use("romainl/vim-cool") -- search highlighting when done
-  use("LudoPinelli/comment-box.nvim") -- create comment box
+  use("LudoPinelli/comment-box.nvim") -- create comment boxes
 
   use("nyngwang/NeoZoom.lua") -- `<C-w>m` to maximize window without closing other buffers
   use("ethanholz/nvim-lastplace") -- reopen files at last edit position
   use("KabbAmine/vCoolor.vim") -- color picker
   use({ "mg979/vim-visual-multi", branch = "master" })
-  -- use("max397574/better-escape.nvim")
   use("mhinz/vim-grepper")
   use("folke/trouble.nvim")
   use("vim-scripts/LargeFile")
@@ -230,23 +230,23 @@ return packer.startup(function(use)
   use("mfussenegger/nvim-dap")
   use("rcarriga/nvim-dap-ui")
   -- use("puremourning/vimspector")
-
   -- test
   use("vim-test/vim-test")
+
   use("aserowy/tmux.nvim")
+  -- use("mrjones2014/smart-splits.nvim") -- TODO learn and see the diff
   -- use("sunaku/tmux-navigate")
   -- use("numToStr/Navigator.nvim")
 
   use("p00f/nvim-ts-rainbow")
   use("ThePrimeagen/harpoon")
+  -- use("cbochs/grapple.nvim") -- TODO learn and see the diff
   use("junegunn/vim-emoji")
-  --use("sheerun/vim-polyglot")
-  -- use("kovetskiy/sxhkd-vim")
   use("tversteeg/registers.nvim") -- see register contents
   use("junegunn/vim-easy-align")
   use("moll/vim-bbye") -- delete buffers without closing windows
 
-  -- Colorschemes/theme
+  -- Colorschemes/themes
   use("NTBBloodbath/doom-one.nvim")
   use("EdenEast/nightfox.nvim") -- used by firenvim
   use("navarasu/onedark.nvim")
