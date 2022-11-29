@@ -131,11 +131,12 @@ local mappings = {
     },
     f = {
       name = "Find",
-      g = { "<cmd>Telescope live_grep<cr>", "Find text" },
+      g = { "<cmd>Telescope live_grep<cr>", "Find Text" },
       f = { "<cmd>Telescope current_buffer_fuzzy_find case_mode=ignore_case<cr>", "Buffers" },
-      F = { "<cmd>Telescope frecency<cr>", "Find frecency" },
+      F = { "<cmd>Telescope frecency<cr>", "Find Frecency" },
       o = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
       p = { "<cmd>Telescope projects<cr>", "Projects" },
+      r = { "<cmd>Telescope neoclip<cr>", "Clipboard History" },
 
       -- g = { "<cmd>lua require('fzf-lua').live_grep_native()<cr>", "Find text" },
       -- b = { "<cmd>lua require('fzf-lua').lgrep_curbuf()<cr>", "Buffers" },

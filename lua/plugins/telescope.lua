@@ -140,4 +140,5 @@ telescope.setup({
 
 telescope.load_extension("fzf")
 telescope.load_extension("projects")
-telescope.load_extension("frecency")
+-- telescope.load_extension("frecency") -- TODO very annoying msg
+telescope.load_extension("neoclip")
