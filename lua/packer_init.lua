@@ -177,7 +177,7 @@ return packer.startup(function(use)
 
   use("lukas-reineke/indent-blankline.nvim") -- indentation guides
 
-  -- use("ja-ford/delaytrain.nvim") -- TODO wait support remap keys
+  -- use("ja-ford/delaytrain.nvim") -- TODO wait support remap 5j keys
 
   use("gbprod/substitute.nvim")
   use("gbprod/cutlass.nvim")
@@ -185,12 +185,14 @@ return packer.startup(function(use)
   -- use("gbprod/yanky.nvim")
 
   use("gelguy/wilder.nvim")
-  use("simrat39/symbols-outline.nvim") -- TODO shortcut
+  use("simrat39/symbols-outline.nvim") -- TODO add shortcut
   -- use("ekickx/clipboard-image.nvim") -- copy clipboard image to nvim
 
   -- find and replace
   use("windwp/nvim-spectre")
+  use("smjonas/live-command.nvim") -- TODO learn and configure
   -- use("brooth/far.vim")
+  use({ "mg979/vim-visual-multi", branch = "master" })
 
   -- note-taking
   -- use("vimwiki/vimwiki")
@@ -212,7 +214,6 @@ return packer.startup(function(use)
   use("nyngwang/NeoZoom.lua") -- `<C-w>m` to maximize window without closing other buffers
   use("ethanholz/nvim-lastplace") -- reopen files at last edit position
   use("max397574/colortils.nvim") -- color utils -- TODO learn how to use
-  use({ "mg979/vim-visual-multi", branch = "master" })
   use("mhinz/vim-grepper")
   use("folke/trouble.nvim")
   use("vim-scripts/LargeFile")
