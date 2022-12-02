@@ -59,11 +59,11 @@ return packer.startup(function(use)
   use("nvim-telescope/telescope-frecency.nvim")
   use("ahmedkhalf/project.nvim")
   use("nvim-telescope/telescope-file-browser.nvim") -- required by project.nvim
+  use("AckslD/nvim-neoclip.lua") -- clipboard manager
   use("kkharji/sqlite.lua") -- required by telescope-frecency
   -- use("nvim-telescope/telescope-project.nvim") #using ahmedkhalf/project.nvim
 
   -- Treesitter
-  -- Additional textobjects for treesitter
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
   use("nvim-treesitter/nvim-treesitter-textobjects")
   use("nvim-treesitter/nvim-treesitter-refactor")
@@ -84,9 +84,9 @@ return packer.startup(function(use)
   use("b0o/schemastore.nvim")
   use("jose-elias-alvarez/typescript.nvim")
   use("mfussenegger/nvim-jdtls")
-  use("antoinemadec/FixCursorHold.nvim") -- fix LSP doc highlight
   use("ray-x/lsp_signature.nvim")
   use("onsails/lspkind.nvim") -- pictograms to LSP
+  use("SmiteshP/nvim-navic") -- winbar for code context
 
   -- Autocomplete engine
   use({
@@ -116,11 +116,9 @@ return packer.startup(function(use)
   use("nvim-lualine/lualine.nvim") -- statusline
   use("voldikss/vim-floaterm") -- need for `lazygit` and `ranger`
   use("akinsho/toggleterm.nvim") -- general terminal
-  use("machakann/vim-sandwich") -- better than surround
   use("kylechui/nvim-surround")
-  use("wellle/targets.vim") -- more text objects TODO should have treesitter nvim version
-  use("andymass/vim-matchup") -- navigate matching text TODO should have treesitter nvim version
-  -- use("chaoren/vim-wordmotion")
+  use("andymass/vim-matchup") -- navigate matching text enhanced with `nvim-treesitter-textobjects`
+  -- use("wellle/targets.vim") -- superseded by `nvim-treesitter-textobjects`
 
   -- use("anuvyklack/pretty-fold.nvim")
   -- use("kevinhwang91/nvim-ufo")
@@ -128,7 +126,6 @@ return packer.startup(function(use)
 
   use("sindrets/diffview.nvim") -- tabpage interface for diffs
   use("akinsho/git-conflict.nvim")
-  -- use("rhysd/conflict-marker.vim") -- git-conflict.nvim better
 
   use("lewis6991/impatient.nvim")
   -- use("dstein64/vim-startuptime") -- test impatient
@@ -139,25 +136,24 @@ return packer.startup(function(use)
   -- use("rmagatti/auto-session")
   -- use("rmagatti/session-lens") -- telescope integration
 
+  -- auto-format when saving
+  -- use("Pocco81/auto-save.nvim")
+
   use("folke/which-key.nvim")
   use("folke/lsp-colors.nvim") -- creates missing LSP diagnostics highlight groups for colorschemes that don't yet support LSP
-
   use("lewis6991/gitsigns.nvim")
   use("norcalli/nvim-colorizer.lua")
 
   -- navigation
   use("ggandor/leap.nvim")
-  -- use("ggandor/leap-spooky.nvim") -- TODO look into
-  -- use("ggandor/flit.nvim") -- TODO look into
-  -- use("ggandor/leap-ast.nvim") -- TODO look into
-  -- use("ggandor/lightspeed.nvim")
-  use("rhysd/clever-f.vim")
+  use("ggandor/leap-spooky.nvim")
+  use("ggandor/flit.nvim")
+  -- use("rhysd/clever-f.vim")
 
   use("inkarkat/vim-EnhancedJumps")
   use("inkarkat/vim-ingo-library") -- required by vim-EnhancedJumps
 
-  -- auto-format when saving
-  use("Pocco81/auto-save.nvim")
+  use("gpanders/editorconfig.nvim")
 
   use("kevinhwang91/nvim-bqf")
   use("https://gitlab.com/yorickpeterse/nvim-pqf") -- pretty list
@@ -174,23 +170,22 @@ return packer.startup(function(use)
   use("ledger/vim-ledger")
   use("chrisbra/csv.vim")
 
-  -- Code runners
-  --use("erietz/vim-terminator")
+  -- task runners
+  -- use("stevearc/overseer.nvim") -- TODO learn
   use({ "michaelb/sniprun", run = "bash ./install.sh" })
-  -- use("EvanQuan/vim-executioner")
   use("CRAG666/code_runner.nvim")
 
-  use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
+  use("lukas-reineke/indent-blankline.nvim") -- indentation guides
 
-  -- use("ja-ford/delaytrain.nvim")
-  -- use("takac/vim-hardtime")
+  -- use("ja-ford/delaytrain.nvim") -- TODO wait support remap keys
+
   use("gbprod/substitute.nvim")
   use("gbprod/cutlass.nvim")
+  use("gbprod/stay-in-place.nvim")
   -- use("gbprod/yanky.nvim")
-  use("AckslD/nvim-neoclip.lua")
 
   use("gelguy/wilder.nvim")
-  use("simrat39/symbols-outline.nvim")
+  use("simrat39/symbols-outline.nvim") -- TODO shortcut
   -- use("ekickx/clipboard-image.nvim") -- copy clipboard image to nvim
 
   -- find and replace
@@ -200,21 +195,23 @@ return packer.startup(function(use)
   -- note-taking
   -- use("vimwiki/vimwiki")
   -- use("renerocksai/telekasten.nvim")
-  -- use("renerocksai/calendar-vim")
 
   -- aesthetics
   use("dstein64/nvim-scrollview") -- scrollbars
   use("karb94/neoscroll.nvim") -- smooth scrolling
-  -- use("lukas-reineke/headlines.nvim") -- prettier markdown
+  use("RRethy/vim-illuminate") -- highlighting other uses of the word under cursor
   use("danilamihailov/beacon.nvim") -- flash cursor when jumping
-  -- TODO check if below is merged to core in stable
-  use("luukvbaal/stabilize.nvim") -- stabilize buffer content on window open/close events
+  use("b0o/incline.nvim") -- floating statuslines
   use("romainl/vim-cool") -- search highlighting when done
   use("LudoPinelli/comment-box.nvim") -- create comment boxes
+  use("Djancyp/better-comments.nvim") -- highlight comments
+
+  -- TODO check is merged to core in stable 0.9
+  use("luukvbaal/stabilize.nvim") -- stabilize buffer content on window open/close events
 
   use("nyngwang/NeoZoom.lua") -- `<C-w>m` to maximize window without closing other buffers
   use("ethanholz/nvim-lastplace") -- reopen files at last edit position
-  use("KabbAmine/vCoolor.vim") -- color picker
+  use("max397574/colortils.nvim") -- color utils -- TODO learn how to use
   use({ "mg979/vim-visual-multi", branch = "master" })
   use("mhinz/vim-grepper")
   use("folke/trouble.nvim")
@@ -226,9 +223,9 @@ return packer.startup(function(use)
     end,
   })
 
-  -- debugger
-  use("mfussenegger/nvim-dap")
-  use("rcarriga/nvim-dap-ui")
+  -- debugger TODO learn to use
+  -- use("mfussenegger/nvim-dap")
+  -- use("rcarriga/nvim-dap-ui")
   -- use("puremourning/vimspector")
   -- test
   use("vim-test/vim-test")
@@ -241,7 +238,6 @@ return packer.startup(function(use)
   use("p00f/nvim-ts-rainbow")
   use("ThePrimeagen/harpoon")
   -- use("cbochs/grapple.nvim") -- TODO learn and see the diff
-  use("junegunn/vim-emoji")
   use("tversteeg/registers.nvim") -- see register contents
   use("junegunn/vim-easy-align")
   use("moll/vim-bbye") -- delete buffers without closing windows

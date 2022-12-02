@@ -145,10 +145,4 @@ set foldexpr=nvim_treesitter#foldexpr()
 set nofoldenable                     " Disable folding at startup.
 ]]
 
--- from NvChad
-vim.schedule(function()
-  vim.opt.shadafile = vim.fn.expand "$HOME" .. "/.local/share/nvim/shada/main.shada"
-  vim.cmd [[ silent! rsh ]]
-end)
-
 -- stylua: ignore end
