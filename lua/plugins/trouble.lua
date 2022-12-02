@@ -3,6 +3,4 @@ if not status_ok then
   return
 end
 
-trouble.setup({
-  -- leave it empty to use the default settings
-})
+trouble.setup({})
