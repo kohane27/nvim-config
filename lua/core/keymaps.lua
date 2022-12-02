@@ -94,9 +94,10 @@ map("v", "<BS>", '"_')
 map("n", "<Leader>o", "o<Esc>")
 map("n", "<Leader>O", "O<Esc>")
 
--- reselect visual selection after indenting
-map("v", "<", "<gv")
-map("v", ">", ">gv")
+-- using `stay-in-place.lua`
+-- re-select visual selection after indenting
+-- map("v", "<", "<gv")
+-- map("v", ">", ">gv")
 
 -- Maintain the cursor position when yanking a visual selection
 map("v", "y", "myy`y")
