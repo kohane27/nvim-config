@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 cutlass.setup({
-  -- lightspeed.nvim integration
-  exclude = { "ns", "nS", "nd", "xd", "vd", "nD" },
+  -- leap.nvim integration
+  -- `nc` needed for `nvim-surround`'s `css` to work
+  exclude = { "ns", "nS", "nd", "xd", "vd", "nD", "nc" },
 })
