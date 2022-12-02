@@ -13,7 +13,6 @@ end
 
 --custom keymaps in files:
 -- leap.lua
--- lightspeed.lua
 -- toggleterm.lua
 -- yanky.lua
 -- sniprun.lua
