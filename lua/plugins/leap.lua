@@ -8,45 +8,13 @@ leap.set_default_keymaps(true)
 
 leap.setup({
   case_sensitive = false,
+  -- disable auto-jumping to the first match
+  safe_labels = {},
 })
 
 -- Bidirectional search
 local function leap_current_window()
   leap.leap({ target_windows = { vim.fn.win_getid() } })
 end
-
--- Map them to your preferred key, like:
 vim.keymap.set("n", "s", leap_current_window, { silent = true })
-
-vim.cmd([[
-" use clever-f
-silent! unmap f
-silent! unmap F
-silent! unmap t
-silent! unmap T
-]])
-
--- vim.cmd([[
--- autocmd ColorScheme * lua require('leap').init_highlight(true)
--- ]])
---
--- vim.api.nvim_create_autocmd("ColorScheme", {
---   callback = function()
---     vim.api.nvim_set_hl(0, "LeapMatch", { ctermfg = "#99ddff" })
---     vim.api.nvim_set_hl(0, "LeapLabelPrimary", { ctermfg = "#99ddff" })
---     vim.api.nvim_set_hl(0, "LeapLabelSecondary", { ctermfg = "#99ddff" })
---   end,
--- })
-
---
--- {val}    Highlight definition map, like |synIDattr()|. In
---          addition, the following keys are recognized:
---          • default: Don't override existing definition
---            |:hi-default|
---          • ctermfg: Sets foreground of cterm color
---            |highlight-ctermfg|
---          • ctermbg: Sets background of cterm color
---            |highlight-ctermbg|
---          • cterm: cterm attribute map, like
---            |highlight-args|. Note: Attributes default to
---            those set for `gui` if not set.
+vim.keymap.set("x", "s", leap_current_window, { silent = true })
