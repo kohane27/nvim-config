@@ -5,27 +5,6 @@ end
 
 ts_configs.setup({
   ensure_installed = "all",
-  -- ensure_installed = {
-  --  "cmake",
-  --  "css",
-  --  "java",
-  --  "javascript",
-  --  "typescript",
-  --  "markdown",
-  --  "markdown_inline",
-  --  "make",
-  --  "nix",
-  --  "regex",
-  --  "graphql",
-  --  "html",
-  --  "toml",
-  --  "todotxt",
-  --  "yaml",
-  --  "json",
-  --  "vim",
-  --  "jsdoc",
-  --  "help",
-  -- },
   sync_install = true, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = { "" }, -- List of parsers to ignore installing
   highlight = {
@@ -60,7 +39,6 @@ ts_configs.setup({
       clear_on_cursor_move = true,
     },
   },
-
   textobjects = {
     select = {
       enable = true,
@@ -78,7 +56,7 @@ ts_configs.setup({
     },
     move = {
       enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
+      set_jumps = true, -- set jumps in the jumplist
       goto_next_start = {
         ["]m"] = "@function.outer",
         ["]]"] = "@class.outer",
@@ -95,6 +73,10 @@ ts_configs.setup({
         ["[M"] = "@function.outer",
         ["[]"] = "@class.outer",
       },
+    },
+    matchup = {
+      enable = true, -- mandatory, false will disable the whole extension
+      disable = { "c", "ruby" }, -- optional
     },
     -- lsp_interop = {
     --   enable = true,
