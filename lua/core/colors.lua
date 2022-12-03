@@ -24,14 +24,14 @@ vim.g.doom_one_pumblend_transparency = 20
 vim.g.doom_one_plugin_nvim_tree = true
 vim.g.doom_one_plugin_whichkey = true
 vim.g.doom_one_plugin_indent_blankline = true
+vim.g.doom_one_plugin_telescope = false
+vim.g.doom_one_plugin_vim_illuminate = false
 vim.g.doom_one_plugin_lspsaga = true
 vim.g.doom_one_plugin_barbar = true
 vim.g.doom_one_plugin_neorg = false
-vim.g.doom_one_plugin_telescope = false
 vim.g.doom_one_plugin_neogit = false
 vim.g.doom_one_plugin_dashboard = false
 vim.g.doom_one_plugin_startify = false
-vim.g.doom_one_plugin_vim_illuminate = false
 
 vim.cmd([[
 colorscheme doom-one

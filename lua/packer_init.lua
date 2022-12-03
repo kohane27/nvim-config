@@ -57,6 +57,7 @@ return packer.startup(function(use)
 
   -- Telescope extensions
   use("nvim-telescope/telescope-frecency.nvim")
+  use("LukasPietzschmann/telescope-tabs")
   use("ahmedkhalf/project.nvim")
   use("nvim-telescope/telescope-file-browser.nvim") -- required by project.nvim
   use("AckslD/nvim-neoclip.lua") -- clipboard manager
@@ -71,7 +72,7 @@ return packer.startup(function(use)
   use({ "elgiano/nvim-treesitter-angular", branch = "topic/jsx-fix" })
   use("JoosepAlviste/nvim-ts-context-commentstring")
   use("windwp/nvim-ts-autotag")
-  use("windwp/nvim-autopairs") -- integrated with both cmp and treesitter
+  use("windwp/nvim-autopairs") -- integrated with cmp and treesitter
 
   -- LSP
   use("neovim/nvim-lspconfig")
@@ -84,9 +85,10 @@ return packer.startup(function(use)
   use("b0o/schemastore.nvim")
   use("jose-elias-alvarez/typescript.nvim")
   use("mfussenegger/nvim-jdtls")
+  use("folke/trouble.nvim")
   use("ray-x/lsp_signature.nvim")
   use("onsails/lspkind.nvim") -- pictograms to LSP
-  use("SmiteshP/nvim-navic") -- winbar for code context
+  use("SmiteshP/nvim-navic") -- TODO winbar for code context
 
   -- Autocomplete engine
   use({
@@ -140,7 +142,7 @@ return packer.startup(function(use)
   -- use("Pocco81/auto-save.nvim")
 
   use("folke/which-key.nvim")
-  use("folke/lsp-colors.nvim") -- creates missing LSP diagnostics highlight groups for colorschemes that don't yet support LSP
+  use("folke/lsp-colors.nvim") -- add LSP diagnostics highlight groups
   use("lewis6991/gitsigns.nvim")
   use("norcalli/nvim-colorizer.lua")
 
@@ -160,7 +162,6 @@ return packer.startup(function(use)
 
   use("jremmen/vim-ripgrep")
   use("mbbill/undotree")
-  -- use("beauwilliams/focus.nvim")
 
   -- filetypes
   use("nathom/filetype.nvim") -- speed up startup time
@@ -192,21 +193,24 @@ return packer.startup(function(use)
   use("windwp/nvim-spectre")
   use("smjonas/live-command.nvim") -- TODO learn and configure
   -- use("brooth/far.vim")
-  use({ "mg979/vim-visual-multi", branch = "master" })
+  -- use({ "mg979/vim-visual-multi", branch = "master" })
+  use("otavioschwanck/cool-substitute.nvim")
 
   -- note-taking
   -- use("vimwiki/vimwiki")
   -- use("renerocksai/telekasten.nvim")
 
   -- aesthetics
-  use("dstein64/nvim-scrollview") -- scrollbars
+  use("petertriho/nvim-scrollbar") -- scrollbars
+  use("kevinhwang91/nvim-hlslens") -- search highlighting when done
   use("karb94/neoscroll.nvim") -- smooth scrolling
   use("RRethy/vim-illuminate") -- highlighting other uses of the word under cursor
   use("danilamihailov/beacon.nvim") -- flash cursor when jumping
   use("b0o/incline.nvim") -- floating statuslines
-  use("romainl/vim-cool") -- search highlighting when done
+  -- use("romainl/vim-cool")
   use("LudoPinelli/comment-box.nvim") -- create comment boxes
   use("Djancyp/better-comments.nvim") -- highlight comments
+  -- use("folke/noice.nvim") -- use later because it requires nightly
 
   -- TODO check is merged to core in stable 0.9
   use("luukvbaal/stabilize.nvim") -- stabilize buffer content on window open/close events
@@ -215,7 +219,6 @@ return packer.startup(function(use)
   use("ethanholz/nvim-lastplace") -- reopen files at last edit position
   use("max397574/colortils.nvim") -- color utils -- TODO learn how to use
   use("mhinz/vim-grepper")
-  use("folke/trouble.nvim")
   use("vim-scripts/LargeFile")
   use({
     "glacambre/firenvim",
@@ -247,6 +250,7 @@ return packer.startup(function(use)
   use("NTBBloodbath/doom-one.nvim")
   use("EdenEast/nightfox.nvim") -- used by firenvim
   use("navarasu/onedark.nvim")
+  use("folke/tokyonight.nvim") -- scrollbar theme
   -- use("bluz71/vim-moonfly-colors")
   -- use("bluz71/vim-nightfly-guicolors")
   -- use("projekt0n/github-nvim-theme")
