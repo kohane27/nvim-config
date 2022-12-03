@@ -164,6 +164,7 @@ map("i", "<c-s>", "<c-o>:w<CR>")
 
 map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 map("n", "gD", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
+-- map("n", "gD", "<cmd>Lspsaga peek_definition<CR>")
 
 map("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
 map("n", "<leader>lT", "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>")
@@ -187,10 +188,6 @@ map("n", "<leader>ln", "<cmd>Lspsaga rename<CR>")
 
 -- show hover doc
 map("n", "<leader>lh", "<cmd>Lspsaga hover_doc<CR>")
-map("n", "<leader>lH", "<cmd>Lspsaga peek_definition<CR>")
-
--- TODO not working show signature help
-map("n", "<leader>ls", "<cmd>Lspsaga signature_help<CR>")
 
 -- formatting
 map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>")
