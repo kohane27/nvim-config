@@ -202,12 +202,12 @@ return packer.startup(function(use)
 
   -- aesthetics
   use("petertriho/nvim-scrollbar") -- scrollbars
-  use("kevinhwang91/nvim-hlslens") -- search highlighting when done
+  use("kevinhwang91/nvim-hlslens") -- better search results
+  -- use("romainl/vim-cool") -- using `nvim-hlslens`
   use("karb94/neoscroll.nvim") -- smooth scrolling
   use("RRethy/vim-illuminate") -- highlighting other uses of the word under cursor
   use("danilamihailov/beacon.nvim") -- flash cursor when jumping
   use("b0o/incline.nvim") -- floating statuslines
-  -- use("romainl/vim-cool")
   use("LudoPinelli/comment-box.nvim") -- create comment boxes
   use("Djancyp/better-comments.nvim") -- highlight comments
   -- use("folke/noice.nvim") -- use later because it requires nightly
