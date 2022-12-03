@@ -16,6 +16,13 @@ end
 local colors = require("tokyonight.colors").setup()
 
 scrollbar.setup({
+  handlers = {
+    cursor = true,
+    diagnostic = true,
+    gitsigns = true, -- requires gitsigns
+    handle = true,
+    search = true, -- requires hlslens
+  },
   handle = {
     color = colors.bg_highlight,
   },
@@ -26,6 +33,18 @@ scrollbar.setup({
     Info = { color = colors.info },
     Hint = { color = colors.hint },
     Misc = { color = colors.purple },
+    GitAdd = {
+      color = colors.green,
+      highlight = "GitSignsAdd",
+    },
+    GitChange = {
+      color = colors.warning,
+      highlight = "GitSignsChange",
+    },
+    GitDelete = {
+      color = colors.error,
+      highlight = "GitSignsDelete",
+    },
   },
 })
 
