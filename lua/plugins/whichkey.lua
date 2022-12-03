@@ -84,7 +84,7 @@ local mappings = {
   ["<C-t>"] = { "<cmd>NvimTreeToggle<cr>", "Tree" },
   g = {
     name = "g",
-    -- can't use gs and gS; taken by lightspeed
+    -- gs taken by leap
 
     -- buffer below
     p = { "<cmd>BufferPick<cr>", "Buffer Picking" },
@@ -137,7 +137,7 @@ local mappings = {
       o = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
       p = { "<cmd>Telescope projects<cr>", "Projects" },
       r = { "<cmd>Telescope neoclip<cr>", "Clipboard History" },
-
+      t = { "<cmd>Telescope telescope-tabs list_tabs<cr>", "Tabs" },
       -- g = { "<cmd>lua require('fzf-lua').live_grep_native()<cr>", "Find text" },
       -- b = { "<cmd>lua require('fzf-lua').lgrep_curbuf()<cr>", "Buffers" },
       -- w = { "<cmd>lua require('fzf-lua').grep_cword()<cr>", "word under cursor" },
