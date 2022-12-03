@@ -8,11 +8,6 @@ if not cmp_status_ok then
   print("cmp_nvim_lsp failing")
 end
 
-local navic_status_ok, navic = pcall(require, "nvim-navic")
-if not navic_status_ok then
-  print("navic failing")
-end
-
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = "rounded",
 })
@@ -32,11 +27,7 @@ local capabilities = cmp_nvim_lsp.default_capabilities()
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  if client.server_capabilities.documentSymbolProvider then
-    navic.attach(client, bufnr)
-  end
-end
+local on_attach = function(client, bufnr) end
 
 --[[
 Language servers setup:
@@ -69,19 +60,16 @@ typescript.setup({
     fallback = true, -- fall back to standard LSP definition on failure
   },
   server = { -- pass options to lspconfig's setup method
-    on_attach = function(client, bufnr)
+    on_attach = function(client, _)
       client.server_capabilities.document_formatting = false
       client.server_capabilities.document_range_formatting = false
-      if client.server_capabilities.documentSymbolProvider then
-        navic.attach(client, bufnr)
-      end
     end,
   },
 })
 
 -- 2. jsonls
 lspconfig.jsonls.setup({
-  on_attach = on_attach,
+  -- on_attach = on_attach,
   root_dir = root_dir,
   capabilities = capabilities,
   settings = {
@@ -98,13 +86,11 @@ lspconfig.jsonls.setup({
 
 -- 3. sumneko_lua
 lspconfig.sumneko_lua.setup({
-  on_attach = function(client, bufnr)
+  on_attach = function(client, _)
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
-    if client.server_capabilities.documentSymbolProvider then
-      navic.attach(client, bufnr)
-    end
   end,
+
   root_dir = root_dir,
   capabilities = capabilities,
   settings = {
@@ -153,7 +139,7 @@ local servers = {
 -- Call setup
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({
-    on_attach = on_attach,
+    -- on_attach = on_attach,
     root_dir = root_dir,
     capabilities = capabilities,
   })

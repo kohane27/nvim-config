@@ -88,7 +88,6 @@ return packer.startup(function(use)
   use("folke/trouble.nvim")
   use("ray-x/lsp_signature.nvim")
   use("onsails/lspkind.nvim") -- pictograms to LSP
-  use("SmiteshP/nvim-navic") -- TODO winbar for code context
 
   -- Autocomplete engine
   use({
@@ -148,9 +147,7 @@ return packer.startup(function(use)
 
   -- navigation
   use("ggandor/leap.nvim")
-  use("ggandor/leap-spooky.nvim")
   use("ggandor/flit.nvim")
-  -- use("rhysd/clever-f.vim")
 
   use("inkarkat/vim-EnhancedJumps")
   use("inkarkat/vim-ingo-library") -- required by vim-EnhancedJumps
@@ -236,8 +233,6 @@ return packer.startup(function(use)
 
   use("aserowy/tmux.nvim")
   -- use("mrjones2014/smart-splits.nvim") -- TODO learn and see the diff
-  -- use("sunaku/tmux-navigate")
-  -- use("numToStr/Navigator.nvim")
 
   use("p00f/nvim-ts-rainbow")
   use("ThePrimeagen/harpoon")
