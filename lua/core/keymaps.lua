@@ -17,6 +17,7 @@ end
 -- yanky.lua
 -- sniprun.lua
 -- vim-EnhancedJumps.lua
+-- hlslens.lua
 
 -----------------------------------------------------------
 -- Neovim shortcuts
