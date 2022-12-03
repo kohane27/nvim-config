@@ -11,11 +11,15 @@ tmux.setup({
   },
   navigation = {
     -- C-hjkl
-    enable_default_keybindings = false,
     cycle_navigation = false,
+    enable_default_keybindings = false,
   },
   resize = {
     -- A-hjkl
     enable_default_keybindings = false,
+    -- sets resize steps for x axis
+    resize_step_x = 1,
+    -- sets resize steps for y axis
+    resize_step_y = 1,
   },
 })
