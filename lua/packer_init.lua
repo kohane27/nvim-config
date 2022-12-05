@@ -73,6 +73,7 @@ return packer.startup(function(use)
   use("JoosepAlviste/nvim-ts-context-commentstring")
   use("windwp/nvim-ts-autotag")
   use("windwp/nvim-autopairs") -- integrated with cmp and treesitter
+  use("p00f/nvim-ts-rainbow") -- rainbow parentheses
 
   -- LSP
   use("neovim/nvim-lspconfig")
@@ -88,6 +89,7 @@ return packer.startup(function(use)
   use("folke/trouble.nvim")
   use("ray-x/lsp_signature.nvim")
   use("onsails/lspkind.nvim") -- pictograms to LSP
+  use("folke/lsp-colors.nvim") -- add LSP diagnostics highlight groups
 
   -- Autocomplete engine
   use({
@@ -139,9 +141,8 @@ return packer.startup(function(use)
 
   -- auto-format when saving
   -- use("Pocco81/auto-save.nvim")
-
-  use("folke/which-key.nvim")
-  use("folke/lsp-colors.nvim") -- add LSP diagnostics highlight groups
+  use("mrjones2014/legendary.nvim")
+  use("stevearc/dressing.nvim") -- required by legendary.nvim
   use("lewis6991/gitsigns.nvim")
   use("norcalli/nvim-colorizer.lua")
 
@@ -183,31 +184,33 @@ return packer.startup(function(use)
   -- use("gbprod/yanky.nvim")
 
   use("gelguy/wilder.nvim")
-  use("simrat39/symbols-outline.nvim") -- TODO add shortcut
+  -- use("simrat39/symbols-outline.nvim") -- using lspsaga
   -- use("ekickx/clipboard-image.nvim") -- copy clipboard image to nvim
 
   -- find and replace
   use("windwp/nvim-spectre")
-  use("smjonas/live-command.nvim") -- TODO learn and configure
+  use({ "mg979/vim-visual-multi", branch = "master" })
+  -- use("smjonas/live-command.nvim")
   -- use("brooth/far.vim")
-  -- use({ "mg979/vim-visual-multi", branch = "master" })
-  use("otavioschwanck/cool-substitute.nvim")
 
   -- note-taking
   -- use("vimwiki/vimwiki")
   -- use("renerocksai/telekasten.nvim")
 
   -- aesthetics
-  use("petertriho/nvim-scrollbar") -- scrollbars
-  use("kevinhwang91/nvim-hlslens") -- better search results
-  -- use("romainl/vim-cool") -- using `nvim-hlslens`
   use("karb94/neoscroll.nvim") -- smooth scrolling
+  use("dstein64/nvim-scrollview") -- scrollable bar
+  use("petertriho/nvim-scrollbar") -- scrollbar
+
   use("RRethy/vim-illuminate") -- highlighting other uses of the word under cursor
   use("danilamihailov/beacon.nvim") -- flash cursor when jumping
   use("b0o/incline.nvim") -- floating statuslines
   use("LudoPinelli/comment-box.nvim") -- create comment boxes
   use("Djancyp/better-comments.nvim") -- highlight comments
   -- use("folke/noice.nvim") -- use later because it requires nightly
+
+  use("kevinhwang91/nvim-hlslens") -- better search results
+  -- use("romainl/vim-cool") -- using `nvim-hlslens`
 
   -- TODO check is merged to core in stable 0.9
   use("luukvbaal/stabilize.nvim") -- stabilize buffer content on window open/close events
@@ -232,13 +235,10 @@ return packer.startup(function(use)
   use("vim-test/vim-test")
 
   use("aserowy/tmux.nvim")
-  -- use("mrjones2014/smart-splits.nvim") -- TODO learn and see the diff
-
-  use("p00f/nvim-ts-rainbow")
   use("ThePrimeagen/harpoon")
   -- use("cbochs/grapple.nvim") -- TODO learn and see the diff
   use("tversteeg/registers.nvim") -- see register contents
-  use("junegunn/vim-easy-align")
+  use("junegunn/vim-easy-align") -- TODO use mini.nvim
   use("moll/vim-bbye") -- delete buffers without closing windows
 
   -- Colorschemes/themes
