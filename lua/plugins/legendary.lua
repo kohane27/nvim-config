@@ -9,6 +9,7 @@ legendary.setup({
     -- <C-KEY>
     { "<C-t>", "<cmd>NvimTreeToggle<cr>", description = "Toggle Tree" },
     { "<C-g>", "<cmd>Telescope find_files<cr>", description = "Find Files" },
+    { "<C-l>", "<cmd>Legendary<cr>", description = "Legendary" },
 
     -- Telescope
     { "<leader>fg", "<cmd>Telescope live_grep<cr>", description = "Find Text" },
