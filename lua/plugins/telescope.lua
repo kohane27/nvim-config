@@ -130,8 +130,8 @@ telescope.setup({
       ignore_patterns = { "*.git/*", "*/tmp/*", "*/node_modules/*" },
       disable_devicons = false,
       workspaces = {
-        ["conf"] = "/home/***REMOVED***/.config",
-        ["data"] = "/home/***REMOVED***/.local/share",
+        ["conf"] = "~/.config",
+        ["data"] = "~/.local/share",
         ["project"] = "~/Documents",
       },
     },
