@@ -28,10 +28,12 @@ map("i", "jk", "<Esc>")
 map("n", "q:", ":q<cr>")
 
 -- maybe this will fix random capitalization?
-map("n", "<Space>", "<Nop>")
-map("v", "<Space>", "<Nop>")
+-- map("n", "<Space>", "<Nop>")
+-- map("v", "<Space>", "<Nop>")
 
 -- unlearn bad habits
+map("n", "J", "<nop>")
+map("n", "K", "<nop>")
 map("n", "<C-a>", "<nop>")
 map("n", "<C-x>", "<nop>")
 map("n", "ZZ", "<nop>")
@@ -46,8 +48,6 @@ map("n", "<C-i>", "<nop>")
 -- add marks to populate jump list
 -- map("n", "J", "m'5gj")
 -- map("n", "K", "m'5gk")
-map("n", "J", "5gj")
-map("n", "K", "5gk")
 
 -- change list
 map("n", "<C-j>", "g;")
@@ -122,7 +122,6 @@ map("x", "$", "g_")
 
 map("n", "0", "^")
 
--- map("n", "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
 -- anyywhere on the line
 map("n", "gx", "<Plug>Markdown_OpenUrlUnderCursor<CR>")
 

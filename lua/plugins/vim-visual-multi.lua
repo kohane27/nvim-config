@@ -1,4 +1,4 @@
--- vim-visual-*m*ulti remap
+-- vim-visual-multi remap
 -- create a column of cursors from visual mode
 vim.api.nvim_set_keymap(
   "n",
