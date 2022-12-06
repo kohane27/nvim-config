@@ -84,4 +84,5 @@ require("plugins.sniprun")
 
 require("plugins.tmux")
 require("plugins.vim-test")
+require("plugins.portal")
 require("plugins.vim-EnhancedJumps")

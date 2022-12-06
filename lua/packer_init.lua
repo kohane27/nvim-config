@@ -150,6 +150,7 @@ return packer.startup(function(use)
   use("ggandor/leap.nvim")
   use("ggandor/flit.nvim")
 
+  use("cbochs/portal.nvim")
   use("inkarkat/vim-EnhancedJumps")
   use("inkarkat/vim-ingo-library") -- required by vim-EnhancedJumps
 
