@@ -150,10 +150,6 @@ return packer.startup(function(use)
   use("ggandor/leap.nvim")
   use("ggandor/flit.nvim")
 
-  use("cbochs/portal.nvim")
-  use("inkarkat/vim-EnhancedJumps")
-  use("inkarkat/vim-ingo-library") -- required by vim-EnhancedJumps
-
   use("gpanders/editorconfig.nvim")
 
   use("kevinhwang91/nvim-bqf")
@@ -228,7 +224,7 @@ return packer.startup(function(use)
     end,
   })
 
-  -- debugger TODO learn to use
+  -- debuggers
   -- use("mfussenegger/nvim-dap")
   -- use("rcarriga/nvim-dap-ui")
   -- use("puremourning/vimspector")
@@ -236,8 +232,12 @@ return packer.startup(function(use)
   use("vim-test/vim-test")
 
   use("aserowy/tmux.nvim")
+  use("cbochs/grapple.nvim") -- TODO learn and see the diff
+  use("cbochs/portal.nvim")
   use("ThePrimeagen/harpoon")
-  -- use("cbochs/grapple.nvim") -- TODO learn and see the diff
+  -- use("inkarkat/vim-EnhancedJumps")
+  -- use("inkarkat/vim-ingo-library") -- required by vim-EnhancedJumps
+
   use("tversteeg/registers.nvim") -- see register contents
   use("junegunn/vim-easy-align") -- TODO use mini.nvim
   use("moll/vim-bbye") -- delete buffers without closing windows
