@@ -20,10 +20,10 @@ vim.cmd([[
     autocmd FileType qf set nobuflisted
   augroup end
 
-  augroup _auto_resize
-    autocmd!
-    autocmd VimResized * tabdo wincmd = 
-  augroup end
+  " augroup _auto_resize
+  "   autocmd!
+  "   autocmd VimResized * tabdo wincmd = 
+  " augroup end
 ]])
 
 local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
@@ -46,6 +46,13 @@ autocmd("FileType", {
   end,
 })
 
+-- `leap.nvim`: after jumping run `zz`
+autocmd("User", {
+  pattern = "LeapLeave",
+  callback = function()
+    vim.cmd("norm zz")
+  end,
+})
 -- Disable diagnostics in node_modules (0 is current buffer only)
 autocmd("BufRead", { pattern = "*/node_modules/*", command = "lua vim.diagnostic.disable(0)" })
 autocmd("BufNewFile", { pattern = "*/node_modules/*", command = "lua vim.diagnostic.disable(0)" })
