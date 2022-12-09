@@ -6,13 +6,13 @@ I started off with [LunarVim/Neovim-from-scratch](https://github.com/LunarVim/Ne
 
 ## Requirements
 
-### My system config
+### System config
 
 OS: EndeavourOS Linux x86_64
 
 WM: sway (I'm on Wayland hence you'd need [bugaevc/wl-clipboard](https://github.com/bugaevc/wl-clipboard))
 
-Terminal: kitty
+Terminal: [kitty](https://github.com/kovidgoyal/kitty)
 
 ### Dependecies
 
