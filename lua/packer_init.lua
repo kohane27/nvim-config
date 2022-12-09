@@ -140,7 +140,7 @@ return packer.startup(function(use)
   -- use("rmagatti/session-lens") -- telescope integration
 
   -- auto-format when saving
-  -- use("Pocco81/auto-save.nvim")
+  use("Pocco81/auto-save.nvim")
   use("mrjones2014/legendary.nvim")
   use("stevearc/dressing.nvim") -- required by legendary.nvim
   use("lewis6991/gitsigns.nvim")
