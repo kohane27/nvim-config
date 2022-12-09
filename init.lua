@@ -73,7 +73,7 @@ require("plugins.substitute")
 require("plugins.stay-in-place")
 -- require("plugins.yanky")
 
--- require("plugins.auto-save")
+require("plugins.auto-save")
 -- require("plugins.auto-session")
 
 require("plugins.vim-markdown")
