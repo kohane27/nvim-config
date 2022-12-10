@@ -231,8 +231,8 @@ legendary.setup({
     { "<A-p>", "<cmd>cp<cr>", description = "Previous Quickfix Item" },
     { "<A-n>", "<cmd>cn<cr>", description = "Next Quickfix Item" },
     -- TODO rethink C-j and C-k
-    { "<C-j>", "g;", description = "Previous Changelist Item" },
-    { "<C-k>", "g,", description = "Next Changelist Item" },
+    -- { "<C-j>", "g;", description = "Previous Changelist Item" },
+    -- { "<C-k>", "g,", description = "Next Changelist Item" },
     { "<C-f>", '<C-R>"', description = "Paste Last Yanked / Deleted", mode = { "i" } },
     { "<C-v>", "<C-R>*", description = "Paste Clipboard Content", mode = { "i" } },
 
