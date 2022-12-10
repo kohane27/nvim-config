@@ -165,7 +165,7 @@ return packer.startup(function(use)
   use("mtdl9/vim-log-highlighting")
   use("ledger/vim-ledger")
   use("chrisbra/csv.vim")
-  -- use("preservim/vim-markdown")
+  use("preservim/vim-markdown")
 
   -- task runners
   -- use("stevearc/overseer.nvim") -- TODO learn
@@ -174,7 +174,7 @@ return packer.startup(function(use)
 
   use("lukas-reineke/indent-blankline.nvim") -- indentation guides
 
-  -- use("ja-ford/delaytrain.nvim") -- TODO wait support remap 5j keys
+  use("ja-ford/delaytrain.nvim")
 
   use("gbprod/substitute.nvim")
   use("gbprod/cutlass.nvim")
@@ -188,7 +188,7 @@ return packer.startup(function(use)
   -- find and replace
   use("windwp/nvim-spectre")
   use({ "mg979/vim-visual-multi", branch = "master" })
-  -- use("smjonas/live-command.nvim")
+  -- use("smjonas/live-command.nvim") -- TODO learn
   -- use("brooth/far.vim")
 
   -- note-taking
@@ -216,14 +216,12 @@ return packer.startup(function(use)
   use("nyngwang/NeoZoom.lua") -- `<C-w>m` to maximize window without closing other buffers
   use("ethanholz/nvim-lastplace") -- reopen files at last edit position
   use("max397574/colortils.nvim") -- color utils -- TODO learn how to use
-  use("mhinz/vim-grepper")
-  -- use("vim-scripts/LargeFile")
-  use({
-    "glacambre/firenvim",
-    run = function()
-      vim.fn["firenvim#install"](0)
-    end,
-  })
+  -- use({
+  --   "glacambre/firenvim",
+  --   run = function()
+  --     vim.fn["firenvim#install"](0)
+  --   end,
+  -- })
 
   -- debuggers
   -- use("mfussenegger/nvim-dap")

@@ -40,10 +40,6 @@ map("n", "d$", "<nop>")
 map("v", "u", "<nop>")
 map("v", "U", "<nop>")
 
--- use vim-EnhancedJumps
-map("n", "<C-o>", "<nop>")
-map("n", "<C-i>", "<nop>")
-
 -- add marks to populate jump list
 -- map("n", "J", "m'5gj")
 -- map("n", "K", "m'5gk")
