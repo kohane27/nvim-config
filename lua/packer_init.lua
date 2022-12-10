@@ -74,6 +74,7 @@ return packer.startup(function(use)
   use("windwp/nvim-ts-autotag")
   use("windwp/nvim-autopairs") -- integrated with cmp and treesitter
   use("p00f/nvim-ts-rainbow") -- rainbow parentheses
+  use("lukas-reineke/indent-blankline.nvim") -- indentation guides
 
   -- LSP
   use("neovim/nvim-lspconfig")
@@ -122,6 +123,8 @@ return packer.startup(function(use)
   use("kylechui/nvim-surround")
   use("andymass/vim-matchup") -- navigate matching text enhanced with `nvim-treesitter-textobjects`
   -- use("wellle/targets.vim") -- superseded by `nvim-treesitter-textobjects`
+  use("mbbill/undotree")
+  use("gpanders/editorconfig.nvim")
 
   -- use("anuvyklack/pretty-fold.nvim")
   -- use("kevinhwang91/nvim-ufo")
@@ -151,28 +154,21 @@ return packer.startup(function(use)
   use("ggandor/leap.nvim")
   use("ggandor/flit.nvim")
 
-  use("gpanders/editorconfig.nvim")
-
   use("kevinhwang91/nvim-bqf")
   use("https://gitlab.com/yorickpeterse/nvim-pqf") -- pretty list
 
-  use("jremmen/vim-ripgrep")
-  use("mbbill/undotree")
-
   -- filetypes
   use("nathom/filetype.nvim") -- speed up startup time
+  use("preservim/vim-markdown")
   use("godlygeek/tabular") -- format tables
   use("mtdl9/vim-log-highlighting")
   use("ledger/vim-ledger")
   use("chrisbra/csv.vim")
-  use("preservim/vim-markdown")
 
   -- task runners
   -- use("stevearc/overseer.nvim") -- TODO learn
   use({ "michaelb/sniprun", run = "bash ./install.sh" })
   use("CRAG666/code_runner.nvim")
-
-  use("lukas-reineke/indent-blankline.nvim") -- indentation guides
 
   use("ja-ford/delaytrain.nvim")
 
@@ -234,11 +230,8 @@ return packer.startup(function(use)
   use("cbochs/grapple.nvim") -- TODO learn and see the diff
   use("cbochs/portal.nvim")
   use("ThePrimeagen/harpoon")
-  -- use("inkarkat/vim-EnhancedJumps")
-  -- use("inkarkat/vim-ingo-library") -- required by vim-EnhancedJumps
 
   use("tversteeg/registers.nvim") -- see register contents
-  use("junegunn/vim-easy-align") -- TODO use mini.nvim
   use("moll/vim-bbye") -- delete buffers without closing windows
 
   -- Colorschemes/themes
