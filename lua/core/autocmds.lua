@@ -25,6 +25,9 @@ vim.cmd([[
   "   autocmd VimResized * tabdo wincmd = 
   " augroup end
 
+  " clear jumplist
+  autocmd VimEnter * :clearjumps
+
 " disable syntax highlighting in big files
 function DisableSyntaxTreesitter()
     echo("Big file: Disabling syntax, treesitter and folding")
