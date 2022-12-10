@@ -72,7 +72,13 @@ autocmd("FileType", {
   end,
 })
 
--- `leap.nvim`: after jumping run `zz`
+-- `leap.nvim`: after jumping, run `zz` then mark it
+autocmd("User", {
+  pattern = "LeapEnter",
+  callback = function()
+    vim.cmd("normal m'")
+  end,
+})
 autocmd("User", {
   pattern = "LeapLeave",
   callback = function()
