@@ -184,7 +184,7 @@ legendary.setup({
     -- { "<leader>gg", "<cmd>TestVisit<CR>", description = "Test: Visit" },
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │  Har                                                 │
+    -- │  Harpoon                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
     { "gh<C-n>", "<cmd>lua require('harpoon.ui').nav_next()<CR>", description = "Harpoon: Next Mark" },
     { "gh<C-p>", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", description = "Harpoon: Previous Mark" },
