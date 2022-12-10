@@ -141,6 +141,7 @@ return packer.startup(function(use)
 
   -- auto-format when saving
   use("Pocco81/auto-save.nvim")
+
   use("mrjones2014/legendary.nvim")
   use("stevearc/dressing.nvim") -- required by legendary.nvim
   use("lewis6991/gitsigns.nvim")
@@ -160,11 +161,11 @@ return packer.startup(function(use)
 
   -- filetypes
   use("nathom/filetype.nvim") -- speed up startup time
-  use("preservim/vim-markdown")
   use("godlygeek/tabular") -- format tables
   use("mtdl9/vim-log-highlighting")
   use("ledger/vim-ledger")
   use("chrisbra/csv.vim")
+  -- use("preservim/vim-markdown")
 
   -- task runners
   -- use("stevearc/overseer.nvim") -- TODO learn
@@ -216,7 +217,7 @@ return packer.startup(function(use)
   use("ethanholz/nvim-lastplace") -- reopen files at last edit position
   use("max397574/colortils.nvim") -- color utils -- TODO learn how to use
   use("mhinz/vim-grepper")
-  use("vim-scripts/LargeFile")
+  -- use("vim-scripts/LargeFile")
   use({
     "glacambre/firenvim",
     run = function()
