@@ -177,11 +177,11 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Test                                                     │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>gt", "<cmd>TestNearest<CR>", description = "Test: Nearest" },
-    { "<leader>gT", "<cmd>TestFile<CR>", description = "Test: File" },
-    { "<leader>ga", "<cmd>TestSuite<CR>", description = "Test: Suite" },
-    { "<leader>gl", "<cmd>TestLast<CR>", description = "Test: Last" },
-    { "<leader>gg", "<cmd>TestVisit<CR>", description = "Test: Visit" },
+    -- { "<leader>gt", "<cmd>TestNearest<CR>", description = "Test: Nearest" },
+    -- { "<leader>gT", "<cmd>TestFile<CR>", description = "Test: File" },
+    -- { "<leader>ga", "<cmd>TestSuite<CR>", description = "Test: Suite" },
+    -- { "<leader>gl", "<cmd>TestLast<CR>", description = "Test: Last" },
+    -- { "<leader>gg", "<cmd>TestVisit<CR>", description = "Test: Visit" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │  Har                                                 │

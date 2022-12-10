@@ -50,7 +50,7 @@ autocmd("FileType", {
 autocmd("User", {
   pattern = "LeapLeave",
   callback = function()
-    vim.cmd("norm zz")
+    vim.cmd("normal zz")
   end,
 })
 -- Disable diagnostics in node_modules (0 is current buffer only)
