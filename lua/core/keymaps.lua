@@ -15,7 +15,6 @@ end
 -- leap.lua
 -- toggleterm.lua
 -- yanky.lua
--- vim-EnhancedJumps.lua
 -- hlslens.lua
 
 -----------------------------------------------------------
@@ -107,7 +106,7 @@ map("x", "$", "g_")
 
 map("n", "0", "^")
 
--- don't copy the replaced text after pasting
+-- don't copy replaced text after pasting
 vim.keymap.set("x", "p", function()
   return 'pgv"' .. vim.v.register .. "y"
 end, { remap = false, expr = true })

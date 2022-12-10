@@ -227,7 +227,6 @@ legendary.setup({
       "<cmd>n ~/.config/nvim/lua/packer_init.lua ~/.config/nvim/init.lua<CR>",
       description = "Edit Config",
     },
-    { "gx", "<Plug>Markdown_OpenUrlUnderCursor<CR>", description = "Open Url Under Cursor" },
 
     { "<A-p>", "<cmd>cp<cr>", description = "Previous Quickfix Item" },
     { "<A-n>", "<cmd>cn<cr>", description = "Next Quickfix Item" },
@@ -239,17 +238,5 @@ legendary.setup({
 
     -- { "<C-o>", require("portal").jump_backward, description = "Portal Backward" },
     -- { "<C-i>", require("portal").jump_forward, description = "Portal Foward" },
-
-    -- ╭──────────────────────────────────────────────────────────╮
-    -- │ EnhancedJumps                                            │
-    -- ╰──────────────────────────────────────────────────────────╯
-    -- only local jumps
-    -- { "<C-o>", "<Plug>EnhancedJumpsLocalOlder", description = "EnhancedJumpsLocalOlder" },
-    -- { "<C-i>", "<Plug>EnhancedJumpsLocalNewer", description = "EnhancedJumpsLocalNewer" },
-    -- { "<C-o>", "<cmd>call EnhancedJumpsLocalOlder()<CR>", description = "EnhancedJumpsLocalOlder" },
-    -- { "<C-i>", "<cmd>call EnhancedJumpsLocalNewer()<CR>", description = "EnhancedJumpsLocalNewer" },
-    -- only remote jumps
-    -- { "<A-o>", "<Plug>EnhancedJumpsRemoteOlder", description = "EnhancedJumpsRemoteOlder" },
-    -- { "<A-i>", "<Plug>EnhancedJumpsRemoteNewer", description = "EnhancedJumpsRemoteNewer" },
   },
 })
