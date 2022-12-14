@@ -86,7 +86,7 @@ return packer.startup(function(use)
   use("glepnir/lspsaga.nvim")
   use("b0o/schemastore.nvim")
   use("jose-elias-alvarez/typescript.nvim")
-  use("mfussenegger/nvim-jdtls")
+  -- use("mfussenegger/nvim-jdtls")
   use("folke/trouble.nvim")
   use("ray-x/lsp_signature.nvim")
   use("onsails/lspkind.nvim") -- pictograms to LSP
@@ -152,6 +152,7 @@ return packer.startup(function(use)
   -- navigation
   use("ggandor/leap.nvim")
   use("ggandor/flit.nvim")
+  -- use("ggandor/leap-spooky.nvim")
 
   use("kevinhwang91/nvim-bqf")
   use("https://gitlab.com/yorickpeterse/nvim-pqf") -- pretty list

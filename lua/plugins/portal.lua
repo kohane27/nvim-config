@@ -5,5 +5,5 @@ end
 
 portal.setup({})
 
-vim.keymap.set("n", "<C-o>", require("portal").jump_backward, {})
-vim.keymap.set("n", "<C-i>", require("portal").jump_forward, {})
+-- vim.keymap.set("n", "<C-o>", require("portal").jump_backward, {})
+-- vim.keymap.set("n", "<C-i>", require("portal").jump_forward, {})
