@@ -117,7 +117,7 @@ return packer.startup(function(use)
   use("kyazdani42/nvim-tree.lua")
   -- use("akinsho/bufferline.nvim")
   use("romgrk/barbar.nvim") -- tabline
-  use("moll/vim-bbye") -- required by barbar
+  -- use("famiu/bufdelete.nvim") -- preserve layout when deleting buffer(s)
   use("nvim-lualine/lualine.nvim") -- statusline
   use("voldikss/vim-floaterm") -- need for `lazygit` and `ranger`
   use("akinsho/toggleterm.nvim") -- general terminal
@@ -227,9 +227,8 @@ return packer.startup(function(use)
   use("vim-test/vim-test")
 
   use("aserowy/tmux.nvim")
-  use("ThePrimeagen/harpoon")
-  use("cbochs/grapple.nvim") -- TODO learn and see the diff
-  -- use("cbochs/portal.nvim")
+  use("cbochs/grapple.nvim")
+  use("cbochs/portal.nvim")
   use("kwkarlwang/bufjump.nvim") -- <A-i> and <A-o> to jump between buffers
 
   use("tversteeg/registers.nvim") -- see register contents
