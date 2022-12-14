@@ -230,12 +230,7 @@ return packer.startup(function(use)
   use("ThePrimeagen/harpoon")
   use("cbochs/grapple.nvim") -- TODO learn and see the diff
   -- use("cbochs/portal.nvim")
-  use({
-    "kwkarlwang/bufjump.nvim",
-    config = function()
-      require("bufjump").setup()
-    end,
-  })
+  use("kwkarlwang/bufjump.nvim") -- <A-i> and <A-o> to jump between buffers
 
   use("tversteeg/registers.nvim") -- see register contents
 
