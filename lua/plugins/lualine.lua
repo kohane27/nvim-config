@@ -53,7 +53,7 @@ local config = {
     },
   },
   sections = {
-    -- these are to remove the defaults
+    -- to remove the defaults
     lualine_a = {},
     lualine_b = {},
     lualine_y = {},
@@ -63,7 +63,7 @@ local config = {
     lualine_x = {},
   },
   inactive_sections = {
-    -- these are to remove the defaults
+    -- to remove the defaults
     lualine_a = {},
     lualine_b = {},
     lualine_y = {},
@@ -91,45 +91,6 @@ ins_left({
   padding = { left = 0, right = 1 }, -- We don't need space before this
 })
 
---ins_left {
---  -- mode component
---  function()
---    -- auto change color according to neovims mode
---    local mode_color = {
---      n = colors.red,
---      i = colors.green,
---      v = colors.blue,
---      [''] = colors.blue,
---      V = colors.blue,
---      c = colors.magenta,
---      no = colors.red,
---      s = colors.orange,
---      S = colors.orange,
---      [''] = colors.orange,
---      ic = colors.yellow,
---      R = colors.violet,
---      Rv = colors.violet,
---      cv = colors.red,
---      ce = colors.red,
---      r = colors.cyan,
---      rm = colors.cyan,
---      ['r?'] = colors.cyan,
---      ['!'] = colors.red,
---      t = colors.red,
---    }
---    vim.api.nvim_command('hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. ' guibg=' .. colors.bg)
---    return ''
---  end,
---  color = 'LualineMode',
---  padding = { right = 1 },
---}
-
--- ins_left {
---   -- filesize component
---   'filesize',
---   cond = conditions.buffer_not_empty,
--- }
-
 ins_left({
   "branch",
   icon = "",
@@ -146,14 +107,6 @@ ins_left({
   },
   cond = conditions.hide_in_width,
 })
-
--- ins_left({
---   function()
---     return "▊"
---   end,
---   color = { fg = colors.blue },
---   padding = { left = 1 },
--- })
 
 ins_left({
   "diagnostics",
@@ -173,27 +126,6 @@ ins_left({
     return "%="
   end,
 })
-
--- ins_left {
---   -- Lsp server name .
---   function()
---     local msg = 'No Active Lsp'
---     local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
---     local clients = vim.lsp.get_active_clients()
---     if next(clients) == nil then
---       return msg
---     end
---     for _, client in ipairs(clients) do
---       local filetypes = client.config.filetypes
---       if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
---         return client.name
---       end
---     end
---     return msg
---   end,
---   icon = ' LSP:',
---   color = { fg = '#ffffff', gui = 'bold' },
--- }
 
 -- Add components to right sections
 ins_right({
@@ -219,6 +151,15 @@ ins_right({
   "filename",
   cond = conditions.buffer_not_empty,
   color = { fg = colors.magenta, gui = "bold" },
+})
+
+ins_right({
+  function()
+    local key = require("grapple").key()
+    return " [" .. key .. "]"
+  end,
+  color = { fg = colors.blue }, -- Sets highlighting of component
+  cond = require("grapple").exists,
 })
 
 ins_right({ "location" })
