@@ -1,6 +1,6 @@
 local status_ok, cutlass = pcall(require, "cutlass")
 if not status_ok then
-  return
+  print("cutlass not working")
 end
 
 cutlass.setup({

@@ -1,6 +1,6 @@
 local status_ok, scrollbar = pcall(require, "scrollbar")
 if not status_ok then
-  return
+  print("scrollbar not working")
 end
 
 local gitsigns_status_ok, scrollbar_gitsigns = pcall(require, "scrollbar.handlers.gitsigns")

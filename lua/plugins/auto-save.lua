@@ -1,6 +1,6 @@
 local status_ok, autosave = pcall(require, "auto-save")
 if not status_ok then
-  return
+  print("auto-save not working")
 end
 
 autosave.setup({

@@ -1,6 +1,6 @@
 local status_ok, substitute = pcall(require, "substitute")
 if not status_ok then
-  return
+  print("substitute not working")
 end
 
 substitute.setup({

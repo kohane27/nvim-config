@@ -1,6 +1,6 @@
 local status_ok, flit = pcall(require, "flit")
 if not status_ok then
-  return
+  print("flit not working")
 end
 
 flit.setup({
