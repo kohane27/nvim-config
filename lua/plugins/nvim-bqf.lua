@@ -7,7 +7,12 @@ vim.cmd(([[
     aug END
 ]]):format([[call setqflist([], 'r', {'context': {'bqf': {'pattern_hl': '\%#' . getreg('/')}}})]]))
 
-require("bqf").setup({
+local status_ok, bqf = pcall(require, "bqf")
+if not status_ok then
+  print("bqf not working")
+end
+
+bqf.setup({
   preview = {
     win_height = 12,
     win_vheight = 12,

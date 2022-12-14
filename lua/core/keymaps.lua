@@ -36,8 +36,8 @@ map("n", "<C-a>", "<nop>")
 map("n", "<C-x>", "<nop>")
 map("n", "ZZ", "<nop>")
 map("n", "d$", "<nop>")
-map("v", "u", "<nop>")
-map("v", "U", "<nop>")
+map("x", "u", "<nop>")
+map("x", "U", "<nop>")
 
 -- add marks to populate jump list
 -- map("n", "J", "m'5gj")
