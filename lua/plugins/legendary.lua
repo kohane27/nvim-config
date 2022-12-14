@@ -185,30 +185,17 @@ legendary.setup({
     -- { "<leader>gg", "<cmd>TestVisit<CR>", description = "Test: Visit" },
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │  Harpoon                                                 │
+    -- │  Grapple                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "gh<C-n>", "<cmd>lua require('harpoon.ui').nav_next()<CR>", description = "Harpoon: Next Mark" },
-    { "gh<C-p>", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", description = "Harpoon: Previous Mark" },
-    { "gha", "<cmd>lua require('harpoon.mark').add_file()<CR>", description = "Harpoon: Mark File" },
-    { "ghm", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", description = "Harpoon: View All Marks" },
-    { "gh1", "<cmd>lua require('harpoon.ui').nav_file(1)<CR>", description = "Harpoon: File 1" },
-    { "gh2", "<cmd>lua require('harpoon.ui').nav_file(2)<CR>", description = "Harpoon: File 2" },
-    { "gh3", "<cmd>lua require('harpoon.ui').nav_file(3)<CR>", description = "Harpoon: File 3" },
-    { "gh4", "<cmd>lua require('harpoon.ui').nav_file(4)<CR>", description = "Harpoon: File 4" },
-    { "gh5", "<cmd>lua require('harpoon.ui').nav_file(5)<CR>", description = "Harpoon: File 5" },
-
-    -- -- ╭──────────────────────────────────────────────────────────╮
-    -- -- │  Harpoon                                                 │
-    -- -- ╰──────────────────────────────────────────────────────────╯
-    -- { "gh<C-n>", "<cmd>lua require('harpoon.ui').nav_next()<CR>", description = "Harpoon: Next Mark" },
-    -- { "gh<C-p>", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", description = "Harpoon: Previous Mark" },
-    -- { "gha", "<cmd>lua require('harpoon.mark').add_file()<CR>", description = "Harpoon: Mark File" },
-    -- { "ghm", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", description = "Harpoon: View All Marks" },
-    -- { "gh1", "<cmd>lua require('harpoon.ui').nav_file(1)<CR>", description = "Harpoon: File 1" },
-    -- { "gh2", "<cmd>lua require('harpoon.ui').nav_file(2)<CR>", description = "Harpoon: File 2" },
-    -- { "gh3", "<cmd>lua require('harpoon.ui').nav_file(3)<CR>", description = "Harpoon: File 3" },
-    -- { "gh4", "<cmd>lua require('harpoon.ui').nav_file(4)<CR>", description = "Harpoon: File 4" },
-    -- { "gh5", "<cmd>lua require('harpoon.ui').nav_file(5)<CR>", description = "Harpoon: File 5" },
+    { "<leader>mm", "<cmd>lua require('grapple').popup_tags()<CR>", description = "Grapple: View All Tags" },
+    { "<leader>mj", "<cmd>lua require('grapple').cycle_forward()<CR>", description = "Grapple: Next Tag" },
+    { "<leader>mk", "<cmd>lua require('grapple').cycle_backward()<CR>", description = "Grapple: Previous Tag" },
+    { "<leader>mn", "<cmd>lua require('grapple').toggle()<CR>", description = "Grapple: Tag or Untag File" },
+    { "<leader>m1", "<cmd>lua require('grapple').select({key = 1})<CR>", description = "Grapple: File 1" },
+    { "<leader>m2", "<cmd>lua require('grapple').select({key = 2})<CR>", description = "Grapple: File 2" },
+    { "<leader>m3", "<cmd>lua require('grapple').select({key = 3})<CR>", description = "Grapple: File 3" },
+    { "<leader>m4", "<cmd>lua require('grapple').select({key = 4})<CR>", description = "Grapple: File 4" },
+    { "<leader>m5", "<cmd>lua require('grapple').select({key = 5})<CR>", description = "Grapple: File 5" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │  Trouble                                                 │
@@ -220,7 +207,7 @@ legendary.setup({
     { "<leader>xl", "<cmd>Trouble loclist<CR>", description = "Trouble: Location List" },
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │   Miscellaneous                                          │
+    -- │   Miscellaneous Keymaps                                  │
     -- ╰──────────────────────────────────────────────────────────╯
     {
       "<c-s>",
@@ -228,19 +215,7 @@ legendary.setup({
       { n = "<cmd>write | edit | TSBufEnable highlight<CR>", i = "<c-o>:w<CR>" },
       description = "Save Buffer",
     },
-    { "<leader>mi", "<cmd>LspInfo<CR>", description = "LSP: Info" },
-    { "<leader>mI", "<cmd>Mason<CR>", description = "LSP: Install Info" },
-    { "<leader>ms", "<cmd>lua require('spectre').open_file_search()<CR>", description = "Spectre" },
-    { "<leader>mu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
-    { "<leader>ma", "<cmd>ASToggle<CR>", description = "AutoSave: Toggle" },
-    -- { "<leader>mp", "<cmd>PasteImg<CR>", description = "Paste Image" },
-    { "<leader>mo", "<cmd>LSoutlineToggle<CR>", description = "Symbols Outline" },
-    { "<leader>mS", "<cmd>SymbolsOutline<CR>", description = "Symbols Outline" },
-    {
-      "<leader>mc",
-      "<cmd>n ~/.config/nvim/lua/packer_init.lua ~/.config/nvim/init.lua<CR>",
-      description = "Edit Config",
-    },
+
     { "<A-p>", "<cmd>cprev<cr>", description = "Previous Quickfix Item" },
     { "<A-n>", "<cmd>cnext<cr>", description = "Next Quickfix Item" },
     { "<A-o>", "<cmd>lua require('bufjump').backward()<CR>", description = "Jump to Previous Buffer" },
@@ -254,5 +229,22 @@ legendary.setup({
 
     -- { "<C-o>", require("portal").jump_backward, description = "Portal Backward" },
     -- { "<C-i>", require("portal").jump_forward, description = "Portal Foward" },
+
+    -- ╭──────────────────────────────────────────────────────────╮
+    -- │   Miscellaneous (leader M)                               │
+    -- ╰──────────────────────────────────────────────────────────╯
+    { "<leader>Mi", "<cmd>LspInfo<CR>", description = "LSP: Info" },
+    { "<leader>MI", "<cmd>Mason<CR>", description = "LSP: Install Info" },
+    { "<leader>Ms", "<cmd>lua require('spectre').open_file_search()<CR>", description = "Spectre: File Search" },
+    { "<leader>Mu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
+    { "<leader>Ma", "<cmd>ASToggle<CR>", description = "AutoSave: Toggle" },
+    -- { "<leader>mp", "<cmd>PasteImg<CR>", description = "Paste Image" },
+    { "<leader>Mo", "<cmd>LSoutlineToggle<CR>", description = "Symbols Outline" },
+    { "<leader>MS", "<cmd>SymbolsOutline<CR>", description = "Symbols Outline" },
+    {
+      "<leader>Mc",
+      "<cmd>n ~/.config/nvim/lua/packer_init.lua ~/.config/nvim/init.lua<CR>",
+      description = "Edit Config",
+    },
   },
 })
