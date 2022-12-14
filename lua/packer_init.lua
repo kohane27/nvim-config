@@ -209,6 +209,7 @@ return packer.startup(function(use)
   -- TODO check is merged to core in stable 0.9
   use("luukvbaal/stabilize.nvim") -- stabilize buffer content on window open/close events
 
+  use("tversteeg/registers.nvim") -- see register contents
   use("nyngwang/NeoZoom.lua") -- `<C-w>m` to maximize window without closing other buffers
   use("ethanholz/nvim-lastplace") -- reopen files at last edit position
   use("max397574/colortils.nvim") -- color utils -- TODO learn how to use
@@ -230,8 +231,6 @@ return packer.startup(function(use)
   use("cbochs/grapple.nvim")
   use("cbochs/portal.nvim")
   use("kwkarlwang/bufjump.nvim") -- <A-i> and <A-o> to jump between buffers
-
-  use("tversteeg/registers.nvim") -- see register contents
 
   -- Colorschemes/themes
   use("NTBBloodbath/doom-one.nvim")
