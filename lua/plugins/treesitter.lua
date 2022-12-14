@@ -1,6 +1,6 @@
 local status_ok, ts_configs = pcall(require, "nvim-treesitter.configs")
 if not status_ok then
-  return
+  print("treesitter.configs failing")
 end
 
 ts_configs.setup({

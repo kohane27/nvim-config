@@ -1,6 +1,6 @@
 local status_ok, neo_zoom = pcall(require, "neo-zoom")
 if not status_ok then
-  return
+  print("neo-zoom not working")
 end
 
 neo_zoom.setup({

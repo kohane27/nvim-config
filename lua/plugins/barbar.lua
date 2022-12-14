@@ -1,6 +1,6 @@
 local status_ok, barbar = pcall(require, "bufferline")
 if not status_ok then
-  return
+  print("bufferline not working")
 end
 
 barbar.setup({

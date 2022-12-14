@@ -1,6 +1,6 @@
 local status_ok, incline = pcall(require, "incline")
 if not status_ok then
-  return
+  print("incline not working")
 end
 
 incline.setup({

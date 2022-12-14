@@ -1,6 +1,6 @@
 local status_ok, delaytrain = pcall(require, "delaytrain")
 if not status_ok then
-  return
+  print("delaytrain not working")
 end
 
 delaytrain.setup({

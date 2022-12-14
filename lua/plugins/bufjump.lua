@@ -1,6 +1,6 @@
 local status_ok, bufjump = pcall(require, "bufjump")
 if not status_ok then
-  return
+  print("bufjump not working")
 end
 
 bufjump.setup({
