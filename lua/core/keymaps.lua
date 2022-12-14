@@ -126,10 +126,6 @@ map("i", "<C-b>", "<C-o>dB")
 -- -- paste clipboard content
 -- map("i", "<C-v>", "<C-R>*")
 
--- <C-m> is <CR> and <CR> is <C-m>
--- They are the same key so you can't map something to <C-m> without mapping it to <CR> and vice-versa.
--- You'll need to find another key combo for your mapping.
-
 vim.cmd([[
 " close and save all buffer
 cnoremap x xa
