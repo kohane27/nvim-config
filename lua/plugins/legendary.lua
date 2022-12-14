@@ -23,6 +23,7 @@ legendary.setup({
     { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
     { "<leader>fo", "<cmd>Telescope oldfiles<CR>", description = "Telescope: Open Recent File" },
     { "<leader>fp", "<cmd>Telescope projects<CR>", description = "Telescope: Find Projects" },
+    { "<leader>fb", "<cmd>Telescope file_browser<CR>", description = "Telescope: File Browser" },
     { "<leader>fr", "<cmd>Telescope neoclip<CR>", description = "Telescope: Find Clipboard History" },
     { "<leader>ft", "<cmd>Telescope telescope-tabs list_tabs<CR>", description = "Telescope: Find Tabs" },
 
