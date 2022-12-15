@@ -11,7 +11,6 @@ local g = vim.g -- Global variables
 local opt = vim.opt -- Set options (global/buffer/windows-scoped)
 
 vim.cmd([[
-
 if has("persistent_undo")
    let target_path = expand('~/.undodir')
 
