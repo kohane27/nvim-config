@@ -227,8 +227,8 @@ legendary.setup({
     { "<C-f>", '<C-R>"', description = "Paste Last Yanked / Deleted", mode = { "i" } },
     { "<C-v>", "<C-R>*", description = "Paste Clipboard Content", mode = { "i" } },
 
-    -- { "<C-j>", "<cmd>lua require('portal').jump_backward()<CR>", description = "Portal Backward" },
-    -- { "<C-k>", "<cmd>lua require('portal').jump_forward()<CR>", description = "Portal Foward" },
+    { "<C-o>", "<cmd>lua require('portal').jump_backward()<CR>", description = "Portal Backward" },
+    { "<C-i>", "<cmd>lua require('portal').jump_forward()<CR>", description = "Portal Foward" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous (leader M)                               │

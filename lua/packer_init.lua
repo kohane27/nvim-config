@@ -154,6 +154,11 @@ return packer.startup(function(use)
   use("ggandor/flit.nvim")
   -- use("ggandor/leap-spooky.nvim")
 
+  use("aserowy/tmux.nvim")
+  use("cbochs/grapple.nvim")
+  use("cbochs/portal.nvim")
+  use("kwkarlwang/bufjump.nvim") -- <A-i> and <A-o> to jump between buffers
+
   use("kevinhwang91/nvim-bqf")
   use("https://gitlab.com/yorickpeterse/nvim-pqf") -- pretty list
 
@@ -226,11 +231,6 @@ return packer.startup(function(use)
   -- use("puremourning/vimspector")
   -- test
   use("vim-test/vim-test")
-
-  use("aserowy/tmux.nvim")
-  use("cbochs/grapple.nvim")
-  use("cbochs/portal.nvim")
-  use("kwkarlwang/bufjump.nvim") -- <A-i> and <A-o> to jump between buffers
 
   -- Colorschemes/themes
   use("NTBBloodbath/doom-one.nvim")
