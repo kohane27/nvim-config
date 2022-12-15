@@ -38,7 +38,6 @@ require("plugins.bufjump")
 require("plugins.grapple")
 require("plugins.portal")
 
-require("plugins.undotree")
 require("plugins.floaterm")
 require("plugins.toggleterm")
 require("plugins.luasnip")
