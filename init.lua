@@ -34,9 +34,9 @@ require("plugins.colorizer")
 
 require("plugins.leap")
 require("plugins.flit")
-require("plugins.bufjump")
 require("plugins.grapple")
 require("plugins.portal")
+-- require("plugins.jump")
 
 require("plugins.floaterm")
 require("plugins.toggleterm")
