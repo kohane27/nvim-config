@@ -3,8 +3,22 @@ if not status_ok then
   print("legendary failing")
 end
 
+local toolbox = require("legendary.toolbox")
+-- local keymaps = {
+--   { "<leader>f", toolbox.lazy_required_fn("telescope.builtin", "oldfiles", { only_cwd = true }) },
+--   -- you can use a dot in the 2nd parameter to access functions nested in tables
+--   { "<leader>tt", toolbox.lazy_required_fn("neotest", "run.run") },
+-- }
+
 legendary.setup({
   include_builtin = false,
+  sort = {
+    -- this takes precedence over other sort options!
+    frecency = {
+      db_root = string.format("%s/legendary/", vim.fn.stdpath("data")),
+      max_timestamps = 20,
+    },
+  },
   keymaps = {
     -- <C-KEY>
     { "<C-t>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
@@ -20,7 +34,7 @@ legendary.setup({
       "<cmd>Telescope current_buffer_fuzzy_find case_mode=ignore_case<CR>",
       description = "Telescope: Find Text in Buffers",
     },
-    { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
+    -- { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
     { "<leader>fo", "<cmd>Telescope oldfiles<CR>", description = "Telescope: Open Recent File" },
     { "<leader>fp", "<cmd>Telescope projects<CR>", description = "Telescope: Find Projects" },
     { "<leader>fb", "<cmd>Telescope file_browser<CR>", description = "Telescope: File Browser" },
@@ -31,13 +45,18 @@ legendary.setup({
     -- │ LSP                                                      │
     -- ╰──────────────────────────────────────────────────────────╯
     { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", description = "LSP: Go to Definition" },
-    { "gD", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", description = "LSP: Preview Definition" },
+    {
+      "gD",
+      toolbox.lazy_required_fn("goto-preview", "goto_preview_definition"),
+      description = "LSP: Preview Definition",
+    },
+
     -- {"gD", "<cmd>Lspsaga peek_definition<CR>", description = "Preview Definition"},
 
     { "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", description = "LSP: Go to Type Definition" },
     {
       "<leader>lT",
-      "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>",
+      toolbox.lazy_required_fn("goto-preview", "goto_preview_type_definition"),
       description = "LSP: Preview Type Definition",
     },
 
@@ -45,7 +64,7 @@ legendary.setup({
     { "<leader>li", "<cmd>lua vim.lsp.buf.implementation()<CR>", description = "LSP: Go to Implementation" },
     {
       "<leader>lI",
-      "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>",
+      toolbox.lazy_required_fn("goto-preview", "goto_preview_implementation"),
       description = "LSP: Preview Implementation",
     },
     { "<leader>la", "<cmd>Lspsaga code_action<CR>", description = "LSP: Code Action" },
@@ -53,9 +72,10 @@ legendary.setup({
     { "<leader>lr", "<cmd>Trouble lsp_references<CR>", description = "LSP: Reference List" },
     {
       "<leader>lR",
-      "<cmd>lua require('goto-preview').goto_preview_references()<CR>",
+      toolbox.lazy_required_fn("goto-preview", "goto_preview_references"),
       description = "LSP: Preview Reference List",
     },
+
     { "<leader>ln", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
     { "<leader>lh", "<cmd>Lspsaga hover_doc<CR>", description = "LSP: Hover Doc" },
     { "<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>", description = "LSP: Formatting" },
@@ -88,45 +108,24 @@ legendary.setup({
     { "g0", "<cmd>BufferLast<CR>", description = "Go to Buffer 10" },
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │ comment_box                                              │
-    -- ╰──────────────────────────────────────────────────────────╯
-    {
-      "<leader>mb",
-      { v = '<cmd>lua require("comment-box").lbox()<CR>' },
-      description = "Left-aligned Comment Box",
-    },
-
-    -- ╭──────────────────────────────────────────────────────────╮
-    -- │ neozoom                                                  │
-    -- ╰──────────────────────────────────────────────────────────╯
-    {
-      "<C-w>o",
-      function()
-        vim.cmd("NeoZoomToggle")
-      end,
-      description = "Toggle NeoZoom",
-    },
-
-    -- ╭──────────────────────────────────────────────────────────╮
     -- │ substitute.lua                                           │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "cx", "<cmd>lua require('substitute.exchange').operator()<CR>", description = "Substitute Exchange Operator" },
-    { "cxx", "<cmd>lua require('substitute.exchange').line()<CR>", description = "Substitute Exchange Line" },
-    -- map("x", "cx", "<cmd>lua require('substitute.exchange').visual()<CR>", description = "Substitute Exchange Line"},
-    { "cxc", "<cmd>lua require('substitute.exchange').cancel()<CR>", description = "Substitute Exchange Cancel" },
+    { "cx", toolbox.lazy_required_fn("substitute.exchange", "operator"), description = "Substitute Exchange Operator" },
+    { "cxx", toolbox.lazy_required_fn("substitute.exchange", "line"), description = "Substitute Exchange Line" },
+    -- map("x", "cx", toolbox.lazy_required_fn("substitute.exchange", "visual"), description = "Substitute Exchange Line"},
+    { "cxc", toolbox.lazy_required_fn("substitute.exchange", "cancel"), description = "Substitute Exchange Cancel" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ tmux.lua                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<A-h>", "<cmd>lua require('tmux').move_left()<CR>", description = "Move Focus to Left" },
-    { "<A-l>", "<cmd>lua require('tmux').move_right()<CR>", description = "Move Focus to Right" },
-    { "<A-k>", "<cmd>lua require('tmux').move_top()<CR>", description = "Move Focus to Top" },
-    { "<A-j>", "<cmd>lua require('tmux').move_bottom()<CR>", description = "Move Focus to Bottom" },
-
-    { "<C-Left>", "<cmd>lua require('tmux').resize_left()<CR>", description = "Resize Left" },
-    { "<C-Right>", "<cmd>lua require('tmux').resize_right()<CR>", description = "Resize Right" },
-    { "<C-Up>", "<cmd>lua require('tmux').resize_top()<CR>", description = "Resize Top" },
-    { "<C-Down>", "<cmd>lua require('tmux').resize_bottom()<CR>", description = "Resize Bottom" },
+    { "<A-h>", toolbox.lazy_required_fn("tmux", "move_left"), description = "Move Focus to Left" },
+    { "<A-l>", toolbox.lazy_required_fn("tmux", "move_right"), description = "Move Focus to Right" },
+    { "<A-k>", toolbox.lazy_required_fn("tmux", "move_top"), description = "Move Focus to Top" },
+    { "<A-j>", toolbox.lazy_required_fn("tmux", "move_bottom"), description = "Move Focus to Bottom" },
+    { "<C-Left>", toolbox.lazy_required_fn("tmux", "resize_left"), description = "Resize Left" },
+    { "<C-Right>", toolbox.lazy_required_fn("tmux", "resize_right"), description = "Resize Right" },
+    { "<C-Up>", toolbox.lazy_required_fn("tmux", "resize_top"), description = "Resize Top" },
+    { "<C-Down>", toolbox.lazy_required_fn("tmux", "resize_bottom"), description = "Resize Bottom" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Git                                                      │
@@ -149,14 +148,6 @@ legendary.setup({
     { "<leader>rc", "<cmd>SnipClose<CR>", description = "Close Snip" },
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │ Session                                                  │
-    -- ╰──────────────────────────────────────────────────────────╯
-    -- { "<leader>ss", "<cmd>SaveSession<CR>", description = "Session: Save session" },
-    -- { "<leader>sr", "<cmd>RestoreSession<CR>", description = "Session: Restore session" },
-    -- { "<leader>sd", "<cmd>DeleteSession<CR>", description = "Session: Delete session" },
-    -- { "<leader>sl", "<cmd>lua require('session-lens').search_session()<CR>", description = "Session: Search session" },
-
-    -- ╭──────────────────────────────────────────────────────────╮
     -- │ Packer                                                   │
     -- ╰──────────────────────────────────────────────────────────╯
     { "<leader>pc", "<cmd>PackerCompile<CR>", description = "Packer: Compile" },
@@ -176,6 +167,19 @@ legendary.setup({
     { "<leader>tn", "<cmd>ToggleTerm<CR>", description = "Terminal: New" },
 
     -- ╭──────────────────────────────────────────────────────────╮
+    -- │  Grapple                                                 │
+    -- ╰──────────────────────────────────────────────────────────╯
+    { "<leader>mm", toolbox.lazy_required_fn("grapple", "popup_tags"), description = "Grapple: View All Tags" },
+    { "<leader>mj", toolbox.lazy_required_fn("grapple", "cycle_forward"), description = "Grapple: Next Tag" },
+    { "<leader>mk", toolbox.lazy_required_fn("grapple", "cycle_backward"), description = "Grapple: Previous Tag" },
+    { "<leader>mn", toolbox.lazy_required_fn("grapple", "toggle"), description = "Grapple: Tag or Untag File" },
+    { "<leader>m1", "<cmd>lua require('grapple').select({key = 1})<CR>", description = "Grapple: File 1" },
+    { "<leader>m2", "<cmd>lua require('grapple').select({key = 2})<CR>", description = "Grapple: File 2" },
+    { "<leader>m3", "<cmd>lua require('grapple').select({key = 3})<CR>", description = "Grapple: File 3" },
+    { "<leader>m4", "<cmd>lua require('grapple').select({key = 4})<CR>", description = "Grapple: File 4" },
+    { "<leader>m5", "<cmd>lua require('grapple').select({key = 5})<CR>", description = "Grapple: File 5" },
+
+    -- ╭──────────────────────────────────────────────────────────╮
     -- │ Test                                                     │
     -- ╰──────────────────────────────────────────────────────────╯
     -- { "<leader>gt", "<cmd>TestNearest<CR>", description = "Test: Nearest" },
@@ -185,17 +189,12 @@ legendary.setup({
     -- { "<leader>gg", "<cmd>TestVisit<CR>", description = "Test: Visit" },
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │  Grapple                                                 │
+    -- │ Session                                                  │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>mm", "<cmd>lua require('grapple').popup_tags()<CR>", description = "Grapple: View All Tags" },
-    { "<leader>mj", "<cmd>lua require('grapple').cycle_forward()<CR>", description = "Grapple: Next Tag" },
-    { "<leader>mk", "<cmd>lua require('grapple').cycle_backward()<CR>", description = "Grapple: Previous Tag" },
-    { "<leader>mn", "<cmd>lua require('grapple').toggle()<CR>", description = "Grapple: Tag or Untag File" },
-    { "<leader>m1", "<cmd>lua require('grapple').select({key = 1})<CR>", description = "Grapple: File 1" },
-    { "<leader>m2", "<cmd>lua require('grapple').select({key = 2})<CR>", description = "Grapple: File 2" },
-    { "<leader>m3", "<cmd>lua require('grapple').select({key = 3})<CR>", description = "Grapple: File 3" },
-    { "<leader>m4", "<cmd>lua require('grapple').select({key = 4})<CR>", description = "Grapple: File 4" },
-    { "<leader>m5", "<cmd>lua require('grapple').select({key = 5})<CR>", description = "Grapple: File 5" },
+    -- { "<leader>ss", "<cmd>SaveSession<CR>", description = "Session: Save session" },
+    -- { "<leader>sr", "<cmd>RestoreSession<CR>", description = "Session: Restore session" },
+    -- { "<leader>sd", "<cmd>DeleteSession<CR>", description = "Session: Delete session" },
+    -- { "<leader>sl", "<cmd>lua require('session-lens').search_session()<CR>", description = "Session: Search session" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │  Trouble                                                 │
@@ -212,39 +211,45 @@ legendary.setup({
     {
       "<c-s>",
       -- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
-      { n = "<cmd>write | edit | TSBufEnable highlight<CR>", i = "<c-o>:w<CR>" },
+      { n = "<cmd>write | edit | TSBufEnable highlight<CR>zz", i = "<c-o>:w<CR>" },
       description = "Save Buffer",
     },
+    { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Toggle NeoZoom" },
 
     { "<A-p>", "<cmd>cprev<cr>", description = "Previous Quickfix Item" },
     { "<A-n>", "<cmd>cnext<cr>", description = "Next Quickfix Item" },
-    { "<A-o>", "<cmd>lua require('bufjump').backward()<CR>", description = "Jump to Previous Buffer" },
-    { "<A-i>", "<cmd>lua require('bufjump').forward()<CR>", description = "Jump to Next Buffer" },
+
+    { "<A-o>", toolbox.lazy_required_fn("bufjump", "backward"), description = "Jump to Previous Buffer" },
+    { "<A-i>", toolbox.lazy_required_fn("bufjump", "forward"), description = "Jump to Next Buffer" },
 
     -- TODO rethink C-j and C-k
     -- { "<C-j>", "g;", description = "Previous Changelist Item" },
     -- { "<C-k>", "g,", description = "Next Changelist Item" },
     { "<C-f>", '<C-R>"', description = "Paste Last Yanked / Deleted", mode = { "i" } },
     { "<C-v>", "<C-R>*", description = "Paste Clipboard Content", mode = { "i" } },
-
-    { "<C-o>", "<cmd>lua require('portal').jump_backward()<CR>", description = "Portal Backward" },
-    { "<C-i>", "<cmd>lua require('portal').jump_forward()<CR>", description = "Portal Foward" },
+    { "<C-o>", toolbox.lazy_required_fn("portal", "jump_backward"), description = "Portal Backward" },
+    { "<C-i>", toolbox.lazy_required_fn("portal", "jump_forward"), description = "Portal Foward" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous (leader M)                               │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>Mi", "<cmd>LspInfo<CR>", description = "LSP: Info" },
-    { "<leader>MI", "<cmd>Mason<CR>", description = "LSP: Install Info" },
-    { "<leader>Ms", "<cmd>lua require('spectre').open_file_search()<CR>", description = "Spectre: File Search" },
-    { "<leader>Mu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
-    { "<leader>Ma", "<cmd>ASToggle<CR>", description = "AutoSave: Toggle" },
-    -- { "<leader>mp", "<cmd>PasteImg<CR>", description = "Paste Image" },
-    { "<leader>Mo", "<cmd>LSoutlineToggle<CR>", description = "Symbols Outline" },
-    { "<leader>MS", "<cmd>SymbolsOutline<CR>", description = "Symbols Outline" },
+    { "<leader>Mi", "<cmd>LspInfo<CR>", description = "Misc: LSP: Info" },
+    { "<leader>MI", "<cmd>Mason<CR>", description = "Misc: LSP: Install Info" },
+    { "<leader>Ms", "<cmd>lua require('spectre').open_file_search()<CR>", description = "Misc: Spectre: File Search" },
+    { "<leader>Mu", "<cmd>UndotreeToggle<CR>", description = "Misc: Undotree: Toggle" },
+    { "<leader>Ma", "<cmd>ASToggle<CR>", description = "Misc: AutoSave: Toggle" },
+    -- { "<leader>mp", "<cmd>PasteImg<CR>", description = "Misc: Paste Image" },
+    { "<leader>Mo", "<cmd>LSoutlineToggle<CR>", description = "Misc: Symbols Outline" },
+    { "<leader>MS", "<cmd>SymbolsOutline<CR>", description = "Misc: Symbols Outline" },
+    {
+      "<leader>Mb",
+      { v = toolbox.lazy_required_fn("comment-box", "lbox") },
+      description = "Left-aligned Comment Box",
+    },
     {
       "<leader>Mc",
       "<cmd>n ~/.config/nvim/lua/packer_init.lua ~/.config/nvim/init.lua<CR>",
-      description = "Edit Config",
+      description = "Misc: Edit Config",
     },
   },
 })
