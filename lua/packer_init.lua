@@ -157,7 +157,6 @@ return packer.startup(function(use)
   use("aserowy/tmux.nvim")
   use("cbochs/grapple.nvim")
   use("cbochs/portal.nvim")
-  use("kwkarlwang/bufjump.nvim") -- <A-i> and <A-o> to jump between buffers
 
   use("kevinhwang91/nvim-bqf")
   use("https://gitlab.com/yorickpeterse/nvim-pqf") -- pretty list

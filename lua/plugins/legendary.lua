@@ -4,11 +4,6 @@ if not status_ok then
 end
 
 local toolbox = require("legendary.toolbox")
--- local keymaps = {
---   { "<leader>f", toolbox.lazy_required_fn("telescope.builtin", "oldfiles", { only_cwd = true }) },
---   -- you can use a dot in the 2nd parameter to access functions nested in tables
---   { "<leader>tt", toolbox.lazy_required_fn("neotest", "run.run") },
--- }
 
 legendary.setup({
   include_builtin = false,
@@ -34,6 +29,7 @@ legendary.setup({
       "<cmd>Telescope current_buffer_fuzzy_find case_mode=ignore_case<CR>",
       description = "Telescope: Find Text in Buffers",
     },
+    { "<leader>fd", "<cmd>Telescope diagnostics<CR>", description = "Telescope: Find Diagnostics" },
     -- { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
     { "<leader>fo", "<cmd>Telescope oldfiles<CR>", description = "Telescope: Open Recent File" },
     { "<leader>fp", "<cmd>Telescope projects<CR>", description = "Telescope: Find Projects" },
@@ -50,37 +46,41 @@ legendary.setup({
       toolbox.lazy_required_fn("goto-preview", "goto_preview_definition"),
       description = "LSP: Preview Definition",
     },
-
     -- {"gD", "<cmd>Lspsaga peek_definition<CR>", description = "Preview Definition"},
 
-    { "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", description = "LSP: Go to Type Definition" },
+    { "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", description = "LSP: Go to Type Definition" },
     {
-      "<leader>lT",
+      "gT",
       toolbox.lazy_required_fn("goto-preview", "goto_preview_type_definition"),
       description = "LSP: Preview Type Definition",
     },
 
-    -- implementation (rarely)
-    { "<leader>li", "<cmd>lua vim.lsp.buf.implementation()<CR>", description = "LSP: Go to Implementation" },
+    { "gr", "<cmd>Trouble lsp_references<CR>", description = "LSP: Reference List" },
     {
-      "<leader>lI",
-      toolbox.lazy_required_fn("goto-preview", "goto_preview_implementation"),
-      description = "LSP: Preview Implementation",
-    },
-    { "<leader>la", "<cmd>Lspsaga code_action<CR>", description = "LSP: Code Action" },
-    { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<CR>", description = "LSP: Code Lens" },
-    { "<leader>lr", "<cmd>Trouble lsp_references<CR>", description = "LSP: Reference List" },
-    {
-      "<leader>lR",
+      "gR",
       toolbox.lazy_required_fn("goto-preview", "goto_preview_references"),
       description = "LSP: Preview Reference List",
     },
+    -- implementation (rarely)
+    -- { "<leader>li", "<cmd>lua vim.lsp.buf.implementation()<CR>", description = "LSP: Go to Implementation" },
+    {
+      "gI",
+      toolbox.lazy_required_fn("goto-preview", "goto_preview_implementation"),
+      description = "LSP: Preview Implementation",
+    },
 
-    { "<leader>ln", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
+    { "<leader>lrn", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
+    { "<leader>lca", "<cmd>Lspsaga code_action<CR>", description = "LSP: Code Action" },
+    { "<leader>lcl", "<cmd>lua vim.lsp.codelens.run()<CR>", description = "LSP: Code Lens" },
     { "<leader>lh", "<cmd>Lspsaga hover_doc<CR>", description = "LSP: Hover Doc" },
     { "<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>", description = "LSP: Formatting" },
     { "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", description = "LSP: Go to Previous Diagnostic" },
     { "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", description = "LSP: Go to Next Diagnostic" },
+    { "<leader>ld", "<cmd>TroubleToggle document_diagnostics<CR>", description = "LSP: Document Diagnostics" },
+    { "<leader>lD", "<cmd>TroubleToggle workspace_diagnostics<CR>", description = "LSP: Workspace Diagnostics" },
+    -- using nvim-bqf
+    { "<leader>lq", "<cmd>copen<CR>", description = "LSP: Quickfix List" },
+    { "<leader>ll", "<cmd>TroubleToggle loclist<CR>", description = "LSP: Location List" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ barbar.lua                                               │
@@ -148,15 +148,6 @@ legendary.setup({
     { "<leader>rc", "<cmd>SnipClose<CR>", description = "Close Snip" },
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │ Packer                                                   │
-    -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>pc", "<cmd>PackerCompile<CR>", description = "Packer: Compile" },
-    { "<leader>pi", "<cmd>PackerInstall<CR>", description = "Packer: Install" },
-    { "<leader>ps", "<cmd>PackerSync<CR>", description = "Packer: Sync" },
-    { "<leader>pS", "<cmd>PackerStatus<CR>", description = "Packer: Status" },
-    { "<leader>pu", "<cmd>PackerUpdate<CR>", description = "Packer: Update" },
-
-    -- ╭──────────────────────────────────────────────────────────╮
     -- │ Terminal                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
     {
@@ -197,15 +188,6 @@ legendary.setup({
     -- { "<leader>sl", "<cmd>lua require('session-lens').search_session()<CR>", description = "Session: Search session" },
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │  Trouble                                                 │
-    -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>xd", "<cmd>Trouble document_diagnostics<CR>", description = "Trouble: Document Diagnostics" },
-    { "<leader>xD", "<cmd>Trouble workspace_diagnostics<CR>", description = "Trouble: Workspace Diagnostics" },
-    -- using nvim-bqf
-    { "<leader>xq", "<cmd>copen<CR>", description = "Trouble: Quickfix" },
-    { "<leader>xl", "<cmd>Trouble loclist<CR>", description = "Trouble: Location List" },
-
-    -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous Keymaps                                  │
     -- ╰──────────────────────────────────────────────────────────╯
     {
@@ -216,31 +198,40 @@ legendary.setup({
     },
     { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Toggle NeoZoom" },
 
-    { "<A-p>", "<cmd>cprev<cr>", description = "Previous Quickfix Item" },
-    { "<A-n>", "<cmd>cnext<cr>", description = "Next Quickfix Item" },
+    { "<A-p>", "<cmd>cprev<CR>zz", description = "Previous Quickfix Item" },
+    { "<A-n>", "<cmd>cnext<CR>zz", description = "Next Quickfix Item" },
 
-    { "<A-o>", toolbox.lazy_required_fn("bufjump", "backward"), description = "Jump to Previous Buffer" },
-    { "<A-i>", toolbox.lazy_required_fn("bufjump", "forward"), description = "Jump to Next Buffer" },
-
+    -- TODO A-o and A-i available
     -- TODO rethink C-j and C-k
-    -- { "<C-j>", "g;", description = "Previous Changelist Item" },
-    -- { "<C-k>", "g,", description = "Next Changelist Item" },
+    { "<C-j>", "g,zz", description = "Next Changelist Item" },
+    { "<C-k>", "g;zz", description = "Previous Changelist Item" },
     { "<C-f>", '<C-R>"', description = "Paste Last Yanked / Deleted", mode = { "i" } },
     { "<C-v>", "<C-R>*", description = "Paste Clipboard Content", mode = { "i" } },
-    { "<C-o>", toolbox.lazy_required_fn("portal", "jump_backward"), description = "Portal Backward" },
-    { "<C-i>", toolbox.lazy_required_fn("portal", "jump_forward"), description = "Portal Foward" },
+    -- { "<C-o>", toolbox.lazy_required_fn("portal", "jump_backward"), description = "Portal Backward" },
+    -- { "<C-i>", toolbox.lazy_required_fn("portal", "jump_forward"), description = "Portal Foward" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous (leader M)                               │
     -- ╰──────────────────────────────────────────────────────────╯
+    { "<leader>Mpc", "<cmd>PackerCompile<CR>", description = "Misc: Packer: Compile" },
+    { "<leader>Mpi", "<cmd>PackerInstall<CR>", description = "Misc: Packer: Install" },
+    { "<leader>Mps", "<cmd>PackerSync<CR>", description = "Misc: Packer: Sync" },
+    { "<leader>MpS", "<cmd>PackerStatus<CR>", description = "Misc: Packer: Status" },
+    { "<leader>Mpu", "<cmd>PackerUpdate<CR>", description = "Misc: Packer: Update" },
+
     { "<leader>Mi", "<cmd>LspInfo<CR>", description = "Misc: LSP: Info" },
     { "<leader>MI", "<cmd>Mason<CR>", description = "Misc: LSP: Install Info" },
-    { "<leader>Ms", "<cmd>lua require('spectre').open_file_search()<CR>", description = "Misc: Spectre: File Search" },
+
     { "<leader>Mu", "<cmd>UndotreeToggle<CR>", description = "Misc: Undotree: Toggle" },
     { "<leader>Ma", "<cmd>ASToggle<CR>", description = "Misc: AutoSave: Toggle" },
     -- { "<leader>mp", "<cmd>PasteImg<CR>", description = "Misc: Paste Image" },
     { "<leader>Mo", "<cmd>LSoutlineToggle<CR>", description = "Misc: Symbols Outline" },
     { "<leader>MS", "<cmd>SymbolsOutline<CR>", description = "Misc: Symbols Outline" },
+    {
+      "<leader>Ms",
+      toolbox.lazy_required_fn("spectre", "open_file_search"),
+      description = "Misc: Spectre: File Search",
+    },
     {
       "<leader>Mb",
       { v = toolbox.lazy_required_fn("comment-box", "lbox") },
