@@ -30,11 +30,10 @@ legendary.setup({
       description = "Telescope: Find Text in Current Buffer",
     },
     {
-      "<leader>/",
+      "<leader>fw",
       { v = "<cmd>lua require('fzf-lua').grep_visual()<CR>", n = "<cmd>Telescope grep_string<CR>" },
       description = "Telescope: Find Text Under Cursor",
     },
-    { "<leader>fd", "<cmd>Telescope diagnostics<CR>", description = "Telescope: Find Diagnostics" },
     -- { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
     { "<leader>fo", "<cmd>Telescope oldfiles<CR>", description = "Telescope: Open Recent File" },
     { "<leader>fp", "<cmd>Telescope projects<CR>", description = "Telescope: Find Projects" },
@@ -43,21 +42,22 @@ legendary.setup({
     { "<leader>ft", "<cmd>Telescope buffers<CR>", description = "Telescope: Buffers" },
     { "<leader>fj", "<cmd>Telescope jumplist<CR>", description = "Telescope: Jumplist" },
     { "<leader>fc", "<cmd>lua require('fzf-lua').changes()<CR>", description = "Telescope: Changes" },
-    { "<leader>fC", "<cmd>Telescope command_history<CR>", description = "Telescope: Command History" },
-    { "<leader>fS", "<cmd>Telescope search_history<CR>", description = "Telescope: Search History" },
+
+    { "<leader>fXc", "<cmd>Telescope command_history<CR>", description = "Telescope: Command History" },
+    { "<leader>fXs", "<cmd>Telescope search_history<CR>", description = "Telescope: Search History" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ LSP                                                      │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>lf", "<cmd>Lspsaga lsp_finder<CR>", description = "LSP: Finder: Symbol Definition Implementation" },
+    { "<leader>lf", "<cmd>Lspsaga lsp_finder<CR>", description = "LSP: Finder: Symbol, Definition and Implementation" },
     { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", description = "LSP: Line Diagnostics" },
 
     {
-      "gr",
+      "gd",
       toolbox.lazy_required_fn("goto-preview", "goto_preview_definition"),
       description = "LSP: Preview Definition",
     },
-    -- { "gr", "<cmd>Lspsaga peek_definition<CR>", description = "LSP: Preview Definition" },
+    -- { "gd", "<cmd>Lspsaga peek_definition<CR>", description = "LSP: Preview Definition" },
     { "gD", "<cmd>lua vim.lsp.buf.definition()<CR>", description = "LSP: Go to Definition" },
 
     {
@@ -75,8 +75,9 @@ legendary.setup({
     --   description = "LSP: Reference List",
     -- },
 
+    { "<leader>lq", "<cmd>copen<CR>", description = "LSP: Quickfix List" }, -- using nvim-bqf
     { "<leader>lr", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
-
+    { "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", description = "LSP: Signature Help" },
     { "<leader>lc", "<cmd>lua vim.lsp.buf.code_action()<CR>", description = "LSP: Code Action" },
     -- { "<leader>lc", "<cmd>Lspsaga code_action<CR>", description = "LSP: Code Action" },
 
@@ -100,19 +101,15 @@ legendary.setup({
     -- lesser used
     -- implementation (rarely)
     -- { "<leader>li", "<cmd>lua vim.lsp.buf.implementation()<CR>", description = "LSP: Go to Implementation" },
-    { "<leader>lC", "<cmd>lua vim.lsp.codelens.run()<CR>", description = "LSP: Code Lens" },
     {
       "gI",
       toolbox.lazy_required_fn("goto-preview", "goto_preview_implementation"),
       description = "LSP: Preview Implementation",
     },
-    { "<leader>lX", "<cmd>lua vim.lsp.buf.declaration<CR>", description = "LSP: Declaration" },
-    { "<leader>lF", "<cmd>lua vim.lsp.buf.format()<CR>", description = "LSP: Formatting" },
-    { "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", description = "LSP: Signature Help" },
-
-    -- using nvim-bqf
-    { "<leader>lq", "<cmd>copen<CR>", description = "LSP: Quickfix List" },
-    { "<leader>ll", "<cmd>TroubleToggle loclist<CR>", description = "LSP: Location List" },
+    { "<leader>lXc", "<cmd>lua vim.lsp.codelens.run()<CR>", description = "LSP: Code Lens" },
+    { "<leader>lXd", "<cmd>lua vim.lsp.buf.declaration<CR>", description = "LSP: Declaration" },
+    { "<leader>lXf", "<cmd>lua vim.lsp.buf.format()<CR>", description = "LSP: Formatting" },
+    { "<leader>lXl", "<cmd>TroubleToggle loclist<CR>", description = "LSP: Location List" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ barbar.lua                                               │
@@ -122,12 +119,9 @@ legendary.setup({
     { "<A-<>", "<cmd>BufferMovePrevious<CR>", description = "Buffer: Re-order to Previous" },
     { "<A->>", "<cmd>BufferMoveNext<CR>", description = "Buffer: Re-order to Next" },
     { "<A-c>", "<cmd>BufferClose<CR>", description = "Buffer: Close" },
-    -- {"<A-c>", "<cmd>BufferCloseAllButCurrent<CR>", description = "Buffer: Close All But Current"},
-    -- {"<A-p>", "<cmd>BufferPin<CR>", description = "Buffer: Toggle Pin"},
-    -- {"<A-C>", "<cmd>BufferCloseAllButPinned<CR>", description = "Buffer: Close All But Pinned"},
-    -- {"<A-C>", "<cmd>BufferCloseAllButCurrentOrPinned<CR>", description = "Buffer: Close All But Current Or Pinned"},
-    { "gp", "<cmd>BufferPick<CR>", description = "Buffer: Picking" },
-    { "gc", "<cmd>BufferLinePickClose<CR>", "Buffer: Close" },
+    { "<A-X>p", "<cmd>BufferPick<CR>", description = "Buffer: Picking" },
+    { "<A-X>c", "<cmd>BufferCloseAllButCurrentOrPinned<CR>", description = "Buffer: Close All But Current Or Pinned" },
+    { "<A-X>P", "<cmd>BufferPin<CR>", description = "Buffer: Toggle Pin" },
     { "g1", "<cmd>BufferGoto 1<CR>", description = "Go to Buffer 1" },
     { "g2", "<cmd>BufferGoto 2<CR>", description = "Go to Buffer 2" },
     { "g3", "<cmd>BufferGoto 3<CR>", description = "Go to Buffer 3" },
@@ -233,8 +227,10 @@ legendary.setup({
     { "<A-p>", "<cmd>cprev<CR>zz", description = "Previous Quickfix Item" },
     { "<A-n>", "<cmd>cnext<CR>zz", description = "Next Quickfix Item" },
 
-    -- TODO A-o and A-i available
-    -- TODO rethink C-j and C-k
+    -- TODO the following are available:
+    -- A-o and A-i
+    -- gp and gn
+    -- J and K
     { "<C-j>", "g,zz", description = "Next Changelist Item" },
     { "<C-k>", "g;zz", description = "Previous Changelist Item" },
     { "<C-f>", '<C-R>"', description = "Paste Last Yanked / Deleted", mode = { "i" } },

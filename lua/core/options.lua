@@ -40,7 +40,6 @@ opt.clipboard        = 'unnamedplus'               -- Copy/paste to system clipb
 opt.swapfile         = false                       -- Don't use swapfile
 opt.completeopt      = 'menuone,noinsert,noselect' -- Autocomplete options
 opt.confirm          = true
-opt.undofile         = true                        -- enable persistent undo
 opt.autowriteall     = true
 opt.timeoutlen       = 450                         -- time to wait for a mapped sequence to complete
 opt.writebackup      = true                        -- disable editing a file that is being edited

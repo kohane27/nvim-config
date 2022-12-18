@@ -61,7 +61,7 @@ fzf_lua.setup({
     ["--prompt"] = " ",
     ["--info"] = "inline",
     ["--height"] = "100%",
-    ["--layout"] = "reverse-list",
+    ["--layout"] = "reverse",
     ["--border"] = "none",
   },
   files = {
