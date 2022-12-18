@@ -25,9 +25,4 @@ saga.init_lsp_saga({
     tabe = "<C-t>",
     quit = { "q", "<ESC>" },
   },
-  code_action_keys = {
-    quit = { "q", "<ESC>" },
-    exec = "<CR>",
-  },
-  rename_action_quit = { "q", "<ESC>" },
 })
