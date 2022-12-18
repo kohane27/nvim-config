@@ -55,10 +55,10 @@ local sources = {
   -- diagnostics.flake8,
 
   -- CODE ACTIONS
-  builtins.code_actions.gitsigns,
-  builtins.code_actions.gitrebase,
+  -- builtins.code_actions.gitsigns,
+  -- builtins.code_actions.gitrebase,
   -- injects actions to fix ESLint issues or ignore broken rules
-  builtins.code_actions.eslint_d,
+  -- builtins.code_actions.eslint_d,
 }
 
 null_ls.setup({
