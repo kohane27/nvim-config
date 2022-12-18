@@ -17,6 +17,7 @@ require("lsp.vim_diagnostics")
 require("lsp.lspsaga")
 require("lsp.goto_preview")
 
+require("plugins.fzf-lua")
 require("plugins.telescope")
 require("plugins.treesitter")
 require("plugins.treesitter-context")

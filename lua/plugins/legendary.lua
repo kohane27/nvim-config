@@ -27,36 +27,45 @@ legendary.setup({
     {
       "<leader>ff",
       "<cmd>Telescope current_buffer_fuzzy_find case_mode=ignore_case<CR>",
-      description = "Telescope: Find Text in Buffers",
+      description = "Telescope: Find Text in Current Buffer",
+    },
+    {
+      "<leader>/",
+      { v = "<cmd>lua require('fzf-lua').grep_visual()<CR>", n = "<cmd>Telescope grep_string<CR>" },
+      description = "Telescope: Find Text Under Cursor",
     },
     { "<leader>fd", "<cmd>Telescope diagnostics<CR>", description = "Telescope: Find Diagnostics" },
     -- { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
     { "<leader>fo", "<cmd>Telescope oldfiles<CR>", description = "Telescope: Open Recent File" },
     { "<leader>fp", "<cmd>Telescope projects<CR>", description = "Telescope: Find Projects" },
     { "<leader>fb", "<cmd>Telescope file_browser<CR>", description = "Telescope: File Browser" },
-    { "<leader>fr", "<cmd>Telescope neoclip<CR>", description = "Telescope: Find Clipboard History" },
-    { "<leader>ft", "<cmd>Telescope telescope-tabs list_tabs<CR>", description = "Telescope: Find Tabs" },
+    { "<leader>fr", "<cmd>Telescope neoclip<CR>", description = "Telescope: Clipboard History" },
+    { "<leader>ft", "<cmd>Telescope buffers<CR>", description = "Telescope: Buffers" },
+    { "<leader>fj", "<cmd>Telescope jumplist<CR>", description = "Telescope: Jumplist" },
+    { "<leader>fc", "<cmd>lua require('fzf-lua').changes()<CR>", description = "Telescope: Changes" },
+    { "<leader>fC", "<cmd>Telescope command_history<CR>", description = "Telescope: Command History" },
+    { "<leader>fS", "<cmd>Telescope search_history<CR>", description = "Telescope: Search History" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ LSP                                                      │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "gh", "<cmd>Lspsaga lsp_finder<CR>", description = "LSP: Finder: Symbol Definition Implementation" },
+    { "<leader>lf", "<cmd>Lspsaga lsp_finder<CR>", description = "LSP: Finder: Symbol Definition Implementation" },
     { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", description = "LSP: Line Diagnostics" },
 
-    { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", description = "LSP: Go to Definition" },
-    -- { "gD", "<cmd>Lspsaga peek_definition<CR>", description = "LSP: Preview Definition" },
     {
-      "gD",
+      "gr",
       toolbox.lazy_required_fn("goto-preview", "goto_preview_definition"),
       description = "LSP: Preview Definition",
     },
+    -- { "gr", "<cmd>Lspsaga peek_definition<CR>", description = "LSP: Preview Definition" },
+    { "gD", "<cmd>lua vim.lsp.buf.definition()<CR>", description = "LSP: Go to Definition" },
 
-    { "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", description = "LSP: Go to Type Definition" },
     {
-      "gT",
+      "gt",
       toolbox.lazy_required_fn("goto-preview", "goto_preview_type_definition"),
       description = "LSP: Preview Type Definition",
     },
+    { "gT", "<cmd>lua vim.lsp.buf.type_definition()<CR>", description = "LSP: Go to Type Definition" },
 
     { "gr", "<cmd>Telescope lsp_references<CR>", description = "LSP: Reference List" },
     { "gR", "<cmd>Trouble lsp_references<CR>", description = "LSP: Reference List" },
@@ -66,12 +75,11 @@ legendary.setup({
     --   description = "LSP: Reference List",
     -- },
 
-    { "<leader>lrn", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
+    { "<leader>lr", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
 
-    { "<leader>lca", "<cmd>lua vim.lsp.buf.code_action()<CR>", description = "LSP: Code Action" },
-    -- { "<leader>lca", "<cmd>Lspsaga code_action<CR>", description = "LSP: Code Action" },
+    { "<leader>lc", "<cmd>lua vim.lsp.buf.code_action()<CR>", description = "LSP: Code Action" },
+    -- { "<leader>lc", "<cmd>Lspsaga code_action<CR>", description = "LSP: Code Action" },
 
-    { "<leader>lcl", "<cmd>lua vim.lsp.codelens.run()<CR>", description = "LSP: Code Lens" },
     { "<leader>lh", "<cmd>Lspsaga hover_doc<CR>", description = "LSP: Hover Doc" },
     { "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", description = "LSP: Go to Previous Diagnostic" },
     {
@@ -92,6 +100,7 @@ legendary.setup({
     -- lesser used
     -- implementation (rarely)
     -- { "<leader>li", "<cmd>lua vim.lsp.buf.implementation()<CR>", description = "LSP: Go to Implementation" },
+    { "<leader>lC", "<cmd>lua vim.lsp.codelens.run()<CR>", description = "LSP: Code Lens" },
     {
       "gI",
       toolbox.lazy_required_fn("goto-preview", "goto_preview_implementation"),
