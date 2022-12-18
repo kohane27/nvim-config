@@ -43,8 +43,8 @@ map("x", "U", "<nop>")
 -- map("n", "J", "m'5gj")
 -- map("n", "K", "m'5gk")
 
-map("n", "<Leader>j", "mzJ`z")
-map("n", "<Leader>k", "mzJ`z")
+map("n", "<Leader>j", "J")
+map("n", "<Leader>k", "K")
 
 -- operate on display lines rather than real lines
 map("n", "k", "gk")

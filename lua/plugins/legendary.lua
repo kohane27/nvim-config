@@ -5,6 +5,18 @@ end
 
 local toolbox = require("legendary.toolbox")
 
+function vim.getVisualSelection()
+  vim.cmd('noau normal! "vy"')
+  local text = vim.fn.getreg("v")
+  vim.fn.setreg("v", {})
+  text = string.gsub(text, "\n", "")
+  if #text > 0 then
+    return text
+  else
+    return ""
+  end
+end
+
 legendary.setup({
   include_builtin = false,
   sort = {
@@ -18,22 +30,43 @@ legendary.setup({
     -- <C-KEY>
     { "<C-t>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
     { "<C-g>", "<cmd>Telescope find_files<CR>", description = "Telescope: Find Files" },
-    { "<C-l>", "<cmd>Legendary<CR>", description = "Legendary", mode = { "n", "i" } },
+    { "<C-l>", "<cmd>Legendary<CR>", description = "Legendary", mode = { "n", "i", "x" } },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Telescope                                                │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>fg", "<cmd>Telescope live_grep<CR>", description = "Telescope: Find Text" },
+
     {
       "<leader>ff",
       "<cmd>Telescope current_buffer_fuzzy_find case_mode=ignore_case<CR>",
       description = "Telescope: Find Text in Current Buffer",
     },
     {
-      "<leader>fw",
-      { v = "<cmd>lua require('fzf-lua').grep_visual()<CR>", n = "<cmd>Telescope grep_string<CR>" },
-      description = "Telescope: Find Text Under Cursor",
+      "<leader>ff",
+      function()
+        local text = vim.getVisualSelection()
+        require("telescope.builtin").current_buffer_fuzzy_find({ default_text = text })
+      end,
+      description = "Telescope: Find Text in Current Buffer",
+      mode = { "v" },
     },
+
+    { "<leader>fg", "<cmd>Telescope live_grep<CR>", description = "Telescope: Find Text" },
+    {
+      "<leader>fg",
+      function()
+        local text = vim.getVisualSelection()
+        require("telescope.builtin").live_grep({ default_text = text })
+      end,
+      description = "Telescope: Find Text",
+      mode = { "v" },
+    },
+
+    -- {
+    --   "<leader>fw",
+    --   { v = "<cmd>lua require('fzf-lua').grep_visual()<CR>", n = "<cmd>Telescope grep_string<CR>" },
+    --   description = "Telescope: Find Text Under Cursor",
+    -- },
     -- { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
     { "<leader>fo", "<cmd>Telescope oldfiles<CR>", description = "Telescope: Open Recent File" },
     { "<leader>fp", "<cmd>Telescope projects<CR>", description = "Telescope: Find Projects" },
@@ -78,8 +111,8 @@ legendary.setup({
     { "<leader>lq", "<cmd>copen<CR>", description = "LSP: Quickfix List" }, -- using nvim-bqf
     { "<leader>lr", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
     { "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", description = "LSP: Signature Help" },
-    { "<leader>lc", "<cmd>lua vim.lsp.buf.code_action()<CR>", description = "LSP: Code Action" },
-    -- { "<leader>lc", "<cmd>Lspsaga code_action<CR>", description = "LSP: Code Action" },
+    -- { "<leader>lc", "<cmd>lua vim.lsp.buf.code_action()<CR>", description = "LSP: Code Action" },
+    { "<leader>lc", "<cmd>Lspsaga code_action<CR>", description = "LSP: Code Action" },
 
     { "<leader>lh", "<cmd>Lspsaga hover_doc<CR>", description = "LSP: Hover Doc" },
     { "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", description = "LSP: Go to Previous Diagnostic" },
@@ -119,7 +152,7 @@ legendary.setup({
     { "<A-<>", "<cmd>BufferMovePrevious<CR>", description = "Buffer: Re-order to Previous" },
     { "<A->>", "<cmd>BufferMoveNext<CR>", description = "Buffer: Re-order to Next" },
     { "<A-c>", "<cmd>BufferClose<CR>", description = "Buffer: Close" },
-    { "<A-X>p", "<cmd>BufferPick<CR>", description = "Buffer: Picking" },
+    -- { "<A-X>p", "<cmd>BufferPick<CR>", description = "Buffer: Picking" },
     { "<A-X>c", "<cmd>BufferCloseAllButCurrentOrPinned<CR>", description = "Buffer: Close All But Current Or Pinned" },
     { "<A-X>P", "<cmd>BufferPin<CR>", description = "Buffer: Toggle Pin" },
     { "g1", "<cmd>BufferGoto 1<CR>", description = "Go to Buffer 1" },
@@ -228,15 +261,16 @@ legendary.setup({
     { "<A-n>", "<cmd>cnext<CR>zz", description = "Next Quickfix Item" },
 
     -- TODO the following are available:
-    -- A-o and A-i
     -- gp and gn
     -- J and K
-    { "<C-j>", "g,zz", description = "Next Changelist Item" },
-    { "<C-k>", "g;zz", description = "Previous Changelist Item" },
+    { "<C-j>", "g,zz", description = "Next Change list Item" },
+    { "<C-k>", "g;zz", description = "Previous Change list Item" },
+    { "<C-o>", "<C-o>zz", description = "Previous Jumplist Item" },
+    { "<C-i>", "<C-i>zz", description = "Next Jumplist Item" },
     { "<C-f>", '<C-R>"', description = "Paste Last Yanked / Deleted", mode = { "i" } },
     { "<C-v>", "<C-R>*", description = "Paste Clipboard Content", mode = { "i" } },
-    -- { "<C-o>", toolbox.lazy_required_fn("portal", "jump_backward"), description = "Portal Backward" },
-    -- { "<C-i>", toolbox.lazy_required_fn("portal", "jump_forward"), description = "Portal Foward" },
+    { "<A-o>", toolbox.lazy_required_fn("portal", "jump_backward"), description = "Portal: Backward" },
+    { "<A-i>", toolbox.lazy_required_fn("portal", "jump_forward"), description = "Portal: Foward" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous (leader M)                               │
@@ -262,8 +296,9 @@ legendary.setup({
     },
     {
       "<leader>Mb",
-      { v = toolbox.lazy_required_fn("comment-box", "lbox") },
+      "<cmd>lua require('comment-box').lbox()<CR><Esc>",
       description = "Left-aligned Comment Box",
+      mode = { "x" },
     },
     {
       "<leader>Mc",

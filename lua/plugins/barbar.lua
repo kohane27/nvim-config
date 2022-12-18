@@ -14,6 +14,9 @@ barbar.setup({
   exclude_ft = {},
   exclude_name = {},
 
+  -- Hide inactive buffers and file extensions. Other options are `alternate`, `current`, and `visible`.
+  hide = { extensions = true, inactive = false },
+
   icons = "both",
   icon_custom_colors = true,
   icon_separator_active = "▎",
@@ -32,8 +35,6 @@ barbar.setup({
   maximum_padding = 1,
   -- max buffer name length
   maximum_length = 50,
-  semantic_letters = true,
-  letters = "asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP",
 
   -- Sets the name of unnamed buffers. By default format is "[Buffer X]"
   -- where X is the buffer number. Only a static string is accepted here.

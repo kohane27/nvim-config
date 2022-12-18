@@ -5,7 +5,7 @@ end
 
 incline.setup({
   hide = {
-    cursorline = false,
+    cursorline = true,
     focused_win = false,
     only_win = true,
   },

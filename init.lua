@@ -83,3 +83,9 @@ require("plugins.tmux")
 require("plugins.vim-test")
 require("plugins.delaytrain")
 -- require("plugins.firenvim")
+
+if vim.g.vscode then
+  require("plugins.leap")
+else
+  -- ordinary Neovim
+end

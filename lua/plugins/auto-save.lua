@@ -39,6 +39,6 @@ autosave.setup({
     end
     return false -- can't save
   end,
-  write_all_buffers = false, -- write all buffers when the current one meets `condition`
+  write_all_buffers = true, -- write all buffers when the current one meets `condition`
   debounce_delay = 200, -- saves the file at most every `debounce_delay` milliseconds
 })
