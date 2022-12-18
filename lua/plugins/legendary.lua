@@ -8,7 +8,7 @@ local toolbox = require("legendary.toolbox")
 legendary.setup({
   include_builtin = false,
   sort = {
-    -- this takes precedence over other sort options!
+    -- this takes precedence over other sort options
     frecency = {
       db_root = string.format("%s/legendary/", vim.fn.stdpath("data")),
       max_timestamps = 20,
@@ -40,13 +40,16 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ LSP                                                      │
     -- ╰──────────────────────────────────────────────────────────╯
+    { "gh", "<cmd>Lspsaga lsp_finder<CR>", description = "LSP: Finder: Symbol Definition Implementation" },
+    { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", description = "LSP: Line Diagnostics" },
+
     { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", description = "LSP: Go to Definition" },
+    -- { "gD", "<cmd>Lspsaga peek_definition<CR>", description = "LSP: Preview Definition" },
     {
       "gD",
       toolbox.lazy_required_fn("goto-preview", "goto_preview_definition"),
       description = "LSP: Preview Definition",
     },
-    -- {"gD", "<cmd>Lspsaga peek_definition<CR>", description = "Preview Definition"},
 
     { "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", description = "LSP: Go to Type Definition" },
     {
@@ -55,12 +58,38 @@ legendary.setup({
       description = "LSP: Preview Type Definition",
     },
 
-    { "gr", "<cmd>Trouble lsp_references<CR>", description = "LSP: Reference List" },
+    { "gr", "<cmd>Telescope lsp_references<CR>", description = "LSP: Reference List" },
+    { "gR", "<cmd>Trouble lsp_references<CR>", description = "LSP: Reference List" },
+    -- {
+    --   "gr",
+    --   toolbox.lazy_required_fn("goto-preview", "goto_preview_references"),
+    --   description = "LSP: Reference List",
+    -- },
+
+    { "<leader>lrn", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
+
+    { "<leader>lca", "<cmd>lua vim.lsp.buf.code_action()<CR>", description = "LSP: Code Action" },
+    -- { "<leader>lca", "<cmd>Lspsaga code_action<CR>", description = "LSP: Code Action" },
+
+    { "<leader>lcl", "<cmd>lua vim.lsp.codelens.run()<CR>", description = "LSP: Code Lens" },
+    { "<leader>lh", "<cmd>Lspsaga hover_doc<CR>", description = "LSP: Hover Doc" },
+    { "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", description = "LSP: Go to Previous Diagnostic" },
     {
-      "gR",
-      toolbox.lazy_required_fn("goto-preview", "goto_preview_references"),
-      description = "LSP: Preview Reference List",
+      "[D",
+      "<cmd>lua require('lspsaga.diagnostic').goto_prev({ severity = vim.diagnostic.severity.ERROR })<CR>",
+      description = "LSP: Go to Previous Error",
     },
+    { "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", description = "LSP: Go to Next Diagnostic" },
+    {
+      "]D",
+      "<cmd>lua require('lspsaga.diagnostic').goto_next({ severity = vim.diagnostic.severity.ERROR })<CR>",
+      description = "LSP: Go to Next Error",
+    },
+
+    { "<leader>ld", "<cmd>TroubleToggle document_diagnostics<CR>", description = "LSP: Document Diagnostics" },
+    { "<leader>lD", "<cmd>TroubleToggle workspace_diagnostics<CR>", description = "LSP: Workspace Diagnostics" },
+
+    -- lesser used
     -- implementation (rarely)
     -- { "<leader>li", "<cmd>lua vim.lsp.buf.implementation()<CR>", description = "LSP: Go to Implementation" },
     {
@@ -68,16 +97,10 @@ legendary.setup({
       toolbox.lazy_required_fn("goto-preview", "goto_preview_implementation"),
       description = "LSP: Preview Implementation",
     },
+    { "<leader>lX", "<cmd>lua vim.lsp.buf.declaration<CR>", description = "LSP: Declaration" },
+    { "<leader>lF", "<cmd>lua vim.lsp.buf.format()<CR>", description = "LSP: Formatting" },
+    { "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", description = "LSP: Signature Help" },
 
-    { "<leader>lrn", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
-    { "<leader>lca", "<cmd>Lspsaga code_action<CR>", description = "LSP: Code Action" },
-    { "<leader>lcl", "<cmd>lua vim.lsp.codelens.run()<CR>", description = "LSP: Code Lens" },
-    { "<leader>lh", "<cmd>Lspsaga hover_doc<CR>", description = "LSP: Hover Doc" },
-    { "<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>", description = "LSP: Formatting" },
-    { "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", description = "LSP: Go to Previous Diagnostic" },
-    { "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", description = "LSP: Go to Next Diagnostic" },
-    { "<leader>ld", "<cmd>TroubleToggle document_diagnostics<CR>", description = "LSP: Document Diagnostics" },
-    { "<leader>lD", "<cmd>TroubleToggle workspace_diagnostics<CR>", description = "LSP: Workspace Diagnostics" },
     -- using nvim-bqf
     { "<leader>lq", "<cmd>copen<CR>", description = "LSP: Quickfix List" },
     { "<leader>ll", "<cmd>TroubleToggle loclist<CR>", description = "LSP: Location List" },

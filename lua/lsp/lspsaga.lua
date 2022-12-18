@@ -6,7 +6,7 @@ end
 saga.init_lsp_saga({
   border_style = "rounded",
   code_action_lightbulb = {
-    enable = false,
+    enable = true,
     enable_in_insert = false,
     sign = true,
     virtual_text = false,
@@ -18,4 +18,16 @@ saga.init_lsp_saga({
     show_file = false,
     click_support = false,
   },
+  finder_action_keys = {
+    open = { "o", "<CR>" },
+    vsplit = "<C-v>",
+    split = "<C-s>",
+    tabe = "<C-t>",
+    quit = { "q", "<ESC>" },
+  },
+  code_action_keys = {
+    quit = { "q", "<ESC>" },
+    exec = "<CR>",
+  },
+  rename_action_quit = { "q", "<ESC>" },
 })
