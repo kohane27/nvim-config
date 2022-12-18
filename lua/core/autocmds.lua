@@ -47,7 +47,7 @@ endfunction
 
 augroup BigFileDisable
     autocmd!
-    autocmd BufReadPre,FileReadPre * if getfsize(expand("%")) > 512 * 1024 | exec DisableSyntaxTreesitter() | endif
+    autocmd BufReadPre,FileReadPre * if getfsize(expand("%")) > 512 * 1024 * 2 | exec DisableSyntaxTreesitter() | endif
 
 augroup END
 ]])
