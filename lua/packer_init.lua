@@ -57,7 +57,6 @@ return packer.startup(function(use)
 
   -- Telescope extensions
   use("nvim-telescope/telescope-frecency.nvim")
-  use("LukasPietzschmann/telescope-tabs")
   use("ahmedkhalf/project.nvim")
   use("nvim-telescope/telescope-file-browser.nvim") -- required by project.nvim
   use("AckslD/nvim-neoclip.lua") -- clipboard manager
@@ -110,7 +109,7 @@ return packer.startup(function(use)
   use("saadparwaiz1/cmp_luasnip")
 
   -- General
-  -- use("ibhagwan/fzf-lua")
+  use("ibhagwan/fzf-lua") -- for :changes
   use("tpope/vim-repeat")
   use("numToStr/Comment.nvim")
   use("kyazdani42/nvim-web-devicons") -- lua fork of vim-devicons
