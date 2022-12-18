@@ -47,9 +47,6 @@ telescope.setup({
       ".trash",
       "PeriodicNotes",
       "CoursesPending",
-      "template-starter-vault",
-      "DemoVault",
-      "LYT-Kit",
     },
     -- Hidden files and directories can be searched with --hidden
     find_command = { "rg", "--hidden", "--ignore-case" },
@@ -74,10 +71,11 @@ telescope.setup({
         ["<C-u>"] = actions.results_scrolling_up,
         ["<C-d>"] = actions.results_scrolling_down,
 
-        ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-        ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+        -- only in Normal mode
+        -- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+        -- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
         -- ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-        ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+        -- ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 
         -- ["<C-u>"] = actions.preview_scrolling_up,
         -- ["<C-d>"] = actions.preview_scrolling_down,
@@ -106,10 +104,10 @@ telescope.setup({
         ["<C-u>"] = actions.preview_scrolling_up,
         ["<C-d>"] = actions.preview_scrolling_down,
 
-        -- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-        -- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+        ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+        ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+        ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
         -- ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-        -- ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 
         -- ["?"] = actions.which_key,
       },

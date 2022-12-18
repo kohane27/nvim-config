@@ -10,3 +10,4 @@ ab :hp: ⏫
 ab :mp: 🔼
 ab :lp: 🔽
 
+set nomodeline
