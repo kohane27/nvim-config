@@ -18,3 +18,6 @@ local function leap_current_window()
 end
 vim.keymap.set("n", "s", leap_current_window, { silent = true })
 vim.keymap.set("x", "s", leap_current_window, { silent = true })
+
+-- Greying out the search area
+vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
