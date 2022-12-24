@@ -57,7 +57,7 @@ require("plugins.nvim-scrollbar")
 require("plugins.scrollview")
 require("plugins.stabilize")
 require("plugins.illuminate")
-require("plugins.better-comment")
+require("plugins.todo-comments")
 require("plugins.nvim-lastplace")
 
 require("plugins.diffview")

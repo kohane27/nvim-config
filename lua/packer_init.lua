@@ -203,7 +203,8 @@ return packer.startup(function(use)
   use("danilamihailov/beacon.nvim") -- flash cursor when jumping
   use("b0o/incline.nvim") -- floating statuslines
   use("LudoPinelli/comment-box.nvim") -- create comment boxes
-  use("Djancyp/better-comments.nvim") -- highlight comments
+  -- use("Djancyp/better-comments.nvim") -- highlight comments
+  use("folke/todo-comments.nvim")
   -- use("folke/noice.nvim") -- use later because it requires nightly
 
   use("kevinhwang91/nvim-hlslens") -- better search results
@@ -235,6 +236,7 @@ return packer.startup(function(use)
   use("EdenEast/nightfox.nvim") -- used by firenvim
   use("navarasu/onedark.nvim")
   use("folke/tokyonight.nvim") -- scrollbar theme
+  use("catppuccin/nvim")
   -- use("bluz71/vim-moonfly-colors")
   -- use("bluz71/vim-nightfly-guicolors")
   -- use("projekt0n/github-nvim-theme")
