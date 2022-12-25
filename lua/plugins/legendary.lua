@@ -17,6 +17,18 @@ function vim.getVisualSelection()
   end
 end
 
+function vim.close_all_but_current_buffer()
+  for _, e in ipairs(require("bufferline").get_elements().elements) do
+    vim.schedule(function()
+      if e.id == vim.api.nvim_get_current_buf() then
+        return
+      else
+        vim.cmd("bd " .. e.id)
+      end
+    end)
+  end
+end
+
 legendary.setup({
   include_builtin = false,
   sort = {
@@ -156,6 +168,13 @@ legendary.setup({
     { "g2", "<cmd>BufferLineGoToBuffer 2<CR>", description = "Go to Buffer 2" },
     { "g3", "<cmd>BufferLineGoToBuffer 3<CR>", description = "Go to Buffer 3" },
     { "g4", "<cmd>BufferLineGoToBuffer 4<CR>", description = "Go to Buffer 4" },
+    {
+      "<A-X>c",
+      function()
+        vim.close_all_but_current_buffer()
+      end,
+      description = "Buffer: Close All But Current",
+    },
     { "g5", "<cmd>BufferLineGoToBuffer 5<CR>", description = "Go to Buffer 5" },
     { "g6", "<cmd>BufferLineGoToBuffer 6<CR>", description = "Go to Buffer 6" },
     { "g7", "<cmd>BufferLineGoToBuffer 7<CR>", description = "Go to Buffer 7" },
