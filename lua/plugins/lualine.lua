@@ -3,25 +3,7 @@ if not status_ok then
   print("lualine failing")
 end
 
--- Color table for highlights
 -- stylua: ignore
-local colors = {
--- foreground            #dcdfe4
--- background            #282c34
-  bg       = '#282c34',
-  fg       = '#dcdfe4',
-  -- bg       = '#202328',
-  -- fg       = '#bbc2cf',
-  yellow   = '#ECBE7B',
-  cyan     = '#008080',
-  darkblue = '#081633',
-  green    = '#98be65',
-  orange   = '#FF8800',
-  violet   = '#a9a1e1',
-  magenta  = '#c678dd',
-  blue     = '#51afef',
-  red      = '#ec5f67',
-}
 
 local conditions = {
   buffer_not_empty = function()
@@ -44,13 +26,6 @@ local config = {
     -- Disable sections and component separators
     component_separators = "",
     section_separators = "",
-    theme = {
-      -- We are going to use lualine_c an lualine_x as left and
-      -- right section. Both are highlighted by c theme .  So we
-      -- are just setting default looks o statusline
-      normal = { c = { fg = colors.fg, bg = colors.bg } },
-      inactive = { c = { fg = colors.fg, bg = colors.bg } },
-    },
   },
   sections = {
     -- to remove the defaults
@@ -87,24 +62,17 @@ ins_left({
   function()
     return " "
   end,
-  color = { fg = colors.blue }, -- Sets highlighting of component
   padding = { left = 0, right = 1 }, -- We don't need space before this
 })
 
 ins_left({
   "branch",
   icon = "",
-  color = { fg = colors.violet, gui = "bold" },
 })
 
 ins_left({
   "diff",
   symbols = { added = " ", modified = "柳 ", removed = " " },
-  diff_color = {
-    added = { fg = colors.green },
-    modified = { fg = colors.orange },
-    removed = { fg = colors.red },
-  },
   cond = conditions.hide_in_width,
 })
 
@@ -112,11 +80,6 @@ ins_left({
   "diagnostics",
   sources = { "nvim_diagnostic" },
   symbols = { error = " ", warn = " ", info = " " },
-  diagnostics_color = {
-    color_error = { fg = colors.red },
-    color_warn = { fg = colors.yellow },
-    color_info = { fg = colors.cyan },
-  },
 })
 
 -- Insert mid section. You can make any number of sections in neovim :)
@@ -130,9 +93,7 @@ ins_left({
 -- Add components to right sections
 ins_right({
   "o:encoding", -- option component same as &encoding in viml
-  fmt = string.upper, -- I'm not sure why it's upper case either ;)
   cond = conditions.hide_in_width,
-  color = { fg = colors.green, gui = "bold" },
 })
 
 ins_right({
@@ -144,13 +105,11 @@ ins_right({
     dos = "",
     mac = "",
   },
-  color = { fg = colors.green, gui = "bold" },
 })
 
 ins_right({
   "filename",
   cond = conditions.buffer_not_empty,
-  color = { fg = colors.magenta, gui = "bold" },
 })
 
 ins_right({
@@ -158,13 +117,12 @@ ins_right({
     local key = require("grapple").key()
     return " [" .. key .. "]"
   end,
-  color = { fg = colors.blue }, -- Sets highlighting of component
   cond = require("grapple").exists,
 })
 
 ins_right({ "location" })
 
-ins_right({ "progress", color = { fg = colors.fg, gui = "bold" } })
+ins_right({ "progress" })
 
 -- initialize lualine
 lualine.setup(config)
