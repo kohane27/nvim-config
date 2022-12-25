@@ -20,10 +20,10 @@ vim.cmd([[
     autocmd FileType qf set nobuflisted
   augroup end
 
-  " augroup _auto_resize
-  "   autocmd!
-  "   autocmd VimResized * tabdo wincmd = 
-  " augroup end
+  augroup _auto_resize
+    autocmd!
+    autocmd VimResized * tabdo wincmd = 
+  augroup end
 
   " clear jumplist
   autocmd VimEnter * :clearjumps

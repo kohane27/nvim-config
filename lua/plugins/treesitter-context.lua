@@ -5,7 +5,7 @@ end
 
 context.setup({
   enable = true,
-  patterns = { -- Match patterns for nodes. These get wrapped to match at word boundaries.
+  patterns = {
     -- For all filetypes
     -- Note that setting an entry here replaces all other patterns for this entry.
     -- By setting the 'default' entry below, you can control which nodes you want to appear in the context window.
