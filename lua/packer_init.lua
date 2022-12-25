@@ -149,7 +149,6 @@ return packer.startup(function(use)
 
   -- navigation
   use("ggandor/leap.nvim")
-  -- use("ggandor/lightspeed.nvim")
   use("ggandor/flit.nvim")
   -- use("ggandor/leap-spooky.nvim")
 
