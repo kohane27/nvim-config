@@ -61,7 +61,7 @@ return packer.startup(function(use)
   use("nvim-telescope/telescope-file-browser.nvim") -- required by project.nvim
   use("AckslD/nvim-neoclip.lua") -- clipboard manager
   use("kkharji/sqlite.lua") -- required by telescope-frecency
-  -- use("nvim-telescope/telescope-project.nvim") #using ahmedkhalf/project.nvim
+  -- use("nvim-telescope/telescope-project.nvim") # using ahmedkhalf/project.nvim
 
   -- Treesitter
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })

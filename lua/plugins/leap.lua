@@ -8,8 +8,7 @@ leap.set_default_keymaps(true)
 
 leap.setup({
   case_sensitive = false,
-  -- disable auto-jumping to the first match
-  safe_labels = {},
+  safe_labels = {}, -- disable auto-jumping to the first match
 })
 
 -- Bidirectional search
@@ -20,4 +19,4 @@ vim.keymap.set("n", "s", leap_current_window, { silent = true })
 vim.keymap.set("x", "s", leap_current_window, { silent = true })
 
 -- Greying out the search area
-vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
+-- vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
