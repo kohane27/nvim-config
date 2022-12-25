@@ -7,5 +7,4 @@ vim.cmd([[
 colorscheme nordfox
 " colorscheme tokyonight-storm
 " colorscheme catppuccin-frappe
-" colorscheme doom-one
 ]])
