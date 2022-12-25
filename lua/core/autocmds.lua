@@ -88,24 +88,3 @@ autocmd("User", {
 -- Disable diagnostics in node_modules (0 is current buffer only)
 autocmd("BufRead", { pattern = "*/node_modules/*", command = "lua vim.diagnostic.disable(0)" })
 autocmd("BufNewFile", { pattern = "*/node_modules/*", command = "lua vim.diagnostic.disable(0)" })
-
--- -- File extension specific tabbing
--- autocmd("Filetype", {
---    pattern = "python",
---    callback = function()
---       vim.opt_local.expandtab = true
---       vim.opt_local.tabstop = 4
---       vim.opt_local.shiftwidth = 4
---       vim.opt_local.softtabstop = 4
---    end,
--- })
-
--- Set indentation to 2 spaces
--- augroup('setIndent', { clear = true })
--- autocmd('Filetype', {
---   group = 'setIndent',
---   pattern = { 'xml', 'html', 'xhtml', 'css', 'scss', 'javascript', 'typescript',
---     'yaml', 'lua'
---   },
---   command = 'setlocal shiftwidth=2 tabstop=2'
--- })
