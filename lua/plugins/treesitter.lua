@@ -32,13 +32,6 @@ ts_configs.setup({
       node_decremental = "<c-backspace>",
     },
   },
-  refactor = {
-    highlight_current_scope = { enable = true },
-    highlight_definitions = {
-      enable = true,
-      clear_on_cursor_move = true,
-    },
-  },
   textobjects = {
     select = {
       enable = true,
