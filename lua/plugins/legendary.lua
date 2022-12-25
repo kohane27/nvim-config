@@ -145,26 +145,44 @@ legendary.setup({
     { "<leader>lXl", "<cmd>TroubleToggle loclist<CR>", description = "LSP: Location List" },
 
     -- ╭──────────────────────────────────────────────────────────╮
+    -- │ bufferline                                               │
+    -- ╰──────────────────────────────────────────────────────────╯
+    { "<A-,>", "<cmd>BufferLineCyclePrev<CR>", description = "Buffer: Move to Previous" },
+    { "<A-.>", "<cmd>BufferLineCycleNext<CR>", description = "Buffer: Move to Next" },
+    { "<A-<>", "<cmd>BufferLineMovePrev<CR>", description = "Buffer: Re-order to Previous" },
+    { "<A->>", "<cmd>BufferLineMoveNext<CR>", description = "Buffer: Re-order to Next" },
+    { "<A-c>", "<cmd>Bdelete<CR>", description = "Buffer: Close" },
+    { "g1", "<cmd>BufferLineGoToBuffer 1<CR>", description = "Go to Buffer 1" },
+    { "g2", "<cmd>BufferLineGoToBuffer 2<CR>", description = "Go to Buffer 2" },
+    { "g3", "<cmd>BufferLineGoToBuffer 3<CR>", description = "Go to Buffer 3" },
+    { "g4", "<cmd>BufferLineGoToBuffer 4<CR>", description = "Go to Buffer 4" },
+    { "g5", "<cmd>BufferLineGoToBuffer 5<CR>", description = "Go to Buffer 5" },
+    { "g6", "<cmd>BufferLineGoToBuffer 6<CR>", description = "Go to Buffer 6" },
+    { "g7", "<cmd>BufferLineGoToBuffer 7<CR>", description = "Go to Buffer 7" },
+    { "g8", "<cmd>BufferLineGoToBuffer 8<CR>", description = "Go to Buffer 8" },
+    { "g9", "<cmd>BufferLineGoToBuffer 9<CR>", description = "Go to Buffer 9" },
+    { "g0", "<cmd>BufferLineGoToBuffer -1<CR>", description = "Go to Buffer 10" },
+
+    -- ╭──────────────────────────────────────────────────────────╮
     -- │ barbar.lua                                               │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<A-,>", "<cmd>BufferPrevious<CR>", description = "Buffer: Move to Previous" },
-    { "<A-.>", "<cmd>BufferNext<CR>", description = "Buffer: Move to Next" },
-    { "<A-<>", "<cmd>BufferMovePrevious<CR>", description = "Buffer: Re-order to Previous" },
-    { "<A->>", "<cmd>BufferMoveNext<CR>", description = "Buffer: Re-order to Next" },
-    { "<A-c>", "<cmd>BufferClose<CR>", description = "Buffer: Close" },
-    -- { "<A-X>p", "<cmd>BufferPick<CR>", description = "Buffer: Picking" },
-    { "<A-X>c", "<cmd>BufferCloseAllButCurrentOrPinned<CR>", description = "Buffer: Close All But Current Or Pinned" },
-    { "<A-X>P", "<cmd>BufferPin<CR>", description = "Buffer: Toggle Pin" },
-    { "g1", "<cmd>BufferGoto 1<CR>", description = "Go to Buffer 1" },
-    { "g2", "<cmd>BufferGoto 2<CR>", description = "Go to Buffer 2" },
-    { "g3", "<cmd>BufferGoto 3<CR>", description = "Go to Buffer 3" },
-    { "g4", "<cmd>BufferGoto 4<CR>", description = "Go to Buffer 4" },
-    { "g5", "<cmd>BufferGoto 5<CR>", description = "Go to Buffer 5" },
-    { "g6", "<cmd>BufferGoto 6<CR>", description = "Go to Buffer 6" },
-    { "g7", "<cmd>BufferGoto 7<CR>", description = "Go to Buffer 7" },
-    { "g8", "<cmd>BufferGoto 8<CR>", description = "Go to Buffer 8" },
-    { "g9", "<cmd>BufferGoto 9<CR>", description = "Go to Buffer 9" },
-    { "g0", "<cmd>BufferLast<CR>", description = "Go to Buffer 10" },
+    -- { "<A-,>", "<cmd>BufferPrevious<CR>", description = "Buffer: Move to Previous" },
+    -- { "<A-.>", "<cmd>BufferNext<CR>", description = "Buffer: Move to Next" },
+    -- { "<A-<>", "<cmd>BufferMovePrevious<CR>", description = "Buffer: Re-order to Previous" },
+    -- { "<A->>", "<cmd>BufferMoveNext<CR>", description = "Buffer: Re-order to Next" },
+    -- { "<A-c>", "<cmd>BufferClose<CR>", description = "Buffer: Close" },
+    -- { "<A-X>c", "<cmd>BufferCloseAllButCurrentOrPinned<CR>", description = "Buffer: Close All But Current Or Pinned" },
+    -- { "<A-X>P", "<cmd>BufferPin<CR>", description = "Buffer: Toggle Pin" },
+    -- { "g1", "<cmd>BufferGoto 1<CR>", description = "Go to Buffer 1" },
+    -- { "g2", "<cmd>BufferGoto 2<CR>", description = "Go to Buffer 2" },
+    -- { "g3", "<cmd>BufferGoto 3<CR>", description = "Go to Buffer 3" },
+    -- { "g4", "<cmd>BufferGoto 4<CR>", description = "Go to Buffer 4" },
+    -- { "g5", "<cmd>BufferGoto 5<CR>", description = "Go to Buffer 5" },
+    -- { "g6", "<cmd>BufferGoto 6<CR>", description = "Go to Buffer 6" },
+    -- { "g7", "<cmd>BufferGoto 7<CR>", description = "Go to Buffer 7" },
+    -- { "g8", "<cmd>BufferGoto 8<CR>", description = "Go to Buffer 8" },
+    -- { "g9", "<cmd>BufferGoto 9<CR>", description = "Go to Buffer 9" },
+    -- { "g0", "<cmd>BufferLast<CR>", description = "Go to Buffer 10" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ substitute.lua                                           │
