@@ -108,14 +108,14 @@ return packer.startup(function(use)
   use("saadparwaiz1/cmp_luasnip")
 
   -- General
-  use("ibhagwan/fzf-lua") -- for :changes
+  use("ibhagwan/fzf-lua") -- for `:changes`
   use("tpope/vim-repeat")
   use("numToStr/Comment.nvim")
   use("kyazdani42/nvim-web-devicons") -- lua fork of vim-devicons
   use("kyazdani42/nvim-tree.lua")
-  -- use("akinsho/bufferline.nvim")
-  use("romgrk/barbar.nvim") -- tabline
-  -- use("famiu/bufdelete.nvim") -- preserve layout when deleting buffer(s)
+  use("akinsho/bufferline.nvim")
+  use("famiu/bufdelete.nvim") -- need for bufferline to preserve layout when deleting buffer(s)
+  -- use("romgrk/barbar.nvim") -- tabline
   use("nvim-lualine/lualine.nvim") -- statusline
   use("voldikss/vim-floaterm") -- need for `lazygit` and `ranger`
   use("akinsho/toggleterm.nvim") -- general terminal
@@ -231,7 +231,7 @@ return packer.startup(function(use)
   use("vim-test/vim-test")
 
   -- Colorschemes/themes
-  use("NTBBloodbath/doom-one.nvim")
+  -- use("NTBBloodbath/doom-one.nvim")
   use("EdenEast/nightfox.nvim") -- used by firenvim
   use("folke/tokyonight.nvim") -- scrollbar theme
   use("catppuccin/nvim")
