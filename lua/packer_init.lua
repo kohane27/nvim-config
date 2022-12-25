@@ -66,7 +66,6 @@ return packer.startup(function(use)
   -- Treesitter
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
   use("nvim-treesitter/nvim-treesitter-textobjects")
-  use("nvim-treesitter/nvim-treesitter-refactor")
   use("nvim-treesitter/nvim-treesitter-context")
   use({ "elgiano/nvim-treesitter-angular", branch = "topic/jsx-fix" })
   use("JoosepAlviste/nvim-ts-context-commentstring")
@@ -234,12 +233,8 @@ return packer.startup(function(use)
   -- Colorschemes/themes
   use("NTBBloodbath/doom-one.nvim")
   use("EdenEast/nightfox.nvim") -- used by firenvim
-  use("navarasu/onedark.nvim")
   use("folke/tokyonight.nvim") -- scrollbar theme
   use("catppuccin/nvim")
-  -- use("bluz71/vim-moonfly-colors")
-  -- use("bluz71/vim-nightfly-guicolors")
-  -- use("projekt0n/github-nvim-theme")
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
