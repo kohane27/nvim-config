@@ -126,9 +126,8 @@ return packer.startup(function(use)
   use("mbbill/undotree")
   use("gpanders/editorconfig.nvim")
 
-  -- use("Pocco81/auto-save.nvim") -- auto-format when saving
-  -- until https://github.com/Pocco81/auto-save.nvim/pull/67 merged
-  use("AnonymusRaccoon/auto-save.nvim")
+  use("Pocco81/auto-save.nvim") -- auto-format when saving
+  -- TODO: check if https://github.com/Pocco81/auto-save.nvim/pull/67 merged to disable message to cmd
 
   -- use("anuvyklack/pretty-fold.nvim")
   -- use("kevinhwang91/nvim-ufo")
