@@ -41,16 +41,19 @@ legendary.setup({
   keymaps = {
     -- <C-KEY>
     { "<C-t>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
-    { "<C-g>", "<cmd>Telescope find_files<CR>", description = "Telescope: Find Files" },
+    {
+      "<C-g>",
+      "<cmd>lua require('telescope.builtin').git_files({ cwd = require'telescope.utils'.buffer_dir() })<CR>",
+      description = "Telescope: Find Files",
+    },
     { "<C-l>", "<cmd>Legendary<CR>", description = "Legendary", mode = { "n", "i", "x" } },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Telescope                                                │
     -- ╰──────────────────────────────────────────────────────────╯
-
     {
       "<leader>ff",
-      "<cmd>Telescope current_buffer_fuzzy_find case_mode=ignore_case<CR>",
+      "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>",
       description = "Telescope: Find Text in Current Buffer",
     },
     {
@@ -63,7 +66,11 @@ legendary.setup({
       mode = { "v" },
     },
 
-    { "<leader>fg", "<cmd>Telescope live_grep<CR>", description = "Telescope: Find Text" },
+    {
+      "<leader>fg",
+      "<cmd>lua require('telescope.builtin').live_grep()<CR>",
+      description = "Telescope: Find Text",
+    },
     {
       "<leader>fg",
       function()
@@ -73,12 +80,6 @@ legendary.setup({
       description = "Telescope: Find Text",
       mode = { "v" },
     },
-
-    -- {
-    --   "<leader>fw",
-    --   { v = "<cmd>lua require('fzf-lua').grep_visual()<CR>", n = "<cmd>Telescope grep_string<CR>" },
-    --   description = "Telescope: Find Text Under Cursor",
-    -- },
     -- { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
     { "<leader>fo", "<cmd>Telescope oldfiles<CR>", description = "Telescope: Open Recent File" },
     { "<leader>fp", "<cmd>Telescope projects<CR>", description = "Telescope: Find Projects" },
