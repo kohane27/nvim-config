@@ -117,9 +117,11 @@ return packer.startup(function(use)
   use("famiu/bufdelete.nvim") -- need for bufferline to preserve layout when deleting buffer(s)
   -- use("romgrk/barbar.nvim") -- tabline
   use("nvim-lualine/lualine.nvim") -- statusline
+
   use("voldikss/vim-floaterm") -- need for `lazygit` and `ranger`
   use("akinsho/toggleterm.nvim") -- general terminal
-  use("samjwill/nvim-unception") -- open file in terminal without nesting sessions
+  use("kevinhwang91/rnvimr")
+
   use("kylechui/nvim-surround")
   use("andymass/vim-matchup") -- navigate matching text enhanced with `nvim-treesitter-textobjects`
   -- use("wellle/targets.vim") -- superseded by `nvim-treesitter-textobjects`
@@ -171,7 +173,7 @@ return packer.startup(function(use)
   use("chrisbra/csv.vim")
 
   -- task runners
-  -- use("stevearc/overseer.nvim") -- TODO learn
+  -- use("stevearc/overseer.nvim") -- TODO: learn
   use({ "michaelb/sniprun", run = "bash ./install.sh" })
   use("CRAG666/code_runner.nvim")
 
@@ -189,7 +191,7 @@ return packer.startup(function(use)
   -- find and replace
   use("windwp/nvim-spectre")
   use({ "mg979/vim-visual-multi", branch = "master" })
-  -- use("smjonas/live-command.nvim") -- TODO learn
+  -- use("smjonas/live-command.nvim") -- TODO: learn
   -- use("brooth/far.vim")
 
   -- note-taking
@@ -214,13 +216,13 @@ return packer.startup(function(use)
   use("kevinhwang91/nvim-hlslens") -- better search results
   -- use("romainl/vim-cool") -- using `nvim-hlslens`
 
-  -- TODO check is merged to core in stable 0.9
+  -- TODO: check is merged to core in stable 0.9
   use("luukvbaal/stabilize.nvim") -- stabilize buffer content on window open/close events
 
   use("tversteeg/registers.nvim") -- see register contents
   use("nyngwang/NeoZoom.lua") -- `<C-w>m` to maximize window without closing other buffers
   use("ethanholz/nvim-lastplace") -- reopen files at last edit position
-  use("max397574/colortils.nvim") -- color utils -- TODO learn how to use
+  use("max397574/colortils.nvim") -- color utils -- TODO: learn how to use
   -- use({
   --   "glacambre/firenvim",
   --   run = function()

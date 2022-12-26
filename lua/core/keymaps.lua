@@ -24,6 +24,7 @@ map("i", "jk", "<Esc>")
 
 -- avoid command history
 map("n", "q:", ":q<cr>")
+map("n", "q", "<nop>")
 
 -- maybe this will fix random capitalization?
 -- map("n", "<Space>", "<Nop>")
