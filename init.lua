@@ -42,6 +42,8 @@ require("plugins.portal")
 
 require("plugins.floaterm")
 require("plugins.toggleterm")
+require("plugins.rnvimr")
+
 require("plugins.luasnip")
 require("plugins.trouble")
 require("plugins.nvim-surround")

@@ -247,11 +247,7 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Terminal                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
-    {
-      "<leader>tr",
-      "<cmd>FloatermNew --height=0.9 --width=0.9 --wintype=float ranger<CR>",
-      description = "Terminal: Ranger",
-    },
+    { "<leader>tr", "<cmd>RnvimrToggle<CR>", description = "Terminal: Ranger" },
     { "<leader>tn", "<cmd>ToggleTerm<CR>", description = "Terminal: New" },
 
     -- ╭──────────────────────────────────────────────────────────╮
