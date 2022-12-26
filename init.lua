@@ -5,7 +5,6 @@ require("plugins.impatient") -- need to be at the top
 require("core.options")
 require("core.keymaps")
 require("core.autocmds")
-require("core.nightfox")
 require("core.colors")
 
 require("lsp.mason")

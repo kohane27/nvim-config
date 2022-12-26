@@ -42,7 +42,6 @@ map("x", "U", "<nop>")
 -- add marks to populate jump list
 -- map("n", "J", "m'5gj")
 -- map("n", "K", "m'5gk")
-
 map("n", "<Leader>j", "J")
 map("n", "<Leader>k", "K")
 
