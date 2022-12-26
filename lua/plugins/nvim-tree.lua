@@ -21,8 +21,7 @@ end
 vim.g.loaded_netrwPlugin = 1
 
 nvim_tree.setup({
-  auto_reload_on_write = true,
-  update_cwd = true,
+  sync_root_with_cwd = true,
   respect_buf_cwd = true,
   actions = {
     change_dir = {
