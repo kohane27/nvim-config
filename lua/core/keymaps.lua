@@ -128,6 +128,7 @@ map("i", "<C-b>", "<C-o>dB")
 vim.cmd([[
 " close and save all buffer
 cnoremap x xa
+
 " wean off `:wq` and `:q`
 cnoremap <expr> <CR> getcmdtype() == ":" && index(["q", "wq"], getcmdline()) >= 0 ? "<C-u>" : "<CR>"
 
