@@ -227,11 +227,7 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Git                                                      │
     -- ╰──────────────────────────────────────────────────────────╯
-    {
-      "<leader>gl",
-      "<cmd>FloatermNew --height=1.0 --width=1.0 --wintype=float lazygit<CR>",
-      description = "git: lazygit",
-    },
+    { "<leader>gl", "<cmd>LazyGit<CR>", description = "git: lazygit" },
     { "<leader>gd", "<cmd>DiffviewOpen<CR>", description = "git: diff index" },
     { "<leader>gf", "<cmd>DiffviewFileHistory<CR>", description = "git: File History" },
     { "<leader>gs", "<cmd>Telescope git_status<CR>", description = "git: Status" },
@@ -247,7 +243,7 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Terminal                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>tr", "<cmd>RnvimrToggle<CR>", description = "Terminal: Ranger" },
+    { "<leader>tr", "<cmd>Ranger<CR>", description = "Terminal: Ranger" },
     { "<leader>tn", "<cmd>ToggleTerm<CR>", description = "Terminal: New" },
 
     -- ╭──────────────────────────────────────────────────────────╮

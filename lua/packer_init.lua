@@ -118,9 +118,9 @@ return packer.startup(function(use)
   -- use("romgrk/barbar.nvim") -- tabline
   use("nvim-lualine/lualine.nvim") -- statusline
 
-  use("voldikss/vim-floaterm") -- need for `lazygit` and `ranger`
   use("akinsho/toggleterm.nvim") -- general terminal
-  use("kevinhwang91/rnvimr")
+  use("is0n/fm-nvim") -- ranger
+  use("kdheepak/lazygit.nvim")
 
   use("kylechui/nvim-surround")
   use("andymass/vim-matchup") -- navigate matching text enhanced with `nvim-treesitter-textobjects`

@@ -132,8 +132,4 @@ cnoremap x xa
 
 " wean off `:wq` and `:q`
 cnoremap <expr> <CR> getcmdtype() == ":" && index(["q", "wq"], getcmdline()) >= 0 ? "<C-u>" : "<CR>"
-
-" `wilder.nvim`: previous and next command key mapping to be compatible
-cnoremap <expr> <C-j> wildmenumode() ? "\<C-N>" : "\<Down>"
-cnoremap <expr> <C-k> wildmenumode() ? "\<C-P>" : "\<Up>"
 ]])
