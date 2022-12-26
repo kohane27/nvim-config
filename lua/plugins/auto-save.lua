@@ -28,10 +28,10 @@ autosave.setup({
     enabling = nil, -- ran when enabling auto-save
     disabling = nil, -- ran when disabling auto-save
     before_asserting_save = nil, -- ran before checking `condition`
-    -- ran before doing the actual save
-    before_saving = function()
-      return vim.lsp.buf.format()
-    end,
+    before_saving = nil, -- ran before doing the actual save
+    -- before_saving = function()
+    --   return vim.lsp.buf.format()
+    -- end,
     after_saving = nil, -- ran after doing the actual save
   },
 })
