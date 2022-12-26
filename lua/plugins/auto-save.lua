@@ -5,16 +5,9 @@ end
 
 autosave.setup({
   enabled = true,
-  execution_message = {
-    message = function() -- message to print on save
-      return ""
-    end,
-    dim = 1.00, -- dim the color of `message`
-    cleaning_interval = 100, -- clean MsgArea after displaying `message`
-  },
-
+  execution_message = { message = "" },
+  print_enabled = false,
   trigger_events = { "InsertLeave" },
-  -- making react project error prone
   -- trigger_events = { "InsertLeave", "TextChanged" },
   -- determines whether to save the current buffer or not
   condition = function(buf)
@@ -22,18 +15,8 @@ autosave.setup({
     local utils = require("auto-save.utils.data")
     if
       fn.getbufvar(buf, "&modifiable") == 1
-      and utils.not_in(fn.getbufvar(buf, "&filetype"), {
-        -- "lua",
-        "java",
-        "javascript",
-        "typescript",
-        "javascriptreact",
-        "typescriptreact",
-      })
-      and utils.not_in(fn.expand("%:t"), {
-        "packer_init.lua",
-        -- "auto-save.lua",
-      })
+      and utils.not_in(fn.getbufvar(buf, "&filetype"), { "c" })
+      and utils.not_in(fn.expand("%:t"), { "packer_init.lua" })
     then
       return true -- met condition(s), can save
     end
@@ -41,4 +24,14 @@ autosave.setup({
   end,
   write_all_buffers = true, -- write all buffers when the current one meets `condition`
   debounce_delay = 200, -- saves the file at most every `debounce_delay` milliseconds
+  callbacks = { -- functions to be executed at different intervals
+    enabling = nil, -- ran when enabling auto-save
+    disabling = nil, -- ran when disabling auto-save
+    before_asserting_save = nil, -- ran before checking `condition`
+    -- ran before doing the actual save
+    before_saving = function()
+      return vim.lsp.buf.format()
+    end,
+    after_saving = nil, -- ran after doing the actual save
+  },
 })

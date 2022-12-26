@@ -119,12 +119,16 @@ return packer.startup(function(use)
   use("nvim-lualine/lualine.nvim") -- statusline
   use("voldikss/vim-floaterm") -- need for `lazygit` and `ranger`
   use("akinsho/toggleterm.nvim") -- general terminal
+  use("samjwill/nvim-unception") -- open file in terminal without nesting sessions
   use("kylechui/nvim-surround")
   use("andymass/vim-matchup") -- navigate matching text enhanced with `nvim-treesitter-textobjects`
   -- use("wellle/targets.vim") -- superseded by `nvim-treesitter-textobjects`
   use("mbbill/undotree")
-  use("Pocco81/auto-save.nvim") -- auto-format when saving
   use("gpanders/editorconfig.nvim")
+
+  -- use("Pocco81/auto-save.nvim") -- auto-format when saving
+  -- until https://github.com/Pocco81/auto-save.nvim/pull/67 merged
+  use("AnonymusRaccoon/auto-save.nvim")
 
   -- use("anuvyklack/pretty-fold.nvim")
   -- use("kevinhwang91/nvim-ufo")
@@ -139,8 +143,8 @@ return packer.startup(function(use)
   -- use("mhinz/vim-startify")
 
   -- session management
-  -- use("rmagatti/auto-session")
-  -- use("rmagatti/session-lens") -- telescope integration
+  use("rmagatti/auto-session")
+  use("rmagatti/session-lens") -- telescope integration
 
   use("mrjones2014/legendary.nvim")
   use("stevearc/dressing.nvim") -- required by legendary.nvim
@@ -194,7 +198,9 @@ return packer.startup(function(use)
   -- use("renerocksai/telekasten.nvim")
 
   -- aesthetics
-  use("karb94/neoscroll.nvim") -- smooth scrolling
+  -- use("karb94/neoscroll.nvim") -- smooth scrolling
+  use("declancm/cinnamon.nvim")
+
   use("dstein64/nvim-scrollview") -- scrollable bar
   use("petertriho/nvim-scrollbar") -- scrollbar
 
