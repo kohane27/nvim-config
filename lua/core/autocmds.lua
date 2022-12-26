@@ -9,10 +9,6 @@ vim.cmd([[
   " autocmd filetype markdown set indentexpr=
   " autocmd fileType markdown setl conceallevel=1
 
-  " format on save except the following
-  let ftToIgnore = ['c', 'markdown']
-  autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | lua vim.lsp.buf.format()
-
   augroup _general_settings
     autocmd!
     autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 

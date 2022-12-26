@@ -290,10 +290,13 @@ legendary.setup({
     {
       "<c-s>",
       -- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
-      { n = "<cmd>write | edit | TSBufEnable highlight<CR>zz", i = "<c-o>:w<CR>" },
+      {
+        n = "<cmd>write | edit | lua vim.lsp.buf.format()<CR> | TSBufEnable highlight<CR>zz",
+        i = "<c-o><cmd>write | edit | lua vim.lsp.buf.format()<CR> | TSBufEnable highlight<CR>zz",
+      },
       description = "Save Buffer",
     },
-    { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Toggle NeoZoom" },
+    { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Misc: NeoZoom: Toggle" },
 
     { "<A-p>", "<cmd>cprev<CR>zz", description = "Previous Quickfix Item" },
     { "<A-n>", "<cmd>cnext<CR>zz", description = "Next Quickfix Item" },
