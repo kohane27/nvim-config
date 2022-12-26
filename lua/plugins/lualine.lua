@@ -3,26 +3,7 @@ if not status_ok then
   print("lualine failing")
 end
 
--- Color table for highlights
--- stylua: ignore
-local colors = {
--- foreground            #dcdfe4
--- background            #282c34
-  -- bg       = '#282c34',
-  -- fg       = '#dcdfe4',
-
-  -- bg       = '#202328',
-  -- fg       = '#bbc2cf',
-  yellow   = '#ECBE7B',
-  cyan     = '#008080',
-  darkblue = '#081633',
-  green    = '#98be65',
-  orange   = '#FF8800',
-  violet   = '#a9a1e1',
-  magenta  = '#c678dd',
-  blue     = '#51afef',
-  red      = '#ec5f67',
-}
+local colors = require("onenord.colors").load()
 
 local conditions = {
   buffer_not_empty = function()
@@ -45,8 +26,9 @@ local config = {
     -- Disable sections and component separators
     component_separators = "",
     section_separators = "",
+    -- theme = "onenord",
     theme = {
-      -- comment out and doesn't blend with nordfox
+      -- comment out and doesn't blend with nordfox/onenord
       normal = { c = { fg = colors.fg, bg = colors.bg } },
       inactive = { c = { fg = colors.fg, bg = colors.bg } },
     },
@@ -93,7 +75,7 @@ ins_left({
 ins_left({
   "branch",
   icon = "",
-  color = { fg = colors.violet, gui = "bold" },
+  color = { fg = colors.violet },
 })
 
 ins_left({
@@ -131,7 +113,7 @@ ins_right({
   "o:encoding", -- option component same as &encoding in viml
   fmt = string.upper, -- I'm not sure why it's upper case either ;)
   cond = conditions.hide_in_width,
-  color = { fg = colors.green, gui = "bold" },
+  color = { fg = colors.white },
 })
 
 ins_right({
@@ -143,13 +125,13 @@ ins_right({
     dos = "",
     mac = "",
   },
-  color = { fg = colors.green, gui = "bold" },
+  color = { fg = colors.white },
 })
 
 ins_right({
   "filename",
   cond = conditions.buffer_not_empty,
-  color = { fg = colors.magenta, gui = "bold" },
+  color = { fg = colors.white },
 })
 
 ins_right({
@@ -161,9 +143,9 @@ ins_right({
   cond = require("grapple").exists,
 })
 
-ins_right({ "location" })
+ins_right({ "location", color = { fg = colors.white } })
 
-ins_right({ "progress", color = { fg = colors.fg, gui = "bold" } })
+ins_right({ "progress", color = { fg = colors.white } })
 
 -- initialize lualine
 lualine.setup(config)

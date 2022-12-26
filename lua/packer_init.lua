@@ -232,6 +232,7 @@ return packer.startup(function(use)
 
   -- Colorschemes/themes
   -- use("NTBBloodbath/doom-one.nvim")
+  use("rmehri01/onenord.nvim")
   use("EdenEast/nightfox.nvim") -- used by firenvim
   use("folke/tokyonight.nvim") -- scrollbar theme
   use("catppuccin/nvim")
