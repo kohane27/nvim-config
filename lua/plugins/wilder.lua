@@ -6,10 +6,10 @@ end
 wilder.setup({
   modes = { ":", "/", "?" },
   enable_cmdline_enter = 0,
-  next_key = "<Tab>",
-  previous_key = "<S-Tab>",
-  -- next_key = "<C-n>",
-  -- previous_key = "<C-p>",
+  -- next_key = "<Tab>",
+  -- previous_key = "<S-Tab>",
+  next_key = "<C-n>",
+  previous_key = "<C-p>",
   -- accept_key = "<Down>",
   -- reject_key = "<Up>",
 })
@@ -49,3 +49,9 @@ wilder.set_option(
     }),
   })
 )
+
+vim.cmd([[
+" previous and next command key mapping to be compatible
+cnoremap <expr> <C-j> wildmenumode() ? "\<C-N>" : "\<Down>"
+cnoremap <expr> <C-k> wildmenumode() ? "\<C-P>" : "\<Up>"
+]])
