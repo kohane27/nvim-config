@@ -13,7 +13,8 @@ if not search_status_ok then
   return
 end
 
-local colors = require("onenord.colors").load()
+-- local colors = require("onenord.colors").load()
+local colors = require("kanagawa.colors").setup()
 
 scrollbar.setup({
   handlers = {
