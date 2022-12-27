@@ -3,7 +3,7 @@ if not status_ok then
   print("lualine failing")
 end
 
-local colors = require("onenord.colors").load()
+local colors = require("kanagawa.colors").setup()
 
 local conditions = {
   buffer_not_empty = function()
