@@ -28,9 +28,13 @@ map("n", "q:", ":q<cr>")
 -- no `qq` for macro
 map("n", "qq", "<nop>")
 
--- fix random capitalization?
--- map("n", "<Space>", "<Nop>")
--- map("v", "<Space>", "<Nop>")
+-- avoid random toggling case
+map("n", "~", "<Nop>")
+map("n", "g~", "<Nop>")
+map("n", "gu", "<nop>")
+map("n", "gU", "<nop>")
+map("x", "u", "<nop>")
+map("x", "U", "<nop>")
 
 -- unlearn bad habits
 map("n", "J", "<nop>")
@@ -39,8 +43,6 @@ map("n", "<C-a>", "<nop>")
 map("n", "<C-x>", "<nop>")
 map("n", "ZZ", "<nop>")
 map("n", "d$", "<nop>")
-map("x", "u", "<nop>")
-map("x", "U", "<nop>")
 
 -- add marks to populate jump list
 -- map("n", "J", "m'5gj")
