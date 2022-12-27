@@ -54,12 +54,12 @@ legendary.setup({
     -- │ Telescope                                                │
     -- ╰──────────────────────────────────────────────────────────╯
     {
-      "<leader>ff",
+      "<leader>fb",
       "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>",
       description = "Telescope: Find Text in Current Buffer",
     },
     {
-      "<leader>ff",
+      "<leader>fb",
       function()
         local text = vim.getVisualSelection()
         require("telescope.builtin").current_buffer_fuzzy_find({ default_text = text })
@@ -82,10 +82,10 @@ legendary.setup({
       mode = { "v" },
     },
     -- { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
+    -- { "<leader>fb", "<cmd>Telescope file_browser<CR>", description = "Telescope: File Browser" },
     { "<leader>fx", "<cmd>Telescope find_files<CR>", description = "Telescope: Find File" },
     { "<leader>fo", "<cmd>Telescope oldfiles<CR>", description = "Telescope: Open Recent File" },
     { "<leader>fp", "<cmd>Telescope projects<CR>", description = "Telescope: Find Projects" },
-    { "<leader>fb", "<cmd>Telescope file_browser<CR>", description = "Telescope: File Browser" },
     { "<leader>fr", "<cmd>Telescope neoclip<CR>", description = "Telescope: Clipboard History" },
     { "<leader>ft", "<cmd>Telescope buffers<CR>", description = "Telescope: Buffers" },
     { "<leader>fj", "<cmd>Telescope jumplist<CR>", description = "Telescope: Jumplist" },
