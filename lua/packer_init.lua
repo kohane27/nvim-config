@@ -114,11 +114,11 @@ return packer.startup(function(use)
   use("kyazdani42/nvim-web-devicons") -- lua fork of vim-devicons
   use("kyazdani42/nvim-tree.lua")
   use("akinsho/bufferline.nvim")
-  use("famiu/bufdelete.nvim") -- need for bufferline to preserve layout when deleting buffer(s)
-  -- use("romgrk/barbar.nvim") -- tabline
+  use("tiagovla/scope.nvim") -- scoped tabline
+  use("famiu/bufdelete.nvim") -- preserve layout when deleting buffers
   use("nvim-lualine/lualine.nvim") -- statusline
 
-  use("akinsho/toggleterm.nvim") -- general terminal
+  -- use("akinsho/toggleterm.nvim") -- general terminal
   use("is0n/fm-nvim") -- ranger
   use("kdheepak/lazygit.nvim")
 
