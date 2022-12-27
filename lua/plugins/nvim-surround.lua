@@ -3,4 +3,27 @@ if not status_ok then
   print("nvim-surround not working")
 end
 
-nvim_surround.setup({})
+nvim_surround.setup({
+  surrounds = {
+    ["("] = {
+      add = function()
+        return { { "(" }, { ")" } }
+      end,
+    },
+    ["{"] = {
+      add = function()
+        return { { "{" }, { "}" } }
+      end,
+    },
+    ["<"] = {
+      add = function()
+        return { { "<" }, { ">" } }
+      end,
+    },
+    ["["] = {
+      add = function()
+        return { { "[" }, { "]" } }
+      end,
+    },
+  },
+})
