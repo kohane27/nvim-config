@@ -122,6 +122,7 @@ return packer.startup(function(use)
   use("is0n/fm-nvim") -- `ranger`
   use("kdheepak/lazygit.nvim")
 
+  -- use("machakann/vim-sandwich")
   use("kylechui/nvim-surround")
   use("andymass/vim-matchup") -- navigate matching text enhanced with `nvim-treesitter-textobjects`
   -- use("wellle/targets.vim") -- superseded by `nvim-treesitter-textobjects`

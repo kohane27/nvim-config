@@ -47,6 +47,7 @@ require("plugins.lazygit")
 
 require("plugins.luasnip")
 require("plugins.trouble")
+-- require("plugins.vim-sandwitch")
 require("plugins.nvim-surround")
 require("plugins.vim-visual-multi")
 
