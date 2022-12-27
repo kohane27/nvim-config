@@ -141,30 +141,6 @@ telescope.setup({
         ["project"] = "~/Documents",
       },
     },
-    file_browser = {
-      mappings = {
-        ["i"] = {
-          ["<A-c>"] = false,
-          ["<S-CR>"] = false,
-          ["<A-r>"] = false,
-          ["<A-m>"] = false,
-          ["<A-y>"] = false,
-          ["<A-d>"] = false,
-          ["<C-o>"] = false,
-          ["<C-g>"] = false,
-          ["<C-w>"] = false,
-          ["<C-t>"] = false,
-          ["<C-f>"] = false,
-          ["<C-h>"] = false,
-          ["<C-s>"] = false,
-        },
-        ["n"] = {
-          ["gh"] = telescope.extensions.file_browser.actions.goto_parent_dir,
-          ["gl"] = telescope.extensions.file_browser.actions.change_cwd,
-          ["gcwd"] = telescope.extensions.file_browser.actions.goto_cwd,
-        },
-      },
-    },
   },
 })
 
@@ -172,4 +148,3 @@ telescope.load_extension("fzf")
 telescope.load_extension("projects")
 -- telescope.load_extension("frecency") -- TODO very annoying msg
 telescope.load_extension("neoclip")
-telescope.load_extension("file_browser")

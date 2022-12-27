@@ -23,6 +23,9 @@ end
 -----------------------------------------------------------
 -- map("i", "jk", "<Esc>")
 
+map("n", "<space>", "<Nop>")
+map("x", "<space>", "<Nop>")
+
 -- avoid command history
 map("n", "q:", ":q<cr>")
 -- no `qq` for macro

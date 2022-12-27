@@ -244,7 +244,7 @@ legendary.setup({
     -- │ Terminal                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
     { "<leader>tr", "<cmd>Ranger<CR>", description = "Terminal: Ranger" },
-    { "<leader>tn", "<cmd>ToggleTerm<CR>", description = "Terminal: New" },
+    -- { "<leader>tn", "<cmd>ToggleTerm<CR>", description = "Terminal: New" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │  Grapple                                                 │
@@ -319,6 +319,8 @@ legendary.setup({
 
     { "<leader>Mu", "<cmd>UndotreeToggle<CR>", description = "Misc: Undotree: Toggle" },
     { "<leader>Ma", "<cmd>ASToggle<CR>", description = "Misc: AutoSave: Toggle" },
+    { "<leader>Mxxse", "<cmd>ScrollViewEnable<CR>", description = "Misc: ScrollView: Enable" },
+    { "<leader>Mxxsd", "<cmd>ScrollViewDisable<CR>", description = "Misc: ScrollView: Disable" },
     -- { "<leader>mp", "<cmd>PasteImg<CR>", description = "Misc: Paste Image" },
     { "<leader>Mo", "<cmd>LSoutlineToggle<CR>", description = "Misc: Symbols Outline" },
     { "<leader>MS", "<cmd>SymbolsOutline<CR>", description = "Misc: Symbols Outline" },
@@ -327,7 +329,7 @@ legendary.setup({
     {
       "<leader>Ms",
       toolbox.lazy_required_fn("spectre", "open_file_search"),
-      description = "Misc: Spectre: File Search",
+      description = "Misc: Spectre: Search Current File",
     },
     {
       "<leader>Mb",

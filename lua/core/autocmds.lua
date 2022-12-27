@@ -60,7 +60,7 @@ autocmd("TextYankPost", {
   end,
 })
 
--- Enable spellcheck in text and gitcommit files
+-- Enable spellcheck
 autocmd("FileType", {
   pattern = { "gitcommit", "text" },
   callback = function()

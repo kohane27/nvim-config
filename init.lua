@@ -31,7 +31,6 @@ require("plugins.Comment")
 require("plugins.gitsigns")
 require("plugins.nvim-tree")
 require("plugins.bufferline")
-require("plugins.scope")
 require("plugins.lualine")
 require("plugins.legendary")
 require("plugins.colorizer")
@@ -81,12 +80,14 @@ require("plugins.auto-session")
 
 require("plugins.vim-markdown")
 require("plugins.git-conflict")
-require("plugins.code_runner")
+
+-- require("plugins.code_runner")
 require("plugins.sniprun")
 
 require("plugins.tmux")
 require("plugins.vim-test")
 require("plugins.delaytrain")
+require("plugins.better_escape")
 -- require("plugins.firenvim")
 
 if vim.g.vscode then
