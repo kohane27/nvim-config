@@ -26,9 +26,8 @@ local config = {
     -- Disable sections and component separators
     component_separators = "",
     section_separators = "",
-    -- theme = "onenord",
     theme = {
-      -- comment out and doesn't blend with nordfox/onenord
+      -- WARNING: comment out and doesn't blend with nordfox/onenord
       normal = { c = { fg = colors.fg, bg = colors.bg } },
       inactive = { c = { fg = colors.fg, bg = colors.bg } },
     },
@@ -109,43 +108,42 @@ ins_left({
 })
 
 -- Add components to right sections
+
+-- session name
+ins_right({ require("auto-session-library").current_session_name })
+
 ins_right({
-  "o:encoding", -- option component same as &encoding in viml
-  fmt = string.upper, -- I'm not sure why it's upper case either ;)
+  "o:encoding",
+  fmt = string.upper,
   cond = conditions.hide_in_width,
-  color = { fg = colors.white },
 })
 
 ins_right({
   "fileformat",
-  -- fmt = string.upper,
   icons_enabled = true,
   symbols = {
     unix = "",
     dos = "",
     mac = "",
   },
-  color = { fg = colors.white },
 })
 
-ins_right({
-  "filename",
-  cond = conditions.buffer_not_empty,
-  color = { fg = colors.white },
-})
+-- ins_right({
+--   "filename",
+--   cond = conditions.buffer_not_empty,
+-- })
 
 ins_right({
   function()
     local key = require("grapple").key()
     return " [" .. key .. "]"
   end,
-  color = { fg = colors.blue }, -- Sets highlighting of component
   cond = require("grapple").exists,
 })
 
-ins_right({ "location", color = { fg = colors.white } })
+ins_right({ "location" })
 
-ins_right({ "progress", color = { fg = colors.white } })
+ins_right({ "progress" })
 
 -- initialize lualine
 lualine.setup(config)
