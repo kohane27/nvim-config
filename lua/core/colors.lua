@@ -2,22 +2,37 @@
 -- │ Color schemes configuration file                         │
 -- │ See:https://github.com/brainfucksec/neovim-lua#appearance│
 -- ╰──────────────────────────────────────────────────────────╯
-require("onenord").setup({
-  borders = true, -- Split window borders
-  fade_nc = true, -- Fade non-current windows, making them more distinguishable
-  -- Style that is applied to various groups: see `highlight-args` for options
-  styles = {
-    comments = "italic",
-    strings = "NONE",
-    keywords = "NONE",
-    functions = "NONE",
-    variables = "NONE",
-    diagnostics = "underline",
-  },
+
+vim.opt.laststatus = 3
+vim.opt.fillchars:append({
+  horiz = "━",
+  horizup = "┻",
+  horizdown = "┳",
+  vert = "┃",
+  vertleft = "┨",
+  vertright = "┣",
+  verthoriz = "╋",
 })
+
+require("kanagawa").setup({
+  undercurl = true,
+  commentStyle = { italic = true },
+  functionStyle = {},
+  keywordStyle = { italic = true },
+  statementStyle = { bold = true },
+  typeStyle = {},
+  variablebuiltinStyle = { italic = true },
+  transparent = false, -- do not set background color
+  dimInactive = true, -- dim inactive window `:h hl-NormalNC`
+  globalStatus = true, -- adjust window separators highlight for laststatus=3
+  colors = {},
+  overrides = {},
+})
+
 vim.cmd([[
+colorscheme kanagawa
 " colorscheme nordfox
-colorscheme onenord
+" colorscheme onenord
 " colorscheme tokyonight-storm
 " colorscheme catppuccin-frappe
 ]])
