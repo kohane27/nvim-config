@@ -178,6 +178,7 @@ return packer.startup(function(use)
   use("CRAG666/code_runner.nvim")
 
   use("ja-ford/delaytrain.nvim")
+  use("max397574/better-escape.nvim")
 
   use("gbprod/substitute.nvim")
   use("gbprod/cutlass.nvim")
@@ -209,7 +210,6 @@ return packer.startup(function(use)
   use("danilamihailov/beacon.nvim") -- flash cursor when jumping
   use("b0o/incline.nvim") -- floating statuslines
   use("LudoPinelli/comment-box.nvim") -- create comment boxes
-  -- use("Djancyp/better-comments.nvim") -- highlight comments
   use("folke/todo-comments.nvim")
   -- use("folke/noice.nvim") -- use later because it requires nightly
 
@@ -241,7 +241,7 @@ return packer.startup(function(use)
   -- use("NTBBloodbath/doom-one.nvim")
   use("rmehri01/onenord.nvim")
   use("EdenEast/nightfox.nvim") -- used by firenvim
-  use("folke/tokyonight.nvim") -- scrollbar theme
+  use("folke/tokyonight.nvim")
   use("catppuccin/nvim")
 
   -- Automatically set up your configuration after cloning packer.nvim
