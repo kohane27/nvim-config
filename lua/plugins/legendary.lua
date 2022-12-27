@@ -41,6 +41,8 @@ legendary.setup({
   keymaps = {
     -- <C-KEY>
     { "<C-t>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
+    { "<C-e>", "<cmd>Ranger<CR>", description = "Ranger" },
+    { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
     {
       "<C-g>",
       "<cmd>lua require('telescope.builtin').git_files({ cwd = require'telescope.utils'.buffer_dir() })<CR>",
@@ -227,7 +229,6 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Git                                                      │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>gl", "<cmd>LazyGit<CR>", description = "git: lazygit" },
     { "<leader>gd", "<cmd>DiffviewOpen<CR>", description = "git: diff index" },
     { "<leader>gf", "<cmd>DiffviewFileHistory<CR>", description = "git: File History" },
     { "<leader>gs", "<cmd>Telescope git_status<CR>", description = "git: Status" },
@@ -243,7 +244,6 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Terminal                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>tr", "<cmd>Ranger<CR>", description = "Terminal: Ranger" },
     -- { "<leader>tn", "<cmd>ToggleTerm<CR>", description = "Terminal: New" },
 
     -- ╭──────────────────────────────────────────────────────────╮
