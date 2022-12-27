@@ -7,7 +7,7 @@ registers.setup({
   -- Show a line at the bottom with registers that aren't filled
   show_empty = false,
   -- Show registers in this order
-  show = '+"-/_=#%.0123456789abcdefghijklmnopqrstuvwxyz:',
+  show = '"+-/_=#%.0123456789abcdefghijklmnopqrstuvwxyz:',
   bind_keys = {
     -- Show the window when pressing " in normal mode, applying the selected register as part of a motion
     normal = registers.show_window({ mode = "motion" }),
