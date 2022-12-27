@@ -59,17 +59,17 @@ telescope.setup({
         ["<C-j>"] = actions.cycle_history_next,
         ["<C-k>"] = actions.cycle_history_prev,
 
-        ["<C-p>"] = actions.move_selection_previous,
         ["<C-n>"] = actions.move_selection_next,
+        ["<C-p>"] = actions.move_selection_previous,
 
         ["<CR>"] = actions.select_default,
         ["<C-c>"] = actions.close,
         ["<C-w>s"] = actions.select_horizontal,
         ["<C-w>v"] = actions.select_vertical,
-        ["<C-t>"] = actions.select_tab,
+        ["<C-w>t"] = actions.select_tab,
 
-        ["<C-u>"] = actions.results_scrolling_up,
         ["<C-d>"] = actions.results_scrolling_down,
+        ["<C-u>"] = actions.results_scrolling_up,
 
         -- only in Normal mode
         -- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
@@ -89,20 +89,21 @@ telescope.setup({
         ["<CR>"] = actions.select_default,
         ["<C-w>s"] = actions.select_horizontal,
         ["<C-w>v"] = actions.select_vertical,
-        ["<C-t>"] = actions.select_tab,
+        ["<C-w>t"] = actions.select_tab,
 
         ["j"] = actions.move_selection_next,
         -- TODO
         -- ["J"] = ":5j",
         ["k"] = actions.move_selection_previous,
         ["gg"] = actions.move_to_top,
-        ["G"] = actions.move_to_bottom,
-        ["H"] = actions.move_to_top,
         ["M"] = actions.move_to_middle,
-        ["L"] = actions.move_to_bottom,
+        ["G"] = actions.move_to_bottom,
 
-        ["<C-u>"] = actions.preview_scrolling_up,
-        ["<C-d>"] = actions.preview_scrolling_down,
+        ["<C-d>"] = actions.results_scrolling_down,
+        ["<C-u>"] = actions.results_scrolling_up,
+
+        -- ["<C-u>"] = actions.preview_scrolling_up,
+        -- ["<C-d>"] = actions.preview_scrolling_down,
 
         ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
