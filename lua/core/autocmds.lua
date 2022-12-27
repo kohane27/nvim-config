@@ -68,19 +68,6 @@ autocmd("FileType", {
   end,
 })
 
--- `leap.nvim`: after jumping, run `zz` then mark it
-autocmd("User", {
-  pattern = "LeapEnter",
-  callback = function()
-    vim.cmd("normal m'")
-  end,
-})
-autocmd("User", {
-  pattern = "LeapLeave",
-  callback = function()
-    vim.cmd("normal zz")
-  end,
-})
 -- Disable diagnostics in node_modules (0 is current buffer only)
 autocmd("BufRead", { pattern = "*/node_modules/*", command = "lua vim.diagnostic.disable(0)" })
 autocmd("BufNewFile", { pattern = "*/node_modules/*", command = "lua vim.diagnostic.disable(0)" })
