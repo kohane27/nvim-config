@@ -11,6 +11,7 @@ local function map(mode, lhs, rhs)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+-- Note: useful insert mode `C-g` is unmapped
 --custom keymaps in files:
 -- leap.lua
 -- toggleterm.lua
@@ -24,9 +25,10 @@ map("i", "jk", "<Esc>")
 
 -- avoid command history
 map("n", "q:", ":q<cr>")
-map("n", "q", "<nop>")
+-- no `qq` for macro
+map("n", "qq", "<nop>")
 
--- maybe this will fix random capitalization?
+-- fix random capitalization?
 -- map("n", "<Space>", "<Nop>")
 -- map("v", "<Space>", "<Nop>")
 

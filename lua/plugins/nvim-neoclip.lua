@@ -12,6 +12,7 @@ neoclip.setup({
     set_reg = false,
   },
   keys = {
+    --- It's possible to map to more than one key
     telescope = {
       i = {
         select = nil,
@@ -21,7 +22,6 @@ neoclip.setup({
       n = {
         select = nil,
         paste = "<cr>",
-        --- It's possible to map to more than one key.
         -- paste = { 'p', '<c-p>' },
         paste_behind = "P",
         delete = "d",

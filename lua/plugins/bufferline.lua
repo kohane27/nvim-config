@@ -7,6 +7,7 @@ bufferline.setup({
   options = {
     color_icons = true,
     show_buffer_icons = true,
+    always_show_bufferline = true,
     show_buffer_close_icons = true,
     show_buffer_default_icon = true,
     show_close_icon = false,
