@@ -56,12 +56,12 @@ return packer.startup(function(use)
   use("romgrk/fzy-lua-native")
 
   -- Telescope extensions
-  use("nvim-telescope/telescope-frecency.nvim")
   use("ahmedkhalf/project.nvim")
-  use("nvim-telescope/telescope-file-browser.nvim") -- required by project.nvim
   use("AckslD/nvim-neoclip.lua") -- clipboard manager
+  use("nvim-telescope/telescope-frecency.nvim")
   use("kkharji/sqlite.lua") -- required by telescope-frecency
-  -- use("nvim-telescope/telescope-project.nvim") # using ahmedkhalf/project.nvim
+  -- use("nvim-telescope/telescope-project.nvim") -- using project.nvim
+  -- use("nvim-telescope/telescope-file-browser.nvim") -- required by telescope-project.nvim
 
   -- Treesitter
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
@@ -114,7 +114,7 @@ return packer.startup(function(use)
   use("kyazdani42/nvim-web-devicons") -- lua fork of vim-devicons
   use("kyazdani42/nvim-tree.lua")
   use("akinsho/bufferline.nvim")
-  use("tiagovla/scope.nvim") -- scoped tabline
+  -- use("tiagovla/scope.nvim") -- scoped tabline
   use("famiu/bufdelete.nvim") -- preserve layout when deleting buffers
   use("nvim-lualine/lualine.nvim") -- statusline
 
@@ -175,7 +175,7 @@ return packer.startup(function(use)
   -- task runners
   -- use("stevearc/overseer.nvim") -- TODO: learn
   use({ "michaelb/sniprun", run = "bash ./install.sh" })
-  use("CRAG666/code_runner.nvim")
+  -- use("CRAG666/code_runner.nvim")
 
   use("ja-ford/delaytrain.nvim")
   use("max397574/better-escape.nvim")
@@ -240,6 +240,7 @@ return packer.startup(function(use)
   -- Colorschemes/themes
   -- use("NTBBloodbath/doom-one.nvim")
   use("rmehri01/onenord.nvim")
+  use("rebelot/kanagawa.nvim")
   use("EdenEast/nightfox.nvim") -- used by firenvim
   use("folke/tokyonight.nvim")
   use("catppuccin/nvim")
