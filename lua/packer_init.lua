@@ -119,7 +119,7 @@ return packer.startup(function(use)
   use("nvim-lualine/lualine.nvim") -- statusline
 
   -- use("akinsho/toggleterm.nvim") -- general terminal
-  use("is0n/fm-nvim") -- ranger
+  use("is0n/fm-nvim") -- `ranger`
   use("kdheepak/lazygit.nvim")
 
   use("kylechui/nvim-surround")
@@ -189,8 +189,8 @@ return packer.startup(function(use)
   -- use("ekickx/clipboard-image.nvim") -- copy clipboard image to nvim
 
   -- find and replace
-  use("windwp/nvim-spectre")
-  use({ "mg979/vim-visual-multi", branch = "master" })
+  use("nvim-pack/nvim-spectre")
+  use("mg979/vim-visual-multi")
   -- use("smjonas/live-command.nvim") -- TODO: learn
   -- use("brooth/far.vim")
 
@@ -199,8 +199,8 @@ return packer.startup(function(use)
   -- use("renerocksai/telekasten.nvim")
 
   -- aesthetics
-  -- use("karb94/neoscroll.nvim") -- smooth scrolling
-  use("declancm/cinnamon.nvim")
+  use("declancm/cinnamon.nvim") -- smooth scrolling
+  -- use("karb94/neoscroll.nvim")
 
   use("dstein64/nvim-scrollview") -- scrollable bar
   use("petertriho/nvim-scrollbar") -- scrollbar
