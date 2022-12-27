@@ -271,10 +271,10 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Session                                                  │
     -- ╰──────────────────────────────────────────────────────────╯
-    -- { "<leader>ss", "<cmd>SaveSession<CR>", description = "Session: Save session" },
-    -- { "<leader>sr", "<cmd>RestoreSession<CR>", description = "Session: Restore session" },
-    -- { "<leader>sd", "<cmd>DeleteSession<CR>", description = "Session: Delete session" },
-    -- { "<leader>sl", "<cmd>lua require('session-lens').search_session()<CR>", description = "Session: Search session" },
+    { "<leader>ss", "<cmd>SaveSession<CR>", description = "Session: Save" },
+    { "<leader>sr", "<cmd>RestoreSession<CR>", description = "Session: Restore" },
+    { "<leader>sd", "<cmd>DeleteSession<CR>", description = "Session: Delete" },
+    { "<leader>sl", "<cmd>lua require('session-lens').search_session()<CR>", description = "Session: Search" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous Keymaps                                  │
