@@ -322,8 +322,8 @@ legendary.setup({
     { "<leader>Mxxse", "<cmd>ScrollViewEnable<CR>", description = "Misc: ScrollView: Enable" },
     { "<leader>Mxxsd", "<cmd>ScrollViewDisable<CR>", description = "Misc: ScrollView: Disable" },
     -- { "<leader>mp", "<cmd>PasteImg<CR>", description = "Misc: Paste Image" },
-    { "<leader>Mo", "<cmd>LSoutlineToggle<CR>", description = "Misc: Symbols Outline" },
-    { "<leader>MS", "<cmd>SymbolsOutline<CR>", description = "Misc: Symbols Outline" },
+    { "<leader>Mo", "<cmd>Lspsaga outline<CR>", description = "Misc: Symbols Outline" },
+    -- { "<leader>MS", "<cmd>SymbolsOutline<CR>", description = "Misc: Symbols Outline" },
     { "<leader>MTQ", "<cmd>TodoQuickFix<CR>", description = "Misc: Todo QuickFix" },
     { "<leader>MTT", "<cmd>TodoTelescope<CR>", description = "Misc: Todo Telescope" },
     {
