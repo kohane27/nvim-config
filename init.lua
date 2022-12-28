@@ -51,6 +51,7 @@ require("plugins.nvim-surround")
 require("plugins.vim-visual-multi")
 
 require("plugins.wilder")
+require("plugins.live_command")
 require("plugins.neozoom")
 require("plugins.beacon")
 require("plugins.comment-box")
@@ -87,7 +88,6 @@ require("plugins.sniprun")
 require("plugins.tmux")
 require("plugins.vim-test")
 require("plugins.delaytrain")
-require("plugins.better_escape")
 -- require("plugins.firenvim")
 
 if vim.g.vscode then
