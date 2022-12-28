@@ -125,7 +125,8 @@ return packer.startup(function(use)
   use("kdheepak/lazygit.nvim")
 
   use("kylechui/nvim-surround")
-  use("andymass/vim-matchup") -- navigate matching text enhanced with `nvim-treesitter-textobjects`
+  use("andymass/vim-matchup") -- enhanced with `nvim-treesitter-textobjects`
+  use("abecodes/tabout.nvim") -- tabbing out from parentheses, quotes
   -- use("wellle/targets.vim") -- superseded by `nvim-treesitter-textobjects`
   use("mbbill/undotree")
 
