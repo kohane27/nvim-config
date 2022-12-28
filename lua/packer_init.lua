@@ -177,7 +177,6 @@ return packer.startup(function(use)
   -- use("CRAG666/code_runner.nvim")
 
   use("ja-ford/delaytrain.nvim")
-  use("max397574/better-escape.nvim")
 
   use("gbprod/substitute.nvim")
   use("gbprod/cutlass.nvim")
@@ -192,7 +191,7 @@ return packer.startup(function(use)
   -- find and replace
   use("nvim-pack/nvim-spectre")
   use("mg979/vim-visual-multi")
-  -- use("smjonas/live-command.nvim") -- TODO: learn
+  use("smjonas/live-command.nvim")
 
   -- note-taking
   -- use("vimwiki/vimwiki")
