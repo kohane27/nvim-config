@@ -81,18 +81,16 @@ legendary.setup({
       description = "Telescope: Find Text",
       mode = { "v" },
     },
-    -- { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
-    -- { "<leader>fb", "<cmd>Telescope file_browser<CR>", description = "Telescope: File Browser" },
-    { "<leader>fx", "<cmd>Telescope find_files<CR>", description = "Telescope: Find File" },
+    { "<leader>ff", "<cmd>Telescope find_files<CR>", description = "Telescope: Find File" },
     { "<leader>fo", "<cmd>Telescope oldfiles<CR>", description = "Telescope: Open Recent File" },
     { "<leader>fp", "<cmd>Telescope projects<CR>", description = "Telescope: Find Projects" },
     { "<leader>fr", "<cmd>Telescope neoclip<CR>", description = "Telescope: Clipboard History" },
     { "<leader>ft", "<cmd>Telescope buffers<CR>", description = "Telescope: Buffers" },
     { "<leader>fj", "<cmd>Telescope jumplist<CR>", description = "Telescope: Jumplist" },
     { "<leader>fc", "<cmd>lua require('fzf-lua').changes()<CR>", description = "Telescope: Changes" },
-
     { "<leader>fXc", "<cmd>Telescope command_history<CR>", description = "Telescope: Command History" },
     { "<leader>fXs", "<cmd>Telescope search_history<CR>", description = "Telescope: Search History" },
+    -- { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ LSP                                                      │
@@ -283,10 +281,9 @@ legendary.setup({
       "<c-s>",
       -- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
       {
-        n = "<cmd>write | edit | lua vim.lsp.buf.format()<CR> | TSBufEnable highlight<CR>zz",
-        i = "<c-o><cmd>write | edit | lua vim.lsp.buf.format()<CR> | TSBufEnable highlight<CR>zz",
+        n = "<cmd>wa | edit | lua vim.lsp.buf.format()<CR> | TSBufEnable highlight<CR>zz",
+        i = "<cmd>wa<CR><Esc>zz",
       },
-      description = "Save Buffer",
     },
     { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Misc: NeoZoom: Toggle" },
 

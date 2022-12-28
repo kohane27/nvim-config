@@ -44,7 +44,6 @@ indent_blankline.setup({
     "Trouble",
     "vim",
     "help",
-    "dashboard",
     "git",
     "markdown",
     "text",

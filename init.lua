@@ -12,7 +12,6 @@ require("lsp.mason_lspconfig")
 require("lsp.lsp_config")
 require("lsp.null_ls")
 require("lsp.cmp")
-require("lsp.lsp_signature")
 require("lsp.vim_diagnostics")
 require("lsp.lspsaga")
 require("lsp.goto_preview")
@@ -31,7 +30,7 @@ require("plugins.Comment")
 require("plugins.gitsigns")
 require("plugins.nvim-tree")
 require("plugins.bufferline")
-require("plugins.lualine")
+-- require("plugins.lualine")
 require("plugins.legendary")
 require("plugins.colorizer")
 require("plugins.colortils")
@@ -41,7 +40,7 @@ require("plugins.flit")
 require("plugins.grapple")
 require("plugins.portal")
 
--- require("plugins.toggleterm")
+require("plugins.toggleterm")
 require("plugins.fm-nvim")
 require("plugins.lazygit")
 
@@ -75,6 +74,7 @@ require("plugins.pqf")
 require("plugins.cutlass")
 require("plugins.substitute")
 require("plugins.stay-in-place")
+require("plugins.gomove")
 
 require("plugins.auto-save")
 require("plugins.auto-session")
@@ -82,16 +82,10 @@ require("plugins.auto-session")
 require("plugins.vim-markdown")
 require("plugins.git-conflict")
 
--- require("plugins.code_runner")
+require("plugins.code_runner")
 require("plugins.sniprun")
 
 require("plugins.tmux")
 require("plugins.vim-test")
 require("plugins.delaytrain")
 -- require("plugins.firenvim")
-
-if vim.g.vscode then
-  require("plugins.leap")
-else
-  -- ordinary Neovim
-end

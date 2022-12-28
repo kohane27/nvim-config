@@ -45,9 +45,6 @@ nvim_tree.setup({
   filters = {
     custom = { "node_modules", ".cache", ".bin" },
   },
-  renderer = {
-    special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
-  },
   view = {
     adaptive_size = true,
     mappings = {

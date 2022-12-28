@@ -3,6 +3,4 @@ if not status_ok then
   print("treesitter-context failing")
 end
 
-context.setup({
-  enable = true,
-})
+context.setup({})
