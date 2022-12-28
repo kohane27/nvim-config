@@ -82,6 +82,7 @@ return packer.startup(function(use)
   use("jose-elias-alvarez/null-ls.nvim") -- formatters and linters when LSP is not present
   use("rmagatti/goto-preview")
   use("glepnir/lspsaga.nvim")
+  -- use("simrat39/symbols-outline.nvim") -- using `lspsaga`
   use("b0o/schemastore.nvim")
   use("jose-elias-alvarez/typescript.nvim")
   -- use("mfussenegger/nvim-jdtls")
@@ -122,12 +123,10 @@ return packer.startup(function(use)
   use("is0n/fm-nvim") -- `ranger`
   use("kdheepak/lazygit.nvim")
 
-  -- use("machakann/vim-sandwich")
   use("kylechui/nvim-surround")
   use("andymass/vim-matchup") -- navigate matching text enhanced with `nvim-treesitter-textobjects`
   -- use("wellle/targets.vim") -- superseded by `nvim-treesitter-textobjects`
   use("mbbill/undotree")
-  use("gpanders/editorconfig.nvim")
 
   use("Pocco81/auto-save.nvim") -- auto-format when saving
   -- TODO: check if https://github.com/Pocco81/auto-save.nvim/pull/67 merged to disable message to cmd
@@ -151,7 +150,6 @@ return packer.startup(function(use)
   use("mrjones2014/legendary.nvim")
   use("stevearc/dressing.nvim") -- required by legendary.nvim
   use("lewis6991/gitsigns.nvim")
-  use("norcalli/nvim-colorizer.lua")
 
   -- navigation
   use("ggandor/leap.nvim")
@@ -187,14 +185,14 @@ return packer.startup(function(use)
   -- use("gbprod/yanky.nvim")
 
   use("gelguy/wilder.nvim")
-  -- use("simrat39/symbols-outline.nvim") -- using lspsaga
+
+  use("gpanders/editorconfig.nvim")
   -- use("ekickx/clipboard-image.nvim") -- copy clipboard image to nvim
 
   -- find and replace
   use("nvim-pack/nvim-spectre")
   use("mg979/vim-visual-multi")
   -- use("smjonas/live-command.nvim") -- TODO: learn
-  -- use("brooth/far.vim")
 
   -- note-taking
   -- use("vimwiki/vimwiki")
@@ -221,9 +219,11 @@ return packer.startup(function(use)
   use("luukvbaal/stabilize.nvim") -- stabilize buffer content on window open/close events
 
   use("tversteeg/registers.nvim") -- see register contents
-  use("nyngwang/NeoZoom.lua") -- `<C-w>m` to maximize window without closing other buffers
+  use("nyngwang/NeoZoom.lua") -- `<C-w>m` maximizes window without closing other buffers
   use("ethanholz/nvim-lastplace") -- reopen files at last edit position
-  use("max397574/colortils.nvim") -- color utils -- TODO: learn how to use
+  use("max397574/colortils.nvim")
+  use("norcalli/nvim-colorizer.lua")
+
   -- use({
   --   "glacambre/firenvim",
   --   run = function()
@@ -236,7 +236,7 @@ return packer.startup(function(use)
   -- use("rcarriga/nvim-dap-ui")
   -- use("puremourning/vimspector")
   -- test
-  use("vim-test/vim-test")
+  -- use("vim-test/vim-test")
 
   -- Colorschemes/themes
   -- use("NTBBloodbath/doom-one.nvim")
