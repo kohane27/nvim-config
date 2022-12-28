@@ -207,10 +207,13 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ substitute.lua                                           │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "cx", toolbox.lazy_required_fn("substitute.exchange", "operator"), description = "Substitute Exchange Operator" },
-    { "cxx", toolbox.lazy_required_fn("substitute.exchange", "line"), description = "Substitute Exchange Line" },
-    -- map("x", "cx", toolbox.lazy_required_fn("substitute.exchange", "visual"), description = "Substitute Exchange Line"},
-    { "cxc", toolbox.lazy_required_fn("substitute.exchange", "cancel"), description = "Substitute Exchange Cancel" },
+    { "X", "<cmd>ISwapWith<CR>", description = "Swap" },
+    {
+      "cx",
+      toolbox.lazy_required_fn("substitute.exchange", "operator"),
+      description = "Exchange: Operator",
+    },
+    { "cxx", toolbox.lazy_required_fn("substitute.exchange", "line"), description = "Exchange: Line" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ tmux.lua                                                 │

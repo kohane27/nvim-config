@@ -4,14 +4,8 @@ if not status_ok then
 end
 
 substitute.setup({
-  {
-    on_substitute = nil,
-    yank_substitued_text = false,
-    range = {
-      prefix = "",
-    },
-    exchange = {
-      motion = false,
-    },
+  exchange = {
+    motion = false,
+    use_esc_to_cancel = true,
   },
 })
