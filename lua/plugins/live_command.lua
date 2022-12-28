@@ -3,8 +3,24 @@ if not status_ok then
   print("live-command failing")
 end
 
-live_command.setup({
-  commands = {
-    Norm = { cmd = "norm" },
+local commands = {
+  Norm = {
+    cmd = "norm",
   },
+  Reg = {
+    cmd = "norm",
+    -- use case `:5Reg a` to preview macro of a 5 times
+    args = function(opts)
+      return (opts.count == -1 and "" or opts.count) .. "@" .. opts.args
+    end,
+    range = "",
+  },
+  G = {
+    cmd = "g",
+    hl_range = { 1, -1, kind = "absolute" },
+  },
+}
+
+live_command.setup({
+  commands = commands,
 })
