@@ -34,12 +34,12 @@ require("plugins.bufferline")
 require("plugins.lualine")
 require("plugins.legendary")
 require("plugins.colorizer")
+require("plugins.colortils")
 
 require("plugins.leap")
 require("plugins.flit")
 require("plugins.grapple")
 require("plugins.portal")
--- require("plugins.jump")
 
 -- require("plugins.toggleterm")
 require("plugins.fm-nvim")
@@ -47,7 +47,6 @@ require("plugins.lazygit")
 
 require("plugins.luasnip")
 require("plugins.trouble")
--- require("plugins.vim-sandwitch")
 require("plugins.nvim-surround")
 require("plugins.vim-visual-multi")
 
