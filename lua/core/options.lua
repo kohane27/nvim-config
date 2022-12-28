@@ -93,18 +93,18 @@ opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,term
 -----------------------------------------------------------
 -- Tabs, indent
 -----------------------------------------------------------
-opt.expandtab   = true   -- Use spaces instead of tabs
-opt.shiftwidth  = 4      -- Shift 4 spaces when tab
+opt.expandtab   = true   -- use spaces instead of tabs
+opt.shiftwidth  = 4      -- shift 4 spaces when tab
 opt.softtabstop  = 4
-opt.smartindent = true   -- Autoindent new lines
+opt.smartindent = true   -- autoindent new lines
 opt.tabstop     = 4      -- 1 tab == 4 spaces
 
 -----------------------------------------------------------
 -- Memory, CPU
 -----------------------------------------------------------
-opt.hidden     = true     -- Enable background buffers
+opt.hidden     = true     -- enable background buffers
 opt.lazyredraw = false    -- `nzzzv` search result works
-opt.synmaxcol  = 240      -- Max column for syntax highlight
+opt.synmaxcol  = 500      -- max column for syntax highlight
 opt.updatetime = 700      -- ms to wait for trigger an event
 -- interval for writing swap file to disk, also used by gitsigns
 -----------------------------------------------------------

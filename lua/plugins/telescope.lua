@@ -43,10 +43,12 @@ telescope.setup({
       "package-lock.json",
       "yarn.lock",
       -- Obsidian dir below
-      ".obsidian",
-      ".trash",
-      "PeriodicNotes",
+      "SecondBrain/.obsidian",
+      "SecondBrain/.trash",
+      "SecondBrain/Courses",
+      "SecondBrain/Journal",
       "CoursesPending",
+      "home",
     },
     -- Hidden files and directories can be searched with --hidden
     find_command = { "rg", "--hidden", "--ignore-case" },

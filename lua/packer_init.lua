@@ -73,6 +73,7 @@ return packer.startup(function(use)
   use("windwp/nvim-autopairs") -- integrated with cmp and treesitter
   use("p00f/nvim-ts-rainbow") -- rainbow parentheses
   use("lukas-reineke/indent-blankline.nvim") -- indentation guides
+  use("mizlan/iswap.nvim")
 
   -- LSP
   use("neovim/nvim-lspconfig")
@@ -83,13 +84,13 @@ return packer.startup(function(use)
   use("rmagatti/goto-preview")
   use("glepnir/lspsaga.nvim")
   -- use("simrat39/symbols-outline.nvim") -- using `lspsaga`
+  -- use("ray-x/lsp_signature.nvim") -- usine `lspsaga`
+  use("folke/trouble.nvim")
+  use("onsails/lspkind.nvim") -- pictograms
+  use("folke/lsp-colors.nvim") -- LSP diagnostics highlight groups
   use("b0o/schemastore.nvim")
   use("jose-elias-alvarez/typescript.nvim")
   -- use("mfussenegger/nvim-jdtls")
-  use("folke/trouble.nvim")
-  use("ray-x/lsp_signature.nvim")
-  use("onsails/lspkind.nvim") -- pictograms to LSP
-  use("folke/lsp-colors.nvim") -- add LSP diagnostics highlight groups
 
   -- Autocomplete engine
   use({
@@ -119,7 +120,7 @@ return packer.startup(function(use)
   use("famiu/bufdelete.nvim") -- preserve layout when deleting buffers
   use("nvim-lualine/lualine.nvim") -- statusline
 
-  -- use("akinsho/toggleterm.nvim") -- general terminal
+  use("akinsho/toggleterm.nvim") -- general terminal
   use("is0n/fm-nvim") -- `ranger`
   use("kdheepak/lazygit.nvim")
 
@@ -172,19 +173,19 @@ return packer.startup(function(use)
   use("chrisbra/csv.vim")
 
   -- task runners
-  -- use("stevearc/overseer.nvim") -- TODO: learn
   use({ "michaelb/sniprun", run = "bash ./install.sh" })
-  -- use("CRAG666/code_runner.nvim")
-
-  use("ja-ford/delaytrain.nvim")
+  use("CRAG666/code_runner.nvim")
+  -- use("stevearc/overseer.nvim")
 
   use("gbprod/substitute.nvim")
   use("gbprod/cutlass.nvim")
   use("gbprod/stay-in-place.nvim")
+  use("booperlv/nvim-gomove")
   -- use("gbprod/yanky.nvim")
 
   use("gelguy/wilder.nvim")
 
+  use("ja-ford/delaytrain.nvim")
   use("gpanders/editorconfig.nvim")
   -- use("ekickx/clipboard-image.nvim") -- copy clipboard image to nvim
 
