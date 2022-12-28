@@ -7,9 +7,9 @@ local commands = {
   Norm = {
     cmd = "norm",
   },
+  -- `:5Reg a` to preview macro of `a` 5 times
   Reg = {
     cmd = "norm",
-    -- use case `:5Reg a` to preview macro of a 5 times
     args = function(opts)
       return (opts.count == -1 and "" or opts.count) .. "@" .. opts.args
     end,
