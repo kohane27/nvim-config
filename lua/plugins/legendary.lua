@@ -308,39 +308,43 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous (leader M)                               │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>Mpc", "<cmd>PackerCompile<CR>", description = "Misc: Packer: Compile" },
-    { "<leader>Mpi", "<cmd>PackerInstall<CR>", description = "Misc: Packer: Install" },
-    { "<leader>Mps", "<cmd>PackerSync<CR>", description = "Misc: Packer: Sync" },
-    { "<leader>MpS", "<cmd>PackerStatus<CR>", description = "Misc: Packer: Status" },
-    { "<leader>Mpu", "<cmd>PackerUpdate<CR>", description = "Misc: Packer: Update" },
+    { "<leader>Mpc", "<cmd>PackerCompile<CR>", description = "Packer: Compile" },
+    { "<leader>Mpi", "<cmd>PackerInstall<CR>", description = "Packer: Install" },
+    { "<leader>Mps", "<cmd>PackerSync<CR>", description = "Packer: Sync" },
+    { "<leader>MpS", "<cmd>PackerStatus<CR>", description = "Packer: Status" },
+    { "<leader>Mpu", "<cmd>PackerUpdate<CR>", description = "Packer: Update" },
 
-    { "<leader>Mi", "<cmd>LspInfo<CR>", description = "Misc: LSP: Info" },
-    { "<leader>MI", "<cmd>Mason<CR>", description = "Misc: LSP: Install Info" },
+    { "<leader>Mi", "<cmd>LspInfo<CR>", description = "LSP: Info" },
+    { "<leader>MI", "<cmd>Mason<CR>", description = "LSP: Install Info" },
+    { "<leader>Mo", "<cmd>Lspsaga outline<CR>", description = "LSP: Symbols Outline" },
 
-    { "<leader>Mu", "<cmd>UndotreeToggle<CR>", description = "Misc: Undotree: Toggle" },
-    { "<leader>Ma", "<cmd>ASToggle<CR>", description = "Misc: AutoSave: Toggle" },
-    { "<leader>Mxxse", "<cmd>ScrollViewEnable<CR>", description = "Misc: ScrollView: Enable" },
-    { "<leader>Mxxsd", "<cmd>ScrollViewDisable<CR>", description = "Misc: ScrollView: Disable" },
+    { "<leader>Mu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
+    { "<leader>Ma", "<cmd>ASToggle<CR>", description = "AutoSave: Toggle" },
+
+    { "<leader>Mxxse", "<cmd>ScrollViewEnable<CR>", description = "ScrollView: Enable" },
+    { "<leader>Mxxsd", "<cmd>ScrollViewDisable<CR>", description = "ScrollView: Disable" },
+
+    { "<leader>MTT", "<cmd>TodoTelescope<CR>", description = "Todo Telescope" },
+    { "<leader>MTQ", "<cmd>TodoQuickFix<CR>", description = "Todo QuickFix" },
+
+    { "<leader>MCP", "<cmd>Colortils picker<CR>", description = "Colortils: Picker" },
+    { "<leader>MCL", "<cmd>Colortils css list<CR>", description = "Colortils: CSS List" },
     -- { "<leader>mp", "<cmd>PasteImg<CR>", description = "Misc: Paste Image" },
-    { "<leader>Mo", "<cmd>Lspsaga outline<CR>", description = "Misc: Symbols Outline" },
-    -- { "<leader>MS", "<cmd>SymbolsOutline<CR>", description = "Misc: Symbols Outline" },
-    { "<leader>MTQ", "<cmd>TodoQuickFix<CR>", description = "Misc: Todo QuickFix" },
-    { "<leader>MTT", "<cmd>TodoTelescope<CR>", description = "Misc: Todo Telescope" },
     {
       "<leader>Ms",
       toolbox.lazy_required_fn("spectre", "open_file_search"),
-      description = "Misc: Spectre: Search Current File",
+      description = "Spectre: Search Current File",
     },
     {
       "<leader>Mb",
       "<cmd>lua require('comment-box').lbox()<CR><Esc>",
-      description = "Left-aligned Comment Box",
+      description = "Comment Box: Left-aligned",
       mode = { "x" },
     },
     {
       "<leader>Mc",
       "<cmd>n ~/.config/nvim/lua/packer_init.lua ~/.config/nvim/init.lua<CR>",
-      description = "Misc: Edit Config",
+      description = "Edit Config",
     },
   },
 })
