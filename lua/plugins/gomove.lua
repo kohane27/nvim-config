@@ -9,3 +9,10 @@ gomove.setup({
   undojoin = true, -- undojoin same direction moves
   move_past_end_col = false, -- move past end column when moving blocks horizontally
 })
+
+local map = vim.api.nvim_set_keymap
+
+map("x", "<C-h>", "<Plug>GoVSMLeft", {})
+map("x", "<C-j>", "<Plug>GoVSMDown", {})
+map("x", "<C-k>", "<Plug>GoVSMUp", {})
+map("x", "<C-l>", "<Plug>GoVSMRight", {})
