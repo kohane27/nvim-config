@@ -218,6 +218,9 @@ return packer.startup(function(use)
   use("folke/todo-comments.nvim")
   -- use("folke/noice.nvim") -- NOTE: use later because it requires nightly
 
+  use("m00qek/baleia.nvim") -- required by `chafa.nvim`
+  use("princejoogie/chafa.nvim")
+
   use("kevinhwang91/nvim-hlslens") -- better search results
   -- use("romainl/vim-cool") -- using `nvim-hlslens`
 
