@@ -8,7 +8,7 @@ neo_zoom.setup({
   top_ratio = 0.0,
   width_ratio = 1.0,
   height_ratio = 1.0,
-  border = "double",
+  border = "rounded",
   exclude_filetype = {
     "fzf",
     "qf",
