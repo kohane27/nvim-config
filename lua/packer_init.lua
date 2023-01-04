@@ -59,7 +59,7 @@ return packer.startup(function(use)
   use("ahmedkhalf/project.nvim")
   use("AckslD/nvim-neoclip.lua") -- clipboard manager
   use("nvim-telescope/telescope-frecency.nvim")
-  use("kkharji/sqlite.lua") -- required by telescope-frecency
+  use("kkharji/sqlite.lua") -- required by `telescope-frecency` and `neoclip`
   -- use("nvim-telescope/telescope-project.nvim") -- using project.nvim
   -- use("nvim-telescope/telescope-file-browser.nvim") -- required by telescope-project.nvim
 
@@ -106,7 +106,7 @@ return packer.startup(function(use)
 
   -- snippets
   use("L3MON4D3/LuaSnip") -- snippet engine
-  use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
+  -- use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
   use("saadparwaiz1/cmp_luasnip")
 
   -- General
@@ -120,7 +120,6 @@ return packer.startup(function(use)
   use("famiu/bufdelete.nvim") -- preserve layout when deleting buffers
   -- use("nvim-lualine/lualine.nvim") -- statusline
   use("feline-nvim/feline.nvim")
-
 
   use("akinsho/toggleterm.nvim") -- general terminal
   use("is0n/fm-nvim") -- `ranger`
@@ -143,7 +142,7 @@ return packer.startup(function(use)
   use("akinsho/git-conflict.nvim")
 
   use("lewis6991/impatient.nvim")
-  -- use("dstein64/vim-startuptime") -- test impatient
+  -- use("dstein64/vim-startuptime") -- test `impatient`
   -- use("goolord/alpha-nvim")
   -- use("mhinz/vim-startify")
 
@@ -222,7 +221,7 @@ return packer.startup(function(use)
   use("luukvbaal/stabilize.nvim") -- stabilize buffer content on window open/close events
 
   use("tversteeg/registers.nvim") -- see register contents
-  use("nyngwang/NeoZoom.lua") -- `<C-w>m` maximizes window without closing other buffers
+  use("nyngwang/NeoZoom.lua") -- `<C-w>o` maximizes window without closing other buffers
   use("ethanholz/nvim-lastplace") -- reopen files at last edit position
   use("max397574/colortils.nvim")
   use("norcalli/nvim-colorizer.lua")
