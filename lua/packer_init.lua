@@ -118,7 +118,9 @@ return packer.startup(function(use)
   use("akinsho/bufferline.nvim")
   -- use("tiagovla/scope.nvim") -- scoped tabline
   use("famiu/bufdelete.nvim") -- preserve layout when deleting buffers
-  use("nvim-lualine/lualine.nvim") -- statusline
+  -- use("nvim-lualine/lualine.nvim") -- statusline
+  use("feline-nvim/feline.nvim")
+
 
   use("akinsho/toggleterm.nvim") -- general terminal
   use("is0n/fm-nvim") -- `ranger`
