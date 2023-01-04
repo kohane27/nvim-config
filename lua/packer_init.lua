@@ -215,7 +215,7 @@ return packer.startup(function(use)
   use("b0o/incline.nvim") -- floating statuslines
   use("LudoPinelli/comment-box.nvim") -- create comment boxes
   use("folke/todo-comments.nvim")
-  -- use("folke/noice.nvim") -- use later because it requires nightly
+  -- use("folke/noice.nvim") -- NOTE: use later because it requires nightly
 
   use("kevinhwang91/nvim-hlslens") -- better search results
   -- use("romainl/vim-cool") -- using `nvim-hlslens`

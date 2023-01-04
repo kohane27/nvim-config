@@ -11,12 +11,13 @@ local function map(mode, lhs, rhs)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- Note: useful insert mode `C-g` is unmapped
+-- NOTE: useful insert mode `C-g` is unmapped
 --custom keymaps in files:
 -- leap.lua
 -- toggleterm.lua
--- yanky.lua
 -- hlslens.lua
+-- gomove.lua
+-- yanky.lua
 
 -----------------------------------------------------------
 -- Neovim shortcuts
@@ -68,13 +69,9 @@ map("x", "J", "5j")
 map("x", "K", "5k")
 
 -- moving lines
--- conflicting with jabirali/tmux-tilish
--- map("n", "<A-j>", ":m .+1<CR>==")
--- map("n", "<A-k>", ":m .-2<CR>==")
--- map("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
--- map("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
-map("v", "<C-j>", ":move '>+1<CR>gv=gv")
-map("v", "<C-k>", ":move '<-2<CR>gv=gv")
+-- using `gomove`
+-- map("v", "<C-j>", ":move '>+1<CR>gv=gv")
+-- map("v", "<C-k>", ":move '<-2<CR>gv=gv")
 
 -- backspace to black hole registry
 map("n", "<BS>", '"_')
