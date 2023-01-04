@@ -4,8 +4,7 @@ if not status_ok then
 end
 
 project_nvim.setup({
-  -- get a message when project.nvim changes your directory
-  silent_chdir = true,
-  -- show hidden files
-  show_hidden = true,
+  silent_chdir = false, -- get a message when `project.nvim` change dir
+  show_hidden = true, -- show hidden files
+  ignore_lsp = { "null-ls" }, -- `null-ls` interferes with `project_nvim` to change dir
 })
