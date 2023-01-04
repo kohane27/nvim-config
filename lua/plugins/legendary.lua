@@ -43,11 +43,7 @@ legendary.setup({
     { "<C-t>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
     { "<C-e>", "<cmd>Ranger<CR>", description = "Ranger" },
     { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
-    {
-      "<C-g>",
-      "<cmd>lua require('telescope.builtin').git_files({ cwd = require'telescope.utils'.buffer_dir() })<CR>",
-      description = "Telescope: Find Files",
-    },
+    { "<C-g>", "<cmd>lua require('telescope.builtin').git_files()<CR>", description = "Telescope: Find Files" },
     { "<C-l>", "<cmd>Legendary<CR>", description = "Legendary", mode = { "n", "i", "x" } },
 
     -- ╭──────────────────────────────────────────────────────────╮
@@ -55,33 +51,27 @@ legendary.setup({
     -- ╰──────────────────────────────────────────────────────────╯
     {
       "<leader>fb",
-      "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>",
+      {
+        n = "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>",
+        v = function()
+          local text = vim.getVisualSelection()
+          require("telescope.builtin").current_buffer_fuzzy_find({ default_text = text })
+        end,
+      },
       description = "Telescope: Find Text in Current Buffer",
     },
     {
-      "<leader>fb",
-      function()
-        local text = vim.getVisualSelection()
-        require("telescope.builtin").current_buffer_fuzzy_find({ default_text = text })
-      end,
-      description = "Telescope: Find Text in Current Buffer",
-      mode = { "v" },
-    },
-    {
       "<leader>fg",
-      "<cmd>lua require('telescope.builtin').live_grep()<CR>",
+      {
+        n = "<cmd>lua require('telescope.builtin').live_grep()<CR>",
+        v = function()
+          local text = vim.getVisualSelection()
+          require("telescope.builtin").live_grep({ default_text = text })
+        end,
+      },
       description = "Telescope: Find Text",
     },
-    {
-      "<leader>fg",
-      function()
-        local text = vim.getVisualSelection()
-        require("telescope.builtin").live_grep({ default_text = text })
-      end,
-      description = "Telescope: Find Text",
-      mode = { "v" },
-    },
-    { "<leader>ff", "<cmd>Telescope find_files<CR>", description = "Telescope: Find File" },
+    { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>", description = "Telescope: Find Files" },
     { "<leader>fo", "<cmd>Telescope oldfiles<CR>", description = "Telescope: Open Recent File" },
     { "<leader>fp", "<cmd>Telescope projects<CR>", description = "Telescope: Find Projects" },
     { "<leader>fr", "<cmd>Telescope neoclip<CR>", description = "Telescope: Clipboard History" },
@@ -288,8 +278,7 @@ legendary.setup({
         i = "<cmd>wa<CR><Esc>zzi",
       },
     },
-    { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Misc: NeoZoom: Toggle" },
-
+    { "<C-w>o", "<cmd>lua require('neo-zoom').neo_zoom()<CR>", description = "Misc: Zoom: Toggle" },
     { "<A-p>", "<cmd>cprev<CR>zz", description = "Previous Quickfix Item" },
     { "<A-n>", "<cmd>cnext<CR>zz", description = "Next Quickfix Item" },
 
