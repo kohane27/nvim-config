@@ -58,7 +58,8 @@ return packer.startup(function(use)
   -- Telescope extensions
   use("ahmedkhalf/project.nvim")
   use("AckslD/nvim-neoclip.lua") -- clipboard manager
-  use("nvim-telescope/telescope-frecency.nvim")
+  use('marcuscaisey/olddirs.nvim') -- `:oldfiles` but for directories
+  -- use("nvim-telescope/telescope-frecency.nvim")
   use("kkharji/sqlite.lua") -- required by `telescope-frecency` and `neoclip`
   -- use("nvim-telescope/telescope-project.nvim") -- using project.nvim
   -- use("nvim-telescope/telescope-file-browser.nvim") -- required by telescope-project.nvim

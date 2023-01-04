@@ -73,6 +73,11 @@ legendary.setup({
     },
     { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>", description = "Telescope: Find Files" },
     { "<leader>fo", "<cmd>Telescope oldfiles<CR>", description = "Telescope: Open Recent File" },
+    {
+      "<leader>fO",
+      "<cmd>lua require('telescope').extensions.olddirs.picker()<CR>",
+      description = "Telescope: Open Recent Directories",
+    },
     { "<leader>fp", "<cmd>Telescope projects<CR>", description = "Telescope: Find Projects" },
     { "<leader>fr", "<cmd>Telescope neoclip<CR>", description = "Telescope: Clipboard History" },
     { "<leader>ft", "<cmd>Telescope buffers<CR>", description = "Telescope: Buffers" },
