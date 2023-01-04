@@ -245,7 +245,7 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Terminal                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
-    -- { "<leader>tn", "<cmd>ToggleTerm<CR>", description = "Terminal: New" },
+    { "<leader>tn", "<cmd>ToggleTerm<CR>", description = "Terminal: New" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │  Grapple                                                 │
@@ -285,7 +285,7 @@ legendary.setup({
       -- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
       {
         n = "<cmd>wa | edit | lua vim.lsp.buf.format()<CR> | TSBufEnable highlight<CR>zz",
-        i = "<cmd>wa<CR><Esc>zz",
+        i = "<cmd>wa<CR><Esc>zzi",
       },
     },
     { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Misc: NeoZoom: Toggle" },
