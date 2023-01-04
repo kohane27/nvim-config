@@ -58,7 +58,7 @@ return packer.startup(function(use)
   -- Telescope extensions
   use("ahmedkhalf/project.nvim")
   use("AckslD/nvim-neoclip.lua") -- clipboard manager
-  use('marcuscaisey/olddirs.nvim') -- `:oldfiles` but for directories
+  use("marcuscaisey/olddirs.nvim") -- `:oldfiles` but for directories
   -- use("nvim-telescope/telescope-frecency.nvim")
   use("kkharji/sqlite.lua") -- required by `telescope-frecency` and `neoclip`
   -- use("nvim-telescope/telescope-project.nvim") -- using project.nvim
@@ -72,7 +72,7 @@ return packer.startup(function(use)
   use("JoosepAlviste/nvim-ts-context-commentstring")
   use("windwp/nvim-ts-autotag")
   use("windwp/nvim-autopairs") -- integrated with cmp and treesitter
-  use("p00f/nvim-ts-rainbow") -- rainbow parentheses
+  use("mrjones2014/nvim-ts-rainbow") -- rainbow parentheses
   use("lukas-reineke/indent-blankline.nvim") -- indentation guides
   use("mizlan/iswap.nvim")
 
@@ -84,11 +84,11 @@ return packer.startup(function(use)
   use("jose-elias-alvarez/null-ls.nvim") -- formatters and linters when LSP is not present
   use("rmagatti/goto-preview")
   use("glepnir/lspsaga.nvim")
-  -- use("simrat39/symbols-outline.nvim") -- using `lspsaga`
-  -- use("ray-x/lsp_signature.nvim") -- usine `lspsaga`
   use("folke/trouble.nvim")
   use("onsails/lspkind.nvim") -- pictograms
   use("folke/lsp-colors.nvim") -- LSP diagnostics highlight groups
+  -- use("simrat39/symbols-outline.nvim") -- using `lspsaga`
+  -- use("ray-x/lsp_signature.nvim") -- usine `lspsaga`
   use("b0o/schemastore.nvim")
   use("jose-elias-alvarez/typescript.nvim")
   -- use("mfussenegger/nvim-jdtls")
@@ -127,6 +127,8 @@ return packer.startup(function(use)
   use("kdheepak/lazygit.nvim")
 
   use("kylechui/nvim-surround")
+  -- use("machakann/vim-sandwich")
+
   use("andymass/vim-matchup") -- enhanced with `nvim-treesitter-textobjects`
   use("abecodes/tabout.nvim") -- tabbing out from parentheses, quotes
   -- use("wellle/targets.vim") -- superseded by `nvim-treesitter-textobjects`
@@ -225,7 +227,7 @@ return packer.startup(function(use)
   use("nyngwang/NeoZoom.lua") -- `<C-w>o` maximizes window without closing other buffers
   use("ethanholz/nvim-lastplace") -- reopen files at last edit position
   use("max397574/colortils.nvim")
-  use("norcalli/nvim-colorizer.lua")
+  use("NvChad/nvim-colorizer.lua")
 
   -- use({
   --   "glacambre/firenvim",

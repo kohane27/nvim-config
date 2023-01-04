@@ -43,7 +43,7 @@ local left = {
 }
 
 local right = {
-  provide("lsp_client_names", "fg_dark", "bg", "NONE", "block", "block"),
+  -- provide("lsp_client_names", "fg_dark", "bg", "NONE", "block", "block"),
   provide(
     { name = "file_type", opts = { filetype_icon = true, case = "titlecase" } },
     "fg_dark",
