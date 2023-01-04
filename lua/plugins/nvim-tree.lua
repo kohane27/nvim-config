@@ -25,12 +25,7 @@ nvim_tree.setup({
   respect_buf_cwd = true,
   update_focused_file = {
     enable = true,
-    update_cwd = true,
-  },
-  ignore_ft_on_setup = {
-    "startify",
-    "dashboard",
-    "alpha",
+    update_root = true
   },
   actions = {
     change_dir = {
@@ -41,6 +36,11 @@ nvim_tree.setup({
       quit_on_open = false,
       resize_window = true,
     },
+  },
+  ignore_ft_on_setup = {
+    "startify",
+    "dashboard",
+    "alpha",
   },
   filters = {
     custom = { "node_modules", ".cache", ".bin" },
