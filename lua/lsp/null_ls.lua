@@ -50,19 +50,12 @@ local sources = {
   --   filetypes = { "sh", "bash", "zsh" },
   -- }),
 
-  -- diagnostics.tsc,
   -- diagnostics.markdownlint,
   -- diagnostics.flake8,
-
-  -- CODE ACTIONS
-  -- builtins.code_actions.gitsigns,
-  -- builtins.code_actions.gitrebase,
-  -- injects actions to fix ESLint issues or ignore broken rules
-  -- builtins.code_actions.eslint_d,
 }
 
 null_ls.setup({
   debug = false,
   sources = sources,
-  root_dir = nls_utils.root_pattern(".git"),
+  -- root_dir = nls_utils.root_pattern(".git"),
 })
