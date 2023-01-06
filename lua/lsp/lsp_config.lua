@@ -1,11 +1,11 @@
 local lsp_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lsp_status_ok then
-  print("lspconfig failing")
+  print("lspconfig not working")
 end
 
 local cmp_status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not cmp_status_ok then
-  print("cmp_nvim_lsp failing")
+  print("cmp_nvim_lsp not working")
 end
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -50,7 +50,7 @@ end
 -- 1. typescript
 local status_ok, typescript = pcall(require, "typescript")
 if not status_ok then
-  print("typescript failing")
+  print("typescript not working")
 end
 
 typescript.setup({

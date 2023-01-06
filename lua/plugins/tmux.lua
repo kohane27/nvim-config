@@ -1,6 +1,6 @@
 local status_ok, tmux = pcall(require, "tmux")
 if not status_ok then
-  print("tmux failing")
+  print("tmux not working")
 end
 
 tmux.setup({

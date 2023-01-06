@@ -1,6 +1,6 @@
 local status_ok, gomove = pcall(require, "gomove")
 if not status_ok then
-  return
+  print("gomove not working")
 end
 
 gomove.setup({

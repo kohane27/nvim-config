@@ -1,6 +1,6 @@
 local status_ok, wilder = pcall(require, "wilder")
 if not status_ok then
-  print("wilder failing")
+  print("wilder not working")
 end
 
 wilder.setup({

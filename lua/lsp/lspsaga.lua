@@ -1,6 +1,6 @@
 local status_ok, saga = pcall(require, "lspsaga")
 if not status_ok then
-  print("saga failing")
+  print("saga not working")
 end
 
 saga.init_lsp_saga({

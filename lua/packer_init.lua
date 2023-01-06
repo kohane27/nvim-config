@@ -172,7 +172,7 @@ return packer.startup(function(use)
   -- filetypes
   use("nathom/filetype.nvim") -- speed up startup time
   use("preservim/vim-markdown")
-  use("godlygeek/tabular") -- format tables
+  use("godlygeek/tabular") -- required by `preservim/vim-markdown`
   use("mtdl9/vim-log-highlighting")
   use("ledger/vim-ledger")
   use("chrisbra/csv.vim")
@@ -202,11 +202,11 @@ return packer.startup(function(use)
   -- note-taking
   -- use("vimwiki/vimwiki")
   -- use("renerocksai/telekasten.nvim")
+  use("epwalsh/obsidian.nvim")
 
   -- aesthetics
   use("rcarriga/nvim-notify")
   use("declancm/cinnamon.nvim") -- smooth scrolling
-  -- use("karb94/neoscroll.nvim")
 
   use("dstein64/nvim-scrollview") -- scrollable bar
   use("petertriho/nvim-scrollbar") -- scrollbar
@@ -229,9 +229,9 @@ return packer.startup(function(use)
 
   use("tversteeg/registers.nvim") -- see register contents
   use("nyngwang/NeoZoom.lua") -- `<C-w>o` maximizes window without closing other buffers
-  use("ethanholz/nvim-lastplace") -- reopen files at last edit position
+  use("ethanholz/nvim-lastplace") -- open files at last edit position
   use("max397574/colortils.nvim")
-  use("NvChad/nvim-colorizer.lua")
+  use("norcalli/nvim-colorizer.lua")
 
   -- use({
   --   "glacambre/firenvim",

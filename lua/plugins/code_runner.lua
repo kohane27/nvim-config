@@ -1,6 +1,6 @@
 local status_ok, code_runner = pcall(require, "code_runner")
 if not status_ok then
-  print("code_runner failing")
+  print("code_runner not working")
 end
 
 code_runner.setup({
