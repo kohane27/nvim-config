@@ -70,13 +70,11 @@ require("plugins.illuminate")
 require("plugins.todo-comments")
 require("plugins.nvim-lastplace")
 
-require("plugins.diffview")
-require("plugins.registers")
-
 -- require("plugins.ufo")
 require("plugins.nvim-bqf")
 require("plugins.pqf")
 
+require("plugins.registers")
 require("plugins.cutlass")
 require("plugins.substitute")
 require("plugins.stay-in-place")
@@ -86,7 +84,6 @@ require("plugins.auto-save")
 require("plugins.auto-session")
 
 require("plugins.vim-markdown")
-require("plugins.git-conflict")
 
 require("plugins.code_runner")
 require("plugins.sniprun")
@@ -95,3 +92,5 @@ require("plugins.tmux")
 require("plugins.vim-test")
 require("plugins.delaytrain")
 -- require("plugins.firenvim")
+-- require("plugins.diffview")
+-- require("plugins.git-conflict")
