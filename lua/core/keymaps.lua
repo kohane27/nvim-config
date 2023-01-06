@@ -14,6 +14,7 @@ end
 -- NOTE: useful insert mode `C-g` is unmapped
 --custom keymaps in files:
 -- leap.lua
+-- obsidian.lua
 -- toggleterm.lua
 -- hlslens.lua
 -- gomove.lua
