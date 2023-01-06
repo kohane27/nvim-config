@@ -1,6 +1,6 @@
 local status_ok, leap = pcall(require, "leap")
 if not status_ok then
-  print("leap failing")
+  print("leap not working")
 end
 
 -- true to override conflicts

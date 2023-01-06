@@ -1,6 +1,6 @@
 local status_ok, hlslens = pcall(require, "hlslens")
 if not status_ok then
-  print("hlslens failing")
+  print("hlslens not working")
 end
 
 hlslens.setup({

@@ -1,6 +1,6 @@
 local status_ok, fzf_lua = pcall(require, "fzf-lua")
 if not status_ok then
-  return
+  print("fzf-lua not working")
 end
 
 local actions = require("fzf-lua.actions")

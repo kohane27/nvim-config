@@ -1,6 +1,6 @@
 local status_ok, legendary = pcall(require, "legendary")
 if not status_ok then
-  print("legendary failing")
+  print("legendary not working")
 end
 
 local toolbox = require("legendary.toolbox")

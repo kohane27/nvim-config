@@ -1,6 +1,6 @@
 local status_ok, scrollview = pcall(require, "scrollview")
 if not status_ok then
-  print("scrollview failing")
+  print("scrollview not working")
 end
 
 scrollview.setup({
