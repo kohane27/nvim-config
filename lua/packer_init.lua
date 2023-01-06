@@ -141,8 +141,8 @@ return packer.startup(function(use)
   -- use("kevinhwang91/nvim-ufo")
   -- use("kevinhwang91/promise-async") -- required by nvim-ufo
 
-  use("sindrets/diffview.nvim") -- tabpage interface for diffs
-  use("akinsho/git-conflict.nvim")
+  -- use("sindrets/diffview.nvim") -- tabpage interface for diffs
+  -- use("akinsho/git-conflict.nvim")
 
   use("lewis6991/impatient.nvim")
   -- use("dstein64/vim-startuptime") -- test `impatient`
