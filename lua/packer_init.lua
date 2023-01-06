@@ -204,6 +204,7 @@ return packer.startup(function(use)
   -- use("renerocksai/telekasten.nvim")
 
   -- aesthetics
+  use("rcarriga/nvim-notify")
   use("declancm/cinnamon.nvim") -- smooth scrolling
   -- use("karb94/neoscroll.nvim")
 
