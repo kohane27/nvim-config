@@ -37,7 +37,8 @@ require("plugins.colorizer")
 require("plugins.colortils")
 
 require("plugins.leap")
-require("plugins.flit")
+-- require("plugins.flit")
+require("plugins.clever-f")
 require("plugins.grapple")
 require("plugins.portal")
 
