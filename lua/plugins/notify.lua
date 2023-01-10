@@ -3,4 +3,13 @@ if not status_ok then
   print("notify not working")
 end
 
-vim.notify = notify
+local banned_messages = { "[LSP] Format request failed, no matching language servers." }
+
+vim.notify = function(msg, ...)
+  for _, banned in ipairs(banned_messages) do
+    if msg == banned then
+      return
+    end
+  end
+  require("notify")(msg, ...)
+end
