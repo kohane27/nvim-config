@@ -318,7 +318,7 @@ legendary.setup({
     { "<leader>Mxxse", "<cmd>ScrollViewEnable<CR>", description = "ScrollView: Enable" },
     { "<leader>Mxxsd", "<cmd>ScrollViewDisable<CR>", description = "ScrollView: Disable" },
 
-    { "<leader>MTT", "<cmd>TodoTelescope<CR>", description = "Todo Telescope" },
+    -- { "<leader>MTT", "<cmd>TodoTelescope<CR>", description = "Todo Telescope" },
     { "<leader>MTQ", "<cmd>TodoQuickFix<CR>", description = "Todo QuickFix" },
 
     { "<leader>MCP", "<cmd>Colortils picker<CR>", description = "Colortils: Picker" },
