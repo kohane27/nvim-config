@@ -7,7 +7,8 @@ code_runner.setup({
   focus = false,
   filetype = {
     javascript = "node",
-    typescript = "node --no-warnings --experimental-specifier-resolution=node --loader ts-node/esm",
+    typescript = "ts-node $fileName",
+    -- typescript = "node --no-warnings --experimental-specifier-resolution=node --loader ts-node/esm",
     -- typescript = "deno run",
     typescriptreact = "yarn dev$end",
 
@@ -25,6 +26,6 @@ code_runner.setup({
     c = "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt",
     cpp = "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt",
   },
-  filetype_path = vim.fn.expand("~/.config/nvim/code_runner.json"),
-  project_path = vim.fn.expand("~/.config/nvim/project_manager.json"),
+  -- filetype_path = vim.fn.expand("~/.config/nvim/code_runner.json"),
+  -- project_path = vim.fn.expand("~/.config/nvim/project_manager.json"),
 })

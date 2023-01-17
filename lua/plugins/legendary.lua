@@ -40,6 +40,7 @@ legendary.setup({
   },
   keymaps = {
     -- <C-KEY>
+    -- `<leader>g` is available
     { "<C-t>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
     { "<C-e>", "<cmd>Ranger<CR>", description = "Ranger" },
     { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
@@ -110,12 +111,12 @@ legendary.setup({
     { "<leader>lh", "<cmd>Lspsaga hover_doc ++quiet<CR>", description = "LSP: Hover Doc" },
 
     { "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", description = "LSP: Go to Previous Diagnostic" },
+    { "]d", "<cmd> Lspsaga diagnostic_jump_next<CR>", description = "LSP: Go to Next Diagnostic" },
     -- {
     --   "[D",
     --   "<cmd>lua require('lspsaga.diagnostic').goto_prev({ severity = vim.diagnostic.severity.ERROR })<CR>",
     --   description = "LSP: Go to Previous Error",
     -- },
-    { "]d", "<cmd> Lspsaga diagnostic_jump_next<CR>", description = "LSP: Go to Next Diagnostic" },
     -- {
     --   "]D",
     --   "<cmd>lua require('lspsaga.diagnostic').goto_next({ severity = vim.diagnostic.severity.ERROR })<CR>",
@@ -203,14 +204,6 @@ legendary.setup({
     { "<C-Right>", toolbox.lazy_required_fn("tmux", "resize_right"), description = "Resize Right" },
     { "<C-Up>", toolbox.lazy_required_fn("tmux", "resize_top"), description = "Resize Top" },
     { "<C-Down>", toolbox.lazy_required_fn("tmux", "resize_bottom"), description = "Resize Bottom" },
-
-    -- ╭──────────────────────────────────────────────────────────╮
-    -- │ Git                                                      │
-    -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>gd", "<cmd>DiffviewOpen<CR>", description = "git: diff index" },
-    { "<leader>gf", "<cmd>DiffviewFileHistory<CR>", description = "git: File History" },
-    { "<leader>gs", "<cmd>Telescope git_status<CR>", description = "git: Status" },
-    { "<leader>gc", "<cmd>Telescope git_commits<CR>", description = "git: Commits" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Run Code                                                 │
