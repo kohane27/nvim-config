@@ -59,7 +59,7 @@ return packer.startup(function(use)
   use("ahmedkhalf/project.nvim")
   use("AckslD/nvim-neoclip.lua") -- clipboard manager
   use("marcuscaisey/olddirs.nvim") -- `:oldfiles` but for directories
-  -- use("nvim-telescope/telescope-frecency.nvim")
+  use("kohane27/telescope-frecency.nvim")
   use("kkharji/sqlite.lua") -- required by `telescope-frecency` and `neoclip`
   -- use("nvim-telescope/telescope-project.nvim") -- using project.nvim
   -- use("nvim-telescope/telescope-file-browser.nvim") -- required by telescope-project.nvim
@@ -91,7 +91,7 @@ return packer.startup(function(use)
   -- use("ray-x/lsp_signature.nvim") -- usine `lspsaga`
   use("b0o/schemastore.nvim")
   use("jose-elias-alvarez/typescript.nvim")
-  -- use("mfussenegger/nvim-jdtls")
+  use("mfussenegger/nvim-jdtls")
 
   -- Autocomplete engine
   use({
@@ -121,6 +121,7 @@ return packer.startup(function(use)
   use("famiu/bufdelete.nvim") -- preserve layout when deleting buffers
   -- use("nvim-lualine/lualine.nvim") -- statusline
   use("feline-nvim/feline.nvim")
+  use("chrisgrieser/nvim-recorder") -- TODO configure
 
   use("akinsho/toggleterm.nvim") -- general terminal
   use("is0n/fm-nvim") -- `ranger`
