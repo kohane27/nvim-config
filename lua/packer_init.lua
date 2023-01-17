@@ -82,7 +82,7 @@ return packer.startup(function(use)
   use("williamboman/mason-lspconfig.nvim")
   use("tamago324/nlsp-settings.nvim") -- language server settings defined in json
   use("jose-elias-alvarez/null-ls.nvim") -- formatters and linters when LSP is not present
-  use("rmagatti/goto-preview")
+  -- use("rmagatti/goto-preview")
   use("glepnir/lspsaga.nvim")
   use("folke/trouble.nvim")
   use("onsails/lspkind.nvim") -- pictograms
