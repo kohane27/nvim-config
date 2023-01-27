@@ -277,12 +277,7 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous (leader M)                               │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>Mpc", "<cmd>PackerCompile<CR>", description = "Packer: Compile" },
-    { "<leader>Mpi", "<cmd>PackerInstall<CR>", description = "Packer: Install" },
-    { "<leader>Mps", "<cmd>PackerSync<CR>", description = "Packer: Sync" },
-    { "<leader>MpS", "<cmd>PackerStatus<CR>", description = "Packer: Status" },
-    { "<leader>Mpu", "<cmd>PackerUpdate<CR>", description = "Packer: Update" },
-
+    { "<leader>MLs", "<cmd>Lazy sync<CR>", description = "Lazy: Sync" },
     { "<leader>Mi", "<cmd>LspInfo<CR>", description = "LSP: Info" },
     { "<leader>MI", "<cmd>Mason<CR>", description = "LSP: Install Info" },
     { "<leader>Mo", "<cmd>Lspsaga outline<CR>", description = "LSP: Symbols Outline" },

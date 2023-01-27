@@ -1,5 +1,5 @@
 -- Import Lua modules
-require("packer_init")
+require("lazy_init")
 require("plugins.impatient") -- need to be at the top
 
 require("core.options")
