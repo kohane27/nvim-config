@@ -13,7 +13,7 @@ require("lsp.lsp_config")
 require("lsp.null_ls")
 require("lsp.cmp")
 require("lsp.vim_diagnostics")
-require("lsp.lspsaga")
+-- require("lsp.lspsaga")
 
 require("plugins.telescope")
 require("plugins.project_nvim")
@@ -31,7 +31,6 @@ require("plugins.gitsigns")
 require("plugins.nvim-tree")
 require("plugins.bufferline")
 require("plugins.feline")
-require("plugins.legendary")
 require("plugins.colorizer")
 require("plugins.colortils")
 
@@ -83,6 +82,8 @@ require("plugins.gomove")
 require("plugins.auto-save")
 require("plugins.auto-session")
 
+require("plugins.spectre")
+
 require("plugins.vim-markdown")
 
 require("plugins.code_runner")
@@ -91,6 +92,9 @@ require("plugins.sniprun")
 require("plugins.tmux")
 require("plugins.vim-test")
 require("plugins.delaytrain")
+
+-- near end to override
+require("plugins.legendary")
 -- require("plugins.firenvim")
 -- require("plugins.diffview")
 -- require("plugins.git-conflict")

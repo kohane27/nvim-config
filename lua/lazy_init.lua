@@ -120,14 +120,21 @@ require("lazy").setup({
   -- TODO: check if https://github.com/Pocco81/auto-save.nvim/pull/67 merged to disable message to cmd
 
   -- "anuvyklack/pretty-fold.nvim",
-  -- "kevinhwang91/nvim-ufo",
-  -- "kevinhwang91/promise-async", -- required by nvim-ufo
+  -- {
+  --   "kevinhwang91/nvim-ufo",
+  --   dependencies = {
+  --     "kevinhwang91/promise-async",
+  --   },
+  -- },
 
   -- "sindrets/diffview.nvim", -- tabpage interface for diffs
   -- "akinsho/git-conflict.nvim",
 
   "lewis6991/impatient.nvim",
-  -- "dstein64/vim-startuptime", -- test `impatient`
+  -- {
+  --   "dstein64/vim-startuptime",
+  --   cmd = "StartupTime",
+  -- },
   -- "goolord/alpha-nvim",
   -- "mhinz/vim-startify",
 
@@ -135,8 +142,12 @@ require("lazy").setup({
   "rmagatti/auto-session",
   "rmagatti/session-lens", -- telescope integration
 
-  "mrjones2014/legendary.nvim",
-  "stevearc/dressing.nvim", -- required by legendary.nvim
+  {
+    "mrjones2014/legendary.nvim",
+    dependencies = {
+      { "stevearc/dressing.nvim", event = "VeryLazy" },
+    },
+  },
   "lewis6991/gitsigns.nvim",
 
   -- navigation
@@ -154,8 +165,12 @@ require("lazy").setup({
 
   -- filetypes
   "nathom/filetype.nvim", -- speed up startup time
-  "preservim/vim-markdown",
-  "godlygeek/tabular", -- required by `preservim/vim-markdown`
+  {
+    "preservim/vim-markdown",
+    dependencies = {
+      "godlygeek/tabular",
+    },
+  },
   "mtdl9/vim-log-highlighting",
   "ledger/vim-ledger",
   "chrisbra/csv.vim",
@@ -190,19 +205,23 @@ require("lazy").setup({
   -- aesthetics
   "rcarriga/nvim-notify",
   "declancm/cinnamon.nvim", -- smooth scrolling
+  "danilamihailov/beacon.nvim", -- flash cursor when jumping
 
   "dstein64/nvim-scrollview", -- scrollable bar
   "petertriho/nvim-scrollbar", -- scrollbar
 
   "RRethy/vim-illuminate", -- highlighting other uses of the word under cursor
-  "danilamihailov/beacon.nvim", -- flash cursor when jumping
   "b0o/incline.nvim", -- floating statuslines
   "LudoPinelli/comment-box.nvim", -- create comment boxes
   "folke/todo-comments.nvim",
   -- "folke/noice.nvim", -- NOTE: use later because it requires nightly
 
-  "m00qek/baleia.nvim", -- required by `chafa.nvim`
-  "princejoogie/chafa.nvim",
+  {
+    "princejoogie/chafa.nvim",
+    dependencies = {
+      "m00qek/baleia.nvim",
+    },
+  },
 
   "kevinhwang91/nvim-hlslens", -- better search results
   -- "romainl/vim-cool", -- using `nvim-hlslens`

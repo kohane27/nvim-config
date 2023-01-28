@@ -162,27 +162,6 @@ legendary.setup({
     { "g0", "<cmd>BufferLineGoToBuffer -1<CR>", description = "Go to Buffer 10" },
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │ barbar.lua                                               │
-    -- ╰──────────────────────────────────────────────────────────╯
-    -- { "<A-,>", "<cmd>BufferPrevious<CR>", description = "Buffer: Move to Previous" },
-    -- { "<A-.>", "<cmd>BufferNext<CR>", description = "Buffer: Move to Next" },
-    -- { "<A-<>", "<cmd>BufferMovePrevious<CR>", description = "Buffer: Re-order to Previous" },
-    -- { "<A->>", "<cmd>BufferMoveNext<CR>", description = "Buffer: Re-order to Next" },
-    -- { "<A-c>", "<cmd>BufferClose<CR>", description = "Buffer: Close" },
-    -- { "<A-X>c", "<cmd>BufferCloseAllButCurrentOrPinned<CR>", description = "Buffer: Close All But Current Or Pinned" },
-    -- { "<A-X>P", "<cmd>BufferPin<CR>", description = "Buffer: Toggle Pin" },
-    -- { "g1", "<cmd>BufferGoto 1<CR>", description = "Go to Buffer 1" },
-    -- { "g2", "<cmd>BufferGoto 2<CR>", description = "Go to Buffer 2" },
-    -- { "g3", "<cmd>BufferGoto 3<CR>", description = "Go to Buffer 3" },
-    -- { "g4", "<cmd>BufferGoto 4<CR>", description = "Go to Buffer 4" },
-    -- { "g5", "<cmd>BufferGoto 5<CR>", description = "Go to Buffer 5" },
-    -- { "g6", "<cmd>BufferGoto 6<CR>", description = "Go to Buffer 6" },
-    -- { "g7", "<cmd>BufferGoto 7<CR>", description = "Go to Buffer 7" },
-    -- { "g8", "<cmd>BufferGoto 8<CR>", description = "Go to Buffer 8" },
-    -- { "g9", "<cmd>BufferGoto 9<CR>", description = "Go to Buffer 9" },
-    -- { "g0", "<cmd>BufferLast<CR>", description = "Go to Buffer 10" },
-
-    -- ╭──────────────────────────────────────────────────────────╮
     -- │ substitute.lua                                           │
     -- ╰──────────────────────────────────────────────────────────╯
     { "X", "<cmd>ISwapWith<CR>", description = "Swap" },
@@ -277,7 +256,7 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous (leader M)                               │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>MLs", "<cmd>Lazy sync<CR>", description = "Lazy: Sync" },
+    { "<leader>MLs", "<cmd>Lazy sync<CR>", description = "Lazy: Update" },
     { "<leader>Mi", "<cmd>LspInfo<CR>", description = "LSP: Info" },
     { "<leader>MI", "<cmd>Mason<CR>", description = "LSP: Install Info" },
     { "<leader>Mo", "<cmd>Lspsaga outline<CR>", description = "LSP: Symbols Outline" },
@@ -294,9 +273,13 @@ legendary.setup({
     { "<leader>MCP", "<cmd>Colortils picker<CR>", description = "Colortils: Picker" },
     { "<leader>MCL", "<cmd>Colortils css list<CR>", description = "Colortils: CSS List" },
     -- { "<leader>mp", "<cmd>PasteImg<CR>", description = "Misc: Paste Image" },
+
     {
       "<leader>Ms",
-      toolbox.lazy_required_fn("spectre", "open_file_search"),
+      {
+        n = toolbox.lazy_required_fn("spectre", "open_file_search"),
+        v = '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
+      },
       description = "Spectre: Search Current File",
     },
     {
@@ -307,7 +290,7 @@ legendary.setup({
     },
     {
       "<leader>Mc",
-      "<cmd>n ~/.config/nvim/lua/packer_init.lua ~/.config/nvim/init.lua<CR>",
+      "<cmd>n ~/.config/nvim/lua/lazy_init.lua ~/.config/nvim/init.lua<CR>",
       description = "Edit Config",
     },
   },

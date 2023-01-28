@@ -3,7 +3,7 @@ if not status_ok then
   print("leap not working")
 end
 
--- true to override conflicts
+-- override conflicts
 leap.set_default_keymaps(true)
 
 leap.setup({
@@ -13,6 +13,7 @@ leap.setup({
   max_highlighted_traversal_targets = 10,
 })
 
+-- Lightspeed-style highlighting
 -- vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
 -- vim.api.nvim_set_hl(0, "LeapMatch", {
 --   fg = "white",
@@ -27,7 +28,7 @@ end
 vim.keymap.set("n", "s", leap_current_window, { silent = true })
 vim.keymap.set("x", "s", leap_current_window, { silent = true })
 
--- mark it before jumping
+-- mark cursor location before jumping
 vim.api.nvim_create_autocmd("User", {
   pattern = "LeapEnter",
   callback = function()
