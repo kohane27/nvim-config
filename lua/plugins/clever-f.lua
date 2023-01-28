@@ -2,7 +2,7 @@ vim.cmd([[
 " hi CharColor guifg=white guibg=NONE guisp=NONE gui=undercurl
 " only gui matters for terminal
 " ctermfg=white ctermbg=NONE cterm=bold,nocombine
-highlight CharColor guibg=#76946A gui=bold,nocombine
+highlight CharColor guifg=#000000 guibg=#CCFF88 gui=bold,nocombine
 
 " search a char only in current line
 let g:clever_f_across_no_line=1
