@@ -88,7 +88,7 @@ require("lazy").setup({
 
   -- snippets
   "L3MON4D3/LuaSnip", -- snippet engine
-  -- "rafamadriz/friendly-snippets", -- a bunch of snippets to use
+  "rafamadriz/friendly-snippets", -- a bunch of snippets
   "saadparwaiz1/cmp_luasnip",
 
   -- General
@@ -131,10 +131,10 @@ require("lazy").setup({
   -- "akinsho/git-conflict.nvim",
 
   "lewis6991/impatient.nvim",
-  -- {
-  --   "dstein64/vim-startuptime",
-  --   cmd = "StartupTime",
-  -- },
+  {
+    "dstein64/vim-startuptime",
+    cmd = "StartupTime",
+  },
   -- "goolord/alpha-nvim",
   -- "mhinz/vim-startify",
 
@@ -167,13 +167,23 @@ require("lazy").setup({
   "nathom/filetype.nvim", -- speed up startup time
   {
     "preservim/vim-markdown",
+    ft = "markdown",
     dependencies = {
       "godlygeek/tabular",
     },
   },
-  "mtdl9/vim-log-highlighting",
-  "ledger/vim-ledger",
-  "chrisbra/csv.vim",
+  {
+    "mtdl9/vim-log-highlighting",
+    ft = "log",
+  },
+  {
+    "ledger/vim-ledger",
+    ft = "ledger",
+  },
+  {
+    "chrisbra/csv.vim",
+    ft = { "csv", "dat" },
+  },
 
   -- task runners
   { "michaelb/sniprun", build = "bash ./install.sh" },
@@ -198,7 +208,6 @@ require("lazy").setup({
   "smjonas/live-command.nvim",
 
   -- note-taking
-  -- "vimwiki/vimwiki",
   -- "renerocksai/telekasten.nvim",
   "epwalsh/obsidian.nvim",
 
@@ -207,8 +216,14 @@ require("lazy").setup({
   "declancm/cinnamon.nvim", -- smooth scrolling
   "danilamihailov/beacon.nvim", -- flash cursor when jumping
 
-  "dstein64/nvim-scrollview", -- scrollable bar
   "petertriho/nvim-scrollbar", -- scrollbar
+  {
+    "dstein64/nvim-scrollview", -- scrollable bar
+    cmd = "ScrollViewEnable",
+    config = function()
+      require("plugins.scrollview") -- lazyloading
+    end,
+  },
 
   "RRethy/vim-illuminate", -- highlighting other uses of the word under cursor
   "b0o/incline.nvim", -- floating statuslines
