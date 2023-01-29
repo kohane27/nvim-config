@@ -209,7 +209,7 @@ require("lazy").setup({
 
   -- note-taking
   -- "renerocksai/telekasten.nvim",
-  "epwalsh/obsidian.nvim",
+  -- "epwalsh/obsidian.nvim", -- bug with `undotree`
 
   -- aesthetics
   "rcarriga/nvim-notify",
