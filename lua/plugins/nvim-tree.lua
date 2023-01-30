@@ -37,11 +37,6 @@ nvim_tree.setup({
       resize_window = true,
     },
   },
-  ignore_ft_on_setup = {
-    "startify",
-    "dashboard",
-    "alpha",
-  },
   filters = {
     custom = { "node_modules", ".cache", ".bin" },
   },
