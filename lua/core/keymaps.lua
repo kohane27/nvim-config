@@ -33,6 +33,8 @@ map("n", "q:", ":q<cr>")
 -- no `qq` for macro
 map("n", "qq", "<nop>")
 
+map("i", "<C-c>", "<Esc>")
+
 -- avoid random toggling case
 map("n", "~", "<Nop>")
 map("n", "g~", "<Nop>")
