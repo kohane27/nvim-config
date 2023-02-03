@@ -35,7 +35,7 @@ require("lazy").setup({
   "ahmedkhalf/project.nvim",
   "AckslD/nvim-neoclip.lua", -- clipboard manager
   "marcuscaisey/olddirs.nvim", -- `:oldfiles` but for directories
-  "kohane27/telescope-frecency.nvim",
+  "nvim-telescope/telescope-frecency.nvim",
   "kkharji/sqlite.lua", -- required by `telescope-frecency` and `neoclip`
   -- "nvim-telescope/telescope-project.nvim", -- using project.nvim
   -- "nvim-telescope/telescope-file-browser.nvim", -- required by telescope-project.nvim
@@ -250,12 +250,15 @@ require("lazy").setup({
   "max397574/colortils.nvim",
   "norcalli/nvim-colorizer.lua",
 
-  -- {
-  --   "glacambre/firenvim",
-  --   build = function()
-  --     vim.fn["firenvim#install"](0)
-  --   end,
-  -- }
+  {
+    "glacambre/firenvim",
+    build = function()
+      vim.fn["firenvim#install"](0)
+    end,
+    -- Lazy load
+    -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
+    cond = not not vim.g.started_by_firenvim,
+  },
 
   -- debuggers
   -- "mfussenegger/nvim-dap",
