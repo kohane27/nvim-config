@@ -26,9 +26,10 @@ ts_configs.setup({
   incremental_selection = {
     enable = true,
     keymaps = {
+      -- set to `false` to disable one of the mappings
       init_selection = "<c-space>",
       node_incremental = "<c-space>",
-      scope_incremental = "<c-s>",
+      scope_incremental = false,
       node_decremental = "<c-backspace>",
     },
   },
