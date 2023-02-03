@@ -11,7 +11,7 @@ nvim_surround.setup({
     normal_cur = "yss",
     normal_line = nil,
     normal_cur_line = nil,
-    visual = "S",
+    visual = "<c-s>",
     visual_line = nil,
     delete = "ds",
     change = "cs",
