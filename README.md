@@ -1,8 +1,10 @@
-<h1 align="center">Welcome to my neovim config 👋</h1>
+<h1 align="center">Welcome to my Neovim IDE Layer 👋</h1>
 <p>
 </p>
 
-I started off with [LunarVim/Neovim-from-scratch](https://github.com/LunarVim/Neovim-from-scratch). The most interesting part should be `lua/packer_init.lua`. Take whatever you need.
+![screenshot](https://user-images.githubusercontent.com/57322459/216741256-de0ac4fc-bda9-44fa-aac4-83413baaae7e.png)
+
+I started off with [LunarVim/Neovim-from-scratch](https://github.com/LunarVim/Neovim-from-scratch). The most interesting part should be `lua/lazy_init.lua`.
 
 ## Requirements
 
@@ -10,7 +12,7 @@ I started off with [LunarVim/Neovim-from-scratch](https://github.com/LunarVim/Ne
 
 OS: EndeavourOS Linux x86_64
 
-WM: [sway](https://swaywm.org/) (I'm on Wayland so you'd need [bugaevc/wl-clipboard](https://github.com/bugaevc/wl-clipboard))
+WM: [sway](https://swaywm.org/) (I'm on Wayland so you'd need a Wayland clipboard utility like [bugaevc/wl-clipboard](https://github.com/bugaevc/wl-clipboard))
 
 Terminal: [kitty](https://github.com/kovidgoyal/kitty)
 
@@ -28,7 +30,7 @@ Terminal: [kitty](https://github.com/kovidgoyal/kitty)
 
 Open Neovim and run `:Mason` to install the LSP servers you need.
 
-Go to `/lua/lsp/null_ls.lua` to see external dependecies needed for formatting or linters.
+Go to `/lua/lsp/null_ls.lua` to see external dependecies needed for formatters and linters.
 
 ## CHANGELOG
 
