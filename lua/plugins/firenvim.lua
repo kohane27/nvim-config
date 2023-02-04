@@ -17,17 +17,14 @@ let g:firenvim_config = {
 \ }
 if exists('g:started_by_firenvim')
 
-    " xremap's config.yml
+    set ft=txt
+    " `xremap` config.yml
     " C-w: C-KEY_BACKSPACE
-    " imap <C-BS> <C-W>
+    imap <C-BS> <C-W>
 
-    colorscheme nightfox
+    " colorscheme nightfox
     " nightfly or material also ok
     set guifont=FiraCode_Nerd_Font_Mono:h11
-
-    " don't run Startify
-    let g:startify_disable_at_vimenter = 1
-    " let g:startify_new_tab = 1
 
     " don't run null-ls
     let g:null_ls_disable = 1
