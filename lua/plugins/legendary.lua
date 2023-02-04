@@ -45,7 +45,7 @@ legendary.setup({
     { "<C-e>", "<cmd>Ranger<CR>", description = "Ranger" },
     { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
     { "<C-g>", "<cmd>lua require('telescope.builtin').git_files()<CR>", description = "Telescope: Find Files" },
-    { "<C-l>", "<cmd>Legendary<CR>", description = "Legendary", mode = { "n", "i", "x" } },
+    { "<C-p>", "<cmd>Legendary<CR>", description = "Legendary Command Palette", mode = { "n", "i", "x" } },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Telescope                                                │
@@ -138,10 +138,10 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ bufferline                                               │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<A-,>", "<cmd>BufferLineCyclePrev<CR>", description = "Buffer: Move to Previous" },
-    { "<A-.>", "<cmd>BufferLineCycleNext<CR>", description = "Buffer: Move to Next" },
-    { "<A-<>", "<cmd>BufferLineMovePrev<CR>", description = "Buffer: Re-order to Previous" },
-    { "<A->>", "<cmd>BufferLineMoveNext<CR>", description = "Buffer: Re-order to Next" },
+    { "<C-h>", "<cmd>BufferLineCyclePrev<CR>", description = "Buffer: Move to Previous" },
+    { "<C-l>", "<cmd>BufferLineCycleNext<CR>", description = "Buffer: Move to Next" },
+    { "<A-,>", "<cmd>BufferLineMovePrev<CR>", description = "Buffer: Re-order to Previous" },
+    { "<A-.>", "<cmd>BufferLineMoveNext<CR>", description = "Buffer: Re-order to Next" },
     { "<A-c>", "<cmd>Bdelete<CR>", description = "Buffer: Close" },
     { "g1", "<cmd>BufferLineGoToBuffer 1<CR>", description = "Go to Buffer 1" },
     { "g2", "<cmd>BufferLineGoToBuffer 2<CR>", description = "Go to Buffer 2" },
