@@ -94,6 +94,6 @@ require("plugins.delaytrain")
 
 -- near end to override
 require("plugins.legendary")
--- require("plugins.firenvim")
+require("plugins.firenvim")
 -- require("plugins.diffview")
 -- require("plugins.git-conflict")
