@@ -207,6 +207,7 @@ require("lazy").setup({
   "nvim-pack/nvim-spectre",
   "mg979/vim-visual-multi",
   "smjonas/live-command.nvim",
+  "chrisgrieser/nvim-recorder",
 
   -- note-taking
   -- "renerocksai/telekasten.nvim",
