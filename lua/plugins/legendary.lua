@@ -40,7 +40,6 @@ legendary.setup({
   },
   keymaps = {
     -- <C-KEY>
-    -- `<leader>g` is available
     { "<C-t>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
     { "<C-e>", "<cmd>Ranger<CR>", description = "Ranger" },
     { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
@@ -201,15 +200,25 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │  Grapple                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>mm", toolbox.lazy_required_fn("grapple", "popup_tags"), description = "Grapple: View All Tags" },
-    { "<leader>mj", toolbox.lazy_required_fn("grapple", "cycle_forward"), description = "Grapple: Next Tag" },
-    { "<leader>mk", toolbox.lazy_required_fn("grapple", "cycle_backward"), description = "Grapple: Previous Tag" },
-    { "<leader>mn", toolbox.lazy_required_fn("grapple", "toggle"), description = "Grapple: Tag or Untag File" },
+    { "m", toolbox.lazy_required_fn("grapple", "popup_tags"), description = "Grapple: View All Tags" },
+    { "L", toolbox.lazy_required_fn("grapple", "cycle_forward"), description = "Grapple: Next Tag" },
+    { "H", toolbox.lazy_required_fn("grapple", "cycle_backward"), description = "Grapple: Previous Tag" },
+    { "M", toolbox.lazy_required_fn("grapple", "toggle"), description = "Grapple: Tag or Untag File" },
     { "<leader>m1", "<cmd>lua require('grapple').select({key = 1})<CR>", description = "Grapple: File 1" },
     { "<leader>m2", "<cmd>lua require('grapple').select({key = 2})<CR>", description = "Grapple: File 2" },
     { "<leader>m3", "<cmd>lua require('grapple').select({key = 3})<CR>", description = "Grapple: File 3" },
     { "<leader>m4", "<cmd>lua require('grapple').select({key = 4})<CR>", description = "Grapple: File 4" },
     { "<leader>m5", "<cmd>lua require('grapple').select({key = 5})<CR>", description = "Grapple: File 5" },
+
+    -- ╭──────────────────────────────────────────────────────────╮
+    -- │ Trailblazer                                              │
+    -- ╰──────────────────────────────────────────────────────────╯
+    { "gm", "<cmd>TrailBlazerNewTrailMark<CR>", description = "Trail: New Mark" },
+    { "gl", "<cmd>TrailBlazerPeekMoveNextDown<CR>", description = "Trail: Next Mark" },
+    { "gh", "<cmd>TrailBlazerPeekMovePreviousUp<CR>", description = "Trail: Previous Mark" },
+    { "gM", "<cmd>TrailBlazerToggleTrailMarkList<CR>", description = "Trail: Toggle Mark List" },
+    { "<leader>GXD", "<cmd> TrailBlazerDeleteAllTrailMarks<CR>", description = "Trail: Delete Mark List" },
+    { "<leader>GXS", "<cmd>TrailBlazerSaveSession<CR>", description = "Trail: Save Mark List" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Test                                                     │
