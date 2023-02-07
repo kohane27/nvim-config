@@ -155,10 +155,10 @@ require("lazy").setup({
   -- "ggandor/flit.nvim",
   "rhysd/clever-f.vim",
   -- "ggandor/leap-spooky.nvim",
-
-  "aserowy/tmux.nvim",
   "cbochs/grapple.nvim",
-  "cbochs/portal.nvim",
+  -- "cbochs/portal.nvim",
+  "LeonHeidelbach/trailblazer.nvim",
+  "aserowy/tmux.nvim",
 
   "kevinhwang91/nvim-bqf",
   "https://gitlab.com/yorickpeterse/nvim-pqf", -- pretty list
