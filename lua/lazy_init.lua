@@ -103,7 +103,6 @@ require("lazy").setup({
   "famiu/bufdelete.nvim", -- preserve layout when deleting buffers
   -- "nvim-lualine/lualine.nvim", -- statusline
   "feline-nvim/feline.nvim",
-  "chrisgrieser/nvim-recorder", -- TODO configure
 
   "akinsho/toggleterm.nvim", -- general terminal
   "is0n/fm-nvim", -- `ranger`
