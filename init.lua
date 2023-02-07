@@ -51,6 +51,7 @@ require("plugins.vim-visual-multi")
 
 require("plugins.wilder")
 require("plugins.live_command")
+require("plugins.dial")
 -- require("plugins.obsidian")
 require("plugins.neozoom")
 require("plugins.beacon")

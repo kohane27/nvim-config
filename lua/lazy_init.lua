@@ -56,6 +56,7 @@ require("lazy").setup({
   "mrjones2014/nvim-ts-rainbow", -- rainbow parentheses
   "lukas-reineke/indent-blankline.nvim", -- indentation guides
   "mizlan/iswap.nvim",
+  "monaqa/dial.nvim",
 
   -- LSP
   "neovim/nvim-lspconfig",

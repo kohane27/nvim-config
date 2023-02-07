@@ -171,6 +171,8 @@ legendary.setup({
       description = "Exchange: Operator",
     },
     { "cxx", toolbox.lazy_required_fn("substitute.exchange", "line"), description = "Exchange: Line" },
+    { "<C-a>", require("dial.map").inc_normal(), description = "Increment" },
+    { "<C-x>", require("dial.map").dec_normal(), description = "Decrement" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ tmux.lua                                                 │
