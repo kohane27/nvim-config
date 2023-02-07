@@ -188,7 +188,9 @@ require("lazy").setup({
   -- task runners
   { "michaelb/sniprun", build = "bash ./install.sh" },
   "CRAG666/code_runner.nvim",
-  -- "stevearc/overseer.nvim",
+  -- "stevearc/overseer.nvim", -- TODO: configure
+
+  "Exafunction/codeium.vim",
 
   "gbprod/substitute.nvim",
   "gbprod/cutlass.nvim",
@@ -205,8 +207,9 @@ require("lazy").setup({
   -- find and replace
   "nvim-pack/nvim-spectre",
   "mg979/vim-visual-multi",
-  "smjonas/live-command.nvim",
+
   "chrisgrieser/nvim-recorder",
+  -- "smjonas/live-command.nvim",
 
   -- note-taking
   -- "renerocksai/telekasten.nvim",

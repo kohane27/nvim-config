@@ -8,7 +8,7 @@ recorder.setup({
   -- register/macro-slot used after startup.
   slots = { "a", "b" },
   mapping = {
-    startStopRecording = "q",
+    startStopRecording = "qq",
     playMacro = "Q",
     editMacro = "cq",
   },
