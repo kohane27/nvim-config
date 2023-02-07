@@ -93,7 +93,7 @@ require("lazy").setup({
   "saadparwaiz1/cmp_luasnip",
 
   -- General
-  "ibhagwan/fzf-lua", -- for `:changes`
+  -- "ibhagwan/fzf-lua", -- for `:changes`
   "tpope/vim-repeat",
   "numToStr/Comment.nvim",
   "kyazdani42/nvim-web-devicons", -- lua fork of vim-devicons
