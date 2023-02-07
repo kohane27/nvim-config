@@ -83,7 +83,7 @@ legendary.setup({
     { "<leader>fr", "<cmd>Telescope neoclip<CR>", description = "Telescope: Clipboard History" },
     { "<leader>ft", "<cmd>Telescope buffers<CR>", description = "Telescope: Buffers" },
     { "<leader>fj", "<cmd>Telescope jumplist<CR>", description = "Telescope: Jumplist" },
-    { "<leader>fc", "<cmd>lua require('fzf-lua').changes()<CR>", description = "Telescope: Changes" },
+    -- { "<leader>fc", "<cmd>lua require('fzf-lua').changes()<CR>", description = "Telescope: Changes" },
     { "<leader>fXc", "<cmd>Telescope command_history<CR>", description = "Telescope: Command History" },
     { "<leader>fXs", "<cmd>Telescope search_history<CR>", description = "Telescope: Search History" },
 
@@ -200,10 +200,10 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │  Grapple                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "m", toolbox.lazy_required_fn("grapple", "popup_tags"), description = "Grapple: View All Tags" },
+    { "M", toolbox.lazy_required_fn("grapple", "popup_tags"), description = "Grapple: View All Tags" },
     { "L", toolbox.lazy_required_fn("grapple", "cycle_forward"), description = "Grapple: Next Tag" },
     { "H", toolbox.lazy_required_fn("grapple", "cycle_backward"), description = "Grapple: Previous Tag" },
-    { "M", toolbox.lazy_required_fn("grapple", "toggle"), description = "Grapple: Tag or Untag File" },
+    { "<leader>mm", toolbox.lazy_required_fn("grapple", "toggle"), description = "Grapple: Tag or Untag File" },
     { "<leader>m1", "<cmd>lua require('grapple').select({key = 1})<CR>", description = "Grapple: File 1" },
     { "<leader>m2", "<cmd>lua require('grapple').select({key = 2})<CR>", description = "Grapple: File 2" },
     { "<leader>m3", "<cmd>lua require('grapple').select({key = 3})<CR>", description = "Grapple: File 3" },
@@ -214,8 +214,8 @@ legendary.setup({
     -- │ Trailblazer                                              │
     -- ╰──────────────────────────────────────────────────────────╯
     { "gm", "<cmd>TrailBlazerNewTrailMark<CR>", description = "Trail: New Mark" },
-    { "gl", "<cmd>TrailBlazerPeekMoveNextDown<CR>", description = "Trail: Next Mark" },
-    { "gh", "<cmd>TrailBlazerPeekMovePreviousUp<CR>", description = "Trail: Previous Mark" },
+    { "gj", "<cmd>TrailBlazerPeekMoveNextDown<CR>", description = "Trail: Next Mark" },
+    { "gk", "<cmd>TrailBlazerPeekMovePreviousUp<CR>", description = "Trail: Previous Mark" },
     { "gM", "<cmd>TrailBlazerToggleTrailMarkList<CR>", description = "Trail: Toggle Mark List" },
     { "<leader>GXD", "<cmd> TrailBlazerDeleteAllTrailMarks<CR>", description = "Trail: Delete Mark List" },
     { "<leader>GXS", "<cmd>TrailBlazerSaveSession<CR>", description = "Trail: Save Mark List" },
@@ -223,11 +223,11 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Test                                                     │
     -- ╰──────────────────────────────────────────────────────────╯
-    -- { "<leader>gt", "<cmd>TestNearest<CR>", description = "Test: Nearest" },
-    -- { "<leader>gT", "<cmd>TestFile<CR>", description = "Test: File" },
-    -- { "<leader>ga", "<cmd>TestSuite<CR>", description = "Test: Suite" },
-    -- { "<leader>gl", "<cmd>TestLast<CR>", description = "Test: Last" },
-    -- { "<leader>gg", "<cmd>TestVisit<CR>", description = "Test: Visit" },
+    -- { "<leader>Gt", "<cmd>TestNearest<CR>", description = "Test: Nearest" },
+    -- { "<leader>GT", "<cmd>TestFile<CR>", description = "Test: File" },
+    -- { "<leader>Ga", "<cmd>TestSuite<CR>", description = "Test: Suite" },
+    -- { "<leader>Gl", "<cmd>TestLast<CR>", description = "Test: Last" },
+    -- { "<leader>Gg", "<cmd>TestVisit<CR>", description = "Test: Visit" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Session                                                  │
@@ -254,7 +254,7 @@ legendary.setup({
 
     -- TODO the following are available:
     -- gp and gn
-    -- J and K
+    -- J
     { "<C-j>", "g,zz", description = "Next Change list Item" },
     { "<C-k>", "g;zz", description = "Previous Change list Item" },
     { "<C-o>", "<C-o>zz", description = "Previous Jumplist Item" },
