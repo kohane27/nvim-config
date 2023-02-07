@@ -19,6 +19,7 @@ end
 -- hlslens.lua
 -- gomove.lua
 -- yanky.lua
+-- codeium.lua
 
 -----------------------------------------------------------
 -- Neovim shortcuts
@@ -123,7 +124,7 @@ end, { remap = false, expr = true })
 map("n", "Y", "y$")
 
 -- delete one word forward in Insert mode
-map("i", "<C-e>", "<C-o>de")
+-- map("i", "<C-e>", "<C-o>de")
 
 -- delete backwards till whitespace
 map("i", "<C-b>", "<C-o>dB")
