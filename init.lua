@@ -89,6 +89,8 @@ require("plugins.vim-markdown")
 require("plugins.code_runner")
 require("plugins.sniprun")
 
+require("plugins.codeium")
+
 require("plugins.tmux")
 require("plugins.vim-test")
 require("plugins.delaytrain")
