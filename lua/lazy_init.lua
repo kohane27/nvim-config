@@ -225,6 +225,13 @@ require("lazy").setup({
     end,
   },
 
+  {
+    "tummetott/reticle.nvim",
+    config = function()
+      require("reticle").setup({})
+    end,
+  },
+
   "RRethy/vim-illuminate", -- highlighting other uses of the word under cursor
   "b0o/incline.nvim", -- floating statuslines
   "LudoPinelli/comment-box.nvim", -- create comment boxes
