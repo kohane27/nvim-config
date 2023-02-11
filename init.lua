@@ -38,6 +38,7 @@ require("plugins.leap")
 -- require("plugins.flit")
 require("plugins.clever-f")
 require("plugins.trailblazer")
+require("plugins.marks")
 require("plugins.grapple")
 -- require("plugins.portal")
 
@@ -91,7 +92,7 @@ require("plugins.vim-markdown")
 require("plugins.code_runner")
 require("plugins.sniprun")
 
-require("plugins.codeium")
+-- require("plugins.codeium")
 
 require("plugins.tmux")
 require("plugins.vim-test")
