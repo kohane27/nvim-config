@@ -158,6 +158,7 @@ require("lazy").setup({
   "cbochs/grapple.nvim",
   -- "cbochs/portal.nvim",
   "LeonHeidelbach/trailblazer.nvim",
+  "chentoast/marks.nvim",
   "aserowy/tmux.nvim",
 
   "kevinhwang91/nvim-bqf",
