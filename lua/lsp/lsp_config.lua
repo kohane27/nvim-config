@@ -44,7 +44,7 @@ end
 -- custom language servers not listed here:
 -- 1. `tsserver` is managed by `typescript.nvim`
 -- 2. jsonls
--- 3. sumneko_lua
+-- 3. lua_ls
 
 -- custom language servers
 -- 1. typescript
@@ -84,8 +84,8 @@ lspconfig.jsonls.setup({
 --   filetypes = { "typescript", "css", "scss", "less" },
 -- })
 
--- 3. sumneko_lua
-lspconfig.sumneko_lua.setup({
+-- 3. lua_ls
+lspconfig.lua_ls.setup({
   on_attach = function(client, _)
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
