@@ -5,7 +5,7 @@ end
 
 mason_lspconfig.setup({
   ensure_installed = {
-    "sumneko_lua",
+    "lua_ls",
     "angularls",
     "tsserver",
     "awk_ls",
