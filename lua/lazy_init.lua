@@ -191,7 +191,7 @@ require("lazy").setup({
   "CRAG666/code_runner.nvim",
   -- "stevearc/overseer.nvim", -- TODO: configure
 
-  "Exafunction/codeium.vim",
+  -- "Exafunction/codeium.vim",
 
   "gbprod/substitute.nvim",
   "gbprod/cutlass.nvim",
