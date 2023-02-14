@@ -39,12 +39,30 @@ legendary.setup({
     },
   },
   keymaps = {
+    -- TODO the following are available:
+    -- gp, gn J, K
+
     -- <C-KEY>
     { "<C-t>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
     { "<C-e>", "<cmd>Ranger<CR>", description = "Ranger" },
     { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
     { "<C-g>", "<cmd>lua require('telescope.builtin').git_files()<CR>", description = "Telescope: Find Files" },
     { "<C-p>", "<cmd>Legendary<CR>", description = "Legendary Command Palette", mode = { "n", "i", "x" } },
+
+    { "<C-j>", "g,zz", description = "Next Change list Item" },
+    { "<C-k>", "g;zz", description = "Previous Change list Item" },
+
+    { "<C-o>", "<C-o>zz", description = "Previous Jumplist Item" },
+    { "<C-i>", "<C-i>zz", description = "Next Jumplist Item" },
+
+    { "<A-o>", toolbox.lazy_required_fn("portal", "jump_backward"), description = "Portal: Backward" },
+    { "<A-i>", toolbox.lazy_required_fn("portal", "jump_forward"), description = "Portal: Foward" },
+
+    { "<A-p>", "<cmd>cprev<CR>zz", description = "Previous Quickfix Item" },
+    { "<A-n>", "<cmd>cnext<CR>zz", description = "Next Quickfix Item" },
+
+    { "<C-f>", '<C-R>"', description = "Paste Last Yanked / Deleted", mode = { "i" } },
+    { "<C-v>", "<C-R>*", description = "Paste Clipboard Content", mode = { "i" } },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Telescope                                                │
@@ -204,11 +222,12 @@ legendary.setup({
     { "L", toolbox.lazy_required_fn("grapple", "cycle_forward"), description = "Grapple: Next Tag" },
     { "H", toolbox.lazy_required_fn("grapple", "cycle_backward"), description = "Grapple: Previous Tag" },
     { "<leader>mm", toolbox.lazy_required_fn("grapple", "toggle"), description = "Grapple: Tag or Untag File" },
-    { "<leader>m1", "<cmd>lua require('grapple').select({key = 1})<CR>", description = "Grapple: File 1" },
-    { "<leader>m2", "<cmd>lua require('grapple').select({key = 2})<CR>", description = "Grapple: File 2" },
-    { "<leader>m3", "<cmd>lua require('grapple').select({key = 3})<CR>", description = "Grapple: File 3" },
-    { "<leader>m4", "<cmd>lua require('grapple').select({key = 4})<CR>", description = "Grapple: File 4" },
-    { "<leader>m5", "<cmd>lua require('grapple').select({key = 5})<CR>", description = "Grapple: File 5" },
+    { "m1", "<cmd>lua require('grapple').select({key = 1})<CR>", description = "Grapple: File 1" },
+    { "m2", "<cmd>lua require('grapple').select({key = 2})<CR>", description = "Grapple: File 2" },
+    { "m3", "<cmd>lua require('grapple').select({key = 3})<CR>", description = "Grapple: File 3" },
+    { "m4", "<cmd>lua require('grapple').select({key = 4})<CR>", description = "Grapple: File 4" },
+    { "m5", "<cmd>lua require('grapple').select({key = 5})<CR>", description = "Grapple: File 5" },
+    { "m6", "<cmd>lua require('grapple').select({key = 6})<CR>", description = "Grapple: File 6" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Test                                                     │
@@ -239,20 +258,6 @@ legendary.setup({
       },
     },
     { "<C-w>o", "<cmd>lua require('neo-zoom').neo_zoom()<CR>", description = "Misc: Zoom: Toggle" },
-    { "<A-p>", "<cmd>cprev<CR>zz", description = "Previous Quickfix Item" },
-    { "<A-n>", "<cmd>cnext<CR>zz", description = "Next Quickfix Item" },
-
-    -- TODO the following are available:
-    -- gp and gn
-    -- J, K
-    { "<C-j>", "g,zz", description = "Next Change list Item" },
-    { "<C-k>", "g;zz", description = "Previous Change list Item" },
-    { "<C-o>", "<C-o>zz", description = "Previous Jumplist Item" },
-    { "<C-i>", "<C-i>zz", description = "Next Jumplist Item" },
-    { "<C-f>", '<C-R>"', description = "Paste Last Yanked / Deleted", mode = { "i" } },
-    { "<C-v>", "<C-R>*", description = "Paste Clipboard Content", mode = { "i" } },
-    { "<A-o>", toolbox.lazy_required_fn("portal", "jump_backward"), description = "Portal: Backward" },
-    { "<A-i>", toolbox.lazy_required_fn("portal", "jump_forward"), description = "Portal: Foward" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous (leader M)                               │

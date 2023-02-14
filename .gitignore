@@ -6,7 +6,7 @@ lua/lsp/old/
 lua/plugins/old/
 **/*--.lua
 
-plugin/packer_compiled.lua
+.pre-commit-config.yaml
 lazy-lock.json
 
 # Compiled Lua sources
