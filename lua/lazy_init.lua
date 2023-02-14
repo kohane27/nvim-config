@@ -157,7 +157,7 @@ require("lazy").setup({
   -- "ggandor/leap-spooky.nvim",
   "cbochs/grapple.nvim",
   -- "cbochs/portal.nvim",
-  "LeonHeidelbach/trailblazer.nvim",
+  -- "LeonHeidelbach/trailblazer.nvim",
   "chentoast/marks.nvim",
   "aserowy/tmux.nvim",
 
