@@ -40,7 +40,7 @@ require("plugins.clever-f")
 require("plugins.marks")
 -- require("plugins.trailblazer")
 require("plugins.grapple")
--- require("plugins.portal")
+require("plugins.portal")
 
 require("plugins.toggleterm")
 require("plugins.fm-nvim")
