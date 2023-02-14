@@ -211,16 +211,6 @@ legendary.setup({
     { "<leader>m5", "<cmd>lua require('grapple').select({key = 5})<CR>", description = "Grapple: File 5" },
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │ Trailblazer                                              │
-    -- ╰──────────────────────────────────────────────────────────╯
-    { "gm", "<cmd>TrailBlazerNewTrailMark<CR>", description = "Trail: New Mark" },
-    { "gj", "<cmd>TrailBlazerPeekMoveNextDown<CR>", description = "Trail: Next Mark" },
-    { "gk", "<cmd>TrailBlazerPeekMovePreviousUp<CR>", description = "Trail: Previous Mark" },
-    { "gM", "<cmd>TrailBlazerToggleTrailMarkList<CR>", description = "Trail: Toggle Mark List" },
-    { "<leader>GXD", "<cmd> TrailBlazerDeleteAllTrailMarks<CR>", description = "Trail: Delete Mark List" },
-    { "<leader>GXS", "<cmd>TrailBlazerSaveSession<CR>", description = "Trail: Save Mark List" },
-
-    -- ╭──────────────────────────────────────────────────────────╮
     -- │ Test                                                     │
     -- ╰──────────────────────────────────────────────────────────╯
     -- { "<leader>Gt", "<cmd>TestNearest<CR>", description = "Test: Nearest" },
@@ -254,7 +244,7 @@ legendary.setup({
 
     -- TODO the following are available:
     -- gp and gn
-    -- J
+    -- J, K
     { "<C-j>", "g,zz", description = "Next Change list Item" },
     { "<C-k>", "g;zz", description = "Previous Change list Item" },
     { "<C-o>", "<C-o>zz", description = "Previous Jumplist Item" },
