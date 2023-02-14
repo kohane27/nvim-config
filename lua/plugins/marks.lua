@@ -26,8 +26,7 @@ marks.setup({
   bookmark_0 = {
     sign = "⚑",
     virt_text = "",
-    -- explicitly prompt for a virtual line annotation when setting a bookmark from this group.
-    -- defaults to false.
+    -- prompt for a virtual line annotation when setting a bookmark
     annotate = false,
   },
 })
