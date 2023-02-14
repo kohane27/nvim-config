@@ -20,6 +20,7 @@ end
 -- gomove.lua
 -- yanky.lua
 -- codeium.lua
+-- marks.lua
 
 -----------------------------------------------------------
 -- Neovim shortcuts
