@@ -15,6 +15,3 @@ portal.setup({
     ["<C-c>"] = true,
   },
 })
-
--- vim.keymap.set("n", "<C-j>", require("portal").jump_backward, {})
--- vim.keymap.set("n", "<C-k>", require("portal").jump_forward, {})
