@@ -80,7 +80,6 @@ cmp.setup({
         nvim_lua = "[Lua]",
         buffer = "[Buffer]",
         path = "[Path]",
-        codeium = "[AI]",
       },
     }),
   },
@@ -97,7 +96,6 @@ cmp.setup({
         end,
       },
     },
-    { name = "codeium" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
