@@ -112,7 +112,7 @@ require("lazy").setup({
   -- "machakann/vim-sandwich",
 
   "andymass/vim-matchup", -- enhanced with `nvim-treesitter-textobjects`
-  "abecodes/tabout.nvim", -- tabbing out from parentheses, quotes
+  -- "abecodes/tabout.nvim", -- tabbing out from parentheses, quotes
   -- "wellle/targets.vim", -- superseded by `nvim-treesitter-textobjects`
   "mbbill/undotree",
 
