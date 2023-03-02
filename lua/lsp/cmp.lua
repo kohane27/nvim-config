@@ -10,7 +10,9 @@ end
 
 local lspkind = require("lspkind")
 
--- require("luasnip/loaders/from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.local/share/nvim/lazy/friendly-snippets" })
+
+-- require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.local/share/nvim/lazy/friendly-snippets" })
 
 local check_backspace = function()
   local col = vim.fn.col(".") - 1
@@ -21,7 +23,7 @@ end
 cmp.setup({
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args.body) -- For `luasnip` users.
+      luasnip.lsp_expand(args.body)
     end,
   },
   mapping = {
@@ -75,8 +77,8 @@ cmp.setup({
       mode = "symbol_text",
       maxwidth = 50,
       menu = {
-        nvim_lsp = "[LSP]",
         luasnip = "[Snippet]",
+        nvim_lsp = "[LSP]",
         nvim_lua = "[Lua]",
         buffer = "[Buffer]",
         path = "[Path]",
@@ -85,6 +87,7 @@ cmp.setup({
   },
   sources = {
     { name = "nvim_lsp" },
+    { name = "luasnip" },
     {
       name = "buffer",
       option = {
@@ -94,7 +97,6 @@ cmp.setup({
         end,
       },
     },
-    { name = "luasnip" },
     { name = "path" },
   },
   confirm_opts = {

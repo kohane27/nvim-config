@@ -88,9 +88,13 @@ require("lazy").setup({
   },
 
   -- snippets
-  "L3MON4D3/LuaSnip", -- snippet engine
-  "rafamadriz/friendly-snippets", -- a bunch of snippets
-  "saadparwaiz1/cmp_luasnip",
+  {
+    "L3MON4D3/LuaSnip", -- snippet engine
+    dependencies = {
+      "rafamadriz/friendly-snippets", -- a bunch of snippets
+      "saadparwaiz1/cmp_luasnip", -- completion engine
+    },
+  },
 
   -- General
   -- "ibhagwan/fzf-lua", -- for `:changes`
