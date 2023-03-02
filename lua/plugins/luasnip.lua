@@ -16,17 +16,8 @@ luasnip.config.set_config({
   enable_autosnippets = true,
 })
 
--- vsnip
-require("luasnip.loaders.from_vscode").load({
-  paths = {
-    -- "~/.config/nvim/snippets/angular",
-    "~/.local/share/nvim/site/pack/packer/start/friendly-snippets",
-    -- "~/.config/nvim/snippets",
-  },
-})
-
--- snippets to frameworks
-luasnip.filetype_extend("javascript", { "javascript" })
-luasnip.filetype_extend("javascript", { "typescript" })
-luasnip.filetype_extend("javascript", { "javascriptreact" })
-luasnip.filetype_extend("javascript", { "html" })
+-- -- snippets to frameworks
+-- luasnip.filetype_extend("javascript", { "javascript" })
+-- luasnip.filetype_extend("javascript", { "typescript" })
+-- luasnip.filetype_extend("javascript", { "javascriptreact" })
+-- luasnip.filetype_extend("javascript", { "html" })
