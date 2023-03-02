@@ -86,7 +86,13 @@ cmp.setup({
     }),
   },
   sources = {
-    { name = "nvim_lsp" },
+    {
+      name = "nvim_lsp",
+      -- remove snippets from LSP
+      entry_filter = function(entry)
+        return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
+      end,
+    },
     { name = "luasnip" },
     {
       name = "buffer",
