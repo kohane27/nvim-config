@@ -12,13 +12,10 @@ local lspkind = require("lspkind")
 
 require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.local/share/nvim/lazy/friendly-snippets" })
 
--- require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.local/share/nvim/lazy/friendly-snippets" })
-
 local check_backspace = function()
   local col = vim.fn.col(".") - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 end
--- find more here: https://www.nerdfonts.com/cheat-sheet
 
 cmp.setup({
   snippet = {
@@ -33,7 +30,7 @@ cmp.setup({
     -- ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
 
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-    ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    ["<C-y>"] = cmp.config.disable, -- remove the default mapping
     ["<C-e>"] = cmp.config.disable,
     -- ["<C-e>"] = cmp.mapping({
     --   i = cmp.mapping.abort(),
@@ -55,10 +52,7 @@ cmp.setup({
       else
         fallback()
       end
-    end, {
-      "i",
-      "s",
-    }),
+    end, { "i", "s" }),
     ["<C-p>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
@@ -67,10 +61,7 @@ cmp.setup({
       else
         fallback()
       end
-    end, {
-      "i",
-      "s",
-    }),
+    end, { "i", "s" }),
   },
   formatting = {
     format = lspkind.cmp_format({
@@ -79,7 +70,6 @@ cmp.setup({
       menu = {
         luasnip = "[Snippet]",
         nvim_lsp = "[LSP]",
-        nvim_lua = "[Lua]",
         buffer = "[Buffer]",
         path = "[Path]",
       },

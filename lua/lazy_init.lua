@@ -50,7 +50,7 @@ require("lazy").setup({
       "JoosepAlviste/nvim-ts-context-commentstring",
     },
   },
-  { "elgiano/nvim-treesitter-angular", branch = "topic/jsx-fix" },
+  -- { "elgiano/nvim-treesitter-angular", branch = "topic/jsx-fix" },
   "windwp/nvim-ts-autotag",
   "windwp/nvim-autopairs", -- integrated with cmp and treesitter
   "mrjones2014/nvim-ts-rainbow", -- rainbow parentheses
@@ -91,7 +91,7 @@ require("lazy").setup({
   {
     "L3MON4D3/LuaSnip", -- snippet engine
     dependencies = {
-      "rafamadriz/friendly-snippets", -- a bunch of snippets
+      "rafamadriz/friendly-snippets", -- provided snippets
       "saadparwaiz1/cmp_luasnip", -- completion engine
     },
   },
@@ -135,10 +135,10 @@ require("lazy").setup({
   -- "akinsho/git-conflict.nvim",
 
   "lewis6991/impatient.nvim",
-  {
-    "dstein64/vim-startuptime",
-    cmd = "StartupTime",
-  },
+  -- {
+  --   "dstein64/vim-startuptime",
+  --   cmd = "StartupTime",
+  -- },
   -- "goolord/alpha-nvim",
   -- "mhinz/vim-startify",
 
@@ -177,18 +177,9 @@ require("lazy").setup({
       "godlygeek/tabular",
     },
   },
-  {
-    "mtdl9/vim-log-highlighting",
-    ft = "log",
-  },
-  {
-    "ledger/vim-ledger",
-    ft = "ledger",
-  },
-  {
-    "chrisbra/csv.vim",
-    ft = { "csv", "dat" },
-  },
+  { "mtdl9/vim-log-highlighting", ft = "log" },
+  { "ledger/vim-ledger", ft = "ledger" },
+  { "chrisbra/csv.vim", ft = { "csv", "dat" } },
 
   -- task runners
   { "michaelb/sniprun", build = "bash ./install.sh" },
