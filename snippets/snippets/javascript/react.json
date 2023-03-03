@@ -1,0 +1,11 @@
+{
+    "return with Fragment": {
+        "prefix": "rf",
+        "body": "return (\n<>\n$0\n</>\n)"
+    },
+    "useState": {
+        "prefix": "us",
+        "body": "const [${1:setterName}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:defVal});$0",
+        "description": "useState with proper camel casing."
+    }
+}
