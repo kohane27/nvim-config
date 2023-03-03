@@ -1,19 +1,10 @@
 local luasnip = require("luasnip")
-local types = require("luasnip.util.types")
 
 luasnip.config.set_config({
-  history = true,
-  updateevents = "TextChanged,TextChangedI",
-  ext_opts = {
-    [types.choiceNode] = {
-      activate = {
-        virt_text = { { "choiceNode", "Comment" } },
-      },
-    },
-  },
-  ext_base_prio = 300,
-  ext_prio_increase = 1,
-  enable_autosnippets = true,
+  region_check_events = "CursorHold,InsertLeave", -- fix duplication
+  delete_check_events = "TextChanged,InsertEnter", -- fix duplication
+  -- Update more often, :h events for more info.
+  update_events = "TextChanged,TextChangedI",
 })
 
 -- -- snippets to frameworks
