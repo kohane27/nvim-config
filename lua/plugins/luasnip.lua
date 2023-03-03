@@ -1,14 +1,9 @@
-local luasnip = require("luasnip")
+local ls = require("luasnip")
 
-luasnip.config.set_config({
+ls.config.set_config({
+  history = false, -- TODO: maybe fixed duplication bug?
   region_check_events = "CursorHold,InsertLeave", -- fix duplication
   delete_check_events = "TextChanged,InsertEnter", -- fix duplication
   -- Update more often, :h events for more info.
   update_events = "TextChanged,TextChangedI",
 })
-
--- -- snippets to frameworks
--- luasnip.filetype_extend("javascript", { "javascript" })
--- luasnip.filetype_extend("javascript", { "typescript" })
--- luasnip.filetype_extend("javascript", { "javascriptreact" })
--- luasnip.filetype_extend("javascript", { "html" })
