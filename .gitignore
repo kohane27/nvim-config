@@ -1,9 +1,5 @@
 # personal
-snippets/
-snippets--/
-lua/core/old/
-lua/lsp/old/
-lua/plugins/old/
+**/old/
 **/*--.lua
 
 .pre-commit-config.yaml
