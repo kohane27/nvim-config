@@ -18,10 +18,9 @@ ts_configs.setup({
   indent = { enable = true, disable = { "yaml", "json" } },
   rainbow = {
     enable = true,
-    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    -- disable = { "jsx", "cpp" }
-    max_file_lines = 1000, -- Do not enable for files with more than n lines
-    -- termcolors = { "#bf616a", "#d08770", "#ebcb8b", "#a3be8c", "#88c0d0", "#5e81ac", "#b48ead" }
+    -- disable = {  "cpp" },
+    -- Highlight the entire buffer all at once
+    strategy = require("ts-rainbow.strategy.global"),
   },
   incremental_selection = {
     enable = true,

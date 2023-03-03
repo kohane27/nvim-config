@@ -53,7 +53,8 @@ require("lazy").setup({
   -- { "elgiano/nvim-treesitter-angular", branch = "topic/jsx-fix" },
   "windwp/nvim-ts-autotag",
   "windwp/nvim-autopairs", -- integrated with cmp and treesitter
-  "mrjones2014/nvim-ts-rainbow", -- rainbow parentheses
+  -- "mrjones2014/nvim-ts-rainbow", -- rainbow parentheses
+  "https://gitlab.com/HiPhish/nvim-ts-rainbow2",
   "lukas-reineke/indent-blankline.nvim", -- indentation guides
   "mizlan/iswap.nvim",
   "monaqa/dial.nvim",
