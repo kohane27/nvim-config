@@ -1,0 +1,6 @@
+{
+    "import module destructured": {
+        "prefix": "id",
+        "body": "import {$2} from 'react';"
+    }
+}
