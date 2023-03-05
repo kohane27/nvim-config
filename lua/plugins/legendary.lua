@@ -49,20 +49,28 @@ legendary.setup({
     { "<C-g>", "<cmd>lua require('telescope.builtin').git_files()<CR>", description = "Telescope: Find Files" },
     { "<C-p>", "<cmd>Legendary<CR>", description = "Legendary Command Palette", mode = { "n", "i", "x" } },
 
-    { "<C-j>", "g,zz", description = "Next Change list Item" },
-    { "<C-k>", "g;zz", description = "Previous Change list Item" },
-
-    { "<C-o>", "<C-o>zz", description = "Previous Jumplist Item" },
-    { "<C-i>", "<C-i>zz", description = "Next Jumplist Item" },
-
-    { "<A-o>", toolbox.lazy_required_fn("portal", "jump_backward"), description = "Portal: Backward" },
-    { "<A-i>", toolbox.lazy_required_fn("portal", "jump_forward"), description = "Portal: Foward" },
-
-    { "<A-p>", "<cmd>cprev<CR>zz", description = "Previous Quickfix Item" },
-    { "<A-n>", "<cmd>cnext<CR>zz", description = "Next Quickfix Item" },
-
     { "<C-f>", '<C-R>"', description = "Paste Last Yanked / Deleted", mode = { "i" } },
     { "<C-v>", "<C-R>*", description = "Paste Clipboard Content", mode = { "i" } },
+
+    -- ╭──────────────────────────────────────────────────────────╮
+    -- │ Changelist                                               │
+    -- ╰──────────────────────────────────────────────────────────╯
+    { "<C-j>", "<cmd>Portal changelist forward<CR>", description = "Changelist: Next" },
+    { "<C-k>", "<cmd>Portal changelist backward<CR>", description = "Changelist: Previous" },
+    -- ╭──────────────────────────────────────────────────────────╮
+    -- │ Jumplist                                                 │
+    -- ╰──────────────────────────────────────────────────────────╯
+    { "<C-o>", "<C-o>zz", description = "Jumplist: Previous" },
+    { "<C-i>", "<C-i>zz", description = "Jumplist: Next" },
+    { "<A-o>", "<cmd>Portal jumplist backward<CR>", description = "Jumplist: Backward" },
+    { "<A-i>", "<cmd>Portal jumplist forward<CR>", description = "Jumplist: Foward" },
+    -- ╭──────────────────────────────────────────────────────────╮
+    -- │ Quickfix                                                 │
+    -- ╰──────────────────────────────────────────────────────────╯
+    { "<A-p>", "<cmd>Portal quickfix backward<CR>", description = "Quickfix: Previous" },
+    { "<A-n>", "<cmd>Portal quickfix forward<CR>", description = "Quickfix: Next" },
+    -- { "<A-p>", "<cmd>cprev<CR>zz", description = "Previous Quickfix Item" },
+    -- { "<A-n>", "<cmd>cnext<CR>zz", description = "Next Quickfix Item" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Telescope                                                │
@@ -263,6 +271,7 @@ legendary.setup({
     -- │   Miscellaneous (leader M)                               │
     -- ╰──────────────────────────────────────────────────────────╯
     { "<leader>MLs", "<cmd>Lazy sync<CR>", description = "Lazy: Update" },
+    { "<leader>MLc", "<cmd>Lazy clean<CR>", description = "Lazy: Clean" },
     { "<leader>Mi", "<cmd>LspInfo<CR>", description = "LSP: Info" },
     { "<leader>MI", "<cmd>Mason<CR>", description = "LSP: Install Info" },
     { "<leader>Mo", "<cmd>Lspsaga outline<CR>", description = "LSP: Symbols Outline" },
