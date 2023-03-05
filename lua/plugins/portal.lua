@@ -4,12 +4,14 @@ if not status_ok then
 end
 
 portal.setup({
-  --- different: jump between buffers
-  query = { "different", "different", "different", "different" },
+    ---max. number of results returned
+    max_results = 6,
 
-  labels = { "j", "k", "h", "l" },
+    ---An ordered list of keys for labelling portals.
+    ---Labels will be applied in order
+    labels = { "j", "k", "h", "l", "a", "s", "d", "f" },
 
-  --- Keys used for exiting portal selection
+  --- Keys for exiting portal selection
   escape = {
     ["<esc>"] = true,
     ["<C-c>"] = true,
