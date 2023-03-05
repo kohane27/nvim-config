@@ -210,6 +210,7 @@ require("lazy").setup({
   -- "smjonas/live-command.nvim",
 
   -- note-taking
+  "/nvim-neorg/neorg",
   -- "renerocksai/telekasten.nvim",
   -- "epwalsh/obsidian.nvim", -- bug with `undotree`
 
@@ -278,8 +279,8 @@ require("lazy").setup({
 
   -- Colorschemes/themes
   -- "NTBBloodbath/doom-one.nvim",
-  "rmehri01/onenord.nvim",
   "rebelot/kanagawa.nvim",
+  "rmehri01/onenord.nvim",
   "EdenEast/nightfox.nvim", -- used by firenvim
   "folke/tokyonight.nvim",
   "catppuccin/nvim",
