@@ -126,12 +126,12 @@ require("lazy").setup({
   -- TODO: check if https://github.com/Pocco81/auto-save.nvim/pull/67 merged to disable message to cmd
 
   -- "anuvyklack/pretty-fold.nvim",
-  -- {
-  --   "kevinhwang91/nvim-ufo",
-  --   dependencies = {
-  --     "kevinhwang91/promise-async",
-  --   },
-  -- },
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = {
+      "kevinhwang91/promise-async",
+    },
+  },
 
   -- "sindrets/diffview.nvim", -- tabpage interface for diffs
   -- "akinsho/git-conflict.nvim",

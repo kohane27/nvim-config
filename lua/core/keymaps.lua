@@ -21,6 +21,7 @@ end
 -- yanky.lua
 -- codeium.lua
 -- marks.lua
+-- ufo.lua
 
 -----------------------------------------------------------
 -- Neovim shortcuts
@@ -106,9 +107,6 @@ map("i", ".", ".<C-g>u")
 map("i", "!", "!<C-g>u")
 map("i", "?", "?<C-g>u")
 map("i", "[", "[<C-g>u")
-
--- record into register 'q', playback with 'Q'
-map("n", "Q", "@q")
 
 -- select current line excluding newline character
 map("x", "$", "g_")
