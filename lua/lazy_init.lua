@@ -237,7 +237,6 @@ require("lazy").setup({
 
   "RRethy/vim-illuminate", -- highlighting other uses of the word under cursor
   "b0o/incline.nvim", -- floating statuslines
-  -- "LudoPinelli/comment-box.nvim", TODO: wait till it's fixed -- create comment boxes
   "folke/todo-comments.nvim",
   -- "folke/noice.nvim", -- NOTE: use later because it requires nightly
 

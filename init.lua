@@ -61,7 +61,7 @@ require("plugins.beacon")
 require("plugins.chafa")
 
 -- require("plugins.tabout")
--- require("plugins.comment-box")
+require("plugins.comment-box")
 require("plugins.incline")
 require("plugins.nvim-hlslens")
 require("plugins.cinnamon")
