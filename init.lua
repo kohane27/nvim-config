@@ -72,7 +72,7 @@ require("plugins.illuminate")
 require("plugins.todo-comments")
 require("plugins.nvim-lastplace")
 
--- require("plugins.ufo")
+require("plugins.ufo")
 require("plugins.nvim-bqf")
 require("plugins.pqf")
 
