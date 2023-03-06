@@ -209,9 +209,13 @@ require("lazy").setup({
   -- "smjonas/live-command.nvim",
 
   -- note-taking
-  "/nvim-neorg/neorg",
-  -- "renerocksai/telekasten.nvim",
-  -- "epwalsh/obsidian.nvim", -- bug with `undotree`
+  {
+    "nvim-orgmode/orgmode",
+    config = function()
+      require("orgmode")
+    end,
+  },
+  -- "nvim-neorg/neorg",
 
   -- aesthetics
   "rcarriga/nvim-notify",
