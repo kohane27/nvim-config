@@ -17,10 +17,13 @@ vim.opt.fillchars:append({
 require("kanagawa").setup({
   transparent = false, -- do not set background color
   dimInactive = true, -- dim inactive window `:h hl-NormalNC`
+  colors = {
+    theme = { all = { ui = { bg_gutter = "none" } } },
+  },
 })
 
 vim.cmd([[
-colorscheme kanagawa
+colorscheme kanagawa-wave
 " colorscheme nordfox
 " colorscheme onenord
 " colorscheme tokyonight-storm
