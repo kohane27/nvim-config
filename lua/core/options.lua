@@ -104,7 +104,7 @@ opt.updatetime = 700      -- ms to wait for trigger an event
 -----------------------------------------------------------
 -- Folds
 -----------------------------------------------------------
-opt.foldcolumn = '1' -- '0' is not bad
+opt.foldcolumn = '0' -- no extra folder columns in the number line
 opt.foldlevel = 99 -- using `ufo` provider requires a large value
 opt.foldlevelstart = 99
 opt.foldenable = true
