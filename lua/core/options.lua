@@ -69,13 +69,6 @@ opt.sidescrolloff  = 4
 opt.pumheight      = 10       -- pop up menu height
 opt.showtabline    = 2        -- always show tabs
 opt.shiftwidth     = 2        -- spaces inserted for each indentation
-
--- let g:markdown_folding = 0
--- set foldlevelstart=999
--- " folding using treesitter
--- set foldmethod=expr
--- set foldexpr=nvim_treesitter#foldexpr()
-
 opt.signcolumn    = "yes"
 opt.title         = true
 opt.cul           = true    -- cursor line
@@ -107,6 +100,15 @@ opt.lazyredraw = false    -- `nzzzv` search result works
 opt.synmaxcol  = 500      -- max column for syntax highlight
 opt.updatetime = 700      -- ms to wait for trigger an event
 -- interval for writing swap file to disk, also used by gitsigns
+
+-----------------------------------------------------------
+-- Folds
+-----------------------------------------------------------
+opt.foldcolumn = '1' -- '0' is not bad
+opt.foldlevel = 99 -- using `ufo` provider requires a large value
+opt.foldlevelstart = 99
+opt.foldenable = true
+
 -----------------------------------------------------------
 -- Startup
 -----------------------------------------------------------
@@ -136,11 +138,5 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do
   g["loaded_" .. plugin] = 1
 end
-
-vim.cmd[[
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
-set nofoldenable                     " Disable folding at startup.
-]]
 
 -- stylua: ignore end
