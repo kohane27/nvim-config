@@ -208,15 +208,6 @@ require("lazy").setup({
   "chrisgrieser/nvim-recorder",
   -- "smjonas/live-command.nvim",
 
-  -- note-taking
-  {
-    "nvim-orgmode/orgmode",
-    config = function()
-      require("orgmode")
-    end,
-  },
-  -- "nvim-neorg/neorg",
-
   -- aesthetics
   "rcarriga/nvim-notify",
   "declancm/cinnamon.nvim", -- smooth scrolling
