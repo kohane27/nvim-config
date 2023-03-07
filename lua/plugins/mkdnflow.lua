@@ -7,8 +7,8 @@ mkdnflow.setup({
   links = {
     style = "markdown",
     name_is_source = false,
-    conceal = true,
-    context = 1,
+    conceal = false,
+    -- context = 1,
   },
   to_do = {
     symbols = { " ", "X" },
