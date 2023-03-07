@@ -30,3 +30,10 @@ marks.setup({
     annotate = false,
   },
 })
+
+-- disable distracting highlights
+vim.cmd([[
+highlight MarkSignHL guibg=NONE guifg=NONE
+highlight MarkSignNumHL guibg=NONE guifg=NONE
+highlight MarkVirtTextHL guibg=NONE guifg=NONE
+]])
