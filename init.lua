@@ -87,8 +87,6 @@ require("plugins.auto-session")
 
 require("plugins.spectre")
 
-require("plugins.vim-markdown")
-
 require("plugins.code_runner")
 require("plugins.sniprun")
 
@@ -103,3 +101,4 @@ require("plugins.legendary")
 -- require("plugins.codeium")
 -- require("plugins.diffview")
 -- require("plugins.git-conflict")
+-- require("plugins.vim-markdown")

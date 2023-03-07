@@ -171,13 +171,13 @@ require("lazy").setup({
 
   -- filetypes
   "nathom/filetype.nvim", -- speed up startup time
-  {
-    "preservim/vim-markdown",
-    ft = "markdown",
-    dependencies = {
-      "godlygeek/tabular",
-    },
-  },
+  -- {
+  --   "preservim/vim-markdown",
+  --   ft = "markdown",
+  --   dependencies = {
+  --     "godlygeek/tabular",
+  --   },
+  -- },
   { "mtdl9/vim-log-highlighting", ft = "log" },
   { "ledger/vim-ledger", ft = "ledger" },
   { "chrisbra/csv.vim", ft = { "csv", "dat" } },
