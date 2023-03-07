@@ -90,7 +90,6 @@ lspconfig.lua_ls.setup({
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
   end,
-
   root_dir = root_dir,
   capabilities = capabilities,
   settings = {
@@ -118,6 +117,16 @@ lspconfig.lua_ls.setup({
   },
 })
 
+-- 4. marksman
+lspconfig.marksman.setup({
+  -- or else every line suggest create TOC
+  settings = {
+    codeAction = {
+      disableRuleComment = { enable = false },
+    },
+  },
+})
+
 -- Use a loop to call 'setup' on multiple servers
 local servers = {
   "angularls",
@@ -129,8 +138,8 @@ local servers = {
   "bashls",
   "dockerls",
   "eslint",
-  "graphql",
-  "lemminx",
+  -- "graphql",
+  "lemminx", -- XML
   "pylsp",
   "sqls",
   -- "stylelint_lsp", -- conflict with prettier in js files
