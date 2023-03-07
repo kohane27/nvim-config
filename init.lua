@@ -90,6 +90,8 @@ require("plugins.spectre")
 require("plugins.code_runner")
 require("plugins.sniprun")
 
+require("plugins.mkdnflow")
+
 require("plugins.tmux")
 require("plugins.vim-test")
 require("plugins.delaytrain")
@@ -101,4 +103,3 @@ require("plugins.legendary")
 -- require("plugins.codeium")
 -- require("plugins.diffview")
 -- require("plugins.git-conflict")
--- require("plugins.vim-markdown")
