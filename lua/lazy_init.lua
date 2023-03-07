@@ -171,13 +171,9 @@ require("lazy").setup({
 
   -- filetypes
   "nathom/filetype.nvim", -- speed up startup time
-  -- {
-  --   "preservim/vim-markdown",
-  --   ft = "markdown",
-  --   dependencies = {
-  --     "godlygeek/tabular",
-  --   },
-  -- },
+  "jakewvincent/mkdnflow.nvim", -- markdown
+  -- "ekickx/clipboard-image.nvim", -- copy clipboard image to nvim
+
   { "mtdl9/vim-log-highlighting", ft = "log" },
   { "ledger/vim-ledger", ft = "ledger" },
   { "chrisbra/csv.vim", ft = { "csv", "dat" } },
@@ -199,7 +195,6 @@ require("lazy").setup({
 
   "ja-ford/delaytrain.nvim",
   "gpanders/editorconfig.nvim",
-  -- "ekickx/clipboard-image.nvim", -- copy clipboard image to nvim
 
   -- find and replace
   "nvim-pack/nvim-spectre",
