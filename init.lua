@@ -17,7 +17,6 @@ require("lsp.lspsaga")
 
 require("plugins.telescope")
 require("plugins.project_nvim")
--- require("plugins.fzf-lua")
 
 require("plugins.treesitter")
 require("plugins.treesitter-context")

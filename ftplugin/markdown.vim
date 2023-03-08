@@ -3,7 +3,12 @@
 ab :due: 📅 
 ab :don: ✅ 
 ab :sta: 🛫 <c-r>=strftime("%Y-%m-%d")<cr>
-" ab :sch: ⏳ 
+ab :sch: ⏳ 
+
+iabbrev dh 📅 <c-r>=strftime("%Y-%m-%d")<cr> ⏫<Esc>
+iabbrev dm 📅 <c-r>=strftime("%Y-%m-%d")<cr> 🔼<Esc>
+iabbrev dl 📅 <c-r>=strftime("%Y-%m-%d")<cr> 🔽<Esc>
+iabbrev d ✅ <c-r>=strftime("%Y-%m-%d")<cr><Esc>
 
 ab :re: 🔁
 ab :hp: ⏫
