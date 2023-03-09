@@ -22,6 +22,7 @@ end
 -- codeium.lua
 -- marks.lua
 -- ufo.lua
+-- nvim-surround.lua
 
 -----------------------------------------------------------
 -- Neovim shortcuts
