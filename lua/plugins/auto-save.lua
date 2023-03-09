@@ -13,18 +13,8 @@ autosave.setup({
   condition = function(buf)
     local fn = vim.fn
     local utils = require("auto-save.utils.data")
-    if
-      fn.getbufvar(buf, "&modifiable") == 1
-      and utils.not_in(fn.getbufvar(buf, "&filetype"), { "c" })
-      -- and utils.not_in(fn.expand("%:t"), {
-      --   -- TODO: not working
-      --   "daily.md",
-      --   "weekly.md",
-      --   "monthly.md",
-      --   "quarterly.md",
-      --   "yearly.md",
-      -- })
-    then
+    -- c is for qmk_firmware
+    if fn.getbufvar(buf, "&modifiable") == 1 and utils.not_in(fn.getbufvar(buf, "&filetype"), { "c" }) then
       return true -- met condition(s), can save
     end
     return false -- can't save

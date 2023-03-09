@@ -17,6 +17,7 @@ telescope.setup({
     file_ignore_patterns = {
       ".mp4",
       ".webm",
+      ".webp",
       ".mkv",
       ".avi",
       ".m4a",
@@ -38,17 +39,12 @@ telescope.setup({
       ".gif",
       ".class",
       "node_modules",
+      ".git",
       ".cache",
       -- "package.json",
       "package-lock.json",
       "yarn.lock",
-      -- Obsidian dir below
-      "SecondBrain/.obsidian",
-      "SecondBrain/.trash",
-      "SecondBrain/Courses",
-      "SecondBrain/Journal",
-      "CoursesPending",
-      "home",
+      ".obsidian",
     },
     -- Hidden files and directories can be searched with --hidden
     find_command = { "rg", "--hidden", "--ignore-case" },
@@ -115,15 +111,6 @@ telescope.setup({
         -- ["?"] = actions.which_key,
       },
     },
-  },
-  pickers = {
-    -- Default configuration for builtin pickers goes here:
-    -- picker_name = {
-    --   picker_config_key = value,
-    --   ...
-    -- }
-    -- Now the picker_config_key will be applied every time you call this
-    -- builtin picker
   },
   extensions = {
     fzf = {

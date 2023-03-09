@@ -93,12 +93,12 @@ require("plugins.mkdnflow")
 require("plugins.tmux")
 require("plugins.vim-test")
 require("plugins.delaytrain")
-require("plugins.tabout")
 
--- near end to override
-require("plugins.legendary")
 -- require("plugins.firenvim")
-
 -- require("plugins.codeium")
 -- require("plugins.diffview")
 -- require("plugins.git-conflict")
+
+-- near end to override
+require("plugins.tabout")
+require("plugins.legendary")

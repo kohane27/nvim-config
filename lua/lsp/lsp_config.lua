@@ -27,7 +27,7 @@ local capabilities = cmp_nvim_lsp.default_capabilities()
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr) end
+-- local on_attach = function(client, bufnr) end
 
 --[[
 Language servers setup:
@@ -86,6 +86,7 @@ lspconfig.jsonls.setup({
 
 -- 3. lua_ls
 lspconfig.lua_ls.setup({
+  -- disable formatting with `lua_ls` because using `stylua` in `null_ls`
   on_attach = function(client, _)
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
