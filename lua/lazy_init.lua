@@ -110,7 +110,7 @@ require("lazy").setup({
   -- "nvim-lualine/lualine.nvim", -- statusline
   "feline-nvim/feline.nvim",
 
-  "akinsho/toggleterm.nvim", -- general terminal
+  "akinsho/toggleterm.nvim", -- terminal
   "is0n/fm-nvim", -- `ranger`
   "kdheepak/lazygit.nvim",
 
@@ -144,8 +144,13 @@ require("lazy").setup({
   -- "mhinz/vim-startify",
 
   -- session management
-  "rmagatti/auto-session",
-  "rmagatti/session-lens", -- telescope integration
+
+  {
+    "rmagatti/auto-session",
+    dependencies = {
+      "rmagatti/session-lens", -- telescope integration
+    },
+  },
 
   {
     "mrjones2014/legendary.nvim",
