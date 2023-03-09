@@ -3,16 +3,18 @@ if not status_ok then
   print("nvim-surround not working")
 end
 
+vim.keymap.set("n", "yS", "<Plug>(nvim-surround-normal)$")
+
 nvim_surround.setup({
   keymaps = {
-    insert = nil,
-    insert_line = nil,
+    insert = false,
+    insert_line = false,
     normal = "ys",
     normal_cur = "yss",
-    normal_line = nil,
-    normal_cur_line = nil,
+    normal_line = false,
+    normal_cur_line = false,
     visual = "<c-s>",
-    visual_line = nil,
+    visual_line = false,
     delete = "ds",
     change = "cs",
   },
