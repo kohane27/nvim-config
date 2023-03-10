@@ -14,7 +14,7 @@ local formatting = null_ls.builtins.formatting
 local sources = {
 
   formatting.prettier.with({
-    disabled_filetypes = { "json", "html" }, -- they're in `lsp_config.lua`
+    disabled_filetypes = { "json", "html", "markdown" }, -- they're in `lsp_config.lua`
     -- extra_args = { "--single-quote", "--jsx-single-quote" },
   }),
 
