@@ -13,12 +13,11 @@ vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 
 auto_session.setup({
   log_level = "error",
-  auto_save_enabled = true, -- nil by default
-  auto_restore_enabled = true, -- nil by default
+  auto_save_enabled = true,
+  auto_restore_enabled = true,
   auto_session_suppress_dirs = { "~/", "/", "~/Downloads" },
-  post_cwd_changed_hook = function()
-    require("lualine").refresh() -- refresh lualine so the new session name is displayed in the status bar
-  end,
+  -- Loads the last loaded session if session for cwd does not exist
+  auto_session_enable_last_session = false,
 })
 
 session_lens.setup({
