@@ -12,11 +12,11 @@ end
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 auto_session.setup({
-  log_level = "error",
+  log_level = "log",
   auto_save_enabled = true,
   auto_restore_enabled = true,
   auto_session_suppress_dirs = { "~/", "/", "~/Downloads" },
-  -- Loads the last loaded session if session for cwd does not exist
+  -- load the last loaded session if session for cwd does not exist
   auto_session_enable_last_session = false,
 })
 
