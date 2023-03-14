@@ -299,7 +299,7 @@ legendary.setup({
     },
     {
       "<leader>Mb",
-      "<cmd>lua require('comment-box').lbox()<CR><Esc>",
+      "<cmd>lua require('comment-box').llbox()<CR><Esc>",
       description = "Comment Box: Left-aligned",
       mode = { "x" },
     },
