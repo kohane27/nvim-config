@@ -83,6 +83,8 @@ map("x", "K", "5k")
 -- backspace to black hole registry
 map("n", "<BS>", '"_')
 map("x", "<BS>", '"_')
+map("v", "<BS>", '"_')
+map("i", "<BS>", '"_')
 
 -- -- insert empty new line without entering insert mode
 map("n", "<Leader>o", "o<Esc>")
