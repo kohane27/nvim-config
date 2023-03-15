@@ -125,8 +125,8 @@ legendary.setup({
 
     { "gT", "<cmd>lua vim.lsp.buf.type_definition()<CR>", description = "LSP: Go to Type Definition" },
 
-    { "gr", "<cmd>Telescope lsp_references<CR>", description = "LSP: Reference List" },
-    { "gR", "<cmd>Trouble lsp_references<CR>", description = "LSP: Reference List" },
+    { "gr", "<cmd>Trouble lsp_references<CR>", description = "LSP: Reference List" },
+    { "gR", "<cmd>Telescope lsp_references<CR>", description = "LSP: Reference List" },
 
     { "<leader>lr", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
     { "<leader>lq", "<cmd>copen<CR>", description = "LSP: Quickfix List" }, -- using `nvim-bqf`
