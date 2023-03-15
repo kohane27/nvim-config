@@ -25,7 +25,7 @@ nvim_tree.setup({
   respect_buf_cwd = true,
   update_focused_file = {
     enable = true,
-    update_root = true
+    update_root = true,
   },
   actions = {
     change_dir = {
@@ -39,6 +39,9 @@ nvim_tree.setup({
   },
   filters = {
     custom = { "node_modules", ".cache", ".bin" },
+  },
+  notify = {
+    threshold = vim.log.levels.ERROR,
   },
   view = {
     adaptive_size = true,
