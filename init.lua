@@ -100,5 +100,5 @@ require("plugins.delaytrain")
 -- require("plugins.git-conflict")
 
 -- near end to override
-require("plugins.tabout")
+-- require("plugins.tabout")
 require("plugins.legendary")
