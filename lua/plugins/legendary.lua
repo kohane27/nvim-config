@@ -128,7 +128,7 @@ legendary.setup({
     { "gr", "<cmd>Trouble lsp_references<CR>", description = "LSP: Reference List" },
     { "gR", "<cmd>Telescope lsp_references<CR>", description = "LSP: Reference List" },
 
-    { "<leader>lr", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
+    { "<leader>rn", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
     { "<leader>lq", "<cmd>copen<CR>", description = "LSP: Quickfix List" }, -- using `nvim-bqf`
     { "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", description = "LSP: Signature Help" },
     { "<leader>lc", "<cmd>Lspsaga code_action<CR>", description = "LSP: Code Action" },
