@@ -8,7 +8,7 @@ highlight CharColor guifg=#000000 guibg=#CCFF88 gui=bold,nocombine
 let g:clever_f_across_no_line=1
 
 " case insensitive
-let g:clever_f_ignore_case=1
+let g:clever_f_ignore_case=0
 
 " search by smart case
 let g:clever_f_smart_case=1

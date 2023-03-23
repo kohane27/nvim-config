@@ -15,7 +15,7 @@ auto_session.setup({
   log_level = "log",
   auto_save_enabled = true,
   auto_restore_enabled = true,
-  auto_session_suppress_dirs = { "~/", "/", "~/Downloads" },
+  auto_session_suppress_dirs = { "~/", "/", "~/Downloads", "~/Courses/spaced-repetition/" },
   -- load the last loaded session if session for cwd does not exist
   auto_session_enable_last_session = false,
 })
