@@ -63,13 +63,9 @@ map("n", "<Leader>k", "K")
 
 -- operate on display lines rather than real lines
 map("n", "k", "gk")
-map("n", "gk", "k")
 map("n", "j", "gj")
-map("n", "gj", "j")
 map("x", "k", "gk")
-map("x", "gk", "k")
 map("x", "j", "gj")
-map("x", "gj", "j")
 
 -- select 5 lines in visual mode
 map("x", "J", "5j")
@@ -84,7 +80,7 @@ map("x", "K", "5k")
 map("n", "<BS>", '"_')
 map("x", "<BS>", '"_')
 map("v", "<BS>", '"_')
-map("i", "<BS>", '"_')
+-- map("i", "<BS>", '"_') messing with `telescope`
 
 -- -- insert empty new line without entering insert mode
 map("n", "<Leader>o", "o<Esc>")
