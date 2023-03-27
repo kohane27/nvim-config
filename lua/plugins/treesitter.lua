@@ -54,12 +54,12 @@ ts_configs.setup({
       enable = true,
       set_jumps = true, -- set jumps in the jumplist
       goto_next_start = {
-        ["]m"] = "@function.outer",
-        ["]]"] = "@class.outer",
+        ["]]"] = "@function.outer",
+        ["]c"] = "@class.outer",
       },
       goto_previous_start = {
-        ["[m"] = "@function.outer",
-        ["[["] = "@class.outer",
+        ["[["] = "@function.outer",
+        ["[c"] = "@class.outer",
       },
       -- a bit too much; focused on above first
       goto_next_end = {
