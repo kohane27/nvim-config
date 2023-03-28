@@ -1,6 +1,6 @@
 local status_ok, marks = pcall(require, "marks")
 if not status_ok then
-  print("marks not working")
+  print("marks.nvim not working")
 end
 
 marks.setup({
@@ -12,9 +12,7 @@ marks.setup({
     delete_line = "mx",
     delete_buf = "mX",
   },
-  -- delete marks upon `BufRead`
   force_write_shada = true,
-  -- builtin marks to show
   builtin_marks = { ".", "'", "^" },
   -- . last change
   -- ^ last Insert mode

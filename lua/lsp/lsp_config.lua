@@ -52,14 +52,8 @@ local status_ok, typescript = pcall(require, "typescript")
 if not status_ok then
   print("typescript not working")
 end
-
 typescript.setup({
-  disable_commands = false, -- prevent the plugin from creating Vim commands
-  debug = false,
-  go_to_source_definition = {
-    fallback = true, -- fall back to standard LSP definition on failure
-  },
-  server = { -- pass options to lspconfig's setup method
+  server = {
     on_attach = function(client, _)
       client.server_capabilities.document_formatting = false
       client.server_capabilities.document_range_formatting = false
@@ -129,7 +123,7 @@ local servers = {
   "awk_ls",
   "bashls",
   "dockerls",
-  "eslint",
+  "eslint", -- use this instead of `tsserver` because it provides react-specific linting rules
   "graphql",
   "lemminx",
   "pylsp",

@@ -46,7 +46,7 @@ legendary.setup({
     { "<C-t>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
     { "<C-e>", "<cmd>Ranger<CR>", description = "Ranger" },
     { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
-    { "<C-g>", "<cmd>lua require('telescope.builtin').git_files()<CR>", description = "Telescope: Find Files" },
+    { "<C-g>", "<cmd>lua require('telescope.builtin').find_files()<CR>", description = "Telescope: Find Files" },
     { "<C-p>", "<cmd>Legendary<CR>", description = "Legendary Command Palette", mode = { "n", "i", "x" } },
 
     { "<C-f>", '<C-R>"', description = "Paste Last Yanked / Deleted", mode = { "i" } },
@@ -97,7 +97,7 @@ legendary.setup({
       },
       description = "Telescope: Find Text",
     },
-    { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>", description = "Telescope: Find Files" },
+    { "<leader>ff", "<cmd>lua require('telescope.builtin').git_files()<CR>", description = "Telescope: Find Files" },
     { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
     { "<leader>fo", "<cmd>Telescope oldfiles<CR>", description = "Telescope: Open Recent File" },
     {
@@ -116,6 +116,7 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ LSP                                                      │
     -- ╰──────────────────────────────────────────────────────────╯
+    -- TODO: make it thinking ergohnomics not tidy
     { "<leader>lf", "<cmd>Lspsaga lsp_finder<CR>", description = "LSP: Finder: Symbol, Definition and Implementation" },
     { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", description = "LSP: Line Diagnostics" },
     { "gL", "<cmd>Lspsaga show_buf_diagnostics<CR>", description = "LSP: Buffer Diagnostics" },
@@ -125,8 +126,9 @@ legendary.setup({
 
     { "gT", "<cmd>lua vim.lsp.buf.type_definition()<CR>", description = "LSP: Go to Type Definition" },
 
-    { "gr", "<cmd>Telescope lsp_references<CR>", description = "LSP: Reference List" },
+    { "gr", "<cmd>lua vim.lsp.buf.references()<CR>", description = "LSP: Reference List" },
     { "gR", "<cmd>Trouble lsp_references<CR>", description = "LSP: Reference List" },
+    -- { "gR", "<cmd>Telescope lsp_references<CR>", description = "LSP: Reference List" },
 
     { "<leader>rn", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
     { "<leader>lq", "<cmd>copen<CR>", description = "LSP: Quickfix List" }, -- using `nvim-bqf`

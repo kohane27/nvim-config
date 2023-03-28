@@ -57,8 +57,8 @@ nvim_tree.setup({
 
         { key = "<C-r>", action = "refresh" },
         { key = "a", action = "create" },
-        { key = "rn", action = "rename" },
-        { key = "rN", action = "full_rename" },
+        { key = "<leader>rn", action = "rename" },
+        { key = "<leader>rN", action = "full_rename" },
         { key = "h", action = "close_node" },
 
         {

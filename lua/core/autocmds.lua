@@ -5,10 +5,6 @@
 -- ╰──────────────────────────────────────────────────────────╯
 
 vim.cmd([[
-  " disable auto-indentation
-  " autocmd filetype markdown set indentexpr=
-  " autocmd fileType markdown setl conceallevel=1
-
   augroup _general_settings
     autocmd!
     autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR>
@@ -31,7 +27,6 @@ function DisableSyntaxTreesitter()
         exec 'TSBufDisable autotag'
         exec 'TSBufDisable highlight'
     endif
-
     set foldmethod=manual
     syntax clear
     syntax off
