@@ -80,7 +80,7 @@ map("x", "K", "5k")
 map("n", "<BS>", '"_')
 map("x", "<BS>", '"_')
 map("v", "<BS>", '"_')
--- map("i", "<BS>", '"_') messing with `telescope`
+-- map("i", "<BS>", '"_') -- messing with `telescope`
 
 -- -- insert empty new line without entering insert mode
 map("n", "<Leader>o", "o<Esc>")

@@ -62,9 +62,11 @@ telescope.setup({
 
         ["<CR>"] = actions.select_default,
         ["<C-c>"] = actions.close,
-        ["<C-w>s"] = actions.select_horizontal,
-        ["<C-w>v"] = actions.select_vertical,
-        ["<C-w>t"] = actions.select_tab,
+
+        -- only in Normal mode
+        -- ["<C-w>s"] = actions.select_horizontal,
+        -- ["<C-w>v"] = actions.select_vertical,
+        -- ["<C-w>t"] = actions.select_tab,
 
         ["<C-d>"] = actions.results_scrolling_down,
         ["<C-u>"] = actions.results_scrolling_up,
