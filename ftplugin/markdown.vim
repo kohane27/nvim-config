@@ -10,6 +10,8 @@ iabbrev dm 📅 <c-r>=strftime("%Y-%m-%d")<cr> 🔼<Esc>
 iabbrev dl 📅 <c-r>=strftime("%Y-%m-%d")<cr> 🔽<Esc>
 iabbrev d ✅ <c-r>=strftime("%Y-%m-%d")<cr><Esc>
 
+nmap <leader>rf :silent !sh ~/.local/bin/neovim-to-anki.sh<CR>
+
 ab :re: 🔁
 ab :hp: ⏫
 ab :mp: 🔼
