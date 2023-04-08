@@ -48,12 +48,14 @@ g.did_load_filetypes = 0                           -- use filetype.lua instead o
 g.do_filetype_lua    = 1
 g.rehash256          = 1
 
--- disable tilde on end of buffer:
+-- disable tilde on end of buffer
 -- https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
-opt.fillchars = { eob = " " }
+opt.fillchars       = { eob = " " }
+
+opt.splitkeep       = "screen" -- stabilize buffer content on window open/close events
 
 -- https://vi.stackexchange.com/questions/26628/make-jumplist-behave-like-stack
-opt.jumpoptions="stack"
+opt.jumpoptions     = "stack"
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
