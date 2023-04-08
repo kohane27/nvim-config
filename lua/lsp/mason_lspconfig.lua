@@ -20,7 +20,7 @@ mason_lspconfig.setup({
     "lemminx",
     "pyright",
     "pylsp",
-    "sqls",
+    "sqlls",
     "jsonls",
   },
   automatic_installation = false,
