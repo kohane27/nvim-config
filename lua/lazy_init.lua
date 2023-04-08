@@ -175,7 +175,7 @@ require("lazy").setup({
   "https://gitlab.com/yorickpeterse/nvim-pqf", -- pretty list
 
   -- filetypes
-  "nathom/filetype.nvim", -- speed up startup time
+  -- "nathom/filetype.nvim", -- speed up startup time NOTE: https://github.com/nathom/filetype.nvim/issues/94
   "jakewvincent/mkdnflow.nvim", -- markdown
   -- "ekickx/clipboard-image.nvim", -- copy clipboard image to nvim
 
@@ -244,9 +244,6 @@ require("lazy").setup({
 
   "kevinhwang91/nvim-hlslens", -- better search results
   -- "romainl/vim-cool", -- using `nvim-hlslens`
-
-  -- TODO: check is merged to core in stable 0.9
-  "luukvbaal/stabilize.nvim", -- stabilize buffer content on window open/close events
 
   "tversteeg/registers.nvim", -- see register contents
   "nyngwang/NeoZoom.lua", -- `<C-w>o` maximizes window without closing other buffers
