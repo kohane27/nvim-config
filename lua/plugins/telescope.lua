@@ -63,25 +63,10 @@ telescope.setup({
         ["<CR>"] = actions.select_default,
         ["<C-c>"] = actions.close,
 
-        -- only in Normal mode
-        -- ["<C-w>s"] = actions.select_horizontal,
-        -- ["<C-w>v"] = actions.select_vertical,
-        -- ["<C-w>t"] = actions.select_tab,
-
-        ["<C-d>"] = actions.results_scrolling_down,
-        ["<C-u>"] = actions.results_scrolling_up,
-
-        -- only in Normal mode
-        -- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-        -- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-        -- ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-        -- ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-
-        -- ["<C-u>"] = actions.preview_scrolling_up,
-        -- ["<C-d>"] = actions.preview_scrolling_down,
+        ["<C-d>"] = false,
+        ["<C-u>"] = false,
 
         -- ["<C-l>"] = actions.complete_tag,
-        -- ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
       },
 
       n = {
@@ -92,25 +77,53 @@ telescope.setup({
         ["<C-w>t"] = actions.select_tab,
 
         ["j"] = actions.move_selection_next,
-        -- TODO
-        -- ["J"] = ":5j",
+        ["J"] = actions.move_selection_next
+          + actions.move_selection_next
+          + actions.move_selection_next
+          + actions.move_selection_next
+          + actions.move_selection_next,
+
         ["k"] = actions.move_selection_previous,
+        ["K"] = actions.move_selection_previous
+          + actions.move_selection_previous
+          + actions.move_selection_previous
+          + actions.move_selection_previous
+          + actions.move_selection_previous,
+
         ["gg"] = actions.move_to_top,
         ["M"] = actions.move_to_middle,
         ["G"] = actions.move_to_bottom,
 
-        ["<C-d>"] = actions.results_scrolling_down,
-        ["<C-u>"] = actions.results_scrolling_up,
-
         -- ["<C-u>"] = actions.preview_scrolling_up,
+        ["<C-u>"] = actions.move_selection_previous
+          + actions.move_selection_previous
+          + actions.move_selection_previous
+          + actions.move_selection_previous
+          + actions.move_selection_previous
+          + actions.move_selection_previous
+          + actions.move_selection_previous
+          + actions.move_selection_previous
+          + actions.move_selection_previous
+          + actions.move_selection_previous,
+
         -- ["<C-d>"] = actions.preview_scrolling_down,
+        ["<C-d>"] = actions.move_selection_next
+          + actions.move_selection_next
+          + actions.move_selection_next
+          + actions.move_selection_next
+          + actions.move_selection_next
+          + actions.move_selection_next
+          + actions.move_selection_next
+          + actions.move_selection_next
+          + actions.move_selection_next
+          + actions.move_selection_next,
 
         ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
         ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
         -- ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
 
-        -- ["?"] = actions.which_key,
+        ["?"] = actions.which_key,
       },
     },
   },
