@@ -69,7 +69,6 @@ require("lazy").setup({
           "SmiteshP/nvim-navic",
           "MunifTanjim/nui.nvim",
         },
-        opts = { lsp = { auto_attach = true } },
       },
     },
   },
@@ -214,7 +213,6 @@ require("lazy").setup({
   "gelguy/wilder.nvim",
 
   "ja-ford/delaytrain.nvim",
-  "gpanders/editorconfig.nvim",
 
   -- find and replace
   "nvim-pack/nvim-spectre",
