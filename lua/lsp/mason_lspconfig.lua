@@ -15,7 +15,6 @@ mason_lspconfig.setup({
     "dockerls",
     "emmet_ls",
     "eslint",
-    -- "graphql",
     "html",
     "lemminx",
     "pyright",
