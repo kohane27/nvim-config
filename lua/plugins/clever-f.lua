@@ -7,7 +7,7 @@ highlight CharColor guifg=#000000 guibg=#CCFF88 gui=bold,nocombine
 " search a char only in current line
 let g:clever_f_across_no_line=1
 
-" case insensitive
+" case sensitive
 let g:clever_f_ignore_case=0
 
 " search by smart case

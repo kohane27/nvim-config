@@ -161,8 +161,11 @@ require("lazy").setup({
 
   -- navigation
   "ggandor/leap.nvim",
+
   -- "ggandor/flit.nvim",
   "rhysd/clever-f.vim",
+  -- "TheSafdarAwan/find-extender.nvim",
+
   -- "ggandor/leap-spooky.nvim",
   "cbochs/grapple.nvim",
   "cbochs/portal.nvim",
