@@ -122,8 +122,7 @@ require("lazy").setup({
   -- "wellle/targets.vim", -- superseded by `nvim-treesitter-textobjects`
   "mbbill/undotree",
 
-  "Pocco81/auto-save.nvim", -- auto-format when saving
-  -- TODO: check if https://github.com/Pocco81/auto-save.nvim/pull/67 merged to disable message to cmd
+  "https://git.sr.ht/~nedia/auto-save.nvim",
 
   {
     "kevinhwang91/nvim-ufo",
