@@ -124,7 +124,6 @@ local servers = {
   "bashls",
   "dockerls",
   "eslint", -- use this instead of `tsserver` because it provides react-specific linting rules
-  "graphql",
   "lemminx",
   "pylsp",
   "sqlls",

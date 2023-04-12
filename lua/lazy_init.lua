@@ -60,7 +60,20 @@ require("lazy").setup({
   "monaqa/dial.nvim",
 
   -- LSP
-  "neovim/nvim-lspconfig",
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      {
+        "SmiteshP/nvim-navbuddy",
+        dependencies = {
+          "SmiteshP/nvim-navic",
+          "MunifTanjim/nui.nvim",
+        },
+        opts = { lsp = { auto_attach = true } },
+      },
+    },
+  },
+
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
   "tamago324/nlsp-settings.nvim", -- language server settings defined in json
