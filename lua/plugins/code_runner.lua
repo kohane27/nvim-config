@@ -18,6 +18,7 @@ code_runner.setup({
     -- java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
 
     sh = "bash",
+    json = "cat $fileName | jq type 1>/dev/null",
     -- sh = "cd $dir && ./$fileName",
 
     python = "python -u",
