@@ -12,14 +12,11 @@ local function map(mode, lhs, rhs)
 end
 
 -- NOTE: useful insert mode `C-g` is unmapped
---custom keymaps in files:
+-- custom keymaps in files:
 -- leap.lua
--- obsidian.lua
 -- toggleterm.lua
 -- hlslens.lua
 -- gomove.lua
--- yanky.lua
--- codeium.lua
 -- marks.lua
 -- ufo.lua
 -- nvim-surround.lua
@@ -55,9 +52,6 @@ map("n", "<C-x>", "<nop>")
 map("n", "ZZ", "<nop>")
 map("n", "d$", "<nop>")
 
--- add marks to populate jump list
--- map("n", "J", "m'5gj")
--- map("n", "K", "m'5gk")
 map("n", "<Leader>j", "J")
 map("n", "<Leader>k", "K")
 
