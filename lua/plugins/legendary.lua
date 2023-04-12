@@ -29,6 +29,24 @@ function vim.close_all_but_current_buffer()
   end
 end
 
+function live_grep_from_project_git_root()
+  local function is_git_repo()
+    vim.fn.system("git rev-parse --is-inside-work-tree")
+    return vim.v.shell_error == 0
+  end
+  local function get_git_root()
+    local dot_git_path = vim.fn.finddir(".git", ".;")
+    return vim.fn.fnamemodify(dot_git_path, ":h")
+  end
+  local opts = {}
+  if is_git_repo() then
+    opts = {
+      cwd = get_git_root(),
+    }
+  end
+  require("telescope.builtin").live_grep(opts)
+end
+
 legendary.setup({
   include_builtin = false,
   sort = {
@@ -39,8 +57,8 @@ legendary.setup({
     },
   },
   keymaps = {
-    -- TODO the following are available:
-    -- gp, gn J, K
+    -- NOTE: the following are available:
+    -- gp, gn J, K, H, L, gj, gk
 
     -- <C-KEY>
     { "<C-t>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
@@ -55,22 +73,21 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Changelist                                               │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<C-j>", "<cmd>Portal changelist forward<CR>", description = "Changelist: Next" },
-    { "<C-k>", "<cmd>Portal changelist backward<CR>", description = "Changelist: Previous" },
+    { "g;", "<cmd>Portal changelist forward<CR>", description = "Changelist: Next" },
+    { "g,", "<cmd>Portal changelist backward<CR>", description = "Changelist: Previous" },
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Jumplist                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<C-o>", "<C-o>zz", description = "Jumplist: Previous" },
-    { "<C-i>", "<C-i>zz", description = "Jumplist: Next" },
+    { "<C-o>", "<C-o>zz", description = "" },
+    { "<C-i>", "<C-i>zz", description = "" },
+
     { "<A-o>", "<cmd>Portal jumplist backward<CR>", description = "Jumplist: Backward" },
     { "<A-i>", "<cmd>Portal jumplist forward<CR>", description = "Jumplist: Foward" },
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Quickfix                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<A-p>", "<cmd>Portal quickfix backward<CR>", description = "Quickfix: Previous" },
-    { "<A-n>", "<cmd>Portal quickfix forward<CR>", description = "Quickfix: Next" },
-    -- { "<A-p>", "<cmd>cprev<CR>zz", description = "Previous Quickfix Item" },
-    -- { "<A-n>", "<cmd>cnext<CR>zz", description = "Next Quickfix Item" },
+    { "<A-p>", "<cmd>cprev<CR>zz", description = "Previous Quickfix Item" },
+    { "<A-n>", "<cmd>cnext<CR>zz", description = "Next Quickfix Item" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Telescope                                                │
@@ -89,7 +106,7 @@ legendary.setup({
     {
       "<leader>fg",
       {
-        n = "<cmd>lua require('telescope.builtin').live_grep()<CR>",
+        n = "<cmd>lua live_grep_from_project_git_root()<CR>",
         v = function()
           local text = vim.getVisualSelection()
           require("telescope.builtin").live_grep({ default_text = text })
@@ -217,8 +234,8 @@ legendary.setup({
     -- │  Grapple                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
     { "M", toolbox.lazy_required_fn("grapple", "popup_tags"), description = "Grapple: View All Tags" },
-    { "L", toolbox.lazy_required_fn("grapple", "cycle_forward"), description = "Grapple: Next Tag" },
-    { "H", toolbox.lazy_required_fn("grapple", "cycle_backward"), description = "Grapple: Previous Tag" },
+    { "<C-j>", toolbox.lazy_required_fn("grapple", "cycle_forward"), description = "Grapple: Next Tag" },
+    { "<C-k>", toolbox.lazy_required_fn("grapple", "cycle_backward"), description = "Grapple: Previous Tag" },
     { "<leader>mm", toolbox.lazy_required_fn("grapple", "toggle"), description = "Grapple: Tag or Untag File" },
     { "m1", "<cmd>lua require('grapple').select({key = 1})<CR>", description = "Grapple: File 1" },
     { "m2", "<cmd>lua require('grapple').select({key = 2})<CR>", description = "Grapple: File 2" },

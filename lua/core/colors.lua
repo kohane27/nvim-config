@@ -16,7 +16,7 @@ vim.opt.fillchars:append({
 
 require("kanagawa").setup({
   transparent = false, -- do not set background color
-  dimInactive = true, -- dim inactive window `:h hl-NormalNC`
+  dimInactive = false, -- dim inactive window `:h hl-NormalNC`
   colors = {
     theme = { all = { ui = { bg_gutter = "none" } } },
   },
