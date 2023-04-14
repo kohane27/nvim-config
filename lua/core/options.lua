@@ -44,8 +44,8 @@ opt.autowriteall     = true
 opt.timeoutlen       = 450                         -- time to wait for a mapped sequence to complete
 opt.writebackup      = true                        -- disable editing a file that is being edited
 opt.list             = true
-g.did_load_filetypes = 0                           -- use filetype.lua instead of filetype.vim
-g.do_filetype_lua    = 1
+g.do_filetype_lua    = true                        -- use filetype.lua instead of filetype.vim
+g.did_load_filetypes = false
 g.rehash256          = 1
 
 -- disable tilde on end of buffer

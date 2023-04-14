@@ -189,7 +189,6 @@ require("lazy").setup({
   "https://gitlab.com/yorickpeterse/nvim-pqf", -- pretty list
 
   -- filetypes
-  -- "nathom/filetype.nvim", -- speed up startup time NOTE: https://github.com/nathom/filetype.nvim/issues/94
   "jakewvincent/mkdnflow.nvim", -- markdown
   -- "ekickx/clipboard-image.nvim", -- copy clipboard image to nvim
 
