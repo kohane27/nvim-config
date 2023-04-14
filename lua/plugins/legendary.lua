@@ -29,7 +29,7 @@ function vim.close_all_but_current_buffer()
   end
 end
 
-function live_grep_from_project_git_root()
+function vim.live_grep_from_project_git_root()
   local function is_git_repo()
     vim.fn.system("git rev-parse --is-inside-work-tree")
     return vim.v.shell_error == 0
@@ -106,7 +106,9 @@ legendary.setup({
     {
       "<leader>fg",
       {
-        n = "<cmd>lua live_grep_from_project_git_root()<CR>",
+        n = function()
+          vim.live_grep_from_project_git_root()
+        end,
         v = function()
           local text = vim.getVisualSelection()
           require("telescope.builtin").live_grep({ default_text = text })
