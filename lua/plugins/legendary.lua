@@ -152,7 +152,7 @@ legendary.setup({
     { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
     { "<leader>fo", "<cmd>Telescope oldfiles<CR>", description = "Telescope: Open Recent File" },
     {
-      "<leader>fO",
+      "<leader>fd",
       "<cmd>lua require('telescope').extensions.olddirs.picker()<CR>",
       description = "Telescope: Open Recent Directories",
     },
