@@ -176,7 +176,7 @@ require("lazy").setup({
 
   -- "ggandor/flit.nvim",
   "rhysd/clever-f.vim",
-  -- "TheSafdarAwan/find-extender.nvim",
+  -- { "TheSafdarAwan/find-extender.nvim", branch = "alpha" },
 
   -- "ggandor/leap-spooky.nvim",
   "cbochs/grapple.nvim",
