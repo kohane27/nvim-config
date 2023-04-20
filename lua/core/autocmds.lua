@@ -17,6 +17,15 @@ vim.cmd([[
     autocmd VimResized * tabdo wincmd =
   augroup end
 
+
+  augroup _tmux_rename
+    autocmd!
+    if exists('$TMUX')
+      autocmd BufReadPost,FileReadPost,BufNewFile,BufEnter * call system("tmux rename-window " . expand("%:t"))
+      " autocmd VimLeave,FocusLost * call system("tmux rename-window \"\"") " to enable auto-rename again
+    endif
+    augroup end
+
   " clear `jumplist`
   " autocmd VimEnter * :clearjumps
 
