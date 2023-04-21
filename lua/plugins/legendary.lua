@@ -345,9 +345,19 @@ legendary.setup({
       mode = { "x" },
     },
     {
-      "<leader>Mc",
-      "<cmd>n ~/.config/nvim/lua/lazy_init.lua ~/.config/nvim/init.lua<CR>",
-      description = "Edit Config",
+      "<leader>MEL",
+      "<cmd>g/^$/d<CR>",
+      description = "Remove Empty Lines",
+    },
+    {
+      "<leader>MRTWS",
+      "<cmd>%s/\\s\\+$//e<CR>",
+      description = "Remove Trailing Whitespace",
+    },
+    {
+      "<leader>MRTwS",
+      "<cmd>%s/\t/  /g<CR>",
+      description = "Replace Tabs with Spaces",
     },
   },
 })
