@@ -20,34 +20,35 @@ nvim_surround.setup({
     delete = "ds",
     change = "cs",
   },
-  surrounds = {
-    ["("] = {
-      add = { "(", ")" },
-      find = function()
-        return M.get_selection({ motion = "a)" })
-      end,
-      delete = "^(.)().-(.)()$",
-    },
-    ["{"] = {
-      add = { "{", "}" },
-      find = function()
-        return M.get_selection({ motion = "a}" })
-      end,
-      delete = "^(.)().-(.)()$",
-    },
-    ["<"] = {
-      add = { "<", ">" },
-      find = function()
-        return M.get_selection({ motion = "a>" })
-      end,
-      delete = "^(.)().-(.)()$",
-    },
-    ["["] = {
-      add = { "[", "]" },
-      find = function()
-        return M.get_selection({ motion = "a]" })
-      end,
-      delete = "^(.)().-(.)()$",
-    },
-  },
+  -- `ds(` doesn't work after enabling below
+  -- surrounds = {
+  --   ["("] = {
+  --     add = { "(", ")" },
+  --     find = function()
+  --       return M.get_selection({ motion = "a)" })
+  --     end,
+  --     delete = "^(.)().-(.)()$",
+  --   },
+  --   ["{"] = {
+  --     add = { "{", "}" },
+  --     find = function()
+  --       return M.get_selection({ motion = "a}" })
+  --     end,
+  --     delete = "^(.)().-(.)()$",
+  --   },
+  --   ["<"] = {
+  --     add = { "<", ">" },
+  --     find = function()
+  --       return M.get_selection({ motion = "a>" })
+  --     end,
+  --     delete = "^(.)().-(.)()$",
+  --   },
+  --   ["["] = {
+  --     add = { "[", "]" },
+  --     find = function()
+  --       return M.get_selection({ motion = "a]" })
+  --     end,
+  --     delete = "^(.)().-(.)()$",
+  --   },
+  -- },
 })
