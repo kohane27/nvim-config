@@ -1,6 +1,8 @@
 # personal
 **/old/
 **/*--.lua
+**/*--.*
+substitutes--.txt
 
 plugins/java.lua
 plugins/markdown.vim
