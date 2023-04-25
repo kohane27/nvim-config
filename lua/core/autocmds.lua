@@ -21,9 +21,13 @@ vim.cmd([[
   augroup _tmux_rename
     autocmd!
     if exists('$TMUX')
-      autocmd BufReadPost,FileReadPost,BufNewFile,BufEnter * call system("tmux rename-window " . fnamemodify(getcwd(), ':t') . "/" . expand("%:t"))
-      " autocmd BufReadPost,FileReadPost,BufNewFile,BufEnter * call system("tmux rename-window " . fnamemodify(substitute(getcwd(),$HOME,'~',''), ':t') . "/" . expand("%:t"))
+
+     " let cwd = substitute(getcwd(), '^.*/', '', '')
+      let cwd = fnamemodify(getcwd(), ':t')
+      let shortened_cwd = ***REMOVED***
+      autocmd BufReadPost,FileReadPost,BufNewFile,BufEnter * call system("tmux rename-window " . shortened_cwd . "/" . expand("%:t"))
       " autocmd BufReadPost,FileReadPost,BufNewFile,BufEnter * call system("tmux rename-window " . expand("%:t"))
+
       " autocmd VimLeave,FocusLost * call system("tmux rename-window \"\"") " to enable auto-rename again
     endif
     augroup end
