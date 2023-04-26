@@ -262,7 +262,7 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Terminal                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>tn", "<cmd>ToggleTerm<CR>", description = "Terminal: New" },
+    { "<leader>tn", "<cmd>ToggleTerm<CR>", description = " New terminal" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │  Grapple                                                 │
@@ -290,10 +290,10 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Session                                                  │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>ss", "<cmd>SaveSession<CR>", description = "Session: Save" },
-    { "<leader>sr", "<cmd>RestoreSession<CR>", description = "Session: Restore" },
-    { "<leader>sd", "<cmd>DeleteSession<CR>", description = "Session: Delete" },
-    { "<leader>sl", "<cmd>lua require('session-lens').search_session()<CR>", description = "Session: Search" },
+    { "<leader>SXs", "<cmd>SaveSession<CR>", description = "Session: Save" },
+    { "<leader>SXr", "<cmd>RestoreSession<CR>", description = "Session: Restore" },
+    { "<leader>SXd", "<cmd>DeleteSession<CR>", description = "Session: Delete" },
+    { "<leader>SXl", "<cmd>lua require('session-lens').search_session()<CR>", description = "Session: Search" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous Keymaps                                  │
@@ -305,6 +305,7 @@ legendary.setup({
         n = "<cmd>wa | edit | lua vim.lsp.buf.format()<CR> | TSBufEnable highlight<CR>zz",
         i = "<cmd>wa<CR><Esc>zzi",
       },
+      opts = { noremap = true, silent = true },
     },
     { "<C-w>o", "<cmd>lua require('neo-zoom').neo_zoom()<CR>", description = "Misc: Zoom: Toggle" },
 
