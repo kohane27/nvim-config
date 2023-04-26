@@ -7,7 +7,7 @@ autosave.setup({
   augroup_name = "AutoSavePlug",
 
   -- events to trigger an auto save
-  events = { "InsertLeave" },
+  events = { "InsertLeave", "TextChanged" },
 
   -- silence the output of `save_fn`
   silent = true,

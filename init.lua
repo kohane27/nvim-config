@@ -88,6 +88,7 @@ require("plugins.code_runner")
 require("plugins.sniprun")
 
 require("plugins.mkdnflow")
+require("plugins.ledger")
 
 require("plugins.tmux")
 require("plugins.vim-test")
