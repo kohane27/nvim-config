@@ -76,6 +76,9 @@ map("x", "<BS>", '"_')
 map("v", "<BS>", '"_')
 -- map("i", "<BS>", '"_') -- messing with `telescope`
 
+-- `cl` don't yank to default register
+map("n", "cl", '"_cl')
+
 -- -- insert empty new line without entering insert mode
 map("n", "<Leader>o", "o<Esc>")
 map("n", "<Leader>O", "O<Esc>")
