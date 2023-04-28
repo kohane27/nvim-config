@@ -88,7 +88,6 @@ require("plugins.code_runner")
 require("plugins.sniprun")
 
 require("plugins.mkdnflow")
-require("plugins.ledger")
 
 require("plugins.tmux")
 require("plugins.vim-test")
@@ -102,3 +101,4 @@ require("plugins.delaytrain")
 -- near end to override
 -- require("plugins.tabout")
 require("plugins.legendary")
+require("plugins.ledger")
