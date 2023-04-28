@@ -5,7 +5,7 @@ end
 
 find_extender.setup({
   ignore_case = true,
-  movments = {
+  movements = {
     min_matches = 1,
     highlight_match = { fg = "#000000", bg = "#CCFF88" },
     lh = {
