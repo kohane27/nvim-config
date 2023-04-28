@@ -156,11 +156,16 @@ require("lazy").setup({
 
   -- session management
 
+  -- {
+  --   "rmagatti/auto-session",
+  --   commit = "63984ed9c0fb7eae61eb1c2982bc1147e202d23e",
+  --   dependencies = {
+  --     "rmagatti/session-lens", -- telescope integration
+  --   },
+  -- },
   {
     "rmagatti/auto-session",
-    dependencies = {
-      "rmagatti/session-lens", -- telescope integration
-    },
+    commit = "63984ed9c0fb7eae61eb1c2982bc1147e202d23e",
   },
 
   {
