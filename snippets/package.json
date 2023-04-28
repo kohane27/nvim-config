@@ -22,6 +22,18 @@
                     "svelte"
                 ],
                 "path": "./snippets/javascript/javascript.json"
+            },
+            {
+                "language": [
+                    "ledger"
+                ],
+                "path": "./snippets/ledger/ledger.json"
+            },
+            {
+                "language": [
+                    "markdown"
+                ],
+                "path": "./snippets/markdown/markdown.json"
             }
         ]
     }
