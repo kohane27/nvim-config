@@ -4,6 +4,9 @@
 **/*--.*
 substitutes--.txt
 
+snippets/snippets/ledger
+snippets/snippets/markdown
+
 plugins/java.lua
 plugins/markdown.vim
 
