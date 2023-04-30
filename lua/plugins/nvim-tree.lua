@@ -50,10 +50,10 @@ nvim_tree.setup({
       list = {
         { key = "<C-w>v", action = "vsplit" },
         { key = "<C-w>s", action = "split" },
-        { key = "<C-w>t", action = "tabnew" }, -- <C-t> to close tree
+        -- { key = "<C-w>t", action = "tabnew" }, -- <C-t> to close tree
 
-        { key = "<CR>", action = "preview" },
-        { key = { "o" }, action = "edit" },
+        { key = "o", action = "preview" },
+        { key = "l", action = "edit" },
 
         { key = "<C-r>", action = "refresh" },
         { key = "a", action = "create" },
@@ -82,7 +82,7 @@ nvim_tree.setup({
         { key = "yy", action = "copy" },
         { key = "yn", action = "copy_name" },
         { key = "yp", action = "copy_path" },
-        { key = "ya", action = "copy_absolute_path" },
+        { key = "yP", action = "copy_absolute_path" },
         { key = "q", action = "close" },
         { key = "-", action = "dir_up" },
         { key = "?", action = "toggle_help" },
@@ -92,10 +92,10 @@ nvim_tree.setup({
         { key = "F", action = "clear_live_filter" },
 
         -- rarely
-        { key = "cd", action = "cd" },
+        -- { key = "cd", action = "cd" },
         { key = "P", action = "parent_node" },
-        { key = "W", action = "collapse_all" },
-        { key = "E", action = "expand_all" },
+        { key = "H", action = "collapse_all" },
+        { key = "L", action = "expand_all" },
         { key = ".", action = "run_file_command" },
       },
     },
