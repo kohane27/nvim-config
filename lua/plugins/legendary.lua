@@ -290,9 +290,9 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Session                                                  │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>SXs", "<cmd>SaveSession<CR>", description = "Session: Save" },
-    { "<leader>SXr", "<cmd>RestoreSession<CR>", description = "Session: Restore" },
-    { "<leader>SXd", "<cmd>DeleteSession<CR>", description = "Session: Delete" },
+    { "<leader>SXs", "<cmd>SessionSave<CR>", description = "Session: Save" },
+    { "<leader>SXr", "<cmd>SessionRestore<CR>", description = "Session: Restore" },
+    { "<leader>SXd", "<cmd>SessionDelete<CR>", description = "Session: Delete" },
     { "<leader>SXl", "<cmd>lua require('session-lens').search_session()<CR>", description = "Session: Search" },
 
     -- ╭──────────────────────────────────────────────────────────╮

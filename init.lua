@@ -80,7 +80,7 @@ require("plugins.stay-in-place")
 require("plugins.gomove")
 
 require("plugins.auto-save")
--- require("plugins.auto-session")
+require("plugins.auto-session")
 
 require("plugins.spectre")
 
