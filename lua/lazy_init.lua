@@ -156,16 +156,11 @@ require("lazy").setup({
 
   -- session management
 
-  -- {
-  --   "rmagatti/auto-session",
-  --   commit = "63984ed9c0fb7eae61eb1c2982bc1147e202d23e",
-  --   dependencies = {
-  --     "rmagatti/session-lens", -- telescope integration
-  --   },
-  -- },
   {
     "rmagatti/auto-session",
-    commit = "63984ed9c0fb7eae61eb1c2982bc1147e202d23e",
+    dependencies = {
+      "rmagatti/session-lens", -- telescope integration
+    },
   },
 
   {
@@ -194,7 +189,6 @@ require("lazy").setup({
   "https://gitlab.com/yorickpeterse/nvim-pqf", -- pretty list
 
   -- filetypes
-  "jakewvincent/mkdnflow.nvim", -- markdown
   -- "ekickx/clipboard-image.nvim", -- copy clipboard image to nvim
 
   { "mtdl9/vim-log-highlighting", ft = "log" },
@@ -251,6 +245,11 @@ require("lazy").setup({
   "LudoPinelli/comment-box.nvim", -- create comment boxes
   "folke/todo-comments.nvim",
   -- "folke/noice.nvim", -- NOTE: use later because it requires nightly
+
+  -- note-taking/task management
+  "jakewvincent/mkdnflow.nvim", -- markdown conflicting with vim-wiki
+  -- "vimwiki/vimwiki",
+  -- "tools-life/taskwiki",
 
   {
     "princejoogie/chafa.nvim",
