@@ -34,7 +34,7 @@ vim.cmd([[
     augroup end
 
   " clear `jumplist`
-  " autocmd VimEnter * :clearjumps
+  autocmd VimEnter * :clearjumps
 
 " disable syntax highlighting in big files
 function DisableSyntaxTreesitter()
