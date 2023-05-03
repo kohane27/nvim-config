@@ -8,13 +8,14 @@
 " iabbrev :h 📅 <c-r>=strftime("%Y-%m-%d")<cr> ⏫<Esc>
 " iabbrev :m 📅 <c-r>=strftime("%Y-%m-%d")<cr> 🔼<Esc>
 " iabbrev :l 📅 <c-r>=strftime("%Y-%m-%d")<cr> 🔽<Esc>
-iabbrev :d ✅ <c-r>=strftime("%Y-%m-%d")<cr><Esc>
+iabbrev <silent> :u 📅 <c-r>=strftime("%Y-%m-%d")<cr><Esc>
+iabbrev <silent> :d ✅ <c-r>=strftime("%Y-%m-%d")<cr><Esc>
 
-iabbrev :l # ➕ <c-r>=strftime("%Y-%m-%d")<cr> 🔽<Esc><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>i
+iabbrev <silent> :l # ➕ <c-r>=strftime("%Y-%m-%d")<cr> 🔽<Esc><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>i
 
-iabbrev :m # ➕ <c-r>=strftime("%Y-%m-%d")<cr> 📅 <c-r>=strftime("%Y-%m-%d")<cr> 🔼<Esc><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>i
+iabbrev <silent> :m # ➕ <c-r>=strftime("%Y-%m-%d")<cr> 📅 <c-r>=strftime("%Y-%m-%d")<cr> 🔼<Esc><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>i
 
-iabbrev :h # ➕ <c-r>=strftime("%Y-%m-%d")<cr> 📅 <c-r>=strftime("%Y-%m-%d")<cr> ⏫<Esc><Esc><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>i
+iabbrev <silent> :h # ➕ <c-r>=strftime("%Y-%m-%d")<cr> 📅 <c-r>=strftime("%Y-%m-%d")<cr> ⏫<Esc><Esc><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>i
 
 ab :re: 🔁
 ab :hp: ⏫

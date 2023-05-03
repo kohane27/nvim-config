@@ -27,6 +27,11 @@ saga.setup({
     tabe = "<C-t>",
     quit = { "q", "<ESC>" },
   },
+  hover = {
+    max_width = 0.9,
+    open_link = "gx",
+    open_browser = "!firefox",
+  },
   ui = {
     title = true,
     border = "rounded", -- single, double, rounded, solid, shadow

@@ -78,7 +78,7 @@ require("lazy").setup({
   "tamago324/nlsp-settings.nvim", -- language server settings defined in json
   "jose-elias-alvarez/null-ls.nvim", -- formatters and linters when LSP is not present
   -- "rmagatti/goto-preview",
-  "glepnir/lspsaga.nvim",
+  "nvimdev/lspsaga.nvim",
   "folke/trouble.nvim",
   "onsails/lspkind.nvim", -- pictograms
   "folke/lsp-colors.nvim", -- LSP diagnostics highlight groups
@@ -194,6 +194,7 @@ require("lazy").setup({
   { "mtdl9/vim-log-highlighting", ft = "log" },
   { "ledger/vim-ledger" },
   { "chrisbra/csv.vim", ft = { "csv", "dat" } },
+  { "kmonad/kmonad-vim" },
 
   -- task runners
   { "michaelb/sniprun", build = "bash ./install.sh" },
