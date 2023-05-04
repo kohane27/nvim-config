@@ -279,6 +279,61 @@ legendary.setup({
     { "m6", "<cmd>lua require('grapple').select({key = 6})<CR>", description = "Grapple: File 6" },
 
     -- ╭──────────────────────────────────────────────────────────╮
+    -- │ jdtls                                                    │
+    -- ╰──────────────────────────────────────────────────────────╯
+    {
+      "<leader>JXw",
+      "<cmd>JdtWipeDataAndRestart<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Wipe Data and Restart",
+    },
+    {
+      "<leader>JXu",
+      "<cmd>JdtUpdateConfig<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Update Config",
+    },
+    {
+      "<leader>JXa",
+      "<cmd>lua require'jdtls'.organize_imports()<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Organize Import",
+    },
+    {
+      "<leader>JXb",
+      "<cmd>lua require('jdtls').extract_variable()<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Extract Variable",
+    },
+    {
+      "<leader>JXc",
+      "<csc><Cmd>lua require('jdtls').extract_variable(true)<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Extract Variable",
+      mode = { "v" },
+    },
+    {
+      "<leader>JXd",
+      "<cmd>lua require('jdtls').extract_constant()<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Extract Constant",
+    },
+    {
+      "<leader>JXe",
+      "<Esc><cmd>lua require('jdtls').extract_constant(true)<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Extract Constant",
+      mode = { "v" },
+    },
+    {
+      "<leader>JXf",
+      "<Esc><cmd>lua require('jdtls').extract_method(true)<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Extract Method",
+      mode = { "v" },
+    },
+
+    -- ╭──────────────────────────────────────────────────────────╮
     -- │ Test                                                     │
     -- ╰──────────────────────────────────────────────────────────╯
     -- { "<leader>Gt", "<cmd>TestNearest<CR>", description = "Test: Nearest" },
