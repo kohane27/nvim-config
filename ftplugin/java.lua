@@ -2,7 +2,10 @@ local jdtls = require("jdtls")
 local root_markers = { "mvnw", "gradlew", ".git" }
 local root_dir = require("jdtls.setup").find_root(root_markers)
 local home = os.getenv("HOME")
-local workspace_folder = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
+-- local workspace_folder = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
+
+local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+local workspace_dir = home .. "/.local/share/eclipse/" .. project_name
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
@@ -26,17 +29,17 @@ local config = {
     "-jar",
     vim.fn.glob(
       home
-        .. "/.config/nvim/jdtls/jdt-language-server-1.9.0-202203031534/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar"
+        .. "/.config/nvim/jdtls/jdt-language-server-latest/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar"
     ),
 
     -- 💀
     "-configuration",
-    vim.fn.glob(home .. "/.config/nvim/jdtls/jdt-language-server-1.9.0-202203031534/config_linux"),
+    vim.fn.glob(home .. "/.config/nvim/jdtls/jdt-language-server-latest/config_linux"),
 
     -- 💀
     -- See `data directory configuration` section in the README
     "-data",
-    workspace_folder,
+    workspace_dir,
   },
 
   -- 💀
