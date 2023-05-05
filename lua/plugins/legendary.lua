@@ -73,13 +73,13 @@ end
 
 legendary.setup({
   include_builtin = false,
-  sort = {
-    -- this takes precedence over other sort options
-    frecency = {
-      db_root = string.format("%s/legendary/", vim.fn.stdpath("data")),
-      max_timestamps = 20,
-    },
-  },
+  -- sort = {
+  --   -- this takes precedence over other sort options
+  --   frecency = {
+  --     db_root = string.format("%s/legendary/", vim.fn.stdpath("data")),
+  --     max_timestamps = 20,
+  --   },
+  -- },
   keymaps = {
     -- NOTE: the following are available:
     -- gp, gn J, K, H, L, gj, gk
@@ -213,19 +213,21 @@ legendary.setup({
     { "g2", "<cmd>BufferLineGoToBuffer 2<CR>", description = "Go to Buffer 2" },
     { "g3", "<cmd>BufferLineGoToBuffer 3<CR>", description = "Go to Buffer 3" },
     { "g4", "<cmd>BufferLineGoToBuffer 4<CR>", description = "Go to Buffer 4" },
-    {
-      "<A-X>c",
-      function()
-        vim.close_all_but_current_buffer()
-      end,
-      description = "Buffer: Close All But Current",
-    },
     { "g5", "<cmd>BufferLineGoToBuffer 5<CR>", description = "Go to Buffer 5" },
     { "g6", "<cmd>BufferLineGoToBuffer 6<CR>", description = "Go to Buffer 6" },
     { "g7", "<cmd>BufferLineGoToBuffer 7<CR>", description = "Go to Buffer 7" },
     { "g8", "<cmd>BufferLineGoToBuffer 8<CR>", description = "Go to Buffer 8" },
     { "g9", "<cmd>BufferLineGoToBuffer 9<CR>", description = "Go to Buffer 9" },
     { "g0", "<cmd>BufferLineGoToBuffer -1<CR>", description = "Go to Buffer 10" },
+    { "gXr", "<cmd>BufferLineCloseRight<CR>", description = "Buffer: Close All to the Right" },
+    { "gXl", "<cmd>BufferLineCloseLeft <CR>", description = "Buffer: Close All to the Left" },
+    {
+      "gXa",
+      function()
+        vim.close_all_but_current_buffer()
+      end,
+      description = "Buffer: Close All But Current",
+    },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ substitute.lua                                           │
