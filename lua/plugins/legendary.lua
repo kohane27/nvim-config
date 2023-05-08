@@ -73,13 +73,13 @@ end
 
 legendary.setup({
   include_builtin = false,
-  -- sort = {
-  --   -- this takes precedence over other sort options
-  --   frecency = {
-  --     db_root = string.format("%s/legendary/", vim.fn.stdpath("data")),
-  --     max_timestamps = 20,
-  --   },
-  -- },
+  sort = {
+    -- this takes precedence over other sort options
+    frecency = {
+      db_root = string.format("%s/legendary/", vim.fn.stdpath("data")),
+      max_timestamps = 20,
+    },
+  },
   keymaps = {
     -- NOTE: the following are available:
     -- gp, gn J, K, H, L, gj, gk
