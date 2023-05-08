@@ -36,7 +36,8 @@ require("lazy").setup({
   "AckslD/nvim-neoclip.lua", -- clipboard manager
   "marcuscaisey/olddirs.nvim", -- `:oldfiles` but for directories
   "nvim-telescope/telescope-frecency.nvim",
-  "kkharji/sqlite.lua", -- required by `telescope-frecency` and `neoclip`
+  -- "kkharji/sqlite.lua", -- required by `telescope-frecency` and `neoclip`
+
   -- "nvim-telescope/telescope-project.nvim", -- using project.nvim
   -- "nvim-telescope/telescope-file-browser.nvim", -- required by telescope-project.nvim
 
@@ -163,12 +164,9 @@ require("lazy").setup({
     },
   },
 
-  {
-    "mrjones2014/legendary.nvim",
-    dependencies = {
-      { "stevearc/dressing.nvim", event = "VeryLazy" },
-    },
-  },
+  "mrjones2014/legendary.nvim",
+  "stevearc/dressing.nvim",
+
   "lewis6991/gitsigns.nvim",
 
   -- navigation
