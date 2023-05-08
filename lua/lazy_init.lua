@@ -124,7 +124,9 @@ require("lazy").setup({
   "feline-nvim/feline.nvim",
 
   "akinsho/toggleterm.nvim", -- terminal
-  "is0n/fm-nvim", -- `ranger`
+  -- "is0n/fm-nvim", -- `ranger`
+  "is0n/tui-nvim", -- `ranger`
+
   "kdheepak/lazygit.nvim",
 
   "kylechui/nvim-surround",

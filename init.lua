@@ -43,7 +43,9 @@ require("plugins.grapple")
 require("plugins.portal")
 
 require("plugins.toggleterm")
-require("plugins.fm-nvim")
+-- require("plugins.fm-nvim")
+require("plugins.tui-nvim")
+
 require("plugins.lazygit")
 
 require("plugins.luasnip")
