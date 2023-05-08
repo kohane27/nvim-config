@@ -45,8 +45,9 @@ map("n", "~", "<Nop>")
 map("n", "g~", "<Nop>")
 map("n", "gu", "<nop>")
 map("n", "gU", "<nop>")
-map("x", "u", "<nop>")
-map("x", "U", "<nop>")
+
+-- map("x", "u", "<nop>")
+-- map("x", "U", "<nop>")
 
 -- unlearn bad habits
 map("n", "J", "<nop>")
