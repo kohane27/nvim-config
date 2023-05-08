@@ -268,15 +268,16 @@ require("lazy").setup({
   "max397574/colortils.nvim",
   "norcalli/nvim-colorizer.lua",
 
-  -- {
-  --   "glacambre/firenvim",
-  --   build = function()
-  --     vim.fn["firenvim#install"](0)
-  --   end,
-  --   -- Lazy load
-  --   -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
-  --   cond = not not vim.g.started_by_firenvim,
-  -- },
+  {
+    "glacambre/firenvim",
+    -- Lazy load firenvim
+    -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
+    cond = not not vim.g.started_by_firenvim,
+    build = function()
+      require("lazy").load({ plugins = "firenvim", wait = true })
+      vim.fn["firenvim#install"](0)
+    end,
+  },
 
   -- debuggers
   -- "mfussenegger/nvim-dap",
