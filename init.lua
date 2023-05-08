@@ -95,7 +95,7 @@ require("plugins.tmux")
 require("plugins.vim-test")
 require("plugins.delaytrain")
 
--- require("plugins.firenvim")
+require("plugins.firenvim")
 -- require("plugins.codeium")
 -- require("plugins.diffview")
 -- require("plugins.git-conflict")
