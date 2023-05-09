@@ -26,9 +26,9 @@ end
 -----------------------------------------------------------
 map("i", "jk", "<Esc>")
 
--- `kmonad`: disable typing accented characters
+-- `kanata`: disable typing accented characters
 -- `:h digraph`
--- map("i", "<C-k>", "<Esc>")
+map("i", "<C-k>", "<Esc>")
 
 map("n", "<space>", "<Nop>")
 map("x", "<space>", "<Nop>")

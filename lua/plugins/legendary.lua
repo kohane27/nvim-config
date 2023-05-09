@@ -417,5 +417,11 @@ legendary.setup({
       "<cmd>%s/\t/  /g<CR>",
       description = "Replace Tabs with Spaces",
     },
+
+    {
+      "<leader>MRTwAW",
+      "<cmd>%s/\\s\\+$//e<CR>",
+      description = "Remove All Whitespace",
+    },
   },
 })
