@@ -5,6 +5,11 @@
 " ab :sta: 🛫 <c-r>=strftime("%Y-%m-%d")<cr>
 " ab :sch: ⏳ 
 
+" ab :re: 🔁
+" ab :hp: ⏫
+" ab :mp: 🔼
+" ab :lp: 🔽
+
 " iabbrev :h 📅 <c-r>=strftime("%Y-%m-%d")<cr> ⏫<Esc>
 " iabbrev :m 📅 <c-r>=strftime("%Y-%m-%d")<cr> 🔼<Esc>
 " iabbrev :l 📅 <c-r>=strftime("%Y-%m-%d")<cr> 🔽<Esc>
@@ -17,9 +22,8 @@ iabbrev <silent> :m # ➕ <c-r>=strftime("%Y-%m-%d")<cr> 📅 <c-r>=strftime("%Y
 
 iabbrev <silent> :h # ➕ <c-r>=strftime("%Y-%m-%d")<cr> 📅 <c-r>=strftime("%Y-%m-%d")<cr> ⏫<Esc><Esc><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>i
 
-ab :re: 🔁
-ab :hp: ⏫
-ab :mp: 🔼
-ab :lp: 🔽
+" %:p gets fullpath
+" in code_runner.lua
+" nmap <leader>rf :!sh ~/.local/bin/neovim-to-anki.sh "%:p"<CR>
 
 set nomodeline
