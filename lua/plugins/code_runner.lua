@@ -9,7 +9,6 @@ code_runner.setup({
     javascript = "node",
     typescript = "ts-node $fileName",
     -- typescript = "node --no-warnings --experimental-specifier-resolution=node --loader ts-node/esm",
-    -- typescript = "deno run",
     typescriptreact = "yarn dev$end",
 
     -- java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
@@ -18,9 +17,10 @@ code_runner.setup({
     -- java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
 
     sh = "bash",
+    -- sh = "cd $dir && ./$fileName",
     ledger = "hledger bs -f $dir/$fileName",
     json = "cat $fileName | jq type 1>/dev/null",
-    -- sh = "cd $dir && ./$fileName",
+    markdown = "sh ~/.local/bin/neovim-to-anki.sh $dir/$fileName",
 
     python = "python -u",
     rust = "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
