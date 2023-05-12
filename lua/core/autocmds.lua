@@ -23,11 +23,9 @@ vim.cmd([[
     if exists('$TMUX')
 
       let data = readfile($HOME .'/.config/nvim/substitutes--.txt')
-     " let cwd = substitute(getcwd(), '^.*/', '', '')
       let cwd = fnamemodify(getcwd(), ':t')
       let shortened_cwd = substitute(cwd, data[0], "", "")
       autocmd BufReadPost,FileReadPost,BufNewFile,BufEnter * call system("tmux rename-window " . shortened_cwd . "/" . expand("%:t"))
-      " autocmd BufReadPost,FileReadPost,BufNewFile,BufEnter * call system("tmux rename-window " . expand("%:t"))
 
       " autocmd VimLeave,FocusLost * call system("tmux rename-window \"\"") " to enable auto-rename again
     endif
