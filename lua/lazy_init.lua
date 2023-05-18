@@ -192,10 +192,12 @@ require("lazy").setup({
   -- "ekickx/clipboard-image.nvim", -- copy clipboard image to nvim
 
   { "mtdl9/vim-log-highlighting", ft = "log" },
-  { "ledger/vim-ledger" },
   { "chrisbra/csv.vim", ft = { "csv", "dat" } },
-  { "kmonad/kmonad-vim" },
-  { "ellisonleao/glow.nvim" },
+  "ledger/vim-ledger",
+  "kmonad/kmonad-vim",
+
+  -- preview markdown
+  "ellisonleao/glow.nvim",
 
   -- task runners
   { "michaelb/sniprun", build = "bash ./install.sh" },

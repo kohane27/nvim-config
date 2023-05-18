@@ -45,6 +45,7 @@ require("plugins.portal")
 require("plugins.toggleterm")
 require("plugins.fm-nvim")
 -- require("plugins.tui-nvim")
+require("plugins.glow")
 
 require("plugins.lazygit")
 
