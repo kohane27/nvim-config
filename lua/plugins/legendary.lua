@@ -175,8 +175,8 @@ legendary.setup({
     { "]d", "<cmd> Lspsaga diagnostic_jump_next<CR>", description = "LSP: Go to Next Diagnostic" },
     { "[D", "<cmd>TroubleToggle workspace_diagnostics<CR>", description = "LSP: Workspace Diagnostics" },
 
-    { "gd", "<cmd>Lspsaga peek_definition<CR>", description = "LSP: Preview Definition" },
-    { "gD", "<cmd>Lspsaga goto_definition<CR>", description = "LSP: Go to Definition" },
+    { "gd", "<cmd>Lspsaga goto_definition<CR>", description = "LSP: Go to Definition" },
+    { "gD", "<cmd>Lspsaga peek_definition<CR>", description = "LSP: Preview Definition" },
 
     { "gT", "<cmd>lua vim.lsp.buf.type_definition()<CR>", description = "LSP: Go to Type Definition" },
 
@@ -376,7 +376,7 @@ legendary.setup({
     { "<leader>Mo", "<cmd>Lspsaga outline<CR>", description = "LSP: Symbols Outline" },
 
     { "<leader>Mu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
-    { "<leader>Ma", "<cmd>ASToggle<CR>", description = "AutoSave: Toggle" },
+    -- { "<leader>Ma", "<cmd>ASToggle<CR>", description = "AutoSave: Toggle" },
 
     { "<leader>Mxxse", "<cmd>ScrollViewEnable<CR>", description = "ScrollView: Enable" },
     { "<leader>Mxxsd", "<cmd>ScrollViewDisable<CR>", description = "ScrollView: Disable" },
@@ -387,6 +387,7 @@ legendary.setup({
     { "<leader>MCP", "<cmd>Colortils picker<CR>", description = "Colortils: Picker" },
     { "<leader>MCL", "<cmd>Colortils css list<CR>", description = "Colortils: CSS List" },
     -- { "<leader>mp", "<cmd>PasteImg<CR>", description = "Misc: Paste Image" },
+    { "<leader>MCxQ", "<cmd>TSBufEnable highlight<CR>", description = "Treesitter: highlight" },
 
     {
       "<leader>Ms",
