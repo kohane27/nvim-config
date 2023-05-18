@@ -124,8 +124,8 @@ require("lazy").setup({
   "feline-nvim/feline.nvim",
 
   "akinsho/toggleterm.nvim", -- terminal
-  -- "is0n/fm-nvim", -- `ranger`
-  "is0n/tui-nvim", -- `ranger`
+  "is0n/fm-nvim", -- `ranger`
+  -- "is0n/tui-nvim", -- `ranger`
 
   "kdheepak/lazygit.nvim",
 
@@ -195,6 +195,7 @@ require("lazy").setup({
   { "ledger/vim-ledger" },
   { "chrisbra/csv.vim", ft = { "csv", "dat" } },
   { "kmonad/kmonad-vim" },
+  { "ellisonleao/glow.nvim" },
 
   -- task runners
   { "michaelb/sniprun", build = "bash ./install.sh" },
