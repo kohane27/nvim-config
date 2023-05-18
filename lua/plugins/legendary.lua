@@ -71,6 +71,26 @@ function vim.find_files_from_project_git_root()
   require("telescope.builtin").find_files(opts)
 end
 
+function vim.markdown_preview()
+  local buf = vim.api.nvim_create_buf(false, true)
+  local current_buf = vim.api.nvim_get_current_buf()
+
+  local lines = vim.api.nvim_buf_get_lines(current_buf, 0, -1, false)
+  local markdownm = table.concat(lines, "\n")
+
+  local sanitized = markdownm:gsub("'", "'\\''")
+  local sanitized_final = "'" .. sanitized .. "'"
+
+  vim.cmd("rightbelow vert sbuffer " .. buf)
+
+  local new_win = vim.api.nvim_get_current_win()
+  vim.api.nvim_win_set_option(new_win, "number", false)
+  vim.api.nvim_win_set_option(new_win, "cursorline", false)
+  vim.api.nvim_win_set_option(new_win, "relativenumber", false)
+
+  vim.fn.termopen("glow <( echo " .. sanitized_final .. ")\n")
+end
+
 legendary.setup({
   include_builtin = false,
   sort = {
@@ -376,7 +396,13 @@ legendary.setup({
     { "<leader>Mo", "<cmd>Lspsaga outline<CR>", description = "LSP: Symbols Outline" },
 
     { "<leader>Mu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
-    -- { "<leader>Ma", "<cmd>ASToggle<CR>", description = "AutoSave: Toggle" },
+    {
+      "<leader>Mp",
+      function()
+        vim.markdown_preview()
+      end,
+      description = "Preview Markdown",
+    },
 
     { "<leader>Mxxse", "<cmd>ScrollViewEnable<CR>", description = "ScrollView: Enable" },
     { "<leader>Mxxsd", "<cmd>ScrollViewDisable<CR>", description = "ScrollView: Disable" },
