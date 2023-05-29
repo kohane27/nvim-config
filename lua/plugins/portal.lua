@@ -18,8 +18,8 @@ portal.setup({
 
   window_options = {
     relative = "cursor",
-    width = 80,
-    height = 5,
+    width = 100,
+    height = 6,
     col = 5,
   },
 })

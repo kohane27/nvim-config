@@ -38,5 +38,15 @@ dial.augends:register_group({
       word = false,
       cyclic = true,
     }),
+    augend.constant.new({
+      elements = { "disable", "enable" },
+      word = false,
+      cyclic = true,
+    }),
+    augend.constant.new({
+      elements = { "start", "stop" },
+      word = false,
+      cyclic = true,
+    }),
   },
 })
