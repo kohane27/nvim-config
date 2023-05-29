@@ -19,12 +19,7 @@ require("lazy").setup({
   "nvim-lua/plenary.nvim", -- useful lua functions used by lots of plugins
 
   -- Telescope
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "romgrk/fzy-lua-native",
-    },
-  },
+  { "nvim-telescope/telescope.nvim", dependencies = { "romgrk/fzy-lua-native" } },
 
   {
     "nvim-telescope/telescope-fzf-native.nvim",
@@ -33,13 +28,11 @@ require("lazy").setup({
 
   -- Telescope extensions
   "ahmedkhalf/project.nvim",
+  -- "nvim-telescope/telescope-project.nvim", -- using project.nvim
   "AckslD/nvim-neoclip.lua", -- clipboard manager
   "marcuscaisey/olddirs.nvim", -- `:oldfiles` but for directories
   "nvim-telescope/telescope-frecency.nvim",
   "kkharji/sqlite.lua", -- required by `telescope-frecency` and `neoclip`
-
-  -- "nvim-telescope/telescope-project.nvim", -- using project.nvim
-  -- "nvim-telescope/telescope-file-browser.nvim", -- required by telescope-project.nvim
 
   -- Treesitter
   {

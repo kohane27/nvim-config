@@ -134,18 +134,18 @@ telescope.setup({
       override_file_sorter = true,
       case_mode = "ignore_case", -- or "smart_case", "ignore_case" or "respect_case"
     },
-    -- frecency = {
-    --   show_scores = false,
-    --   show_unindexed = false,
-    --   auto_validate = true,
-    --   ignore_patterns = { "*.git/*", "*/tmp/*", "*/node_modules/*" },
-    --   disable_devicons = false,
-    --   workspaces = {
-    --     ["conf"] = "~/.config",
-    --     ["data"] = "~/.local/share",
-    --     ["project"] = "~/Documents",
-    --   },
-    -- },
+    frecency = {
+      show_scores = false,
+      show_unindexed = false,
+      auto_validate = true,
+      ignore_patterns = { "*.git/*", "*/tmp/*", "*/node_modules/*" },
+      disable_devicons = false,
+      workspaces = {
+        ["conf"] = "~/.config",
+        ["data"] = "~/.local/share",
+        ["project"] = "~/Documents",
+      },
+    },
   },
 })
 

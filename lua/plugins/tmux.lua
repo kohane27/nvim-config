@@ -10,16 +10,16 @@ tmux.setup({
     redirect_to_clipboard = true,
   },
   navigation = {
-    -- C-hjkl
+    -- A-hjkl
     cycle_navigation = false,
     enable_default_keybindings = false,
   },
   resize = {
-    -- A-hjkl
+    -- C-S-hjkl
     enable_default_keybindings = false,
     -- sets resize steps for x axis
-    resize_step_x = 1,
+    resize_step_x = 4,
     -- sets resize steps for y axis
-    resize_step_y = 1,
+    resize_step_y = 4,
   },
 })
