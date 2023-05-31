@@ -105,7 +105,7 @@ legendary.setup({
     -- gp, gn J, K, H, L, gj, gk
 
     -- <C-KEY>
-    { "<C-t>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
+    { "<C-f>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
     { "<C-e>", "<cmd>Ranger<CR>", description = "Ranger" },
     { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
     -- { "<C-g>", "<cmd>lua require('telescope.builtin').find_files()<CR>", description = "Telescope: Find Files" },
@@ -118,6 +118,9 @@ legendary.setup({
     },
 
     { "<C-p>", "<cmd>Legendary<CR>", description = "Legendary Command Palette", mode = { "n", "i", "x" } },
+
+    { "<C-d>", "<Cmd>lua Scroll('<C-f>', 1, 1)<CR>", description = "Smooth scrolling: down", mode = { "n", "x" } },
+    { "<C-u>", "<Cmd>lua Scroll('<C-b>', 1, 1)<CR>", description = "Smooth scrolling: up", mode = { "n", "x" } },
 
     { "<C-f>", '<C-R>"', description = "Paste Last Yanked / Deleted", mode = { "i" } },
     { "<C-v>", "<C-R>*", description = "Paste Clipboard Content", mode = { "i" } },
@@ -441,11 +444,20 @@ legendary.setup({
       "<cmd>%s/\t/  /g<CR>",
       description = "Replace Tabs with Spaces",
     },
-
     {
       "<leader>MRTwAW",
       "<cmd>%s/\\s\\+$//e<CR>",
       description = "Remove All Whitespace",
+    },
+    {
+      "<leader>MRTwAWB",
+      "<cmd>%s/[’‘]/'/g<CR>",
+      description = "Replace All Single Curly Quotes",
+    },
+    {
+      "<leader>MRTwAWC",
+      '<cmd>%s/[“”]/"/g<CR>',
+      description = "Replace All Double Curly Quotes",
     },
   },
 })
