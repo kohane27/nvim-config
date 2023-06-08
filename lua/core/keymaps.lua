@@ -33,6 +33,11 @@ map("i", "<C-k>", "<Esc>")
 map("n", "<space>", "<Nop>")
 map("x", "<space>", "<Nop>")
 
+-- disable unused keys
+map("n", "<C-y>", "<Nop>")
+map("n", "<S-h>", "<Nop>")
+map("n", "<S-l>", "<Nop>")
+
 -- avoid command history
 map("n", "q:", ":q<cr>")
 -- no `qq` for macro
@@ -136,8 +141,9 @@ map("i", "<C-b>", "<C-o>dB")
 
 vim.cmd([[
 " close and save all buffer
-cnoremap x xa
+" TODO combine they into function
+cnoremap <expr> <CR> getcmdtype() == ":" && index(["x"], getcmdline()) >= 0 ? "a<CR>" : "<CR>"
 
 " wean off `:wq` and `:q`
-cnoremap <expr> <CR> getcmdtype() == ":" && index(["q", "wq"], getcmdline()) >= 0 ? "<C-u>" : "<CR>"
+" cnoremap <expr> <CR> getcmdtype() == ":" && index(["q", "wq"], getcmdline()) >= 0 ? "<C-u>" : "<CR>"
 ]])
