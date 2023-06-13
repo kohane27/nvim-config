@@ -78,18 +78,7 @@ telescope.setup({
         ["<C-w>t"] = actions.select_tab,
 
         ["j"] = actions.move_selection_next,
-        ["J"] = actions.move_selection_next
-          + actions.move_selection_next
-          + actions.move_selection_next
-          + actions.move_selection_next
-          + actions.move_selection_next,
-
         ["k"] = actions.move_selection_previous,
-        ["K"] = actions.move_selection_previous
-          + actions.move_selection_previous
-          + actions.move_selection_previous
-          + actions.move_selection_previous
-          + actions.move_selection_previous,
 
         ["gg"] = actions.move_to_top,
         ["M"] = actions.move_to_middle,
