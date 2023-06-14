@@ -207,7 +207,7 @@ require("lazy").setup({
 
   "gelguy/wilder.nvim",
 
-  "ja-ford/delaytrain.nvim",
+  -- "ja-ford/delaytrain.nvim",
 
   -- find and replace
   "nvim-pack/nvim-spectre",
