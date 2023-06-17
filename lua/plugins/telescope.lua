@@ -84,7 +84,9 @@ telescope.setup({
         ["M"] = actions.move_to_middle,
         ["G"] = actions.move_to_bottom,
 
-        -- ["<C-u>"] = actions.preview_scrolling_up,
+      ["<C-b>"] = actions.preview_scrolling_up,
+      ["<C-f>"] = actions.preview_scrolling_down,
+
         ["<C-u>"] = actions.move_selection_previous
           + actions.move_selection_previous
           + actions.move_selection_previous
@@ -96,7 +98,6 @@ telescope.setup({
           + actions.move_selection_previous
           + actions.move_selection_previous,
 
-        -- ["<C-d>"] = actions.preview_scrolling_down,
         ["<C-d>"] = actions.move_selection_next
           + actions.move_selection_next
           + actions.move_selection_next
@@ -123,23 +124,23 @@ telescope.setup({
       override_file_sorter = true,
       case_mode = "ignore_case", -- or "smart_case", "ignore_case" or "respect_case"
     },
-    frecency = {
-      show_scores = false,
-      show_unindexed = false,
-      auto_validate = true,
-      ignore_patterns = { "*.git/*", "*/tmp/*", "*/node_modules/*" },
-      disable_devicons = false,
-      workspaces = {
-        ["conf"] = "~/.config",
-        ["data"] = "~/.local/share",
-        ["project"] = "~/Documents",
-      },
-    },
+    -- frecency = {
+    --   show_scores = false,
+    --   show_unindexed = false,
+    --   auto_validate = true,
+    --   disable_devicons = false,
+    --   ignore_patterns = { "*.git/*", "*/tmp/*", "*/node_modules/*" },
+    --   workspaces = {
+    --     ["conf"] = "~/.config",
+    --     ["data"] = "~/.local/share",
+    --     ["project"] = "~/Documents",
+    --   },
+    -- },
   },
 })
 
 telescope.load_extension("fzf")
 telescope.load_extension("projects")
-telescope.load_extension("frecency")
+-- telescope.load_extension("frecency")
 telescope.load_extension("neoclip")
 telescope.load_extension("olddirs")
