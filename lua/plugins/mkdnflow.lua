@@ -8,8 +8,6 @@ mkdnflow.setup({
     implicit_extension = nil,
     transform_implicit = true,
     transform_explicit = function(text)
-      -- TODO fix
-      -- [18. Managing State.md](/Courses/React Docs/18. Managing State.md)
       text = text:gsub("<", " ")
       text = text:gsub(">", " ")
       return text

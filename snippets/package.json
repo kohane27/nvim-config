@@ -28,12 +28,6 @@
                     "ledger"
                 ],
                 "path": "./snippets/ledger/ledger.json"
-            },
-            {
-                "language": [
-                    "markdown"
-                ],
-                "path": "./snippets/markdown/markdown.json"
             }
         ]
     }
