@@ -97,7 +97,10 @@ require("plugins.vim-test")
 -- require("plugins.delaytrain")
 
 require("plugins.firenvim")
+
+require("plugins.chatgpt")
 -- require("plugins.codeium")
+
 -- require("plugins.diffview")
 -- require("plugins.git-conflict")
 

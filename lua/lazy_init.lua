@@ -197,6 +197,15 @@ require("lazy").setup({
   "CRAG666/code_runner.nvim",
   -- "stevearc/overseer.nvim", -- TODO: configure
 
+  {
+    "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+  },
   -- "Exafunction/codeium.vim",
 
   "gbprod/substitute.nvim",

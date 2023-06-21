@@ -376,6 +376,26 @@ legendary.setup({
     { "<leader>SXl", "<cmd>lua require('session-lens').search_session()<CR>", description = "Session: Search" },
 
     -- ╭──────────────────────────────────────────────────────────╮
+    -- │ AI                                                       │
+    -- ╰──────────────────────────────────────────────────────────╯
+    { "<leader>ao", "<cmd>ChatGPT<CR>", description = "ChatGPT: Open" },
+    { "<leader>aa", "<cmd>ChatGPTActAs<CR>", description = "ChatGPT: Act As" },
+    {
+      "<leader>ar",
+      function()
+        vim.api.nvim_feedkeys(":ChatGPTRun ", "n", true)
+      end,
+      description = "ChatGPT: Run Specific Actions",
+      mode = { "n", "v" },
+    },
+    {
+      "<leader>ae",
+      "<cmd>ChatGPTEditWithInstructions<CR>",
+      description = "ChatGPT: Edit Selected Text Or Whole Window",
+      mode = { "v" },
+    },
+
+    -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous Keymaps                                  │
     -- ╰──────────────────────────────────────────────────────────╯
     -- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
