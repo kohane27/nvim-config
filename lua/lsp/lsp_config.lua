@@ -125,6 +125,7 @@ local servers = {
   "dockerls",
   "eslint", -- use this instead of `tsserver` because it provides react-specific linting rules
   "lemminx",
+  "prismals",
   "pylsp",
   "sqlls",
   -- "stylelint_lsp", -- conflict with prettier in js files

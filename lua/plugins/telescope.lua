@@ -54,7 +54,9 @@ telescope.setup({
 
     mappings = {
       i = {
-        ["<esc>"] = actions.close,
+        ["<A-c>"] = actions.close,
+        ["<C-c>"] = actions.close,
+        -- ["<esc>"] = actions.close,
         ["<C-j>"] = actions.cycle_history_next,
         ["<C-k>"] = actions.cycle_history_prev,
 
@@ -62,7 +64,6 @@ telescope.setup({
         ["<C-p>"] = actions.move_selection_previous,
 
         ["<CR>"] = actions.select_default,
-        ["<C-c>"] = actions.close,
 
         ["<C-d>"] = false,
         ["<C-u>"] = false, -- clear prompt
@@ -71,6 +72,7 @@ telescope.setup({
       },
 
       n = {
+        ["<A-c>"] = actions.close,
         ["<C-c>"] = actions.close,
         ["<CR>"] = actions.select_default,
         ["<C-w>s"] = actions.select_horizontal,
@@ -84,8 +86,8 @@ telescope.setup({
         ["M"] = actions.move_to_middle,
         ["G"] = actions.move_to_bottom,
 
-      ["<C-b>"] = actions.preview_scrolling_up,
-      ["<C-f>"] = actions.preview_scrolling_down,
+        ["<C-b>"] = actions.preview_scrolling_up,
+        ["<C-f>"] = actions.preview_scrolling_down,
 
         ["<C-u>"] = actions.move_selection_previous
           + actions.move_selection_previous
