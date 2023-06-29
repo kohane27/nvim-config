@@ -7,8 +7,8 @@ code_runner.setup({
   focus = false,
   filetype = {
     javascript = "node",
-    typescript = "ts-node $fileName",
-    -- typescript = "node --no-warnings --experimental-specifier-resolution=node --loader ts-node/esm",
+    -- typescript = "ts-node $fileName",
+    typescript = "deno run $fileName",
     typescriptreact = "yarn dev$end",
 
     -- java = "cd $dir && javac $fileName && java $fileNameWithoutExt",

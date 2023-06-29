@@ -17,6 +17,7 @@ chatgpt.setup({
       close = "<A-c>",
       new_session = "<A-n>",
       cycle_windows = "<A-l>",
+      yank_last_code = "<A-k>",
       -- cycle_windows = "<C-w><Space>",
       rename_session = "<Space>rn",
       delete_session = "D",

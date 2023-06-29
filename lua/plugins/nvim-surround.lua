@@ -5,8 +5,6 @@ end
 
 vim.keymap.set("n", "yS", "<Plug>(nvim-surround-normal)$")
 
-local M = {}
-
 nvim_surround.setup({
   keymaps = {
     insert = false,
@@ -20,35 +18,4 @@ nvim_surround.setup({
     delete = "ds",
     change = "cs",
   },
-  -- `ds(` doesn't work after enabling below
-  -- surrounds = {
-  --   ["("] = {
-  --     add = { "(", ")" },
-  --     find = function()
-  --       return M.get_selection({ motion = "a)" })
-  --     end,
-  --     delete = "^(.)().-(.)()$",
-  --   },
-  --   ["{"] = {
-  --     add = { "{", "}" },
-  --     find = function()
-  --       return M.get_selection({ motion = "a}" })
-  --     end,
-  --     delete = "^(.)().-(.)()$",
-  --   },
-  --   ["<"] = {
-  --     add = { "<", ">" },
-  --     find = function()
-  --       return M.get_selection({ motion = "a>" })
-  --     end,
-  --     delete = "^(.)().-(.)()$",
-  --   },
-  --   ["["] = {
-  --     add = { "[", "]" },
-  --     find = function()
-  --       return M.get_selection({ motion = "a]" })
-  --     end,
-  --     delete = "^(.)().-(.)()$",
-  --   },
-  -- },
 })

@@ -93,8 +93,9 @@ end
 
 legendary.setup({
   include_builtin = false,
+  include_legendary_cmds = false,
   sort = {
-    -- this takes precedence over other sort options
+    -- NOTE: this takes precedence over other sort options
     frecency = {
       db_root = string.format("%s/legendary/", vim.fn.stdpath("data")),
       max_timestamps = 20,
@@ -102,7 +103,7 @@ legendary.setup({
   },
   keymaps = {
     -- NOTE: the following are available:
-    -- gp, gn J, K, H, L, gj, gk
+    -- gp, gn J, K, H, L, gj, gk, gH
 
     -- <C-KEY>
     { "<C-f>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
@@ -172,30 +173,38 @@ legendary.setup({
       description = "Telescope: Find Text",
     },
     { "<leader>ff", "<cmd>lua require('telescope.builtin').git_files()<CR>", description = "Telescope: Find Files" },
-    { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
+    -- { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" }, -- disabled because bug
     { "<leader>fo", "<cmd>Telescope oldfiles<CR>", description = "Telescope: Open Recent File" },
     {
       "<leader>fd",
       "<cmd>lua require('telescope').extensions.olddirs.picker()<CR>",
       description = "Telescope: Open Recent Directories",
     },
-    { "<leader>fp", "<cmd>Telescope projects<CR>", description = "Telescope: Find Projects" },
-    { "<leader>fr", "<cmd>Telescope neoclip<CR>", description = "Telescope: Clipboard History" },
     { "<leader>ft", "<cmd>Telescope buffers<CR>", description = "Telescope: Buffers" },
     { "<leader>fj", "<cmd>Telescope jumplist<CR>", description = "Telescope: Jumplist" },
-    -- { "<leader>fc", "<cmd>lua require('fzf-lua').changes()<CR>", description = "Telescope: Changes" },
+    { "<leader>fp", "<cmd>Telescope projects<CR>", description = "Telescope: Find Projects" },
+    { "<leader>fr", "<cmd>Telescope neoclip<CR>", description = "Telescope: Clipboard History" },
     { "<leader>fXc", "<cmd>Telescope command_history<CR>", description = "Telescope: Command History" },
     { "<leader>fXs", "<cmd>Telescope search_history<CR>", description = "Telescope: Search History" },
+    {
+      "<leader>fs",
+      {
+        n = toolbox.lazy_required_fn("spectre", "open_file_search"),
+        v = '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
+      },
+      description = "Spectre: Search Current File",
+    },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ LSP                                                      │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>lf", "<cmd>Lspsaga lsp_finder<CR>", description = "LSP: Finder: Symbol, Definition and Implementation" },
     { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", description = "LSP: Line Diagnostics" },
+    { "gL", "<cmd>Lspsaga show_buf_diagnostics<CR>", description = "LSP: Buffer Diagnostics" },
+    { "gh", "<cmd>Lspsaga hover_doc ++quiet<CR>", description = "LSP: Hover Doc (quiet)" },
+    { "gH", "<cmd>Lspsaga hover_doc ++keep<CR>", description = "LSP: Hover Doc (keep)" },
 
-    -- { "gL", "<cmd>Lspsaga show_buf_diagnostics<CR>", description = "LSP: Buffer Diagnostics" }, -- weird
     { "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", description = "LSP: Go to Previous Diagnostic" },
-    { "]d", "<cmd> Lspsaga diagnostic_jump_next<CR>", description = "LSP: Go to Next Diagnostic" },
+    { "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", description = "LSP: Go to Next Diagnostic" },
     { "[D", "<cmd>TroubleToggle workspace_diagnostics<CR>", description = "LSP: Workspace Diagnostics" },
 
     { "gd", "<cmd>Lspsaga goto_definition<CR>", description = "LSP: Go to Definition" },
@@ -208,10 +217,11 @@ legendary.setup({
     -- { "gR", "<cmd>Telescope lsp_references<CR>", description = "LSP: Reference List" },
 
     { "<leader>rn", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
+    { "<leader>lf", "<cmd>Lspsaga lsp_finder<CR>", description = "LSP: Finder: Symbol, Definition and Implementation" },
     { "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", description = "LSP: Signature Help" },
-    { "<leader>lh", "<cmd>Lspsaga hover_doc ++quiet<CR>", description = "LSP: Hover Doc" },
     { "<leader>lc", "<cmd>Lspsaga code_action<CR>", description = "LSP: Code Action" },
     { "<leader>ln", "<cmd>Navbuddy<CR>", description = "LSP: Navbuddy" },
+    { "<leader>lo", "<cmd>Lspsaga outline<CR>", description = "LSP: Symbols Outline" },
 
     { "<leader>lXc", "<cmd>lua vim.lsp.codelens.run()<CR>", description = "LSP: Code Lens" },
     { "<leader>lXd", "<cmd>lua vim.lsp.buf.declaration<CR>", description = "LSP: Declaration" },
@@ -304,61 +314,6 @@ legendary.setup({
     { "m6", "<cmd>lua require('grapple').select({key = 6})<CR>", description = "Grapple: File 6" },
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │ jdtls                                                    │
-    -- ╰──────────────────────────────────────────────────────────╯
-    {
-      "<leader>JXw",
-      "<cmd>JdtWipeDataAndRestart<CR>",
-      filters = { filetype = "java" },
-      description = "jdtls: Wipe Data and Restart",
-    },
-    {
-      "<leader>JXu",
-      "<cmd>JdtUpdateConfig<CR>",
-      filters = { filetype = "java" },
-      description = "jdtls: Update Config",
-    },
-    {
-      "<leader>JXa",
-      "<cmd>lua require'jdtls'.organize_imports()<CR>",
-      filters = { filetype = "java" },
-      description = "jdtls: Organize Import",
-    },
-    {
-      "<leader>JXb",
-      "<cmd>lua require('jdtls').extract_variable()<CR>",
-      filters = { filetype = "java" },
-      description = "jdtls: Extract Variable",
-    },
-    {
-      "<leader>JXc",
-      "<csc><Cmd>lua require('jdtls').extract_variable(true)<CR>",
-      filters = { filetype = "java" },
-      description = "jdtls: Extract Variable",
-      mode = { "v" },
-    },
-    {
-      "<leader>JXd",
-      "<cmd>lua require('jdtls').extract_constant()<CR>",
-      filters = { filetype = "java" },
-      description = "jdtls: Extract Constant",
-    },
-    {
-      "<leader>JXe",
-      "<Esc><cmd>lua require('jdtls').extract_constant(true)<CR>",
-      filters = { filetype = "java" },
-      description = "jdtls: Extract Constant",
-      mode = { "v" },
-    },
-    {
-      "<leader>JXf",
-      "<Esc><cmd>lua require('jdtls').extract_method(true)<CR>",
-      filters = { filetype = "java" },
-      description = "jdtls: Extract Method",
-      mode = { "v" },
-    },
-
-    -- ╭──────────────────────────────────────────────────────────╮
     -- │ Test                                                     │
     -- ╰──────────────────────────────────────────────────────────╯
     -- { "<leader>Gt", "<cmd>TestNearest<CR>", description = "Test: Nearest" },
@@ -405,19 +360,70 @@ legendary.setup({
       opts = { noremap = true, silent = true },
     },
     { "<C-w>o", "<cmd>lua require('neo-zoom').neo_zoom()<CR>", description = "Misc: Zoom: Toggle" },
+    { "<leader>un", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │   Miscellaneous (leader M)                               │
+    -- │   Miscellaneous (leader M; random shortcuts)             │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>MLs", "<cmd>Lazy sync<CR>", description = "Lazy: Update" },
-    { "<leader>MLc", "<cmd>Lazy clean<CR>", description = "Lazy: Clean" },
-    { "<leader>Mi", "<cmd>LspInfo<CR>", description = "LSP: Info" },
-    { "<leader>MI", "<cmd>Mason<CR>", description = "LSP: Install Info" },
-    { "<leader>Mo", "<cmd>Lspsaga outline<CR>", description = "LSP: Symbols Outline" },
-
-    { "<leader>Mu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
+    -- jdtls
     {
-      "<leader>Mp",
+      "<leader>MXw",
+      "<cmd>JdtWipeDataAndRestart<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Wipe Data and Restart",
+    },
+    {
+      "<leader>MXu",
+      "<cmd>JdtUpdateConfig<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Update Config",
+    },
+    {
+      "<leader>MXa",
+      "<cmd>lua require'jdtls'.organize_imports()<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Organize Import",
+    },
+    {
+      "<leader>MXb",
+      "<cmd>lua require('jdtls').extract_variable()<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Extract Variable",
+    },
+    {
+      "<leader>MXc",
+      "<csc><Cmd>lua require('jdtls').extract_variable(true)<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Extract Variable",
+      mode = { "v" },
+    },
+    {
+      "<leader>MXd",
+      "<cmd>lua require('jdtls').extract_constant()<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Extract Constant",
+    },
+    {
+      "<leader>MXe",
+      "<Esc><cmd>lua require('jdtls').extract_constant(true)<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Extract Constant",
+      mode = { "v" },
+    },
+    {
+      "<leader>MXf",
+      "<Esc><cmd>lua require('jdtls').extract_method(true)<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Extract Method",
+      mode = { "v" },
+    },
+    { "<leader>MXLs", "<cmd>Lazy sync<CR>", description = "Lazy: Update" },
+    { "<leader>MXLc", "<cmd>Lazy clean<CR>", description = "Lazy: Clean" },
+    { "<leader>MXi", "<cmd>LspInfo<CR>", description = "LSP: Info" },
+    { "<leader>MXa", "<cmd>Mason<CR>", description = "LSP: Install Info" },
+
+    {
+      "<leader>MXxp",
       function()
         vim.markdown_preview()
       end,
@@ -435,14 +441,6 @@ legendary.setup({
     -- { "<leader>mp", "<cmd>PasteImg<CR>", description = "Misc: Paste Image" },
     -- { "<leader>MCxQ", "<cmd>TSBufEnable highlight<CR>", description = "Treesitter: highlight" },
 
-    {
-      "<leader>Ms",
-      {
-        n = toolbox.lazy_required_fn("spectre", "open_file_search"),
-        v = '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
-      },
-      description = "Spectre: Search Current File",
-    },
     {
       "<leader>Mb",
       "<cmd>lua require('comment-box').llbox()<CR><Esc>",
