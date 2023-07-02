@@ -38,6 +38,10 @@ map("n", "<C-y>", "<Nop>")
 map("n", "<S-h>", "<Nop>")
 map("n", "<S-l>", "<Nop>")
 
+map("n", "<C-z>", "<Nop>")
+map("i", "<C-z>", "<Nop>")
+map("v", "<C-z>", "<Nop>")
+
 -- avoid command history
 map("n", "q:", ":q<cr>")
 -- no `qq` for macro
