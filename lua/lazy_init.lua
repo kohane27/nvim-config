@@ -231,13 +231,7 @@ require("lazy").setup({
   "danilamihailov/beacon.nvim", -- flash cursor when jumping
 
   "petertriho/nvim-scrollbar", -- scrollbar
-  {
-    "dstein64/nvim-scrollview", -- scrollable bar
-    cmd = "ScrollViewEnable",
-    config = function()
-      require("plugins.scrollview") -- lazyloading
-    end,
-  },
+  "dstein64/nvim-scrollview", -- scrollable bar
 
   {
     "tummetott/reticle.nvim",
