@@ -44,8 +44,8 @@ map("v", "<C-z>", "<Nop>")
 
 -- avoid command history
 map("n", "q:", ":q<cr>")
--- no `qq` for macro
-map("n", "qq", "<nop>")
+-- no `q` for macro
+map("n", "q", "<nop>")
 
 map("i", "<C-c>", "<Esc>")
 
