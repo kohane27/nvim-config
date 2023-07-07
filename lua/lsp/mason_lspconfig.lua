@@ -6,7 +6,7 @@ end
 mason_lspconfig.setup({
   ensure_installed = {
     "lua_ls",
-    "angularls",
+    -- "angularls",
     "tsserver",
     "awk_ls",
     "bashls",
