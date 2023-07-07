@@ -21,6 +21,7 @@ require("plugins.project_nvim")
 
 require("plugins.treesitter")
 require("plugins.treesitter-context")
+require("plugins.rainbow-delimiters")
 require("plugins.nvim-neoclip")
 require("plugins.indent-blankline")
 require("plugins.autopairs")

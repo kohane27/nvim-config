@@ -16,12 +16,6 @@ ts_configs.setup({
   autopairs = { enable = true },
   context_commentstring = { enable = true, enable_autocmd = false },
   indent = { enable = true, disable = { "yaml", "json" } },
-  rainbow = {
-    enable = true,
-    -- disable = {  "cpp" },
-    -- Highlight the entire buffer all at once
-    strategy = require("ts-rainbow.strategy.global"),
-  },
   incremental_selection = {
     enable = true,
     keymaps = {
