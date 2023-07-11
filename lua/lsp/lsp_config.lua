@@ -42,24 +42,17 @@ local root_dir = function()
 end
 
 -- custom language servers not listed here:
--- 1. `tsserver` is managed by `typescript.nvim`
+-- 1. `tsserver` is managed by `typescript-tools.nvim`
 -- 2. jsonls
 -- 3. lua_ls
 
 -- custom language servers
--- 1. typescript
-local status_ok, typescript = pcall(require, "typescript")
+-- 1. typescript-tools.nvim
+local status_ok, typescript_tools = pcall(require, "typescript-tools")
 if not status_ok then
-  print("typescript not working")
+  print("typescript-tools not working")
 end
-typescript.setup({
-  server = {
-    on_attach = function(client, _)
-      client.server_capabilities.document_formatting = false
-      client.server_capabilities.document_range_formatting = false
-    end,
-  },
-})
+typescript_tools.setup({})
 
 -- 2. jsonls
 lspconfig.jsonls.setup({

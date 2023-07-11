@@ -78,8 +78,11 @@ require("lazy").setup({
   -- "simrat39/symbols-outline.nvim", -- using `lspsaga`
   -- "ray-x/lsp_signature.nvim", -- usine `lspsaga`
   "b0o/schemastore.nvim",
-  "jose-elias-alvarez/typescript.nvim",
   "mfussenegger/nvim-jdtls",
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  },
 
   -- Autocomplete engine
   {

@@ -7,13 +7,9 @@ mason_lspconfig.setup({
   ensure_installed = {
     "lua_ls",
     -- "angularls",
-    "tsserver",
-    "awk_ls",
-    "bashls",
     "cssls",
     "cssmodules_ls",
     "dockerls",
-    "emmet_ls",
     "eslint",
     "html",
     "lemminx",
