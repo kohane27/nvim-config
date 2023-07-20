@@ -118,7 +118,7 @@ opt.foldenable = true
 
 -- Disable builtins plugins
 local disabled_built_ins = {
-  -- "netrw", -- need it for gx
+  "netrw",
   "netrwPlugin",
   "netrwSettings",
   "netrwFileHandlers",

@@ -10,7 +10,7 @@ ts_configs.setup({
   highlight = {
     enable = true,
     disable = { "yaml", "json" },
-    additional_vim_regex_highlighting = { "markdown" }, -- false and gx won't work
+    additional_vim_regex_highlighting = false,
   },
   autotag = { enable = true }, -- windwp/nvim-ts-autotag
   autopairs = { enable = true },
