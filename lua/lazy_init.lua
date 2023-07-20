@@ -19,20 +19,22 @@ require("lazy").setup({
   "nvim-lua/plenary.nvim", -- useful lua functions used by lots of plugins
 
   -- Telescope
-  { "nvim-telescope/telescope.nvim", dependencies = { "romgrk/fzy-lua-native" } },
+  { "nvim-telescope/telescope.nvim", dependencies = { "romgrk/fzy-lua-native" }, event = "VeryLazy" },
 
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    event = "VeryLazy",
   },
 
   -- Telescope extensions
-  "ahmedkhalf/project.nvim",
+  { "ahmedkhalf/project.nvim", event = "VeryLazy" },
   -- "nvim-telescope/telescope-project.nvim", -- using project.nvim
-  "AckslD/nvim-neoclip.lua", -- clipboard manager
-  "marcuscaisey/olddirs.nvim", -- `:oldfiles` but for directories
-  "nvim-telescope/telescope-frecency.nvim",
-  "kkharji/sqlite.lua", -- required by `telescope-frecency` and `neoclip`
+  -- clipboard manager
+  { "AckslD/nvim-neoclip.lua", dependencies = { "kkharji/sqlite.lua" }, event = "VeryLazy" },
+  -- `:oldfiles` but for directories
+  { "marcuscaisey/olddirs.nvim", event = "VeryLazy" },
+  { "nvim-telescope/telescope-frecency.nvim", dependencies = { "kkharji/sqlite.lua" }, event = "VeryLazy" },
 
   -- Treesitter
   {
@@ -44,13 +46,18 @@ require("lazy").setup({
       "JoosepAlviste/nvim-ts-context-commentstring",
     },
   },
+  -- enhanced with `nvim-treesitter-textobjects`
+  { "andymass/vim-matchup", event = "VeryLazy" },
   -- { "elgiano/nvim-treesitter-angular", branch = "topic/jsx-fix" },
-  "windwp/nvim-ts-autotag",
-  "windwp/nvim-autopairs", -- integrated with cmp and treesitter
-  "hiphish/rainbow-delimiters.nvim", -- rainbow parentheses
-  "lukas-reineke/indent-blankline.nvim", -- indentation guides
-  "mizlan/iswap.nvim",
-  "monaqa/dial.nvim",
+  { "windwp/nvim-ts-autotag", event = "VeryLazy" },
+  -- integrated with cmp and treesitter
+  { "windwp/nvim-autopairs", event = "VeryLazy" },
+  -- rainbow parentheses
+  { "hiphish/rainbow-delimiters.nvim", event = "VeryLazy" },
+  -- indentation guides
+  { "lukas-reineke/indent-blankline.nvim", event = "VeryLazy" },
+  { "mizlan/iswap.nvim", event = "VeryLazy" },
+  { "monaqa/dial.nvim", event = "VeryLazy" },
 
   -- LSP
   {
@@ -68,25 +75,38 @@ require("lazy").setup({
 
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
-  "tamago324/nlsp-settings.nvim", -- language server settings defined in json
-  "jose-elias-alvarez/null-ls.nvim", -- formatters and linters when LSP is not present
+
+  -- language server settings defined in json
+  { "tamago324/nlsp-settings.nvim", event = "VeryLazy" },
+
+  -- formatters and linters when LSP is not present
+  "jose-elias-alvarez/null-ls.nvim",
+
   -- "rmagatti/goto-preview",
-  "nvimdev/lspsaga.nvim",
-  "folke/trouble.nvim",
-  "onsails/lspkind.nvim", -- pictograms
-  "folke/lsp-colors.nvim", -- LSP diagnostics highlight groups
+  { "nvimdev/lspsaga.nvim", event = "VeryLazy" },
+
+  { "folke/trouble.nvim", event = "VeryLazy" },
+
+  -- pictograms
+  { "onsails/lspkind.nvim", event = "VeryLazy" },
+
+  -- LSP diagnostics highlight groups
+  { "folke/lsp-colors.nvim", event = "VeryLazy" },
+
   -- "simrat39/symbols-outline.nvim", -- using `lspsaga`
   -- "ray-x/lsp_signature.nvim", -- usine `lspsaga`
-  "b0o/schemastore.nvim",
-  "mfussenegger/nvim-jdtls",
+  { "b0o/schemastore.nvim", event = "VeryLazy" },
+  { "mfussenegger/nvim-jdtls", ft = "java", event = "VeryLazy" },
   {
     "pmizio/typescript-tools.nvim",
+    event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
   },
 
   -- Autocomplete engine
   {
     "hrsh7th/nvim-cmp",
+    event = "VeryLazy",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lua",
@@ -99,8 +119,8 @@ require("lazy").setup({
   -- snippets
   {
     "L3MON4D3/LuaSnip", -- snippet engine
-    build = "make install_jsregexp",
     event = "VeryLazy",
+    build = "make install_jsregexp",
     dependencies = {
       "rafamadriz/friendly-snippets", -- provided snippets
       "saadparwaiz1/cmp_luasnip", -- completion engine
@@ -109,37 +129,41 @@ require("lazy").setup({
 
   -- General
   -- "ibhagwan/fzf-lua", -- for `:changes`
-  "tpope/vim-repeat",
-  "numToStr/Comment.nvim",
-  "kyazdani42/nvim-web-devicons", -- lua fork of vim-devicons
-  "kyazdani42/nvim-tree.lua",
+  { "tpope/vim-repeat", event = "VeryLazy" },
+  { "numToStr/Comment.nvim", event = "VeryLazy" },
+  { "nvim-tree/nvim-web-devicons", event = "VeryLazy" },
+  { "nvim-tree/nvim-tree.lua", event = "VeryLazy" },
   "akinsho/bufferline.nvim",
   -- "tiagovla/scope.nvim", -- scoped tabline
-  "famiu/bufdelete.nvim", -- preserve layout when deleting buffers
+  -- preserve layout when deleting buffers
+  { "famiu/bufdelete.nvim", event = "VeryLazy" },
   -- "nvim-lualine/lualine.nvim", -- statusline
-  "feline-nvim/feline.nvim",
+  "freddiehaddad/feline.nvim",
 
-  "akinsho/toggleterm.nvim", -- terminal
-  "is0n/fm-nvim", -- `ranger`
+  -- terminal
+  { "akinsho/toggleterm.nvim", event = "VeryLazy" },
+
+  -- `ranger`
+  { "is0n/fm-nvim", event = "VeryLazy" },
   -- "is0n/tui-nvim", -- `ranger`
 
-  "kdheepak/lazygit.nvim",
+  { "kdheepak/lazygit.nvim", event = "VeryLazy" },
 
-  "kylechui/nvim-surround",
+  { "kylechui/nvim-surround", event = "VeryLazy" },
   -- "machakann/vim-sandwich",
 
-  "andymass/vim-matchup", -- enhanced with `nvim-treesitter-textobjects`
   -- "abecodes/tabout.nvim", -- tabbing out from parentheses and quotes
   -- "wellle/targets.vim", -- superseded by `nvim-treesitter-textobjects`
-  "mbbill/undotree",
+  { "mbbill/undotree", event = "VeryLazy" },
 
-  "https://git.sr.ht/~nedia/auto-save.nvim",
+  { "https://git.sr.ht/~nedia/auto-save.nvim", event = "VeryLazy" },
 
   {
     "kevinhwang91/nvim-ufo",
     dependencies = {
       "kevinhwang91/promise-async",
     },
+    event = "VeryLazy",
   },
 
   -- "sindrets/diffview.nvim", -- tabpage interface for diffs
@@ -161,23 +185,22 @@ require("lazy").setup({
     },
   },
 
-  "mrjones2014/legendary.nvim",
-  "stevearc/dressing.nvim",
-
-  "lewis6991/gitsigns.nvim",
+  { "mrjones2014/legendary.nvim", event = "VeryLazy" },
+  { "stevearc/dressing.nvim", event = "VeryLazy" },
+  { "lewis6991/gitsigns.nvim", event = "VeryLazy" },
 
   -- navigation
-  "ggandor/leap.nvim",
-  -- "ggandor/flit.nvim",
-  -- "rhysd/clever-f.vim",
-  { "TheSafdarAwan/find-extender.nvim", branch = "alpha" },
+  { "ggandor/leap.nvim", event = "VeryLazy" },
+  -- { "ggandor/leap-spooky.nvim", event = "VeryLazy" },
+  -- { "ggandor/flit.nvim", event = "VeryLazy" },
+  -- { "rhysd/clever-f.vim", event = "VeryLazy" },
+  { "TheSafdarAwan/find-extender.nvim", branch = "alpha", event = "VeryLazy" },
 
-  -- "ggandor/leap-spooky.nvim",
   { "cbochs/grapple.nvim", event = "VeryLazy" },
   { "cbochs/portal.nvim", event = "VeryLazy" },
-  -- "LeonHeidelbach/trailblazer.nvim",
+  -- { "LeonHeidelbach/trailblazer.nvim", event = "VeryLazy" },
   { "chentoast/marks.nvim", event = "VeryLazy" },
-  "aserowy/tmux.nvim",
+  { "aserowy/tmux.nvim", event = "VeryLazy" },
 
   { "kevinhwang91/nvim-bqf", event = "VeryLazy" },
   -- pretty list
@@ -186,18 +209,19 @@ require("lazy").setup({
   -- filetypes
   -- "ekickx/clipboard-image.nvim", -- copy clipboard image to nvim
 
-  { "mtdl9/vim-log-highlighting", ft = "log" },
-  { "chrisbra/csv.vim", ft = { "csv", "dat" } },
-  "ledger/vim-ledger",
+  { "mtdl9/vim-log-highlighting", ft = "log", event = "VeryLazy" },
+  { "chrisbra/csv.vim", ft = { "csv", "dat" }, event = "VeryLazy" },
+  { "ledger/vim-ledger", ft = "ledger", event = "VeryLazy" },
   -- "kmonad/kmonad-vim",
 
   -- preview markdown
-  { "ellisonleao/glow.nvim", event = "VeryLazy" },
+  { "ellisonleao/glow.nvim", ft = "markdown", event = "VeryLazy" },
 
   -- task runners
-  { "michaelb/sniprun", build = "bash ./install.sh" },
-  "CRAG666/code_runner.nvim",
-  -- "stevearc/overseer.nvim", -- TODO: configure
+  { "michaelb/sniprun", build = "bash ./install.sh", event = "VeryLazy" },
+  { "CRAG666/code_runner.nvim", event = "VeryLazy" },
+  -- TODO: configure
+  -- "stevearc/overseer.nvim",
 
   {
     "jackMort/ChatGPT.nvim",
@@ -210,76 +234,86 @@ require("lazy").setup({
   },
   -- "Exafunction/codeium.vim",
 
-  "gbprod/substitute.nvim",
-  "gbprod/cutlass.nvim",
-  "gbprod/stay-in-place.nvim",
-  "booperlv/nvim-gomove",
-  -- "gbprod/yanky.nvim",
+  { "gbprod/substitute.nvim", event = "VeryLazy" },
+  { "gbprod/cutlass.nvim", event = "VeryLazy" },
+  { "gbprod/stay-in-place.nvim", event = "VeryLazy" },
+  { "booperlv/nvim-gomove", event = "VeryLazy" },
+  -- { "gbprod/yanky.nvim", event = "VeryLazy" },
+  { "gelguy/wilder.nvim", event = "VeryLazy" },
 
-  "gelguy/wilder.nvim",
-
-  -- "ja-ford/delaytrain.nvim",
+  -- { "ja-ford/delaytrain.nvim", event = "VeryLazy" },
 
   -- find and replace
   { "nvim-pack/nvim-spectre", event = "VeryLazy" },
-  "mg979/vim-visual-multi",
 
-  "chrisgrieser/nvim-recorder",
+  { "mg979/vim-visual-multi", event = "VeryLazy" },
+
+  { "chrisgrieser/nvim-recorder", event = "VeryLazy" },
   -- "smjonas/live-command.nvim",
 
   -- aesthetics
   "rcarriga/nvim-notify",
-  "declancm/cinnamon.nvim", -- smooth scrolling
-  "danilamihailov/beacon.nvim", -- flash cursor when jumping
+  -- smooth scrolling
+  { "declancm/cinnamon.nvim", event = "VeryLazy" },
+  -- flash cursor when jumping
+  { "danilamihailov/beacon.nvim", event = "VeryLazy" },
 
-  "petertriho/nvim-scrollbar", -- scrollbar
-  "dstein64/nvim-scrollview", -- scrollable bar
+  -- scrollbar
+  { "petertriho/nvim-scrollbar", event = "VeryLazy" },
+  -- scrollable bar
+  { "dstein64/nvim-scrollview", event = "VeryLazy" },
 
   {
     "tummetott/reticle.nvim",
     config = function()
       require("reticle").setup({})
     end,
+    event = "VeryLazy",
   },
 
   -- highlighting other uses of the word under cursor
   { "RRethy/vim-illuminate", event = "VeryLazy" },
-  "b0o/incline.nvim", -- floating statuslines
-  "LudoPinelli/comment-box.nvim", -- create comment boxes
-  "folke/todo-comments.nvim",
-  -- "folke/noice.nvim", -- NOTE: use later because it requires nightly
+
+  -- floating statuslines
+  { "b0o/incline.nvim", event = "VeryLazy" },
+
+  -- create comment boxes
+  { "LudoPinelli/comment-box.nvim", event = "VeryLazy" },
+
+  { "folke/todo-comments.nvim", event = "VeryLazy" },
+  -- "folke/noice.nvim",
 
   -- note-taking/task management
   -- markdown conflicting with vim-wiki
-  { "jakewvincent/mkdnflow.nvim", event = "VeryLazy" },
+  { "jakewvincent/mkdnflow.nvim", ft = "markdown", event = "VeryLazy" },
   -- "vimwiki/vimwiki",
   -- "tools-life/taskwiki",
 
-  {
-    "princejoogie/chafa.nvim",
-    dependencies = {
-      "m00qek/baleia.nvim",
-    },
-  },
-
-  "kevinhwang91/nvim-hlslens", -- better search results
+  -- better search results
+  { "kevinhwang91/nvim-hlslens", event = "VeryLazy" },
   -- "romainl/vim-cool", -- using `nvim-hlslens`
 
-  "tversteeg/registers.nvim", -- see register contents
-  "nyngwang/NeoZoom.lua", -- `<C-w>o` maximizes window without closing other buffers
-  "ethanholz/nvim-lastplace", -- open files at last edit position
-  "max397574/colortils.nvim",
-  "norcalli/nvim-colorizer.lua",
+  -- see register contents
+  { "tversteeg/registers.nvim", event = "VeryLazy" },
+
+  -- `<C-w>o` maximizes window without closing other buffers
+  { "nyngwang/NeoZoom.lua", event = "VeryLazy" },
+
+  -- open files at last edit position
+  "ethanholz/nvim-lastplace",
+
+  { "max397574/colortils.nvim", event = "VeryLazy" },
+  { "norcalli/nvim-colorizer.lua", event = "VeryLazy" },
 
   {
     "glacambre/firenvim",
-    -- Lazy load firenvim
     -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
     cond = not not vim.g.started_by_firenvim,
     build = function()
-      require("lazy").load({ plugins = "firenvim", wait = true })
+      require("lazy").load({ plugins = "firenvim", wait = true, lazy = true })
       vim.fn["firenvim#install"](0)
     end,
+    event = "VeryLazy",
   },
 
   -- debuggers
@@ -290,10 +324,10 @@ require("lazy").setup({
   -- "vim-test/vim-test",
 
   -- Colorschemes/themes
-  -- "NTBBloodbath/doom-one.nvim",
   "rebelot/kanagawa.nvim",
-  "rmehri01/onenord.nvim",
-  "EdenEast/nightfox.nvim", -- used by firenvim
-  "folke/tokyonight.nvim",
-  "catppuccin/nvim",
+  -- "EdenEast/nightfox.nvim", -- used by firenvim
+  -- "rmehri01/onenord.nvim",
+  -- "folke/tokyonight.nvim",
+  -- "catppuccin/nvim",
+  -- "NTBBloodbath/doom-one.nvim",
 })
