@@ -145,7 +145,6 @@ require("lazy").setup({
   -- "sindrets/diffview.nvim", -- tabpage interface for diffs
   -- "akinsho/git-conflict.nvim",
 
-  "lewis6991/impatient.nvim",
   -- {
   --   "dstein64/vim-startuptime",
   --   cmd = "StartupTime",
