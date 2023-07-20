@@ -16,10 +16,6 @@ end
 -- autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 -- ]])
 
--- disable netrw (note: need it for `gx` to work)
--- vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 nvim_tree.setup({
   sync_root_with_cwd = true,
   respect_buf_cwd = true,
