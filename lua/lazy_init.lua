@@ -1,3 +1,10 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- disable netrw at the very start of init.lua (nvim-tree recommends)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -10,9 +17,6 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 require("lazy").setup({
   "nvim-lua/popup.nvim", -- implementation of Popup API to Neovim
@@ -39,6 +43,7 @@ require("lazy").setup({
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
+    event = "VeryLazy",
     build = ":TSUpdate",
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
@@ -71,16 +76,16 @@ require("lazy").setup({
         },
       },
     },
+    event = "VeryLazy",
   },
 
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
-
+  { "williamboman/mason.nvim", event = "VeryLazy" },
+  { "williamboman/mason-lspconfig.nvim", event = "VeryLazy" },
   -- language server settings defined in json
   { "tamago324/nlsp-settings.nvim", event = "VeryLazy" },
 
   -- formatters and linters when LSP is not present
-  "jose-elias-alvarez/null-ls.nvim",
+  { "jose-elias-alvarez/null-ls.nvim", event = "VeryLazy" },
 
   -- "rmagatti/goto-preview",
   { "nvimdev/lspsaga.nvim", event = "VeryLazy" },
@@ -133,12 +138,12 @@ require("lazy").setup({
   { "numToStr/Comment.nvim", event = "VeryLazy" },
   { "nvim-tree/nvim-web-devicons", event = "VeryLazy" },
   { "nvim-tree/nvim-tree.lua", event = "VeryLazy" },
-  "akinsho/bufferline.nvim",
+  { "akinsho/bufferline.nvim", event = "VeryLazy" },
   -- "tiagovla/scope.nvim", -- scoped tabline
   -- preserve layout when deleting buffers
   { "famiu/bufdelete.nvim", event = "VeryLazy" },
   -- "nvim-lualine/lualine.nvim", -- statusline
-  "freddiehaddad/feline.nvim",
+  { "freddiehaddad/feline.nvim", event = "VeryLazy" },
 
   -- terminal
   { "akinsho/toggleterm.nvim", event = "VeryLazy" },
@@ -160,10 +165,10 @@ require("lazy").setup({
 
   {
     "kevinhwang91/nvim-ufo",
+    event = "VeryLazy",
     dependencies = {
       "kevinhwang91/promise-async",
     },
-    event = "VeryLazy",
   },
 
   -- "sindrets/diffview.nvim", -- tabpage interface for diffs
@@ -180,6 +185,7 @@ require("lazy").setup({
 
   {
     "rmagatti/auto-session",
+    event = "VeryLazy",
     dependencies = {
       "rmagatti/session-lens", -- telescope integration
     },
@@ -194,7 +200,7 @@ require("lazy").setup({
   -- { "ggandor/leap-spooky.nvim", event = "VeryLazy" },
   -- { "ggandor/flit.nvim", event = "VeryLazy" },
   -- { "rhysd/clever-f.vim", event = "VeryLazy" },
-  { "TheSafdarAwan/find-extender.nvim", branch = "alpha", event = "VeryLazy" },
+  { "TheSafdarAwan/find-extender.nvim", event = "VeryLazy", branch = "alpha" },
 
   { "cbochs/grapple.nvim", event = "VeryLazy" },
   { "cbochs/portal.nvim", event = "VeryLazy" },
@@ -252,7 +258,7 @@ require("lazy").setup({
   -- "smjonas/live-command.nvim",
 
   -- aesthetics
-  "rcarriga/nvim-notify",
+  { "rcarriga/nvim-notify", event = "VeryLazy" },
   -- smooth scrolling
   { "declancm/cinnamon.nvim", event = "VeryLazy" },
   -- flash cursor when jumping
@@ -265,10 +271,10 @@ require("lazy").setup({
 
   {
     "tummetott/reticle.nvim",
+    event = "VeryLazy",
     config = function()
       require("reticle").setup({})
     end,
-    event = "VeryLazy",
   },
 
   -- highlighting other uses of the word under cursor
@@ -286,6 +292,13 @@ require("lazy").setup({
   -- note-taking/task management
   -- markdown conflicting with vim-wiki
   { "jakewvincent/mkdnflow.nvim", ft = "markdown", event = "VeryLazy" },
+  {
+    "chrishrb/gx.nvim",
+    event = { "VeryLazy", "BufEnter" },
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = true, -- default settings
+  },
+
   -- "vimwiki/vimwiki",
   -- "tools-life/taskwiki",
 
@@ -307,13 +320,13 @@ require("lazy").setup({
 
   {
     "glacambre/firenvim",
+    event = "VeryLazy",
     -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
     cond = not not vim.g.started_by_firenvim,
     build = function()
       require("lazy").load({ plugins = "firenvim", wait = true, lazy = true })
       vim.fn["firenvim#install"](0)
     end,
-    event = "VeryLazy",
   },
 
   -- debuggers
@@ -330,4 +343,9 @@ require("lazy").setup({
   -- "folke/tokyonight.nvim",
   -- "catppuccin/nvim",
   -- "NTBBloodbath/doom-one.nvim",
+}, {
+  defaults = { lazy = true },
+  checker = { enabled = true, notify = false },
+  debug = false,
+  ui = { border = "rounded" },
 })

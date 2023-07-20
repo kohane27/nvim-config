@@ -1,6 +1,6 @@
+vim.loader.enable()
 -- Import Lua modules
 require("lazy_init")
-vim.loader.enable()
 
 require("core.options")
 require("core.keymaps")
