@@ -94,7 +94,7 @@ require("plugins.sniprun")
 require("plugins.mkdnflow")
 
 require("plugins.tmux")
-require("plugins.vim-test")
+-- require("plugins.vim-test")
 -- require("plugins.delaytrain")
 
 require("plugins.firenvim")
@@ -106,6 +106,5 @@ require("plugins.chatgpt")
 -- require("plugins.git-conflict")
 
 -- near end to override
--- require("plugins.tabout")
 require("plugins.legendary")
 require("plugins.ledger")

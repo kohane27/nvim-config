@@ -23,12 +23,12 @@ require("lazy").setup({
   "nvim-lua/plenary.nvim", -- useful lua functions used by lots of plugins
 
   -- Telescope
-  { "nvim-telescope/telescope.nvim", dependencies = { "romgrk/fzy-lua-native" }, event = "VeryLazy" },
+  { "nvim-telescope/telescope.nvim", event = "VeryLazy", dependencies = { "romgrk/fzy-lua-native" } },
 
   {
     "nvim-telescope/telescope-fzf-native.nvim",
-    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
     event = "VeryLazy",
+    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
 
   -- Telescope extensions
@@ -124,7 +124,7 @@ require("lazy").setup({
   -- snippets
   {
     "L3MON4D3/LuaSnip", -- snippet engine
-    event = "VeryLazy",
+    event = "InsertCharPre",
     build = "make install_jsregexp",
     dependencies = {
       "rafamadriz/friendly-snippets", -- provided snippets
@@ -294,7 +294,7 @@ require("lazy").setup({
   { "jakewvincent/mkdnflow.nvim", ft = "markdown", event = "VeryLazy" },
   {
     "chrishrb/gx.nvim",
-    event = { "VeryLazy", "BufEnter" },
+    event = { "BufEnter" },
     dependencies = { "nvim-lua/plenary.nvim" },
     config = true, -- default settings
   },
