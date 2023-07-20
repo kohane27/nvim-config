@@ -61,7 +61,6 @@ require("plugins.recorder")
 require("plugins.dial")
 require("plugins.neozoom")
 require("plugins.beacon")
-require("plugins.chafa")
 
 require("plugins.comment-box")
 require("plugins.incline")
