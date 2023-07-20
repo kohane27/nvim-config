@@ -168,9 +168,8 @@ require("lazy").setup({
 
   -- navigation
   "ggandor/leap.nvim",
-
   -- "ggandor/flit.nvim",
-  "rhysd/clever-f.vim",
+  -- "rhysd/clever-f.vim",
   { "TheSafdarAwan/find-extender.nvim", branch = "alpha" },
 
   -- "ggandor/leap-spooky.nvim",
@@ -189,7 +188,7 @@ require("lazy").setup({
   { "mtdl9/vim-log-highlighting", ft = "log" },
   { "chrisbra/csv.vim", ft = { "csv", "dat" } },
   "ledger/vim-ledger",
-  "kmonad/kmonad-vim",
+  -- "kmonad/kmonad-vim",
 
   -- preview markdown
   "ellisonleao/glow.nvim",

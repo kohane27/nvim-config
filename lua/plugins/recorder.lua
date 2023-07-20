@@ -8,8 +8,8 @@ recorder.setup({
   -- register/macro-slot used after startup.
   slots = { "a", "b" },
   mapping = {
-    startStopRecording = "Q",
-    playMacro = "QQ",
+    startStopRecording = "QQ",
+    playMacro = "Q",
     editMacro = "cQ",
   },
   clear = true, -- clears all macros-slots on startup
