@@ -100,6 +100,7 @@ require("lazy").setup({
   {
     "L3MON4D3/LuaSnip", -- snippet engine
     build = "make install_jsregexp",
+    event = "VeryLazy",
     dependencies = {
       "rafamadriz/friendly-snippets", -- provided snippets
       "saadparwaiz1/cmp_luasnip", -- completion engine
@@ -173,14 +174,15 @@ require("lazy").setup({
   { "TheSafdarAwan/find-extender.nvim", branch = "alpha" },
 
   -- "ggandor/leap-spooky.nvim",
-  "cbochs/grapple.nvim",
-  "cbochs/portal.nvim",
+  { "cbochs/grapple.nvim", event = "VeryLazy" },
+  { "cbochs/portal.nvim", event = "VeryLazy" },
   -- "LeonHeidelbach/trailblazer.nvim",
-  "chentoast/marks.nvim",
+  { "chentoast/marks.nvim", event = "VeryLazy" },
   "aserowy/tmux.nvim",
 
-  "kevinhwang91/nvim-bqf",
-  "https://gitlab.com/yorickpeterse/nvim-pqf", -- pretty list
+  { "kevinhwang91/nvim-bqf", event = "VeryLazy" },
+  -- pretty list
+  { "https://gitlab.com/yorickpeterse/nvim-pqf", event = "VeryLazy" },
 
   -- filetypes
   -- "ekickx/clipboard-image.nvim", -- copy clipboard image to nvim
@@ -191,7 +193,7 @@ require("lazy").setup({
   -- "kmonad/kmonad-vim",
 
   -- preview markdown
-  "ellisonleao/glow.nvim",
+  { "ellisonleao/glow.nvim", event = "VeryLazy" },
 
   -- task runners
   { "michaelb/sniprun", build = "bash ./install.sh" },
@@ -220,7 +222,7 @@ require("lazy").setup({
   -- "ja-ford/delaytrain.nvim",
 
   -- find and replace
-  "nvim-pack/nvim-spectre",
+  { "nvim-pack/nvim-spectre", event = "VeryLazy" },
   "mg979/vim-visual-multi",
 
   "chrisgrieser/nvim-recorder",
@@ -241,14 +243,16 @@ require("lazy").setup({
     end,
   },
 
-  "RRethy/vim-illuminate", -- highlighting other uses of the word under cursor
+  -- highlighting other uses of the word under cursor
+  { "RRethy/vim-illuminate", event = "VeryLazy" },
   "b0o/incline.nvim", -- floating statuslines
   "LudoPinelli/comment-box.nvim", -- create comment boxes
   "folke/todo-comments.nvim",
   -- "folke/noice.nvim", -- NOTE: use later because it requires nightly
 
   -- note-taking/task management
-  "jakewvincent/mkdnflow.nvim", -- markdown conflicting with vim-wiki
+  -- markdown conflicting with vim-wiki
+  { "jakewvincent/mkdnflow.nvim", event = "VeryLazy" },
   -- "vimwiki/vimwiki",
   -- "tools-life/taskwiki",
 
