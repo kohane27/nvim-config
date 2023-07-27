@@ -149,8 +149,8 @@ require("lazy").setup({
   { "akinsho/toggleterm.nvim", event = "VeryLazy" },
 
   -- `ranger`
-  { "is0n/fm-nvim", event = "VeryLazy" },
-  -- "is0n/tui-nvim", -- `ranger`
+  -- { "is0n/fm-nvim", event = "VeryLazy" },
+  { "kelly-lin/ranger.nvim", event = "VeryLazy" },
 
   { "kdheepak/lazygit.nvim", event = "VeryLazy" },
 

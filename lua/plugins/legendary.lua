@@ -107,7 +107,7 @@ legendary.setup({
 
     -- <C-KEY>
     { "<C-f>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
-    { "<C-e>", "<cmd>Ranger<CR>", description = "Ranger" },
+    { "<C-e>", '<cmd>lua require("ranger-nvim").open(true)<CR>', description = "Ranger" },
     { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
     -- { "<C-g>", "<cmd>lua require('telescope.builtin').find_files()<CR>", description = "Telescope: Find Files" },
     {
