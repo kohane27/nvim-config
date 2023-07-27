@@ -69,7 +69,7 @@ require("plugins.cinnamon")
 require("plugins.notify")
 
 require("plugins.nvim-scrollbar")
--- require("plugins.nvim-scrollview")
+require("plugins.nvim-scrollview")
 require("plugins.illuminate")
 require("plugins.todo-comments")
 require("plugins.nvim-lastplace")

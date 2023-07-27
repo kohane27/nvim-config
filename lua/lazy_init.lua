@@ -267,7 +267,7 @@ require("lazy").setup({
   -- scrollbar
   { "petertriho/nvim-scrollbar", event = "VeryLazy" },
   -- scrollable bar
-  -- { "dstein64/nvim-scrollview", event = "VeryLazy" },
+  { "dstein64/nvim-scrollview", event = "VeryLazy" },
 
   {
     "tummetott/reticle.nvim",
