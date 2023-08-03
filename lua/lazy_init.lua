@@ -296,7 +296,7 @@ require("lazy").setup({
     "chrishrb/gx.nvim",
     event = { "BufEnter" },
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = true, -- default settings
+    config = true,
   },
 
   -- "vimwiki/vimwiki",
