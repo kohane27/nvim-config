@@ -9,16 +9,15 @@ chatgpt.setup({
       close = "<C-w>c",
       accept = "<C-y>",
       toggle_settings = "<Space>?",
-      cycle_windows = "<A-l>",
+      cycle_windows = "<Tab>",
     },
   },
   chat = {
     keymaps = {
       close = "<C-w>c",
       new_session = "<A-n>",
-      cycle_windows = "<A-l>",
+      cycle_windows = "<Tab>",
       yank_last_code = "<A-k>",
-      -- cycle_windows = "<C-w><Space>",
       rename_session = "<Space>rn",
       delete_session = "D",
       toggle_settings = "<Space>?",
