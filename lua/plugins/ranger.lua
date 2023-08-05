@@ -10,4 +10,11 @@ ranger_nvim.setup({
     ["ot"] = ranger_nvim.OPEN_MODE.tabedit,
     ["or"] = ranger_nvim.OPEN_MODE.rifle,
   },
+  ui = {
+    border = "rounded",
+    height = 0.8,
+    width = 0.8,
+    x = 0.5,
+    y = 0.5,
+  },
 })

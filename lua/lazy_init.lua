@@ -150,7 +150,7 @@ require("lazy").setup({
 
   -- `ranger`
   -- { "is0n/fm-nvim", event = "VeryLazy" },
-  { "kohane27/ranger.nvim", event = "VeryLazy" },
+  { "kelly-lin/ranger.nvim", event = "VeryLazy" },
 
   { "kdheepak/lazygit.nvim", event = "VeryLazy" },
 
