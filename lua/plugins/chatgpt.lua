@@ -6,7 +6,7 @@ end
 chatgpt.setup({
   edit_with_instructions = {
     keymaps = {
-      close = "<C-w>c",
+      close = "<leader>q",
       accept = "<C-y>",
       toggle_settings = "<Space>?",
       cycle_windows = "<Tab>",
@@ -14,7 +14,7 @@ chatgpt.setup({
   },
   chat = {
     keymaps = {
-      close = "<C-w>c",
+      close = "<leader>q",
       new_session = "<A-n>",
       cycle_windows = "<Tab>",
       yank_last_code = "<A-k>",
