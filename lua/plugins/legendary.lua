@@ -103,7 +103,7 @@ legendary.setup({
   },
   keymaps = {
     -- NOTE: the following are available:
-    -- gp, gn J, K, H, L, gj, gk, gH
+    -- gp, gn J, K, H, L, gj, gk, gh
 
     -- <C-KEY>
     { "<C-f>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
@@ -241,8 +241,7 @@ legendary.setup({
     { "<C-l>", "<cmd>BufferLineCycleNext<CR>", description = "Buffer: Move to Next" },
     { "<A-,>", "<cmd>BufferLineMovePrev<CR>", description = "Buffer: Re-order to Previous" },
     { "<A-.>", "<cmd>BufferLineMoveNext<CR>", description = "Buffer: Re-order to Next" },
-    { "<C-w>q", "<cmd>Bdelete<CR>", description = "Buffer: Close" },
-    { "ZZ", "<cmd>Bdelete<CR>", description = "Buffer: Close" },
+    { "<leader>q", "<cmd>Bdelete<CR>", description = "Buffer: Close" },
     { "g1", "<cmd>BufferLineGoToBuffer 1<CR>", description = "Go to Buffer 1" },
     { "g2", "<cmd>BufferLineGoToBuffer 2<CR>", description = "Go to Buffer 2" },
     { "g3", "<cmd>BufferLineGoToBuffer 3<CR>", description = "Go to Buffer 3" },
