@@ -123,7 +123,7 @@ legendary.setup({
     { "<C-d>", "<Cmd>lua Scroll('<C-f>', 1, 1)<CR>", description = "Smooth scrolling: down", mode = { "n", "x" } },
     { "<C-u>", "<Cmd>lua Scroll('<C-b>', 1, 1)<CR>", description = "Smooth scrolling: up", mode = { "n", "x" } },
 
-    { "<C-f>", '<C-R>"', description = "Paste Last Yanked / Deleted", mode = { "i" } },
+    -- { "<C-f>", '<C-R>"', description = "Paste Last Yanked / Deleted", mode = { "i" } },
     { "<C-v>", "<C-R>*", description = "Paste Clipboard Content", mode = { "i" } },
 
     -- ╭──────────────────────────────────────────────────────────╮
