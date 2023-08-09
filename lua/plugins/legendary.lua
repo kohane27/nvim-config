@@ -180,7 +180,7 @@ legendary.setup({
       "<cmd>lua require('telescope').extensions.olddirs.picker()<CR>",
       description = "Telescope: Open Recent Directories",
     },
-    { "<leader>ft", "<cmd>Telescope scope buffers<CR>", description = "Telescope: Find All Buffers" },
+    { "<leader>ft", "<cmd>Telescope buffers<CR>", description = "Telescope: Buffers" },
     { "<leader>fj", "<cmd>Telescope jumplist<CR>", description = "Telescope: Jumplist" },
     { "<leader>fp", "<cmd>Telescope projects<CR>", description = "Telescope: Find Projects" },
     { "<leader>fr", "<cmd>Telescope neoclip<CR>", description = "Telescope: Clipboard History" },
@@ -363,7 +363,7 @@ legendary.setup({
       "<cmd>wa | edit | lua vim.lsp.buf.format()<CR> | TSBufEnable highlight<CR>zz",
       opts = { noremap = true, silent = true },
     },
-    { "<C-w>o", "<cmd>lua require('neo-zoom').neo_zoom()<CR>", description = "Misc: Zoom: Toggle" },
+    { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Misc: Zoom: Toggle" },
     { "<leader>un", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
 
     -- ╭──────────────────────────────────────────────────────────╮

@@ -140,13 +140,6 @@ require("lazy").setup({
   { "nvim-tree/nvim-tree.lua", event = "VeryLazy" },
   -- buffers
   { "akinsho/bufferline.nvim", event = "VeryLazy" },
-  {
-    "tiagovla/scope.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("scope").setup({})
-    end,
-  },
   -- preserve layouts when deleting buffers
   { "famiu/bufdelete.nvim", event = "VeryLazy" },
   -- `<C-w>o` maximizes window without closing other buffers
