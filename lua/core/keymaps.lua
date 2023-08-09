@@ -144,10 +144,11 @@ map("i", "<C-b>", "<C-o>dB")
 -- map("i", "<C-v>", "<C-R>*")
 
 vim.cmd([[
-" close and save all buffer
-" TODO combine they into function
-cnoremap <expr> <CR> getcmdtype() == ":" && index(["x"], getcmdline()) >= 0 ? "a<CR>" : "<CR>"
+" save and close all buffer(s)
+" x -> xa
+" cnoremap <expr> <CR> getcmdtype() == ":" && index(["x"], getcmdline()) >= 0 ? "a<CR>" : "<CR>"
 
-" wean off `:wq` and `:q`
-" cnoremap <expr> <CR> getcmdtype() == ":" && index(["q", "wq"], getcmdline()) >= 0 ? "<C-u>" : "<CR>"
+" wean off `:x` and `:q`
+cnoremap <expr> <CR> getcmdtype() == ":" && index(["q", "x"], getcmdline()) >= 0 ? "<C-u>" : "<CR>"
+
 ]])

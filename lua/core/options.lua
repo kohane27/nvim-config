@@ -36,7 +36,8 @@ set wildignore+=**/node_modules/**
 -----------------------------------------------------------
 g.mapleader          = " "
 opt.mouse            = 'a'                         -- Enable mouse support
-opt.clipboard        = 'unnamedplus'               -- Copy/paste to system clipboard
+-- opt.clipboard        = 'unnamedplus'               -- Copy/paste to system clipboard
+opt.clipboard:append { 'unnamed', 'unnamedplus' }
 opt.swapfile         = false                       -- Don't use swapfile
 opt.completeopt      = 'menuone,noinsert,noselect' -- Autocomplete options
 opt.confirm          = true
