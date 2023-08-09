@@ -63,7 +63,6 @@ map("n", "J", "<nop>")
 map("n", "K", "<nop>")
 map("n", "<C-a>", "<nop>")
 map("n", "<C-x>", "<nop>")
--- map("n", "ZZ", "<nop>")
 map("n", "d$", "<nop>")
 
 map("n", "<Leader>j", "J")
