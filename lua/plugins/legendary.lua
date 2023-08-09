@@ -180,22 +180,21 @@ legendary.setup({
       "<cmd>lua require('telescope').extensions.olddirs.picker()<CR>",
       description = "Telescope: Open Recent Directories",
     },
-    { "<leader>ft", "<cmd>Telescope buffers<CR>", description = "Telescope: Buffers" },
+    { "<leader>ft", "<cmd>Telescope scope buffers<CR>", description = "Telescope: Find All Buffers" },
     { "<leader>fj", "<cmd>Telescope jumplist<CR>", description = "Telescope: Jumplist" },
     { "<leader>fp", "<cmd>Telescope projects<CR>", description = "Telescope: Find Projects" },
     { "<leader>fr", "<cmd>Telescope neoclip<CR>", description = "Telescope: Clipboard History" },
     { "<leader>fXc", "<cmd>Telescope command_history<CR>", description = "Telescope: Command History" },
     { "<leader>fXs", "<cmd>Telescope search_history<CR>", description = "Telescope: Search History" },
-    { "<leader>fs", "<cmd>Telescope scope buffers<CR>", description = "Telescope: Find All Buffers" },
 
     {
-      "<leader>fw",
+      "<leader>fs",
       '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>',
       description = "Spectre: Search Word for Current File",
     },
     {
-      "<leader>fW",
-      '<cmd>lua require("spectre").open_visual()<CR>',
+      "<leader>fS",
+      '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
       description = "Spectre: Search Word for Current Project",
     },
 
