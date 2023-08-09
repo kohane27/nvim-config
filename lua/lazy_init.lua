@@ -163,7 +163,6 @@ require("lazy").setup({
 
   {
     "kevinhwang91/nvim-ufo",
-    event = "VeryLazy",
     dependencies = {
       "kevinhwang91/promise-async",
     },
@@ -183,7 +182,6 @@ require("lazy").setup({
 
   {
     "rmagatti/auto-session",
-    event = "VeryLazy",
     dependencies = {
       "rmagatti/session-lens", -- telescope integration
     },
@@ -229,7 +227,6 @@ require("lazy").setup({
 
   {
     "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
@@ -269,7 +266,6 @@ require("lazy").setup({
 
   {
     "tummetott/reticle.nvim",
-    event = "VeryLazy",
     config = function()
       require("reticle").setup({})
     end,
