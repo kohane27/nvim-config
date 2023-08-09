@@ -4,22 +4,34 @@ if not status_ok then
 end
 
 neo_zoom.setup({
-  left_ratio = 0.0,
-  top_ratio = 0.0,
-  width_ratio = 1.0,
-  height_ratio = 1.0,
-  border = "rounded",
-  exclude_filetype = {
-    "fzf",
-    "qf",
-    "dashboard",
-    "spectre-panel",
+  popup = { enabled = true },
+  exclude_filetypes = { "lspinfo", "mason", "lazy", "fzf", "qf", "terminal", "dashboard", "spectre-panel" },
+  winopts = {
+    offset = {
+      -- NOTE: omit `top`/`left` to center the floating window vertically/horizontally.
+      -- top = 0,
+      -- left = 0.17,
+      width = 150,
+      height = 0.80,
+    },
+    -- NOTE: check :help nvim_open_win() for possible border values.
+    border = "thicc", -- this is a preset, try it :)
   },
-
-  -- default
-  -- left_ratio = 0.2,
-  -- top_ratio = 0.03,
-  -- width_ratio = 0.67,
-  -- height_ratio = 0.9,
-  -- border = 'double',
+  presets = {
+    {
+      -- NOTE: regex pattern can be used here!
+      filetypes = { "dapui_.*", "dap-repl" },
+      winopts = {
+        offset = { top = 0.02, left = 0.26, width = 0.74, height = 0.25 },
+      },
+    },
+    {
+      filetypes = { "markdown" },
+      callbacks = {
+        function()
+          vim.wo.wrap = true
+        end,
+      },
+    },
+  },
 })
