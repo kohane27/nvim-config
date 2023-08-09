@@ -186,13 +186,17 @@ legendary.setup({
     { "<leader>fr", "<cmd>Telescope neoclip<CR>", description = "Telescope: Clipboard History" },
     { "<leader>fXc", "<cmd>Telescope command_history<CR>", description = "Telescope: Command History" },
     { "<leader>fXs", "<cmd>Telescope search_history<CR>", description = "Telescope: Search History" },
+    { "<leader>fs", "<cmd>Telescope scope buffers<CR>", description = "Telescope: Find All Buffers" },
+
     {
-      "<leader>fs",
-      {
-        n = toolbox.lazy_required_fn("spectre", "open_file_search"),
-        v = '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
-      },
-      description = "Spectre: Search Current File",
+      "<leader>fw",
+      '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>',
+      description = "Spectre: Search Word for Current File",
+    },
+    {
+      "<leader>fW",
+      '<cmd>lua require("spectre").open_visual()<CR>',
+      description = "Spectre: Search Word for Current Project",
     },
 
     -- ╭──────────────────────────────────────────────────────────╮

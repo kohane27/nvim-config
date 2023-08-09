@@ -138,10 +138,20 @@ require("lazy").setup({
   { "numToStr/Comment.nvim", event = "VeryLazy" },
   { "nvim-tree/nvim-web-devicons", event = "VeryLazy" },
   { "nvim-tree/nvim-tree.lua", event = "VeryLazy" },
+  -- buffers
   { "akinsho/bufferline.nvim", event = "VeryLazy" },
-  -- "tiagovla/scope.nvim", -- scoped tabline
-  -- preserve layout when deleting buffers
+  {
+    "tiagovla/scope.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("scope").setup({})
+    end,
+  },
+  -- preserve layouts when deleting buffers
   { "famiu/bufdelete.nvim", event = "VeryLazy" },
+  -- `<C-w>o` maximizes window without closing other buffers
+  { "nyngwang/NeoZoom.lua", event = "VeryLazy" },
+
   -- "nvim-lualine/lualine.nvim", -- statusline
   { "freddiehaddad/feline.nvim", event = "VeryLazy" },
 
@@ -308,9 +318,6 @@ require("lazy").setup({
 
   -- see register contents
   { "tversteeg/registers.nvim", event = "VeryLazy" },
-
-  -- `<C-w>o` maximizes window without closing other buffers
-  { "nyngwang/NeoZoom.lua", event = "VeryLazy" },
 
   -- open files at last edit position
   "ethanholz/nvim-lastplace",
