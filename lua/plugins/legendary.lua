@@ -245,6 +245,7 @@ legendary.setup({
     { "<A-,>", "<cmd>BufferLineMovePrev<CR>", description = "Buffer: Re-order to Previous" },
     { "<A-.>", "<cmd>BufferLineMoveNext<CR>", description = "Buffer: Re-order to Next" },
     { "<leader>q", "<cmd>wqa!<CR>", description = "Quit" },
+    { "<leader>Q", "<cmd>q!<CR>", description = "Force Quit" },
     { "ZZ", "<cmd>Bdelete<CR>", description = "Buffer: Close" },
     { "g1", "<cmd>BufferLineGoToBuffer 1<CR>", description = "Go to Buffer 1" },
     { "g2", "<cmd>BufferLineGoToBuffer 2<CR>", description = "Go to Buffer 2" },
