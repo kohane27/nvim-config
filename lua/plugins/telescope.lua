@@ -54,7 +54,6 @@ telescope.setup({
 
     mappings = {
       i = {
-        ["<A-c>"] = actions.close,
         ["<C-c>"] = actions.close,
         -- ["<esc>"] = actions.close,
         ["<C-j>"] = actions.cycle_history_next,
@@ -72,12 +71,11 @@ telescope.setup({
       },
 
       n = {
-        ["<A-c>"] = actions.close,
-        ["<C-c>"] = actions.close,
+        -- ["<C-c>"] = actions.close,
         ["<CR>"] = actions.select_default,
         ["<C-w>s"] = actions.select_horizontal,
         ["<C-w>v"] = actions.select_vertical,
-        ["<C-w>t"] = actions.select_tab,
+        -- ["<C-w>t"] = actions.select_tab,
 
         ["j"] = actions.move_selection_next,
         ["k"] = actions.move_selection_previous,
@@ -113,8 +111,9 @@ telescope.setup({
 
         ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-        ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-        ["<C-Q>"] = actions.send_to_qflist + actions.open_qflist,
+        -- `<C-q>` conflict with `lazygit`
+        ["<leader>xx"] = actions.send_selected_to_qflist + actions.open_qflist,
+        ["<leader>xa"] = actions.send_to_qflist + actions.open_qflist,
 
         ["?"] = actions.which_key,
       },
