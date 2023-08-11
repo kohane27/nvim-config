@@ -100,13 +100,13 @@ require("plugins.mkdnflow")
 
 require("plugins.tmux")
 -- require("plugins.vim-test")
--- require("plugins.delaytrain")
+
+require("plugins.delaytrain")
 
 require("plugins.firenvim")
 
 require("plugins.chatgpt")
 -- require("plugins.codeium")
-
 
 -- near end to override
 require("plugins.legendary")
