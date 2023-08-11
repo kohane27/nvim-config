@@ -126,28 +126,6 @@ telescope.setup({
       override_file_sorter = true,
       case_mode = "ignore_case", -- or "smart_case", "ignore_case", "respect_case"
     },
-    advanced_git_search = {
-      diff_plugin = "diffview",
-      -- customize git in previewer
-      -- e.g. flags such as { "--no-pager" }, or { "-c", "delta.side-by-side=false" }
-      git_flags = {},
-
-      -- customize git diff in previewer
-      -- e.g. flags such as { "--raw" }
-      git_diff_flags = {},
-
-      -- Show builtin git pickers when executing "show_custom_functions" or :AdvancedGitSearch
-      show_builtin_git_pickers = false,
-      entry_default_author_or_date = "author", -- one of "author" or "date"
-
-      -- Telescope layout setup
-      telescope_theme = {
-        -- e.g. realistic example
-        show_custom_functions = {
-          layout_config = { width = 0.4, height = 0.4 },
-        },
-      },
-    },
     frecency = {
       show_scores = false,
       show_unindexed = false,
@@ -168,4 +146,3 @@ telescope.load_extension("projects")
 telescope.load_extension("frecency")
 telescope.load_extension("neoclip")
 telescope.load_extension("olddirs")
-telescope.load_extension("advanced_git_search")
