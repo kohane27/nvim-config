@@ -180,6 +180,7 @@ legendary.setup({
       "<cmd>lua require('telescope').extensions.olddirs.picker()<CR>",
       description = "Telescope: Open Recent Directories",
     },
+    { "<leader>f.", "<cmd>Telescope resume<CR>", description = "Telescope: Resume" },
     { "<leader>ft", "<cmd>Telescope buffers<CR>", description = "Telescope: Buffers" },
     { "<leader>fj", "<cmd>Telescope jumplist<CR>", description = "Telescope: Jumplist" },
     { "<leader>fp", "<cmd>Telescope projects<CR>", description = "Telescope: Find Projects" },
