@@ -169,11 +169,8 @@ require("lazy").setup({
     },
   },
 
+  "sindrets/diffview.nvim",
   {
-    "aaronhallaert/advanced-git-search.nvim",
-    dependencies = {
-      "sindrets/diffview.nvim",
-    },
   },
 
   -- "akinsho/git-conflict.nvim",
