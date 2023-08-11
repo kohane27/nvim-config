@@ -299,7 +299,6 @@ require("lazy").setup({
 
   -- better search results
   "kevinhwang91/nvim-hlslens",
-  -- "romainl/vim-cool", -- using `nvim-hlslens`
 
   -- see register contents
   "tversteeg/registers.nvim",

@@ -365,7 +365,7 @@ legendary.setup({
       opts = { noremap = true, silent = true },
     },
     { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Misc: Zoom: Toggle" },
-    { "<leader>un", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
+    { "<leader>u", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous (leader M; random shortcuts)             │
