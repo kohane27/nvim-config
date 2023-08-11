@@ -50,7 +50,7 @@ require("plugins.ranger")
 require("plugins.glow")
 
 require("plugins.lazygit")
--- require("plugins.diffview")
+require("plugins.diffview")
 
 -- require("plugins.git-conflict")
 

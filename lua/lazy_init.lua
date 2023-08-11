@@ -170,9 +170,6 @@ require("lazy").setup({
   },
 
   "sindrets/diffview.nvim",
-  {
-  },
-
   -- "akinsho/git-conflict.nvim",
 
   -- {
@@ -209,8 +206,8 @@ require("lazy").setup({
   "aserowy/tmux.nvim",
 
   "kevinhwang91/nvim-bqf",
-  -- pretty list
-  "https://gitlab.com/yorickpeterse/nvim-pqf",
+  -- pretty list; works with `nvim-bqf`
+  "yorickpeterse/nvim-pqf",
 
   -- filetypes
   -- "ekickx/clipboard-image.nvim", -- copy clipboard image to nvim
