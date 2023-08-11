@@ -129,10 +129,11 @@ require("lazy").setup({
 
   -- General
   -- "ibhagwan/fzf-lua", -- for `:changes`
-  { "tpope/vim-repeat" },
   { "numToStr/Comment.nvim" },
   { "nvim-tree/nvim-web-devicons" },
   { "nvim-tree/nvim-tree.lua" },
+  "tpope/vim-repeat",
+  "tpope/vim-unimpaired",
   -- buffers
   { "akinsho/bufferline.nvim" },
   -- preserve layouts when deleting buffers
