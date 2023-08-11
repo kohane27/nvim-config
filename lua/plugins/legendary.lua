@@ -245,9 +245,6 @@ legendary.setup({
     { "<C-l>", "<cmd>BufferLineCycleNext<CR>", description = "Buffer: Move to Next" },
     { "<A-,>", "<cmd>BufferLineMovePrev<CR>", description = "Buffer: Re-order to Previous" },
     { "<A-.>", "<cmd>BufferLineMoveNext<CR>", description = "Buffer: Re-order to Next" },
-    { "<leader>q", "<cmd>wqa!<CR>", description = "Quit" },
-    { "<leader>Q", "<cmd>q!<CR>", description = "Force Quit" },
-    { "ZZ", "<cmd>Bdelete<CR>", description = "Buffer: Close" },
     { "g1", "<cmd>BufferLineGoToBuffer 1<CR>", description = "Go to Buffer 1" },
     { "g2", "<cmd>BufferLineGoToBuffer 2<CR>", description = "Go to Buffer 2" },
     { "g3", "<cmd>BufferLineGoToBuffer 3<CR>", description = "Go to Buffer 3" },
@@ -367,6 +364,9 @@ legendary.setup({
     },
     { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Misc: Zoom: Toggle" },
     { "<leader>u", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
+    { "<leader>q", "<cmd>wqa<CR>", description = "Quit" },
+    { "<leader>Q", "<cmd>q!<CR>", description = "Force Quit" },
+    { "ZZ", "<cmd>Bdelete<CR>", description = "Buffer: Close" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous (leader M; random shortcuts)             │
