@@ -50,6 +50,9 @@ require("plugins.ranger")
 require("plugins.glow")
 
 require("plugins.lazygit")
+-- require("plugins.diffview")
+
+-- require("plugins.git-conflict")
 
 require("plugins.luasnip")
 require("plugins.trouble")
@@ -104,8 +107,6 @@ require("plugins.firenvim")
 require("plugins.chatgpt")
 -- require("plugins.codeium")
 
--- require("plugins.diffview")
--- require("plugins.git-conflict")
 
 -- near end to override
 require("plugins.legendary")
