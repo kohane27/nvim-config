@@ -31,12 +31,12 @@ require("lazy").setup({
   },
 
   -- Telescope extensions
-  { "ahmedkhalf/project.nvim" },
+  "ahmedkhalf/project.nvim",
   -- "nvim-telescope/telescope-project.nvim", -- using project.nvim
   -- clipboard manager
   { "AckslD/nvim-neoclip.lua", dependencies = { "kkharji/sqlite.lua" } },
   -- `:oldfiles` but for directories
-  { "marcuscaisey/olddirs.nvim" },
+  "marcuscaisey/olddirs.nvim",
   { "nvim-telescope/telescope-frecency.nvim", dependencies = { "kkharji/sqlite.lua" } },
 
   -- Treesitter
@@ -50,17 +50,17 @@ require("lazy").setup({
     },
   },
   -- enhanced with `nvim-treesitter-textobjects`
-  { "andymass/vim-matchup" }, -- can't lazy load
+  "andymass/vim-matchup", -- can't lazy load
   -- { "elgiano/nvim-treesitter-angular", branch = "topic/jsx-fix" },
-  { "windwp/nvim-ts-autotag" },
+  "windwp/nvim-ts-autotag",
   -- integrated with cmp and treesitter
-  { "windwp/nvim-autopairs" },
+  "windwp/nvim-autopairs",
   -- rainbow parentheses
-  { "hiphish/rainbow-delimiters.nvim" },
+  "hiphish/rainbow-delimiters.nvim",
   -- indentation guides
-  { "lukas-reineke/indent-blankline.nvim" },
-  { "mizlan/iswap.nvim" },
-  { "monaqa/dial.nvim" },
+  "lukas-reineke/indent-blankline.nvim",
+  "mizlan/iswap.nvim",
+  "monaqa/dial.nvim",
 
   -- LSP
   {
@@ -76,28 +76,28 @@ require("lazy").setup({
     },
   },
 
-  { "williamboman/mason.nvim" },
-  { "williamboman/mason-lspconfig.nvim" },
+  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
   -- language server settings defined in json
-  { "tamago324/nlsp-settings.nvim" },
+  "tamago324/nlsp-settings.nvim",
 
   -- formatters and linters when LSP is not present
-  { "jose-elias-alvarez/null-ls.nvim" },
+  "jose-elias-alvarez/null-ls.nvim",
 
   -- "rmagatti/goto-preview",
-  { "nvimdev/lspsaga.nvim" },
+  "nvimdev/lspsaga.nvim",
 
-  { "folke/trouble.nvim" },
+  "folke/trouble.nvim",
 
   -- pictograms
-  { "onsails/lspkind.nvim" },
+  "onsails/lspkind.nvim",
 
   -- LSP diagnostics highlight groups
-  { "folke/lsp-colors.nvim" },
+  "folke/lsp-colors.nvim",
 
   -- "simrat39/symbols-outline.nvim", -- using `lspsaga`
   -- "ray-x/lsp_signature.nvim", -- usine `lspsaga`
-  { "b0o/schemastore.nvim"},
+  "b0o/schemastore.nvim",
   { "mfussenegger/nvim-jdtls", ft = "java" },
   {
     "pmizio/typescript-tools.nvim",
@@ -129,38 +129,38 @@ require("lazy").setup({
 
   -- General
   -- "ibhagwan/fzf-lua", -- for `:changes`
-  { "numToStr/Comment.nvim" },
-  { "nvim-tree/nvim-web-devicons" },
-  { "nvim-tree/nvim-tree.lua" },
   "tpope/vim-repeat",
   "tpope/vim-unimpaired",
+  "numToStr/Comment.nvim",
+  "nvim-tree/nvim-web-devicons",
+  "nvim-tree/nvim-tree.lua",
   -- buffers
-  { "akinsho/bufferline.nvim" },
+  "akinsho/bufferline.nvim",
   -- preserve layouts when deleting buffers
-  { "famiu/bufdelete.nvim" },
+  "famiu/bufdelete.nvim",
   -- `<C-w>o` maximizes window without closing other buffers
-  { "nyngwang/NeoZoom.lua" },
+  "nyngwang/NeoZoom.lua",
 
   -- "nvim-lualine/lualine.nvim", -- statusline
-  { "freddiehaddad/feline.nvim" },
+  "freddiehaddad/feline.nvim",
 
   -- terminal
-  { "akinsho/toggleterm.nvim" },
+  "akinsho/toggleterm.nvim",
 
   -- `ranger`
-  -- { "is0n/fm-nvim" },
-  { "kelly-lin/ranger.nvim" },
+  -- "is0n/fm-nvim",
+  "kelly-lin/ranger.nvim",
 
-  { "kdheepak/lazygit.nvim" },
+  "kdheepak/lazygit.nvim",
 
-  { "kylechui/nvim-surround" },
+  "kylechui/nvim-surround",
   -- "machakann/vim-sandwich",
 
   -- "abecodes/tabout.nvim", -- tabbing out from parentheses and quotes
   -- "wellle/targets.vim", -- superseded by `nvim-treesitter-textobjects`
-  { "mbbill/undotree" },
+  "mbbill/undotree",
 
-  { "https://git.sr.ht/~nedia/auto-save.nvim" },
+  "https://git.sr.ht/~nedia/auto-save.nvim",
 
   {
     "kevinhwang91/nvim-ufo",
@@ -188,26 +188,26 @@ require("lazy").setup({
     },
   },
 
-  { "mrjones2014/legendary.nvim" },
-  { "stevearc/dressing.nvim" },
-  { "lewis6991/gitsigns.nvim" },
+  "mrjones2014/legendary.nvim",
+  "stevearc/dressing.nvim",
+  "lewis6991/gitsigns.nvim",
 
   -- navigation
-  { "ggandor/leap.nvim" },
-  -- { "ggandor/leap-spooky.nvim" },
-  -- { "ggandor/flit.nvim" },
-  -- { "rhysd/clever-f.vim" },
+  "ggandor/leap.nvim",
+  -- "ggandor/leap-spooky.nvim",
+  -- "ggandor/flit.nvim",
+  -- "rhysd/clever-f.vim",
   { "TheSafdarAwan/find-extender.nvim", branch = "alpha" },
 
-  { "cbochs/grapple.nvim" },
-  { "cbochs/portal.nvim" },
-  -- { "LeonHeidelbach/trailblazer.nvim" },
-  { "chentoast/marks.nvim" },
-  { "aserowy/tmux.nvim" },
+  "cbochs/grapple.nvim",
+  "cbochs/portal.nvim",
+  -- "LeonHeidelbach/trailblazer.nvim",
+  "chentoast/marks.nvim",
+  "aserowy/tmux.nvim",
 
-  { "kevinhwang91/nvim-bqf" },
+  "kevinhwang91/nvim-bqf",
   -- pretty list
-  { "https://gitlab.com/yorickpeterse/nvim-pqf" },
+  "https://gitlab.com/yorickpeterse/nvim-pqf",
 
   -- filetypes
   -- "ekickx/clipboard-image.nvim", -- copy clipboard image to nvim
@@ -222,7 +222,7 @@ require("lazy").setup({
 
   -- task runners
   { "michaelb/sniprun", build = "bash ./install.sh" },
-  { "CRAG666/code_runner.nvim" },
+  "CRAG666/code_runner.nvim",
   -- TODO: configure
   -- "stevearc/overseer.nvim",
 
@@ -236,34 +236,34 @@ require("lazy").setup({
   },
   -- "Exafunction/codeium.vim",
 
-  { "gbprod/substitute.nvim" },
-  { "gbprod/cutlass.nvim" },
-  { "gbprod/stay-in-place.nvim" },
-  { "booperlv/nvim-gomove" },
-  -- { "gbprod/yanky.nvim" },
-  { "gelguy/wilder.nvim" },
+  "gbprod/substitute.nvim",
+  "gbprod/cutlass.nvim",
+  "gbprod/stay-in-place.nvim",
+  "booperlv/nvim-gomove",
+  -- "gbprod/yanky.nvim",
+  "gelguy/wilder.nvim",
 
-  -- { "ja-ford/delaytrain.nvim" },
+  -- "ja-ford/delaytrain.nvim",
 
   -- find and replace
-  { "nvim-pack/nvim-spectre" },
+  "nvim-pack/nvim-spectre",
 
-  { "mg979/vim-visual-multi" },
+  "mg979/vim-visual-multi",
 
-  { "chrisgrieser/nvim-recorder" },
+  "chrisgrieser/nvim-recorder",
   -- "smjonas/live-command.nvim",
 
   -- aesthetics
-  { "rcarriga/nvim-notify" },
+  "rcarriga/nvim-notify",
   -- smooth scrolling
-  { "declancm/cinnamon.nvim" },
+  "declancm/cinnamon.nvim",
   -- flash cursor when jumping
-  { "danilamihailov/beacon.nvim" },
+  "danilamihailov/beacon.nvim",
 
   -- scrollbar
-  { "petertriho/nvim-scrollbar" },
+  "petertriho/nvim-scrollbar",
   -- scrollable bar
-  { "dstein64/nvim-scrollview" },
+  "dstein64/nvim-scrollview",
 
   {
     "tummetott/reticle.nvim",
@@ -273,15 +273,15 @@ require("lazy").setup({
   },
 
   -- highlighting other uses of the word under cursor
-  { "RRethy/vim-illuminate" },
+  "RRethy/vim-illuminate",
 
   -- floating statuslines
-  { "b0o/incline.nvim" },
+  "b0o/incline.nvim",
 
   -- create comment boxes
-  { "LudoPinelli/comment-box.nvim" },
+  "LudoPinelli/comment-box.nvim",
 
-  { "folke/todo-comments.nvim" },
+  "folke/todo-comments.nvim",
   -- "folke/noice.nvim",
 
   -- note-taking/task management
@@ -298,17 +298,17 @@ require("lazy").setup({
   -- "tools-life/taskwiki",
 
   -- better search results
-  { "kevinhwang91/nvim-hlslens" },
+  "kevinhwang91/nvim-hlslens",
   -- "romainl/vim-cool", -- using `nvim-hlslens`
 
   -- see register contents
-  { "tversteeg/registers.nvim" },
+  "tversteeg/registers.nvim",
 
   -- open files at last edit position
   "ethanholz/nvim-lastplace",
 
-  { "max397574/colortils.nvim" },
-  { "norcalli/nvim-colorizer.lua" },
+  "max397574/colortils.nvim",
+  "norcalli/nvim-colorizer.lua",
 
   {
     "glacambre/firenvim",
