@@ -154,8 +154,14 @@ legendary.setup({
       description = "Telescope: Find Text",
     },
     { "<leader>ff", "<cmd>lua require('telescope.builtin').git_files()<CR>", description = "Telescope: Find Files" },
-    { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
     { "<leader>fo", "<cmd>Telescope oldfiles<CR>", description = "Telescope: Open Recent File" },
+    -- TODO: test with zoxide
+    {
+      "<leader>g",
+      '<cmd>lua require("telescope").extensions.zoxide.list()<CR>',
+      description = "Telescope: Find Frecency",
+    },
+    { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
     {
       "<leader>fd",
       "<cmd>lua require('telescope').extensions.olddirs.picker()<CR>",
