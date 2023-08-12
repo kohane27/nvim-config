@@ -303,18 +303,18 @@ legendary.setup({
       description = "Diffview: Close",
       filters = { bt = { "DiffviewFiles", "DiffviewFileHistory" } },
     },
-    {
-      "<C-t>",
-      "<cmd>DiffviewToggleFiles<CR>",
-      description = "Diffview: Toggle File Panel",
-      filters = { bt = { "DiffviewFiles", "DiffviewFileHistory" } },
-    },
-    {
-      "<C-r>",
-      "<cmd>DiffviewRefresh<CR>",
-      description = "Diffview: Refresh",
-      filters = { bt = { "DiffviewFiles", "DiffviewFileHistory" } },
-    },
+    -- {
+    --   "<C-t>",
+    --   "<cmd>DiffviewToggleFiles<CR>",
+    --   description = "Diffview: Toggle File Panel",
+    --   filters = { bt = { "DiffviewFiles", "DiffviewFileHistory" } },
+    -- },
+    -- {
+    --   "<C-r>",
+    --   "<cmd>DiffviewRefresh<CR>",
+    --   description = "Diffview: Refresh",
+    --   filters = { bt = { "DiffviewFiles", "DiffviewFileHistory" } },
+    -- },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Run Code                                                 │
