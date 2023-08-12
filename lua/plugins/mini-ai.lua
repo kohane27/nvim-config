@@ -28,6 +28,6 @@ ai.setup({
     search_method = "cover",
 
     -- Whether to disable showing non-error feedback
-    silent = false,
+    silent = true,
   },
 })

@@ -34,6 +34,10 @@ map("i", "<C-k>", "<Esc>")
 map("n", "<space>", "<Nop>")
 map("x", "<space>", "<Nop>")
 
+-- make way for `nap.nvim`
+map("n", "<C-j>", "<Nop>")
+map("n", "<C-k>", "<Nop>")
+
 -- avoid accidents for keymappings
 map("n", "<leader>x", "<Nop>")
 map("n", "<leader>d", "<Nop>")
