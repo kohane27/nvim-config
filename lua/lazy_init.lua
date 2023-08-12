@@ -32,12 +32,13 @@ require("lazy").setup({
 
   -- Telescope extensions
   "ahmedkhalf/project.nvim",
-  -- "nvim-telescope/telescope-project.nvim", -- using project.nvim
-  -- clipboard manager
-  { "AckslD/nvim-neoclip.lua", dependencies = { "kkharji/sqlite.lua" } },
+  "jvgrootveld/telescope-zoxide",
   -- `:oldfiles` but for directories
   "marcuscaisey/olddirs.nvim",
   { "nvim-telescope/telescope-frecency.nvim", dependencies = { "kkharji/sqlite.lua" } },
+
+  -- clipboard manager
+  { "AckslD/nvim-neoclip.lua", dependencies = { "kkharji/sqlite.lua" } },
 
   -- Treesitter
   {
