@@ -127,23 +127,10 @@ legendary.setup({
     { "<C-v>", "<C-R>*", description = "Paste Clipboard Content", mode = { "i", "c" } },
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │ Changelist                                               │
-    -- ╰──────────────────────────────────────────────────────────╯
-    { "g;", "<cmd>Portal changelist forward<CR>", description = "Changelist: Next" },
-    { "g,", "<cmd>Portal changelist backward<CR>", description = "Changelist: Previous" },
-    -- ╭──────────────────────────────────────────────────────────╮
     -- │ Jumplist                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<C-o>", "<C-o>zz", description = "" },
-    { "<C-i>", "<C-i>zz", description = "" },
-
-    { "<A-o>", "<cmd>Portal jumplist backward<CR>", description = "Jumplist: Backward" },
-    { "<A-i>", "<cmd>Portal jumplist forward<CR>", description = "Jumplist: Foward" },
-    -- ╭──────────────────────────────────────────────────────────╮
-    -- │ Quickfix                                                 │
-    -- ╰──────────────────────────────────────────────────────────╯
-    { "<A-p>", "<cmd>cprev<CR>zz", description = "Previous Quickfix Item" },
-    { "<A-n>", "<cmd>cnext<CR>zz", description = "Next Quickfix Item" },
+    { "<C-o>", "<C-o>zz", description = "Jumplist: Backward" },
+    { "<C-i>", "<C-i>zz", description = "Jumplist: Foward" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Telescope                                                │

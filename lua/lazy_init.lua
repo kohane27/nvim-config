@@ -201,7 +201,6 @@ require("lazy").setup({
   { "TheSafdarAwan/find-extender.nvim", branch = "alpha" },
 
   "cbochs/grapple.nvim",
-  "cbochs/portal.nvim",
   -- "LeonHeidelbach/trailblazer.nvim",
   "chentoast/marks.nvim",
   "aserowy/tmux.nvim",

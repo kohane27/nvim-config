@@ -41,7 +41,6 @@ require("plugins.leap")
 require("plugins.find-extender")
 require("plugins.marks")
 require("plugins.grapple")
-require("plugins.portal")
 
 require("plugins.toggleterm")
 -- require("plugins.fm-nvim")
