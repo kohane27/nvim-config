@@ -252,6 +252,22 @@ require("lazy").setup({
   "chrisgrieser/nvim-recorder",
   -- "smjonas/live-command.nvim",
 
+  {
+    "echasnovski/mini.trailspace",
+    version = false,
+    event = "VeryLazy",
+    config = function()
+      require("mini.trailspace").setup()
+    end,
+  },
+
+  {
+    "tummetott/reticle.nvim",
+    config = function()
+      require("reticle").setup({})
+    end,
+  },
+
   -- aesthetics
   "rcarriga/nvim-notify",
   -- smooth scrolling
@@ -263,13 +279,6 @@ require("lazy").setup({
   "petertriho/nvim-scrollbar",
   -- scrollable bar
   "dstein64/nvim-scrollview",
-
-  {
-    "tummetott/reticle.nvim",
-    config = function()
-      require("reticle").setup({})
-    end,
-  },
 
   -- highlighting other uses of the word under cursor
   "RRethy/vim-illuminate",
