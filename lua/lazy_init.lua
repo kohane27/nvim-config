@@ -130,7 +130,8 @@ require("lazy").setup({
   -- General
   -- "ibhagwan/fzf-lua", -- for `:changes`
   "tpope/vim-repeat",
-  "tpope/vim-unimpaired",
+  -- "tpope/vim-unimpaired",
+  "liangxianzhe/nap.nvim",
   "numToStr/Comment.nvim",
   "nvim-tree/nvim-web-devicons",
   "nvim-tree/nvim-tree.lua",
