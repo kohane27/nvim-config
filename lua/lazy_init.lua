@@ -141,7 +141,15 @@ require("lazy").setup({
 
   "kdheepak/lazygit.nvim",
 
-  "kylechui/nvim-surround",
+  {
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+  },
+  -- fix: https://github.com/kylechui/nvim-surround/issues/153
+  {
+    "echasnovski/mini.ai",
+    version = false,
+  },
   -- "machakann/vim-sandwich",
 
   -- "abecodes/tabout.nvim", -- tabbing out from parentheses and quotes
