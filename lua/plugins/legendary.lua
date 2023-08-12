@@ -473,20 +473,21 @@ legendary.setup({
       description = "Remove Empty Lines",
     },
     {
-      "<leader>MRTWS",
-      "<cmd>%s/\\s\\+$//e<CR>",
-      description = "Remove Trailing Whitespace",
-    },
-    {
       "<leader>MRTwS",
       "<cmd>%s/\t/  /g<CR>",
       description = "Replace Tabs with Spaces",
+    },
+    {
+      "<leader>MRTWS",
+      "<cmd>lua MiniTrailspace.trim()<CR>",
+      description = "Trim all trailing whitespace",
     },
     {
       "<leader>MRTwAW",
       "<cmd>%s/\\s\\+$//e<CR>",
       description = "Remove All Whitespace",
     },
+
     {
       "<leader>MRTwAWB",
       "<cmd>%s/[’‘]/'/g<CR>",
