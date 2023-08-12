@@ -40,6 +40,7 @@ require("plugins.leap")
 -- require("plugins.clever-f")
 require("plugins.find-extender")
 require("plugins.nap")
+require("plugins.vim-EnhancedJumps")
 
 require("plugins.marks")
 require("plugins.grapple")
