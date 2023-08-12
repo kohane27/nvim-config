@@ -79,6 +79,10 @@ map("x", "j", "gj")
 map("x", "J", "5j")
 map("x", "K", "5k")
 
+-- jumplist zz
+map("n", "<C-o>", "<C-o>zz")
+map("n", "<C-i>", "<C-i>zz")
+
 -- backspace to black hole registry
 map("n", "<BS>", '"_')
 map("x", "<BS>", '"_')

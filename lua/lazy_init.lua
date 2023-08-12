@@ -248,11 +248,6 @@ require("lazy").setup({
   },
 
   "liangxianzhe/nap.nvim",
-  {
-    "inkarkat/vim-EnhancedJumps",
-    event = "VeryLazy",
-    dependencies = { "inkarkat/vim-ingo-library" },
-  },
 
   {
     "tummetott/reticle.nvim",
