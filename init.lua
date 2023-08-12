@@ -14,7 +14,6 @@ require("lsp.null_ls")
 require("lsp.cmp")
 require("lsp.vim_diagnostics")
 require("lsp.lspsaga")
-require("lsp.navbuddy")
 
 require("plugins.telescope")
 require("plugins.project_nvim")
