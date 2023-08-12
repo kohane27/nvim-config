@@ -4,15 +4,30 @@ if not status_ok then
 end
 
 nap.setup({
-  next_prefix = "]",
-  prev_prefix = "[",
+  next_prefix = "<C-j>",
+  prev_prefix = "<C-k>",
   next_repeat = ",",
   prev_repeat = ";",
   operators = {
     ["d"] = {
       next = { rhs = "<cmd>Lspsaga diagnostic_jump_next<CR>", opts = { desc = "Next diagnostic" } },
       prev = { rhs = "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts = { desc = "Prev diagnostic" } },
-      mode = { "n", "v", "o" },
+    },
+    ["g"] = {
+      next = { rhs = '<cmd>lua require("grapple").cycle_forward()<CR>', opts = { desc = "Grapple: Next Tag" } },
+      prev = { rhs = '<cmd>lua require("grapple").cycle_backward()<CR>', opts = { desc = "Grapple: Previous Tag" } },
+    },
+    ["t"] = {
+      next = { rhs = '<cmd>lua require("todo-comments").jump_next()', opts = { desc = "Next todo comment" } },
+      prev = { rhs = '<cmd>lua require("todo-comments").jump_prev()', opts = { desc = "Previous todo comment" } },
+    },
+    ["q"] = {
+      next = { rhs = "<cmd>cnext<cr>zz", opts = { desc = "Next quickfix item" } },
+      prev = { rhs = "<cmd>cprevious<cr>zz", opts = { desc = "Prev quickfix item" } },
+    },
+    ["Q"] = {
+      next = { rhs = "<cmd>clast<cr>", opts = { desc = "Last quickfix item" } },
+      prev = { rhs = "<cmd>cfirst<cr>", opts = { desc = "First quickfix item" } },
     },
     ["e"] = {
       next = { rhs = "g;zz", opts = { desc = "Older edit (change-list) item" } },
@@ -25,14 +40,6 @@ nap.setup({
     ["L"] = {
       next = { rhs = "<cmd>llast<cr>", opts = { desc = "Last loclist item" } },
       prev = { rhs = "<cmd>lfirst<cr>", opts = { desc = "First loclist item" } },
-    },
-    ["q"] = {
-      next = { rhs = "<cmd>cnext<cr>zz", opts = { desc = "Next quickfix item" } },
-      prev = { rhs = "<cmd>cprevious<cr>zz", opts = { desc = "Prev quickfix item" } },
-    },
-    ["Q"] = {
-      next = { rhs = "<cmd>clast<cr>", opts = { desc = "Last quickfix item" } },
-      prev = { rhs = "<cmd>cfirst<cr>", opts = { desc = "First quickfix item" } },
     },
     ["z"] = {
       next = { rhs = "zj", opts = { desc = "Next fold" } },
