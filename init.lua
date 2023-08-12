@@ -58,6 +58,7 @@ require("plugins.diffview")
 require("plugins.luasnip")
 require("plugins.trouble")
 require("plugins.nvim-surround")
+require("plugins.mini-ai")
 require("plugins.vim-visual-multi")
 
 require("plugins.wilder")
