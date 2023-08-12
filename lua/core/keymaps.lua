@@ -34,6 +34,20 @@ map("i", "<C-k>", "<Esc>")
 map("n", "<space>", "<Nop>")
 map("x", "<space>", "<Nop>")
 
+-- avoid accidents for keymappings
+map("n", "<leader>x", "<Nop>")
+map("n", "<leader>d", "<Nop>")
+map("n", "<leader>c", "<Nop>")
+map("n", "<leader>y", "<Nop>")
+map("n", "<leader>f", "<Nop>")
+map("n", "<leader>r", "<Nop>")
+map("n", "<leader>l", "<Nop>")
+map("n", "<leader>t", "<Nop>")
+map("n", "<leader>m", "<Nop>")
+map("n", "<leader>g", "<Nop>")
+map("n", "<leader>s", "<Nop>")
+map("n", "<leader>a", "<Nop>")
+
 -- disable unused keys
 map("n", "<C-y>", "<Nop>")
 map("n", "<S-h>", "<Nop>")
