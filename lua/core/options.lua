@@ -86,7 +86,7 @@ opt.breakindent   = true    -- Enable break indent
 opt.termguicolors = true    -- Enable 24-bit RGB colors
 opt.laststatus    = 3       -- Set global statusline
 opt.shortmess:append "sI"   -- Disable nvim intro
-opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 -----------------------------------------------------------
 -- Tabs, indent
 -----------------------------------------------------------

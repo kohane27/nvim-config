@@ -6,8 +6,8 @@ end
 nap.setup({
   next_prefix = "]",
   prev_prefix = "[",
-  next_repeat = "g,",
-  prev_repeat = "g;",
+  next_repeat = ",",
+  prev_repeat = ";",
   operators = {
     ["d"] = {
       next = { rhs = "<cmd>Lspsaga diagnostic_jump_next<CR>", opts = { desc = "Next diagnostic" } },
@@ -15,8 +15,8 @@ nap.setup({
       mode = { "n", "v", "o" },
     },
     ["e"] = {
-      next = { rhs = "g;", opts = { desc = "Older edit (change-list) item" } },
-      prev = { rhs = "g,", opts = { desc = "Newer edit (change-list) item" } },
+      next = { rhs = "g;zz", opts = { desc = "Older edit (change-list) item" } },
+      prev = { rhs = "g,zz", opts = { desc = "Newer edit (change-list) item" } },
     },
     ["l"] = {
       next = { rhs = "<cmd>lnext<cr>", opts = { desc = "Next loclist item" } },
