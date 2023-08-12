@@ -37,4 +37,14 @@ saga.setup({
     border = "rounded", -- single, double, rounded, solid, shadow
     winblend = 0,
   },
+  outline = {
+    layout = "float",
+    max_height = 0.8,
+    left_width = 0.3,
+    keys = {
+      toggle_or_jump = "o",
+      quit = "q",
+      jump = "e",
+    },
+  },
 })
