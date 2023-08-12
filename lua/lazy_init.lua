@@ -157,7 +157,6 @@ require("lazy").setup({
   -- "machakann/vim-sandwich",
 
   -- "abecodes/tabout.nvim", -- tabbing out from parentheses and quotes
-  -- "wellle/targets.vim", -- superseded by `nvim-treesitter-textobjects`
   "mbbill/undotree",
 
   "https://git.sr.ht/~nedia/auto-save.nvim",
@@ -200,8 +199,10 @@ require("lazy").setup({
   { "TheSafdarAwan/find-extender.nvim", branch = "alpha" },
 
   "cbochs/grapple.nvim",
+
   -- "LeonHeidelbach/trailblazer.nvim",
   "chentoast/marks.nvim",
+
   "aserowy/tmux.nvim",
 
   { "kevinhwang91/nvim-bqf", ft = "qf" },
@@ -212,7 +213,6 @@ require("lazy").setup({
   { "mtdl9/vim-log-highlighting", ft = "log" },
   { "chrisbra/csv.vim", ft = { "csv", "dat" } },
   { "ledger/vim-ledger", ft = "ledger" },
-  -- "kmonad/kmonad-vim",
 
   -- preview markdown
   { "ellisonleao/glow.nvim", ft = "markdown" },
@@ -260,6 +260,10 @@ require("lazy").setup({
   },
 
   "liangxianzhe/nap.nvim",
+  {
+    "inkarkat/vim-EnhancedJumps",
+    event = "VeryLazy",
+  },
 
   {
     "tummetott/reticle.nvim",

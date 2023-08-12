@@ -236,6 +236,8 @@ legendary.setup({
       description = "LSP: Document Diagnostics",
     },
     { "<leader>xl", '<cmd>lua require("trouble").open("loclist")<CR>', description = "LSP: Location List" },
+    { "<leader>xt", "<cmd>TodoQuickFix<CR>", description = "Todo Quickfix" },
+
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ bufferline                                               │
     -- ╰──────────────────────────────────────────────────────────╯
@@ -371,56 +373,57 @@ legendary.setup({
     -- ╰──────────────────────────────────────────────────────────╯
     -- jdtls
     {
-      "<leader>MXw",
+      "<leader>MXja",
       "<cmd>JdtWipeDataAndRestart<CR>",
       filters = { filetype = "java" },
       description = "jdtls: Wipe Data and Restart",
     },
     {
-      "<leader>MXu",
+      "<leader>MXjb",
       "<cmd>JdtUpdateConfig<CR>",
       filters = { filetype = "java" },
       description = "jdtls: Update Config",
     },
     {
-      "<leader>MXa",
+      "<leader>MXjc",
       "<cmd>lua require'jdtls'.organize_imports()<CR>",
       filters = { filetype = "java" },
       description = "jdtls: Organize Import",
     },
     {
-      "<leader>MXb",
+      "<leader>MXjd",
       "<cmd>lua require('jdtls').extract_variable()<CR>",
       filters = { filetype = "java" },
       description = "jdtls: Extract Variable",
     },
     {
-      "<leader>MXc",
+      "<leader>MXje",
       "<csc><Cmd>lua require('jdtls').extract_variable(true)<CR>",
       filters = { filetype = "java" },
       description = "jdtls: Extract Variable",
       mode = { "v" },
     },
     {
-      "<leader>MXd",
+      "<leader>MXjf",
       "<cmd>lua require('jdtls').extract_constant()<CR>",
       filters = { filetype = "java" },
       description = "jdtls: Extract Constant",
     },
     {
-      "<leader>MXe",
+      "<leader>MXjg",
       "<Esc><cmd>lua require('jdtls').extract_constant(true)<CR>",
       filters = { filetype = "java" },
       description = "jdtls: Extract Constant",
       mode = { "v" },
     },
     {
-      "<leader>MXf",
+      "<leader>MXjh",
       "<Esc><cmd>lua require('jdtls').extract_method(true)<CR>",
       filters = { filetype = "java" },
       description = "jdtls: Extract Method",
       mode = { "v" },
     },
+
     { "<leader>MXLs", "<cmd>Lazy sync<CR>", description = "Lazy: Update" },
     { "<leader>MXLc", "<cmd>Lazy clean<CR>", description = "Lazy: Clean" },
     { "<leader>MXi", "<cmd>LspInfo<CR>", description = "LSP: Info" },
@@ -434,11 +437,8 @@ legendary.setup({
       description = "Preview Markdown",
     },
 
-    { "<leader>Mxxse", "<cmd>ScrollViewEnable<CR>", description = "ScrollView: Enable" },
-    { "<leader>Mxxsd", "<cmd>ScrollViewDisable<CR>", description = "ScrollView: Disable" },
-
-    -- { "<leader>MTT", "<cmd>TodoTelescope<CR>", description = "Todo Telescope" },
-    { "<leader>MTQ", "<cmd>TodoQuickFix<CR>", description = "Todo Quickfix" },
+    { "<leader>Mxxse", "<cmd>ScrollViewToggle<CR>", description = "ScrollViewToggle: Enable" },
+    { "<leader>Mxxsd", "<cmd>TSContextToggle<CR>", description = "TSContextToggle: Toggle" },
 
     { "<leader>MCP", "<cmd>Colortils picker<CR>", description = "Colortils: Picker" },
     { "<leader>MCL", "<cmd>Colortils css list<CR>", description = "Colortils: CSS List" },
