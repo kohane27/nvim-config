@@ -173,18 +173,18 @@ legendary.setup({
       description = "Telescope: Find Text",
     },
     { "<leader>ff", "<cmd>lua require('telescope.builtin').git_files()<CR>", description = "Telescope: Find Files" },
-    -- { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" }, -- disabled because bug
+    { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
     { "<leader>fo", "<cmd>Telescope oldfiles<CR>", description = "Telescope: Open Recent File" },
     {
       "<leader>fd",
       "<cmd>lua require('telescope').extensions.olddirs.picker()<CR>",
       description = "Telescope: Open Recent Directories",
     },
-    { "<leader>f.", "<cmd>Telescope resume<CR>", description = "Telescope: Resume" },
+    { "<leader>fr", "<cmd>Telescope resume<CR>", description = "Telescope: Resume" },
     { "<leader>ft", "<cmd>Telescope buffers<CR>", description = "Telescope: Buffers" },
     { "<leader>fj", "<cmd>Telescope jumplist<CR>", description = "Telescope: Jumplist" },
     { "<leader>fp", "<cmd>Telescope projects<CR>", description = "Telescope: Find Projects" },
-    { "<leader>fr", "<cmd>Telescope neoclip<CR>", description = "Telescope: Clipboard History" },
+    { "<leader>fc", "<cmd>Telescope neoclip<CR>", description = "Telescope: Clipboard History" },
     { "<leader>fXc", "<cmd>Telescope command_history<CR>", description = "Telescope: Command History" },
     { "<leader>fXs", "<cmd>Telescope search_history<CR>", description = "Telescope: Search History" },
 
@@ -209,7 +209,6 @@ legendary.setup({
 
     { "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", description = "LSP: Go to Previous Diagnostic" },
     { "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", description = "LSP: Go to Next Diagnostic" },
-    { "[D", "<cmd>TroubleToggle workspace_diagnostics<CR>", description = "LSP: Workspace Diagnostics" },
 
     { "gd", "<cmd>Lspsaga goto_definition<CR>", description = "LSP: Go to Definition" },
     { "gD", "<cmd>Lspsaga peek_definition<CR>", description = "LSP: Preview Definition" },
@@ -230,14 +229,29 @@ legendary.setup({
     { "<leader>lXc", "<cmd>lua vim.lsp.codelens.run()<CR>", description = "LSP: Code Lens" },
     { "<leader>lXd", "<cmd>lua vim.lsp.buf.declaration<CR>", description = "LSP: Declaration" },
     { "<leader>lXf", "<cmd>lua vim.lsp.buf.format()<CR>", description = "LSP: Formatting" },
-    { "<leader>lXl", "<cmd>TroubleToggle loclist<CR>", description = "LSP: Location List" },
 
     -- lesser used
     -- implementation (rarely) using `Lspsaga lsp_finder`
     -- { "<leader>li", "<cmd>lua vim.lsp.buf.implementation()<CR>", description = "LSP: Go to Implementation" },
     -- { "<leader>lq", "<cmd>copen<CR>", description = "LSP: Quickfix List" }, -- using `nvim-bqf`
-    -- { "[D", "<cmd>TroubleToggle document_diagnostics<CR>", description = "LSP: Document Diagnostics" },
 
+    -- ╭──────────────────────────────────────────────────────────╮
+    -- │ Trouble.nvim                                             │
+    -- ╰──────────────────────────────────────────────────────────╯
+    { "<leader>x", "" }, -- disable cut char
+    { "<leader>xx", '<cmd>lua require("trouble").open()<CR>', description = "LSP: Document Diagnostics" },
+    { "<leader>xq", "<cmd>copen<CR>", description = "LSP: Quickfix List" },
+    {
+      "<leader>xw",
+      '<cmd>lua require("trouble").open("workspace_diagnostics")<CR>',
+      description = "LSP: Workspace Diagnostics",
+    },
+    {
+      "<leader>xd",
+      '<cmd>lua require("trouble").open("document_diagnostics")<CR>',
+      description = "LSP: Document Diagnostics",
+    },
+    { "<leader>xl", '<cmd>lua require("trouble").open("loclist")<CR>', description = "LSP: Location List" },
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ bufferline                                               │
     -- ╰──────────────────────────────────────────────────────────╯
@@ -440,7 +454,7 @@ legendary.setup({
     { "<leader>Mxxsd", "<cmd>ScrollViewDisable<CR>", description = "ScrollView: Disable" },
 
     -- { "<leader>MTT", "<cmd>TodoTelescope<CR>", description = "Todo Telescope" },
-    { "<leader>MTQ", "<cmd>TodoQuickFix<CR>", description = "Todo QuickFix" },
+    { "<leader>MTQ", "<cmd>TodoQuickFix<CR>", description = "Todo Quickfix" },
 
     { "<leader>MCP", "<cmd>Colortils picker<CR>", description = "Colortils: Picker" },
     { "<leader>MCL", "<cmd>Colortils css list<CR>", description = "Colortils: CSS List" },

@@ -54,7 +54,7 @@ telescope.setup({
 
     mappings = {
       i = {
-        ["<C-c>"] = actions.close,
+        -- ["<C-c>"] = actions.close,
         -- ["<esc>"] = actions.close,
         ["<C-j>"] = actions.cycle_history_next,
         ["<C-k>"] = actions.cycle_history_prev,
@@ -65,13 +65,14 @@ telescope.setup({
         ["<CR>"] = actions.select_default,
 
         ["<C-d>"] = false,
-        ["<C-u>"] = false, -- clear prompt
+        ["<C-u>"] = false, -- using default to clear prompt
 
         -- ["<C-l>"] = actions.complete_tag,
       },
 
       n = {
-        -- ["<C-c>"] = actions.close,
+        ["?"] = false,
+        ["q"] = actions.close,
         ["<CR>"] = actions.select_default,
         ["<C-w>s"] = actions.select_horizontal,
         ["<C-w>v"] = actions.select_vertical,
@@ -87,12 +88,13 @@ telescope.setup({
         ["<C-b>"] = actions.preview_scrolling_up,
         ["<C-f>"] = actions.preview_scrolling_down,
 
+        ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+        ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+        -- `<C-q>` conflict with `lazygit`
+        ["<leader>xq"] = actions.send_selected_to_qflist + actions.open_qflist,
+        ["<leader>xQ"] = actions.send_to_qflist + actions.open_qflist,
+
         ["<C-u>"] = actions.move_selection_previous
-          + actions.move_selection_previous
-          + actions.move_selection_previous
-          + actions.move_selection_previous
-          + actions.move_selection_previous
-          + actions.move_selection_previous
           + actions.move_selection_previous
           + actions.move_selection_previous
           + actions.move_selection_previous
@@ -102,20 +104,7 @@ telescope.setup({
           + actions.move_selection_next
           + actions.move_selection_next
           + actions.move_selection_next
-          + actions.move_selection_next
-          + actions.move_selection_next
-          + actions.move_selection_next
-          + actions.move_selection_next
-          + actions.move_selection_next
           + actions.move_selection_next,
-
-        ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-        ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-        -- `<C-q>` conflict with `lazygit`
-        ["<leader>xx"] = actions.send_selected_to_qflist + actions.open_qflist,
-        ["<leader>xa"] = actions.send_to_qflist + actions.open_qflist,
-
-        ["?"] = actions.which_key,
       },
     },
   },
