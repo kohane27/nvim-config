@@ -78,11 +78,6 @@ map("x", "j", "gj")
 map("x", "J", "5j")
 map("x", "K", "5k")
 
--- moving lines
--- using `gomove`
--- map("v", "<C-j>", ":move '>+1<CR>gv=gv")
--- map("v", "<C-k>", ":move '<-2<CR>gv=gv")
-
 -- backspace to black hole registry
 map("n", "<BS>", '"_')
 map("x", "<BS>", '"_')

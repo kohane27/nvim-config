@@ -67,7 +67,6 @@ telescope.setup({
         ["<C-d>"] = false,
         ["<C-u>"] = false, -- using default to clear prompt
 
-        -- ["<C-l>"] = actions.complete_tag,
       },
 
       n = {
