@@ -129,8 +129,11 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Jumplist                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<C-o>", "<C-o>zz", description = "Jumplist: Backward" },
-    { "<C-i>", "<C-i>zz", description = "Jumplist: Foward" },
+    { "<C-o>", "<Cmd><Plug>EnhancedJumpsLocalOlder<CR>zz", description = "Jumplist: Local Backward" },
+    { "<C-i>", "<Cmd><Plug>EnhancedJumpsLocalNewer<CR>zz", description = "Jumplist: Local Forward" },
+
+    { "<A-o>", "<Cmd><Plug>EnhancedJumpsRemoteOlder<CR>zz", description = "Jumplist: Remote Backward" },
+    { "<A-i>", "<Cmd><Plug>EnhancedJumpsRemoteNewer<CR>zz", description = "Jumplist: Remote Forward" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Telescope                                                │
