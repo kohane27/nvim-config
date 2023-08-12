@@ -194,9 +194,6 @@ legendary.setup({
     { "gh", "<cmd>Lspsaga hover_doc ++quiet<CR>", description = "LSP: Hover Doc (quiet)" },
     { "gH", "<cmd>Lspsaga hover_doc ++keep<CR>", description = "LSP: Hover Doc (keep)" },
 
-    { "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", description = "LSP: Go to Previous Diagnostic" },
-    { "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", description = "LSP: Go to Next Diagnostic" },
-
     { "gd", "<cmd>Lspsaga goto_definition<CR>", description = "LSP: Go to Definition" },
     { "gD", "<cmd>Lspsaga peek_definition<CR>", description = "LSP: Preview Definition" },
 

@@ -39,6 +39,8 @@ require("plugins.leap")
 -- require("plugins.flit")
 -- require("plugins.clever-f")
 require("plugins.find-extender")
+require("plugins.nap")
+
 require("plugins.marks")
 require("plugins.grapple")
 

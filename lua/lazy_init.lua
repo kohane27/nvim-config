@@ -131,7 +131,6 @@ require("lazy").setup({
   -- "ibhagwan/fzf-lua", -- for `:changes`
   "tpope/vim-repeat",
   -- "tpope/vim-unimpaired",
-  "liangxianzhe/nap.nvim",
   "numToStr/Comment.nvim",
   "nvim-tree/nvim-web-devicons",
   "nvim-tree/nvim-tree.lua",
@@ -259,6 +258,8 @@ require("lazy").setup({
       require("mini.trailspace").setup()
     end,
   },
+
+  "liangxianzhe/nap.nvim",
 
   {
     "tummetott/reticle.nvim",
