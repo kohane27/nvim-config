@@ -20,6 +20,7 @@ end
 -- marks.lua
 -- ufo.lua
 -- nvim-surround.lua
+-- nap.lua
 
 -----------------------------------------------------------
 -- Neovim shortcuts
