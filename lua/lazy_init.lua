@@ -251,6 +251,7 @@ require("lazy").setup({
   {
     "inkarkat/vim-EnhancedJumps",
     event = "VeryLazy",
+    dependencies = { "inkarkat/vim-ingo-library" },
   },
 
   {

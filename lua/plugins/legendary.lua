@@ -127,15 +127,6 @@ legendary.setup({
     { "<C-v>", "<C-R>*", description = "Paste Clipboard Content", mode = { "i", "c" } },
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │ Jumplist                                                 │
-    -- ╰──────────────────────────────────────────────────────────╯
-    { "<C-o>", "<Cmd><Plug>EnhancedJumpsLocalOlder<CR>zz", description = "Jumplist: Local Backward" },
-    { "<C-i>", "<Cmd><Plug>EnhancedJumpsLocalNewer<CR>zz", description = "Jumplist: Local Forward" },
-
-    { "<A-o>", "<Cmd><Plug>EnhancedJumpsRemoteOlder<CR>zz", description = "Jumplist: Remote Backward" },
-    { "<A-i>", "<Cmd><Plug>EnhancedJumpsRemoteNewer<CR>zz", description = "Jumplist: Remote Forward" },
-
-    -- ╭──────────────────────────────────────────────────────────╮
     -- │ Telescope                                                │
     -- ╰──────────────────────────────────────────────────────────╯
     {
@@ -282,6 +273,69 @@ legendary.setup({
     { "<C-x>", require("dial.map").dec_normal(), description = "Decrement" },
 
     -- ╭──────────────────────────────────────────────────────────╮
+    -- │ EnhancedJumps                                            │
+    -- ╰──────────────────────────────────────────────────────────╯
+    {
+      "<C-o>",
+      function()
+        local success, err = pcall(function()
+          vim.api.nvim_feedkeys(
+            vim.api.nvim_replace_termcodes("<Plug>EnhancedJumpsLocalOlder", true, true, true),
+            "n",
+            true
+          )
+          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("zz", true, true, true), "n", true)
+        end)
+      end,
+      description = "EnhancedJumpsLocalOlder",
+      opts = { noremap = true, silent = true },
+    },
+    {
+      "<C-i>",
+      function()
+        local success, err = pcall(function()
+          vim.api.nvim_feedkeys(
+            vim.api.nvim_replace_termcodes("<Plug>EnhancedJumpsLocalNewer", true, true, true),
+            "n",
+            true
+          )
+          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("zz", true, true, true), "n", true)
+        end)
+      end,
+      description = "EnhancedJumpsLocalNewer",
+      opts = { noremap = true, silent = true },
+    },
+    {
+      "<A-o>",
+      function()
+        local success, err = pcall(function()
+          vim.api.nvim_feedkeys(
+            vim.api.nvim_replace_termcodes("<Plug>EnhancedJumpsRemoteOlder", true, true, true),
+            "n",
+            true
+          )
+          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("zz", true, true, true), "n", true)
+        end)
+      end,
+      description = "EnhancedJumpsRemoteOlder",
+      opts = { noremap = true, silent = true },
+    },
+    {
+      "<A-i>",
+      function()
+        local success, err = pcall(function()
+          vim.api.nvim_feedkeys(
+            vim.api.nvim_replace_termcodes("<Plug>EnhancedJumpsRemoteNewer", true, true, true),
+            "n",
+            true
+          )
+          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("zz", true, true, true), "n", true)
+        end)
+      end,
+      description = "EnhancedJumpsRemoteNewer",
+      opts = { noremap = true, silent = true },
+    },
+    -- ╭──────────────────────────────────────────────────────────╮
     -- │ tmux.lua                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
     { "<A-h>", toolbox.lazy_required_fn("tmux", "move_left"), description = "Move Focus to Left" },
@@ -309,8 +363,6 @@ legendary.setup({
     -- │  Grapple                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
     { "M", toolbox.lazy_required_fn("grapple", "popup_tags"), description = "Grapple: View All Tags" },
-    { "<C-j>", toolbox.lazy_required_fn("grapple", "cycle_forward"), description = "Grapple: Next Tag" },
-    { "<C-k>", toolbox.lazy_required_fn("grapple", "cycle_backward"), description = "Grapple: Previous Tag" },
     { "<leader>mm", toolbox.lazy_required_fn("grapple", "toggle"), description = "Grapple: Tag or Untag File" },
     { "m1", "<cmd>lua require('grapple').select({key = 1})<CR>", description = "Grapple: File 1" },
     { "m2", "<cmd>lua require('grapple').select({key = 2})<CR>", description = "Grapple: File 2" },
