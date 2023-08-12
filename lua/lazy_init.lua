@@ -205,9 +205,7 @@ require("lazy").setup({
   "chentoast/marks.nvim",
   "aserowy/tmux.nvim",
 
-  "kevinhwang91/nvim-bqf",
-  -- pretty list; works with `nvim-bqf`
-  "yorickpeterse/nvim-pqf",
+  { "kevinhwang91/nvim-bqf", ft = "qf" },
 
   -- filetypes
   -- "ekickx/clipboard-image.nvim", -- copy clipboard image to nvim

@@ -80,7 +80,6 @@ require("plugins.nvim-lastplace")
 
 require("plugins.ufo")
 require("plugins.nvim-bqf")
-require("plugins.pqf")
 
 require("plugins.registers")
 require("plugins.cutlass")
