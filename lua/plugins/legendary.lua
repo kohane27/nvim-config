@@ -120,8 +120,8 @@ legendary.setup({
 
     { "<C-p>", "<cmd>Legendary<CR>", description = "Legendary Command Palette", mode = { "n", "i", "x" } },
 
-    { "<C-d>", "<Cmd>lua Scroll('<C-f>', 1, 1)<CR>", description = "Smooth scrolling: down", mode = { "n", "x" } },
-    { "<C-u>", "<Cmd>lua Scroll('<C-b>', 1, 1)<CR>", description = "Smooth scrolling: up", mode = { "n", "x" } },
+    { "<C-d>", "<cmd>lua Scroll('<C-f>', 1, 1)<CR>", description = "Smooth scrolling: down", mode = { "n", "x" } },
+    { "<C-u>", "<cmd>lua Scroll('<C-b>', 1, 1)<CR>", description = "Smooth scrolling: up", mode = { "n", "x" } },
 
     -- { "<C-f>", '<C-R>"', description = "Paste Last Yanked / Deleted", mode = { "i" } },
     { "<C-v>", "<C-R>*", description = "Paste Clipboard Content", mode = { "i", "c" } },
@@ -211,12 +211,10 @@ legendary.setup({
     -- lesser used
     -- implementation (rarely) using `Lspsaga lsp_finder`
     -- { "<leader>li", "<cmd>lua vim.lsp.buf.implementation()<CR>", description = "LSP: Go to Implementation" },
-    -- { "<leader>lq", "<cmd>copen<CR>", description = "LSP: Quickfix List" }, -- using `nvim-bqf`
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Trouble.nvim                                             │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>x", "" }, -- disable cut char
     { "<leader>xx", '<cmd>lua require("trouble").open()<CR>', description = "LSP: Document Diagnostics" },
     { "<leader>xq", "<cmd>copen<CR>", description = "LSP: Quickfix List" },
     {
@@ -285,6 +283,40 @@ legendary.setup({
     { "<C-S-j>", toolbox.lazy_required_fn("tmux", "resize_bottom"), description = "Resize Bottom" },
 
     -- ╭──────────────────────────────────────────────────────────╮
+    -- │ Diffview                                                 │
+    -- ╰──────────────────────────────────────────────────────────╯
+    { "<leader>di", "<cmd>DiffviewOpen<CR>", description = "Diffview: Compare Index" },
+    { "<leader>dh", "<cmd>DiffviewOpen HEAD~1<CR>", description = "Diffview: Current Commit And the Commit Before" },
+
+    { "<leader>db", "<cmd>DiffviewFileHistory<CR>", description = "Diffview: File History of Current Branch" },
+    { "<leader>df", "<cmd>DiffviewFileHistory %<CR>", description = "Diffview: File History of Current File" },
+    {
+      "<leader>dr",
+      "<cmd>'<,'>DiffviewFileHistory<CR>",
+      description = "Diffview: Line Evolution of Given Range in the Current File",
+      mode = "v",
+    },
+
+    {
+      "<Esc>",
+      "<cmd>DiffviewClose<CR>",
+      description = "Diffview: Close",
+      filters = { bt = { "DiffviewFiles", "DiffviewFileHistory" } },
+    },
+    {
+      "<C-t>",
+      "<cmd>DiffviewToggleFiles<CR>",
+      description = "Diffview: Toggle File Panel",
+      filters = { bt = { "DiffviewFiles", "DiffviewFileHistory" } },
+    },
+    {
+      "<C-r>",
+      "<cmd>DiffviewRefresh<CR>",
+      description = "Diffview: Refresh",
+      filters = { bt = { "DiffviewFiles", "DiffviewFileHistory" } },
+    },
+
+    -- ╭──────────────────────────────────────────────────────────╮
     -- │ Run Code                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
     { "<leader>rf", "<cmd>RunCode<CR>", description = "Run File" },
@@ -309,21 +341,12 @@ legendary.setup({
     { "m6", "<cmd>lua require('grapple').select({key = 6})<CR>", description = "Grapple: File 6" },
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │ Test                                                     │
-    -- ╰──────────────────────────────────────────────────────────╯
-    -- { "<leader>Gt", "<cmd>TestNearest<CR>", description = "Test: Nearest" },
-    -- { "<leader>GT", "<cmd>TestFile<CR>", description = "Test: File" },
-    -- { "<leader>Ga", "<cmd>TestSuite<CR>", description = "Test: Suite" },
-    -- { "<leader>Gl", "<cmd>TestLast<CR>", description = "Test: Last" },
-    -- { "<leader>Gg", "<cmd>TestVisit<CR>", description = "Test: Visit" },
-
-    -- ╭──────────────────────────────────────────────────────────╮
     -- │ Session                                                  │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>SXs", "<cmd>SessionSave<CR>", description = "Session: Save" },
-    { "<leader>SXr", "<cmd>SessionRestore<CR>", description = "Session: Restore" },
-    { "<leader>SXd", "<cmd>SessionDelete<CR>", description = "Session: Delete" },
-    { "<leader>SXl", "<cmd>lua require('session-lens').search_session()<CR>", description = "Session: Search" },
+    { "<leader>ss", "<cmd>SessionSave<CR>", description = "Session: Save" },
+    { "<leader>sr", "<cmd>SessionRestore<CR>", description = "Session: Restore" },
+    { "<leader>sd", "<cmd>SessionDelete<CR>", description = "Session: Delete" },
+    { "<leader>sl", "<cmd>lua require('session-lens').search_session()<CR>", description = "Session: Search" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ AI                                                       │
