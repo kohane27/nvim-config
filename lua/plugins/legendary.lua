@@ -103,7 +103,7 @@ legendary.setup({
   },
   keymaps = {
     -- NOTE: the following are available:
-    -- gp, gn J, K, H, L, gj, gk, gh
+    -- C-j, C-k, gp, gn J, K, H, L, gh
 
     -- <C-KEY>
     { "<C-f>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
@@ -157,9 +157,9 @@ legendary.setup({
     { "<leader>fo", "<cmd>Telescope oldfiles<CR>", description = "Telescope: Open Recent File" },
     -- TODO: test with zoxide
     {
-      "<leader>g",
+      "<leader>fz",
       '<cmd>lua require("telescope").extensions.zoxide.list()<CR>',
-      description = "Telescope: Find Frecency",
+      description = "Telescope: Zoxide",
     },
     { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
     {

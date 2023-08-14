@@ -4,8 +4,8 @@ if not status_ok then
 end
 
 nap.setup({
-  next_prefix = "<C-j>",
-  prev_prefix = "<C-k>",
+  next_prefix = "gj",
+  prev_prefix = "gk",
   next_repeat = ",",
   prev_repeat = ";",
   operators = {

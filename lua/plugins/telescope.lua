@@ -45,6 +45,7 @@ telescope.setup({
       ".cache",
       -- "package.json",
       "package-lock.json",
+      "npm-shrinkwrap.json",
       "yarn.lock",
       ".obsidian",
     },
@@ -91,8 +92,8 @@ telescope.setup({
         ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
         -- `<C-q>` conflict with `lazygit`
-        ["<leader>xq"] = actions.send_selected_to_qflist + actions.open_qflist,
-        ["<leader>xQ"] = actions.send_to_qflist + actions.open_qflist,
+        ["<leader>x"] = actions.send_selected_to_qflist + actions.open_qflist,
+        ["<leader>X"] = actions.send_to_qflist + actions.open_qflist,
 
         ["<C-u>"] = actions.move_selection_previous
           + actions.move_selection_previous

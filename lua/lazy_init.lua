@@ -142,14 +142,14 @@ require("lazy").setup({
 
   "kdheepak/lazygit.nvim",
 
-  {
-    "kylechui/nvim-surround",
-    event = "VeryLazy",
-  },
   -- fix: https://github.com/kylechui/nvim-surround/issues/153
   {
     "echasnovski/mini.ai",
     version = false,
+  },
+  {
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
   },
   -- "machakann/vim-sandwich",
 
@@ -222,6 +222,8 @@ require("lazy").setup({
 
   {
     "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    -- commit = "24bcca7",
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",

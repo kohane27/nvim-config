@@ -11,7 +11,7 @@ local function map(mode, lhs, rhs)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- NOTE: useful insert mode `C-g` is unmapped
+-- NOTE: Insert mode `C-g` is unmapped
 -- custom keymaps in files:
 -- leap.lua
 -- toggleterm.lua
@@ -35,6 +35,9 @@ map("n", "<space>", "<Nop>")
 map("x", "<space>", "<Nop>")
 
 -- make way for `nap.nvim`
+map("n", "gj", "<Nop>")
+map("n", "gk", "<Nop>")
+
 map("n", "<C-j>", "<Nop>")
 map("n", "<C-k>", "<Nop>")
 
