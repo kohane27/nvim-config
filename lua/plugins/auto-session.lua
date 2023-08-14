@@ -8,9 +8,6 @@ if not status_ok_2 then
   print("session-lens not working")
 end
 
--- https://github.com/rmagatti/auto-session#recommended-sessionoptions-config
-vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-
 auto_session.setup({
   auto_save_enabled = true,
   auto_restore_enabled = true,
