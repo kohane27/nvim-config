@@ -68,6 +68,7 @@ opt.relativenumber = true     -- Show relative line number
 opt.showmatch      = false    -- Highlight matching parenthesis
 opt.cmdheight      = 2
 opt.showmode       = false    -- No -- INSERT --
+opt.modeline       = false
 opt.scrolloff      = 4        -- cursor won't go the bottom
 opt.sidescrolloff  = 4
 opt.pumheight      = 10       -- pop up menu height
