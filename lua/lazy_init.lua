@@ -223,7 +223,6 @@ require("lazy").setup({
   {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
-    -- commit = "24bcca7",
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
