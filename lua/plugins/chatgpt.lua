@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 chatgpt.setup({
+  api_host_cmd = "echo -n 'api.openai.com'",
   edit_with_instructions = {
     keymaps = {
       close = "<leader>q",

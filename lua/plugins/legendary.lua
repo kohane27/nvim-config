@@ -5,7 +5,7 @@ end
 
 local toolbox = require("legendary.toolbox")
 
-function vim.getVisualSelection()
+function vim.get_visual_selection()
   vim.cmd('noau normal! "vy"')
   local text = vim.fn.getreg("v")
   vim.fn.setreg("v", {})
@@ -134,7 +134,7 @@ legendary.setup({
       {
         n = "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>",
         v = function()
-          local text = vim.getVisualSelection()
+          local text = vim.get_visual_selection()
           require("telescope.builtin").current_buffer_fuzzy_find({ default_text = text })
         end,
       },
@@ -147,7 +147,7 @@ legendary.setup({
           vim.live_grep_from_project_git_root()
         end,
         v = function()
-          local text = vim.getVisualSelection()
+          local text = vim.get_visual_selection()
           require("telescope.builtin").live_grep({ default_text = text })
         end,
       },
@@ -502,6 +502,13 @@ legendary.setup({
       "<leader>MRTwAWC",
       '<cmd>%s/[“”]/"/g<CR>',
       description = "Replace All Double Curly Quotes",
+    },
+
+    {
+      "<leader>MRTwAWX",
+      '<cmd>%s/0 " "//g<CR>',
+      description = "Remove zero quote quote",
+      filters = { filetype = "ledger" },
     },
   },
 })

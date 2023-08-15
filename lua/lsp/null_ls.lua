@@ -13,11 +13,11 @@ local formatting = null_ls.builtins.formatting
 
 local sources = {
 
-  formatting.prettier.with({
-    disabled_filetypes = { "json", "html", "markdown" }, -- they're in `lsp_config.lua`
-    extra_args = { "--tabWidth=2" }, -- "--semi=false"
-    -- extra_args = { "--single-quote", "--jsx-single-quote" },
-  }),
+  -- formatting.prettier.with({
+  --   disabled_filetypes = { "json", "html", "markdown" }, -- they're in `lsp_config.lua`
+  --   extra_args = { "--tabWidth=2" }, -- "--semi=false"
+  --   -- extra_args = { "--single-quote", "--jsx-single-quote" },
+  -- }),
 
   -- use LSP in `lsp_config.lua`
   -- formatting.eslint_d,
