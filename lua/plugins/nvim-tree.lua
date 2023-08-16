@@ -1,12 +1,12 @@
--- local status_ok, nvim_tree = pcall(require, "nvim-tree")
--- if not status_ok then
---   print("nvim-tree not working")
--- end
---
--- local config_status_ok, _ = pcall(require, "nvim-tree.config")
--- if not config_status_ok then
---   print("nvim-tree.config not working")
--- end
+local status_ok, nvim_tree = pcall(require, "nvim-tree")
+if not status_ok then
+  print("nvim-tree not working")
+end
+
+local api_status_ok, api = pcall(require, "nvim-tree.api")
+if not api_status_ok then
+  print("nvim-tree.api not working")
+end
 
 -- https://github.com/ibhagwan/fzf-lua/issues/390
 -- vim.cmd([[
@@ -15,8 +15,6 @@
 -- ]])
 
 local function on_attach(bufnr)
-  local api = require("nvim-tree.api")
-
   local function opts(desc)
     return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
@@ -56,18 +54,17 @@ local function on_attach(bufnr)
   vim.keymap.set("n", ".", api.node.run.cmd, opts("Run Command"))
 end
 
-
 require("nvim-tree").setup({
   on_attach = on_attach,
-  sync_root_with_cwd = true,
-  respect_buf_cwd = true,
+  sync_root_with_cwd = false,
+  respect_buf_cwd = false,
   update_focused_file = {
     enable = true,
     update_root = true,
   },
   actions = {
     change_dir = {
-      enable = true,
+      enable = false,
       global = false,
     },
     open_file = {
@@ -78,9 +75,9 @@ require("nvim-tree").setup({
   filters = {
     custom = { "node_modules", ".cache", ".bin" },
   },
-  -- notify = {
-  --   threshold = vim.log.levels.ERROR,
-  -- },
+  notify = {
+    threshold = vim.log.levels.ERROR,
+  },
   view = {
     adaptive_size = true,
   },

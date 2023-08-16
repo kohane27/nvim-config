@@ -57,8 +57,8 @@ require("plugins.diffview")
 
 require("plugins.luasnip")
 require("plugins.trouble")
-require("plugins.nvim-surround")
 require("plugins.mini-ai")
+require("plugins.nvim-surround")
 require("plugins.vim-visual-multi")
 
 require("plugins.wilder")
@@ -78,7 +78,7 @@ require("plugins.nvim-scrollbar")
 require("plugins.nvim-scrollview")
 require("plugins.illuminate")
 require("plugins.todo-comments")
-require("plugins.nvim-lastplace")
+-- require("plugins.nvim-lastplace")
 
 require("plugins.ufo")
 require("plugins.nvim-bqf")
@@ -97,7 +97,7 @@ require("plugins.spectre")
 require("plugins.code_runner")
 require("plugins.sniprun")
 
-require("plugins.mkdnflow")
+-- require("plugins.mkdnflow")
 
 require("plugins.tmux")
 -- require("plugins.vim-test")

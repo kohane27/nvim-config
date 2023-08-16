@@ -103,14 +103,13 @@ legendary.setup({
   },
   keymaps = {
     -- NOTE: the following are available:
-    -- C-j, C-k, gp, gn J, K, H, L, gh
+    -- C-j, C-k, J!!, K!! ,gp, gn, H, L, gh
 
     -- <C-KEY>
     { "<C-f>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
     { "<C-e>", '<cmd>lua require("ranger-nvim").open(true)<CR>', description = "Ranger" },
     { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
     { "<C-t>", "<cmd>ToggleTerm<CR>", description = " New terminal" },
-    -- { "<C-g>", "<cmd>lua require('telescope.builtin').find_files()<CR>", description = "Telescope: Find Files" },
     {
       "<C-g>",
       function()
@@ -154,20 +153,21 @@ legendary.setup({
       },
       description = "Telescope: Find Text",
     },
-    { "<leader>ff", "<cmd>lua require('telescope.builtin').git_files()<CR>", description = "Telescope: Find Files" },
-    { "<leader>fo", "<cmd>Telescope oldfiles<CR>", description = "Telescope: Open Recent File" },
+    { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>", description = "Telescope: Find Files" },
+    { "<leader>fd", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
     -- TODO: test with zoxide
     {
       "<leader>fz",
       '<cmd>lua require("telescope").extensions.zoxide.list()<CR>',
       description = "Telescope: Zoxide",
     },
-    { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
-    { "<leader>fr", "<cmd>Telescope resume<CR>", description = "Telescope: Resume" },
-    { "<leader>ft", "<cmd>Telescope buffers<CR>", description = "Telescope: Buffers" },
-    { "<leader>fj", "<cmd>Telescope jumplist<CR>", description = "Telescope: Jumplist" },
     { "<leader>fp", "<cmd>Telescope projects<CR>", description = "Telescope: Find Projects" },
     { "<leader>fc", "<cmd>Telescope neoclip<CR>", description = "Telescope: Clipboard History" },
+    { "<leader>fr", "<cmd>Telescope resume<CR>", description = "Telescope: Resume" },
+    { "<leader>ft", "<cmd>Telescope buffers<CR>", description = "Telescope: Tabs" },
+
+    { "<leader>fXo", "<cmd>Telescope oldfiles<CR>", description = "Telescope: Open Recent File" },
+    { "<leader>fXj", "<cmd>Telescope jumplist<CR>", description = "Telescope: Jumplist" },
     { "<leader>fXc", "<cmd>Telescope command_history<CR>", description = "Telescope: Command History" },
     { "<leader>fXs", "<cmd>Telescope search_history<CR>", description = "Telescope: Search History" },
 
@@ -498,7 +498,7 @@ legendary.setup({
     {
       "<leader>MRTwAWX",
       '<cmd>%s/0 " "//g<CR>',
-      description = "Remove zero quote quote",
+      description = "hledger: Remove zero quote quote",
       filters = { filetype = "ledger" },
     },
   },
