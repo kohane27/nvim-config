@@ -109,6 +109,7 @@ legendary.setup({
     { "<C-f>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
     { "<C-e>", '<cmd>lua require("ranger-nvim").open(true)<CR>', description = "Ranger" },
     { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
+    { "<C-t>", "<cmd>ToggleTerm<CR>", description = " New terminal" },
     -- { "<C-g>", "<cmd>lua require('telescope.builtin').find_files()<CR>", description = "Telescope: Find Files" },
     {
       "<C-g>",
@@ -328,11 +329,6 @@ legendary.setup({
     { "<leader>rf", "<cmd>RunCode<CR>", description = "Run File" },
     { "<leader>rs", "<cmd>SnipRun<CR>", description = "Run Snip" },
     { "<leader>rc", "<cmd>SnipClose<CR>", description = "Close Snip" },
-
-    -- ╭──────────────────────────────────────────────────────────╮
-    -- │ Terminal                                                 │
-    -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>tn", "<cmd>ToggleTerm<CR>", description = " New terminal" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │  Grapple                                                 │

@@ -134,7 +134,7 @@ require("lazy").setup({
   "freddiehaddad/feline.nvim",
 
   -- terminal
-  "akinsho/toggleterm.nvim",
+  { "akinsho/toggleterm.nvim", version = "*" },
 
   -- `ranger`
   -- "is0n/fm-nvim",
