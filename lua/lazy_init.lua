@@ -51,13 +51,18 @@ require("lazy").setup({
   -- enhanced with `nvim-treesitter-textobjects`
   "andymass/vim-matchup", -- can't lazy load
   -- { "elgiano/nvim-treesitter-angular", branch = "topic/jsx-fix" },
+
   "windwp/nvim-ts-autotag",
+
   -- integrated with cmp and treesitter
   "windwp/nvim-autopairs",
+
   -- rainbow parentheses
   "hiphish/rainbow-delimiters.nvim",
+
   -- indentation guides
   "lukas-reineke/indent-blankline.nvim",
+
   "mizlan/iswap.nvim",
   "monaqa/dial.nvim",
 
@@ -258,7 +263,13 @@ require("lazy").setup({
     "echasnovski/mini.misc",
     version = false,
     config = function()
-      require("mini.misc").setup()
+      require("mini.misc").setup({
+        -- restore cursor position on file reopen
+        require("mini.misc").setup_restore_cursor(),
+
+        -- automated change of current directory
+        require("mini.misc").setup_auto_root(),
+      })
     end,
   },
 
@@ -296,14 +307,11 @@ require("lazy").setup({
   -- "folke/noice.nvim",
 
   -- note-taking/task management
-  -- markdown conflicting with vim-wiki
-  { "jakewvincent/mkdnflow.nvim", ft = "markdown" },
-  {
-    "chrishrb/gx.nvim",
-    event = { "BufEnter" },
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = true,
-  },
+  -- `mkdnflow` conflicting with `vim-wiki`
+  -- { "jakewvincent/mkdnflow.nvim", ft = "markdown" },
+
+  -- open links
+  { "chrishrb/gx.nvim", event = "VeryLazy", config = true },
 
   -- "vimwiki/vimwiki",
   -- "tools-life/taskwiki",
@@ -315,7 +323,7 @@ require("lazy").setup({
   "tversteeg/registers.nvim",
 
   -- open files at last edit position
-  "ethanholz/nvim-lastplace",
+  -- "ethanholz/nvim-lastplace",
 
   "max397574/colortils.nvim",
   "norcalli/nvim-colorizer.lua",

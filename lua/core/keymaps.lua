@@ -87,8 +87,8 @@ map("n", "<C-a>", "<nop>")
 map("n", "<C-x>", "<nop>")
 map("n", "d$", "<nop>")
 
--- map("n", "<Leader>j", "J")
--- map("n", "<Leader>k", "K")
+map("n", "<Leader>j", "J")
+map("n", "<Leader>k", "K")
 
 -- operate on display lines rather than real lines
 map("n", "k", "gk")

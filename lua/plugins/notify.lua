@@ -5,7 +5,7 @@ end
 
 local banned_messages = {
   "[LSP] Format request failed, no matching language servers.",
-  "Telescope-Frecency: removed",
+  "Telescope-Frecency: removed %d missing entries.",
   "No information available",
 }
 

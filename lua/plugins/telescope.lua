@@ -69,15 +69,16 @@ telescope.setup({
 
         ["<C-d>"] = false,
         ["<C-u>"] = false, -- using default to clear prompt
+        ["<C-w>"] = { "<C-S-w>", type = "command" }, -- using default to delete word
       },
 
       n = {
         ["?"] = false,
         ["q"] = actions.close,
         ["<CR>"] = actions.select_default,
-        ["<C-w>s"] = actions.select_horizontal,
-        ["<C-w>v"] = actions.select_vertical,
-        -- ["<C-w>t"] = actions.select_tab,
+        ["<C-s>"] = actions.select_horizontal,
+        ["<C-v>"] = actions.select_vertical,
+        -- ["<C-t>"] = actions.select_tab,
 
         ["j"] = actions.move_selection_next,
         ["k"] = actions.move_selection_previous,
@@ -91,9 +92,8 @@ telescope.setup({
 
         ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-        -- `<C-q>` conflict with `lazygit`
+        ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
         ["<leader>x"] = actions.send_selected_to_qflist + actions.open_qflist,
-        ["<leader>X"] = actions.send_to_qflist + actions.open_qflist,
 
         ["<C-u>"] = actions.move_selection_previous
           + actions.move_selection_previous
@@ -114,32 +114,41 @@ telescope.setup({
       fuzzy = true,
       override_generic_sorter = true,
       override_file_sorter = true,
-      case_mode = "ignore_case", -- or "smart_case", "ignore_case", "respect_case"
+      case_mode = "smart_case", -- or "smart_case", "ignore_case", "respect_case"
     },
     frecency = {
       show_scores = false,
       show_unindexed = false,
       auto_validate = true,
-      disable_devicons = false,
+      db_validate_threshold = 999,
+      db_safe_mode = false,
       ignore_patterns = { "*.git/*", "*/tmp/*", "*/node_modules/*" },
-      workspaces = {
-        ["conf"] = "~/.config",
-        ["data"] = "~/.local/share",
-        ["project"] = "~/Documents",
-      },
     },
     zoxide = {
-      -- Zoxide list command with score
       list_command = "zoxide query -ls",
       mappings = {
         default = {
-          action = function(selection)
-            vim.cmd.edit(selection.path)
+          before_action = function(selection)
+            -- print("before C-s")
+            -- 1. save all buffers
+            vim.cmd("wa")
+            -- 2. delete all buffers
+            for _, e in ipairs(require("bufferline").get_elements().elements) do
+              vim.schedule(function()
+                vim.cmd("bd " .. e.id)
+              end)
+            end
           end,
           after_action = function(selection)
-            -- TODO: remove current windows and buffers
+            -- print("Update to (" .. selection.z_score .. ") " .. selection.path)
+            require("mini.misc").setup_auto_root(selection.path)
+            -- vim.cmd.tcd(selection.path)
+            -- TODO: 3. check if session is present
+            -- 4. file picker
             builtin.find_files({ cwd = selection.path })
           end,
+          -- after_action = function(selection)
+          -- end,
         },
         ["<C-w>s"] = { action = z_utils.create_basic_command("split") },
         ["<C-w>v"] = { action = z_utils.create_basic_command("vsplit") },
