@@ -1,14 +1,12 @@
-local status_ok, nvim_tree = pcall(require, "nvim-tree")
+-- local status_ok, nvim_tree = pcall(require, "nvim-tree")
 -- if not status_ok then
 --   print("nvim-tree not working")
 -- end
-
-local config_status_ok, _ = pcall(require, "nvim-tree.config")
+--
+-- local config_status_ok, _ = pcall(require, "nvim-tree.config")
 -- if not config_status_ok then
 --   print("nvim-tree.config not working")
 -- end
-
--- local tree_cb = nvim_tree_config.nvim_tree_callback
 
 -- https://github.com/ibhagwan/fzf-lua/issues/390
 -- vim.cmd([[
@@ -16,7 +14,51 @@ local config_status_ok, _ = pcall(require, "nvim-tree.config")
 -- autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 -- ]])
 
-nvim_tree.setup({
+local function on_attach(bufnr)
+  local api = require("nvim-tree.api")
+
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  vim.keymap.set("n", "<C-w>v", api.node.open.vertical, opts("Open: Vertical Split"))
+  vim.keymap.set("n", "<C-w>s", api.node.open.horizontal, opts("Open: Horizontal Split"))
+  vim.keymap.set("n", "o", api.node.open.preview, opts("Open Preview"))
+  vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
+  vim.keymap.set("n", "<C-r>", api.tree.reload, opts("Refresh"))
+  vim.keymap.set("n", "a", api.fs.create, opts("Create"))
+  vim.keymap.set("n", "<leader>rn", api.fs.rename, opts("Rename"))
+  vim.keymap.set("n", "<leader>rN", api.fs.rename_sub, opts("Rename: Omit Filename"))
+  vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Close Directory"))
+  vim.keymap.set("n", "J", function()
+    vim.cmd(":normal 5j")
+  end, opts("move_down_fast"))
+
+  vim.keymap.set("n", "K", function()
+    vim.cmd(":normal 5k")
+  end, opts("move_up_fast"))
+
+  vim.keymap.set("n", "D", api.fs.trash, opts("Trash"))
+  vim.keymap.set("n", "dd", api.fs.cut, opts("Cut"))
+  vim.keymap.set("n", "pp", api.fs.paste, opts("Paste"))
+  vim.keymap.set("n", "yy", api.fs.copy.node, opts("Copy"))
+  vim.keymap.set("n", "yn", api.fs.copy.filename, opts("Copy Name"))
+  vim.keymap.set("n", "yp", api.fs.copy.relative_path, opts("Copy Relative Path"))
+  vim.keymap.set("n", "yP", api.fs.copy.absolute_path, opts("Copy Absolute Path"))
+  vim.keymap.set("n", "q", api.tree.close, opts("Close"))
+  vim.keymap.set("n", "-", api.tree.change_root_to_parent, opts("Up"))
+  vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
+  vim.keymap.set("n", "f", api.live_filter.start, opts("Filter"))
+  vim.keymap.set("n", "F", api.live_filter.clear, opts("Clean Filter"))
+  vim.keymap.set("n", "P", api.node.navigate.parent, opts("Parent Directory"))
+  vim.keymap.set("n", "H", api.tree.collapse_all, opts("Collapse"))
+  vim.keymap.set("n", "L", api.tree.expand_all, opts("Expand All"))
+  vim.keymap.set("n", ".", api.node.run.cmd, opts("Run Command"))
+end
+
+
+require("nvim-tree").setup({
+  on_attach = on_attach,
   sync_root_with_cwd = true,
   respect_buf_cwd = true,
   update_focused_file = {
@@ -36,64 +78,10 @@ nvim_tree.setup({
   filters = {
     custom = { "node_modules", ".cache", ".bin" },
   },
-  notify = {
-    threshold = vim.log.levels.ERROR,
-  },
+  -- notify = {
+  --   threshold = vim.log.levels.ERROR,
+  -- },
   view = {
     adaptive_size = true,
-    mappings = {
-      custom_only = true,
-      list = {
-        { key = "<C-w>v", action = "vsplit" },
-        { key = "<C-w>s", action = "split" },
-        -- { key = "<C-w>t", action = "tabnew" }, -- <C-t> to close tree
-
-        { key = "o", action = "preview" },
-        { key = "l", action = "edit" },
-
-        { key = "<C-r>", action = "refresh" },
-        { key = "a", action = "create" },
-        { key = "<leader>rn", action = "rename" },
-        { key = "<leader>rN", action = "full_rename" },
-        { key = "h", action = "close_node" },
-
-        {
-          key = "J",
-          action = "move_down_fast",
-          action_cb = function()
-            vim.cmd(":normal 5j")
-          end,
-        },
-        {
-          key = "K",
-          action = "move_up_fast",
-          action_cb = function()
-            vim.cmd(":normal 5k")
-          end,
-        },
-
-        { key = "D", action = "trash" },
-        { key = "dd", action = "cut" },
-        { key = "pp", action = "paste" },
-        { key = "yy", action = "copy" },
-        { key = "yn", action = "copy_name" },
-        { key = "yp", action = "copy_path" },
-        { key = "yP", action = "copy_absolute_path" },
-        { key = "q", action = "close" },
-        { key = "-", action = "dir_up" },
-        { key = "?", action = "toggle_help" },
-
-        -- useful to search
-        { key = "f", action = "live_filter" },
-        { key = "F", action = "clear_live_filter" },
-
-        -- rarely
-        -- { key = "cd", action = "cd" },
-        { key = "P", action = "parent_node" },
-        { key = "H", action = "collapse_all" },
-        { key = "L", action = "expand_all" },
-        { key = ".", action = "run_file_command" },
-      },
-    },
   },
 })
