@@ -163,11 +163,6 @@ legendary.setup({
       description = "Telescope: Zoxide",
     },
     { "<leader>fF", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
-    {
-      "<leader>fd",
-      "<cmd>lua require('telescope').extensions.olddirs.picker()<CR>",
-      description = "Telescope: Open Recent Directories",
-    },
     { "<leader>fr", "<cmd>Telescope resume<CR>", description = "Telescope: Resume" },
     { "<leader>ft", "<cmd>Telescope buffers<CR>", description = "Telescope: Buffers" },
     { "<leader>fj", "<cmd>Telescope jumplist<CR>", description = "Telescope: Jumplist" },
