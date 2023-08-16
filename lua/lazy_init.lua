@@ -254,6 +254,13 @@ require("lazy").setup({
       require("mini.trailspace").setup()
     end,
   },
+  {
+    "echasnovski/mini.misc",
+    version = false,
+    config = function()
+      require("mini.misc").setup()
+    end,
+  },
 
   "liangxianzhe/nap.nvim",
 
