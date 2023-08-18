@@ -126,10 +126,21 @@ require("lazy").setup({
   "numToStr/Comment.nvim",
   "nvim-tree/nvim-web-devicons",
   "nvim-tree/nvim-tree.lua",
+
   -- buffers
   "akinsho/bufferline.nvim",
+
   -- preserve layouts when deleting buffers
   "famiu/bufdelete.nvim",
+
+  -- scoped buffers
+  {
+    "tiagovla/scope.nvim",
+    config = function()
+      require("scope").setup({})
+    end,
+  },
+
   -- `<C-w>o` maximizes window without closing other buffers
   "nyngwang/NeoZoom.lua",
 

@@ -152,10 +152,12 @@ telescope.setup({
       mappings = {
         default = {
           after_action = function(selection)
-            for _, e in ipairs(require("bufferline").get_elements().elements) do
-              vim.cmd("bd " .. e.id)
-            end
+            -- delete all buffers
+            -- for _, e in ipairs(require("bufferline").get_elements().elements) do
+            --   vim.cmd("bd " .. e.id)
+            -- end
             -- vim.cmd("Rooter")
+            vim.cmd("tabnew")
             find_files_from_project_git_root(selection.path)
           end,
         },
@@ -168,3 +170,4 @@ telescope.load_extension("fzf")
 telescope.load_extension("frecency")
 telescope.load_extension("neoclip")
 telescope.load_extension("zoxide")
+telescope.load_extension("scope")
