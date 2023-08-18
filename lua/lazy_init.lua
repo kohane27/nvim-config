@@ -48,8 +48,11 @@ require("lazy").setup({
       "JoosepAlviste/nvim-ts-context-commentstring",
     },
   },
-  -- enhanced with `nvim-treesitter-textobjects`
-  "andymass/vim-matchup", -- can't lazy load
+  -- can't lazy load
+  { "andymass/vim-matchup", dependencies = {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+  } },
+
   -- { "elgiano/nvim-treesitter-angular", branch = "topic/jsx-fix" },
 
   "windwp/nvim-ts-autotag",
