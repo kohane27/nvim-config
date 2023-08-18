@@ -385,63 +385,11 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous (leader M; random shortcuts)             │
     -- ╰──────────────────────────────────────────────────────────╯
-    -- jdtls
-    {
-      "<leader>MXja",
-      "<cmd>JdtWipeDataAndRestart<CR>",
-      filters = { filetype = "java" },
-      description = "jdtls: Wipe Data and Restart",
-    },
-    {
-      "<leader>MXjb",
-      "<cmd>JdtUpdateConfig<CR>",
-      filters = { filetype = "java" },
-      description = "jdtls: Update Config",
-    },
-    {
-      "<leader>MXjc",
-      "<cmd>lua require'jdtls'.organize_imports()<CR>",
-      filters = { filetype = "java" },
-      description = "jdtls: Organize Import",
-    },
-    {
-      "<leader>MXjd",
-      "<cmd>lua require('jdtls').extract_variable()<CR>",
-      filters = { filetype = "java" },
-      description = "jdtls: Extract Variable",
-    },
-    {
-      "<leader>MXje",
-      "<csc><Cmd>lua require('jdtls').extract_variable(true)<CR>",
-      filters = { filetype = "java" },
-      description = "jdtls: Extract Variable",
-      mode = { "v" },
-    },
-    {
-      "<leader>MXjf",
-      "<cmd>lua require('jdtls').extract_constant()<CR>",
-      filters = { filetype = "java" },
-      description = "jdtls: Extract Constant",
-    },
-    {
-      "<leader>MXjg",
-      "<Esc><cmd>lua require('jdtls').extract_constant(true)<CR>",
-      filters = { filetype = "java" },
-      description = "jdtls: Extract Constant",
-      mode = { "v" },
-    },
-    {
-      "<leader>MXjh",
-      "<Esc><cmd>lua require('jdtls').extract_method(true)<CR>",
-      filters = { filetype = "java" },
-      description = "jdtls: Extract Method",
-      mode = { "v" },
-    },
-
     { "<leader>MXLs", "<cmd>Lazy sync<CR>", description = "Lazy: Update" },
     { "<leader>MXLc", "<cmd>Lazy clean<CR>", description = "Lazy: Clean" },
     { "<leader>MXi", "<cmd>LspInfo<CR>", description = "LSP: Info" },
     { "<leader>MXa", "<cmd>Mason<CR>", description = "LSP: Install Info" },
+    { "<leader>MXt", "<cmd>ScopeMoveBuf<CR>", description = "Scope: Move Current Buffer to Specified Tab" },
 
     {
       "<leader>MXxp",
@@ -502,6 +450,60 @@ legendary.setup({
       '<cmd>%s/0 " "//g<CR>',
       description = "hledger: Remove zero quote quote",
       filters = { filetype = "ledger" },
+    },
+    --  ╭──────────────────────────────────────────────────────────╮
+    --  │ jdtls                                                    │
+    --  ╰──────────────────────────────────────────────────────────╯
+    {
+      "<leader>MXja",
+      "<cmd>JdtWipeDataAndRestart<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Wipe Data and Restart",
+    },
+    {
+      "<leader>MXjb",
+      "<cmd>JdtUpdateConfig<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Update Config",
+    },
+    {
+      "<leader>MXjc",
+      "<cmd>lua require'jdtls'.organize_imports()<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Organize Import",
+    },
+    {
+      "<leader>MXjd",
+      "<cmd>lua require('jdtls').extract_variable()<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Extract Variable",
+    },
+    {
+      "<leader>MXje",
+      "<csc><Cmd>lua require('jdtls').extract_variable(true)<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Extract Variable",
+      mode = { "v" },
+    },
+    {
+      "<leader>MXjf",
+      "<cmd>lua require('jdtls').extract_constant()<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Extract Constant",
+    },
+    {
+      "<leader>MXjg",
+      "<Esc><cmd>lua require('jdtls').extract_constant(true)<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Extract Constant",
+      mode = { "v" },
+    },
+    {
+      "<leader>MXjh",
+      "<Esc><cmd>lua require('jdtls').extract_method(true)<CR>",
+      filters = { filetype = "java" },
+      description = "jdtls: Extract Method",
+      mode = { "v" },
     },
   },
 })
