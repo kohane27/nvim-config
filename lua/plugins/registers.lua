@@ -32,7 +32,7 @@ registers.setup({
     register_type_blockwise = "",
   },
   window = {
-    border = "single",
+    border = "rounded",
     transparency = 10,
   },
 })
