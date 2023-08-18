@@ -120,8 +120,8 @@ telescope.setup({
       show_scores = false,
       show_unindexed = false,
       auto_validate = true,
-      db_validate_threshold = 999,
       db_safe_mode = false,
+      db_validate_threshold = 999,
       ignore_patterns = { "*.git/*", "*/tmp/*", "*/node_modules/*" },
     },
     zoxide = {
@@ -134,40 +134,23 @@ telescope.setup({
             vim.cmd("wa")
             -- 2. delete all buffers
             for _, e in ipairs(require("bufferline").get_elements().elements) do
-              vim.schedule(function()
-                vim.cmd("bd " .. e.id)
-              end)
+              vim.cmd("bd " .. e.id)
             end
+            vim.find_files_from_project_git_root()
           end,
           after_action = function(selection)
             -- print("Update to (" .. selection.z_score .. ") " .. selection.path)
-            require("mini.misc").setup_auto_root(selection.path)
-            -- vim.cmd.tcd(selection.path)
-            -- TODO: 3. check if session is present
-            -- 4. file picker
-            builtin.find_files({ cwd = selection.path })
           end,
           -- after_action = function(selection)
           -- end,
         },
-        ["<C-w>s"] = { action = z_utils.create_basic_command("split") },
-        ["<C-w>v"] = { action = z_utils.create_basic_command("vsplit") },
+        ["<C-s>"] = { action = z_utils.create_basic_command("split") },
+        ["<C-v>"] = { action = z_utils.create_basic_command("vsplit") },
         ["<C-e>"] = { action = z_utils.create_basic_command("edit") },
-        ["<C-b>"] = {
-          keepinsert = true,
-          action = function(selection)
-            builtin.file_browser({ cwd = selection.path })
-          end,
-        },
         ["<C-f>"] = {
           keepinsert = true,
           action = function(selection)
             builtin.find_files({ cwd = selection.path })
-          end,
-        },
-        ["<C-t>"] = {
-          action = function(selection)
-            vim.cmd.tcd(selection.path)
           end,
         },
       },
