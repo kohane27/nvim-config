@@ -5,7 +5,7 @@ end
 
 local toolbox = require("legendary.toolbox")
 
-function vim.get_visual_selection()
+local function get_visual_selection()
   vim.cmd('noau normal! "vy"')
   local text = vim.fn.getreg("v")
   vim.fn.setreg("v", {})
@@ -17,7 +17,7 @@ function vim.get_visual_selection()
   end
 end
 
-function vim.close_all_but_current_buffer()
+local function close_all_but_current_buffer()
   for _, e in ipairs(require("bufferline").get_elements().elements) do
     vim.schedule(function()
       if e.id == vim.api.nvim_get_current_buf() then
@@ -29,7 +29,7 @@ function vim.close_all_but_current_buffer()
   end
 end
 
-function vim.live_grep_from_project_git_root()
+local function live_grep_from_project_git_root()
   if vim.fn.getcwd() == os.getenv("HOME") then
     return print("Current directory is home. Exiting")
   end
@@ -50,7 +50,7 @@ function vim.live_grep_from_project_git_root()
   require("telescope.builtin").live_grep(opts)
 end
 
-function vim.find_files_from_project_git_root()
+local function find_files_from_project_git_root()
   if vim.fn.getcwd() == os.getenv("HOME") then
     return print("Current directory is home. Exiting")
   end
@@ -71,7 +71,7 @@ function vim.find_files_from_project_git_root()
   require("telescope.builtin").find_files(opts)
 end
 
-function vim.markdown_preview()
+local function markdown_preview()
   local buf = vim.api.nvim_create_buf(false, true)
   local current_buf = vim.api.nvim_get_current_buf()
 
@@ -113,7 +113,7 @@ legendary.setup({
     {
       "<C-g>",
       function()
-        vim.find_files_from_project_git_root()
+        find_files_from_project_git_root()
       end,
       description = "Telescope: Find Files",
     },
@@ -134,7 +134,7 @@ legendary.setup({
       {
         n = "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>",
         v = function()
-          local text = vim.get_visual_selection()
+          local text = get_visual_selection()
           require("telescope.builtin").current_buffer_fuzzy_find({ default_text = text })
         end,
       },
@@ -144,10 +144,10 @@ legendary.setup({
       "<leader>fg",
       {
         n = function()
-          vim.live_grep_from_project_git_root()
+          live_grep_from_project_git_root()
         end,
         v = function()
-          local text = vim.get_visual_selection()
+          local text = get_visual_selection()
           require("telescope.builtin").live_grep({ default_text = text })
         end,
       },
@@ -254,7 +254,7 @@ legendary.setup({
     {
       "gXa",
       function()
-        vim.close_all_but_current_buffer()
+        close_all_but_current_buffer()
       end,
       description = "Buffer: Close All But Current",
     },
@@ -444,7 +444,7 @@ legendary.setup({
     {
       "<leader>MXxp",
       function()
-        vim.markdown_preview()
+        markdown_preview()
       end,
       description = "Preview Markdown",
     },
