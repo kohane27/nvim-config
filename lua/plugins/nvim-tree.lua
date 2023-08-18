@@ -56,7 +56,7 @@ end
 
 require("nvim-tree").setup({
   on_attach = on_attach,
-  -- following 5 lines requested by `nvim-rooter`
+  -- change the following 5 lines and `zoxide` won't work
   respect_buf_cwd = true,
   update_focused_file = {
     enable = true,

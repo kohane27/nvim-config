@@ -33,12 +33,6 @@ require("lazy").setup({
   -- Telescope extensions
   -- "ahmedkhalf/project.nvim",
   "jvgrootveld/telescope-zoxide",
-  -- {
-  --   "notjedi/nvim-rooter.lua",
-  --   config = function()
-  --     require("nvim-rooter").setup({ manual = true, fallback_to_parent = true })
-  --   end,
-  -- },
   { "nvim-telescope/telescope-frecency.nvim", dependencies = { "kkharji/sqlite.lua" } },
 
   -- clipboard manager
@@ -174,7 +168,10 @@ require("lazy").setup({
     },
   },
 
-  "sindrets/diffview.nvim",
+  {
+    "sindrets/diffview.nvim",
+    event = "VeryLazy",
+  },
   -- "akinsho/git-conflict.nvim",
 
   -- {
@@ -203,8 +200,12 @@ require("lazy").setup({
   -- "ggandor/flit.nvim",
   -- "rhysd/clever-f.vim",
   { "TheSafdarAwan/find-extender.nvim", branch = "alpha" },
+  "liangxianzhe/nap.nvim",
 
-  "cbochs/grapple.nvim",
+  {
+    "cbochs/grapple.nvim",
+    event = "VeryLazy",
+  },
 
   -- "LeonHeidelbach/trailblazer.nvim",
   "chentoast/marks.nvim",
@@ -221,12 +222,11 @@ require("lazy").setup({
   { "ledger/vim-ledger", ft = "ledger" },
 
   -- preview markdown
-  { "ellisonleao/glow.nvim", ft = "markdown" },
+  { "ellisonleao/glow.nvim", ft = "markdown", event = "VeryLazy" },
 
   -- task runners
   { "michaelb/sniprun", build = "bash ./install.sh" },
   "CRAG666/code_runner.nvim",
-  -- TODO: configure
   -- "stevearc/overseer.nvim",
 
   {
@@ -250,7 +250,7 @@ require("lazy").setup({
   "ja-ford/delaytrain.nvim",
 
   -- find and replace
-  "nvim-pack/nvim-spectre",
+  { "nvim-pack/nvim-spectre", event = "VeryLazy" },
 
   "mg979/vim-visual-multi",
 
@@ -265,21 +265,9 @@ require("lazy").setup({
       require("mini.trailspace").setup()
     end,
   },
-  {
-    "echasnovski/mini.misc",
-    version = false,
-    config = function()
-      require("mini.misc").setup({
-        -- restore cursor position on file reopen
-        require("mini.misc").setup_restore_cursor(),
 
-        -- automated change of current directory
-        require("mini.misc").setup_auto_root(),
-      })
-    end,
-  },
-
-  "liangxianzhe/nap.nvim",
+  -- "ethanholz/nvim-lastplace",
+  { "echasnovski/mini.misc", version = false },
 
   {
     "tummetott/reticle.nvim",
@@ -327,9 +315,6 @@ require("lazy").setup({
 
   -- see register contents
   "tversteeg/registers.nvim",
-
-  -- open files at last edit position
-  -- "ethanholz/nvim-lastplace",
 
   "max397574/colortils.nvim",
   "norcalli/nvim-colorizer.lua",
