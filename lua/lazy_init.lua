@@ -31,7 +31,7 @@ require("lazy").setup({
   },
 
   -- Telescope extensions
-  "ahmedkhalf/project.nvim",
+  -- "ahmedkhalf/project.nvim",
   "jvgrootveld/telescope-zoxide",
   {
     "notjedi/nvim-rooter.lua",

@@ -16,7 +16,7 @@ require("lsp.vim_diagnostics")
 require("lsp.lspsaga")
 
 require("plugins.telescope")
-require("plugins.project_nvim")
+-- require("plugins.project_nvim")
 require("plugins.zoxide")
 
 require("plugins.treesitter")
