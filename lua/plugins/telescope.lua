@@ -4,10 +4,9 @@ if not status_ok then
 end
 
 local actions = require("telescope.actions")
-local builtin = require("telescope.builtin")
 
--- use the vim.live_grep_from_project_git_root and nvim will become unbearably slow
-local function live_grep_from_project_git_root(selection)
+-- use `vim.find_files_from_project_git_root` and nvim will become unbearably slow
+local function find_files_from_project_git_root(selection)
   if vim.fn.getcwd() == os.getenv("HOME") then
     return print("Current directory is home. Exiting")
   end
@@ -29,7 +28,7 @@ local function live_grep_from_project_git_root(selection)
       cwd = selection.path,
     }
   end
-  require("telescope.builtin").live_grep(opts)
+  require("telescope.builtin").find_files(opts)
 end
 
 telescope.setup({
@@ -157,7 +156,7 @@ telescope.setup({
               vim.cmd("bd " .. e.id)
             end
             -- vim.cmd("Rooter")
-            live_grep_from_project_git_root({ cwd = selection.path })
+            find_files_from_project_git_root(selection.path)
           end,
         },
       },
