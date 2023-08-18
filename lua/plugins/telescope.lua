@@ -6,6 +6,32 @@ end
 local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
 
+-- use the vim.live_grep_from_project_git_root and nvim will become unbearably slow
+local function live_grep_from_project_git_root(selection)
+  if vim.fn.getcwd() == os.getenv("HOME") then
+    return print("Current directory is home. Exiting")
+  end
+  local function is_git_repo()
+    vim.fn.system("git rev-parse --is-inside-work-tree")
+    return vim.v.shell_error == 0
+  end
+  local function get_git_root()
+    local dot_git_path = vim.fn.finddir(".git", ".;")
+    return vim.fn.fnamemodify(dot_git_path, ":h")
+  end
+  local opts = {}
+  if is_git_repo() then
+    opts = {
+      cwd = get_git_root(),
+    }
+  else
+    opts = {
+      cwd = selection.path,
+    }
+  end
+  require("telescope.builtin").live_grep(opts)
+end
+
 telescope.setup({
   defaults = {
     layout_config = {
@@ -123,9 +149,23 @@ telescope.setup({
       db_safe_mode = false,
       ignore_patterns = { "*.git/*", "*/tmp/*", "*/node_modules/*" },
     },
+    zoxide = {
+      mappings = {
+        default = {
+          after_action = function(selection)
+            for _, e in ipairs(require("bufferline").get_elements().elements) do
+              vim.cmd("bd " .. e.id)
+            end
+            -- vim.cmd("Rooter")
+            live_grep_from_project_git_root({ cwd = selection.path })
+          end,
+        },
+      },
+    },
   },
 })
 
 telescope.load_extension("fzf")
 telescope.load_extension("frecency")
 telescope.load_extension("neoclip")
+telescope.load_extension("zoxide")
