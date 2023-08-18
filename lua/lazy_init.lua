@@ -33,6 +33,12 @@ require("lazy").setup({
   -- Telescope extensions
   "ahmedkhalf/project.nvim",
   "jvgrootveld/telescope-zoxide",
+  {
+    "notjedi/nvim-rooter.lua",
+    config = function()
+      require("nvim-rooter").setup({ manual = true, fallback_to_parent = true })
+    end,
+  },
   { "nvim-telescope/telescope-frecency.nvim", dependencies = { "kkharji/sqlite.lua" } },
 
   -- clipboard manager
@@ -268,7 +274,7 @@ require("lazy").setup({
         require("mini.misc").setup_restore_cursor(),
 
         -- automated change of current directory
-        require("mini.misc").setup_auto_root(),
+        -- require("mini.misc").setup_auto_root(),
       })
     end,
   },

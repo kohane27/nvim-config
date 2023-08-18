@@ -5,7 +5,6 @@ end
 
 local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
-local z_utils = require("telescope._extensions.zoxide.utils")
 
 telescope.setup({
   defaults = {
@@ -124,37 +123,6 @@ telescope.setup({
       db_safe_mode = false,
       ignore_patterns = { "*.git/*", "*/tmp/*", "*/node_modules/*" },
     },
-    zoxide = {
-      list_command = "zoxide query -ls",
-      mappings = {
-        default = {
-          before_action = function(selection)
-            -- print("before C-s")
-            -- 1. save all buffers
-            vim.cmd("wa")
-            -- 2. delete all buffers
-            for _, e in ipairs(require("bufferline").get_elements().elements) do
-              vim.cmd("bd " .. e.id)
-            end
-            vim.find_files_from_project_git_root()
-          end,
-          after_action = function(selection)
-            -- print("Update to (" .. selection.z_score .. ") " .. selection.path)
-          end,
-          -- after_action = function(selection)
-          -- end,
-        },
-        ["<C-s>"] = { action = z_utils.create_basic_command("split") },
-        ["<C-v>"] = { action = z_utils.create_basic_command("vsplit") },
-        ["<C-e>"] = { action = z_utils.create_basic_command("edit") },
-        ["<C-f>"] = {
-          keepinsert = true,
-          action = function(selection)
-            builtin.find_files({ cwd = selection.path })
-          end,
-        },
-      },
-    },
   },
 })
 
@@ -162,4 +130,3 @@ telescope.load_extension("fzf")
 telescope.load_extension("projects")
 telescope.load_extension("frecency")
 telescope.load_extension("neoclip")
-telescope.load_extension("zoxide")
