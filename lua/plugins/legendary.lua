@@ -262,6 +262,14 @@ legendary.setup({
     },
 
     -- ╭──────────────────────────────────────────────────────────╮
+    -- │ Tab (for scope.nvim)                                     │
+    -- ╰──────────────────────────────────────────────────────────╯
+    { "<leader>th", "<cmd>tabprev<CR>", description = "Tab: Previous" },
+    { "<leader>tl", "<cmd>tabnext<CR>", description = "Tab: Next" },
+    { "<leader>tn", "<cmd>tabnew<CR>", description = "Tab: New" },
+    { "<leader>tc", "<cmd>tabclose<CR>", description = "Tab: Close" },
+
+    -- ╭──────────────────────────────────────────────────────────╮
     -- │ substitute.lua                                           │
     -- ╰──────────────────────────────────────────────────────────╯
     { "X", "<cmd>ISwapWith<CR>", description = "Swap" },
@@ -299,13 +307,6 @@ legendary.setup({
       "<cmd>'<,'>DiffviewFileHistory<CR>",
       description = "Diffview: Line Evolution of Given Range in the Current File",
       mode = "v",
-    },
-
-    {
-      "<Esc>",
-      "<cmd>DiffviewClose<CR>",
-      description = "Diffview: Close",
-      filters = { bt = { "DiffviewFiles", "DiffviewFileHistory" } },
     },
     -- {
     --   "<C-t>",

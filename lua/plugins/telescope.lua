@@ -102,7 +102,7 @@ telescope.setup({
         ["<CR>"] = actions.select_default,
         ["<C-s>"] = actions.select_horizontal,
         ["<C-v>"] = actions.select_vertical,
-        -- ["<C-t>"] = actions.select_tab,
+        ["<C-t>"] = actions.select_tab,
 
         ["j"] = actions.move_selection_next,
         ["k"] = actions.move_selection_previous,
