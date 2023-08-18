@@ -56,9 +56,6 @@ require("plugins.diffview")
 require("plugins.luasnip")
 require("plugins.trouble")
 
-require("plugins.mini-misc")
-
-require("plugins.mini-ai")
 require("plugins.nvim-surround")
 require("plugins.vim-visual-multi")
 
@@ -79,7 +76,7 @@ require("plugins.nvim-scrollbar")
 require("plugins.nvim-scrollview")
 require("plugins.illuminate")
 require("plugins.todo-comments")
--- require("plugins.nvim-lastplace")
+require("plugins.mini-misc")
 
 require("plugins.ufo")
 require("plugins.nvim-bqf")

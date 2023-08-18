@@ -156,14 +156,13 @@ require("lazy").setup({
 
   "kdheepak/lazygit.nvim",
 
-  -- fix: https://github.com/kylechui/nvim-surround/issues/153
-  {
-    "echasnovski/mini.ai",
-    version = false,
-  },
   {
     "kylechui/nvim-surround",
     event = "VeryLazy",
+    dependencies = {
+      -- fix: https://github.com/kylechui/nvim-surround/issues/153
+      "wellle/targets.vim",
+    },
   },
   -- "machakann/vim-sandwich",
 
