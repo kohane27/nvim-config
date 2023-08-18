@@ -120,8 +120,8 @@ telescope.setup({
       show_scores = false,
       show_unindexed = false,
       auto_validate = true,
-      db_safe_mode = false,
       db_validate_threshold = 999,
+      db_safe_mode = false,
       ignore_patterns = { "*.git/*", "*/tmp/*", "*/node_modules/*" },
     },
     zoxide = {
