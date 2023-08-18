@@ -155,12 +155,11 @@ legendary.setup({
     },
     { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>", description = "Telescope: Find Files" },
     { "<leader>fd", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
-    -- TODO: test with zoxide
-    {
-      "<leader>fz",
-      '<cmd>lua require("telescope").extensions.zoxide.list()<CR>',
-      description = "Telescope: Zoxide",
-    },
+    -- {
+    --   "<leader>fz",
+    --   '<cmd>lua require("telescope").extensions.zoxide.list()<CR>',
+    --   description = "Telescope: Zoxide",
+    -- },
     { "<leader>fp", "<cmd>Telescope projects<CR>", description = "Telescope: Find Projects" },
     { "<leader>fc", "<cmd>Telescope neoclip<CR>", description = "Telescope: Clipboard History" },
     { "<leader>fr", "<cmd>Telescope resume<CR>", description = "Telescope: Resume" },
