@@ -20,10 +20,10 @@ ts_configs.setup({
     enable = true,
     keymaps = {
       -- set to `false` to disable one of the mappings
-      init_selection = "<c-space>",
-      node_incremental = "<c-space>",
-      scope_incremental = false,
-      node_decremental = "<c-backspace>",
+      init_selection = "<CR>",
+      node_incremental = "<CR>",
+      scope_incremental = "<CR>",
+      node_decremental = "<BS>",
     },
   },
   textobjects = {
