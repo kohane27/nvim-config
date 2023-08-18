@@ -30,22 +30,14 @@ t.setup({
     zoxide = {
       mappings = {
         default = {
-          -- remove below line and you'll cry
-          -- before_action = function(selection) end,
           after_action = function(selection)
             for _, e in ipairs(require("bufferline").get_elements().elements) do
               vim.cmd("bd " .. e.id)
             end
-            vim.cmd("Rooter")
+            -- vim.cmd("Rooter")
             live_grep_from_project_git_root({ cwd = selection.path })
           end,
         },
-        -- ["<C-s>"] = {
-        --   before_action = function(selection) end,
-        --   action = function(selection)
-        --     vim.cmd.edit(selection.path)
-        --   end,
-        -- },
       },
     },
   },
