@@ -128,43 +128,48 @@ telescope.setup({
       list_command = "zoxide query -ls",
       mappings = {
         default = {
-          after_action = function(selection)
+          before_action = function(selection)
+            -- print("before C-s")
             -- 1. save all buffers
             vim.cmd("wa")
             -- 2. delete all buffers
             for _, e in ipairs(require("bufferline").get_elements().elements) do
-              vim.cmd("bd " .. e.id)
+              vim.schedule(function()
+                vim.cmd("bd " .. e.id)
+              end)
             end
-            -- one for ripgrep
+          end,
+          after_action = function(selection)
             -- print("Update to (" .. selection.z_score .. ") " .. selection.path)
-
-            -- 3. file picker
-
-            --
-            -- builtin.find_files({ cwd = selection.path })
+            require("mini.misc").setup_auto_root(selection.path)
+            -- vim.cmd.tcd(selection.path)
+            -- TODO: 3. check if session is present
+            -- 4. file picker
+            builtin.find_files({ cwd = selection.path })
+          end,
+          -- after_action = function(selection)
+          -- end,
+        },
+        ["<C-w>s"] = { action = z_utils.create_basic_command("split") },
+        ["<C-w>v"] = { action = z_utils.create_basic_command("vsplit") },
+        ["<C-e>"] = { action = z_utils.create_basic_command("edit") },
+        ["<C-b>"] = {
+          keepinsert = true,
+          action = function(selection)
+            builtin.file_browser({ cwd = selection.path })
           end,
         },
-        -- ["<leader>fg"] = { action = here },
-
-        ["<C-s>"] = { action = z_utils.create_basic_command("split") },
-        ["<C-v>"] = { action = z_utils.create_basic_command("vsplit") },
-        -- ["<C-b>"] = {
-        --   keepinsert = true,
-        --   action = function(selection)
-        --     builtin.file_browser({ cwd = selection.path })
-        --   end,
-        -- },
-        -- ["<C-f>"] = {
-        --   keepinsert = true,
-        --   action = function(selection)
-        --     builtin.find_files({ cwd = selection.path })
-        --   end,
-        -- },
-        -- ["<C-t>"] = {
-        --   action = function(selection)
-        --     vim.cmd.tcd(selection.path)
-        --   end,
-        -- },
+        ["<C-f>"] = {
+          keepinsert = true,
+          action = function(selection)
+            builtin.find_files({ cwd = selection.path })
+          end,
+        },
+        ["<C-t>"] = {
+          action = function(selection)
+            vim.cmd.tcd(selection.path)
+          end,
+        },
       },
     },
   },
