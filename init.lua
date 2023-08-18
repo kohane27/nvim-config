@@ -43,15 +43,11 @@ require("plugins.marks")
 require("plugins.grapple")
 
 require("plugins.toggleterm")
--- require("plugins.fm-nvim")
 require("plugins.ranger")
--- require("plugins.tui-nvim")
 require("plugins.glow")
 
 require("plugins.lazygit")
 require("plugins.diffview")
-
--- require("plugins.git-conflict")
 
 require("plugins.luasnip")
 require("plugins.trouble")
@@ -60,7 +56,6 @@ require("plugins.nvim-surround")
 require("plugins.vim-visual-multi")
 
 require("plugins.wilder")
--- require("plugins.live_command")
 require("plugins.recorder")
 require("plugins.dial")
 require("plugins.neozoom")
@@ -105,7 +100,6 @@ require("plugins.delaytrain")
 require("plugins.firenvim")
 
 require("plugins.chatgpt")
--- require("plugins.codeium")
 
 -- near end to override
 require("plugins.legendary")
