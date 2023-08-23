@@ -105,10 +105,9 @@ map("n", "<C-o>", "<C-o>zz")
 map("n", "<C-i>", "<C-i>zz")
 
 -- backspace to black hole registry
-map("n", "<BS>", '"_')
-map("x", "<BS>", '"_')
-map("v", "<BS>", '"_')
--- map("i", "<BS>", '"_') -- messing with `telescope`
+map("n", "<BS><BS>", '"_')
+map("x", "<BS><BS>", '"_')
+map("v", "<BS><BS>", '"_')
 
 -- `cl` don't yank to default register
 map("n", "cl", '"_cl')
