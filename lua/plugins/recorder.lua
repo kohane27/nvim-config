@@ -8,9 +8,9 @@ recorder.setup({
   -- register/macro-slot used after startup.
   slots = { "a", "b" },
   mapping = {
-    startStopRecording = "QQ",
-    playMacro = "Q",
-    editMacro = "cQ",
+    startStopRecording = "qs",
+    playMacro = "qq",
+    editMacro = "qe",
   },
   clear = true, -- clears all macros-slots on startup
   dapSharedKeymaps = false, -- experimental, see README

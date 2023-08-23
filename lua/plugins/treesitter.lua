@@ -35,10 +35,14 @@ ts_configs.setup({
         ["if"] = "@function.inner",
         ["ac"] = "@class.outer",
         ["ic"] = "@class.inner",
-        ["ab"] = "@block.outer",
-        ["ib"] = "@block.inner",
-        ["aa"] = "@parameter.outer",
-        ["ia"] = "@parameter.inner",
+
+        -- conflict with `target.nvim`
+        -- ["ab"] = "@block.outer",
+        -- ["ib"] = "@block.inner",
+
+        -- using `target.nvim`
+        -- ["aa"] = "@parameter.outer",
+        -- ["ia"] = "@parameter.inner",
       },
     },
     swap = {
@@ -48,22 +52,22 @@ ts_configs.setup({
       enable = true,
       set_jumps = true, -- set jumps in the jumplist
       goto_next_start = {
-        ["]]"] = "@function.outer",
+        ["]f"] = "@function.outer",
         ["]c"] = "@class.outer",
       },
       goto_previous_start = {
-        ["[["] = "@function.outer",
+        ["[f"] = "@function.outer",
         ["[c"] = "@class.outer",
       },
-      -- a bit too much; focused on above first
-      goto_next_end = {
-        ["]M"] = "@function.outer",
-        ["]["] = "@class.outer",
-      },
-      goto_previous_end = {
-        ["[M"] = "@function.outer",
-        ["[]"] = "@class.outer",
-      },
+      -- a bit too much; focus on above first
+      -- goto_next_end = {
+      --   ["]M"] = "@function.outer",
+      --   ["]["] = "@class.outer",
+      -- },
+      -- goto_previous_end = {
+      --   ["[M"] = "@function.outer",
+      --   ["[]"] = "@class.outer",
+      -- },
     },
     matchup = {
       enable = true, -- mandatory, false will disable the whole extension

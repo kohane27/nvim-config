@@ -331,8 +331,8 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │  Grapple                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "M", toolbox.lazy_required_fn("grapple", "popup_tags"), description = "Grapple: View All Tags" },
-    { "<leader>mm", toolbox.lazy_required_fn("grapple", "toggle"), description = "Grapple: Tag or Untag File" },
+    { "mm", toolbox.lazy_required_fn("grapple", "popup_tags"), description = "Grapple: View All Tags" },
+    { "MM", toolbox.lazy_required_fn("grapple", "toggle"), description = "Grapple: Tag or Untag File" },
     { "m1", "<cmd>lua require('grapple').select({key = 1})<CR>", description = "Grapple: File 1" },
     { "m2", "<cmd>lua require('grapple').select({key = 2})<CR>", description = "Grapple: File 2" },
     { "m3", "<cmd>lua require('grapple').select({key = 3})<CR>", description = "Grapple: File 3" },
@@ -381,7 +381,7 @@ legendary.setup({
     { "<leader>u", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
     { "<leader>q", "<cmd>wqa<CR>", description = "Quit" },
     { "<leader>Q", "<cmd>q!<CR>", description = "Force Quit" },
-    { "ZZ", "<cmd>Bdelete<CR>", description = "Buffer: Close" },
+    { "Q", "<cmd>Bdelete<CR>", description = "Buffer: Close" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous (leader M; random shortcuts)             │
@@ -405,7 +405,7 @@ legendary.setup({
 
     { "<leader>MCP", "<cmd>Colortils picker<CR>", description = "Colortils: Picker" },
     { "<leader>MCL", "<cmd>Colortils css list<CR>", description = "Colortils: CSS List" },
-    -- { "<leader>mp", "<cmd>PasteImg<CR>", description = "Misc: Paste Image" },
+    -- { "<leader>MCLP", "<cmd>PasteImg<CR>", description = "Misc: Paste Image" },
     -- { "<leader>MCxQ", "<cmd>TSBufEnable highlight<CR>", description = "Treesitter: highlight" },
 
     {

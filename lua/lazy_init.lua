@@ -73,7 +73,7 @@ require("lazy").setup({
   "neovim/nvim-lspconfig",
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
-  -- language server settings defined in json
+  -- language server settings in json
   "tamago324/nlsp-settings.nvim",
 
   -- formatters and linters when LSP is not present
@@ -164,9 +164,11 @@ require("lazy").setup({
     event = "VeryLazy",
     dependencies = {
       -- fix: https://github.com/kylechui/nvim-surround/issues/153
+      -- and more text objects
       "wellle/targets.vim",
     },
   },
+
   -- "machakann/vim-sandwich",
 
   -- "abecodes/tabout.nvim", -- tabbing out from parentheses and quotes

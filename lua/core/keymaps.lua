@@ -21,6 +21,7 @@ end
 -- ufo.lua
 -- nvim-surround.lua
 -- nap.lua
+-- recorder.lua
 
 -----------------------------------------------------------
 -- Neovim shortcuts
