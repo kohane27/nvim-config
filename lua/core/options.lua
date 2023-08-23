@@ -62,7 +62,7 @@ opt.jumpoptions     = "stack"
 -- Neovim UI
 -----------------------------------------------------------
 opt.number         = true     -- Show line number
-opt.wrap           = true     -- soft wrapping textj
+opt.wrap           = true     -- soft wrapping text
 opt.numberwidth    = 2
 opt.relativenumber = true     -- Show relative line number
 opt.showmatch      = false    -- Highlight matching parenthesis

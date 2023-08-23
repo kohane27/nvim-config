@@ -25,6 +25,7 @@ autosave.setup({
     "qf",
     "help",
     "TelescopePrompt",
+    "frecency",
     "harpoon",
     "grapple",
     "fzf",

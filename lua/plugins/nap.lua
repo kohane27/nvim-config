@@ -21,6 +21,10 @@ nap.setup({
       next = { rhs = '<cmd>lua require("todo-comments").jump_next()<CR>', opts = { desc = "Next todo comment" } },
       prev = { rhs = '<cmd>lua require("todo-comments").jump_prev()<CR>', opts = { desc = "Previous todo comment" } },
     },
+    ["e"] = {
+      next = { rhs = "g,zz", opts = { desc = "Previous changelist item" } },
+      prev = { rhs = "g;zz", opts = { desc = "Next changelist item" } },
+    },
     ["q"] = {
       next = { rhs = "<cmd>cnext<CR>zz", opts = { desc = "Next quickfix item" } },
       prev = { rhs = "<cmd>cprevious<CR>zz", opts = { desc = "Prev quickfix item" } },
@@ -29,10 +33,6 @@ nap.setup({
       next = { rhs = "<cmd>clast<CR>", opts = { desc = "Last quickfix item" } },
       prev = { rhs = "<cmd>cfirst<CR>", opts = { desc = "First quickfix item" } },
     },
-    ["e"] = {
-      next = { rhs = "g,zz", opts = { desc = "Previous changelist item" } },
-      prev = { rhs = "g;zz", opts = { desc = "Next changelist item" } },
-    },
     ["l"] = {
       next = { rhs = "<cmd>lnext<CR>", opts = { desc = "Next loclist item" } },
       prev = { rhs = "<cmd>lprevious<CR>", opts = { desc = "Prev loclist item" } },
@@ -40,11 +40,6 @@ nap.setup({
     ["L"] = {
       next = { rhs = "<cmd>llast<CR>", opts = { desc = "Last loclist item" } },
       prev = { rhs = "<cmd>lfirst<CR>", opts = { desc = "First loclist item" } },
-    },
-    ["z"] = {
-      next = { rhs = "zj", opts = { desc = "Next fold" } },
-      prev = { rhs = "zk", opts = { desc = "Prev fold" } },
-      mode = { "n", "v", "o" },
     },
   },
 })
@@ -59,6 +54,7 @@ nap.map("F", false)
 nap.map("T", false)
 nap.map("<C-t>", false)
 nap.map("s", false)
+nap.map("z", false)
 nap.map("<C-l>", false)
 nap.map("<M-l>", false)
 nap.map("<C-q>", false)
