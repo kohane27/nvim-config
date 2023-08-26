@@ -88,7 +88,15 @@ cmp.setup({
         return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
       end,
     },
-    { name = "luasnip" },
+    {
+      name = "luasnip",
+      group_index = 1,
+      option = { use_show_condition = true },
+      entry_filter = function()
+        local context = require("cmp.config.context")
+        return not context.in_treesitter_capture("string") and not context.in_syntax_group("String")
+      end,
+    },
     {
       name = "buffer",
       option = {
