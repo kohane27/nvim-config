@@ -14,6 +14,10 @@ nap.setup({
       prev = { rhs = "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts = { desc = "Prev diagnostic" } },
     },
     ["g"] = {
+      next = { rhs = "<cmd>Gitsigns next_hunk<CR>", opts = { desc = "git: Next Hunk" } },
+      prev = { rhs = "<cmd>Gitsigns prev_hunk<CR>", opts = { desc = "git: Previous Hunk" } },
+    },
+    ["m"] = {
       next = { rhs = '<cmd>lua require("grapple").cycle_forward()<CR>', opts = { desc = "Grapple: Next Tag" } },
       prev = { rhs = '<cmd>lua require("grapple").cycle_backward()<CR>', opts = { desc = "Grapple: Previous Tag" } },
     },
