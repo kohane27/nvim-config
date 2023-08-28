@@ -6,6 +6,16 @@ end
 vim.keymap.set("n", "yS", "<Plug>(nvim-surround-normal)$")
 
 nvim_surround.setup({
+  surrounds = {
+    ["("] = false,
+    ["{"] = false,
+    ["["] = false,
+  },
+  aliases = {
+    ["("] = ")",
+    ["{"] = "}",
+    ["["] = "]",
+  },
   keymaps = {
     insert = false,
     insert_line = false,
