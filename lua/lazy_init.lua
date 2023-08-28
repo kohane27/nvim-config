@@ -264,6 +264,14 @@ require("lazy").setup({
 
   "ja-ford/delaytrain.nvim",
 
+  {
+    "johmsalas/text-case.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("textcase").setup()
+    end,
+  },
+
   -- find and replace
   { "nvim-pack/nvim-spectre", event = "VeryLazy" },
 

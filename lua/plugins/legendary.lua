@@ -309,7 +309,11 @@ legendary.setup({
       mode = "v",
     },
     { "<leader>dh", "<cmd>Gitsigns preview_hunk<CR>", description = "Diffview: Preview Hunk" },
-    { "<leader>dXl", "<cmd>Gitsigns toggle_current_line_blame<CR>", description = "Diffview: Toggle Current Line Blame" },
+    {
+      "<leader>dXl",
+      "<cmd>Gitsigns toggle_current_line_blame<CR>",
+      description = "Diffview: Toggle Current Line Blame",
+    },
 
     -- {
     --   "<C-t>",
@@ -455,6 +459,87 @@ legendary.setup({
       description = "hledger: Remove zero quote quote",
       filters = { filetype = "ledger" },
     },
+
+    --  ╭──────────────────────────────────────────────────────────╮
+    --  │ text-case.nvim                                           │
+    --  ╰──────────────────────────────────────────────────────────╯
+
+    {
+      "<leader>MTu",
+      "<cmd>lua require('textcase').current_word('to_upper_case')<CR>",
+      description = "Upper case: LOREM IPSUM",
+      mode = { "v" },
+    },
+
+    {
+      "<leader>MTl",
+      "<cmd>lua require('textcase').current_word('to_lower_case')<CR>",
+      description = "Lower case: lorem ipsum",
+      mode = { "v" },
+    },
+
+    {
+      "<leader>MTs",
+      "<cmd>lua require('textcase').current_word('to_snake_case')<CR>",
+      description = "Snake case: lorem_ipsum",
+      mode = { "v" },
+    },
+
+    {
+      "<leader>MTd",
+      "<cmd>lua require('textcase').current_word('to_dash_case')<CR>",
+      description = "Dash case: lorem-ipsum",
+      mode = { "v" },
+    },
+    {
+      "<leader>MTc",
+      "<cmd>lua require('textcase').current_word('to_constant_case')<CR>",
+      description = "Constant case: LOREM_IPSUM",
+      mode = { "v" },
+    },
+
+    {
+      "<leader>MTd",
+      "<cmd>lua require('textcase').current_word('to_dot_case')<CR>",
+      description = "Dot case: lorem.ipsum",
+      mode = { "v" },
+    },
+
+    {
+      "<leader>MTp",
+      "<cmd>lua require('textcase').current_word('to_phrase_case')<CR>",
+      description = "phrase case: Lorem ipsum",
+      mode = { "v" },
+    },
+
+    {
+      "<leader>MTC",
+      "<cmd>lua require('textcase').current_word('to_camel_case')<CR>",
+      description = "Camel case: loremIpsum",
+      mode = { "v" },
+    },
+
+    {
+      "<leader>MTp",
+      "<cmd>lua require('textcase').current_word('to_pascal_case')<CR>",
+      description = "Pascal case: LoremIpsum",
+      mode = { "v" },
+    },
+
+    {
+      "<leader>MTt",
+      "<cmd>lua require('textcase').current_word('to_title_case')<CR>",
+      description = "Title case: Lorem Ipsum",
+      mode = { "v" },
+    },
+
+    {
+      "<leader>MTP",
+      "<cmd>lua require('textcase').current_word('to_path_case')<CR>",
+      description = "Path case: lorem/ipsum",
+      mode = { "v" },
+    },
+
     --  ╭──────────────────────────────────────────────────────────╮
     --  │ jdtls                                                    │
     --  ╰──────────────────────────────────────────────────────────╯
@@ -484,7 +569,7 @@ legendary.setup({
     },
     {
       "<leader>MXje",
-      "<csc><Cmd>lua require('jdtls').extract_variable(true)<CR>",
+      "<cmd>lua require('jdtls').extract_variable(true)<CR>",
       filters = { filetype = "java" },
       description = "jdtls: Extract Variable",
       mode = { "v" },
