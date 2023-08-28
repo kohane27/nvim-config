@@ -298,16 +298,19 @@ legendary.setup({
     -- │ Diffview                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
     { "<leader>di", "<cmd>DiffviewOpen<CR>", description = "Diffview: Compare Index" },
-    { "<leader>dh", "<cmd>DiffviewOpen HEAD~1<CR>", description = "Diffview: Current Commit And the Commit Before" },
+    { "<leader>dh", "<cmd>DiffviewOpen HEAD~1<CR>", description = "Diffview: Current Commit and Commit Before" },
 
     { "<leader>db", "<cmd>DiffviewFileHistory<CR>", description = "Diffview: File History of Current Branch" },
     { "<leader>df", "<cmd>DiffviewFileHistory %<CR>", description = "Diffview: File History of Current File" },
     {
       "<leader>dr",
       "<cmd>'<,'>DiffviewFileHistory<CR>",
-      description = "Diffview: Line Evolution of Given Range in the Current File",
+      description = "Diffview: Line History of Given Range of Current File",
       mode = "v",
     },
+    { "<leader>dh", "<cmd>Gitsigns preview_hunk<CR>", description = "Diffview: Preview Hunk" },
+    { "<leader>dXl", "<cmd>Gitsigns toggle_current_line_blame<CR>", description = "Diffview: Toggle Current Line Blame" },
+
     -- {
     --   "<C-t>",
     --   "<cmd>DiffviewToggleFiles<CR>",
