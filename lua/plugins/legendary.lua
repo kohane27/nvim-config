@@ -461,82 +461,67 @@ legendary.setup({
     },
 
     --  ╭──────────────────────────────────────────────────────────╮
-    --  │ text-case.nvim                                           │
+    --  │ vim-caser                                                │
     --  ╰──────────────────────────────────────────────────────────╯
 
     {
       "<leader>MTu",
-      "<cmd>lua require('textcase').current_word('to_upper_case')<CR>",
-      description = "Upper case: LOREM IPSUM",
+      "<Plug>CaserVUpperCase",
+      description = "Constant case: LOREM_IPSUM",
       mode = { "v" },
     },
-
-    {
-      "<leader>MTl",
-      "<cmd>lua require('textcase').current_word('to_lower_case')<CR>",
-      description = "Lower case: lorem ipsum",
-      mode = { "v" },
-    },
-
     {
       "<leader>MTs",
-      "<cmd>lua require('textcase').current_word('to_snake_case')<CR>",
+      "<Plug>CaserVSnakeCase",
       description = "Snake case: lorem_ipsum",
       mode = { "v" },
     },
-
     {
-      "<leader>MTd",
-      "<cmd>lua require('textcase').current_word('to_dash_case')<CR>",
+      "<leader>MTxd",
+      "<Plug>CaserVKebabCase",
       description = "Dash case: lorem-ipsum",
       mode = { "v" },
     },
     {
       "<leader>MTc",
-      "<cmd>lua require('textcase').current_word('to_constant_case')<CR>",
-      description = "Constant case: LOREM_IPSUM",
+      "<Plug>CaserVSpaceCase",
+      description = "space case: lorem ipsum",
       mode = { "v" },
     },
-
     {
       "<leader>MTd",
-      "<cmd>lua require('textcase').current_word('to_dot_case')<CR>",
+      "<Plug>CaserVDotCase",
       description = "Dot case: lorem.ipsum",
       mode = { "v" },
     },
-
     {
-      "<leader>MTp",
-      "<cmd>lua require('textcase').current_word('to_phrase_case')<CR>",
-      description = "phrase case: Lorem ipsum",
+      "<leader>MTxbp",
+      "<Plug>CaserVSentenceCase",
+      description = "Sentence case: Lorem ipsum",
       mode = { "v" },
     },
-
     {
-      "<leader>MTC",
-      "<cmd>lua require('textcase').current_word('to_camel_case')<CR>",
-      description = "Camel case: loremIpsum",
-      mode = { "v" },
-    },
-
-    {
-      "<leader>MTp",
-      "<cmd>lua require('textcase').current_word('to_pascal_case')<CR>",
+      "<leader>MTxap",
+      "<Plug>CaserVMixedCase",
       description = "Pascal case: LoremIpsum",
       mode = { "v" },
     },
-
     {
       "<leader>MTt",
-      "<cmd>lua require('textcase').current_word('to_title_case')<CR>",
+      "<Plug>CaserVTitleCase",
       description = "Title case: Lorem Ipsum",
       mode = { "v" },
     },
-
     {
-      "<leader>MTP",
-      "<cmd>lua require('textcase').current_word('to_path_case')<CR>",
-      description = "Path case: lorem/ipsum",
+      "<leader>MTD",
+      "<Plug>CaserVTitleKebabCase",
+      description = "Title dash case: Lorem-Ipsum",
+      mode = { "v" },
+    },
+    {
+      "<leader>MTC",
+      "<Plug>CaserVCamelCase",
+      description = "Camel case: loremIpsum",
       mode = { "v" },
     },
 
