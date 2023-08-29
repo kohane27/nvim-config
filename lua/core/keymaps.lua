@@ -69,6 +69,7 @@ map("v", "<C-z>", "<Nop>")
 map("n", "q:", ":q<cr>")
 -- no `q` for macro
 map("n", "q", "<nop>")
+map("n", "ZZ", "<nop>")
 
 map("i", "<C-c>", "<Esc>")
 
