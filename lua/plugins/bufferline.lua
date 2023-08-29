@@ -10,7 +10,7 @@ bufferline.setup({
     close_icon = " ",
     truncate_names = true,
     max_prefix_length = 15,
-    max_name_length = 18,
+    max_name_length = 50,
 
     color_icons = true,
     show_buffer_icons = true,
