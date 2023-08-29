@@ -262,13 +262,18 @@ require("lazy").setup({
   -- "gbprod/yanky.nvim",
   "gelguy/wilder.nvim",
 
-  "ja-ford/delaytrain.nvim",
-
   {
-    "johmsalas/text-case.nvim",
+    "ja-ford/delaytrain.nvim",
+    event = "VeryLazy",
+  },
+  {
+    "arthurxavierx/vim-caser",
     event = "VeryLazy",
     config = function()
-      require("textcase").setup()
+      vim.cmd([[
+        let g:caser_no_mappings = 1
+        let g:caser_prefix = ""
+        ]])
     end,
   },
 
