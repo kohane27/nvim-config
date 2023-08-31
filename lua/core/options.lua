@@ -46,6 +46,7 @@ opt.timeoutlen       = 650                         -- time to wait for a mapped 
 opt.writebackup      = true                        -- disable editing a file that is being edited
 opt.list             = true
 opt.filetype         = "on"
+opt.undofile         = true
 g.do_filetype_lua    = true                        -- use filetype.lua instead of filetype.vim
 g.did_load_filetypes = false
 g.rehash256          = 1

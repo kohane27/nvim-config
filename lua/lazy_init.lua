@@ -182,6 +182,16 @@ require("lazy").setup({
       "kevinhwang91/promise-async",
     },
   },
+  {
+    "kevinhwang91/nvim-fundo",
+    dependencies = "kevinhwang91/promise-async",
+    build = function()
+      require("fundo").install()
+    end,
+    config = function()
+      require("fundo").setup()
+    end,
+  },
 
   {
     "sindrets/diffview.nvim",
@@ -227,7 +237,7 @@ require("lazy").setup({
 
   "aserowy/tmux.nvim",
 
-  { "kevinhwang91/nvim-bqf", ft = "qf" },
+  { "kevinhwang91/nvim-bqf", event = "VeryLazy", dependencies = { "junegunn/fzf" } },
 
   -- filetypes
   -- "ekickx/clipboard-image.nvim", -- copy clipboard image to nvim
