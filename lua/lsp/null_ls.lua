@@ -12,11 +12,8 @@ local formatting = null_ls.builtins.formatting
 -- local diagnostics = null_ls.builtins.diagnostics
 
 local sources = {
-
   -- formatting.prettier.with({
   --   disabled_filetypes = { "json", "html", "markdown" }, -- they're in `lsp_config.lua`
-  --   extra_args = { "--tabWidth=2" }, -- "--semi=false"
-  --   -- extra_args = { "--single-quote", "--jsx-single-quote" },
   -- }),
 
   -- use LSP in `lsp_config.lua`
@@ -36,13 +33,11 @@ local sources = {
 
   -- Python (using pylsp)
   -- formatting.black.with({ extra_args = { "--fast" } }),
-  -- always import error
-  -- diagnostics.pylint,
 
   -- Lua
   formatting.stylua,
   -- shell
-  formatting.shfmt.with({ extra_args = { "-i", "2" } }),
+  formatting.shfmt,
 
   -- use bashls
   -- diagnostics.shellcheck.with({
