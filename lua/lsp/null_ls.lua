@@ -40,10 +40,7 @@ local sources = {
   -- diagnostics.pylint,
 
   -- Lua
-  formatting.stylua.with({
-    extra_args = { "--indent-type", "Spaces", "--indent-width", "2", "--line-endings", "Unix" },
-  }),
-
+  formatting.stylua,
   -- shell
   formatting.shfmt.with({ extra_args = { "-i", "2" } }),
 
