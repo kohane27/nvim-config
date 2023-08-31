@@ -167,9 +167,8 @@ legendary.setup({
     { "<leader>fc", "<cmd>Telescope neoclip<CR>", description = "Telescope: Clipboard History" },
     { "<leader>fr", "<cmd>Telescope resume<CR>", description = "Telescope: Resume" },
     { "<leader>ft", "<cmd>Telescope scope buffers<CR>", description = "Telescope: Tabs" },
+    { "<leader>fj", "<cmd>Telescope jumplist<CR>", description = "Telescope: Jumplist" },
 
-    { "<leader>fXo", "<cmd>Telescope oldfiles<CR>", description = "Telescope: Open Recent File" },
-    { "<leader>fXj", "<cmd>Telescope jumplist<CR>", description = "Telescope: Jumplist" },
     { "<leader>fXc", "<cmd>Telescope command_history<CR>", description = "Telescope: Command History" },
     { "<leader>fXs", "<cmd>Telescope search_history<CR>", description = "Telescope: Search History" },
 
