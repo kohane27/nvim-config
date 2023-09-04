@@ -47,11 +47,11 @@ local no_formatting = function(client)
 end
 
 -- custom language servers not listed here:
--- 1. `tsserver` is managed by `typescript-tools.nvim`
+-- 1. `tsserver` managed by `typescript-tools.nvim`
 -- 2. jsonls
--- 3. lua_ls
+-- 3. stylelint_lsp
+-- 4. lua_ls
 
--- custom language servers
 -- 1. typescript-tools.nvim
 local status_ok, typescript_tools = pcall(require, "typescript-tools")
 if not status_ok then
@@ -74,12 +74,17 @@ lspconfig.jsonls.setup({
   },
 })
 
--- lspconfig.cssls.setup({
---   capabilities = capabilities,
---   filetypes = { "typescript", "css", "scss", "less" },
--- })
+-- 3. stylelint_lsp
+lspconfig.stylelint_lsp.setup({
+  settings = {
+    stylelintplus = {
+      autoFixOnFormat = true,
+      autoFixOnSave = true,
+    },
+  },
+})
 
--- 3. lua_ls
+-- 4. lua_ls
 lspconfig.lua_ls.setup({
   -- disable formatting here; using `stylua` in `null_ls`
   on_attach = no_formatting,
@@ -121,7 +126,6 @@ local servers = {
   "prismals",
   "pylsp",
   "sqlls",
-  "stylelint_lsp",
 }
 
 -- Call setup

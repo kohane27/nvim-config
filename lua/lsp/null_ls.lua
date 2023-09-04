@@ -9,44 +9,71 @@ end
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 local formatting = null_ls.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
--- local diagnostics = null_ls.builtins.diagnostics
+local diagnostics = null_ls.builtins.diagnostics
 
 local sources = {
-  -- formatting.prettier.with({
-  --   disabled_filetypes = { "json", "html", "markdown" }, -- they're in `lsp_config.lua`
+
+  formatting.prettierd,
+  -- formatting.prettierd.with({
+  --   condition = function(utils)
+  --     return utils.has_file({
+  --       ".prettierrc.js",
+  --       ".prettierrc",
+  --       ".prettierrc.json",
+  --       ".prettierrc.yml",
+  --       ".prettierrc.yaml",
+  --       ".prettierrc.json5",
+  --       "prettier.config.js",
+  --       ".prettierrc.mjs",
+  --       "prettier.config.mjs",
+  --       ".prettierrc.cjs",
+  --       "prettier.config.cjs",
+  --       ".prettierrc.toml",
+  --     })
+  --   end,
   -- }),
 
-  -- use LSP in `lsp_config.lua`
-  -- formatting.eslint_d,
-  -- diagnostics.eslint_d,
+  -- linting: `sqlls`
+  formatting.sql_formatter,
 
-  -- use LSP in `lsp_config.lua`
-  -- formatting.stylelint,
-  -- diagnostics.stylelint,
-
-  -- use LSP in `lsp_config.lua`
-  -- format and lint
-  -- formatting.xmllint,
-
-  -- use LSP in `lsp_config.lua`
-  -- formatting.sql_formatter,
-
-  -- Python (using pylsp)
-  -- formatting.black.with({ extra_args = { "--fast" } }),
+  -- linting: `pylsp`
+  formatting.black,
 
   -- Lua
   formatting.stylua,
+
   -- shell
   formatting.shfmt,
 
-  -- use bashls
-  -- diagnostics.shellcheck.with({
-  --   filetypes = { "sh", "bash", "zsh" },
-  -- })
+  -- `bashls` works with `shellcheck`
+  diagnostics.shellcheck,
 }
 
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
+  -- you can reuse a shared lspconfig on_attach callback here
+  on_attach = function(client, bufnr)
+    if client.supports_method("textDocument/formatting") then
+      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.format({
+            async = false,
+            timeout_ms = 5000,
+            bufnr = bufnr,
+            filter = function()
+              -- only use null-ls
+              return client.name == "null-ls"
+              -- Never request typescript-language-server for formatting
+              -- return client.name ~= "tsserver"
+            end,
+          })
+        end,
+      })
+    end
+  end,
   debug = false,
   sources = sources,
-  -- root_dir = nls_utils.root_pattern(".git"),
 })
