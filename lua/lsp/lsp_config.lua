@@ -41,6 +41,11 @@ local root_dir = function()
   return vim.fn.getcwd()
 end
 
+local no_formatting = function(client)
+  client.server_capabilities.documentFormattingProvider = false
+  client.server_capabilities.documentRangeFormattingProvider = false
+end
+
 -- custom language servers not listed here:
 -- 1. `tsserver` is managed by `typescript-tools.nvim`
 -- 2. jsonls
@@ -54,10 +59,7 @@ if not status_ok then
 end
 typescript_tools.setup({
   -- disable formatting because using `prettier`
-  on_attach = function(client)
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentRangeFormattingProvider = false
-  end,
+  on_attach = no_formatting,
 })
 
 -- 2. jsonls
@@ -79,11 +81,8 @@ lspconfig.jsonls.setup({
 
 -- 3. lua_ls
 lspconfig.lua_ls.setup({
-  -- disable formatting with `lua_ls` because using `stylua` in `null_ls`
-  on_attach = function(client, _)
-    client.server_capabilities.document_formatting = false
-    client.server_capabilities.document_range_formatting = false
-  end,
+  -- disable formatting here; using `stylua` in `null_ls`
+  on_attach = no_formatting,
   root_dir = root_dir,
   capabilities = capabilities,
   settings = {
@@ -100,10 +99,6 @@ lspconfig.lua_ls.setup({
         -- Get the language server to recognize the `vim` global
         globals = { "vim", "P" },
       },
-      -- workspace = {
-      --   -- Make the server aware of Neovim runtime files
-      --   library = vim.api.nvim_get_runtime_file("", true),
-      -- },
       telemetry = {
         enable = false,
       },
@@ -121,12 +116,12 @@ local servers = {
   "awk_ls",
   "bashls",
   "dockerls",
-  "eslint", -- use this instead of `tsserver` because it provides react-specific linting rules
+  "eslint", -- instead of `tsserver` or `eslint_d` in `null_ls` for better linting and react-specific linting rules
   "lemminx",
   "prismals",
   "pylsp",
   "sqlls",
-  -- "stylelint_lsp", -- conflict with prettier in js files
+  "stylelint_lsp",
 }
 
 -- Call setup
