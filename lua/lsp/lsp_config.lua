@@ -52,7 +52,13 @@ local status_ok, typescript_tools = pcall(require, "typescript-tools")
 if not status_ok then
   print("typescript-tools not working")
 end
-typescript_tools.setup({})
+typescript_tools.setup({
+  -- disable formatting because using `prettier`
+  on_attach = function(client)
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+  end,
+})
 
 -- 2. jsonls
 lspconfig.jsonls.setup({
@@ -78,7 +84,6 @@ lspconfig.lua_ls.setup({
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
   end,
-
   root_dir = root_dir,
   capabilities = capabilities,
   settings = {
