@@ -397,6 +397,20 @@ legendary.setup({
     { "<leader>MXi", "<cmd>LspInfo<CR>", description = "LSP: Info" },
     { "<leader>MXa", "<cmd>Mason<CR>", description = "LSP: Install Info" },
     { "<leader>MXt", "<cmd>ScopeMoveBuf<CR>", description = "Scope: Move Current Buffer to Specified Tab" },
+    {
+      "<leader>MXta",
+      function()
+        vim.api.nvim_feedkeys(":verbose map <C-i>", "n", true)
+      end,
+      description = "verbose: Find Keybinding Conflict",
+    },
+    {
+      "<leader>MXtb",
+      function()
+        vim.api.nvim_feedkeys(":cdo s/foo/bar/gc | update", "n", true)
+      end,
+      description = "cdo: Execute Command on Quickfix Entries",
+    },
 
     {
       "<leader>MXxp",
