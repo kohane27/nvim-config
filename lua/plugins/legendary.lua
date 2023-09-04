@@ -380,7 +380,7 @@ legendary.setup({
     -- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
     {
       "<c-s>",
-      "<cmd>wa | edit | lua vim.lsp.buf.format()<CR> | TSBufEnable highlight<CR>zz",
+      "<cmd>wa | edit | lua vim.lsp.buf.format({ timeout_ms = 5000 })<CR> | TSBufEnable highlight<CR>zz",
       opts = { noremap = true, silent = true },
     },
     { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Misc: Zoom: Toggle" },
