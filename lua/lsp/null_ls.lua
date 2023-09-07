@@ -14,24 +14,6 @@ local diagnostics = null_ls.builtins.diagnostics
 local sources = {
 
   formatting.prettierd,
-  -- formatting.prettierd.with({
-  --   condition = function(utils)
-  --     return utils.has_file({
-  --       ".prettierrc.js",
-  --       ".prettierrc",
-  --       ".prettierrc.json",
-  --       ".prettierrc.yml",
-  --       ".prettierrc.yaml",
-  --       ".prettierrc.json5",
-  --       "prettier.config.js",
-  --       ".prettierrc.mjs",
-  --       "prettier.config.mjs",
-  --       ".prettierrc.cjs",
-  --       "prettier.config.cjs",
-  --       ".prettierrc.toml",
-  --     })
-  --   end,
-  -- }),
 
   -- linting: `sqlls`
   formatting.sql_formatter,

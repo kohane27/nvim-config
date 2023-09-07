@@ -382,6 +382,7 @@ legendary.setup({
       "<c-s>",
       "<cmd>w<CR>",
       -- "<cmd>wa | edit | lua vim.lsp.buf.format()<CR> | TSBufEnable highlight<CR>zz",
+      mode = { "n", "i" },
       opts = { noremap = true, silent = true },
     },
     { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Misc: Zoom: Toggle" },
