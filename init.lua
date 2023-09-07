@@ -83,6 +83,7 @@ require("plugins.stay-in-place")
 require("plugins.gomove")
 
 require("plugins.auto-save")
+require("plugins.auto-format")
 require("plugins.auto-session")
 
 require("plugins.spectre")

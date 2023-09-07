@@ -180,6 +180,10 @@ require("lazy").setup({
   "mbbill/undotree",
 
   "https://git.sr.ht/~nedia/auto-save.nvim",
+  {
+    "https://git.sr.ht/~nedia/auto-format.nvim",
+    event = "BufWinEnter",
+  },
 
   {
     "kevinhwang91/nvim-ufo",
