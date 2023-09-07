@@ -33,7 +33,12 @@ require("lazy").setup({
   -- Telescope extensions
   -- "ahmedkhalf/project.nvim",
   "jvgrootveld/telescope-zoxide",
-  { "nvim-telescope/telescope-frecency.nvim", dependencies = { "kkharji/sqlite.lua" } },
+  {
+    "nvim-telescope/telescope-frecency.nvim",
+    -- error: sql statement parse, , stmt: `sel
+    commit = "5d1a01be63659425c81f29dc56ac77111a1bfb76",
+    dependencies = { "kkharji/sqlite.lua" },
+  },
 
   -- clipboard manager
   { "AckslD/nvim-neoclip.lua", dependencies = { "kkharji/sqlite.lua" } },
