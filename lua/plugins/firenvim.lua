@@ -24,7 +24,7 @@ if exists('g:started_by_firenvim')
 
     " colorscheme nightfox
     " nightfly or material also ok
-    set guifont=FiraCode_Nerd_Font_Mono:h12
+    " set guifont=FiraCode_Nerd_Font_Mono:h12
 
     " don't run null-ls
     let g:null_ls_disable = 1
@@ -33,6 +33,6 @@ if exists('g:started_by_firenvim')
     let g:auto_session_enabled = v:false
 
     au BufEnter github.com_*.txt set filetype=markdown
-    au BufEnter leetcode.com_*.txt set filetype=python
+    au BufEnter leetcode.com_*.txt set filetype=javascript
 endif
 ]])

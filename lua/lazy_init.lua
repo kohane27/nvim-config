@@ -36,7 +36,7 @@ require("lazy").setup({
   {
     "nvim-telescope/telescope-frecency.nvim",
     -- error: sql statement parse, , stmt: `sel
-    commit = "5d1a01be63659425c81f29dc56ac77111a1bfb76",
+    commit = "0a4a521471141ae3c94ff0ebcffcaff3c3aad147",
     dependencies = { "kkharji/sqlite.lua" },
   },
 
@@ -369,11 +369,10 @@ require("lazy").setup({
 
   {
     "glacambre/firenvim",
-    event = "VeryLazy",
+    -- Lazy load firenvim
     -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
-    cond = not not vim.g.started_by_firenvim,
+    lazy = not vim.g.started_by_firenvim,
     build = function()
-      require("lazy").load({ plugins = "firenvim", wait = true, lazy = true })
       vim.fn["firenvim#install"](0)
     end,
   },
