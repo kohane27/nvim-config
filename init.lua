@@ -34,9 +34,13 @@ require("plugins.colorizer")
 require("plugins.colortils")
 
 require("plugins.leap")
+
 -- require("plugins.flit")
--- require("plugins.clever-f")
 require("plugins.find-extender")
+
+require("plugins.telepath")
+-- require("plugins.leap-spooky")
+
 require("plugins.nap")
 
 require("plugins.marks")

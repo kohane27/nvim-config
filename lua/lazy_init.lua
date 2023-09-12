@@ -230,10 +230,14 @@ require("lazy").setup({
 
   -- navigation
   "ggandor/leap.nvim",
-  -- "ggandor/leap-spooky.nvim",
+
   -- "ggandor/flit.nvim",
   -- "rhysd/clever-f.vim",
   "kohane27/find-extender.nvim",
+
+  "rasulomaroff/telepath.nvim",
+  -- "ggandor/leap-spooky.nvim",
+
   "liangxianzhe/nap.nvim",
 
   {
@@ -395,3 +399,4 @@ require("lazy").setup({
   debug = false,
   ui = { border = "rounded" },
 })
+
