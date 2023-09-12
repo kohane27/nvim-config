@@ -8,10 +8,6 @@ find_extender.setup({
   movements = {
     min_matches = 1,
     highlight_match = { fg = "#000000", bg = "#CCFF88" },
-    lh = {
-      enable = false,
-      cursor_hl = { fg = "#545c7e", bg = "#ff9e64" },
-    },
     leap = {
       enable = true,
       symbols = "asdfghjkl;",
