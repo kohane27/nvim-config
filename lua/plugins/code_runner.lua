@@ -5,6 +5,14 @@ end
 
 code_runner.setup({
   focus = false,
+  term = {
+    position = "bot",
+    -- window size
+    size = 8,
+  },
+  before_run_filetype = function()
+    vim.cmd(":w")
+  end,
   filetype = {
     javascript = "node",
     -- typescript = "ts-node $fileName",
