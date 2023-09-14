@@ -7,21 +7,21 @@ chatgpt.setup({
   -- api_host_cmd = "echo -n 'api.openai.com'",
   edit_with_instructions = {
     keymaps = {
-      close = "<leader>q",
+      close = "q",
       accept = "<C-y>",
       toggle_settings = "<Space>?",
-      cycle_windows = "<Tab>",
+      cycle_windows = "<A-k>",
     },
   },
   chat = {
     keymaps = {
-      close = "<leader>q",
+      close = "q",
       new_session = "<A-n>",
-      cycle_windows = "<Tab>",
-      yank_last_code = "<A-k>",
+      cycle_windows = "<A-k>",
+      yank_last_code = "<A-e>", -- no need
       rename_session = "<Space>rn",
       delete_session = "D",
-      toggle_settings = "<Space>?",
+      toggle_settings = "g?",
     },
   },
   popup_layout = {
@@ -40,13 +40,7 @@ chatgpt.setup({
     submit_n = "<Enter>",
   },
   openai_params = {
-    model = "gpt-3.5-turbo",
-    frequency_penalty = 0,
-    presence_penalty = 0,
-    max_tokens = 3000,
-    temperature = 0,
-    top_p = 1,
-    n = 1,
+    model = "gpt-4",
   },
   predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/kohane27/nvim-config/main/gpt_prompt.csv",
 })

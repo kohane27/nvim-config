@@ -71,6 +71,14 @@ map("n", "q:", ":q<cr>")
 map("n", "q", "<nop>")
 map("n", "ZZ", "<nop>")
 
+-- no replace mode
+map("n", "R", "<nop>")
+map("n", "gR", "<nop>")
+
+-- no rot13 encoding
+map("n", "g??", "<nop>")
+map("n", "g?g?", "<nop>")
+
 map("i", "<C-c>", "<Esc>")
 
 -- avoid random toggling case
@@ -111,7 +119,7 @@ map("n", "<BS><BS>", '"_')
 map("x", "<BS><BS>", '"_')
 map("v", "<BS><BS>", '"_')
 
--- `cl` don't yank to default register
+-- `cl` don't yank to default register; exception in `cutlass.nvim`
 map("n", "cl", '"_cl')
 
 -- -- insert empty new line without entering insert mode
