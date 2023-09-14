@@ -10,11 +10,13 @@ nvim_surround.setup({
     ["("] = false,
     ["{"] = false,
     ["["] = false,
+    ["<"] = false,
   },
   aliases = {
     ["("] = ")",
     ["{"] = "}",
     ["["] = "]",
+    ["<"] = ">",
   },
   keymaps = {
     insert = false,
