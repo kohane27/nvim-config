@@ -5,23 +5,37 @@ end
 
 chatgpt.setup({
   -- api_host_cmd = "echo -n 'api.openai.com'",
-  edit_with_instructions = {
+  -- `<C-S-?>` means disposed
+  chat = {
+    max_line_length = 120,
+    -- <Sapce> won't work because keymaps are also triggered in Insert mode
     keymaps = {
-      close = "q",
-      accept = "<C-y>",
-      toggle_settings = "<Space>?",
+      close = "<C-q>",
+      yank_last = "<C-y>",
+      yank_last_code = "<C-S-k>",
+      scroll_up = "<C-u>",
+      scroll_down = "<C-d>",
+      new_session = "<C-n>",
       cycle_windows = "<A-k>",
+      cycle_modes = "<C-m>",
+      select_session = "<S>",
+      rename_session = "<C-S-r>",
+      delete_session = "<C-S-d>",
+      draft_message = "<C-S-d>",
+      toggle_settings = "<C-S-d>",
+      toggle_message_role = "<C-S-r>",
+      toggle_system_role_open = "g?",
+      stop_generating = "<C-x>",
     },
   },
-  chat = {
+  edit_with_instructions = {
     keymaps = {
-      close = "q",
-      new_session = "<A-n>",
-      cycle_windows = "<A-k>",
-      yank_last_code = "<A-e>", -- no need
-      rename_session = "<Space>rn",
-      delete_session = "D",
-      toggle_settings = "g?",
+      close = "<C-q>",
+      accept = "<C-y>",
+      toggle_diff = "<C-d>",
+      toggle_settings = "<C-o>",
+      cycle_windows = "<Tab>",
+      use_output_as_input = "<C-i>",
     },
   },
   popup_layout = {
@@ -43,4 +57,5 @@ chatgpt.setup({
     model = "gpt-4",
   },
   predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/kohane27/nvim-config/main/gpt_prompt.csv",
+  show_quickfixes_cmd = "Trouble quickfix",
 })
