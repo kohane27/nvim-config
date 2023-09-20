@@ -357,21 +357,75 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ AI                                                       │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>ao", "<cmd>ChatGPT<CR>", description = "ChatGPT: Open" },
-    { "<leader>aa", "<cmd>ChatGPTActAs<CR>", description = "ChatGPT: Act As" },
+    { "<leader>ao", "<cmd>ChatGPT<CR>", description = "GPT: Open" },
+    { "<leader>aa", "<cmd>ChatGPTActAs<CR>", description = "GPT: Act As" },
     {
-      "<leader>ar",
-      function()
-        vim.api.nvim_feedkeys(":ChatGPTRun ", "n", true)
-      end,
-      description = "ChatGPT: Run Specific Actions",
+      "<leader>aa",
+      "<cmd>ChatGPTRun add_tests<CR>",
+      description = "GPT: Add Tests",
+      mode = { "n", "v" },
+    },
+    {
+      "<leader>ao",
+      "<cmd>ChatGPTRun optimize_code<CR>",
+      description = "GPT: Optimize Code",
+      mode = { "n", "v" },
+    },
+    {
+      "<leader>as",
+      "<cmd>ChatGPTRun fix_bugs<CR>",
+      description = "GPT: Fix Bugs",
+      mode = { "n", "v" },
+    },
+    {
+      "<leader>ax",
+      "<cmd>ChatGPTRun explain_code<CR>",
+      description = "GPT: Explain Code",
+      mode = { "n", "v" },
+    },
+    {
+      "<leader>al",
+      "<cmd>ChatGPTRun code_readability_analysis<CR>",
+      description = "GPT: Code Readability Analysis",
+      mode = { "n", "v" },
+    },
+    {
+      "<leader>as",
+      "<cmd>ChatGPTRun summarize<CR>",
+      description = "GPT: Summarize",
       mode = { "n", "v" },
     },
     {
       "<leader>ae",
       "<cmd>ChatGPTEditWithInstructions<CR>",
-      description = "ChatGPT: Edit Selected Text Or Whole Window",
-      mode = { "v" },
+      description = "GPT: Edit with instruction",
+      mode = { "n", "v" },
+    },
+    {
+      "<leader>ak",
+      "<cmd>ChatGPTRun keywords<CR>",
+      description = "GPT: Generate keywords",
+      mode = { "n", "v" },
+    },
+    {
+      "<leader>ad",
+      "<cmd>ChatGPTRun docstring<CR>",
+      description = "GPT: Generate docstring",
+      mode = { "n", "v" },
+    },
+    {
+      "<leader>ar",
+      "<cmd>ChatGPTRun roxygen_edit<CR>",
+      description = "GPT: Roxygen Edit",
+      mode = { "n", "v" },
+    },
+    {
+      "<leader>ar",
+      function()
+        vim.api.nvim_feedkeys(":ChatGPTRun ", "n", true)
+      end,
+      description = "GPT: Run Specific Actions",
+      mode = { "n", "v" },
     },
 
     -- ╭──────────────────────────────────────────────────────────╮
