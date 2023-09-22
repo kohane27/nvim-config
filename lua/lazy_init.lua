@@ -268,7 +268,7 @@ require("lazy").setup({
   -- "stevearc/overseer.nvim",
 
   {
-    "jackMort/ChatGPT.nvim",
+    "kohane27/ChatGPT.nvim",
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
@@ -399,4 +399,3 @@ require("lazy").setup({
   debug = false,
   ui = { border = "rounded" },
 })
-
