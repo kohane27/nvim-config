@@ -366,7 +366,7 @@ legendary.setup({
       mode = { "n", "v" },
     },
     {
-      "<leader>ao",
+      "<leader>ac",
       "<cmd>ChatGPTRun optimize_code<CR>",
       description = "GPT: Optimize Code",
       mode = { "n", "v" },
@@ -414,7 +414,7 @@ legendary.setup({
       mode = { "n", "v" },
     },
     {
-      "<leader>ar",
+      "<leader>aR",
       "<cmd>ChatGPTRun roxygen_edit<CR>",
       description = "GPT: Roxygen Edit",
       mode = { "n", "v" },
