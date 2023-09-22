@@ -18,7 +18,6 @@ delaytrain.setup({
     "vim",
     "help",
     "git",
-    "markdown",
     "text",
     "terminal",
     "lspinfo",
