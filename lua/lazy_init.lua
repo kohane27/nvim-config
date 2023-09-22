@@ -182,7 +182,8 @@ require("lazy").setup({
   "https://git.sr.ht/~nedia/auto-save.nvim",
   {
     "https://git.sr.ht/~nedia/auto-format.nvim",
-    event = "BufWinEnter",
+    event = { "BufReadPre", "BufNewFile" },
+    branch = "async",
   },
 
   {

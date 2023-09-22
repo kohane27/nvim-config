@@ -18,4 +18,6 @@ autoformat.setup({
 
   -- Prefer formatting via LSP for these filetypes.
   prefer_lsp = {},
+  -- synchronously format
+  async = false,
 })
