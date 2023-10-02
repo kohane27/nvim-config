@@ -69,7 +69,8 @@ require("lazy").setup({
   "hiphish/rainbow-delimiters.nvim",
 
   -- indentation guides
-  "lukas-reineke/indent-blankline.nvim",
+  -- TODO: migrate to v3
+  { "lukas-reineke/indent-blankline.nvim", commit = "9637670896b68805430e2f72cf5d16be5b97a22a" },
 
   "mizlan/iswap.nvim",
   "monaqa/dial.nvim",
@@ -82,7 +83,7 @@ require("lazy").setup({
   "tamago324/nlsp-settings.nvim",
 
   -- formatters and linters when LSP is not present
-  "jose-elias-alvarez/null-ls.nvim",
+  "nvimtools/none-ls.nvim",
 
   -- "rmagatti/goto-preview",
   "nvimdev/lspsaga.nvim",
@@ -182,8 +183,9 @@ require("lazy").setup({
   "https://git.sr.ht/~nedia/auto-save.nvim",
   {
     "https://git.sr.ht/~nedia/auto-format.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    branch = "async",
+    -- event = { "BufReadPre", "BufNewFile" },
+    -- branch = "async",
+    event = "BufReadPre",
   },
 
   {
