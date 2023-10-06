@@ -22,8 +22,8 @@ ts_configs.setup({
       -- set to `false` to disable one of the mappings
       init_selection = "<CR>",
       node_incremental = "<CR>",
-      scope_incremental = "<CR>",
       node_decremental = "<BS>",
+      scope_incremental = false,
     },
   },
   textobjects = {
