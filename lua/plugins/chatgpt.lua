@@ -55,6 +55,12 @@ chatgpt.setup({
   },
   openai_params = {
     model = "gpt-4",
+    frequency_penalty = 0,
+    presence_penalty = 0,
+    max_tokens = 4096,
+    temperature = 0,
+    top_p = 1,
+    n = 1,
   },
   predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/kohane27/nvim-config/main/gpt_prompt.csv",
   show_quickfixes_cmd = "Trouble quickfix",
