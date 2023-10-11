@@ -288,10 +288,10 @@ require("lazy").setup({
   -- "gbprod/yanky.nvim",
   "gelguy/wilder.nvim",
 
-  {
-    "ja-ford/delaytrain.nvim",
-    event = "VeryLazy",
-  },
+  -- {
+  --   "ja-ford/delaytrain.nvim",
+  --   event = "VeryLazy",
+  -- },
   {
     "arthurxavierx/vim-caser",
     event = "VeryLazy",
