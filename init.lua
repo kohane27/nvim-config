@@ -100,7 +100,7 @@ require("plugins.sniprun")
 require("plugins.tmux")
 -- require("plugins.vim-test")
 
-require("plugins.delaytrain")
+-- require("plugins.delaytrain")
 
 require("plugins.firenvim")
 
