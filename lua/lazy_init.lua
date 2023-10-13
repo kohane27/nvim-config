@@ -68,6 +68,13 @@ require("lazy").setup({
   -- rainbow parentheses
   "hiphish/rainbow-delimiters.nvim",
 
+  {
+    "m-demare/hlargs.nvim",
+    config = function()
+      require("hlargs").setup()
+    end,
+  },
+
   -- indentation guides
   -- TODO: migrate to v3
   { "lukas-reineke/indent-blankline.nvim", commit = "9637670896b68805430e2f72cf5d16be5b97a22a" },
