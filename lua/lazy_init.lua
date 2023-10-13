@@ -389,6 +389,18 @@ require("lazy").setup({
       vim.fn["firenvim#install"](0)
     end,
   },
+  {
+    "kawre/leetcode.nvim",
+    build = ":TSUpdate html",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-telescope/telescope.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+    opts = {
+      lang = "javascript",
+    },
+  },
 
   -- debuggers
   -- "mfussenegger/nvim-dap",
