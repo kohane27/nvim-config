@@ -71,7 +71,9 @@ require("lazy").setup({
   {
     "m-demare/hlargs.nvim",
     config = function()
-      require("hlargs").setup()
+      require("hlargs").setup({
+        color = "#DCA561", -- autumnYellow
+      })
     end,
   },
 
