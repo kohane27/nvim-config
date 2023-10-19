@@ -334,9 +334,11 @@ require("lazy").setup({
 
   {
     "tummetott/reticle.nvim",
-    config = function()
-      require("reticle").setup({})
-    end,
+    opts = {
+      on_startup = {
+        cursorline = true,
+      },
+    },
   },
 
   -- aesthetics
@@ -413,7 +415,7 @@ require("lazy").setup({
 
   -- Colorschemes/themes
   "rebelot/kanagawa.nvim",
-  -- "EdenEast/nightfox.nvim", -- used by firenvim
+  "EdenEast/nightfox.nvim", -- used by firenvim
   -- "rmehri01/onenord.nvim",
   -- "folke/tokyonight.nvim",
   -- "catppuccin/nvim",
