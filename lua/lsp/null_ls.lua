@@ -25,7 +25,9 @@ local sources = {
   formatting.stylua,
 
   -- shell
-  formatting.shfmt,
+  formatting.shfmt.with({
+    extra_args = { "--indent", "4" },
+  }),
 
   -- `bashls` works with `shellcheck`
   diagnostics.shellcheck,
