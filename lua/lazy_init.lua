@@ -109,10 +109,7 @@ require("lazy").setup({
   -- "ray-x/lsp_signature.nvim", -- usine `lspsaga`
   "b0o/schemastore.nvim",
   { "mfussenegger/nvim-jdtls", ft = "java" },
-  {
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-  },
+  "pmizio/typescript-tools.nvim",
 
   -- Autocomplete engine
   {
@@ -224,8 +221,6 @@ require("lazy").setup({
   --   "dstein64/vim-startuptime",
   --   cmd = "StartupTime",
   -- },
-  -- "goolord/alpha-nvim",
-  -- "mhinz/vim-startify",
 
   -- session management
 
