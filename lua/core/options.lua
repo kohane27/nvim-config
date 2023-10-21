@@ -57,8 +57,8 @@ opt.fillchars       = { eob = " " }
 
 opt.splitkeep       = "screen" -- stabilize buffer content on window open/close events
 
--- https://vi.stackexchange.com/questions/26628/make-jumplist-behave-like-stack
-opt.jumpoptions     = "stack"
+-- Note: do NOT set `stack` because you can't cycle with `C-i` and `C-o`
+opt.jumpoptions     = "view"
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------

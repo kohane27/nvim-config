@@ -12,10 +12,6 @@ marks.setup({
     delete_line = "mx",
     delete_buf = "mX",
   },
-  force_write_shada = true,
-  builtin_marks = { ".", "'", "^" },
-  -- . last change
-  -- ^ last Insert mode
   -- whether cycle back to the beginning/end of buffer
   cyclic = false,
   -- Bookmarks can be used to group together positions and quickly move
