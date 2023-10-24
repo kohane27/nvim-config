@@ -525,8 +525,32 @@ legendary.setup({
     {
       "<leader>MRTwAWX",
       '<cmd>%s/0 " "//g<CR>',
-      description = "hledger: Remove zero quote quote",
+      description = "hledger: Remove Zero Quote Quote",
       filters = { filetype = "ledger" },
+    },
+    {
+      "<leader>MRTwAWA",
+      function()
+        vim.api.nvim_feedkeys(":s/$/abc/", "n", true)
+      end,
+      description = "Substitute The End Of Each Line",
+      mode = { "v" },
+    },
+    {
+      "<leader>MRTwAWB",
+      function()
+        vim.api.nvim_feedkeys(":g/^abc$/d", "n", true)
+      end,
+      description = "Delete Lines That Only Contain abc",
+      mode = { "n" },
+    },
+    {
+      "<leader>MRTwAWC",
+      function()
+        vim.api.nvim_feedkeys(":g/abc/d", "n", true)
+      end,
+      description = "Delete Lines Containing abc Anywhere In The Line",
+      mode = { "n" },
     },
 
     --  ╭──────────────────────────────────────────────────────────╮
