@@ -347,12 +347,28 @@ legendary.setup({
     { "m6", "<cmd>lua require('grapple').select({key = 6})<CR>", description = "Grapple: File 6" },
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │ Session                                                  │
+    -- │ Scratchpad                                               │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>ss", "<cmd>SessionSave<CR>", description = "Session: Save" },
-    { "<leader>sr", "<cmd>SessionRestore<CR>", description = "Session: Restore" },
-    { "<leader>sd", "<cmd>SessionDelete<CR>", description = "Session: Delete" },
-    { "<leader>sl", "<cmd>lua require('session-lens').search_session()<CR>", description = "Session: Search" },
+    {
+      "<leader>sm",
+      '<cmd>lua require("scratch.scratch_file").createScratchFileByType("md")<CR>',
+      description = "scratch: create md",
+    },
+    {
+      "<leader>ss",
+      '<cmd>lua require("scratch.scratch_file").scratchPad()<CR>',
+      description = "scratch: open scratchPad",
+    },
+    {
+      "<leader>sf",
+      '<cmd>lua require("scratch.scratch_file").openScratch()<CR>',
+      description = "scratch: open an old file",
+    },
+    {
+      "<leader>sc",
+      '<cmd>lua require("scratch.scratch_file").fzfScratch()<CR>',
+      description = "scratch: search content",
+    },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ AI                                                       │
@@ -360,21 +376,11 @@ legendary.setup({
     { "<leader>ao", "<cmd>ChatGPT<CR>", description = "GPT: Open" },
     { "<leader>aa", "<cmd>ChatGPTActAs<CR>", description = "GPT: Act As" },
     {
-      "<leader>aa",
-      "<cmd>ChatGPTRun add_tests<CR>",
-      description = "GPT: Add Tests",
-      mode = { "n", "v" },
-    },
-    {
-      "<leader>ac",
-      "<cmd>ChatGPTRun optimize_code<CR>",
-      description = "GPT: Optimize Code",
-      mode = { "n", "v" },
-    },
-    {
-      "<leader>as",
-      "<cmd>ChatGPTRun fix_bugs<CR>",
-      description = "GPT: Fix Bugs",
+      "<leader>ar",
+      function()
+        vim.api.nvim_feedkeys(":ChatGPTRun ", "n", true)
+      end,
+      description = "GPT: Run Specific Actions",
       mode = { "n", "v" },
     },
     {
@@ -390,43 +396,72 @@ legendary.setup({
       mode = { "n", "v" },
     },
     {
-      "<leader>as",
-      "<cmd>ChatGPTRun summarize<CR>",
-      description = "GPT: Summarize",
-      mode = { "n", "v" },
-    },
-    {
       "<leader>ae",
       "<cmd>ChatGPTEditWithInstructions<CR>",
       description = "GPT: Edit with instruction",
       mode = { "n", "v" },
     },
+    -- {
+    --   "<leader>as",
+    --   "<cmd>ChatGPTRun summarize<CR>",
+    --   description = "GPT: Summarize",
+    --   mode = { "n", "v" },
+    -- },
+    -- {
+    --   "<leader>aa",
+    --   "<cmd>ChatGPTRun add_tests<CR>",
+    --   description = "GPT: Add Tests",
+    --   mode = { "n", "v" },
+    -- },
+    -- {
+    --   "<leader>ac",
+    --   "<cmd>ChatGPTRun optimize_code<CR>",
+    --   description = "GPT: Optimize Code",
+    --   mode = { "n", "v" },
+    -- },
+    -- {
+    --   "<leader>as",
+    --   "<cmd>ChatGPTRun fix_bugs<CR>",
+    --   description = "GPT: Fix Bugs",
+    --   mode = { "n", "v" },
+    -- },
+    -- {
+    --   "<leader>ak",
+    --   "<cmd>ChatGPTRun keywords<CR>",
+    --   description = "GPT: Generate keywords",
+    --   mode = { "n", "v" },
+    -- },
+    -- {
+    --   "<leader>ad",
+    --   "<cmd>ChatGPTRun docstring<CR>",
+    --   description = "GPT: Generate docstring",
+    --   mode = { "n", "v" },
+    -- },
+    -- {
+    --   "<leader>aR",
+    --   "<cmd>ChatGPTRun roxygen_edit<CR>",
+    --   description = "GPT: Roxygen Edit",
+    --   mode = { "n", "v" },
+    -- },
+
+    --  ╭──────────────────────────────────────────────────────────╮
+    --  │ leetcode                                                 │
+    --  ╰──────────────────────────────────────────────────────────╯
+    { "<leader>cm", "<cmd>LcMenu<CR>", description = "leetcode: opens menu dashboard" },
+    { "<leader>cc", "<cmd>LcConsole<CR>", description = "leetcode: opens console for currently opened question" },
     {
-      "<leader>ak",
-      "<cmd>ChatGPTRun keywords<CR>",
-      description = "GPT: Generate keywords",
-      mode = { "n", "v" },
+      "<leader>cq",
+      "<cmd>LcQuestionTabs<CR>",
+      description = "leetcode: opens a picker with all currently opened question tabs",
     },
     {
-      "<leader>ad",
-      "<cmd>ChatGPTRun docstring<CR>",
-      description = "GPT: Generate docstring",
-      mode = { "n", "v" },
+      "<leader>cl",
+      "<cmd>LcLanguage<CR>",
+      description = "leetcode: opens a picker to select a language for the current session",
     },
-    {
-      "<leader>aR",
-      "<cmd>ChatGPTRun roxygen_edit<CR>",
-      description = "GPT: Roxygen Edit",
-      mode = { "n", "v" },
-    },
-    {
-      "<leader>ar",
-      function()
-        vim.api.nvim_feedkeys(":ChatGPTRun ", "n", true)
-      end,
-      description = "GPT: Run Specific Actions",
-      mode = { "n", "v" },
-    },
+    { "<leader>cd", "<cmd>LcDescriptionToggle<CR>", description = "leetcode: toggle question description" },
+    { "<leader>cr", "<cmd>LcRun<CR>", description = "leetcode: run currently opened question" },
+    { "<leader>cs", "<cmd>LcSubmit<CR>", description = "leetcode: submit currently opened question" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous Keymaps                                  │
@@ -441,186 +476,80 @@ legendary.setup({
     },
     { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Misc: Zoom: Toggle" },
     { "<leader>u", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
-    { "<leader>q", "<cmd>wqa<CR>", description = "Quit" },
-    { "<leader>Q", "<cmd>q!<CR>", description = "Force Quit" },
+    { "<leader>q", "<cmd>wq<CR>", description = "Quit" },
+    { "<leader>Q", "<cmd>wq!<CR>", description = "Force Quit" },
     { "Q", "<cmd>Bdelete<CR>", description = "Buffer: Close" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous (leader M; random shortcuts)             │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>MXLs", "<cmd>Lazy sync<CR>", description = "Lazy: Update" },
-    { "<leader>MXLc", "<cmd>Lazy clean<CR>", description = "Lazy: Clean" },
-    { "<leader>MXi", "<cmd>LspInfo<CR>", description = "LSP: Info" },
-    { "<leader>MXa", "<cmd>Mason<CR>", description = "LSP: Install Info" },
-    { "<leader>MXt", "<cmd>ScopeMoveBuf<CR>", description = "Scope: Move Current Buffer to Specified Tab" },
+    -- session
+    { "<leader>MXss", "<cmd>SessionSave<CR>", description = "Session: Save" },
+    { "<leader>MXsr", "<cmd>SessionRestore<CR>", description = "Session: Restore" },
+    { "<leader>MXsd", "<cmd>SessionDelete<CR>", description = "Session: Delete" },
+    { "<leader>MXsl", "<cmd>lua require('session-lens').search_session()<CR>", description = "Session: Search" },
+    --  vim-caser
     {
-      "<leader>MXta",
-      function()
-        vim.api.nvim_feedkeys(":verbose map <C-i>", "n", true)
-      end,
-      description = "verbose: Find Keybinding Conflict",
-    },
-    {
-      "<leader>MXtb",
-      function()
-        vim.api.nvim_feedkeys(":cdo s/foo/bar/gc | update", "n", true)
-      end,
-      description = "cdo: Execute Command on Quickfix Entries",
-    },
-
-    {
-      "<leader>MXxp",
-      function()
-        markdown_preview()
-      end,
-      description = "Preview Markdown",
-    },
-
-    { "<leader>Mxxse", "<cmd>ScrollViewToggle<CR>", description = "ScrollViewToggle: Enable" },
-    { "<leader>Mxxsd", "<cmd>TSContextToggle<CR>", description = "TSContextToggle: Toggle" },
-
-    { "<leader>MCP", "<cmd>Colortils picker<CR>", description = "Colortils: Picker" },
-    { "<leader>MCL", "<cmd>Colortils css list<CR>", description = "Colortils: CSS List" },
-    -- { "<leader>MCLP", "<cmd>PasteImg<CR>", description = "Misc: Paste Image" },
-    -- { "<leader>MCxQ", "<cmd>TSBufEnable highlight<CR>", description = "Treesitter: highlight" },
-
-    {
-      "<leader>Mb",
-      "<cmd>lua require('comment-box').llbox()<CR><Esc>",
-      description = "Comment Box: Left-aligned",
-      mode = { "x" },
-    },
-    {
-      "<leader>MEL",
-      "<cmd>g/^$/d<CR>",
-      description = "Remove Empty Lines",
-    },
-    {
-      "<leader>MRTwS",
-      "<cmd>%s/\t/  /g<CR>",
-      description = "Replace Tabs with Spaces",
-    },
-    {
-      "<leader>MRTWS",
-      "<cmd>lua MiniTrailspace.trim()<CR>",
-      description = "Trim all trailing whitespace",
-    },
-    {
-      "<leader>MRTwAW",
-      "<cmd>%s/\\s\\+$//e<CR>",
-      description = "Remove All Whitespace",
-    },
-
-    {
-      "<leader>MRTwAWB",
-      "<cmd>%s/[’‘]/'/g<CR>",
-      description = "Replace All Single Curly Quotes",
-    },
-    {
-      "<leader>MRTwAWC",
-      '<cmd>%s/[“”]/"/g<CR>',
-      description = "Replace All Double Curly Quotes",
-    },
-
-    {
-      "<leader>MRTwAWX",
-      '<cmd>%s/0 " "//g<CR>',
-      description = "hledger: Remove Zero Quote Quote",
-      filters = { filetype = "ledger" },
-    },
-    {
-      "<leader>MRTwAWA",
-      function()
-        vim.api.nvim_feedkeys(":s/$/abc/", "n", true)
-      end,
-      description = "Substitute The End Of Each Line",
-      mode = { "v" },
-    },
-    {
-      "<leader>MRTwAWB",
-      function()
-        vim.api.nvim_feedkeys(":g/^abc$/d", "n", true)
-      end,
-      description = "Delete Lines That Only Contain abc",
-      mode = { "n" },
-    },
-    {
-      "<leader>MRTwAWC",
-      function()
-        vim.api.nvim_feedkeys(":g/abc/d", "n", true)
-      end,
-      description = "Delete Lines Containing abc Anywhere In The Line",
-      mode = { "n" },
-    },
-
-    --  ╭──────────────────────────────────────────────────────────╮
-    --  │ vim-caser                                                │
-    --  ╰──────────────────────────────────────────────────────────╯
-
-    {
-      "<leader>MTu",
+      "<leader>MXtu",
       "<Plug>CaserVUpperCase",
       description = "Constant case: LOREM_IPSUM",
       mode = { "v" },
     },
     {
-      "<leader>MTs",
+      "<leader>MXts",
       "<Plug>CaserVSnakeCase",
       description = "Snake case: lorem_ipsum",
       mode = { "v" },
     },
     {
-      "<leader>MTxd",
+      "<leader>MXtxd",
       "<Plug>CaserVKebabCase",
       description = "Dash case: lorem-ipsum",
       mode = { "v" },
     },
     {
-      "<leader>MTc",
+      "<leader>MXtc",
       "<Plug>CaserVSpaceCase",
       description = "space case: lorem ipsum",
       mode = { "v" },
     },
     {
-      "<leader>MTd",
+      "<leader>MXtd",
       "<Plug>CaserVDotCase",
       description = "Dot case: lorem.ipsum",
       mode = { "v" },
     },
     {
-      "<leader>MTxbp",
+      "<leader>MXtxbp",
       "<Plug>CaserVSentenceCase",
       description = "Sentence case: Lorem ipsum",
       mode = { "v" },
     },
     {
-      "<leader>MTxap",
+      "<leader>MXtxap",
       "<Plug>CaserVMixedCase",
       description = "Pascal case: LoremIpsum",
       mode = { "v" },
     },
     {
-      "<leader>MTt",
+      "<leader>MXtt",
       "<Plug>CaserVTitleCase",
       description = "Title case: Lorem Ipsum",
       mode = { "v" },
     },
     {
-      "<leader>MTD",
+      "<leader>MXtd",
       "<Plug>CaserVTitleKebabCase",
       description = "Title dash case: Lorem-Ipsum",
       mode = { "v" },
     },
     {
-      "<leader>MTC",
+      "<leader>MXtc",
       "<Plug>CaserVCamelCase",
       description = "Camel case: loremIpsum",
       mode = { "v" },
     },
-
-    --  ╭──────────────────────────────────────────────────────────╮
-    --  │ jdtls                                                    │
-    --  ╰──────────────────────────────────────────────────────────╯
+    -- jdtls
     {
       "<leader>MXja",
       "<cmd>JdtWipeDataAndRestart<CR>",
@@ -671,6 +600,109 @@ legendary.setup({
       filters = { filetype = "java" },
       description = "jdtls: Extract Method",
       mode = { "v" },
+    },
+    -- LSP
+    { "<leader>MXls", "<cmd>Lazy sync<CR>", description = "Lazy: Update" },
+    { "<leader>MXlc", "<cmd>Lazy clean<CR>", description = "Lazy: Clean" },
+    { "<leader>MXli", "<cmd>LspInfo<CR>", description = "LSP: Info" },
+    { "<leader>MXlm", "<cmd>Mason<CR>", description = "LSP: Install Info" },
+    -- misc
+    { "<leader>MXbm", "<cmd>ScopeMoveBuf<CR>", description = "Scope: Move Current Buffer to Specified Tab" },
+    {
+      "<leader>MXta",
+      function()
+        vim.api.nvim_feedkeys(":verbose map <C-i>", "n", true)
+      end,
+      description = "verbose: Find Keybinding Conflict",
+    },
+    {
+      "<leader>MXtb",
+      function()
+        vim.api.nvim_feedkeys(":cdo s/foo/bar/gc | update", "n", true)
+      end,
+      description = "cdo: Execute Command on Quickfix Entries",
+    },
+
+    {
+      "<leader>MXxp",
+      function()
+        markdown_preview()
+      end,
+      description = "Preview Markdown",
+    },
+
+    { "<leader>MXse", "<cmd>ScrollViewToggle<CR>", description = "ScrollViewToggle: Enable" },
+    { "<leader>MXsd", "<cmd>TSContextToggle<CR>", description = "TSContextToggle: Toggle" },
+
+    { "<leader>MXcp", "<cmd>Colortils picker<CR>", description = "Colortils: Picker" },
+    { "<leader>MXcl", "<cmd>Colortils css list<CR>", description = "Colortils: CSS List" },
+    -- { "<leader>MCLP", "<cmd>PasteImg<CR>", description = "Misc: Paste Image" },
+    {
+      "<leader>MXcb",
+      "<cmd>lua require('comment-box').llbox()<CR><Esc>",
+      description = "Comment Box: Left-aligned",
+      mode = { "x" },
+    },
+    {
+      "<leader>MXree",
+      "<cmd>g/^$/d<CR>",
+      description = "Remove Empty Lines",
+    },
+    {
+      "<leader>MXrts",
+      "<cmd>%s/\t/  /g<CR>",
+      description = "Replace Tabs with Spaces",
+    },
+    {
+      "<leader>MXttw",
+      "<cmd>lua MiniTrailspace.trim()<CR>",
+      description = "Trim all trailing whitespace",
+    },
+    {
+      "<leader>MXraw",
+      "<cmd>%s/\\s\\+$//e<CR>",
+      description = "Remove All Whitespace",
+    },
+
+    {
+      "<leader>MXrsq",
+      "<cmd>%s/[’‘]/'/g<CR>",
+      description = "Replace All Single Curly Quotes",
+    },
+    {
+      "<leader>MXrdq",
+      '<cmd>%s/[“”]/"/g<CR>',
+      description = "Replace All Double Curly Quotes",
+    },
+    {
+      "<leader>MXrqq",
+      '<cmd>%s/0 " "//g<CR>',
+      description = "hledger: Remove Zero Quote Quote",
+      filters = { filetype = "ledger" },
+    },
+    {
+      "<leader>MXsel",
+      function()
+        vim.api.nvim_feedkeys(":s/$/abc/", "n", true)
+      end,
+      description = "Substitute The End Of Each Line",
+      mode = { "v" },
+    },
+    {
+      "<leader>MXdc",
+      function()
+        vim.api.nvim_feedkeys(":g/^abc$/d", "n", true)
+      end,
+      description = "Delete Lines That Only Contain abc",
+      mode = { "n" },
+    },
+    {
+      "<leader>MXdoc",
+      function()
+        vim.api.nvim_feedkeys(":g/abc/d", "n", true)
+      end,
+      description = "Delete Lines Containing abc Anywhere In The Line",
+      mode = { "n" },
     },
   },
 })
