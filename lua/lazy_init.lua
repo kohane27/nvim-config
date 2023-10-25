@@ -268,6 +268,10 @@ require("lazy").setup({
 
   -- preview markdown
   { "ellisonleao/glow.nvim", ft = "markdown", event = "VeryLazy" },
+  {
+    "LintaoAmons/scratch.nvim",
+    event = "VeryLazy",
+  },
 
   -- task runners
   { "michaelb/sniprun", build = "bash ./install.sh" },
