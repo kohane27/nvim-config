@@ -13,6 +13,9 @@ saga.setup({
     sign = true,
     virtual_text = false,
   },
+  code_action = {
+    extend_gitsigns = true,
+  },
   symbol_in_winbar = {
     enable = true,
     in_custom = false, -- else won't work

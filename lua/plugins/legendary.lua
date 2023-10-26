@@ -350,10 +350,15 @@ legendary.setup({
     -- │ Scratchpad                                               │
     -- ╰──────────────────────────────────────────────────────────╯
     {
-      "<leader>sm",
-      '<cmd>lua require("scratch.scratch_file").createScratchFileByType("md")<CR>',
-      description = "scratch: create md",
+      "<leader>so",
+      "<cmd>Scratch<CR>",
+      description = "scratch: create new",
     },
+    -- {
+    --   "<leader>sm",
+    --   '<cmd>lua require("scratch.scratch_file").createScratchFileByType("md")<CR>',
+    --   description = "scratch: create md",
+    -- },
     {
       "<leader>ss",
       '<cmd>lua require("scratch.scratch_file").scratchPad()<CR>',
