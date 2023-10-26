@@ -688,7 +688,7 @@ legendary.setup({
     {
       "<leader>MXsel",
       function()
-        vim.api.nvim_feedkeys(":s/$/abc/", "n", true)
+        vim.api.nvim_feedkeys(":s/$/xx", "n", true)
       end,
       description = "Substitute The End Of Each Line",
       mode = { "v" },
