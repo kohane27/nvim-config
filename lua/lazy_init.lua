@@ -236,16 +236,26 @@ require("lazy").setup({
   "lewis6991/gitsigns.nvim",
 
   -- navigation
-  "ggandor/leap.nvim",
+  {
+    "ggandor/leap.nvim",
+    event = "VeryLazy",
+  },
 
   -- "ggandor/flit.nvim",
   -- "rhysd/clever-f.vim",
-  "kohane27/find-extender.nvim",
-
-  "rasulomaroff/telepath.nvim",
+  {
+    "kohane27/find-extender.nvim",
+    event = "VeryLazy",
+  },
+  {
+    "rasulomaroff/telepath.nvim",
+    event = "VeryLazy",
+  },
   -- "ggandor/leap-spooky.nvim",
-
-  "liangxianzhe/nap.nvim",
+  {
+    "liangxianzhe/nap.nvim",
+    event = "VeryLazy",
+  },
 
   {
     "cbochs/grapple.nvim",

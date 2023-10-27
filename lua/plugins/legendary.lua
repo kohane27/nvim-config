@@ -109,7 +109,7 @@ legendary.setup({
     { "<C-f>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
     { "<C-e>", '<cmd>lua require("ranger-nvim").open(true)<CR>', description = "Ranger" },
     { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
-    { "<C-t>", "<cmd>ToggleTerm<CR>", description = " New terminal" },
+    { "<C-t>", "<cmd>ToggleTerm<CR>", description = "New terminal" },
     {
       "<C-g>",
       function()
@@ -488,7 +488,7 @@ legendary.setup({
     { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Misc: Zoom: Toggle" },
     { "<leader>u", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
     { "<leader>q", "<cmd>wq<CR>", description = "Quit" },
-    { "<leader>Q", "<cmd>wq!<CR>", description = "Force Quit" },
+    { "<leader>Q", "<cmd>q!<CR>", description = "Force Quit" },
     { "Q", "<cmd>Bdelete<CR>", description = "Buffer: Close" },
 
     -- ╭──────────────────────────────────────────────────────────╮
