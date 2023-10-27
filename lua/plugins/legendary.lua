@@ -175,12 +175,18 @@ legendary.setup({
     {
       "<leader>fs",
       '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>',
-      description = "Spectre: Search Word for Current File",
+      description = "Spectre: Search in File",
     },
     {
       "<leader>fS",
-      '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
-      description = "Spectre: Search Word for Current Project",
+      function()
+        require("spectre").open({
+          cwd = vim.fn.getcwd(),
+          is_insert_mode = false,
+          is_close = true,
+        })
+      end,
+      description = "Spectre: Search in Project",
     },
 
     -- ╭──────────────────────────────────────────────────────────╮
