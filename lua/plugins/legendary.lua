@@ -118,7 +118,27 @@ legendary.setup({
       description = "Telescope: Find Files",
     },
 
-    { "<C-p>", "<cmd>Legendary<CR>", description = "Legendary Command Palette", mode = { "n", "i", "x" } },
+    -- { "<C-p>", "<cmd>Legendary<CR>", description = "Legendary Command Palette", mode = { "n", "i", "x" } },
+    {
+      "<C-p>",
+      function()
+        require("legendary").find({
+          formatter = function(item, _)
+            local newTable = {}
+            local values = require("legendary.ui.format").default_format(item)
+            for i, v in ipairs(values) do
+              -- remove the mode column
+              if i > 1 then
+                table.insert(newTable, v)
+              end
+            end
+            return newTable
+          end,
+        })
+      end,
+      description = "Legendary Command Palette",
+      mode = { "n", "i", "x" },
+    },
 
     { "<C-d>", "<cmd>lua Scroll('<C-f>', 1, 1)<CR>", description = "Smooth scrolling: down", mode = { "n", "x" } },
     { "<C-u>", "<cmd>lua Scroll('<C-b>', 1, 1)<CR>", description = "Smooth scrolling: up", mode = { "n", "x" } },
@@ -664,7 +684,7 @@ legendary.setup({
       function()
         vim.api.nvim_feedkeys(":g/foo/normal A;", "n", true)
       end,
-      description = "g: Execute Normal Mode Commands on Line(s) Containing foo",
+      description = "g: Run Normal Mode Commands on Line(s) Containing foo",
     },
     {
       "<leader>MXggf",
