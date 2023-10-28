@@ -203,7 +203,7 @@ legendary.setup({
     { "gT", "<cmd>lua vim.lsp.buf.type_definition()<CR>", description = "LSP: Go to Type Definition" },
 
     { "gr", "<cmd>lua vim.lsp.buf.references()<CR>", description = "LSP: Reference List" },
-    { "gR", "<cmd>Trouble lsp_references<CR>", description = "LSP: Reference List" },
+    { "gR", '<cmd>require("trouble").toggle("lsp_references")<CR>', description = "LSP: Reference List" },
     -- { "gR", "<cmd>Telescope lsp_references<CR>", description = "LSP: Reference List" },
 
     { "<leader>rn", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },

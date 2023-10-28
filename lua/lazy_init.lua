@@ -97,7 +97,10 @@ require("lazy").setup({
   -- "rmagatti/goto-preview",
   "nvimdev/lspsaga.nvim",
 
-  "folke/trouble.nvim",
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
 
   -- pictograms
   "onsails/lspkind.nvim",
