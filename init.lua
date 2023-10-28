@@ -34,6 +34,7 @@ require("plugins.colorizer")
 require("plugins.colortils")
 
 require("plugins.leap")
+require("plugins.flash")
 
 -- require("plugins.flit")
 require("plugins.find-extender")
@@ -67,6 +68,7 @@ require("plugins.beacon")
 
 require("plugins.comment-box")
 require("plugins.vim-caser")
+
 require("plugins.incline")
 require("plugins.nvim-hlslens")
 require("plugins.cinnamon")

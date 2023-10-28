@@ -287,6 +287,15 @@ legendary.setup({
     { "<C-a>", require("dial.map").inc_normal(), description = "Increment" },
     { "<C-x>", require("dial.map").dec_normal(), description = "Decrement" },
 
+    {
+      "gs",
+      function()
+        require("flash").treesitter()
+      end,
+      description = "Flash Treesitter",
+      mode = { "n", "x", "o" },
+    },
+
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ tmux.lua                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
