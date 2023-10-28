@@ -7,10 +7,7 @@ bqf.setup({
   auto_enable = true,
   auto_resize_height = true,
   preview = {
-    win_height = 12,
-    win_vheight = 12,
-    delay_syntax = 80,
-    border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
+    auto_preview = true,
     show_title = false,
     should_preview_cb = function(bufnr, qwinid)
       local ret = true
@@ -30,6 +27,17 @@ bqf.setup({
     split = "<C-w>s",
     tab = "<C-w>t",
     filter = "<C-q>",
+    prevfile = "",
+    nextfile = "",
+  },
+  filter = {
+    fzf = {
+      action_for = {
+        ["<c-w>v"] = "vsplit",
+        ["<c-w>s"] = "split",
+        ["<c-w>t"] = "tab",
+      },
+    },
   },
 })
 
@@ -41,6 +49,7 @@ bqf.setup({
 -- ]])
 
 -- https://github.com/kevinhwang91/nvim-bqf#format-new-quickfix
+-- no need `yorickpeterse/nvim-pqf`
 local fn = vim.fn
 
 function _G.qftf(info)
