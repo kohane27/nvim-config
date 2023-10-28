@@ -5,7 +5,7 @@ end
 
 ufo.setup({
   provider_selector = function(bufnr, filetype, buftype)
-    return { "treesitter", "indent" }
+    return { "lsp", "indent" }
   end,
   preview = {
     win_config = {
@@ -13,8 +13,8 @@ ufo.setup({
       maxheight = 99,
     },
     mappings = {
-      scrollU = "<C-u>",
-      scrollD = "<C-d>",
+      scrollU = "<C-b>",
+      scrollD = "<C-f>",
       jumpTop = "[",
       jumpBot = "]",
     },

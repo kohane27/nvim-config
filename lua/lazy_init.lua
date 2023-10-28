@@ -273,14 +273,19 @@ require("lazy").setup({
 
   "aserowy/tmux.nvim",
 
-  { "kevinhwang91/nvim-bqf", event = "VeryLazy", dependencies = { "junegunn/fzf" } },
+  {
+    "kevinhwang91/nvim-bqf",
+    event = "VeryLazy",
+    dependencies = { "junegunn/fzf" },
+    ft = "qf",
+  },
 
   -- filetypes
   -- "ekickx/clipboard-image.nvim", -- copy clipboard image to nvim
 
-  { "mtdl9/vim-log-highlighting", ft = "log" },
-  { "chrisbra/csv.vim", ft = { "csv", "dat" } },
-  { "ledger/vim-ledger", ft = "ledger" },
+  { "mtdl9/vim-log-highlighting", ft = "log", event = "VeryLazy" },
+  { "chrisbra/csv.vim", ft = { "csv", "dat" }, event = "VeryLazy" },
+  { "ledger/vim-ledger", ft = "ledger", event = "VeryLazy" },
 
   -- preview markdown
   { "ellisonleao/glow.nvim", ft = "markdown", event = "VeryLazy" },
