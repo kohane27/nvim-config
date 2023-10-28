@@ -124,15 +124,9 @@ legendary.setup({
       function()
         require("legendary").find({
           formatter = function(item, _)
-            local newTable = {}
             local values = require("legendary.ui.format").default_format(item)
-            for i, v in ipairs(values) do
-              -- remove the mode column
-              if i > 1 then
-                table.insert(newTable, v)
-              end
-            end
-            return newTable
+            values[1] = ""
+            return values
           end,
         })
       end,
