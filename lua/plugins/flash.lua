@@ -6,12 +6,10 @@ end
 flash.setup({
   labels = "asdfghjklqwertyuiopzxcvbnm",
   highlight = {
-    -- show a backdrop with hl FlashBackdrop
-    backdrop = true,
+    -- show a backdrop
+    backdrop = false,
     -- Highlight the search matches
     matches = true,
-    -- extmark priority
-    priority = 5000,
     groups = {
       match = "FlashMatch",
       current = "FlashCurrent",
@@ -27,19 +25,14 @@ flash.setup({
     -- `require("flash").treesitter()`
     treesitter = {
       labels = "abcdefghijklmnopqrstuvwxyz",
-      jump = { pos = "range" },
-      search = { incremental = false },
       label = { before = true, after = true, style = "inline" },
       highlight = {
         backdrop = false,
         matches = false,
       },
     },
-    treesitter_search = {
-      jump = { pos = "range" },
-      search = { multi_window = false, wrap = true, incremental = false },
-      remote_op = { restore = false },
-      label = { before = true, after = true, style = "inline" },
-    },
   },
 })
+
+-- consistent with `leap.nvim`
+vim.cmd("highlight FlashLabel guifg=#000000 guibg=#CCFF88 gui=bold,nocombine")
