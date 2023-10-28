@@ -17,7 +17,8 @@ ts_configs.setup({
   context_commentstring = { enable = true, enable_autocmd = false },
   indent = { enable = true, disable = { "yaml", "json" } },
   incremental_selection = {
-    enable = true,
+    -- using `flash.nvim`
+    enable = false,
     keymaps = {
       -- set to `false` to disable one of the mappings
       init_selection = "<CR>",

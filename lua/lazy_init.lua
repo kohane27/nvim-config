@@ -241,6 +241,12 @@ require("lazy").setup({
     event = "VeryLazy",
   },
 
+  -- search Treesitter nodes
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+  },
+
   -- "ggandor/flit.nvim",
   -- "rhysd/clever-f.vim",
   {
