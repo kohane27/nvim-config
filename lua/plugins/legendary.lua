@@ -636,11 +636,20 @@ legendary.setup({
       description = "verbose: Find Keybinding Conflict",
     },
     {
-      "<leader>MXtb",
+      "<leader>MXcd",
       function()
         vim.api.nvim_feedkeys(":cdo s/foo/bar/gc | update", "n", true)
       end,
       description = "cdo: Execute Command on Quickfix Entries",
+      filters = { filetype = "qf", "Trouble" },
+    },
+    {
+      "<leader>MXld",
+      function()
+        vim.api.nvim_feedkeys(":ldo s/foo/bar/gc | update", "n", true)
+      end,
+      description = "ldo: Execute Command on Location List Entries",
+      filters = { filetype = "qf", "Trouble" },
     },
 
     {
