@@ -508,6 +508,7 @@ legendary.setup({
     { "<leader>MXsr", "<cmd>SessionRestore<CR>", description = "Session: Restore" },
     { "<leader>MXsd", "<cmd>SessionDelete<CR>", description = "Session: Delete" },
     { "<leader>MXsl", "<cmd>lua require('session-lens').search_session()<CR>", description = "Session: Search" },
+
     --  vim-caser
     {
       "<leader>MXtu",
@@ -569,6 +570,7 @@ legendary.setup({
       description = "Camel case: loremIpsum",
       mode = { "v" },
     },
+
     -- jdtls
     {
       "<leader>MXja",
@@ -621,11 +623,78 @@ legendary.setup({
       description = "jdtls: Extract Method",
       mode = { "v" },
     },
+
     -- LSP
     { "<leader>MXls", "<cmd>Lazy sync<CR>", description = "Lazy: Update" },
     { "<leader>MXlc", "<cmd>Lazy clean<CR>", description = "Lazy: Clean" },
     { "<leader>MXli", "<cmd>LspInfo<CR>", description = "LSP: Info" },
     { "<leader>MXlm", "<cmd>Mason<CR>", description = "LSP: Install Info" },
+
+    -- global commands
+    {
+      "<leader>MXgga",
+      function()
+        vim.api.nvim_feedkeys(":g/^$/d", "n", true)
+      end,
+      description = "g: Remove Empty Lines",
+    },
+    {
+      "<leader>MXggb",
+      function()
+        vim.api.nvim_feedkeys(":g/^foo$/d", "n", true)
+      end,
+      description = "g: Delete Lines Only Contain foo",
+    },
+    {
+      "<leader>MXggc",
+      function()
+        vim.api.nvim_feedkeys(":g!/^foo$/d", "n", true)
+      end,
+      description = "g: Delete Lines NOT are foo",
+    },
+    {
+      "<leader>MXggd",
+      function()
+        vim.api.nvim_feedkeys(":g/foo/d", "n", true)
+      end,
+      description = "g: Delete Lines Containing foo Anywhere in the Line",
+    },
+    {
+      "<leader>MXgge",
+      function()
+        vim.api.nvim_feedkeys(":g/foo/normal A;", "n", true)
+      end,
+      description = "g: Execute Normal Mode Commands on Line(s) Containing foo",
+    },
+    {
+      "<leader>MXggf",
+      function()
+        vim.api.nvim_feedkeys(":g/foo/normal @a", "n", true)
+      end,
+      description = "g: Run Macro a Line(s) Containing foo",
+    },
+    {
+      "<leader>MXggg",
+      function()
+        vim.api.nvim_feedkeys(":g/foo/g/bar/d", "n", true)
+      end,
+      description = "g: Deletes Lines Containing Both foo and bar",
+    },
+    {
+      "<leader>MXggh",
+      function()
+        vim.api.nvim_feedkeys(":g/foo/t $", "n", true)
+      end,
+      description = "g: t (copy) All foo matches to end of file",
+    },
+    {
+      "<leader>MXggi",
+      function()
+        vim.api.nvim_feedkeys(":g/foo/m $", "n", true)
+      end,
+      description = "g: (m)ove all foo matches to end of file",
+    },
+
     -- misc
     { "<leader>MXbm", "<cmd>ScopeMoveBuf<CR>", description = "Scope: Move Current Buffer to Specified Tab" },
     {
@@ -673,11 +742,6 @@ legendary.setup({
       mode = { "x" },
     },
     {
-      "<leader>MXree",
-      "<cmd>g/^$/d<CR>",
-      description = "Remove Empty Lines",
-    },
-    {
       "<leader>MXrts",
       "<cmd>%s/\t/  /g<CR>",
       description = "Replace Tabs with Spaces",
@@ -716,22 +780,6 @@ legendary.setup({
       end,
       description = "Substitute The End Of Each Line",
       mode = { "v" },
-    },
-    {
-      "<leader>MXdc",
-      function()
-        vim.api.nvim_feedkeys(":g/^abc$/d", "n", true)
-      end,
-      description = "Delete Lines That Only Contain abc",
-      mode = { "n" },
-    },
-    {
-      "<leader>MXdoc",
-      function()
-        vim.api.nvim_feedkeys(":g/abc/d", "n", true)
-      end,
-      description = "Delete Lines Containing abc Anywhere In The Line",
-      mode = { "n" },
     },
   },
 })
