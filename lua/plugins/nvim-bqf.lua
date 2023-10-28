@@ -3,6 +3,36 @@ if not status_ok then
   print("bqf not working")
 end
 
+bqf.setup({
+  auto_enable = true,
+  auto_resize_height = true,
+  preview = {
+    win_height = 12,
+    win_vheight = 12,
+    delay_syntax = 80,
+    border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
+    show_title = false,
+    should_preview_cb = function(bufnr, qwinid)
+      local ret = true
+      local bufname = vim.api.nvim_buf_get_name(bufnr)
+      local fsize = vim.fn.getfsize(bufname)
+      if fsize > 100 * 1024 then
+        -- skip file size greater than 100k
+        ret = false
+      end
+      return ret
+    end,
+  },
+  -- https://github.com/kevinhwang91/nvim-bqf#function-table
+  -- set to empty string to disable
+  func_map = {
+    vsplit = "<C-w>v",
+    split = "<C-w>s",
+    tab = "<C-w>t",
+    filter = "<C-q>",
+  },
+})
+
 -- vim.cmd([[
 --     hi BqfPreviewBorder guifg=#3e8e2d ctermfg=71
 --     hi BqfPreviewTitle guifg=#3e8e2d ctermfg=71
@@ -10,7 +40,7 @@ end
 --     hi link BqfPreviewRange Search
 -- ]])
 
--- https://github.com/kevinhwang91/nvim-bqf#customize-quickfix-window-easter-egg
+-- https://github.com/kevinhwang91/nvim-bqf#format-new-quickfix
 local fn = vim.fn
 
 function _G.qftf(info)
@@ -56,41 +86,3 @@ function _G.qftf(info)
 end
 
 vim.o.qftf = "{info -> v:lua._G.qftf(info)}"
-
-bqf.setup({
-  auto_enable = true,
-  auto_resize_height = true,
-  preview = {
-    win_height = 12,
-    win_vheight = 12,
-    delay_syntax = 80,
-    border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
-    show_title = false,
-    should_preview_cb = function(bufnr, qwinid)
-      local ret = true
-      local bufname = vim.api.nvim_buf_get_name(bufnr)
-      local fsize = vim.fn.getfsize(bufname)
-      if fsize > 100 * 1024 then
-        -- skip file size greater than 100k
-        ret = false
-      end
-      return ret
-    end,
-  },
-  -- make `drop` and `tab drop` to become preferred
-  func_map = {
-    drop = "o",
-    openc = "O",
-    split = "<C-s>",
-    tabdrop = "<C-t>",
-    -- set to empty string to disable
-    tabc = "",
-    ptogglemode = "z,",
-  },
-  filter = {
-    fzf = {
-      action_for = { ["ctrl-s"] = "split", ["ctrl-t"] = "tab drop" },
-      extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> ", "--delimiter", "│" },
-    },
-  },
-})

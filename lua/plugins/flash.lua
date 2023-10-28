@@ -25,7 +25,7 @@ flash.setup({
     -- `require("flash").treesitter()`
     treesitter = {
       labels = "abcdefghijklmnopqrstuvwxyz",
-      label = { before = true, after = true, style = "inline" },
+      label = { before = true, after = false, style = "inline" },
       highlight = {
         backdrop = false,
         matches = false,
