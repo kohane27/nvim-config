@@ -27,6 +27,7 @@ bqf.setup({
     split = "<C-w>s",
     tab = "<C-w>t",
     filter = "<C-q>",
+    stoggledown = "v",
     prevfile = "",
     nextfile = "",
   },
