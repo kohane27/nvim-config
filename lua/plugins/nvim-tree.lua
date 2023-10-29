@@ -19,9 +19,9 @@ local function on_attach(bufnr)
     return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
 
-  vim.keymap.set("n", "<C-v>", api.node.open.vertical,      opts("Open: Vertical Split"))
-  vim.keymap.set("n", "<C-s>", api.node.open.horizontal,    opts("Open: Horizontal Split"))
-  vim.keymap.set("n", "<C-t>", api.node.open.tab,           opts("Open: New Tab"))
+  vim.keymap.set("n", "<C-w>v", api.node.open.vertical,      opts("Open: Vertical Split"))
+  vim.keymap.set("n", "<C-w>s", api.node.open.horizontal,    opts("Open: Horizontal Split"))
+  vim.keymap.set("n", "<C-w>t", api.node.open.tab,           opts("Open: New Tab"))
   vim.keymap.set("n", "o", api.node.open.preview,           opts("Open Preview"))
   vim.keymap.set("n", "l", api.node.open.edit,              opts("Open"))
   vim.keymap.set("n", "<C-r>", api.tree.reload,             opts("Refresh"))

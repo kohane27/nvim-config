@@ -25,9 +25,9 @@ saga.setup({
   },
   finder = {
     open = { "o", "<CR>" },
-    vsplit = "<C-v>",
-    split = "<C-s>",
-    tabe = "<C-t>",
+    vsplit = "<C-w>v",
+    split = "<C-w>s",
+    tabe = "<C-w>t",
     quit = { "q", "<ESC>" },
   },
   hover = {
