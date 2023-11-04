@@ -26,8 +26,8 @@ nap.setup({
       prev = { rhs = '<cmd>lua require("todo-comments").jump_prev()<CR>', opts = { desc = "Previous todo comment" } },
     },
     ["e"] = {
-      next = { rhs = "g,zz", opts = { desc = "Previous changelist item" } },
-      prev = { rhs = "g;zz", opts = { desc = "Next changelist item" } },
+      next = { rhs = "g;zz", opts = { desc = "Next changelist item" } },
+      prev = { rhs = "g,zz", opts = { desc = "Previous changelist item" } },
     },
     ["q"] = {
       next = { rhs = "<cmd>cnext<CR>zz", opts = { desc = "Next quickfix item" } },
