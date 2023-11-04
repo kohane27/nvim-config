@@ -162,7 +162,7 @@ require("lazy").setup({
   -- `<C-w>o` maximizes window without closing other buffers
   "nyngwang/NeoZoom.lua",
 
-  -- "nvim-lualine/lualine.nvim", -- statusline
+  "nvim-lualine/lualine.nvim", -- statusline
   "freddiehaddad/feline.nvim",
 
   -- terminal
