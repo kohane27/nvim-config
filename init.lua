@@ -42,8 +42,6 @@ require("plugins.find-extender")
 require("plugins.telepath")
 -- require("plugins.leap-spooky")
 
-require("plugins.nap")
-
 require("plugins.marks")
 require("plugins.grapple")
 
@@ -111,4 +109,6 @@ require("plugins.chatgpt")
 
 -- near end to override
 require("plugins.legendary")
+-- override `legendary`
+require("plugins.nap")
 require("plugins.ledger")

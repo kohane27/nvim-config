@@ -6,8 +6,8 @@ end
 nap.setup({
   next_prefix = "gj",
   prev_prefix = "gk",
-  next_repeat = ",",
-  prev_repeat = ";",
+  next_repeat = "gn",
+  prev_repeat = "gp",
   operators = {
     ["d"] = {
       next = { rhs = "<cmd>Lspsaga diagnostic_jump_next<CR>", opts = { desc = "Next diagnostic" } },
