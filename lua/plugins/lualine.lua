@@ -42,9 +42,14 @@ local config = {
       normal = { c = { fg = colors.fg, bg = colors.bg } },
       inactive = { c = { fg = colors.fg, bg = colors.bg } },
     },
+    refresh = {
+      statusline = 500,
+      tabline = 1000,
+      winbar = 1000,
+    },
   },
   sections = {
-    -- remove the defaults
+    -- remove defaults
     lualine_a = {},
     lualine_b = {},
     lualine_y = {},
@@ -54,7 +59,7 @@ local config = {
     lualine_x = {},
   },
   inactive_sections = {
-    -- remove the defaults
+    -- remove defaults
     lualine_a = {},
     lualine_b = {},
     lualine_y = {},
@@ -64,24 +69,36 @@ local config = {
   },
 }
 
--- Inserts a component in lualine_c at left section
 local function ins_left(component)
   table.insert(config.sections.lualine_c, component)
 end
 
--- Inserts a component in lualine_x at right section
 local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
+--  ╭──────────────────────────────────────────────────────────╮
+--  │ left section                                             │
+--  ╰──────────────────────────────────────────────────────────╯
 ins_left({
-  "branch",
-  icon = "",
+  "b:gitsigns_head",
+  icon = "",
   color = { fg = colors.violet },
 })
 
+local function diff_source()
+  local gitsigns = vim.b.gitsigns_status_dict
+  if gitsigns then
+    return {
+      added = gitsigns.added,
+      modified = gitsigns.changed,
+      removed = gitsigns.removed,
+    }
+  end
+end
 ins_left({
   "diff",
+  source = diff_source,
   colored = true,
   symbols = { added = " ", modified = "󰝤 ", removed = " " },
   diff_color = {
@@ -103,36 +120,57 @@ ins_left({
   },
 })
 
--- mid section. You can make any number of sections
--- for lualine it's any number greater then 2
+--  ╭──────────────────────────────────────────────────────────╮
+--  │ mid section                                              │
+--  ╰──────────────────────────────────────────────────────────╯
 -- ins_left({
 --   function()
 --     return "%="
 --   end,
 -- })
 
--- right sections
--- ins_right({
---   "o:encoding",
---   cond = conditions.hide_in_width,
---   color = { fg = colors.violet },
--- })
--- ins_right({
---   "fileformat",
---   icons_enabled = false,
---   color = { fg = colors.violet },
--- })
-
+--  ╭──────────────────────────────────────────────────────────╮
+--  │ right section                                            │
+--  ╰──────────────────────────────────────────────────────────╯
 ins_right({
   function()
-    local key = require("grapple").key()
-    return "󰓹 " .. key
+    return "󰓹 " .. require("grapple").key()
   end,
   cond = require("grapple").exists,
   color = { fg = colors.violet },
 })
 
-ins_right({ "filetype", color = { fg = colors.violet } })
+local custom_filetype = require("lualine.components.filetype"):extend()
+local highlight = require("lualine.highlight")
+local default_status_colors = { saved = colors.violet, modified = colors.darkblue }
+function custom_filetype:init(options)
+  custom_filetype.super.init(self, options)
+  self.status_colors = {
+    saved = highlight.create_component_highlight_group(
+      { fg = default_status_colors.saved },
+      "filename_status_saved",
+      self.options
+    ),
+    modified = highlight.create_component_highlight_group(
+      { fg = default_status_colors.modified },
+      "filename_status_modified",
+      self.options
+    ),
+  }
+  if self.options.color == nil then
+    self.options.color = ""
+  end
+end
+function custom_filetype:update_status()
+  local data = custom_filetype.super.update_status(self)
+  data = highlight.component_format_highlight(
+    vim.bo.modified and self.status_colors.modified or self.status_colors.saved
+  ) .. data
+  return data
+end
+
+ins_right({ custom_filetype })
+
 ins_right({ "location", color = { fg = colors.violet } })
 ins_right({ "progress", color = { fg = colors.violet } })
 
