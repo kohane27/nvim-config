@@ -163,6 +163,10 @@ telescope.setup({
         },
       },
     },
+    egrepify = {
+      AND = true,
+      permutations = true, -- imply AND & match all permutations of prompt tokens
+    },
   },
 })
 
@@ -171,5 +175,6 @@ telescope.load_extension("frecency")
 telescope.load_extension("neoclip")
 telescope.load_extension("zoxide")
 telescope.load_extension("scope")
+telescope.load_extension("egrepify")
 
 vim.api.nvim_set_hl(0, "TelescopePathSeparator", {})
