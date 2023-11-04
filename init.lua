@@ -29,7 +29,7 @@ require("plugins.Comment")
 require("plugins.gitsigns")
 require("plugins.nvim-tree")
 require("plugins.bufferline")
-require("plugins.feline")
+require("plugins.lualine")
 require("plugins.colorizer")
 require("plugins.colortils")
 
