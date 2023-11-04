@@ -39,7 +39,11 @@ require("lazy").setup({
     commit = "0a4a521471141ae3c94ff0ebcffcaff3c3aad147",
     dependencies = { "kkharji/sqlite.lua" },
   },
-
+  -- better `live_grep`
+  {
+    "fdschmidt93/telescope-egrepify.nvim",
+    event = "VeryLazy",
+  },
   -- clipboard manager
   { "AckslD/nvim-neoclip.lua", dependencies = { "kkharji/sqlite.lua" } },
 
@@ -261,18 +265,20 @@ require("lazy").setup({
     event = "VeryLazy",
   },
   -- "ggandor/leap-spooky.nvim",
+
   {
     "liangxianzhe/nap.nvim",
     event = "VeryLazy",
   },
-
   {
     "cbochs/grapple.nvim",
     event = "VeryLazy",
   },
-
+  {
+    "chentoast/marks.nvim",
+    event = "VeryLazy",
+  },
   -- "LeonHeidelbach/trailblazer.nvim",
-  "chentoast/marks.nvim",
 
   "aserowy/tmux.nvim",
 
@@ -310,6 +316,15 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
     },
+  },
+  {
+    "robitx/gp.nvim",
+    event = "VeryLazy",
+  },
+
+  {
+    "gsuuon/llm.nvim",
+    event = "VeryLazy",
   },
   -- "Exafunction/codeium.vim",
 

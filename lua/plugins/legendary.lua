@@ -43,11 +43,14 @@ local function live_grep_from_project_git_root()
   end
   local opts = {}
   if is_git_repo() then
-    opts = {
-      cwd = get_git_root(),
-    }
+    opts = { cwd = get_git_root() }
   end
-  require("telescope.builtin").live_grep(opts)
+  -- If in visual mode, get the selected text and add it to opts
+  if vim.fn.mode() == "v" or vim.fn.mode() == "V" or vim.fn.mode() == "^V" then
+    opts.default_text = get_visual_selection()
+  end
+  -- require("telescope.builtin").live_grep(opts)
+  require("telescope").extensions.egrepify.egrepify(opts)
 end
 
 local function find_files_from_project_git_root()
@@ -156,16 +159,11 @@ legendary.setup({
     },
     {
       "<leader>fg",
-      {
-        n = function()
-          live_grep_from_project_git_root()
-        end,
-        v = function()
-          local text = get_visual_selection()
-          require("telescope.builtin").live_grep({ default_text = text })
-        end,
-      },
+      function()
+        live_grep_from_project_git_root()
+      end,
       description = "Telescope: Find Text",
+      mode = { "n", "x" },
     },
     {
       "<leader>ff",
