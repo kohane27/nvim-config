@@ -103,7 +103,7 @@ legendary.setup({
   },
   keymaps = {
     -- NOTE: the following are available:
-    -- C-j, C-k, J!!, K!! ,gp, gn, H, L, gh
+    -- C-j, C-k, J!!, K!!, H, L, gh
 
     -- <C-KEY>
     { "<C-f>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
@@ -408,7 +408,7 @@ legendary.setup({
     -- │ AI                                                       │
     -- ╰──────────────────────────────────────────────────────────╯
     { "<leader>ao", "<cmd>ChatGPT<CR>", description = "GPT: Open" },
-    { "<leader>aa", "<cmd>ChatGPTActAs<CR>", description = "GPT: Act As" },
+    { "<leader>as", "<cmd>ChatGPTActAs<CR>", description = "GPT: Act As" },
     {
       "<leader>ar",
       function()
@@ -435,6 +435,12 @@ legendary.setup({
       description = "GPT: Edit with instruction",
       mode = { "n", "v" },
     },
+    {
+      "<leader>af",
+      "<cmd>ChatGPTRun fix_bugs<CR>",
+      description = "GPT: Fix Bugs",
+      mode = { "n", "v" },
+    },
     -- {
     --   "<leader>as",
     --   "<cmd>ChatGPTRun summarize<CR>",
@@ -451,12 +457,6 @@ legendary.setup({
     --   "<leader>ac",
     --   "<cmd>ChatGPTRun optimize_code<CR>",
     --   description = "GPT: Optimize Code",
-    --   mode = { "n", "v" },
-    -- },
-    -- {
-    --   "<leader>as",
-    --   "<cmd>ChatGPTRun fix_bugs<CR>",
-    --   description = "GPT: Fix Bugs",
     --   mode = { "n", "v" },
     -- },
     -- {
@@ -498,6 +498,22 @@ legendary.setup({
     { "<leader>cs", "<cmd>LcSubmit<CR>", description = "leetcode: submit currently opened question" },
 
     -- ╭──────────────────────────────────────────────────────────╮
+    -- │   nap.nvim (for reference only)                          │
+    -- ╰──────────────────────────────────────────────────────────╯
+    { "gjd", "", description = "nap: Next diagnostic" },
+    { "gkd", "", description = "nap: Previous diagnostic" },
+    { "gjg", "", description = "nap: Next Hunk" },
+    { "gkg", "", description = "nap: Previous Hunk" },
+    { "gjm", "", description = "nap: Nexts Grapple Tag" },
+    { "gkm", "", description = "nap: Previous Grapple Tag" },
+    { "gjt", "", description = "nap: Next todo comment" },
+    { "gkt", "", description = "nap: Previous todo comment" },
+    { "gje", "", description = "nap: Next changelist item" },
+    { "gke", "", description = "nap: Previous changelist item" },
+    { "gjq", "", description = "nap: Next quickfix item" },
+    { "gkq", "", description = "nap: Previous quickfix item" },
+
+    -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous Keymaps                                  │
     -- ╰──────────────────────────────────────────────────────────╯
     -- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
@@ -510,7 +526,7 @@ legendary.setup({
     },
     { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Misc: Zoom: Toggle" },
     { "<leader>u", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
-    { "<leader>q", "<cmd>wq<CR>", description = "Quit" },
+    { "<leader>q", "<cmd>wqa<CR>", description = "Quit" },
     { "<leader>Q", "<cmd>q!<CR>", description = "Force Quit" },
     { "Q", "<cmd>Bdelete<CR>", description = "Buffer: Close" },
 
