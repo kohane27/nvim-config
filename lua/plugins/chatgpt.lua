@@ -5,29 +5,6 @@ end
 
 chatgpt.setup({
   -- api_host_cmd = "echo -n 'api.openai.com'",
-  -- `<C-S-?>` means disposed
-  chat = {
-    max_line_length = 120,
-    -- <Sapce> won't work because keymaps are also triggered in Insert mode
-    keymaps = {
-      close = "<C-q>",
-      yank_last = "<C-y>",
-      yank_last_code = "<C-S-k>",
-      scroll_up = "<C-u>",
-      scroll_down = "<C-d>",
-      new_session = "<A-n>",
-      cycle_windows = "<A-k>",
-      cycle_modes = "<A-m>",
-      select_session = "<C-S-s>",
-      rename_session = "<C-S-r>",
-      delete_session = "<C-S-d>",
-      draft_message = "<C-S-d>",
-      toggle_settings = "<C-S-d>",
-      toggle_message_role = "<C-S-r>",
-      toggle_system_role_open = "g?",
-      stop_generating = "<A-x>",
-    },
-  },
   edit_with_instructions = {
     keymaps = {
       close = "<C-q>",
@@ -36,6 +13,36 @@ chatgpt.setup({
       toggle_settings = "<C-o>",
       cycle_windows = "<Tab>",
       use_output_as_input = "<C-i>",
+    },
+  },
+  chat = {
+    max_line_length = 120,
+    welcome_message = "",
+    -- question_sign = "❓",
+    answer_sign = "🤖",
+    -- <Sapce> won't work because keymaps are also triggered in Insert mode
+    -- '<C-S-?>' means abandoned
+    keymaps = {
+      close = "<C-q>",
+      yank_last_code = "<A-y>",
+      scroll_up = "<C-u>",
+      scroll_down = "<C-d>",
+      new_session = "<A-n>",
+      cycle_windows = "<A-k>",
+      stop_generating = "<A-x>",
+      cycle_modes = "<A-m>",
+      toggle_settings = "<A-s>",
+      select_session = "<Enter>",
+
+      yank_last = "<C-S-?>",
+      next_message = "<C-S-?>",
+      prev_message = "<C-S-?>",
+      rename_session = "<C-S-?>",
+      delete_session = "<C-S-?>",
+      draft_message = "<C-S-?>",
+      edit_message = "<C-S-?>",
+      toggle_message_role = "<C-S-?>",
+      toggle_system_role_open = "<C-S-?>",
     },
   },
   popup_layout = {
@@ -50,17 +57,15 @@ chatgpt.setup({
     },
   },
   popup_input = {
-    submit = "<C-Enter>",
+    submit = nil,
     submit_n = "<Enter>",
   },
   openai_params = {
     model = "gpt-4",
-    frequency_penalty = 0,
-    presence_penalty = 0,
     max_tokens = 3000,
-    temperature = 0,
-    top_p = 1,
-    n = 1,
+  },
+  openai_edit_params = {
+    model = "gpt-4",
   },
   predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/kohane27/nvim-config/main/gpt_prompt.csv",
   show_quickfixes_cmd = "Trouble quickfix",
