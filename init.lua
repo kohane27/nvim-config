@@ -85,6 +85,7 @@ require("plugins.cutlass")
 require("plugins.substitute")
 require("plugins.stay-in-place")
 require("plugins.gomove")
+require("plugins.gx")
 
 require("plugins.auto-save")
 require("plugins.auto-format")
@@ -105,6 +106,8 @@ require("plugins.tmux")
 require("plugins.firenvim")
 
 require("plugins.chatgpt")
+require("plugins.gp")
+require("plugins.llm")
 
 -- near end to override
 require("plugins.legendary")
