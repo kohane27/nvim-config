@@ -172,7 +172,6 @@ telescope.setup({
 
 telescope.load_extension("fzf")
 telescope.load_extension("frecency")
-telescope.load_extension("neoclip")
 telescope.load_extension("zoxide")
 telescope.load_extension("scope")
 telescope.load_extension("egrepify")
