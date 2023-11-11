@@ -114,7 +114,7 @@ legendary.setup({
     { "<leader>gr", '<cmd>lua require("ranger-nvim").open(true)<CR>', description = "Ranger" },
     { "<leader>gt", "<cmd>ToggleTerm<CR>", description = "New terminal" },
     { "<leader>gu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
-    { "<leader>go", "<cmd>Oil<CR>", description = "Oil" },
+    { "<leader>go", "<cmd>Oil --float<CR>", description = "Oil" },
 
     -- <C-KEY>
     { "<C-f>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
