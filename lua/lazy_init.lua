@@ -44,8 +44,6 @@ require("lazy").setup({
     "fdschmidt93/telescope-egrepify.nvim",
     event = "VeryLazy",
   },
-  -- clipboard manager
-  { "AckslD/nvim-neoclip.lua", dependencies = { "kkharji/sqlite.lua" } },
 
   -- Treesitter
   {
