@@ -24,5 +24,5 @@ au FileType ledger noremap <silent> <C-s> :w \| edit \| :LedgerAlignBuffer<CR>
 
 "  set today's date of the current transaction.
 " `:call ledger#transaction_date_set(line('.'), "primary")
-au FileType ledger noremap <silent> o <CR><ESC>i
+au FileType ledger noremap <silent> o o<BS><CR><ESC>i
 ]])

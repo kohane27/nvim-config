@@ -99,10 +99,7 @@ require("lazy").setup({
   -- "rmagatti/goto-preview",
   "nvimdev/lspsaga.nvim",
 
-  {
-    "folke/trouble.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
+  "folke/trouble.nvim",
 
   -- pictograms
   "onsails/lspkind.nvim",
@@ -140,9 +137,7 @@ require("lazy").setup({
   },
 
   -- General
-  -- "ibhagwan/fzf-lua", -- for `:changes`
   "tpope/vim-repeat",
-  -- "tpope/vim-unimpaired",
   "numToStr/Comment.nvim",
   "nvim-tree/nvim-web-devicons",
   "nvim-tree/nvim-tree.lua",
@@ -176,6 +171,7 @@ require("lazy").setup({
 
   "kdheepak/lazygit.nvim",
 
+  -- "machakann/vim-sandwich",
   {
     "kylechui/nvim-surround",
     event = "VeryLazy",
@@ -186,8 +182,6 @@ require("lazy").setup({
     },
   },
 
-  -- "machakann/vim-sandwich",
-
   -- "abecodes/tabout.nvim", -- tabbing out from parentheses and quotes
   "mbbill/undotree",
 
@@ -195,7 +189,6 @@ require("lazy").setup({
   {
     "https://git.sr.ht/~nedia/auto-format.nvim",
     -- event = { "BufReadPre", "BufNewFile" },
-    -- branch = "async",
     event = "BufReadPre",
   },
 
@@ -228,7 +221,6 @@ require("lazy").setup({
   -- },
 
   -- session management
-
   {
     "rmagatti/auto-session",
     dependencies = {
@@ -264,6 +256,7 @@ require("lazy").setup({
   },
   -- "ggandor/leap-spooky.nvim",
 
+  -- "tpope/vim-unimpaired",
   {
     "liangxianzhe/nap.nvim",
     event = "VeryLazy",
@@ -390,9 +383,9 @@ require("lazy").setup({
   "b0o/incline.nvim",
 
   -- create comment boxes
-  "LudoPinelli/comment-box.nvim",
+  { "LudoPinelli/comment-box.nvim", event = "VeryLazy" },
 
-  "folke/todo-comments.nvim",
+  { "folke/todo-comments.nvim", event = "VeryLazy" },
   -- "folke/noice.nvim",
 
   -- note-taking/task management
@@ -400,7 +393,7 @@ require("lazy").setup({
   -- { "jakewvincent/mkdnflow.nvim", ft = "markdown" },
 
   -- open links
-  { "chrishrb/gx.nvim", event = "VeryLazy", config = true },
+  { "chrishrb/gx.nvim", event = "BufEnter" },
 
   -- "vimwiki/vimwiki",
   -- "tools-life/taskwiki",
