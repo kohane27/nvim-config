@@ -98,7 +98,7 @@ telescope.setup({
 
       n = {
         ["?"] = false,
-        ["q"] = actions.close,
+        ["<C-q>"] = actions.close,
         ["<CR>"] = actions.select_default,
         ["<C-w>s"] = actions.select_horizontal,
         ["<C-w>v"] = actions.select_vertical,
@@ -116,8 +116,8 @@ telescope.setup({
 
         ["v"] = actions.toggle_selection + actions.move_selection_worse,
         -- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-        ["<C-A-q>"] = actions.send_to_qflist + actions.open_qflist,
-        ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+        ["<C-A-c>"] = actions.send_to_qflist + actions.open_qflist,
+        ["<C-c>"] = actions.send_selected_to_qflist + actions.open_qflist,
 
         ["<C-u>"] = actions.move_selection_previous
           + actions.move_selection_previous

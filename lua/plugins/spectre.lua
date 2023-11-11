@@ -7,7 +7,7 @@ spectre.setup({
   is_block_ui_break = true, -- mapping backspace and enter key to avoid ui break
   mapping = {
     ["send_to_qf"] = {
-      map = "<C-q>",
+      map = "<C-c>",
       cmd = "<cmd>lua require('spectre.actions').send_to_qf()<CR>",
       desc = "send all items to quickfix",
     },
