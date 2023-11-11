@@ -42,6 +42,9 @@ map("n", "gk", "<Nop>")
 map("n", "<C-j>", "<Nop>")
 map("n", "<C-k>", "<Nop>")
 
+map("n", "<C-t>", "<Nop>")
+map("n", "<C-e>", "<Nop>")
+
 -- avoid accidents for keymappings
 map("n", "<leader>x", "<Nop>")
 map("n", "<leader>d", "<Nop>")
