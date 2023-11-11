@@ -61,11 +61,11 @@ chatgpt.setup({
     submit_n = "<Enter>",
   },
   openai_params = {
-    model = "gpt-4",
+    model = "gpt-4-1106-preview",
     max_tokens = 3000,
   },
   openai_edit_params = {
-    model = "gpt-4",
+    model = "gpt-4-1106-preview",
   },
   predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/kohane27/nvim-config/main/gpt_prompt.csv",
   show_quickfixes_cmd = "Trouble quickfix",
