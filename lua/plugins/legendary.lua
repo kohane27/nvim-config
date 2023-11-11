@@ -106,13 +106,20 @@ legendary.setup({
   },
   keymaps = {
     -- NOTE: the following are available:
-    -- C-j, C-k, J!!, K!!, H, L, gh
+    -- J!!, K!!, H, L, gh
+    -- C-j, C-k, C-e, C-t, C-y
+    -- <leader> b, e, g, h, i, k, p, u, v, w, y, z
+
+    -- <leader>g
+    { "<leader>gr", '<cmd>lua require("ranger-nvim").open(true)<CR>', description = "Ranger" },
+    { "<leader>gt", "<cmd>ToggleTerm<CR>", description = "New terminal" },
+    { "<leader>gu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
+    { "<leader>go", "<cmd>Oil<CR>", description = "Oil" },
 
     -- <C-KEY>
     { "<C-f>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
-    { "<C-e>", '<cmd>lua require("ranger-nvim").open(true)<CR>', description = "Ranger" },
     { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
-    { "<C-t>", "<cmd>ToggleTerm<CR>", description = "New terminal" },
+
     {
       "<C-g>",
       function()
@@ -331,7 +338,7 @@ legendary.setup({
     {
       "<leader>dr",
       "<cmd>'<,'>DiffviewFileHistory<CR>",
-      description = "Diffview: Line History of Given Range of Current File",
+      description = "Diffview: Line History of Range of Current File",
       mode = "v",
     },
     { "<leader>dh", "<cmd>Gitsigns preview_hunk<CR>", description = "Diffview: Preview Hunk" },
@@ -523,7 +530,6 @@ legendary.setup({
       opts = { noremap = true, silent = true },
     },
     { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Misc: Zoom: Toggle" },
-    { "<leader>u", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
     { "<leader>q", "<cmd>wqa<CR>", description = "Quit" },
     { "<leader>Q", "<cmd>q!<CR>", description = "Force Quit" },
     { "Q", "<cmd>Bdelete<CR>", description = "Buffer: Close" },
