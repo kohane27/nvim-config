@@ -6,6 +6,7 @@ end
 trouble.setup({
   action_keys = {
     -- map to {} to remove a mapping
+    close = "<C-q>", -- close the list
     jump = { "<cr>" }, -- jump to the diagnostic or open / close folds
     open_split = { "<c-w>s" },
     open_vsplit = { "<c-w>v" },

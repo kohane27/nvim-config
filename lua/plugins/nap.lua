@@ -29,11 +29,11 @@ nap.setup({
       next = { rhs = "g;zz", opts = { desc = "Next changelist item" } },
       prev = { rhs = "g,zz", opts = { desc = "Previous changelist item" } },
     },
-    ["q"] = {
+    ["c"] = {
       next = { rhs = "<cmd>cnext<CR>zz", opts = { desc = "Next quickfix item" } },
       prev = { rhs = "<cmd>cprevious<CR>zz", opts = { desc = "Prev quickfix item" } },
     },
-    ["Q"] = {
+    ["C"] = {
       next = { rhs = "<cmd>clast<CR>", opts = { desc = "Last quickfix item" } },
       prev = { rhs = "<cmd>cfirst<CR>", opts = { desc = "First quickfix item" } },
     },

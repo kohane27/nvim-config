@@ -237,7 +237,7 @@ legendary.setup({
     -- │ Trouble.nvim                                             │
     -- ╰──────────────────────────────────────────────────────────╯
     { "<leader>xx", '<cmd>lua require("trouble").open()<CR>', description = "LSP: Document Diagnostics" },
-    { "<leader>xq", "<cmd>copen<CR>", description = "LSP: Quickfix List" },
+    { "<leader>xc", "<cmd>copen<CR>", description = "LSP: Quickfix List" },
     {
       "<leader>xw",
       '<cmd>lua require("trouble").open("workspace_diagnostics")<CR>',
@@ -508,8 +508,8 @@ legendary.setup({
     { "gkt", "", description = "nap: Previous todo comment" },
     { "gje", "", description = "nap: Next changelist item" },
     { "gke", "", description = "nap: Previous changelist item" },
-    { "gjq", "", description = "nap: Next quickfix item" },
-    { "gkq", "", description = "nap: Previous quickfix item" },
+    { "gjc", "", description = "nap: Next quickfix item" },
+    { "gkc", "", description = "nap: Previous quickfix item" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous Keymaps                                  │
