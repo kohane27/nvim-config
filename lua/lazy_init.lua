@@ -144,6 +144,7 @@ require("lazy").setup({
   -- tree
   "nvim-tree/nvim-tree.lua",
   "stevearc/oil.nvim",
+  { "echasnovski/mini.files", version = false },
 
   -- buffers
   "akinsho/bufferline.nvim",
