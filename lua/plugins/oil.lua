@@ -73,15 +73,18 @@ oil.setup({
   -- floating window in oil.open_float
   float = {
     padding = 2,
-    max_width = 40,
+    max_width = 0,
     max_height = 0,
     border = "rounded",
-    win_options = {
-      winblend = 0,
-    },
-    -- This is the config that will be passed to nvim_open_win.
-    -- Change values here to customize the layout
+    -- config passed to `nvim_open_win` to customize the layout
     override = function(conf)
+      conf.anchor = "NW"
+      conf.relative = "editor"
+      conf.width = math.floor(vim.o.columns * 0.2) -- 20% of total width
+      conf.height = vim.o.lines - 5 -- almost full height
+      -- top-left corner of the editor grid
+      conf.row = 0
+      conf.col = 0
       return conf
     end,
   },
@@ -118,8 +121,5 @@ oil.setup({
     height = nil,
     border = "rounded",
     minimized_border = "none",
-    win_options = {
-      winblend = 0,
-    },
   },
 })

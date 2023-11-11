@@ -111,13 +111,13 @@ legendary.setup({
     -- <leader> b, e, g, h, i, k, p, u, v, w, y, z
 
     -- <leader>g
+    { "<leader>gf", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
     { "<leader>gr", '<cmd>lua require("ranger-nvim").open(true)<CR>', description = "Ranger" },
     { "<leader>gt", "<cmd>ToggleTerm<CR>", description = "New terminal" },
     { "<leader>gu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
-    { "<leader>go", "<cmd>Oil --float<CR>", description = "Oil" },
 
     -- <C-KEY>
-    { "<C-f>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
+    { "<C-f>", "<cmd>Oil --float<CR>", description = "Oil" },
     { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
 
     {
