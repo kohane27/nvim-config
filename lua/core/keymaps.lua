@@ -47,6 +47,7 @@ map("n", "<leader>x", "<Nop>")
 map("n", "<leader>d", "<Nop>")
 map("n", "<leader>c", "<Nop>")
 map("n", "<leader>y", "<Nop>")
+map("n", "<leader>k", "<Nop>")
 map("n", "<leader>f", "<Nop>")
 map("n", "<leader>r", "<Nop>")
 map("n", "<leader>l", "<Nop>")
@@ -97,8 +98,7 @@ map("n", "<C-a>", "<nop>")
 map("n", "<C-x>", "<nop>")
 map("n", "d$", "<nop>")
 
-map("n", "<Leader>j", "J")
-map("n", "<Leader>k", "K")
+map("n", "<leader>j", "J")
 
 -- operate on display lines rather than real lines
 map("n", "k", "gk")
@@ -123,8 +123,8 @@ map("v", "<BS><BS>", '"_')
 map("n", "cl", '"_cl')
 
 -- -- insert empty new line without entering insert mode
-map("n", "<Leader>o", "o<Esc>")
-map("n", "<Leader>O", "O<Esc>")
+map("n", "<leader>o", "o<Esc>")
+map("n", "<leader>O", "O<Esc>")
 
 -- using `stay-in-place.lua`
 -- re-select visual selection after indenting
