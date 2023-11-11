@@ -140,7 +140,10 @@ require("lazy").setup({
   "tpope/vim-repeat",
   "numToStr/Comment.nvim",
   "nvim-tree/nvim-web-devicons",
+
+  -- tree
   "nvim-tree/nvim-tree.lua",
+  "stevearc/oil.nvim",
 
   -- buffers
   "akinsho/bufferline.nvim",
