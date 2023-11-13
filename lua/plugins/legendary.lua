@@ -111,13 +111,13 @@ legendary.setup({
     -- <leader> b, e, g, h, i, k, p, u, v, w, y, z
 
     -- <leader>g
-    { "<leader>gf", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
     { "<leader>gr", '<cmd>lua require("ranger-nvim").open(true)<CR>', description = "Ranger" },
     { "<leader>gt", "<cmd>ToggleTerm<CR>", description = "New terminal" },
     { "<leader>gu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
+    { "<leader>gf", "<cmd>Oil --float<CR>", description = "Oil" },
 
     -- <C-KEY>
-    { "<C-f>", "<cmd>Oil --float<CR>", description = "Oil" },
+    { "<C-f>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
     { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
 
     {
@@ -529,10 +529,12 @@ legendary.setup({
       mode = { "n", "i" },
       opts = { noremap = true, silent = true },
     },
-    { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Misc: Zoom: Toggle" },
-    { "<leader>q", "<cmd>wqa<CR>", description = "Quit" },
+    { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Zoom: Toggle" },
+
+    { "qq", "<cmd>wqa<CR>", description = "Quit" },
+    { "<leader>q", "<cmd>bd<CR>", description = "Buffer: Close" },
     { "<leader>Q", "<cmd>q!<CR>", description = "Force Quit" },
-    { "Q", "<cmd>Bdelete<CR>", description = "Buffer: Close" },
+    { "Q", "<cmd>close<CR>", description = "Window: Close" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous (leader M; random shortcuts)             │

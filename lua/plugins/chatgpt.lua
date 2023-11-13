@@ -8,10 +8,10 @@ chatgpt.setup({
   edit_with_instructions = {
     keymaps = {
       close = "<C-q>",
-      accept = "<C-y>",
-      toggle_diff = "<C-d>",
-      toggle_settings = "<C-o>",
-      cycle_windows = "<Tab>",
+      accept = "<A-y>",
+      toggle_diff = "<A-d>",
+      toggle_settings = "<A-s>",
+      cycle_windows = "<A-k>",
       use_output_as_input = "<C-i>",
     },
   },

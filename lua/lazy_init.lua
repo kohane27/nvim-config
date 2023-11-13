@@ -107,7 +107,7 @@ require("lazy").setup({
   -- LSP diagnostics highlight groups
   "folke/lsp-colors.nvim",
 
-  -- "simrat39/symbols-outline.nvim", -- using `lspsaga`
+  -- "hedyhli/outline.nvim", -- using `lspsaga`
   -- "ray-x/lsp_signature.nvim", -- usine `lspsaga`
   "b0o/schemastore.nvim",
   { "mfussenegger/nvim-jdtls", ft = "java" },
