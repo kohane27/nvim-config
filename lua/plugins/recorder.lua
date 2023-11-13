@@ -9,7 +9,7 @@ recorder.setup({
   slots = { "a", "b" },
   mapping = {
     startStopRecording = "qs",
-    playMacro = "qq",
+    playMacro = "qr",
     editMacro = "qe",
   },
   clear = true, -- clears all macros-slots on startup
