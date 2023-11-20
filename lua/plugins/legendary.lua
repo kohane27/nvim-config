@@ -531,9 +531,9 @@ legendary.setup({
     },
     { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Zoom: Toggle" },
 
-    { "qq", "<cmd>wqa<CR>", description = "Quit" },
-    { "<leader>q", "<cmd>bd<CR>", description = "Buffer: Close" },
+    { "<leader>q", "<cmd>wqa<CR>", description = "Quit" },
     { "<leader>Q", "<cmd>q!<CR>", description = "Force Quit" },
+    { "qq", "<cmd>Bdelete<CR>", description = "Buffer: Close" },
     { "Q", "<cmd>close<CR>", description = "Window: Close" },
 
     -- ╭──────────────────────────────────────────────────────────╮
