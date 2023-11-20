@@ -56,9 +56,7 @@ require("lazy").setup({
     },
   },
   -- can't lazy load
-  { "andymass/vim-matchup", dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-  } },
+  { "andymass/vim-matchup", dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" } },
 
   -- { "elgiano/nvim-treesitter-angular", branch = "topic/jsx-fix" },
 
