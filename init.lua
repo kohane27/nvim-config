@@ -77,6 +77,7 @@ require("plugins.nvim-scrollview")
 require("plugins.illuminate")
 require("plugins.todo-comments")
 require("plugins.mini-misc")
+-- require("plugins.mini-clue")
 
 require("plugins.ufo")
 require("plugins.nvim-bqf")
