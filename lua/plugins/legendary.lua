@@ -698,14 +698,14 @@ legendary.setup({
     {
       "<leader>MXgge",
       function()
-        vim.api.nvim_feedkeys(":g/foo/normal A;", "n", true)
+        vim.api.nvim_feedkeys(":g/foo/normal! A;", "n", true)
       end,
       description = "g: Run Normal Mode Commands on Line(s) Containing foo",
     },
     {
       "<leader>MXggf",
       function()
-        vim.api.nvim_feedkeys(":g/foo/normal @a", "n", true)
+        vim.api.nvim_feedkeys(":g/foo/normal! @a", "n", true)
       end,
       description = "g: Run Macro a Line(s) Containing foo",
     },
