@@ -52,9 +52,10 @@ require("lazy").setup({
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
       "nvim-treesitter/nvim-treesitter-context",
-      "JoosepAlviste/nvim-ts-context-commentstring",
     },
   },
+
+  -- "JoosepAlviste/nvim-ts-context-commentstring",
   -- can't lazy load
   { "andymass/vim-matchup", dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" } },
 
