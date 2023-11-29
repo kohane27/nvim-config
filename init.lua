@@ -108,8 +108,8 @@ require("plugins.tmux")
 require("plugins.firenvim")
 
 require("plugins.chatgpt")
-require("plugins.gp")
-require("plugins.llm")
+-- require("plugins.gp")
+-- require("plugins.llm")
 
 -- near end to override
 require("plugins.legendary")
