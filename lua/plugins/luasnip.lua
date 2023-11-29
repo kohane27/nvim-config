@@ -18,3 +18,5 @@ ls.config.set_config({
   region_check_events = "CursorHold,InsertLeave",
   delete_check_events = "TextChanged,InsertEnter",
 })
+
+ls.add_snippets("markdown", { ls.parser.parse_snippet("```", "```bash\n$0\n\n") })
