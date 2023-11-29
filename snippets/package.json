@@ -9,6 +9,8 @@
                 "language": [
                     "javascript",
                     "javascriptreact",
+                    "typescript",
+                    "typescriptreact",
                     "vue",
                     "svelte"
                 ],
