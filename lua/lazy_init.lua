@@ -55,7 +55,7 @@ require("lazy").setup({
     },
   },
 
-  -- "JoosepAlviste/nvim-ts-context-commentstring",
+  { "JoosepAlviste/nvim-ts-context-commentstring", commit = "6c30f3c8915d7b31c3decdfe6c7672432da1809d" },
   -- can't lazy load
   { "andymass/vim-matchup", dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" } },
 
@@ -356,6 +356,18 @@ require("lazy").setup({
 
   -- "ethanholz/nvim-lastplace",
   { "echasnovski/mini.misc", version = false },
+  {
+    "echasnovski/mini.align",
+    version = false,
+    config = function()
+      require("mini.align").setup({
+        mappings = {
+          start = "<leader>a",
+          start_with_preview = "<leader>A",
+        },
+      })
+    end,
+  },
 
   {
     "tummetott/reticle.nvim",
