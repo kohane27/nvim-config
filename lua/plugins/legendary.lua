@@ -788,6 +788,12 @@ legendary.setup({
       description = "Trim all trailing whitespace",
     },
     {
+      "<leader>MXttes",
+      "<cmd>'<,'>s/ .*//gc<CR>",
+      description = "Delete everything after a space",
+      mode = { "x" },
+    },
+    {
       "<leader>MXraw",
       "<cmd>%s/\\s\\+$//e<CR>",
       description = "Remove All Whitespace",
