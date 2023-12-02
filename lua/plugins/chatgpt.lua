@@ -38,7 +38,7 @@ chatgpt.setup({
       next_message = "<C-S-?>",
       prev_message = "<C-S-?>",
       rename_session = "<C-S-?>",
-      delete_session = "<C-S-?>",
+      delete_session = "<A-d>",
       draft_message = "<C-S-?>",
       edit_message = "<C-S-?>",
       toggle_message_role = "<C-S-?>",
