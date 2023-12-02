@@ -35,6 +35,7 @@ require("plugins.colortils")
 
 require("plugins.leap")
 require("plugins.flash")
+require("plugins.hydra")
 
 -- require("plugins.flit")
 require("plugins.find-extender")

@@ -318,6 +318,11 @@ require("lazy").setup({
   --   event = "VeryLazy",
   -- },
 
+  {
+    "nvim-island/hydra.nvim",
+    event = "VeryLazy",
+  },
+
   "gbprod/substitute.nvim",
   "gbprod/cutlass.nvim",
   "gbprod/stay-in-place.nvim",
