@@ -317,7 +317,6 @@ require("lazy").setup({
   --   "gsuuon/llm.nvim",
   --   event = "VeryLazy",
   -- },
-  -- "Exafunction/codeium.vim",
 
   "gbprod/substitute.nvim",
   "gbprod/cutlass.nvim",
@@ -352,20 +351,19 @@ require("lazy").setup({
     end,
   },
 
-  -- "ethanholz/nvim-lastplace",
   { "echasnovski/mini.misc", version = false },
-  {
-    "echasnovski/mini.align",
-    version = false,
-    config = function()
-      require("mini.align").setup({
-        mappings = {
-          start = "<leader>a",
-          start_with_preview = "<leader>A",
-        },
-      })
-    end,
-  },
+  -- {
+  --   "echasnovski/mini.align",
+  --   version = false,
+  --   config = function()
+  --     require("mini.align").setup({
+  --       mappings = {
+  --         start = "<leader>a",
+  --         start_with_preview = "<leader>A",
+  --       },
+  --     })
+  --   end,
+  -- },
 
   {
     "tummetott/reticle.nvim",
