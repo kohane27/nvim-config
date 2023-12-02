@@ -3,9 +3,29 @@ if not status_ok then
   print("hydra not working")
 end
 
--- Hydra without body can only be summoned through Hydra:activate() method.
--- timeout = false
--- Statusline is_active() — returns true if there is an active hydra;
+hydra({
+  name = "Resize Window",
+  mode = "n",
+  body = "<C-w>",
+  config = {
+    -- color = "pink",
+  },
+  heads = {
+    -- resize window
+    { "<C-h>", '<cmd>lua require("tmux").resize_left()<cr>' },
+    { "<C-l>", '<cmd>lua require("tmux").resize_right()<cr>' },
+    { "<C-j>", '<cmd>lua require("tmux").resize_bottom()<cr>' },
+    { "<C-k>", '<cmd>lua require("tmux").resize_top()<cr>' },
+
+    -- equalize window sizes
+    { "e", "<C-w>=" },
+
+    -- exit this Hydra
+    { "<Esc>", nil, { exit = true, nowait = true } },
+  },
+})
+
+-- BELOW from nap.nvim
 
 hydra({
   name = "Hunk",
