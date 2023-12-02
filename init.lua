@@ -47,7 +47,6 @@ require("plugins.grapple")
 
 require("plugins.toggleterm")
 require("plugins.ranger")
-require("plugins.glow")
 
 require("plugins.lazygit")
 require("plugins.diffview")
