@@ -98,10 +98,9 @@ require("plugins.spectre")
 require("plugins.code_runner")
 require("plugins.sniprun")
 
--- require("plugins.mkdnflow")
-
 require("plugins.tmux")
 -- require("plugins.vim-test")
+require("plugins.ledger")
 
 -- require("plugins.delaytrain")
 
@@ -111,8 +110,6 @@ require("plugins.chatgpt")
 -- require("plugins.gp")
 -- require("plugins.llm")
 
--- near end to override
+-- near end to override above
 require("plugins.legendary")
--- override `legendary`
-require("plugins.nap")
-require("plugins.ledger")
+-- below override `legendary`

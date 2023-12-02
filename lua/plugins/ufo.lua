@@ -49,7 +49,7 @@ ufo.setup({
   end,
 })
 
--- using ufo provider need remap `zR` and `zM`
+-- using ufo provider needs to remap `zR` and `zM`
 vim.keymap.set("n", "zR", require("ufo").openAllFolds)
 vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
 vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
