@@ -106,17 +106,18 @@ legendary.setup({
   },
   keymaps = {
     -- NOTE: the following are available:
-    -- J!!, K!!, H, L, gh
-    -- C-j, C-k, C-e, C-t, C-y
+    -- J!!, K!!, H, L, gh, gj, gk
+    -- ; ,
+    -- C-j, C-k, C-e, C-y
     -- <leader> b, e, g, h, i, k, p, u, v, w, y, z
 
     -- <leader>g
-    { "<leader>gr", '<cmd>lua require("ranger-nvim").open(true)<CR>', description = "Ranger" },
     { "<leader>gt", "<cmd>ToggleTerm<CR>", description = "New terminal" },
     { "<leader>gu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
     { "<leader>gf", "<cmd>Oil --float<CR>", description = "Oil" },
 
     -- <C-KEY>
+    { "<C-t>", '<cmd>lua require("ranger-nvim").open(true)<CR>', description = "Ranger" },
     { "<C-f>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
     { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
 

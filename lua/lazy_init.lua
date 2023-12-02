@@ -260,7 +260,7 @@ require("lazy").setup({
 
   -- "tpope/vim-unimpaired",
   {
-    "liangxianzhe/nap.nvim",
+    "nvim-island/hydra.nvim",
     event = "VeryLazy",
   },
   {
@@ -271,9 +271,10 @@ require("lazy").setup({
     "chentoast/marks.nvim",
     event = "VeryLazy",
   },
-  -- "LeonHeidelbach/trailblazer.nvim",
-
-  "aserowy/tmux.nvim",
+  {
+    "aerowy/tmux.nvim",
+    event = "VeryLazy",
+  },
 
   {
     "kevinhwang91/nvim-bqf",
@@ -317,11 +318,6 @@ require("lazy").setup({
   --   "gsuuon/llm.nvim",
   --   event = "VeryLazy",
   -- },
-
-  {
-    "nvim-island/hydra.nvim",
-    event = "VeryLazy",
-  },
 
   "gbprod/substitute.nvim",
   "gbprod/cutlass.nvim",
