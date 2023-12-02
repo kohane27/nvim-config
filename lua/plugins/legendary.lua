@@ -503,22 +503,6 @@ legendary.setup({
     { "<leader>cs", "<cmd>LcSubmit<CR>", description = "leetcode: submit currently opened question" },
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │   nap.nvim (for reference only)                          │
-    -- ╰──────────────────────────────────────────────────────────╯
-    { "gjd", "", description = "nap: Next diagnostic" },
-    { "gkd", "", description = "nap: Previous diagnostic" },
-    { "gjg", "", description = "nap: Next Hunk" },
-    { "gkg", "", description = "nap: Previous Hunk" },
-    { "gjm", "", description = "nap: Nexts Grapple Tag" },
-    { "gkm", "", description = "nap: Previous Grapple Tag" },
-    { "gjt", "", description = "nap: Next todo comment" },
-    { "gkt", "", description = "nap: Previous todo comment" },
-    { "gje", "", description = "nap: Next changelist item" },
-    { "gke", "", description = "nap: Previous changelist item" },
-    { "gjc", "", description = "nap: Next quickfix item" },
-    { "gkc", "", description = "nap: Previous quickfix item" },
-
-    -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous Keymaps                                  │
     -- ╰──────────────────────────────────────────────────────────╯
     -- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
