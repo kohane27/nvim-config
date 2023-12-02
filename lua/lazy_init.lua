@@ -289,8 +289,6 @@ require("lazy").setup({
   { "chrisbra/csv.vim", ft = { "csv", "dat" }, event = "VeryLazy" },
   { "ledger/vim-ledger", ft = "ledger", event = "VeryLazy" },
 
-  -- preview markdown
-  { "ellisonleao/glow.nvim", ft = "markdown", event = "VeryLazy" },
   {
     "LintaoAmons/scratch.nvim",
     event = "VeryLazy",
