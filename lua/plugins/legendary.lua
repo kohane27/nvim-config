@@ -117,6 +117,7 @@ legendary.setup({
     { "<leader>gf", "<cmd>Oil --float<CR>", description = "Oil" },
 
     -- <C-KEY>
+    -- open on "t"op
     { "<C-t>", '<cmd>lua require("ranger-nvim").open(true)<CR>', description = "Ranger" },
     { "<C-f>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
     { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },

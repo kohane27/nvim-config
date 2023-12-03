@@ -12,10 +12,10 @@ hydra({
   },
   heads = {
     -- resize window
-    { "<C-h>", '<cmd>lua require("tmux").resize_left()<cr>' },
-    { "<C-l>", '<cmd>lua require("tmux").resize_right()<cr>' },
-    { "<C-j>", '<cmd>lua require("tmux").resize_bottom()<cr>' },
-    { "<C-k>", '<cmd>lua require("tmux").resize_top()<cr>' },
+    { "h", '<cmd>lua require("tmux").resize_left()<cr>' },
+    { "l", '<cmd>lua require("tmux").resize_right()<cr>' },
+    { "j", '<cmd>lua require("tmux").resize_bottom()<cr>' },
+    { "k", '<cmd>lua require("tmux").resize_top()<cr>' },
 
     -- equalize window sizes
     { "e", "<C-w>=" },
