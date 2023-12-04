@@ -271,10 +271,7 @@ require("lazy").setup({
     "chentoast/marks.nvim",
     event = "VeryLazy",
   },
-  {
-    "aerowy/tmux.nvim",
-    event = "VeryLazy",
-  },
+  "aserowy/tmux.nvim",
 
   {
     "kevinhwang91/nvim-bqf",
