@@ -306,11 +306,10 @@ require("lazy").setup({
       "nvim-telescope/telescope.nvim",
     },
   },
-  -- {
-  --   "robitx/gp.nvim",
-  --   event = "VeryLazy",
-  -- },
-  --
+  {
+    "robitx/gp.nvim",
+    event = "VeryLazy",
+  },
   -- {
   --   "gsuuon/llm.nvim",
   --   event = "VeryLazy",

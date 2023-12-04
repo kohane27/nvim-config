@@ -107,7 +107,7 @@ require("plugins.ledger")
 require("plugins.firenvim")
 
 require("plugins.chatgpt")
--- require("plugins.gp")
+require("plugins.gp")
 -- require("plugins.llm")
 
 -- near end to override above
