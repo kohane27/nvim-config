@@ -32,12 +32,18 @@ map("i", "jk", "<Esc>")
 -- `:h digraph`
 map("i", "<C-k>", "<Esc>")
 
+map("n", "r", "<Nop>")
+
 map("n", "<space>", "<Nop>")
 map("x", "<space>", "<Nop>")
 
--- make way for `nap.nvim`
 map("n", "gj", "<Nop>")
 map("n", "gk", "<Nop>")
+
+map("n", "[[", "<Nop>")
+map("n", "]]", "<Nop>")
+map("n", ")", "<Nop>")
+map("n", "(", "<Nop>")
 
 map("n", "<C-j>", "<Nop>")
 map("n", "<C-k>", "<Nop>")
