@@ -3,6 +3,7 @@ if not status_ok then
   print("treesitter.configs not working")
 end
 
+-- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 ts_configs.setup({
   ensure_installed = "all",
   sync_install = true, -- install languages synchronously (only applied to `ensure_installed`)
@@ -50,25 +51,7 @@ ts_configs.setup({
       enable = false,
     },
     move = {
-      enable = true,
-      set_jumps = true, -- set jumps in the jumplist
-      goto_next_start = {
-        ["]f"] = "@function.outer",
-        ["]c"] = "@class.outer",
-      },
-      goto_previous_start = {
-        ["[f"] = "@function.outer",
-        ["[c"] = "@class.outer",
-      },
-      -- a bit too much; focus on above first
-      -- goto_next_end = {
-      --   ["]M"] = "@function.outer",
-      --   ["]["] = "@class.outer",
-      -- },
-      -- goto_previous_end = {
-      --   ["[M"] = "@function.outer",
-      --   ["[]"] = "@class.outer",
-      -- },
+      enable = false,
     },
     matchup = {
       enable = true, -- mandatory, false will disable the whole extension
