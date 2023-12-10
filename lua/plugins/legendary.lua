@@ -106,7 +106,7 @@ legendary.setup({
   },
   keymaps = {
     -- NOTE: the following are available:
-    -- J!!, K!!, H, L, gh, gj, gk
+    -- J!!, K!!, H, L, gh, r
     -- ,
     -- C-j, C-k, C-e, C-y
     -- <leader> b, e, g, h, i, k, p, u, v, w, y, z
@@ -373,6 +373,8 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │  Grapple                                                 │
     -- ╰──────────────────────────────────────────────────────────╯
+    { "gj", toolbox.lazy_required_fn("grapple", "cycle_forward"), description = "Grapple: Cycle Forward" },
+    { "gk", toolbox.lazy_required_fn("grapple", "cycle_backward"), description = "Grapple: Cycle Backward" },
     { "mm", toolbox.lazy_required_fn("grapple", "popup_tags"), description = "Grapple: View All Tags" },
     { "MM", toolbox.lazy_required_fn("grapple", "toggle"), description = "Grapple: Tag or Untag File" },
     { "m1", "<cmd>lua require('grapple').select({key = 1})<CR>", description = "Grapple: File 1" },
