@@ -107,7 +107,7 @@ legendary.setup({
   keymaps = {
     -- NOTE: the following are available:
     -- J!!, K!!, H, L, gh, gj, gk
-    -- ; ,
+    -- ,
     -- C-j, C-k, C-e, C-y
     -- <leader> b, e, g, h, i, k, p, u, v, w, y, z
 
@@ -324,6 +324,10 @@ legendary.setup({
     { "<A-l>", toolbox.lazy_required_fn("tmux", "move_right"), description = "Move Focus to Right" },
     { "<A-k>", toolbox.lazy_required_fn("tmux", "move_top"), description = "Move Focus to Top" },
     { "<A-j>", toolbox.lazy_required_fn("tmux", "move_bottom"), description = "Move Focus to Bottom" },
+    { "<C-S-h>", toolbox.lazy_required_fn("tmux", "resize_left"), description = "Resize Left" },
+    { "<C-S-l>", toolbox.lazy_required_fn("tmux", "resize_right"), description = "Resize Right" },
+    { "<C-S-k>", toolbox.lazy_required_fn("tmux", "resize_top"), description = "Resize Top" },
+    { "<C-S-j>", toolbox.lazy_required_fn("tmux", "resize_bottom"), description = "Resize Bottom" },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Diffview                                                 │
@@ -411,6 +415,8 @@ legendary.setup({
     -- │ AI                                                       │
     -- ╰──────────────────────────────────────────────────────────╯
     { "<leader>ao", "<cmd>ChatGPT<CR>", description = "GPT: Open" },
+    { "<leader>ai", "<cmd>'<,'>GpImplement<CR>", description = "GPT: Implement", mode = { "v" } },
+
     { "<leader>as", "<cmd>ChatGPTActAs<CR>", description = "GPT: Act As" },
     {
       "<leader>ar",
