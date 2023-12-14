@@ -30,25 +30,63 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- TODO: auto expand
-ls.add_snippets("markdown", { ls.parser.parse_snippet("```", "```bash\n$0\n\n") })
-
--- " imap ,f I have the following:\n\n```bash\n
--- " imap ,u I'm using ``. I have the following:\n\n```bash\n
-
--- TODO: cursor between first ``
+--  ╭──────────────────────────────────────────────────────────╮
+--  │ simple snippets                                          │
+--  ╰──────────────────────────────────────────────────────────╯
 ls.add_snippets("markdown", {
-  s({ trig = ",diff", wordTrig = true }, { t("What is the difference between `` and ``?") }),
-}, { type = "autosnippets" })
-
-ls.add_snippets("markdown", {
-  s({ trig = ",ty", wordTrig = true }, { t("Thank you!") }),
+  s({ trig = ",ty", wordTrig = true }, { t("Thank you.") }),
+  s({ trig = ",yt", wordTrig = true }, { t("YouTube") }),
   s({ trig = ",gb", wordTrig = true }, { t("Thank you for getting back to me. I really appreciate it.") }),
   s({ trig = ",input", wordTrig = true }, { t("Any input is much appreciated. Thank you.") }),
-  s({ trig = ",hi", wordTrig = true }, { t("Hello there. Hope you're doing well. Thank you for creating ") }),
   s({ trig = ",hope", wordTrig = true }, { t("Hope you're doing well. Thank you for getting back ") }),
 }, { type = "autosnippets" })
 
+--  ╭──────────────────────────────────────────────────────────╮
+--  │ multi-line snippets                                      │
+--  ╰──────────────────────────────────────────────────────────╯
+ls.add_snippets("markdown", {
+  s({ trig = "```", wordTrig = true }, {
+    t({ "```bash", "" }),
+    i(0),
+    t({ "", "" }),
+  }),
+
+  s({ trig = ",f", wordTrig = true }, {
+    t({ "", "I have the following:" }),
+    -- Linebreak
+    t({ "", "" }),
+    t({ "", "" }),
+    t({ "```bash", "" }),
+    i(0),
+    t({ "", "" }),
+    t({ "```", "" }),
+  }),
+
+  s({ trig = ",u", wordTrig = true }, {
+    t({ "I'm using `" }),
+    i(1),
+    t({ "`. I have the following:", "" }),
+    t({ "", "" }),
+    t({ "```bash", "" }),
+    i(2),
+    t({ "", "" }),
+    t({ "```", "" }),
+    t({ "", "" }),
+    i(3),
+  }),
+
+  s({ trig = ",diff", wordTrig = true }, {
+    t({ "What is the difference between `" }),
+    i(1),
+    t({ "` and `" }),
+    i(2),
+    t({ "`?" }),
+  }),
+}, { type = "autosnippets" })
+
+--  ╭──────────────────────────────────────────────────────────╮
+--  │ Functions                                                │
+--  ╰──────────────────────────────────────────────────────────╯
 ls.add_snippets("markdown", {
   s({ trig = ",date", wordTrig = true }, {
     f(function()
