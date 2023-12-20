@@ -10,6 +10,14 @@ gp.setup({
   whisper_dir = nil,
   agents = {
     {
+      -- Disable ChatGPT 3.5
+      name = "ChatGPT3-5",
+    },
+    {
+      -- Disable CodeGPT3-5
+      name = "CodeGPT3-5",
+    },
+    {
       name = "ChatGPT4",
       chat = true,
       command = false,
