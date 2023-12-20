@@ -7,6 +7,7 @@ gp.setup({
   openai_api_key = os.getenv("OPENAI_API_KEY"),
   cmd_prefix = "Gp",
   curl_params = { "--proxy", "http://127.0.0.1:8888" },
+  whisper_dir = nil,
   agents = {
     {
       name = "ChatGPT4",
