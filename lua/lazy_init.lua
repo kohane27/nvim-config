@@ -260,7 +260,7 @@ require("lazy").setup({
 
   -- "tpope/vim-unimpaired",
   {
-    "nvim-island/hydra.nvim",
+    "nvimtools/hydra.nvim",
     event = "VeryLazy",
   },
   {

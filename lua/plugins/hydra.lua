@@ -3,6 +3,23 @@ if not status_ok then
   print("hydra not working")
 end
 
+-- hydra({
+--   name = "Smooth scrolling",
+--   mode = "n",
+--   body = "<C-d>",
+--   config = {
+--     invoke_on_body = true,
+--     on_enter = function()
+--       vim.api.nvim_command("lua Scroll('<C-f>', 1, 1)")
+--     end,
+--   },
+--   heads = {
+--     { "j", '<cmd>lua Scroll("<C-f>", 1, 1)<CR>' },
+--     { "k", '<cmd>lua Scroll("<C-b>", 1, 1)<CR>' },
+--     { "<Esc>", nil, { exit = true, nowait = true } },
+--   },
+-- })
+
 --  ╭──────────────────────────────────────────────────────────╮
 --  │ Functions start with ;                                   │
 --  ╰──────────────────────────────────────────────────────────╯
