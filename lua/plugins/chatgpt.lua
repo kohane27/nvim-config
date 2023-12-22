@@ -31,9 +31,10 @@ chatgpt.setup({
       cycle_windows = "<A-k>",
       stop_generating = "<A-x>",
       cycle_modes = "<A-m>",
-      toggle_settings = "<A-s>",
+      toggle_sessions = "<A-s>",
       select_session = "<Enter>",
 
+      toggle_settings = "<C-S-?>",
       yank_last = "<C-S-?>",
       next_message = "<C-S-?>",
       prev_message = "<C-S-?>",
