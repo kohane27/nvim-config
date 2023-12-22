@@ -5,10 +5,6 @@
 substitutes--.txt
 scratch_config.json
 
-snippets/snippets/ledger
-snippets/snippets/markdown
-
-plugins/java.lua
 plugins/markdown.vim
 
 .pre-commit-config.yaml
