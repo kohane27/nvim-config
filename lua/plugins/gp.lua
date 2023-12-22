@@ -7,15 +7,17 @@ gp.setup({
   openai_api_key = os.getenv("OPENAI_API_KEY"),
   cmd_prefix = "Gp",
   curl_params = { "--proxy", "http://127.0.0.1:8888" },
-  whisper_dir = nil,
+  whisper_dir = {},
   agents = {
     {
-      -- Disable ChatGPT 3.5
       name = "ChatGPT3-5",
+      chat = false,
+      command = false,
     },
     {
-      -- Disable CodeGPT3-5
       name = "CodeGPT3-5",
+      chat = false,
+      command = false,
     },
     {
       name = "ChatGPT4",
