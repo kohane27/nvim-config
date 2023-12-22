@@ -36,9 +36,9 @@ vim.api.nvim_create_autocmd("FileType", {
 ls.add_snippets("markdown", {
   s({ trig = ",ty", wordTrig = true }, { t("Thank you.") }),
   s({ trig = ",yt", wordTrig = true }, { t("YouTube") }),
-  s({ trig = ",gb", wordTrig = true }, { t("Thank you for getting back to me. I really appreciate it.") }),
+  s({ trig = ",hi", wordTrig = true }, { t("Hello! Hope you're doing well. Thank you for getting back ") }),
   s({ trig = ",input", wordTrig = true }, { t("Any input is much appreciated. Thank you.") }),
-  s({ trig = ",hope", wordTrig = true }, { t("Hope you're doing well. Thank you for getting back ") }),
+  s({ trig = ",gb", wordTrig = true }, { t("Thank you for getting back to me. I really appreciate it.") }),
 }, { type = "autosnippets" })
 
 --  ╭──────────────────────────────────────────────────────────╮
@@ -99,3 +99,38 @@ ls.add_snippets("markdown", {
     end, {}),
   }),
 }, { type = "autosnippets" })
+
+--  ╭──────────────────────────────────────────────────────────╮
+--  │ javascript                                               │
+--  ╰──────────────────────────────────────────────────────────╯
+-- TODO:
+-- "useState": {
+--     "prefix": "us",
+--     "body": "const [${1:setterName}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:defVal});$0",
+--     "description": "useState with proper camel casing."
+-- }
+local log_snippet = s({ trig = "log", wordTrig = true }, {
+  t({ "console.log(" }),
+  i(0),
+  t({ ");" }),
+})
+
+local import_react = s({ trig = "id", wordTrig = true }, {
+  t({ "import {" }),
+  i(0),
+  t({ "} from 'react';" }),
+})
+
+local return_fragment = s({ trig = "rf", wordTrig = true }, {
+  t({ "return (", "" }),
+  t({ "<>", "" }),
+  i(0),
+  t({ "", "" }),
+  t({ "</>", "" }),
+  t({ ");" }),
+})
+
+ls.add_snippets("javascript", { log_snippet, import_react })
+ls.add_snippets("typescript", { log_snippet, import_react })
+ls.add_snippets("javascriptreact", { log_snippet, import_react, return_fragment })
+ls.add_snippets("typescriptreact", { log_snippet, import_react, return_fragment })
