@@ -147,8 +147,8 @@ legendary.setup({
       mode = { "n", "i", "x" },
     },
 
-    { "<C-d>", "<cmd>lua Scroll('<C-f>', 1, 1)<CR>", description = "Smooth scrolling: down", mode = { "n", "x" } },
-    { "<C-u>", "<cmd>lua Scroll('<C-b>', 1, 1)<CR>", description = "Smooth scrolling: up", mode = { "n", "x" } },
+    -- { "<C-d>", "<cmd>lua Scroll('<C-f>', 1, 1)<CR>", description = "Smooth scrolling: down", mode = { "n", "x" } },
+    -- { "<C-u>", "<cmd>lua Scroll('<C-b>', 1, 1)<CR>", description = "Smooth scrolling: up", mode = { "n", "x" } },
 
     -- { "<C-f>", '<C-R>"', description = "Paste Last Yanked / Deleted", mode = { "i" } },
     { "<C-v>", "<C-R>*", description = "Paste Clipboard Content", mode = { "i", "c" } },
