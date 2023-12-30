@@ -3,22 +3,29 @@ if not status_ok then
   print("hydra not working")
 end
 
--- hydra({
---   name = "Smooth scrolling",
---   mode = "n",
---   body = "<C-d>",
---   config = {
---     invoke_on_body = true,
---     on_enter = function()
---       vim.api.nvim_command("lua Scroll('<C-f>', 1, 1)")
---     end,
---   },
---   heads = {
---     { "j", '<cmd>lua Scroll("<C-f>", 1, 1)<CR>' },
---     { "k", '<cmd>lua Scroll("<C-b>", 1, 1)<CR>' },
---     { "<Esc>", nil, { exit = true, nowait = true } },
---   },
--- })
+SmoothScroll = hydra({
+  name = "SmoothScroll",
+  mode = { "n", "x" },
+  heads = {
+    { "u", '<cmd>lua Scroll("<C-b>", 1, 1)<CR>', { private = true } },
+    { "d", '<cmd>lua Scroll("<C-f>", 1, 1)<CR>', { private = true } },
+    { "<Esc>", nil, { exit = true, nowait = true } },
+  },
+})
+
+vim.api.nvim_set_keymap(
+  "n",
+  "<C-u>",
+  '<cmd>lua Scroll("<C-b>", 1, 1)<CR><cmd>lua require("hydra").activate(SmoothScroll)<CR>',
+  { silent = true, noremap = true }
+)
+
+vim.api.nvim_set_keymap(
+  "n",
+  "<C-d>",
+  '<cmd>lua Scroll("<C-f>", 1, 1)<CR><cmd>lua require("hydra").activate(SmoothScroll)<CR>',
+  { silent = true, noremap = true }
+)
 
 --  ╭──────────────────────────────────────────────────────────╮
 --  │ Functions start with ;                                   │
