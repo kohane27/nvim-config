@@ -330,10 +330,10 @@ legendary.setup({
     { "<C-S-j>", toolbox.lazy_required_fn("tmux", "resize_bottom"), description = "Resize Bottom" },
 
     -- ╭──────────────────────────────────────────────────────────╮
-    -- │ Diffview                                                 │
+    -- │ Diffview.nvim                                            │
     -- ╰──────────────────────────────────────────────────────────╯
     { "<leader>di", "<cmd>DiffviewOpen<CR>", description = "Diffview: Compare Index" },
-    { "<leader>dh", "<cmd>DiffviewOpen HEAD~1<CR>", description = "Diffview: Current Commit and Commit Before" },
+    { "<leader>dh", "<cmd>DiffviewOpen HEAD^!<CR>", description = "Diffview: Current Commit and Commit Before" },
 
     { "<leader>db", "<cmd>DiffviewFileHistory<CR>", description = "Diffview: File History of Current Branch" },
     { "<leader>df", "<cmd>DiffviewFileHistory %<CR>", description = "Diffview: File History of Current File" },
@@ -343,12 +343,12 @@ legendary.setup({
       description = "Diffview: Line History of Range of Current File",
       mode = "v",
     },
-    { "<leader>dh", "<cmd>Gitsigns preview_hunk<CR>", description = "Diffview: Preview Hunk" },
     {
       "<leader>dXl",
       "<cmd>Gitsigns toggle_current_line_blame<CR>",
       description = "Diffview: Toggle Current Line Blame",
     },
+    -- { "<leader>dg", "<cmd>Gitsigns preview_hunk<CR>", description = "Diffview: Preview Hunk" },
 
     -- {
     --   "<C-t>",
