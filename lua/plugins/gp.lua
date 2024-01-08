@@ -8,6 +8,7 @@ gp.setup({
   cmd_prefix = "Gp",
   curl_params = { "--proxy", "http://127.0.0.1:8888" },
   whisper_dir = {},
+  image_dir = {},
   agents = {
     {
       name = "ChatGPT3-5",

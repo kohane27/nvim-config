@@ -315,6 +315,16 @@ require("lazy").setup({
   --   event = "VeryLazy",
   -- },
 
+  -- {
+  --   "sourcegraph/sg.nvim",
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --   -- If you have a recent version of lazy.nvim, you don't need to add this!
+  --   build = "nvim -l build/init.lua",
+  --   config = function()
+  --     require("sg").setup({})
+  --   end,
+  -- },
+
   "gbprod/substitute.nvim",
   "gbprod/cutlass.nvim",
   "gbprod/stay-in-place.nvim",
