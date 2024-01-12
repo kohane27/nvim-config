@@ -11,7 +11,7 @@ ts_configs.setup({
   highlight = {
     enable = true,
     disable = { "yaml", "json" },
-    additional_vim_regex_highlighting = false,
+    additional_vim_regex_highlighting = { "org" },
   },
   autotag = { enable = true }, -- windwp/nvim-ts-autotag
   autopairs = { enable = true },

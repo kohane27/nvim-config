@@ -54,6 +54,7 @@ require("plugins.diffview")
 
 require("plugins.luasnip")
 require("plugins.trouble")
+require("plugins.orgmode")
 
 require("plugins.nvim-surround")
 require("plugins.vim-visual-multi")
