@@ -63,7 +63,7 @@ require("plugins.wilder")
 require("plugins.recorder")
 require("plugins.dial")
 require("plugins.neozoom")
-require("plugins.beacon")
+-- require("plugins.beacon")
 
 require("plugins.comment-box")
 require("plugins.vim-caser")

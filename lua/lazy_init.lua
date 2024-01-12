@@ -386,7 +386,7 @@ require("lazy").setup({
   -- smooth scrolling
   "declancm/cinnamon.nvim",
   -- flash cursor when jumping
-  "danilamihailov/beacon.nvim",
+  -- "danilamihailov/beacon.nvim",
 
   -- scrollbar
   "petertriho/nvim-scrollbar",
