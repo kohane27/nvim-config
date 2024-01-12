@@ -187,9 +187,9 @@ require("lazy").setup({
   -- "abecodes/tabout.nvim", -- tabbing out from parentheses and quotes
   "mbbill/undotree",
 
-  "https://git.sr.ht/~nedia/auto-save.nvim",
+  "aidenlangley/auto-save.nvim",
   {
-    "https://git.sr.ht/~nedia/auto-format.nvim",
+    "aidenlangley/auto-format.nvim",
     -- event = { "BufReadPre", "BufNewFile" },
     event = "BufReadPre",
   },
