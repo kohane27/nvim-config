@@ -109,17 +109,17 @@ legendary.setup({
     -- J!!, K!!, H, L, gh, r
     -- ,
     -- C-j, C-k, C-e, C-y
-    -- <leader> b, e, g, h, i, k, p, u, v, w, y, z
+    -- <leader> b, f, g, h, i, k, p, u, v, w, y, z
 
     -- <leader>g
     { "<leader>gt", "<cmd>ToggleTerm<CR>", description = "New terminal" },
     { "<leader>gu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
-    { "<leader>gf", "<cmd>Oil --float<CR>", description = "Oil" },
+
+    { "<leader>e", '<cmd>lua require("ranger-nvim").open(true)<CR>', description = "Ranger" },
+    { "-", "<cmd>Oil --float<CR>", description = "Oil" },
 
     -- <C-KEY>
-    -- open on "t"op
-    { "<C-t>", '<cmd>lua require("ranger-nvim").open(true)<CR>', description = "Ranger" },
-    { "<C-f>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle" },
+    { "<C-f>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle File" },
     { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
 
     {
@@ -511,11 +511,9 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │   Miscellaneous Keymaps                                  │
     -- ╰──────────────────────────────────────────────────────────╯
-    -- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
     {
       "<c-s>",
       "<cmd>w<CR>",
-      -- "<cmd>wa | edit | lua vim.lsp.buf.format()<CR> | TSBufEnable highlight<CR>zz",
       mode = { "n", "i" },
       opts = { noremap = true, silent = true },
     },
@@ -534,6 +532,12 @@ legendary.setup({
     { "<leader>MXsr", "<cmd>SessionRestore<CR>", description = "Session: Restore" },
     { "<leader>MXsd", "<cmd>SessionDelete<CR>", description = "Session: Delete" },
     { "<leader>MXsl", "<cmd>lua require('session-lens').search_session()<CR>", description = "Session: Search" },
+    {
+      -- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
+      "<leader>MXsid",
+      "<cmd>wa | edit | lua vim.lsp.buf.format()<CR> | TSBufEnable highlight<CR>zz",
+      description = "TS: Reload",
+    },
 
     --  vim-caser
     {
