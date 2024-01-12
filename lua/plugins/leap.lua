@@ -8,7 +8,7 @@ leap.set_default_keymaps(true)
 
 leap.setup({
   case_sensitive = false,
-  safe_labels = {}, -- disable auto-jumping to the first match
+  safe_labels = "", -- disable auto-jumping to the first match
   max_phase_one_targets = 0, -- first char won't show possible matches
   max_highlighted_traversal_targets = 10,
 })
