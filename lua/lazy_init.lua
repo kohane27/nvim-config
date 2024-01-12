@@ -408,6 +408,11 @@ require("lazy").setup({
   -- note-taking/task management
   -- `mkdnflow` conflicting with `vim-wiki`
   -- { "jakewvincent/mkdnflow.nvim", ft = "markdown" },
+  {
+    "nvim-orgmode/orgmode",
+    event = "VeryLazy",
+    ft = "org",
+  },
 
   -- open links
   { "chrishrb/gx.nvim", event = "BufEnter" },
