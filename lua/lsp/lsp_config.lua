@@ -121,7 +121,7 @@ local servers = {
   "awk_ls",
   "bashls",
   "dockerls",
-  -- "eslint", -- instead of `tsserver` or `eslint_d` in `null_ls` for better linting and react-specific linting rules
+  "eslint", -- instead of `tsserver` or `eslint_d` in `null_ls` for better linting and react-specific linting rules
   "lemminx",
   "prismals",
   "pylsp",
