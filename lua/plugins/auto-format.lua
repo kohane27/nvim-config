@@ -4,7 +4,6 @@ if not status_ok then
 end
 
 autoformat.setup({
-  -- augroup name
   augroup_name = "AutoFormat",
 
   -- If formatting takes longer than this amount of time, it will fail. Having no
