@@ -4,9 +4,6 @@ if not status_ok then
 end
 
 saga.setup({
-  diagnostic = {
-    on_insert = false,
-  },
   lightbulb = {
     enable = true,
     enable_in_insert = false,
