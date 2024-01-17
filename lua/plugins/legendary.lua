@@ -213,7 +213,9 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ LSP                                                      │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", description = "LSP: Line Diagnostics" },
+    -- show with code action
+    { "gl", "<cmd>Lspsaga diagnostic_jump_next<CR>", description = "LSP: Line Diagnostics" },
+    -- { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", description = "LSP: Line Diagnostics" },
     { "gL", "<cmd>Lspsaga show_buf_diagnostics<CR>", description = "LSP: Buffer Diagnostics" },
     { "gh", "<cmd>Lspsaga hover_doc ++quiet<CR>", description = "LSP: Hover Doc (quiet)" },
     { "gH", "<cmd>Lspsaga hover_doc ++keep<CR>", description = "LSP: Hover Doc (keep)" },
@@ -221,17 +223,23 @@ legendary.setup({
     { "gd", "<cmd>Lspsaga goto_definition<CR>", description = "LSP: Go to Definition" },
     { "gD", "<cmd>Lspsaga peek_definition<CR>", description = "LSP: Preview Definition" },
 
-    { "gT", "<cmd>lua vim.lsp.buf.type_definition()<CR>", description = "LSP: Go to Type Definition" },
+    { "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", description = "LSP: Go to Type Definition" },
 
     { "gr", "<cmd>lua vim.lsp.buf.references()<CR>", description = "LSP: Reference List" },
-    { "gR", '<cmd>require("trouble").toggle("lsp_references")<CR>', description = "LSP: Reference List" },
-    -- { "gR", "<cmd>Telescope lsp_references<CR>", description = "LSP: Reference List" },
+    {
+      "gR",
+      function()
+        require("trouble").toggle("lsp_references")
+      end,
+      description = "LSP: Reference List",
+    },
 
-    { "<leader>rn", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
-    { "<leader>lf", "<cmd>Lspsaga lsp_finder<CR>", description = "LSP: Finder: Symbol, Definition and Implementation" },
-    { "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", description = "LSP: Signature Help" },
+    -- order of importance
     { "<leader>lc", "<cmd>Lspsaga code_action<CR>", description = "LSP: Code Action" },
-    { "<leader>ln", "<cmd>Navbuddy<CR>", description = "LSP: Navbuddy" },
+    { "<leader>lf", "<cmd>Lspsaga finder<CR>", description = "LSP: Finder: Symbol, Definition and Implementation" },
+    { "<leader>rn", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
+    { "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", description = "LSP: Signature Help" },
+    -- { "<leader>ln", "<cmd>Navbuddy<CR>", description = "LSP: Navbuddy" },
     { "<leader>lo", "<cmd>Lspsaga outline<CR>", description = "LSP: Symbols Outline" },
 
     { "<leader>lXc", "<cmd>lua vim.lsp.codelens.run()<CR>", description = "LSP: Code Lens" },
@@ -245,20 +253,42 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ Trouble.nvim                                             │
     -- ╰──────────────────────────────────────────────────────────╯
-    { "<leader>xx", '<cmd>lua require("trouble").open()<CR>', description = "LSP: Document Diagnostics" },
+    {
+      "<leader>xx",
+      function()
+        require("trouble").toggle()
+      end,
+      description = "LSP: Document Diagnostics",
+    },
     { "<leader>xc", "<cmd>copen<CR>", description = "LSP: Quickfix List" },
     {
       "<leader>xw",
-      '<cmd>lua require("trouble").open("workspace_diagnostics")<CR>',
+      function()
+        require("trouble").toggle("workspace_diagnostics")
+      end,
       description = "LSP: Workspace Diagnostics",
     },
     {
       "<leader>xd",
-      '<cmd>lua require("trouble").open("document_diagnostics")<CR>',
+      function()
+        require("trouble").toggle("document_diagnostics")
+      end,
       description = "LSP: Document Diagnostics",
     },
-    { "<leader>xl", '<cmd>lua require("trouble").open("loclist")<CR>', description = "LSP: Location List" },
-    { "<leader>xt", "<cmd>TodoQuickFix<CR>", description = "Todo Quickfix" },
+    {
+      "<leader>xl",
+      function()
+        require("trouble").toggle("loclist")
+      end,
+      description = "LSP: Location List",
+    },
+    {
+      "<leader>xt",
+      function()
+        require("trouble").toggle("quickfix")
+      end,
+      description = "Todo Quickfix",
+    },
 
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ bufferline                                               │
