@@ -32,6 +32,7 @@ chatgpt.setup({
       stop_generating = "<A-x>",
       cycle_modes = "<A-m>",
       toggle_sessions = "<A-s>",
+      toggle_system_role_open = "<S-r>",
       select_session = "<Enter>",
 
       toggle_settings = "<C-S-?>",
@@ -43,7 +44,6 @@ chatgpt.setup({
       draft_message = "<C-S-?>",
       edit_message = "<C-S-?>",
       toggle_message_role = "<C-S-?>",
-      toggle_system_role_open = "<C-S-?>",
     },
   },
   popup_layout = {
