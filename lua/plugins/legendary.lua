@@ -157,17 +157,6 @@ legendary.setup({
     -- │ Telescope                                                │
     -- ╰──────────────────────────────────────────────────────────╯
     {
-      "<leader>fb",
-      {
-        n = "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>",
-        v = function()
-          local text = get_visual_selection()
-          require("telescope.builtin").current_buffer_fuzzy_find({ default_text = text })
-        end,
-      },
-      description = "Telescope: Find Text in Current Buffer",
-    },
-    {
       "<leader>fg",
       function()
         live_grep_from_project_git_root()
@@ -175,6 +164,29 @@ legendary.setup({
       description = "Telescope: Find Text",
       mode = { "n", "x" },
     },
+    {
+      "<leader>ft",
+      function()
+        require("telescope.builtin").live_grep({ grep_open_files = true })
+      end,
+      description = "Telescope: Find Text in Opened Tabs",
+    },
+    {
+      "<leader>fb",
+      {
+        n = function()
+          require("telescope.builtin").current_buffer_fuzzy_find()
+        end,
+        v = function()
+          local text = get_visual_selection()
+          require("telescope.builtin").current_buffer_fuzzy_find({ default_text = text })
+        end,
+      },
+      description = "Telescope: Find Text in Current Buffer",
+    },
+
+    -- not frequent below
+    { "<leader>fB", "<cmd>Telescope scope buffers<CR>", description = "Telescope: Tabs" },
     {
       "<leader>ff",
       "<cmd>lua require('telescope.builtin').find_files()<CR>",
@@ -187,7 +199,6 @@ legendary.setup({
       description = "Telescope: Zoxide",
     },
     { "<leader>fr", "<cmd>Telescope resume<CR>", description = "Telescope: Resume" },
-    { "<leader>ft", "<cmd>Telescope scope buffers<CR>", description = "Telescope: Tabs" },
     { "<leader>fj", "<cmd>Telescope jumplist<CR>", description = "Telescope: Jumplist" },
 
     { "<leader>fXc", "<cmd>Telescope command_history<CR>", description = "Telescope: Command History" },
@@ -213,7 +224,7 @@ legendary.setup({
     -- ╭──────────────────────────────────────────────────────────╮
     -- │ LSP                                                      │
     -- ╰──────────────────────────────────────────────────────────╯
-    -- show with code action
+    -- it'll show with code action
     { "gl", "<cmd>Lspsaga diagnostic_jump_next<CR>", description = "LSP: Line Diagnostics" },
     -- { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", description = "LSP: Line Diagnostics" },
     { "gL", "<cmd>Lspsaga show_buf_diagnostics<CR>", description = "LSP: Buffer Diagnostics" },
@@ -561,7 +572,6 @@ legendary.setup({
     { "<leader>MXss", "<cmd>SessionSave<CR>", description = "Session: Save" },
     { "<leader>MXsr", "<cmd>SessionRestore<CR>", description = "Session: Restore" },
     { "<leader>MXsd", "<cmd>SessionDelete<CR>", description = "Session: Delete" },
-    { "<leader>MXsl", "<cmd>lua require('session-lens').search_session()<CR>", description = "Session: Search" },
     {
       -- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
       "<leader>MXsid",
