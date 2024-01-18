@@ -223,12 +223,8 @@ require("lazy").setup({
   -- },
 
   -- session management
-  {
-    "rmagatti/auto-session",
-    dependencies = {
-      "rmagatti/session-lens", -- telescope integration
-    },
-  },
+
+  { "rmagatti/auto-session", lazy = false },
 
   "mrjones2014/legendary.nvim",
   "stevearc/dressing.nvim",
