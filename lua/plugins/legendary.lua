@@ -112,7 +112,7 @@ legendary.setup({
     -- <leader> b, f, g, h, i, k, p, u, v, w, y, z
 
     -- <leader>g
-    { "<leader>gt", "<cmd>ToggleTerm<CR>", description = "New terminal" },
+    -- { "<leader>gt", "<cmd>ToggleTerm<CR>", description = "New terminal" },
     { "<leader>gu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
 
     { "<leader>e", '<cmd>lua require("ranger-nvim").open(true)<CR>', description = "Ranger" },
@@ -121,6 +121,7 @@ legendary.setup({
     -- <C-KEY>
     { "<C-f>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle File" },
     { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
+    { "<C-t>", "<cmd>ToggleTerm<CR>", description = "New terminal" },
 
     {
       "<C-g>",
@@ -318,10 +319,10 @@ legendary.setup({
     { "g8", "<cmd>BufferLineGoToBuffer 8<CR>", description = "Go to Buffer 8" },
     { "g9", "<cmd>BufferLineGoToBuffer 9<CR>", description = "Go to Buffer 9" },
     { "g0", "<cmd>BufferLineGoToBuffer -1<CR>", description = "Go to Buffer 10" },
-    { "gXr", "<cmd>BufferLineCloseRight<CR>", description = "Buffer: Close All to the Right" },
-    { "gXl", "<cmd>BufferLineCloseLeft <CR>", description = "Buffer: Close All to the Left" },
+    { "gbl", "<cmd>BufferLineCloseRight<CR>", description = "Buffer: Close All to the Right" },
+    { "gbh", "<cmd>BufferLineCloseLeft <CR>", description = "Buffer: Close All to the Left" },
     {
-      "gXa",
+      "gba",
       function()
         close_all_but_current_buffer()
       end,
@@ -576,7 +577,7 @@ legendary.setup({
       -- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
       "<leader>MXsid",
       "<cmd>wa | edit | lua vim.lsp.buf.format()<CR> | TSBufEnable highlight<CR>zz",
-      description = "TS: Reload",
+      description = "Treesitter: Reload",
     },
 
     --  vim-caser

@@ -30,7 +30,7 @@ function _G.set_terminal_keymaps()
   -- escape
   vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
   -- hide
-  vim.keymap.set("t", "<leader>gt", [[<Cmd>ToggleTermToggleAll<CR>]], opts)
+  vim.keymap.set("t", "<C-t>", [[<Cmd>ToggleTermToggleAll<CR>]], opts)
 
   -- navigate
   -- vim.keymap.set("t", "<A-h>", [[<Cmd>wincmd h<CR>]], opts)
