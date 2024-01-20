@@ -26,7 +26,7 @@ local function on_attach(bufnr)
   vim.keymap.set("n", "l", api.node.open.edit,              opts("Open"))
   vim.keymap.set("n", "<C-r>", api.tree.reload,             opts("Refresh"))
   vim.keymap.set("n", "a", api.fs.create,                   opts("Create"))
-  vim.keymap.set("n", "ciw", api.fs.rename,                 opts("Rename"))
+  vim.keymap.set("n", "r", api.fs.rename,                   opts("Rename"))
   vim.keymap.set("n", "h", api.node.navigate.parent_close,  opts("Close Directory"))
   vim.keymap.set("n", "D", api.fs.trash,                    opts("Trash"))
   vim.keymap.set("n", "dd", api.fs.cut,                     opts("Cut"))
@@ -53,7 +53,7 @@ local function on_attach(bufnr)
   end, opts("move_up_fast"))
 end
 
-require("nvim-tree").setup({
+nvim_tree.setup({
   on_attach = on_attach,
   -- change the following 5 lines and `zoxide` won't work
   respect_buf_cwd = true,
