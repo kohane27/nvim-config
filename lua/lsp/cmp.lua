@@ -11,9 +11,9 @@ end
 local lspkind = require("lspkind")
 
 -- require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.config/nvim/snippets" })
-require("luasnip.loaders.from_vscode").lazy_load({
-  paths = { "~/.local/share/nvim/lazy/friendly-snippets" },
-})
+-- require("luasnip.loaders.from_vscode").lazy_load({
+--   paths = { "~/.local/share/nvim/lazy/friendly-snippets" },
+-- })
 
 local check_backspace = function()
   local col = vim.fn.col(".") - 1
@@ -21,11 +21,11 @@ local check_backspace = function()
 end
 
 cmp.setup({
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
+  -- snippet = {
+  --   expand = function(args)
+  --     luasnip.lsp_expand(args.body)
+  --   end,
+  -- },
 
   window = {
     completion = cmp.config.window.bordered(),
@@ -73,20 +73,17 @@ cmp.setup({
       mode = "symbol_text",
       maxwidth = 50,
       menu = {
-        luasnip = "[Snippet]",
         nvim_lsp = "[LSP]",
         buffer = "[Buffer]",
         path = "[Path]",
+        -- luasnip = "[Snippet]",
       },
     }),
   },
   sources = {
     {
-      name = "luasnip",
-    },
-    {
       name = "nvim_lsp",
-      -- remove snippets from LSP
+      -- remove snippets (not friendly-snippets) from LSP
       entry_filter = function(entry)
         return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
       end,
@@ -101,6 +98,7 @@ cmp.setup({
       },
     },
     { name = "path" },
+    -- { name = "luasnip" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
