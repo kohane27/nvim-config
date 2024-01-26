@@ -45,6 +45,9 @@ require("lazy").setup({
     event = "VeryLazy",
   },
 
+  -- undo tree
+  "debugloop/telescope-undo.nvim",
+
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
