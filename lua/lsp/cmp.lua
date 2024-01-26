@@ -73,17 +73,14 @@ cmp.setup({
       mode = "symbol_text",
       maxwidth = 50,
       menu = {
-        luasnip = "[Snippet]",
         nvim_lsp = "[LSP]",
         buffer = "[Buffer]",
         path = "[Path]",
+        luasnip = "[Snippet]",
       },
     }),
   },
   sources = {
-    {
-      name = "luasnip",
-    },
     {
       name = "nvim_lsp",
       -- remove snippets from LSP
@@ -101,6 +98,7 @@ cmp.setup({
       },
     },
     { name = "path" },
+    { name = "luasnip" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
