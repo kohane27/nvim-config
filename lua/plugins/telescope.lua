@@ -134,6 +134,21 @@ telescope.setup({
       AND = true,
       permutations = true, -- imply AND & match all permutations of prompt tokens
     },
+    undo = {
+      use_delta = true,
+      side_by_side = true,
+      layout_config = {
+        preview_width = 0.8,
+        horizontal = {
+          height = 0.95,
+          width = 0.95,
+        },
+        vertical = {
+          height = 0.95,
+          width = 0.95,
+        },
+      },
+    },
   },
 })
 
@@ -142,5 +157,6 @@ telescope.load_extension("frecency")
 telescope.load_extension("zoxide")
 telescope.load_extension("scope")
 telescope.load_extension("egrepify")
+telescope.load_extension("undo")
 
 vim.api.nvim_set_hl(0, "TelescopePathSeparator", {})
