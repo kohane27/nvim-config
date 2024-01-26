@@ -113,8 +113,7 @@ legendary.setup({
 
     -- <leader>g
     -- { "<leader>gt", "<cmd>ToggleTerm<CR>", description = "New terminal" },
-    { "<leader>gU", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
-    { "<leader>gu", "<cmd>Telescope undo<CR>", description = "Undotree: Toggle" },
+    { "<leader>gu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
 
     { "<leader>e", '<cmd>lua require("ranger-nvim").open(true)<CR>', description = "Ranger" },
     { "-", "<cmd>Oil --float<CR>", description = "Oil" },
@@ -186,8 +185,8 @@ legendary.setup({
       },
       description = "Telescope: Find Text in Current Buffer",
     },
-
     -- not frequent below
+    { "<leader>fu", "<cmd>Telescope undo<CR>", description = "Telescope: Undo" },
     { "<leader>fB", "<cmd>Telescope scope buffers<CR>", description = "Telescope: Tabs" },
     {
       "<leader>ff",
