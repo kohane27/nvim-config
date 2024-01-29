@@ -109,7 +109,7 @@ legendary.setup({
     -- J!!, K!!, H, L, gh, r
     -- ,
     -- C-j, C-k, C-e, C-y
-    -- <leader> b, f, g, h, i, k, p, u, v, w, y, z
+    -- <leader> h, i, k, p, u, v, w, y, z
 
     -- <leader>g
     -- { "<leader>gt", "<cmd>ToggleTerm<CR>", description = "New terminal" },
@@ -319,13 +319,11 @@ legendary.setup({
     { "g8", "<cmd>BufferLineGoToBuffer 8<CR>", description = "Go to Buffer 8" },
     { "g9", "<cmd>BufferLineGoToBuffer 9<CR>", description = "Go to Buffer 9" },
     { "g0", "<cmd>BufferLineGoToBuffer -1<CR>", description = "Go to Buffer 10" },
-    { "gbl", "<cmd>BufferLineCloseRight<CR>", description = "Buffer: Close All to the Right" },
-    { "gbh", "<cmd>BufferLineCloseLeft <CR>", description = "Buffer: Close All to the Left" },
+    { "<leader>bdl", "<cmd>BufferLineCloseRight<CR>", description = "Buffer: Close All Right" },
+    { "<leader>bdh", "<cmd>BufferLineCloseLeft<CR>", description = "Buffer: Close All Left" },
     {
-      "gba",
-      function()
-        close_all_but_current_buffer()
-      end,
+      "<leader>bda",
+      "<cmd>BufferLineCloseOthers<CR>",
       description = "Buffer: Close All But Current",
     },
 
