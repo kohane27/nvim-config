@@ -309,6 +309,7 @@ require("lazy").setup({
     "robitx/gp.nvim",
     event = "VeryLazy",
   },
+  "piersolenski/wtf.nvim",
   -- {
   --   "gsuuon/llm.nvim",
   --   event = "VeryLazy",
