@@ -62,8 +62,6 @@ require("lazy").setup({
   -- can't lazy load
   { "andymass/vim-matchup", dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" } },
 
-  -- { "elgiano/nvim-treesitter-angular", branch = "topic/jsx-fix" },
-
   "windwp/nvim-ts-autotag",
 
   -- integrated with cmp and treesitter
