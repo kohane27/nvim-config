@@ -75,14 +75,14 @@ lspconfig.jsonls.setup({
 })
 
 -- 3. stylelint_lsp
-lspconfig.stylelint_lsp.setup({
-  settings = {
-    stylelintplus = {
-      autoFixOnFormat = true,
-      autoFixOnSave = true,
-    },
-  },
-})
+-- lspconfig.stylelint_lsp.setup({
+--   settings = {
+--     stylelintplus = {
+--       autoFixOnFormat = true,
+--       autoFixOnSave = true,
+--     },
+--   },
+-- })
 
 -- 4. lua_ls
 lspconfig.lua_ls.setup({
@@ -123,7 +123,7 @@ local servers = {
   "dockerls",
   "eslint", -- instead of `tsserver` or `eslint_d` in `null_ls` for better linting and react-specific linting rules
   "lemminx",
-  "prismals",
+  -- "prismals",
   "pylsp",
   "sqlls",
 }
