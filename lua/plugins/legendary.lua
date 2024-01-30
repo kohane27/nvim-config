@@ -247,6 +247,7 @@ legendary.setup({
     },
 
     -- order of importance
+    { "<leader>la", "lua require('wtf').ai()", description = "WTF: Debug diagnostic" },
     { "<leader>lc", "<cmd>Lspsaga code_action<CR>", description = "LSP: Code Action" },
     { "<leader>lf", "<cmd>Lspsaga finder<CR>", description = "LSP: Finder: Symbol, Definition and Implementation" },
     { "<leader>rn", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
