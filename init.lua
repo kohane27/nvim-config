@@ -109,6 +109,7 @@ require("plugins.firenvim")
 
 require("plugins.chatgpt")
 require("plugins.gp")
+require("plugins.typescript-tools")
 -- require("plugins.llm")
 
 -- near end to override above
