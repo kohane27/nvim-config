@@ -113,7 +113,7 @@ lspconfig.lua_ls.setup({
 
 -- Use a loop to call 'setup' on multiple servers
 local servers = {
-  "angularls",
+  -- "angularls",
   "html",
   "emmet_ls",
   "cssls",
