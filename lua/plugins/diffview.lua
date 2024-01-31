@@ -1,6 +1,7 @@
-local status_ok, diffview = pcall(require, "diffview")
-if not status_ok then
-  print("diffview not working")
-end
-
-diffview.setup({})
+return {
+  "sindrets/diffview.nvim",
+  event = "VeryLazy",
+  config = function()
+    require("diffview").setup({})
+  end,
+}
