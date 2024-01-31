@@ -46,7 +46,6 @@ opt.autowriteall     = true
 opt.timeoutlen       = 650                         -- time to wait for a mapped sequence to complete
 opt.writebackup      = true                        -- disable editing a file that is being edited
 opt.list             = true
-opt.filetype         = "on"
 opt.undofile         = true
 g.do_filetype_lua    = true                        -- use filetype.lua instead of filetype.vim
 g.did_load_filetypes = false
@@ -76,21 +75,22 @@ opt.sidescrolloff  = 4
 opt.pumheight      = 10       -- pop up menu height
 opt.showtabline    = 2        -- always show tabs
 opt.shiftwidth     = 2        -- spaces inserted for each indentation
-opt.signcolumn    = "yes"
-opt.title         = true
-opt.cursorline    = true
+opt.background     = "dark"
+opt.signcolumn     = "yes"
+opt.title          = true
+opt.cursorline     = true
 -- opt.colorcolumn   = '80' -- Line lenght marker at 80 columns
-opt.splitright    = true    -- Vertical split to the right
-opt.splitbelow    = true    -- Horizontal split to the bottom
-opt.ignorecase    = true    -- Ignore case letters when search
-opt.smartcase     = true    -- Ignore lowercase for the whole pattern
-opt.linebreak     = true    -- Wrap on word boundary
-opt.breakindent   = true    -- Enable break indent
-opt.termguicolors = true    -- Enable 24-bit RGB colors
-opt.laststatus    = 3       -- Set global statusline
+opt.splitright     = true    -- Vertical split to the right
+opt.splitbelow     = true    -- Horizontal split to the bottom
+opt.ignorecase     = true    -- Ignore case letters when search
+opt.smartcase      = true    -- Ignore lowercase for the whole pattern
+opt.linebreak      = true    -- Wrap on word boundary
+opt.breakindent    = true    -- Enable break indent
+opt.termguicolors  = true    -- Enable 24-bit RGB colors
+opt.laststatus     = 3       -- Set global statusline
+opt.showcmd        = false   -- no show `gj` on every `j` press
 opt.shortmess:append "sI"   -- Disable nvim intro
 opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-opt.showcmd       = false   -- no show `gj` on every `j` press
 
 -----------------------------------------------------------
 -- Tabs, indent
@@ -99,6 +99,7 @@ opt.expandtab   = true   -- use spaces instead of tabs
 opt.shiftwidth  = 4      -- shift 4 spaces when tab
 opt.softtabstop  = 4
 opt.smartindent = true   -- autoindent new lines
+opt.autoindent  = true
 opt.tabstop     = 4      -- 1 tab == 4 spaces
 
 -----------------------------------------------------------
@@ -106,17 +107,27 @@ opt.tabstop     = 4      -- 1 tab == 4 spaces
 -----------------------------------------------------------
 opt.hidden     = true     -- enable background buffers
 opt.lazyredraw = false    -- `nzzzv` search result works
-opt.synmaxcol  = 500      -- max column for syntax highlight
+-- opt.synmaxcol  = 500      -- max column for syntax highlight
 opt.updatetime = 700      -- ms to wait for trigger an event
 -- interval for writing swap file to disk, also used by gitsigns
 
 -----------------------------------------------------------
 -- Folds
 -----------------------------------------------------------
-opt.foldcolumn = '0' -- no extra folder columns in the number line
-opt.foldlevel = 99 -- using `ufo` provider requires a large value
+opt.foldmethod     = "expr"
+opt.foldexpr       = "nvim_treesitter#foldexpr()" -- Utilize Treesitter folds
+opt.foldcolumn     = '0' -- no extra folder columns in the number line
+opt.foldlevel      = 99 -- using `ufo` provider requires a large value
 opt.foldlevelstart = 99
-opt.foldenable = true
+opt.foldenable     = true
+
+-- TODO: what they do?
+
+-- Backspace
+opt.backspace = "indent,eol,start"
+
+-- Consider - part of keyword
+opt.iskeyword:append("-")
 
 -----------------------------------------------------------
 -- Startup
