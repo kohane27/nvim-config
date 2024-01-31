@@ -1,8 +1,0 @@
-iabbrev :h 📅 <c-r>=strftime("%Y-%m-%d")<cr> ⏫<Esc>
-iabbrev :m 📅 <c-r>=strftime("%Y-%m-%d")<cr> 🔼<Esc>
-iabbrev :l 📅 <c-r>=strftime("%Y-%m-%d")<cr> 🔽<Esc>
-iabbrev <silent> :d ✅ <c-r>=strftime("%Y-%m-%d")<cr><Esc>
-
-iabbrev <silent> :h # ➕ <c-r>=strftime("%Y-%m-%d")<cr> 📅 <c-r>=strftime("%Y-%m-%d")<cr> ⏫<Esc><Esc><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>i
-
-set nomodeline

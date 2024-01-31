@@ -1,12 +1,15 @@
--- create a column of cursors from visual mode
-vim.api.nvim_set_keymap(
-  "n",
-  "<C-S-n>",
-  ":call vm#commands#add_cursor_down(0, v:count1)<cr>",
-  { noremap = true, silent = true }
-)
-
-vim.cmd([[
+return {
+  "mg979/vim-visual-multi",
+  -- TODO: fix weird flash when using `C-n`
+  config = function()
+    -- create a column of cursors from visual mode
+    vim.api.nvim_set_keymap(
+      "n",
+      "<C-S-n>",
+      ":call vm#commands#add_cursor_down(0, v:count1)<cr>",
+      { noremap = true, silent = true }
+    )
+    vim.cmd([[
     " all mappings disabled except <C-n> (<C-n> can't be remapped)
     let g:VM_default_mappings = 0
     " disable warning
@@ -21,3 +24,5 @@ vim.cmd([[
     let g:VM_maps['I CtrlC'] = "" " disable backspace mapping
 
 ]])
+  end,
+}

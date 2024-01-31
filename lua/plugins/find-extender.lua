@@ -1,16 +1,20 @@
-local status_ok, find_extender = pcall(require, "find-extender")
-if not status_ok then
-  print("find_extender not working find find")
-end
-
-find_extender.setup({
-  ignore_case = true,
-  movements = {
-    min_matches = 1,
-    highlight_match = { fg = "#000000", bg = "#CCFF88" },
-    leap = {
-      enable = true,
-      symbols = "asdfghjkl;",
+-- "ggandor/flit.nvim",
+-- "rhysd/clever-f.vim",
+return {
+  "kohane27/find-extender.nvim",
+  event = "VeryLazy",
+  opts = {
+    ignore_case = true,
+    movements = {
+      min_matches = 1,
+      highlight_match = { fg = "#000000", bg = "#CCFF88" },
+      leap = {
+        enable = true,
+        symbols = "asdfghjkl;",
+      },
     },
   },
-})
+  config = function(_, opts)
+    require("find-extender").setup(opts)
+  end,
+}

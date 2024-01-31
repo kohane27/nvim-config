@@ -1,6 +1,8 @@
-local status_ok, telepath = pcall(require, "telepath")
-if not status_ok then
-  print("auto-format not working")
-end
-
-telepath.use_default_mappings({ keys = { "r" } })
+-- "ggandor/leap-spooky.nvim",
+return {
+  "rasulomaroff/telepath.nvim",
+  event = "VeryLazy",
+  config = function()
+    require("telepath").use_default_mappings({ keys = { "r" } })
+  end,
+}
