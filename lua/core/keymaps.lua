@@ -32,8 +32,6 @@ map("i", "jk", "<Esc>")
 -- `:h digraph`
 map("i", "<C-k>", "<Esc>")
 
-map("n", "r", "<Nop>")
-
 map("n", "<space>", "<Nop>")
 map("x", "<space>", "<Nop>")
 
@@ -82,6 +80,7 @@ map("n", "q", "<nop>")
 map("n", "ZZ", "<nop>")
 
 -- no replace mode
+map("n", "r", "<Nop>")
 map("n", "R", "<nop>")
 map("n", "gR", "<nop>")
 

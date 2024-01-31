@@ -1,45 +1,39 @@
-local status_ok, leap = pcall(require, "leap")
-if not status_ok then
-  print("leap not working")
-end
+return {
+  "ggandor/leap.nvim",
+  event = "VeryLazy",
+  opts = {
+    case_sensitive = false,
+    safe_labels = "", -- disable auto-jumping to the first match
+    max_phase_one_targets = 0, -- first char won't show possible matches
+    max_highlighted_traversal_targets = 10,
+  },
 
--- override conflicts
-leap.set_default_keymaps(true)
+  config = function(_, opts)
+    local leap = require("leap")
+    leap.setup(opts)
+    leap.set_default_keymaps(true)
 
-leap.setup({
-  case_sensitive = false,
-  safe_labels = "", -- disable auto-jumping to the first match
-  max_phase_one_targets = 0, -- first char won't show possible matches
-  max_highlighted_traversal_targets = 10,
-})
+    -- Bidirectional search
+    local function leap_current_window()
+      leap.leap({ target_windows = { vim.fn.win_getid() } })
+    end
+    vim.keymap.set("n", "s", leap_current_window, { silent = true })
+    vim.keymap.set("x", "s", leap_current_window, { silent = true })
 
--- Lightspeed-style highlighting
--- vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
--- vim.api.nvim_set_hl(0, "LeapMatch", {
---   fg = "white",
---   bold = true,
---   nocombine = true,
--- })
+    -- mark cursor location before jumping
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "LeapEnter",
+      callback = function()
+        vim.cmd("normal m'")
+      end,
+    })
 
--- Bidirectional search
-local function leap_current_window()
-  leap.leap({ target_windows = { vim.fn.win_getid() } })
-end
-vim.keymap.set("n", "s", leap_current_window, { silent = true })
-vim.keymap.set("x", "s", leap_current_window, { silent = true })
-
--- mark cursor location before jumping
-vim.api.nvim_create_autocmd("User", {
-  pattern = "LeapEnter",
-  callback = function()
-    vim.cmd("normal m'")
+    -- center cursor after jumping
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "LeapLeave",
+      callback = function()
+        vim.cmd("normal zz")
+      end,
+    })
   end,
-})
-
--- center cursor after jumping
-vim.api.nvim_create_autocmd("User", {
-  pattern = "LeapLeave",
-  callback = function()
-    vim.cmd("normal zz")
-  end,
-})
+}
