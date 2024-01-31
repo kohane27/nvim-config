@@ -37,27 +37,27 @@ vim.cmd([[
   " clear marks
   autocmd VimEnter * :delmarks a-z
 
-" disable syntax highlighting in big files
-function DisableSyntaxTreesitter()
-    echo("Big file: Disabling syntax, treesitter and folding")
-    if exists(':TSBufDisable')
-        exec 'TSBufDisable autotag'
-        exec 'TSBufDisable highlight'
-    endif
-    set foldmethod=manual
-    syntax clear
-    syntax off
-    filetype off
-    set noundofile
-    set noswapfile
-    set noloadplugins
-endfunction
-
-augroup BigFileDisable
-    autocmd!
-    autocmd BufReadPre,FileReadPre * if getfsize(expand("%")) > 512 * 1024 * 1.5 | exec DisableSyntaxTreesitter() | endif
-
-augroup END
+" " disable syntax highlighting in big files
+" function DisableSyntaxTreesitter()
+"     echo("Big file: Disabling syntax, treesitter and folding")
+"     if exists(':TSBufDisable')
+"         exec 'TSBufDisable autotag'
+"         exec 'TSBufDisable highlight'
+"     endif
+"     set foldmethod=manual
+"     syntax clear
+"     syntax off
+"     filetype off
+"     set noundofile
+"     set noswapfile
+"     set noloadplugins
+" endfunction
+"
+" augroup BigFileDisable
+"     autocmd!
+"     autocmd BufReadPre,FileReadPre * if getfsize(expand("%")) > 512 * 1024 * 1.5 | exec DisableSyntaxTreesitter() | endif
+"
+" augroup END
 ]])
 
 local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
