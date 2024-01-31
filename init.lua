@@ -102,6 +102,7 @@ require("plugins.sniprun")
 require("plugins.tmux")
 -- require("plugins.vim-test")
 require("plugins.ledger")
+require("plugins.bigfile")
 
 -- require("plugins.delaytrain")
 

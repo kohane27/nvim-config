@@ -280,6 +280,7 @@ require("lazy").setup({
   -- filetypes
   -- "ekickx/clipboard-image.nvim", -- copy clipboard image to nvim
 
+  "LunarVim/bigfile.nvim",
   { "mtdl9/vim-log-highlighting", ft = "log", event = "VeryLazy" },
   { "chrisbra/csv.vim", ft = { "csv", "dat" }, event = "VeryLazy" },
   { "ledger/vim-ledger", ft = "ledger", event = "VeryLazy" },
