@@ -1,7 +1,7 @@
 return {
   "echasnovski/mini.misc",
   version = false,
-  event = "VeryLazy",
+  lazy = false,
   config = function()
     require("mini.misc").setup({
       -- restore cursor position on file reopen
