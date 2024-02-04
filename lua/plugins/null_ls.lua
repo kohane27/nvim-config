@@ -47,6 +47,9 @@ return {
 
       -- `bashls` works with `shellcheck`
       diagnostics.shellcheck,
+
+      -- typescript
+      diagnostics.tsc,
     }
     require("null-ls").setup({
       debug = false,

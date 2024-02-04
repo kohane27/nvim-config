@@ -1,4 +1,5 @@
 return {
+  -- TODO: convert `migrate` file functionalities
   "lukas-reineke/indent-blankline.nvim",
   event = "VeryLazy",
   main = "ibl",
@@ -8,7 +9,7 @@ return {
       tab_char = "▏",
     },
     scope = {
-      -- use treesitter instead of this
+      -- using treesitter instead of this
       enabled = false,
     },
   },
