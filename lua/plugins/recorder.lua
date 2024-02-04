@@ -8,6 +8,7 @@ return {
     -- register/macro-slot used after startup.
     slots = { "a", "b" },
     mapping = {
+      -- TODO: legendary: <leader>rx?
       startStopRecording = "r",
       playMacro = "rr",
       editMacro = "re",
