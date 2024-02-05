@@ -21,6 +21,7 @@ return {
         "python-lsp-server",
         "sqlls",
         "prettierd",
+        "sql-formatter",
       },
       auto_update = true,
     })
