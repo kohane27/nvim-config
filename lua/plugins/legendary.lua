@@ -287,20 +287,22 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Trouble.nvim                                             │
         -- ╰──────────────────────────────────────────────────────────╯
+        -- TODO: define keymapping for its function, not starting with Trouble `<leader>x`
         {
           "<leader>xx",
           function()
             require("trouble").toggle()
           end,
-          description = "LSP: Document Diagnostics",
+          description = "Trouble: Toggle",
         },
-        { "<leader>xc", "<cmd>copen<CR>", description = "LSP: Quickfix List" },
+
+        { "<leader>xc", "<cmd>copen<CR>", description = "Trouble: Quickfix List" },
         {
           "<leader>xl",
           function()
             require("trouble").toggle("loclist")
           end,
-          description = "LSP: Location List",
+          description = "Trouble: Location List",
         },
         {
           "<leader>xt",

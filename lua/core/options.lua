@@ -123,12 +123,8 @@ opt.foldlevelstart = 99
 opt.foldenable     = true
 
 -- TODO: what they do?
-
 -- Backspace
 opt.backspace = "indent,eol,start"
-
--- Consider - part of keyword
-opt.iskeyword:append("-")
 
 -----------------------------------------------------------
 -- Startup
