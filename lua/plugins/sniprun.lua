@@ -1,7 +1,7 @@
 -- task runners
 return {
   "michaelb/sniprun",
-  build = "bash ./install.sh",
+  build = "sh install.sh",
   event = "VeryLazy",
   opts = {
     display = {
