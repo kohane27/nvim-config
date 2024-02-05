@@ -9,12 +9,16 @@ return {
     slots = { "a", "b" },
     mapping = {
       -- TODO: legendary: <leader>rx?
-      startStopRecording = "r",
-      playMacro = "rr",
-      editMacro = "re",
+      startStopRecording = "qs",
+      playMacro = "qr",
+      -- TODO: fix
+      switchSlot = "qA",
+      editMacro = "qA",
+      deleteAllMacros = "qA",
+      yankMacro = "qA",
     },
-    clear = true, -- clears all macros-slots on startup
-    dapSharedKeymaps = false, -- experimental, see README
+    -- clears all macros-slots on startup
+    clear = true,
   },
   config = function(_, opts)
     require("recorder").setup(opts)

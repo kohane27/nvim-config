@@ -3,10 +3,10 @@ return {
   event = "InsertCharPre",
   build = "make install_jsregexp",
   dependencies = {
-    -- provided snippets
-    "rafamadriz/friendly-snippets",
     -- completion engine
     "saadparwaiz1/cmp_luasnip",
+    -- provided snippets
+    "rafamadriz/friendly-snippets",
   },
   config = function()
     require("luasnip").setup({})
@@ -15,12 +15,12 @@ return {
 
     local s = ls.snippet
     local t = ls.text_node
-    local sn = ls.snippet_node
     local i = ls.insert_node
     local f = ls.function_node
-    local c = ls.choice_node
-    local d = ls.dynamic_node
-    local r = ls.restore_node
+    -- local sn = ls.snippet_node
+    -- local c = ls.choice_node
+    -- local d = ls.dynamic_node
+    -- local r = ls.restore_node
 
     -- https://github.com/L3MON4D3/LuaSnip/issues/656#issuecomment-1313310146
     -- vim.api.nvim_create_autocmd("ModeChanged", {
@@ -34,6 +34,7 @@ return {
     --   end,
     -- })
 
+    -- TODO: not working
     -- only autosnippets for markdown
     vim.api.nvim_create_autocmd("FileType", {
       pattern = { "markdown" },
