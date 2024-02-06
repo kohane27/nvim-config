@@ -12,6 +12,7 @@ return {
     overrides = function(colors)
       return {
         -- update kanagawa to handle new treesitter highlight captures
+        ["@comment.todo"] = { link = "@text.todo" },
         ["@string.regexp"] = { link = "@string.regex" },
         ["@variable.parameter"] = { link = "@parameter" },
         ["@exception"] = { link = "@exception" },
