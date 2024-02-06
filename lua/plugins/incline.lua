@@ -1,5 +1,4 @@
 -- floating statuslines
--- TODO: test if works
 return {
   "b0o/incline.nvim",
   event = "VeryLazy",
