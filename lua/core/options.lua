@@ -116,7 +116,8 @@ opt.updatetime = 700      -- ms to wait for trigger an event
 -- Folds
 -----------------------------------------------------------
 opt.foldmethod     = "expr"
-opt.foldcolumn     = '1'
+opt.foldexpr       = "nvim_treesitter#foldexpr()" -- Utilize Treesitter folds
+opt.foldcolumn     = '0' -- no extra folder columns in the number line
 opt.foldlevel      = 99 -- using `ufo` provider requires a large value
 opt.foldlevelstart = 99
 opt.foldenable     = true
