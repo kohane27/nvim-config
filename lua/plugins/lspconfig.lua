@@ -59,6 +59,12 @@ return {
     -- Add additional capabilities supported by nvim-cmp
     -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
     local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+    -- Tell the server the capability of foldingRange that Neovim hasn't added foldingRange to default capabilities
+    lsp_capabilities.textDocument.foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true,
+    }
+
     local no_formatting = function(client, bufnr)
       client.server_capabilities.documentFormattingProvider = false
       client.server_capabilities.documentRangeFormattingProvider = false
