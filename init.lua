@@ -23,6 +23,33 @@ require("lazy").setup("plugins", {
     notify = false, -- turn off notifications whenever plugin changes are made
   },
   ui = { border = "rounded" },
+  performance = {
+    rtp = {
+      -- https://www.lazyvim.org/configuration/lazy.nvim
+      disabled_plugins = {
+        "tohtml",
+        "tutor",
+        "netrw",
+        "netrwPlugin",
+        "netrwSettings",
+        "netrwFileHandlers",
+        "gzip",
+        "zip",
+        "zipPlugin",
+        "tar",
+        "tarPlugin",
+        "getscript",
+        "getscriptPlugin",
+        "vimball",
+        "vimballPlugin",
+        "2html_plugin",
+        "logipat",
+        "rrhelper",
+        "spellfile_plugin",
+        "matchit",
+      },
+    },
+  },
 })
 
 -- These modules are not loaded by lazy
