@@ -271,7 +271,7 @@ return {
           "<cmd>Lspsaga finder<CR>",
           description = "LSP: Finder: Symbol, Definition and Implementation",
         },
-        { "<leader>rn", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
+        { "<leader>lr", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
         { "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", description = "LSP: Signature Help" },
         -- { "<leader>ln", "<cmd>Navbuddy<CR>", description = "LSP: Navbuddy" },
         { "<leader>lo", "<cmd>Lspsaga outline<CR>", description = "LSP: Symbols Outline" },
@@ -306,10 +306,12 @@ return {
         },
         {
           "<leader>xt",
-          function()
-            require("trouble").toggle("quickfix")
-          end,
-          description = "Todo Quickfix",
+          "<cmd>TodoTrouble<CR>",
+          -- TODO: what it does
+          -- function()
+          -- require("trouble").toggle("quickfix")
+          -- end,
+          description = "Trouble: Quickfix",
         },
 
         -- ╭──────────────────────────────────────────────────────────╮
@@ -597,16 +599,16 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │   Miscellaneous (leader M; random shortcuts)             │
         -- ╰──────────────────────────────────────────────────────────╯
+        {
+          -- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
+          "<leader>mr",
+          "<cmd>wa | edit | lua vim.lsp.buf.format()<CR> | TSBufEnable highlight<CR>zz",
+          description = "Treesitter: Reload",
+        },
         -- session
         { "<leader>MXss", "<cmd>SessionSave<CR>", description = "Session: Save" },
         { "<leader>MXsr", "<cmd>SessionRestore<CR>", description = "Session: Restore" },
         { "<leader>MXsd", "<cmd>SessionDelete<CR>", description = "Session: Delete" },
-        {
-          -- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
-          "<leader>MXsid",
-          "<cmd>wa | edit | lua vim.lsp.buf.format()<CR> | TSBufEnable highlight<CR>zz",
-          description = "Treesitter: Reload",
-        },
 
         --  vim-caser
         {

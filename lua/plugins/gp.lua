@@ -1,4 +1,6 @@
 return {
+  -- TODO: consider using it over `chatgpt.nvim` popup
+  -- TODO: don't conceal markdown
   "robitx/gp.nvim",
   event = "VeryLazy",
   opts = {

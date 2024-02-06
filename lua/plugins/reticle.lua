@@ -1,11 +1,6 @@
+-- Disable cursorline when multiple split windows are open
 return {
   "tummetott/reticle.nvim",
-  opts = {
-    on_startup = {
-      cursorline = true,
-    },
-  },
-  config = function(_, opts)
-    require("reticle").setup(opts)
-  end,
+  event = "VeryLazy",
+  opts = {},
 }
