@@ -1,4 +1,4 @@
--- Inline Debug Text
+-- TODO: Inline Debug Text
 return {
   "theHamsta/nvim-dap-virtual-text",
   lazy = true,

@@ -1,12 +1,9 @@
--- Theme/Colorscheme (uncomment section for whichever theme you prefer or use your own)
 -- Kanagawa Theme (Custom Palette)
 return {
-  -- https://github.com/rebelot/kanagawa.nvim
-  'rebelot/kanagawa.nvim', -- You can replace this with your favorite colorscheme
+  "rebelot/kanagawa.nvim",
   lazy = false, -- We want the colorscheme to load immediately when starting Neovim
   priority = 1000, -- Load the colorscheme before other non-lazy-loaded plugins
   opts = {
-    -- Replace this with your scheme-specific settings or remove to use the defaults
     -- transparent = true,
     background = {
       -- light = "lotus",
@@ -68,7 +65,7 @@ return {
     },
   },
   config = function(_, opts)
-    require('kanagawa').setup(opts) -- Replace this with your favorite colorscheme
+    require("kanagawa").setup(opts) -- Replace this with your favorite colorscheme
     vim.cmd("colorscheme kanagawa") -- Replace this with your favorite colorscheme
 
     -- Custom diff colors
@@ -84,7 +81,7 @@ return {
       autocmd ColorScheme * hi NormalFloat guifg=#F9E7C0 guibg=#1F1F1F
       autocmd ColorScheme * hi FloatBorder guifg=#F9E7C0 guibg=#1F1F1F
     ]])
-  end
+  end,
 }
 
 -- Kanagawa Theme (Original)
@@ -164,5 +161,3 @@ return {
 --     vim.cmd("colorscheme onenord") -- Replace this with your favorite colorscheme
 --   end
 -- }
-
-
