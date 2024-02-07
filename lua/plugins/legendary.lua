@@ -272,6 +272,12 @@ return {
           description = "LSP: Finder: Symbol, Definition and Implementation",
         },
         { "<leader>lr", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
+        {
+          "<leader>lp",
+          "<cmd>TSToolsRenameFile<CR>",
+          description = "LSP: Rename Current File",
+          filters = { filetype = "javascriptreact", "typescriptreact" },
+        },
         { "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", description = "LSP: Signature Help" },
         -- { "<leader>ln", "<cmd>Navbuddy<CR>", description = "LSP: Navbuddy" },
         { "<leader>lo", "<cmd>Lspsaga outline<CR>", description = "LSP: Symbols Outline" },
