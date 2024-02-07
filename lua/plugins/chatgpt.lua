@@ -1,4 +1,5 @@
 return {
+  -- TODO: hide `System` component
   "jackMort/ChatGPT.nvim",
   dependencies = {
     "MunifTanjim/nui.nvim",

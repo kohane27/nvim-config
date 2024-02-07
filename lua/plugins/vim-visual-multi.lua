@@ -1,6 +1,5 @@
 return {
   "mg979/vim-visual-multi",
-  -- TODO: fix weird flash when using `C-n`
   config = function()
     -- create a column of cursors from visual mode
     vim.api.nvim_set_keymap(

@@ -1,5 +1,6 @@
 return {
-  -- TODO: find a new one
+  -- TODO: `SessionDelete`: not working; need to disable autosave after auto-session `SessionDelete`?
+  -- TODO: check out other session plugins
   "rmagatti/auto-session",
   lazy = false,
   opts = {
