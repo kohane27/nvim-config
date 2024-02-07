@@ -3,6 +3,7 @@ return {
   event = "VeryLazy",
   opts = {
     case_sensitive = false,
+    -- TODO: no `autojump`
     safe_labels = "", -- disable auto-jumping to the first match
     max_phase_one_targets = 0, -- first char won't show possible matches
     max_highlighted_traversal_targets = 10,

@@ -2,7 +2,7 @@
 return {
   "chrisgrieser/nvim-recorder",
   dependencies = "rcarriga/nvim-notify",
-  event = "VeryLazy",
+  lazy = false,
   opts = {
     -- Named registers where macros are saved. The first register is the default
     -- register/macro-slot used after startup.
@@ -11,11 +11,6 @@ return {
       -- TODO: legendary: <leader>rx?
       startStopRecording = "qs",
       playMacro = "qr",
-      -- TODO: fix
-      switchSlot = "qA",
-      editMacro = "qA",
-      deleteAllMacros = "qA",
-      yankMacro = "qA",
     },
     -- clears all macros-slots on startup
     clear = true,
