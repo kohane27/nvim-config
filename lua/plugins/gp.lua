@@ -1,14 +1,23 @@
 return {
   -- TODO: consider using it over `chatgpt.nvim` popup
-  -- TODO: don't conceal markdown
   "robitx/gp.nvim",
   event = "VeryLazy",
   opts = {
     openai_api_key = os.getenv("OPENAI_API_KEY"),
     cmd_prefix = "Gp",
     curl_params = { "--proxy", "http://127.0.0.1:8888" },
+    -- don't conceal markdown
+    chat_conceal_model_params = false,
+    -- local shortcuts bound to the chat buffer
+    -- TODO: better keybindings
+    chat_shortcut_respond = { modes = { "n", "i", "v", "x" }, shortcut = "<A-n>" },
+    chat_shortcut_delete = { modes = { "n", "i", "v", "x" }, shortcut = "<A-d>" },
+    chat_shortcut_stop = { modes = { "n", "i", "v", "x" }, shortcut = "<A-x>" },
+    chat_shortcut_new = { modes = { "n", "i", "v", "x" }, shortcut = "<A-o>" },
     whisper_dir = {},
     image_dir = {},
+    style_chat_finder_border = "rounded",
+    style_popup_border = "rounded",
     agents = {
       {
         name = "ChatGPT3-5",
