@@ -160,6 +160,16 @@ return {
         undo = {
           use_delta = true,
           side_by_side = true,
+          mappings = {
+            n = {
+              -- inside a function to prevent lazy-loading error
+              ["y"] = function(bufnr)
+                return require("telescope-undo.actions").yank_larger(bufnr)
+              end,
+              ["Y"] = require("telescope-undo.actions").yank_deletions,
+              ["u"] = require("telescope-undo.actions").restore,
+            },
+          },
           layout_config = {
             preview_width = 0.8,
             horizontal = {
