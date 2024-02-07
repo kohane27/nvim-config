@@ -95,6 +95,11 @@ return {
     lspconfig.jsonls.setup({
       -- on_attach = on_attach,
       capabilities = lsp_capabilities,
+      handlers = {
+        -- Add borders to LSP popups
+        ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+        ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+      },
       settings = {
         json = {
           schemas = require("schemastore").json.schemas(),
@@ -118,6 +123,11 @@ return {
       -- disable formatting here; using `stylua` in `null_ls`
       on_attach = no_formatting,
       capabilities = lsp_capabilities,
+      handlers = {
+        -- Add borders to LSP popups
+        ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+        ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+      },
       settings = {
         Lua = {
           format = {
@@ -140,19 +150,26 @@ return {
     })
 
     -- 5. yamlls
-    lspconfig.yamlls.setup({
-      settings = {
-        yaml = {
-          schemaStore = {
-            -- You must disable built-in schemaStore support if you want to use
-            -- this plugin and its advanced options like `ignore`.
-            enable = false,
-            -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
-            url = "",
-          },
-          schemas = require("schemastore").yaml.schemas(),
-        },
-      },
-    })
+    -- TODO: fix
+    -- lspconfig.yamlls.setup({
+    --   settings = {
+    --     capabilities = lsp_capabilities,
+    --     handlers = {
+    --       -- Add borders to LSP popups
+    --       ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+    --       ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+    --     },
+    --     yaml = {
+    --       schemaStore = {
+    --         -- You must disable built-in schemaStore support if you want to use
+    --         -- this plugin and its advanced options like `ignore`.
+    --         enable = false,
+    --         -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+    --         url = "",
+    --       },
+    --       schemas = require("schemastore").yaml.schemas(),
+    --     },
+    --   },
+    -- })
   end,
 }
