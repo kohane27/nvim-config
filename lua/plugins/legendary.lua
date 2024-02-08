@@ -459,32 +459,27 @@ return {
         { "m6", "<cmd>lua require('grapple').select({key = 6})<CR>", description = "Grapple: File 6" },
 
         -- ╭──────────────────────────────────────────────────────────╮
-        -- │ Scratchpad                                               │
+        -- │ gp.nvim                                                  │
         -- ╰──────────────────────────────────────────────────────────╯
         {
           "<leader>so",
-          "<cmd>Scratch<CR>",
-          description = "scratch: create new",
+          "<cmd>GpChatNew vsplit<CR>",
+          description = "GPT: Create",
         },
-        -- {
-        --   "<leader>sm",
-        --   '<cmd>lua require("scratch.scratch_file").createScratchFileByType("md")<CR>',
-        --   description = "scratch: create md",
-        -- },
         {
           "<leader>ss",
-          '<cmd>lua require("scratch.scratch_file").scratchPad()<CR>',
-          description = "scratch: open scratchPad",
+          "<cmd>GpChatToggle vsplit<CR>",
+          description = "GPT: Toggle",
         },
         {
-          "<leader>sf",
-          '<cmd>lua require("scratch.scratch_file").openScratch()<CR>',
-          description = "scratch: open an old file",
+          "<leader>sg",
+          "<cmd>GpChatFinder<CR>",
+          description = "GPT: Finder",
         },
         {
-          "<leader>sc",
-          '<cmd>lua require("scratch.scratch_file").fzfScratch()<CR>',
-          description = "scratch: search content",
+          "<leader>sa",
+          "<cmd>GpAppend<CR>",
+          description = "GPT: Append",
         },
 
         -- ╭──────────────────────────────────────────────────────────╮
