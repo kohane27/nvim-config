@@ -122,8 +122,4 @@ opt.foldlevel      = 99 -- using `ufo` provider requires a large value
 opt.foldlevelstart = 99
 opt.foldenable     = true
 
--- TODO: what they do?
--- Backspace
-opt.backspace = "indent,eol,start"
-
 -- stylua: ignore end
