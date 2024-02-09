@@ -1,7 +1,7 @@
 return {
   "3rd/image.nvim",
-  event = "VeryLazy",
   opts = {
+    -- backend = "ueberzug",
     tmux_show_only_in_active_window = true,
     neorg = {
       enabled = false,
