@@ -1,4 +1,5 @@
 -- return {
+-- TODO: try to make it work with below style; yr2-char
 --   "ggandor/leap-spooky.nvim",
 --   lazy = false,
 --   config = function()
