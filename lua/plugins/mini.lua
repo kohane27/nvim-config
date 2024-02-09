@@ -1,4 +1,5 @@
 return {
+  -- TODO: try other mini modules
   "echasnovski/mini.nvim",
   version = false,
   config = function()
@@ -19,7 +20,25 @@ return {
 
     require("mini.trailspace").setup()
 
-    -- TODO: check it out
+    require("mini.indentscope").setup({
+      symbol = "▏",
+      draw = {
+        -- TODO: https://github.com/echasnovski/mini.nvim/issues/305
+        animation = require("mini.indentscope").gen_animation.none(),
+      },
+
+      mappings = {
+        -- Textobjects (`''` to disable)
+        object_scope = "ii",
+        object_scope_with_border = "ai",
+
+        -- Motions (jump to respective border line; if not present - body line)
+        goto_top = "",
+        goto_bottom = "",
+      },
+    })
+
+    -- TODO: check it
     -- require("mini.align").setup({
     --   mappings = {
     --     start = "<leader>a",
