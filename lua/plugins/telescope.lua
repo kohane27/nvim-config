@@ -20,9 +20,9 @@ return {
     { "jvgrootveld/telescope-zoxide" },
     {
       "nvim-telescope/telescope-frecency.nvim",
-      -- TODO: error: sql statement parse, , stmt: `sel
-      commit = "0a4a521471141ae3c94ff0ebcffcaff3c3aad147",
-      dependencies = { "kkharji/sqlite.lua" },
+      -- -- TODO: error: sql statement parse, , stmt: `sel
+      -- commit = "0a4a521471141ae3c94ff0ebcffcaff3c3aad147",
+      -- dependencies = { "kkharji/sqlite.lua" },
     },
   },
   config = function()
