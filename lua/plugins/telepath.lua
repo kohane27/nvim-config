@@ -1,7 +1,14 @@
--- "ggandor/leap-spooky.nvim",
+-- return {
+--   "ggandor/leap-spooky.nvim",
+--   lazy = false,
+--   config = function()
+--     require("leap-spooky").setup()
+--   end,
+-- }
+
 return {
   "rasulomaroff/telepath.nvim",
-  event = "VeryLazy",
+  lazy = false,
   config = function()
     require("telepath").use_default_mappings({ keys = { "r" } })
   end,
