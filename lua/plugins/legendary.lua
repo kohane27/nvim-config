@@ -1,4 +1,3 @@
--- TODO: put these global functions in a file
 local function get_visual_selection()
   vim.cmd('noau normal! "vy"')
   local text = vim.fn.getreg("v")
@@ -11,17 +10,17 @@ local function get_visual_selection()
   end
 end
 
-local function close_all_but_current_buffer()
-  for _, e in ipairs(require("bufferline").get_elements().elements) do
-    vim.schedule(function()
-      if e.id == vim.api.nvim_get_current_buf() then
-        return
-      else
-        vim.cmd("bd " .. e.id)
-      end
-    end)
-  end
-end
+-- local function close_all_but_current_buffer()
+--   for _, e in ipairs(require("bufferline").get_elements().elements) do
+--     vim.schedule(function()
+--       if e.id == vim.api.nvim_get_current_buf() then
+--         return
+--       else
+--         vim.cmd("bd " .. e.id)
+--       end
+--     end)
+--   end
+-- end
 
 local function live_grep_from_project_git_root()
   if vim.fn.getcwd() == os.getenv("HOME") then
@@ -95,7 +94,6 @@ return {
   config = function()
     local toolbox = require("legendary.toolbox")
     require("legendary").setup({
-
       include_builtin = false,
       include_legendary_cmds = false,
       sort = {
@@ -108,6 +106,7 @@ return {
       keymaps = {
         -- NOTE: the following are available:
         -- J!!, K!!, H, L, gh, r
+        -- gj, gk, mm, MM
         -- ,
         -- C-j, C-k, C-e, C-y
         -- <leader> h, i, k, p, u, v, w, y, z
@@ -442,24 +441,6 @@ return {
         { "<leader>rc", "<cmd>SnipClose<CR>", description = "Close Snip" },
 
         -- ╭──────────────────────────────────────────────────────────╮
-        -- │  Grapple                                                 │
-        -- ╰──────────────────────────────────────────────────────────╯
-        { "gj", toolbox.lazy_required_fn("grapple", "cycle_forward"), description = "Grapple: Cycle Forward" },
-        {
-          "gk",
-          toolbox.lazy_required_fn("grapple", "cycle_backward"),
-          description = "Grapple: Cycle Backward",
-        },
-        { "mm", toolbox.lazy_required_fn("grapple", "popup_tags"), description = "Grapple: View All Tags" },
-        { "MM", toolbox.lazy_required_fn("grapple", "toggle"), description = "Grapple: Tag or Untag File" },
-        { "m1", "<cmd>lua require('grapple').select({key = 1})<CR>", description = "Grapple: File 1" },
-        { "m2", "<cmd>lua require('grapple').select({key = 2})<CR>", description = "Grapple: File 2" },
-        { "m3", "<cmd>lua require('grapple').select({key = 3})<CR>", description = "Grapple: File 3" },
-        { "m4", "<cmd>lua require('grapple').select({key = 4})<CR>", description = "Grapple: File 4" },
-        { "m5", "<cmd>lua require('grapple').select({key = 5})<CR>", description = "Grapple: File 5" },
-        { "m6", "<cmd>lua require('grapple').select({key = 6})<CR>", description = "Grapple: File 6" },
-
-        -- ╭──────────────────────────────────────────────────────────╮
         -- │ gp.nvim                                                  │
         -- ╰──────────────────────────────────────────────────────────╯
         {
@@ -599,7 +580,7 @@ return {
         { "Q", "<cmd>close<CR>", description = "Window: Close" },
 
         -- ╭──────────────────────────────────────────────────────────╮
-        -- │   Miscellaneous (leader M; random shortcuts)             │
+        -- │   Miscellaneous (leader M; real keybindings)             │
         -- ╰──────────────────────────────────────────────────────────╯
         {
           -- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
@@ -607,6 +588,15 @@ return {
           "<cmd>wa | edit | lua vim.lsp.buf.format()<CR> | TSBufEnable highlight<CR>zz",
           description = "Treesitter: Reload",
         },
+        {
+          "<leader>mb",
+          "<cmd>lua require('comment-box').llbox()<CR><Esc>",
+          description = "Comment Box: Left-aligned",
+          mode = { "x" },
+        },
+        -- ╭──────────────────────────────────────────────────────────╮
+        -- │   Miscellaneous (leader M; random keybindings)           │
+        -- ╰──────────────────────────────────────────────────────────╯
         -- persisted.nvim
         { "<leader>MXss", "<cmd>SessionSave<CR>", description = "Session: Save" },
         { "<leader>MXsr", "<cmd>SessionLoad<CR>", description = "Session: Load" },
@@ -728,9 +718,10 @@ return {
           mode = { "v" },
         },
 
-        -- LSP
+        -- Lazy
         { "<leader>MXls", "<cmd>Lazy sync<CR>", description = "Lazy: Update" },
         { "<leader>MXlc", "<cmd>Lazy clean<CR>", description = "Lazy: Clean" },
+        -- LSP info
         { "<leader>MXli", "<cmd>LspInfo<CR>", description = "LSP: Info" },
         { "<leader>MXlm", "<cmd>Mason<CR>", description = "LSP: Installer Info" },
 
@@ -840,15 +831,6 @@ return {
         { "<leader>MXse", "<cmd>ScrollViewToggle<CR>", description = "ScrollViewToggle: Enable" },
         { "<leader>MXsd", "<cmd>TSContextToggle<CR>", description = "TSContextToggle: Toggle" },
 
-        { "<leader>MXcp", "<cmd>Colortils picker<CR>", description = "Colortils: Picker" },
-        { "<leader>MXcl", "<cmd>Colortils css list<CR>", description = "Colortils: CSS List" },
-        -- { "<leader>MCLP", "<cmd>PasteImg<CR>", description = "Misc: Paste Image" },
-        {
-          "<leader>MXcb",
-          "<cmd>lua require('comment-box').llbox()<CR><Esc>",
-          description = "Comment Box: Left-aligned",
-          mode = { "x" },
-        },
         {
           "<leader>MXrts",
           "<cmd>%s/\t/  /g<CR>",
