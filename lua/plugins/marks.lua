@@ -4,11 +4,11 @@ return {
   opts = {
     default_mappings = false,
     mappings = {
-      set_next = "mm",
-      next = "mj",
-      prev = "mk",
-      delete_line = "mx",
-      delete_buf = "mX",
+      set_next = "<leader>mm",
+      next = "<leader>mj",
+      prev = "<leader>mk",
+      delete_line = "<leader>mx",
+      delete_buf = "<leader>mX",
     },
     -- whether cycle back to the beginning/end of buffer
     cyclic = false,
