@@ -1,10 +1,9 @@
 return {
   "ggandor/leap.nvim",
-  event = "VeryLazy",
+  lazy = false,
   opts = {
     case_sensitive = false,
-    -- TODO: no `autojump`
-    safe_labels = "", -- disable auto-jumping to the first match
+    safe_labels = {}, -- disable auto-jumping to the first match; doesn't work on one unique target
     max_phase_one_targets = 0, -- first char won't show possible matches
     max_highlighted_traversal_targets = 10,
   },
@@ -15,11 +14,12 @@ return {
     leap.set_default_keymaps(true)
 
     -- Bidirectional search
-    local function leap_current_window()
-      leap.leap({ target_windows = { vim.fn.win_getid() } })
-    end
-    vim.keymap.set("n", "s", leap_current_window, { silent = true })
-    vim.keymap.set("x", "s", leap_current_window, { silent = true })
+    vim.keymap.set("n", "s", function()
+      leap.leap({ target_windows = { vim.api.nvim_get_current_win() } })
+    end)
+    vim.keymap.set("x", "s", function()
+      leap.leap({ target_windows = { vim.api.nvim_get_current_win() } })
+    end)
 
     -- mark cursor location before jumping
     vim.api.nvim_create_autocmd("User", {
@@ -28,7 +28,6 @@ return {
         vim.cmd("normal m'")
       end,
     })
-
     -- center cursor after jumping
     vim.api.nvim_create_autocmd("User", {
       pattern = "LeapLeave",
