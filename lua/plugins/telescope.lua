@@ -29,31 +29,6 @@ return {
     local actions = require("telescope.actions")
     local telescope = require("telescope")
 
-    -- use `vim.find_files_from_project_git_root` and nvim will become unbearably slow
-    local function find_files_from_project_git_root(selection)
-      if vim.fn.getcwd() == os.getenv("HOME") then
-        return print("Current directory is home. Exiting")
-      end
-      local function is_git_repo()
-        vim.fn.system("git rev-parse --is-inside-work-tree")
-        return vim.v.shell_error == 0
-      end
-      local function get_git_root()
-        local dot_git_path = vim.fn.finddir(".git", ".;")
-        return vim.fn.fnamemodify(dot_git_path, ":h")
-      end
-      local opts = {}
-      if is_git_repo() then
-        opts = {
-          cwd = get_git_root(),
-        }
-      else
-        opts = {
-          cwd = selection.path,
-        }
-      end
-      require("telescope.builtin").find_files(opts)
-    end
     require("telescope").setup({
       defaults = {
         layout_config = {
@@ -142,13 +117,8 @@ return {
           mappings = {
             default = {
               after_action = function(selection)
-                -- delete all buffers
-                -- for _, e in ipairs(require("bufferline").get_elements().elements) do
-                --   vim.cmd("bd " .. e.id)
-                -- end
-                -- vim.cmd("Rooter")
                 vim.cmd("tabnew")
-                find_files_from_project_git_root(selection.path)
+                require("telescope.builtin").find_files({ cwd = selection.path })
               end,
             },
           },
