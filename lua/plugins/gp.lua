@@ -9,7 +9,7 @@ return {
     -- don't conceal markdown
     chat_conceal_model_params = false,
     -- local shortcuts bound to the chat buffer
-    -- TODO: better keybindings
+    -- TODO: better keybindings; below conflicting
     chat_shortcut_respond = { modes = { "n", "i", "v", "x" }, shortcut = "<A-n>" },
     chat_shortcut_delete = { modes = { "n", "i", "v", "x" }, shortcut = "<A-d>" },
     chat_shortcut_stop = { modes = { "n", "i", "v", "x" }, shortcut = "<A-x>" },

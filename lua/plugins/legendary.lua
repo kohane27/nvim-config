@@ -312,6 +312,7 @@ return {
         },
         {
           "<leader>xt",
+          -- TODO: show only TODO instead of NOTE
           "<cmd>TodoTrouble<CR>",
           -- TODO: what it does
           -- function()
