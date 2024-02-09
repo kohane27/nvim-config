@@ -1,6 +1,6 @@
 return {
   "L3MON4D3/LuaSnip",
-  event = "InsertCharPre",
+  lazy = false,
   build = "make install_jsregexp",
   dependencies = {
     -- completion engine
@@ -12,15 +12,24 @@ return {
     require("luasnip").setup({})
 
     local ls = require("luasnip")
-
     local s = ls.snippet
+    local sn = ls.snippet_node
     local t = ls.text_node
     local i = ls.insert_node
     local f = ls.function_node
-    -- local sn = ls.snippet_node
-    -- local c = ls.choice_node
-    -- local d = ls.dynamic_node
-    -- local r = ls.restore_node
+    local c = ls.choice_node
+    local d = ls.dynamic_node
+    local r = ls.restore_node
+    local l = require("luasnip.extras").lambda
+    local rep = require("luasnip.extras").rep
+    local p = require("luasnip.extras").partial
+    local m = require("luasnip.extras").match
+    local n = require("luasnip.extras").nonempty
+    local dl = require("luasnip.extras").dynamic_lambda
+    local fmt = require("luasnip.extras.fmt").fmt
+    local fmta = require("luasnip.extras.fmt").fmta
+    local types = require("luasnip.util.types")
+    local conds = require("luasnip.extras.expand_conditions")
 
     -- https://github.com/L3MON4D3/LuaSnip/issues/656#issuecomment-1313310146
     -- vim.api.nvim_create_autocmd("ModeChanged", {
@@ -34,7 +43,6 @@ return {
     --   end,
     -- })
 
-    -- TODO: not working
     -- only autosnippets for markdown
     vim.api.nvim_create_autocmd("FileType", {
       pattern = { "markdown" },
@@ -44,7 +52,7 @@ return {
     })
 
     --  ╭──────────────────────────────────────────────────────────╮
-    --  │ simple snippets                                          │
+    --  │ markdown simple snippets                                 │
     --  ╰──────────────────────────────────────────────────────────╯
     ls.add_snippets("markdown", {
       s({ trig = ",ty", wordTrig = true }, { t("Thank you.") }),
@@ -55,7 +63,7 @@ return {
     }, { type = "autosnippets" })
 
     --  ╭──────────────────────────────────────────────────────────╮
-    --  │ multi-line snippets                                      │
+    --  │ markdown multi-line snippets                             │
     --  ╰──────────────────────────────────────────────────────────╯
     ls.add_snippets("markdown", {
       s({ trig = "```", wordTrig = true }, {
@@ -98,7 +106,7 @@ return {
     }, { type = "autosnippets" })
 
     --  ╭──────────────────────────────────────────────────────────╮
-    --  │ Functions                                                │
+    --  │ markdown functions                                       │
     --  ╰──────────────────────────────────────────────────────────╯
     ls.add_snippets("markdown", {
       s({ trig = ",date", wordTrig = true }, {
@@ -116,12 +124,6 @@ return {
     --  ╭──────────────────────────────────────────────────────────╮
     --  │ javascript                                               │
     --  ╰──────────────────────────────────────────────────────────╯
-    -- TODO:
-    -- "useState": {
-    --     "prefix": "us",
-    --     "body": "const [${1:setterName}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:defVal});$0",
-    --     "description": "useState with proper camel casing."
-    -- }
     local log_snippet = s({ trig = "log", wordTrig = true }, {
       t({ "console.log(" }),
       i(0),
@@ -143,22 +145,20 @@ return {
       t({ ");" }),
     })
 
-    -- TODO: from ofseed/lua/snippets/javascriptreact.lua
-    -- local useState = s(
-    --   {
-    --     trig = "useState",
-    --     dsrc = "const [state, setState] = useState()",
-    --   },
-    --   fmta([[const [<state>, set<State>] = useState(<ends>)]], {
-    --     state = i(1),
-    --     State = d(2, insert_capitalize, 1),
-    --     ends = i(0),
-    --   })
-    -- )
+    local use_state = s(
+      "useState",
+      fmt("const [{}, set{setter}] = useState({})", {
+        i(1, "state"),
+        i(2, "initialValue"),
+        setter = l(l._1:sub(1, 1):upper() .. l._1:sub(2, -1), 1),
+      })
+    )
 
-    ls.add_snippets("javascript", { log_snippet, import_react })
-    ls.add_snippets("typescript", { log_snippet, import_react })
-    ls.add_snippets("javascriptreact", { log_snippet, import_react, return_fragment })
-    ls.add_snippets("typescriptreact", { log_snippet, import_react, return_fragment })
+    local common_snippets = { log_snippet, import_react, return_fragment, use_state }
+    local filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" }
+    -- Loop through the filetypes and add the snippets to each one
+    for _, filetype in ipairs(filetypes) do
+      ls.add_snippets(filetype, common_snippets)
+    end
   end,
 }
