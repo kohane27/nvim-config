@@ -606,9 +606,10 @@ return {
           "<cmd>wa | edit | lua vim.lsp.buf.format()<CR> | TSBufEnable highlight<CR>zz",
           description = "Treesitter: Reload",
         },
-        -- session
+        -- persisted.nvim
         { "<leader>MXss", "<cmd>SessionSave<CR>", description = "Session: Save" },
-        { "<leader>MXsr", "<cmd>SessionRestore<CR>", description = "Session: Restore" },
+        { "<leader>MXsr", "<cmd>SessionLoad<CR>", description = "Session: Load" },
+        { "<leader>MXsR", "<cmd>SessionLoadLast<CR>", description = "Session: Load Recent Session" },
         { "<leader>MXsd", "<cmd>SessionDelete<CR>", description = "Session: Delete" },
 
         --  vim-caser
