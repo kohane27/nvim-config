@@ -270,7 +270,8 @@ return {
           "<cmd>Lspsaga finder<CR>",
           description = "LSP: Finder: Symbol, Definition and Implementation",
         },
-        { "<leader>lr", "<cmd>Lspsaga rename<CR>", description = "LSP: Rename" },
+        -- After the LSP rename is done, and if the name still exists somewhere within the project, project_replace window would pop out
+        { "<leader>lr", "<cmd>Lspsaga lsp_rename ++project<CR>", description = "LSP: Rename" },
         {
           "<leader>lp",
           "<cmd>TSToolsRenameFile<CR>",
@@ -602,6 +603,7 @@ return {
         { "<leader>MXsr", "<cmd>SessionLoad<CR>", description = "Session: Load" },
         { "<leader>MXsR", "<cmd>SessionLoadLast<CR>", description = "Session: Load Recent Session" },
         { "<leader>MXsd", "<cmd>SessionDelete<CR>", description = "Session: Delete" },
+        { "<leader>MXse", "<cmd>GitConflictListQf<CR>", description = "Git Conflict: List" },
 
         --  vim-caser
         {
@@ -828,7 +830,7 @@ return {
           description = "Preview Markdown",
         },
 
-        { "<leader>MXse", "<cmd>ScrollViewToggle<CR>", description = "ScrollViewToggle: Enable" },
+        { "<leader>MXsXe", "<cmd>ScrollViewToggle<CR>", description = "ScrollViewToggle: Enable" },
         { "<leader>MXsd", "<cmd>TSContextToggle<CR>", description = "TSContextToggle: Toggle" },
 
         {

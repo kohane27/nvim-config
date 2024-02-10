@@ -18,12 +18,7 @@ return {
     -- better `live_grep`
     { "fdschmidt93/telescope-egrepify.nvim" },
     { "jvgrootveld/telescope-zoxide" },
-    {
-      "nvim-telescope/telescope-frecency.nvim",
-      -- -- TODO: error: sql statement parse, , stmt: `sel
-      -- commit = "0a4a521471141ae3c94ff0ebcffcaff3c3aad147",
-      -- dependencies = { "kkharji/sqlite.lua" },
-    },
+    { "nvim-telescope/telescope-frecency.nvim" },
   },
   config = function()
     local actions = require("telescope.actions")

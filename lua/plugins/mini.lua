@@ -23,7 +23,6 @@ return {
     require("mini.indentscope").setup({
       symbol = "▏",
       draw = {
-        -- TODO: https://github.com/echasnovski/mini.nvim/issues/305
         animation = require("mini.indentscope").gen_animation.none(),
       },
 
