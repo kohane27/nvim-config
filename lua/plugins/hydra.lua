@@ -87,13 +87,12 @@ return {
     hydra({
       name = "quickfix",
       mode = "n",
-      body = ";q",
+      body = ";c",
       config = {
         invoke_on_body = true,
         on_enter = function()
           local status, err = pcall(vim.api.nvim_command, "cnext")
           if not status then
-            -- Handle the error if "cnext" failed
             print("Error executing cnext: " .. err)
           end
         end,
@@ -108,11 +107,10 @@ return {
     hydra({
       name = "changelist",
       mode = "n",
-      body = ";c",
+      body = "g;",
       config = {
         invoke_on_body = true,
         on_enter = function()
-          -- TODO: make sure g; g, below are correct
           vim.api.nvim_command("normal! g;zz")
         end,
       },

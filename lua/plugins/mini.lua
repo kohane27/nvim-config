@@ -25,6 +25,11 @@ return {
       draw = {
         animation = require("mini.indentscope").gen_animation.none(),
       },
+      options = {
+        -- Whether to first check input line to be a border of adjacent scope.
+        -- cursor on function header to get scope of its body.
+        try_as_border = true,
+      },
 
       mappings = {
         -- Textobjects (`''` to disable)
