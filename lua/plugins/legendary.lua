@@ -112,15 +112,26 @@ return {
         -- <leader> h, i, k, p, u, v, w, y, z
 
         -- <leader>g
-        -- { "<leader>gt", "<cmd>ToggleTerm<CR>", description = "New terminal" },
         { "<leader>gu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
+        {
+          "<leader>gt",
+          function()
+            require("nvim-tree.api").tree.toggle({ find_file = false })
+          end,
+          description = "Tree: Toggle Without Focused File",
+        },
 
         { "<leader>e", '<cmd>lua require("ranger-nvim").open(true)<CR>', description = "Ranger" },
         { "-", "<cmd>Oil --float<CR>", description = "Oil" },
 
         -- <C-KEY>
-        -- TODO: add a command to not focus on current buffer file
-        { "<C-f>", "<cmd>NvimTreeToggle<CR>", description = "Tree: Toggle File" },
+        {
+          "<C-f>",
+          function()
+            require("nvim-tree.api").tree.toggle({ find_file = true })
+          end,
+          description = "Tree: Toggle With Focused File",
+        },
         { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
         { "<C-t>", "<cmd>ToggleTerm<CR>", description = "New terminal" },
 
