@@ -2,6 +2,7 @@ return {
   "kylechui/nvim-surround",
   dependencies = {
     -- fix: https://github.com/kylechui/nvim-surround/issues/153
+    -- TODO: maybe replace with mini.ai?
     -- and more text objects
     "wellle/targets.vim",
   },
