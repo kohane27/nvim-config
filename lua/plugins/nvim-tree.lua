@@ -48,11 +48,10 @@ return {
 
     require("nvim-tree").setup({
       on_attach = on_attach,
-      -- change the following 5 lines and `zoxide` won't work
       respect_buf_cwd = true,
       update_focused_file = {
-        enable = true,
-        update_root = true,
+        enable = false,
+        update_root = false,
       },
       actions = {
         change_dir = {
