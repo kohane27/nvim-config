@@ -1,11 +1,11 @@
 return {
-  -- TODO: fix session remembering folds and learn how ts works with folds
   "kevinhwang91/nvim-ufo",
   event = "VeryLazy",
   dependencies = { "kevinhwang91/promise-async" },
   opts = {
     provider_selector = function(bufnr, filetype, buftype)
       return { "lsp", "indent" }
+      -- return {'treesitter', 'indent'}
     end,
     preview = {
       win_config = {
