@@ -10,18 +10,6 @@ local function get_visual_selection()
   end
 end
 
--- local function close_all_but_current_buffer()
---   for _, e in ipairs(require("bufferline").get_elements().elements) do
---     vim.schedule(function()
---       if e.id == vim.api.nvim_get_current_buf() then
---         return
---       else
---         vim.cmd("bd " .. e.id)
---       end
---     end)
---   end
--- end
-
 local function live_grep_from_project_git_root()
   if vim.fn.getcwd() == os.getenv("HOME") then
     return print("Current directory is home. Exiting")
@@ -87,6 +75,18 @@ local function markdown_preview()
   vim.fn.termopen("glow <( echo " .. sanitized_final .. ")\n")
 end
 
+-- local function close_all_but_current_buffer()
+--   for _, e in ipairs(require("bufferline").get_elements().elements) do
+--     vim.schedule(function()
+--       if e.id == vim.api.nvim_get_current_buf() then
+--         return
+--       else
+--         vim.cmd("bd " .. e.id)
+--       end
+--     end)
+--   end
+-- end
+
 return {
   "mrjones2014/legendary.nvim",
   event = "VeryLazy",
@@ -113,13 +113,6 @@ return {
 
         -- <leader>g
         { "<leader>gu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
-        {
-          "<leader>gt",
-          function()
-            require("nvim-tree.api").tree.toggle({ find_file = false })
-          end,
-          description = "Tree: Toggle Without Focused File",
-        },
 
         { "<leader>e", '<cmd>lua require("ranger-nvim").open(true)<CR>', description = "Ranger" },
         { "-", "<cmd>Oil --float<CR>", description = "Oil" },
@@ -131,6 +124,13 @@ return {
             require("nvim-tree.api").tree.toggle({ find_file = true })
           end,
           description = "Tree: Toggle With Focused File",
+        },
+        {
+          "<C-S-f>",
+          function()
+            require("nvim-tree.api").tree.toggle({ find_file = false })
+          end,
+          description = "Tree: Toggle Without Focused File",
         },
         { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
         { "<C-t>", "<cmd>ToggleTerm<CR>", description = "New terminal" },
@@ -160,11 +160,8 @@ return {
           mode = { "n", "i", "x" },
         },
 
-        -- { "<C-d>", "<cmd>lua Scroll('<C-f>', 1, 1)<CR>", description = "Smooth scrolling: down", mode = { "n", "x" } },
-        -- { "<C-u>", "<cmd>lua Scroll('<C-b>', 1, 1)<CR>", description = "Smooth scrolling: up", mode = { "n", "x" } },
-
         -- { "<C-f>", '<C-R>"', description = "Paste Last Yanked / Deleted", mode = { "i" } },
-        { "<C-v>", "<C-R>*", description = "Paste Clipboard Content", mode = { "i", "c" } },
+        { "<C-v>", "<C-R>*", description = "Paste Clipboard Content", mode = { "i", "x" } },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Telescope                                                │
@@ -304,7 +301,6 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Trouble.nvim                                             │
         -- ╰──────────────────────────────────────────────────────────╯
-        -- TODO: define keymapping for its function, not starting with Trouble `<leader>x`
         {
           "<leader>xx",
           function()
@@ -312,24 +308,28 @@ return {
           end,
           description = "Trouble: Toggle",
         },
-
-        { "<leader>xc", "<cmd>copen<CR>", description = "Trouble: Quickfix List" },
-        {
-          "<leader>xl",
-          function()
-            require("trouble").toggle("loclist")
-          end,
-          description = "Trouble: Location List",
-        },
         {
           "<leader>xt",
-          -- TODO: show only TODO instead of NOTE
-          "<cmd>TodoTrouble<CR>",
-          -- TODO: what it does
-          -- function()
-          -- require("trouble").toggle("quickfix")
-          -- end,
-          description = "Trouble: Quickfix",
+          "<cmd>TodoTelescope keywords=TODO<CR>",
+          description = "Trouble: Only TODO",
+        },
+        {
+          "<leader>xT",
+          "<cmd>TodoTelescope<CR>",
+          description = "Trouble: All TODO",
+        },
+
+        -- ╭─────────────────────────────────────────────────────────╮
+        -- │ quickfix                                                │
+        -- ╰─────────────────────────────────────────────────────────╯
+        { "<leader>co", "<cmd>copen<CR>", description = "Quickfix List" },
+        {
+          "<leader>cd",
+          function()
+            vim.api.nvim_feedkeys(":cdo s/foo/bar/gc | update", "n", true)
+          end,
+          description = "cdo: Execute Command on Quickfix Entries",
+          filters = { filetype = "qf", "Trouble" },
         },
 
         -- ╭──────────────────────────────────────────────────────────╮
@@ -362,8 +362,8 @@ return {
         -- ╰──────────────────────────────────────────────────────────╯
         { "<leader>th", "<cmd>tabprev<CR>", description = "Tab: Previous" },
         { "<leader>tl", "<cmd>tabnext<CR>", description = "Tab: Next" },
-        { "<leader>tn", "<cmd>tabnew<CR>", description = "Tab: New" },
-        { "<leader>tc", "<cmd>tabclose<CR>", description = "Tab: Close" },
+        { "<leader>tc", "<cmd>tabnew<CR>", description = "Tab: New" },
+        { "<leader>tq", "<cmd>tabclose<CR>", description = "Tab: Close" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ substitute.lua                                           │
@@ -451,6 +451,7 @@ return {
         { "<leader>rf", "<cmd>RunCode<CR>", description = "Run File" },
         { "<leader>rs", "<cmd>SnipRun<CR>", description = "Run Snip" },
         { "<leader>rc", "<cmd>SnipClose<CR>", description = "Close Snip" },
+        -- <leader>rr: startStopRecording
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ gp.nvim                                                  │
@@ -555,25 +556,25 @@ return {
         --  ╭──────────────────────────────────────────────────────────╮
         --  │ leetcode                                                 │
         --  ╰──────────────────────────────────────────────────────────╯
-        { "<leader>cm", "<cmd>LcMenu<CR>", description = "leetcode: opens menu dashboard" },
-        {
-          "<leader>cc",
-          "<cmd>LcConsole<CR>",
-          description = "leetcode: opens console for currently opened question",
-        },
-        {
-          "<leader>cq",
-          "<cmd>LcQuestionTabs<CR>",
-          description = "leetcode: opens a picker with all currently opened question tabs",
-        },
-        {
-          "<leader>cl",
-          "<cmd>LcLanguage<CR>",
-          description = "leetcode: opens a picker to select a language for the current session",
-        },
-        { "<leader>cd", "<cmd>LcDescriptionToggle<CR>", description = "leetcode: toggle question description" },
-        { "<leader>cr", "<cmd>LcRun<CR>", description = "leetcode: run currently opened question" },
-        { "<leader>cs", "<cmd>LcSubmit<CR>", description = "leetcode: submit currently opened question" },
+        -- { "<leader>cm", "<cmd>LcMenu<CR>", description = "leetcode: opens menu dashboard" },
+        -- {
+        --   "<leader>cc",
+        --   "<cmd>LcConsole<CR>",
+        --   description = "leetcode: opens console for currently opened question",
+        -- },
+        -- {
+        --   "<leader>cq",
+        --   "<cmd>LcQuestionTabs<CR>",
+        --   description = "leetcode: opens a picker with all currently opened question tabs",
+        -- },
+        -- {
+        --   "<leader>cl",
+        --   "<cmd>LcLanguage<CR>",
+        --   description = "leetcode: opens a picker to select a language for the current session",
+        -- },
+        -- { "<leader>cd", "<cmd>LcDescriptionToggle<CR>", description = "leetcode: toggle question description" },
+        -- { "<leader>cr", "<cmd>LcRun<CR>", description = "leetcode: run currently opened question" },
+        -- { "<leader>cs", "<cmd>LcSubmit<CR>", description = "leetcode: submit currently opened question" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │   Miscellaneous Keymaps                                  │
@@ -815,14 +816,6 @@ return {
             vim.api.nvim_feedkeys(":verbose map <C-i>", "n", true)
           end,
           description = "verbose: Find Keybinding Conflict",
-        },
-        {
-          "<leader>MXcd",
-          function()
-            vim.api.nvim_feedkeys(":cdo s/foo/bar/gc | update", "n", true)
-          end,
-          description = "cdo: Execute Command on Quickfix Entries",
-          filters = { filetype = "qf", "Trouble" },
         },
         {
           "<leader>MXld",
