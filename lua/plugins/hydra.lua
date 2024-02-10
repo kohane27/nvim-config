@@ -72,12 +72,14 @@ return {
       config = {
         invoke_on_body = true,
         on_enter = function()
-          vim.api.nvim_command("Lspsaga diagnostic_jump_next")
+          vim.api.nvim_command(
+            "lua require('lspsaga.diagnostic'):goto_next({ severity = vim.diagnostic.severity.ERROR })"
+          )
         end,
       },
       heads = {
-        { "j", "<cmd>Lspsaga diagnostic_jump_next<CR>" },
-        { "k", "<cmd>Lspsaga diagnostic_jump_prev<CR>" },
+        { "j", "<cmd>lua require('lspsaga.diagnostic'):goto_next({ severity = vim.diagnostic.severity.ERROR })<CR>" },
+        { "k", "<cmd>lua require('lspsaga.diagnostic'):goto_prev({ severity = vim.diagnostic.severity.ERROR })<CR>" },
         { "<Esc>", nil, { exit = true, nowait = true } },
       },
     })
