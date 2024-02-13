@@ -458,8 +458,28 @@ return {
         -- ╰──────────────────────────────────────────────────────────╯
         {
           "<leader>so",
-          "<cmd>GpChatNew vsplit<CR>",
-          description = "GPT: Create",
+          "<cmd>GpChatNew vsplit<CR> | <cmd>GpAgent Ultimate-Assistant<CR>",
+          description = "GPT: Ultimate Assistant",
+        },
+        {
+          "<leader>sb",
+          "<cmd>GpChatNew vsplit<CR> | <cmd>GpAgent Software-Engineering-Task-Breakdown-Helper<CR>",
+          description = "GPT: Software Engineering Task Breakdown Helper",
+        },
+        {
+          "<leader>sr",
+          "<cmd>GpChatNew vsplit<CR> | <cmd>GpAgent React-Software-Engineer<CR>",
+          description = "GPT: React Software Engineer",
+        },
+        {
+          "<leader>sl",
+          "<cmd>GpChatNew vsplit<CR> | <cmd>GpAgent Arch-Linux-Expert<CR>",
+          description = "GPT: Arch Linux Expert",
+        },
+        {
+          "<leader>sn",
+          "<cmd>GpChatNew vsplit<CR> | <cmd>GpAgent Neovim-Expert<CR>",
+          description = "GPT: Neovim Expert",
         },
         {
           "<leader>ss",
@@ -471,11 +491,11 @@ return {
           "<cmd>GpChatFinder<CR>",
           description = "GPT: Finder",
         },
-        {
-          "<leader>sa",
-          "<cmd>GpAppend<CR>",
-          description = "GPT: Append",
-        },
+        -- {
+        --   "<leader>sa",
+        --   "<cmd>GpAppend<CR>",
+        --   description = "GPT: Append",
+        -- },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ AI                                                       │
