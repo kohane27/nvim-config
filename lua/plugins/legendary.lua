@@ -195,7 +195,7 @@ return {
           description = "Telescope: Find Files",
         },
 
-        -- { "<C-p>", "<cmd>Legendary<CR>", description = "Legendary Command Palette", mode = { "n", "i", "x" } },
+        -- { "<C-p>", "<cmd>Legendary<CR>", description = "Legendary Command Palette", mode = { "n", "x" } },
         {
           "<C-p>",
           function()
@@ -209,7 +209,7 @@ return {
             })
           end,
           description = "Legendary Command Palette",
-          mode = { "n", "i", "x" },
+          mode = { "n", "x" },
         },
 
         -- { "<C-f>", '<C-R>"', description = "Paste Last Yanked / Deleted", mode = { "i" } },
@@ -454,7 +454,7 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Diffview.nvim                                            │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<leader>di", "<cmd>DiffviewOpen<CR>", description = "Diffview: Compare Index" },
+        { "<leader>do", "<cmd>DiffviewOpen<CR>", description = "Diffview: Open" },
         {
           "<leader>dh",
           "<cmd>DiffviewOpen HEAD^!<CR>",
@@ -787,7 +787,8 @@ return {
         { "<leader>MXlc", "<cmd>Lazy clean<CR>", description = "Lazy: Clean" },
         -- LSP info
         { "<leader>MXli", "<cmd>LspInfo<CR>", description = "LSP: Info" },
-        { "<leader>MXlm", "<cmd>Mason<CR>", description = "LSP: Installer Info" },
+        { "<leader>MXlm", "<cmd>Mason<CR>", description = "Mason: Info" },
+        { "<leader>MXlx", "<cmd>MasonToolsUpdate<CR>", description = "Mason: Tool Update" },
 
         -- global commands
         {
