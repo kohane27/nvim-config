@@ -1,3 +1,55 @@
+local function get_current_buffer_content()
+  local vim = vim -- Access the global vim object
+  local bufnr = vim.api.nvim_get_current_buf() -- Get the current buffer number
+  -- Check if the buffer is loaded to avoid errors
+  if vim.api.nvim_buf_is_loaded(bufnr) then
+    local filename = vim.api.nvim_buf_get_name(bufnr)
+    local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
+    local content = table.concat(vim.api.nvim_buf_get_lines(bufnr, 0, -1, false), "\n")
+    -- Convert the filename to a relative path
+    local relative_filename = vim.fn.fnamemodify(filename, ":.")
+    -- Format the output
+    local formatted_content = string.format("%s:\n\n```%s\n%s\n```\n", relative_filename, filetype, content)
+    -- Store the formatted content in the clipboard
+    vim.fn.setreg("+", formatted_content)
+    require("notify")("Current buffer content stored in clipboard")
+  else
+    require("notify")("Buffer is not loaded.")
+  end
+end
+
+local function get_all_buffer_content()
+  local buffers_info = {}
+  local vim = vim -- Access the global vim object
+  -- Iterate over all buffers
+  for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+    -- Check if the buffer is loaded to avoid errors
+    if vim.api.nvim_buf_is_loaded(bufnr) then
+      local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
+      -- Ignore markdown and incline filetypes
+      if filetype ~= "markdown" and filetype ~= "incline" then
+        local filename = vim.api.nvim_buf_get_name(bufnr)
+        -- Only proceed if the filename is not empty
+        if filename ~= "" then
+          -- Convert the filename to a relative path
+          local relative_filename = vim.fn.fnamemodify(filename, ":.")
+          local content = table.concat(vim.api.nvim_buf_get_lines(bufnr, 0, -1, false), "\n")
+          -- Only add to buffers_info if there is content
+          if content ~= "" then
+            -- Format the output
+            table.insert(buffers_info, string.format("%s:\n\n```%s\n%s\n```\n", relative_filename, filetype, content))
+          end
+        end
+      end
+    end
+  end
+  -- Concatenate all buffer information
+  local result = table.concat(buffers_info, "\n")
+  -- Store the result in the clipboard
+  vim.fn.setreg("+", result)
+  require("notify")("All Buffer content stored in clipboard")
+end
+
 local function get_visual_selection()
   vim.cmd('noau normal! "vy"')
   local text = vim.fn.getreg("v")
@@ -457,6 +509,20 @@ return {
         -- │ gp.nvim                                                  │
         -- ╰──────────────────────────────────────────────────────────╯
         {
+          "<leader>sp",
+          function()
+            get_current_buffer_content()
+          end,
+          description = "GPT: Get Current Buffer Content",
+        },
+        {
+          "<leader>sP",
+          function()
+            get_all_buffer_content()
+          end,
+          description = "GPT: Get All Buffer Content",
+        },
+        {
           "<leader>so",
           "<cmd>GpChatNew vsplit<CR> | <cmd>GpAgent Ultimate-Assistant<CR>",
           description = "GPT: Ultimate Assistant",
@@ -464,7 +530,7 @@ return {
         {
           "<leader>sb",
           "<cmd>GpChatNew vsplit<CR> | <cmd>GpAgent Software-Engineering-Task-Breakdown-Helper<CR>",
-          description = "GPT: Software Engineering Task Breakdown Helper",
+          description = "GPT: Software-Engineering Task Breakdown Helper",
         },
         {
           "<leader>sr",
@@ -536,42 +602,6 @@ return {
           description = "GPT: Fix Bugs",
           mode = { "n", "v" },
         },
-        -- {
-        --   "<leader>as",
-        --   "<cmd>ChatGPTRun summarize<CR>",
-        --   description = "GPT: Summarize",
-        --   mode = { "n", "v" },
-        -- },
-        -- {
-        --   "<leader>aa",
-        --   "<cmd>ChatGPTRun add_tests<CR>",
-        --   description = "GPT: Add Tests",
-        --   mode = { "n", "v" },
-        -- },
-        -- {
-        --   "<leader>ac",
-        --   "<cmd>ChatGPTRun optimize_code<CR>",
-        --   description = "GPT: Optimize Code",
-        --   mode = { "n", "v" },
-        -- },
-        -- {
-        --   "<leader>ak",
-        --   "<cmd>ChatGPTRun keywords<CR>",
-        --   description = "GPT: Generate keywords",
-        --   mode = { "n", "v" },
-        -- },
-        -- {
-        --   "<leader>ad",
-        --   "<cmd>ChatGPTRun docstring<CR>",
-        --   description = "GPT: Generate docstring",
-        --   mode = { "n", "v" },
-        -- },
-        -- {
-        --   "<leader>aR",
-        --   "<cmd>ChatGPTRun roxygen_edit<CR>",
-        --   description = "GPT: Roxygen Edit",
-        --   mode = { "n", "v" },
-        -- },
 
         --  ╭──────────────────────────────────────────────────────────╮
         --  │ leetcode                                                 │
