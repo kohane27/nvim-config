@@ -1,4 +1,8 @@
 return {
+  -- TODO: try below:
+  -- @statement.outer
+  -- @block.inner
+  -- @block.outer
   "nvimtools/hydra.nvim",
   event = "VeryLazy",
   config = function()
