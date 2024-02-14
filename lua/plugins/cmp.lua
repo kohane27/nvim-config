@@ -1,6 +1,7 @@
 return {
   "hrsh7th/nvim-cmp",
-  event = "InsertEnter",
+  lazy = false,
+  -- TODO: check out https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
   dependencies = {
     -- LSP completion capabilities
     "hrsh7th/cmp-nvim-lsp",
