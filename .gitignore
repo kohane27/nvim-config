@@ -1,13 +1,10 @@
 # personal
-**/old/
-**/*--.lua
+**/bck/**
 **/*--.*
 substitutes--.txt
 scratch_config.json
-
-plugins/markdown.vim
-
 .pre-commit-config.yaml
+
 lazy-lock.json
 
 # Compiled Lua sources
