@@ -1,8 +1,3 @@
--- ╭──────────────────────────────────────────────────────────╮
--- │ Color schemes configuration file                         │
--- │ See:https://github.com/brainfucksec/neovim-lua#appearance│
--- ╰──────────────────────────────────────────────────────────╯
-
 return {
   "rebelot/kanagawa.nvim",
   lazy = false, -- load immediately when starting Neovim

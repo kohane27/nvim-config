@@ -1,12 +1,8 @@
--- ╭─────────────────────────────────────────────────────────╮
--- │ note-taking/task management                             │
--- ╰─────────────────────────────────────────────────────────╯
--- `mkdnflow` conflicting with `vim-wiki`
--- "jakewvincent/mkdnflow.nvim"
--- "vimwiki/vimwiki"
--- "tools-life/taskwiki"
-
 return {
+  -- `mkdnflow` conflicting with `vim-wiki`
+  -- "jakewvincent/mkdnflow.nvim"
+  -- "vimwiki/vimwiki"
+  -- "tools-life/taskwiki"
   "nvim-orgmode/orgmode",
   event = "VeryLazy",
   ft = "org",

@@ -1,5 +1,5 @@
--- TODO: consider using noice
 return {
+  -- TODO: consider using noice
   "gelguy/wilder.nvim",
   event = "VeryLazy",
   opts = {

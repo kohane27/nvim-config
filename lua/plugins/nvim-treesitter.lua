@@ -1,5 +1,5 @@
--- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 return {
+  -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",

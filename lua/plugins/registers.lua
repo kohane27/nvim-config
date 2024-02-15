@@ -1,5 +1,5 @@
--- see register contents
 return {
+  -- see register contents
   "tversteeg/registers.nvim",
   event = "VeryLazy",
   config = function()
