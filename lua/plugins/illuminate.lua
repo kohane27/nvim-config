@@ -1,4 +1,5 @@
 -- highlighting other uses of the word under cursor
+-- TODO: remove default
 return {
   "RRethy/vim-illuminate",
   event = "VeryLazy",

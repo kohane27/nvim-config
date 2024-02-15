@@ -65,7 +65,7 @@ return {
     },
     popup_input = {
       submit = nil,
-      submit_n = { "<Enter>", "<A-n>" },
+      submit_n = "<Enter>",
     },
     openai_params = {
       model = "gpt-4-1106-preview",
