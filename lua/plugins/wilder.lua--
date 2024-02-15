@@ -1,5 +1,4 @@
 return {
-  -- TODO: consider using noice
   "gelguy/wilder.nvim",
   event = "VeryLazy",
   opts = {
