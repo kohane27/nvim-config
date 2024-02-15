@@ -1,6 +1,6 @@
--- "ggandor/flit.nvim",
--- "rhysd/clever-f.vim",
 return {
+  -- "ggandor/flit.nvim",
+  -- "rhysd/clever-f.vim",
   -- TODO: fix jumping backwards
   "kohane27/find-extender.nvim",
   event = "VeryLazy",

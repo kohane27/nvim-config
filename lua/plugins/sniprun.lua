@@ -1,5 +1,5 @@
--- task runners
 return {
+  -- task runners
   "michaelb/sniprun",
   build = "sh install.sh",
   event = "VeryLazy",

@@ -1,5 +1,5 @@
--- floating statuslines
 return {
+  -- floating statuslines
   "b0o/incline.nvim",
   event = "VeryLazy",
   opts = {
