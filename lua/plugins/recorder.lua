@@ -1,5 +1,5 @@
--- "smjonas/live-command.nvim",
 return {
+  -- "smjonas/live-command.nvim",
   "chrisgrieser/nvim-recorder",
   dependencies = "rcarriga/nvim-notify",
   lazy = false,

@@ -1,5 +1,5 @@
--- `<C-w>o` maximizes window without closing other buffers
 return {
+  -- `<C-w>o` maximizes window without closing other buffers
   "nyngwang/NeoZoom.lua",
   event = "VeryLazy",
   opts = {

@@ -1,5 +1,5 @@
--- integrated with cmp and treesitter
 return {
+  -- integrated with cmp and treesitter
   "windwp/nvim-autopairs",
   event = "InsertEnter",
   dependencies = { "nvim-treesitter/nvim-treesitter" },

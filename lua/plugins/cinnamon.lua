@@ -1,5 +1,5 @@
--- smooth scrolling
 return {
+  -- smooth scrolling
   "declancm/cinnamon.nvim",
   event = "VeryLazy",
   opts = {

@@ -1,5 +1,5 @@
--- better search results
 return {
+  -- better search results
   "kevinhwang91/nvim-hlslens",
   event = "VeryLazy",
   opts = {

@@ -1,5 +1,5 @@
--- scrollable bar
 return {
+  -- scrollable bar
   "dstein64/nvim-scrollview",
   event = "VeryLazy",
   opts = {

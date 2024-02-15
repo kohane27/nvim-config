@@ -6,15 +6,11 @@ local function get_current_buffer_content()
     local filename = vim.api.nvim_buf_get_name(bufnr)
     local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
     local content = table.concat(vim.api.nvim_buf_get_lines(bufnr, 0, -1, false), "\n")
-    -- Convert the filename to a relative path
     local relative_filename = vim.fn.fnamemodify(filename, ":.")
-    -- Format the output
     local formatted_content = string.format("%s:\n\n```%s\n%s\n```\n", relative_filename, filetype, content)
     -- Store the formatted content in the clipboard
     vim.fn.setreg("+", formatted_content)
     require("notify")("Current buffer content stored in clipboard")
-  else
-    require("notify")("Buffer is not loaded.")
   end
 end
 
@@ -26,12 +22,10 @@ local function get_all_buffer_content()
     -- Check if the buffer is loaded to avoid errors
     if vim.api.nvim_buf_is_loaded(bufnr) then
       local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
-      -- Ignore markdown and incline filetypes
       if filetype ~= "markdown" and filetype ~= "incline" then
         local filename = vim.api.nvim_buf_get_name(bufnr)
         -- Only proceed if the filename is not empty
         if filename ~= "" then
-          -- Convert the filename to a relative path
           local relative_filename = vim.fn.fnamemodify(filename, ":.")
           local content = table.concat(vim.api.nvim_buf_get_lines(bufnr, 0, -1, false), "\n")
           -- Only add to buffers_info if there is content
