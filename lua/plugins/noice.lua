@@ -30,14 +30,13 @@ return {
       -- Filter for "filename  X lines, Y bytes written" messages
       {
         event = "msg_show",
-        pattern = ".+ %d+L, %d+B written",
+        pattern = ".+ %d+L, %d+B written$",
         hide = true,
       },
     }
     require("noice").setup({
       filter = message_filters,
-      -- using `nvim-hlslens`
-      messages = { view_search = false },
+      messages = { view_search = false }, -- using `nvim-hlslens`
       lsp = {
         progress = { enabled = false },
         -- override markdown rendering so that cmp and other plugins use Treesitter
