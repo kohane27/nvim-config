@@ -24,6 +24,9 @@ return {
               { kind = "wmsg" },
               { kind = "emsg", find = "E486" },
               { kind = "quickfix" },
+              -- TODO: not working
+              { kind = "^Exited Visual-Multi.+" },
+              { kind = "^VM has started with warnings.+" },
             },
           },
           view = "mini",
