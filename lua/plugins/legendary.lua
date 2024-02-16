@@ -395,10 +395,8 @@ return {
         { "g8", "<cmd>BufferLineGoToBuffer 8<CR>", description = "Go to Buffer 8" },
         { "g9", "<cmd>BufferLineGoToBuffer 9<CR>", description = "Go to Buffer 9" },
         { "g0", "<cmd>BufferLineGoToBuffer -1<CR>", description = "Go to Buffer 10" },
-        { "<leader>bl", "<cmd>BufferLineCloseRight<CR>", description = "Buffer: Close All Right" },
-        { "<leader>bh", "<cmd>BufferLineCloseLeft<CR>", description = "Buffer: Close All Left" },
         {
-          "<leader>ba",
+          "<leader>bq",
           "<cmd>BufferLineCloseOthers<CR>",
           description = "Buffer: Close All But Current",
         },
