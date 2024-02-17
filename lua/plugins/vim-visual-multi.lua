@@ -11,8 +11,12 @@ return {
     vim.cmd([[
     " all mappings disabled except <C-n> (<C-n> can't be remapped)
     let g:VM_default_mappings = 0
+
     " disable warning
-    " let g:VM_show_warnings = 0
+    let g:VM_show_warnings = 0
+
+    " don't display "Exited Visual-Multi."
+     let g:VM_silent_exit = 1
 
     " To change any mapping you must first initialize the variable:
     let g:VM_maps = {}
