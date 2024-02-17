@@ -56,6 +56,61 @@ local function get_visual_selection()
   end
 end
 
+local function gp_choose_agent(opts)
+  local pickers = require("telescope.pickers")
+  local finders = require("telescope.finders")
+  local conf = require("telescope.config").values
+  local action_state = require("telescope.actions.state")
+  local actions = require("telescope.actions")
+  opts = opts or {}
+
+  local agents = {
+    {
+      description = "React Software Engineer",
+      command = "React-Software-Engineer",
+    },
+    {
+      description = "Task Breakdown Helper",
+      command = "Software-Engineering-Task-Breakdown-Helper",
+    },
+    { description = "Arch Linux Expert", command = "Arch-Linux-Expert" },
+    { description = "Neovim Expert", command = "Neovim-Expert" },
+  }
+
+  -- Create the picker
+  pickers
+    .new(opts, {
+      prompt_title = "Choose an Agent",
+      finder = finders.new_table({
+        results = agents,
+        entry_maker = function(entry)
+          return {
+            value = entry,
+            display = entry.description,
+            ordinal = entry.description,
+          }
+        end,
+      }),
+      sorter = conf.generic_sorter(opts),
+      attach_mappings = function(prompt_bufnr)
+        actions.select_default:replace(function()
+          local selection = action_state.get_selected_entry()
+          actions.close(prompt_bufnr)
+          local command = selection.value.command
+          vim.api.nvim_exec("GpChatNew vsplit", false)
+          vim.api.nvim_exec("GpAgent " .. command, false)
+        end)
+        return true
+      end,
+      initial_mode = "normal",
+      layout_config = {
+        width = 0.6,
+        height = 0.6,
+      },
+    })
+    :find()
+end
+
 local function live_grep_from_project_git_root()
   if vim.fn.getcwd() == os.getenv("HOME") then
     return print("Current directory is home. Exiting")
@@ -515,29 +570,19 @@ return {
           description = "GPT: Get All Buffer Content",
         },
         {
+          "<leader>sf",
+          function()
+            gp_choose_agent()
+          end,
+          description = "GPT: Choose an Agent",
+        },
+        {
           "<leader>so",
-          "<cmd>GpChatNew vsplit<CR> | <cmd>GpAgent Ultimate-Assistant<CR>",
+          function()
+            vim.api.nvim_exec("GpChatNew vsplit", false)
+            vim.api.nvim_exec("GpAgent Ultimate-Assistant", false)
+          end,
           description = "GPT: Ultimate Assistant",
-        },
-        {
-          "<leader>sb",
-          "<cmd>GpChatNew vsplit<CR> | <cmd>GpAgent Software-Engineering-Task-Breakdown-Helper<CR>",
-          description = "GPT: Software-Engineering Task Breakdown Helper",
-        },
-        {
-          "<leader>sr",
-          "<cmd>GpChatNew vsplit<CR> | <cmd>GpAgent React-Software-Engineer<CR>",
-          description = "GPT: React Software Engineer",
-        },
-        {
-          "<leader>sl",
-          "<cmd>GpChatNew vsplit<CR> | <cmd>GpAgent Arch-Linux-Expert<CR>",
-          description = "GPT: Arch Linux Expert",
-        },
-        {
-          "<leader>sn",
-          "<cmd>GpChatNew vsplit<CR> | <cmd>GpAgent Neovim-Expert<CR>",
-          description = "GPT: Neovim Expert",
         },
         {
           "<leader>ss",
