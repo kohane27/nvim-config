@@ -72,6 +72,10 @@ return {
         t({ "", "" }),
       }),
 
+      s({ trig = ",t", wordTrig = true }, {
+        t({ "", "Finish the TODO comment please." }),
+      }),
+
       s({ trig = ",f", wordTrig = true }, {
         t({ "", "I have the following:" }),
         -- Linebreak
