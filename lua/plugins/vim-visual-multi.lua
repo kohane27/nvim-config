@@ -12,6 +12,9 @@ return {
     " all mappings disabled except <C-n> (<C-n> can't be remapped)
     let g:VM_default_mappings = 0
 
+    " " using noice.nvim or else it'll break multi cursor red change functionality
+    let g:VM_set_statusline = 1
+
     " disable warning
     let g:VM_show_warnings = 0
 

@@ -13,13 +13,14 @@ return {
           filter = {
             event = "msg_show",
             any = {
+              { kind = "wmsg" },
+              { kind = "emsg", find = "E486" },
+              { kind = "quickfix" },
               { find = "^Hunk %d+ of %d+$" },
               { find = "^Already at newest change" },
               { find = "^Already at oldest change" },
               { find = "Pattern not found" },
-              { kind = "wmsg" },
-              { kind = "emsg", find = "E486" },
-              { kind = "quickfix" },
+
               -- hydra.nvim
               { find = "SmoothScroll" },
               { find = "Diagnostics" },
@@ -41,12 +42,14 @@ return {
             event = "msg_show",
             any = {
               { find = "%d+lines+ --%d+%--" },
+              { find = "%d+L, %d+B" },
               { find = "%d+L, %d+B written" },
               { find = "^%d+ changes?; after #%d+" },
               { find = "^%d+ changes?; before #%d+" },
               { find = "^%d+ lines .ed %d+ times?$" },
               { find = "^%d+ lines yanked$" },
               { find = "^%d+ fewer lines;?" },
+              { find = "^%d+ lines yanked into;?" },
               { find = "^%d+ more lines?;?" },
               { find = "^%d+ line less;?" },
               { find = "^%d+ line changed;?" },
@@ -62,6 +65,8 @@ return {
             any = {
               { find = "^No code actions available$" },
               { find = "^No information available$" },
+              { find = "Format request failed" },
+              { find = "VM has started with warning" },
             },
           },
           view = "mini",
