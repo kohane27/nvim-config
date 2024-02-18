@@ -8,7 +8,7 @@ function M.get_current_buffer_content()
     local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
     local content = table.concat(vim.api.nvim_buf_get_lines(bufnr, 0, -1, false), "\n")
     local relative_filename = vim.fn.fnamemodify(filename, ":.")
-    local formatted_content = string.format("%s:\n\n```%s\n%s\n```\n", relative_filename, filetype, content)
+    local formatted_content = string.format("`%s`:\n\n```%s\n%s\n```\n", relative_filename, filetype, content)
     -- Store the formatted content in the clipboard
     vim.fn.setreg("+", formatted_content)
     require("notify")("Current buffer content stored in clipboard")
@@ -31,7 +31,7 @@ function M.get_all_buffer_content()
           -- Only add to buffers_info if there is content
           if content ~= "" then
             -- Format the output
-            table.insert(buffers_info, string.format("%s:\n\n```%s\n%s\n```\n", relative_filename, filetype, content))
+            table.insert(buffers_info, string.format("`%s`:\n\n```%s\n%s\n```\n", relative_filename, filetype, content))
           end
         end
       end
