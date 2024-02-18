@@ -60,6 +60,10 @@ opt.splitkeep       = "screen" -- stabilize buffer content on window open/close 
 
 -- Note: do NOT set `stack` because you can't cycle with `C-i` and `C-o`
 opt.jumpoptions     = "view"
+
+-- -- TODO: make `-` consider part of a word?
+-- opt.iskeyword:append("-")
+-- opt.iskeyword:append("_")
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
@@ -90,7 +94,7 @@ opt.breakindent    = true    -- Enable break indent
 opt.termguicolors  = true    -- Enable 24-bit RGB colors
 opt.laststatus     = 3       -- Set global statusline
 opt.showcmd        = false   -- no show `gj` on every `j` press
-opt.shortmess:append "sI"   -- Disable nvim intro
+opt.shortmess:append "sI"    -- Disable nvim intro
 opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -----------------------------------------------------------
