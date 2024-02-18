@@ -102,7 +102,7 @@ function M.gp_choose_agent(opts)
         end)
         return true
       end,
-      initial_mode = "normal",
+      -- initial_mode = "normal",
       layout_config = {
         width = 0.6,
         height = 0.6,
