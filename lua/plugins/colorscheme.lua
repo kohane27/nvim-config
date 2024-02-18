@@ -1,7 +1,6 @@
 return {
-  "rebelot/kanagawa.nvim",
-  -- treesitter wrong syntax error; markdown missing highlight
-  commimt = "7b411f9e66c6f4f6bd9771f3e5affdc468bcbbd2",
+  -- TODO: treesitter wrong syntax error; markdown missing highlight
+  "kohane27/kanagawa.nvim",
   lazy = false, -- load immediately when starting Neovim
   priority = 1000, -- Load the colorscheme before other non-lazy-loaded plugins
   opts = {
