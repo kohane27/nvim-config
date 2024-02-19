@@ -18,7 +18,7 @@ return {
       require("mini.misc").setup_auto_root(),
     })
 
-    require("mini.trailspace").setup()
+    require("mini.trailspace").setup({})
 
     require("mini.indentscope").setup({
       symbol = "▏",
@@ -42,7 +42,21 @@ return {
       },
     })
 
-    -- TODO: check it
+    require("mini.ai").setup({
+      mappings = {
+        -- `''` (empty string) to disable
+        goto_left = "",
+        goto_right = "",
+      },
+
+      -- Number of lines within which textobject is searched
+      n_lines = 1,
+
+      -- Whether to disable showing non-error feedback
+      silent = true,
+    })
+
+    -- TODO: check it out
     -- require("mini.align").setup({
     --   mappings = {
     --     start = "<leader>a",
