@@ -360,7 +360,6 @@ return {
         { "<leader>rf", "<cmd>RunCode<CR>", description = "Run File" },
         { "<leader>rs", "<cmd>SnipRun<CR>", description = "Run Snip" },
         { "<leader>rc", "<cmd>SnipClose<CR>", description = "Close Snip" },
-        -- <leader>rr: startStopRecording
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ gp.nvim                                                  │
@@ -488,8 +487,8 @@ return {
 
         { "<leader>q", "<cmd>wqa<CR>", description = "Quit" },
         { "<leader>Q", "<cmd>q!<CR>", description = "Force Quit" },
-        { "qq", "<cmd>Bdelete<CR>", description = "Buffer: Close" },
-        { "Q", "<cmd>close<CR>", description = "Window: Close" },
+        { "qq", "<cmd>bdelete<CR>", description = "Buffer: Close" },
+        -- { "Q", "<cmd>close<CR>", description = "Window: Close" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │   Miscellaneous (leader M; real keybindings)             │
