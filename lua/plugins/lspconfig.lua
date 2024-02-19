@@ -148,7 +148,22 @@ return {
       },
     })
 
-    -- 5. yamlls
+    -- 5. cssls
+    lspconfig.cssls.setup({
+      capabilities = lsp_capabilities,
+      handlers = {
+        -- Add borders to LSP popups
+        ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+        ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+      },
+      settings = {
+        css = { lint = { unknownAtRules = "ignore" } },
+        scss = { lint = { unknownAtRules = "ignore" } },
+        less = { lint = { unknownAtRules = "ignore" } },
+      },
+    })
+
+    -- 6. yamlls
     -- TODO: fix
     -- lspconfig.yamlls.setup({
     --   settings = {
