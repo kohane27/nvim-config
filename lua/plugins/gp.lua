@@ -31,6 +31,8 @@ return {
       whisper_dir = {}, -- disabled
       image_dir = {}, -- disabled
       chat_confirm_delete = false,
+      -- don't move the cursor
+      chat_free_cursor = true,
 
       -- local chat buffer keybindings
       chat_shortcut_respond = { modes = { "n" }, shortcut = "<A-n>" },

@@ -416,11 +416,13 @@ return {
         { "<leader>ao", "<cmd>ChatGPT<CR>", description = "GPT: Open" },
         { "<leader>ai", "<cmd>'<,'>GpImplement<CR>", description = "GPT: Implement", mode = { "v" } },
 
-        { "<leader>as", "<cmd>ChatGPTActAs<CR>", description = "GPT: Act As" },
+        -- same as gp.nvim
+        { "<leader>af", "<cmd>ChatGPTActAs<CR>", description = "GPT: Choose an Agent" },
         {
           "<leader>ar",
           function()
-            vim.api.nvim_feedkeys(":ChatGPTRun ", "n", true)
+            -- vim.api.nvim_feedkeys(":ChatGPTRun ", "n", true)
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":ChatGPTRun <Tab>", true, true, true), "t", true)
           end,
           description = "GPT: Run Specific Actions",
           mode = { "n", "v" },
@@ -432,23 +434,23 @@ return {
           mode = { "n", "v" },
         },
         {
-          "<leader>al",
-          "<cmd>ChatGPTRun code_readability_analysis<CR>",
-          description = "GPT: Code Readability Analysis",
-          mode = { "n", "v" },
-        },
-        {
           "<leader>ae",
           "<cmd>ChatGPTEditWithInstructions<CR>",
           description = "GPT: Edit with instruction",
           mode = { "n", "v" },
         },
-        {
-          "<leader>af",
-          "<cmd>ChatGPTRun fix_bugs<CR>",
-          description = "GPT: Fix Bugs",
-          mode = { "n", "v" },
-        },
+        -- {
+        --   "<leader>al",
+        --   "<cmd>ChatGPTRun code_readability_analysis<CR>",
+        --   description = "GPT: Code Readability Analysis",
+        --   mode = { "n", "v" },
+        -- },
+        -- {
+        --   "<leader>af",
+        --   "<cmd>ChatGPTRun fix_bugs<CR>",
+        --   description = "GPT: Fix Bugs",
+        --   mode = { "n", "v" },
+        -- },
 
         --  ╭──────────────────────────────────────────────────────────╮
         --  │ leetcode                                                 │
