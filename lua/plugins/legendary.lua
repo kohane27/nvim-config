@@ -389,13 +389,17 @@ return {
           "<leader>so",
           function()
             vim.api.nvim_exec("GpChatNew vsplit", false)
+            vim.api.nvim_win_set_width(0, 80)
             vim.api.nvim_exec("GpAgent Ultimate-Assistant", false)
           end,
           description = "GPT: Ultimate Assistant",
         },
         {
           "<leader>ss",
-          "<cmd>GpChatToggle vsplit<CR>",
+          function()
+            vim.api.nvim_exec("GpChatToggle vsplit", false)
+            vim.api.nvim_win_set_width(0, 80)
+          end,
           description = "GPT: Toggle",
         },
         {
