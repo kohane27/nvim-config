@@ -31,6 +31,10 @@ set listchars=tab:▸\ ,trail:·
 set fillchars+=vert:\
 set wildignore+=**/node_modules/**
 let g:python3_host_prog = '~/.pyenv/versions/3.11.6/bin/python'
+ " make `-` part of a word
+set iskeyword-=-
+ " make _` part of a word
+set iskeyword-=_
 ]])
 -----------------------------------------------------------
 -- General
@@ -61,9 +65,6 @@ opt.splitkeep       = "screen" -- stabilize buffer content on window open/close 
 -- Note: do NOT set `stack` because you can't cycle with `C-i` and `C-o`
 opt.jumpoptions     = "view"
 
--- -- TODO: make `-` consider part of a word?
--- opt.iskeyword:append("-")
--- opt.iskeyword:append("_")
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
