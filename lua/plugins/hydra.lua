@@ -1,4 +1,7 @@
 return {
+  -- TODO: try below
+  -- https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-bracketed.md
+
   -- TODO: try below:
   -- @statement.outer
   -- @block.inner
