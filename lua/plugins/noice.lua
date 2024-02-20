@@ -52,6 +52,7 @@ return {
               { find = "^%d+ lines yanked into;?" },
               { find = "^%d+ more lines?;?" },
               { find = "^%d+ line less;?" },
+              { find = "^%d+ substitutions on %d+ lines" },
               { find = "^%d+ line changed;?" },
               { kind = "emsg", find = "E490" },
               { kind = "search_count" },
