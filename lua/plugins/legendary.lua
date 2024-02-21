@@ -442,41 +442,6 @@ return {
           description = "GPT: Edit with instruction",
           mode = { "n", "v" },
         },
-        -- {
-        --   "<leader>al",
-        --   "<cmd>ChatGPTRun code_readability_analysis<CR>",
-        --   description = "GPT: Code Readability Analysis",
-        --   mode = { "n", "v" },
-        -- },
-        -- {
-        --   "<leader>af",
-        --   "<cmd>ChatGPTRun fix_bugs<CR>",
-        --   description = "GPT: Fix Bugs",
-        --   mode = { "n", "v" },
-        -- },
-
-        --  ╭──────────────────────────────────────────────────────────╮
-        --  │ leetcode                                                 │
-        --  ╰──────────────────────────────────────────────────────────╯
-        -- { "<leader>cm", "<cmd>LcMenu<CR>", description = "leetcode: opens menu dashboard" },
-        -- {
-        --   "<leader>cc",
-        --   "<cmd>LcConsole<CR>",
-        --   description = "leetcode: opens console for currently opened question",
-        -- },
-        -- {
-        --   "<leader>cq",
-        --   "<cmd>LcQuestionTabs<CR>",
-        --   description = "leetcode: opens a picker with all currently opened question tabs",
-        -- },
-        -- {
-        --   "<leader>cl",
-        --   "<cmd>LcLanguage<CR>",
-        --   description = "leetcode: opens a picker to select a language for the current session",
-        -- },
-        -- { "<leader>cd", "<cmd>LcDescriptionToggle<CR>", description = "leetcode: toggle question description" },
-        -- { "<leader>cr", "<cmd>LcRun<CR>", description = "leetcode: run currently opened question" },
-        -- { "<leader>cs", "<cmd>LcSubmit<CR>", description = "leetcode: submit currently opened question" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │   Miscellaneous Keymaps                                  │
@@ -519,7 +484,32 @@ return {
         { "<leader>MXsd", "<cmd>SessionDelete<CR>", description = "Session: Delete" },
         { "<leader>MXse", "<cmd>GitConflictListQf<CR>", description = "Git Conflict: List" },
 
-        --  vim-caser
+        --  ╭──────────────────────────────────────────────────────────╮
+        --  │ leetcode                                                 │
+        --  ╰──────────────────────────────────────────────────────────╯
+        { "<leader>MXLm", "<cmd>LcMenu<CR>", description = "leetcode: opens menu dashboard" },
+        {
+          "<leader>MXLc",
+          "<cmd>LcConsole<CR>",
+          description = "leetcode: opens console for currently opened question",
+        },
+        {
+          "<leader>MXLq",
+          "<cmd>LcQuestionTabs<CR>",
+          description = "leetcode: opens a picker with all currently opened question tabs",
+        },
+        {
+          "<leader>MXLl",
+          "<cmd>LcLanguage<CR>",
+          description = "leetcode: opens a picker to select a language for the current session",
+        },
+        { "<leader>MXLd", "<cmd>LcDescriptionToggle<CR>", description = "leetcode: toggle question description" },
+        { "<leader>MXLr", "<cmd>LcRun<CR>", description = "leetcode: run currently opened question" },
+        { "<leader>MXLs", "<cmd>LcSubmit<CR>", description = "leetcode: submit currently opened question" },
+
+        -- ╭─────────────────────────────────────────────────────────╮
+        -- │ vim-caser                                               │
+        -- ╰─────────────────────────────────────────────────────────╯
         {
           "<leader>MXtu",
           "<Plug>CaserVUpperCase",
@@ -581,7 +571,9 @@ return {
           mode = { "v" },
         },
 
-        -- jdtls
+        -- ╭─────────────────────────────────────────────────────────╮
+        -- │ jdtls                                                   │
+        -- ╰─────────────────────────────────────────────────────────╯
         {
           "<leader>MXja",
           "<cmd>JdtWipeDataAndRestart<CR>",
@@ -642,7 +634,9 @@ return {
         { "<leader>MXlm", "<cmd>Mason<CR>", description = "Mason: Info" },
         { "<leader>MXlx", "<cmd>MasonToolsUpdate<CR>", description = "Mason: Tool Update" },
 
-        -- global commands
+        -- ╭─────────────────────────────────────────────────────────╮
+        -- │ global commands                                         │
+        -- ╰─────────────────────────────────────────────────────────╯
         {
           "<leader>MXgga",
           function()
@@ -707,7 +701,9 @@ return {
           description = "g: (m)ove all foo matches to end of file",
         },
 
-        -- misc
+        -- ╭─────────────────────────────────────────────────────────╮
+        -- │ misc                                                    │
+        -- ╰─────────────────────────────────────────────────────────╯
         {
           "<leader>MXbm",
           "<cmd>ScopeMoveBuf<CR>",
@@ -718,7 +714,7 @@ return {
           function()
             vim.api.nvim_feedkeys(":verbose map <C-i>", "n", true)
           end,
-          description = "verbose: Find Keybinding Conflict",
+          description = "Find Keybinding Conflict",
         },
         {
           "<leader>MXld",
@@ -732,28 +728,27 @@ return {
         {
           "<leader>MXxp",
           function()
-            markdown_preview()
+            require("core.utils").markdown_preview()
           end,
           description = "Preview Markdown",
         },
 
         { "<leader>MXsXe", "<cmd>ScrollViewToggle<CR>", description = "ScrollViewToggle: Enable" },
         { "<leader>MXsd", "<cmd>TSContextToggle<CR>", description = "TSContextToggle: Toggle" },
-
         {
           "<leader>MXrts",
           "<cmd>%s/\t/  /g<CR>",
-          description = "Replace Tabs with Spaces",
+          description = "Convert Tabs to Spaces",
         },
         {
           "<leader>MXttw",
           "<cmd>lua MiniTrailspace.trim()<CR>",
-          description = "Trim all trailing whitespace",
+          description = "Trim All Trailing Whitespace",
         },
         {
           "<leader>MXttes",
           "<cmd>'<,'>s/ .*//gc<CR>",
-          description = "Delete everything after a space",
+          description = "Delete Everything After a Space",
           mode = { "x" },
         },
         {
