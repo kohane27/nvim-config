@@ -96,7 +96,7 @@ opt.termguicolors  = true    -- Enable 24-bit RGB colors
 opt.laststatus     = 3       -- Set global statusline
 opt.showcmd        = false   -- no show `gj` on every `j` press
 opt.shortmess:append "sI"    -- Disable nvim intro
-opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -----------------------------------------------------------
 -- Tabs, indent
