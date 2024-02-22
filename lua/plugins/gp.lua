@@ -100,7 +100,7 @@ return {
           chat = true,
           command = false,
           model = { model = "gpt-4-1106-preview", temperature = 0.8, top_p = 1 },
-          system_prompt = "I want you to act as an Neovim Expert. I will provide you with all the information needed about my technical problem, and your role is to solve my problem. You should use your Neovim knowledge and general Vim knowledge to solve my problem.\n"
+          system_prompt = "I want you to act as an Neovim Expert. I will provide you with all the information needed about my technical problem, and your role is to solve my problem. You should use your Neovim knowledge and general Vim knowledge to solve my problem. I don't want the code written in Vimscript. I want the code written in lua.\n"
             .. ultimate_instruction
             .. "The first problem is the following.",
         },

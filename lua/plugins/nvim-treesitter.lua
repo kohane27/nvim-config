@@ -13,7 +13,7 @@ return {
     ignore_install = { "" }, -- parsers to ignore installing
     highlight = {
       enable = true,
-      disable = { "yaml", "json" },
+      -- disable = { "yaml", "json" },
       additional_vim_regex_highlighting = { "org" },
     },
     autotag = { enable = true }, -- windwp/nvim-ts-autotag
