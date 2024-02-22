@@ -55,11 +55,13 @@ return {
     --  │ markdown simple snippets                                 │
     --  ╰──────────────────────────────────────────────────────────╯
     ls.add_snippets("markdown", {
+      s({ trig = ",f", wordTrig = true }, { t("following ") }),
       s({ trig = ",ty", wordTrig = true }, { t("Thank you.") }),
-      s({ trig = ",yt", wordTrig = true }, { t("YouTube") }),
+      s({ trig = ",c", wordTrig = true }, { t("Complete the TODO comment in the code please.") }),
       s({ trig = ",hi", wordTrig = true }, { t("Hello! Hope you're doing well. Thank you for getting back ") }),
       s({ trig = ",input", wordTrig = true }, { t("Any input is much appreciated. Thank you.") }),
       s({ trig = ",gb", wordTrig = true }, { t("Thank you for getting back to me. I really appreciate it.") }),
+      s({ trig = ",yt", wordTrig = true }, { t("YouTube") }),
     }, { type = "autosnippets" })
 
     --  ╭──────────────────────────────────────────────────────────╮
@@ -72,32 +74,21 @@ return {
         t({ "", "" }),
       }),
 
-      s({ trig = ",t", wordTrig = true }, {
-        t({ "", "Finish the TODO comment please." }),
-      }),
-
-      s({ trig = ",f", wordTrig = true }, {
-        t({ "", "I have the following:" }),
-        -- Linebreak
-        t({ "", "" }),
-        t({ "", "" }),
-        t({ "```bash", "" }),
-        i(0),
-        t({ "", "" }),
-        t({ "```", "" }),
-      }),
+      -- s({ trig = ",f", wordTrig = true }, {
+      --   t({ "", "I have the following:" }),
+      --   -- Linebreak
+      --   t({ "", "" }),
+      --   t({ "", "" }),
+      --   t({ "```bash", "" }),
+      --   i(0),
+      --   t({ "", "" }),
+      --   t({ "```", "" }),
+      -- }),
 
       s({ trig = ",u", wordTrig = true }, {
         t({ "I'm using `" }),
         i(1),
-        t({ "`. I have the following:", "" }),
-        t({ "", "" }),
-        t({ "```bash", "" }),
-        i(2),
-        t({ "", "" }),
-        t({ "```", "" }),
-        t({ "", "" }),
-        i(3),
+        t({ "`." }),
       }),
 
       s({ trig = ",diff", wordTrig = true }, {
