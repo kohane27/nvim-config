@@ -45,13 +45,6 @@ return {
 
       -- shell
       formatting.shfmt.with({ extra_args = { "--indent", "4" } }),
-
-      -- `bashls` works with `shellcheck`
-      diagnostics.shellcheck,
-      -- TODO: check other diagnostics
-      -- `null-ls` has a built-in source `null_ls.builtins.diagnostics.tsc` that provides workspace diagnostics
-      -- typescript
-      diagnostics.tsc,
     }
     require("null-ls").setup({
       debug = false,
