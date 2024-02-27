@@ -49,6 +49,8 @@ return {
               { find = "^%d+ lines .ed %d+ times?$" },
               { find = "^%d+ lines yanked$" },
               { find = "^%d+ fewer lines;?" },
+              { find = "No lines in buffer" },
+              { find = "%d+ lines --%d+%--" },
               { find = "^%d+ lines yanked into;?" },
               { find = "^%d+ more lines?;?" },
               { find = "^%d+ line less;?" },
