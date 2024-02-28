@@ -63,9 +63,6 @@ return {
           resize_window = true,
         },
       },
-      filters = {
-        custom = { "node_modules", ".cache", ".bin" },
-      },
       notify = {
         threshold = vim.log.levels.ERROR,
       },
