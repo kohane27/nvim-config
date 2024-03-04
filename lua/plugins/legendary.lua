@@ -404,7 +404,11 @@ return {
         },
         {
           "<leader>sg",
-          "<cmd>GpChatFinder<CR>",
+          function()
+            require("telescope").extensions.egrepify.egrepify({
+              cwd = os.getenv("HOME") .. "/.local/share/nvim/gp/chats",
+            })
+          end,
           description = "GPT: Finder",
         },
         -- {
@@ -473,6 +477,11 @@ return {
           "<cmd>lua require('comment-box').llbox()<CR><Esc>",
           description = "Comment Box: Left-aligned",
           mode = { "v" },
+        },
+        {
+          "<leader>mn",
+          "<cmd>Noice dismiss<Esc>",
+          description = "Noice: Dismiss",
         },
         -- ╭──────────────────────────────────────────────────────────╮
         -- │   Miscellaneous (leader M; random keybindings)           │
