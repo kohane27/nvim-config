@@ -8,8 +8,7 @@ return {
   end,
   opts = {
     copy_sync = {
-      -- TMUX >= 3.2: all yanks (and deletes) will get redirected to system
-      -- clipboard by tmux
+      -- all yanks (and deletes) will get redirected to system clipboard
       redirect_to_clipboard = true,
     },
     navigation = {
