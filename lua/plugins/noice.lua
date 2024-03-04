@@ -41,7 +41,7 @@ return {
           filter = {
             event = "msg_show",
             any = {
-              { find = "%d+lines+ --%d+%--" },
+              { find = "lines --%d+%--" },
               { find = "%d+L, %d+B" },
               { find = "%d+L, %d+B written" },
               { find = "^%d+ changes?; after #%d+" },
@@ -50,7 +50,6 @@ return {
               { find = "^%d+ lines yanked$" },
               { find = "^%d+ fewer lines;?" },
               { find = "No lines in buffer" },
-              { find = "%d+ lines --%d+%--" },
               { find = "^%d+ lines yanked into;?" },
               { find = "^%d+ more lines?;?" },
               { find = "^%d+ line less;?" },

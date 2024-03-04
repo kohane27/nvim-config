@@ -37,7 +37,7 @@ vim.cmd([[
   autocmd VimEnter * :clearjumps
 
   " clear marks
-  autocmd VimEnter * :delmarks a-z
+  autocmd VimEnter * :delmarks a-zA-Z0-9
 ]])
 
 local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
