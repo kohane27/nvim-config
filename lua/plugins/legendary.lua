@@ -483,6 +483,11 @@ return {
           "<cmd>Noice dismiss<Esc>",
           description = "Noice: Dismiss",
         },
+        {
+          "<leader>mt",
+          "<cmd>lua MiniTrailspace.trim()<CR>",
+          description = "Trim All Trailing Whitespace",
+        },
         -- ╭──────────────────────────────────────────────────────────╮
         -- │   Miscellaneous (leader M; random keybindings)           │
         -- ╰──────────────────────────────────────────────────────────╯
@@ -689,13 +694,6 @@ return {
           description = "g: Run Macro a Line(s) Containing foo",
         },
         {
-          "<leader>MXggg",
-          function()
-            vim.api.nvim_feedkeys(":g/foo/g/bar/d", "n", true)
-          end,
-          description = "g: Deletes Lines Containing Both foo and bar",
-        },
-        {
           "<leader>MXggh",
           function()
             vim.api.nvim_feedkeys(":g/foo/t $", "n", true)
@@ -748,11 +746,6 @@ return {
           "<leader>MXrts",
           "<cmd>%s/\t/  /g<CR>",
           description = "Convert Tabs to Spaces",
-        },
-        {
-          "<leader>MXttw",
-          "<cmd>lua MiniTrailspace.trim()<CR>",
-          description = "Trim All Trailing Whitespace",
         },
         {
           "<leader>MXttes",
