@@ -49,8 +49,33 @@ return {
         "sqlls",
         "jsonls",
         "yamlls",
+        "terraformls",
       },
       automatic_installation = true,
+    })
+
+    require("mason-tool-installer").setup({
+      ensure_installed = {
+        "awk-language-server",
+        "bash-language-server",
+        "css-lsp",
+        "cssmodules-language-server",
+        "dockerfile-language-server",
+        "emmet-ls",
+        "eslint-lsp",
+        "html-lsp",
+        "json-lsp",
+        "lemminx",
+        "lua-language-server",
+        "pyright",
+        "python-lsp-server",
+        "sqlls",
+        "prettierd",
+        "sql-formatter",
+        "tfsec",
+        "tflint",
+      },
+      auto_update = true,
     })
 
     local lspconfig = require("lspconfig")

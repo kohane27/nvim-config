@@ -96,7 +96,7 @@ return {
         i(1),
         t({ "` and `" }),
         i(2),
-        t({ "`?" }),
+        t({ "` ?" }),
       }),
     }, { type = "autosnippets" })
 
