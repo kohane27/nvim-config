@@ -13,7 +13,7 @@ return {
     local diagnostics = null_ls.builtins.diagnostics
 
     local sources = {
-      formatting.prettierd,
+      formatting.prettier,
 
       -- linting: `sqlls`
       formatting.sql_formatter,

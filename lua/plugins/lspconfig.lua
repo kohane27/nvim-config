@@ -70,7 +70,7 @@ return {
         "pyright",
         "python-lsp-server",
         "sqlls",
-        "prettierd",
+        "prettier",
         "sql-formatter",
         "tfsec",
         "tflint",
