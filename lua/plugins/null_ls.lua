@@ -30,6 +30,9 @@ return {
 
       -- shell
       formatting.shfmt.with({ extra_args = { "--indent", "4" } }),
+
+      -- nix
+      formatting.nixfmt,
     }
     require("null-ls").setup({
       debug = false,
