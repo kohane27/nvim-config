@@ -25,7 +25,7 @@ return {
     require("gp").setup({
       openai_api_key = os.getenv("OPENAI_API_KEY"),
       cmd_prefix = "Gp",
-      curl_params = { "--proxy", "http://127.0.0.1:8888" },
+      -- curl_params = { "--proxy", "http://127.0.0.1:8888" },
       -- don't conceal markdown
       chat_conceal_model_params = false,
       whisper_dir = {}, -- disabled
