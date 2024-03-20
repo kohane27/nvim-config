@@ -9,7 +9,7 @@ return {
   },
   event = "VeryLazy",
   opts = {
-    -- extra_curl_params = { "--proxy", "http://127.0.0.1:8888" },
+    extra_curl_params = { "--proxy", "http://127.0.0.1:8888" },
     -- api_host_cmd = "echo -n 'api.openai.com'",
     edit_with_instructions = {
       keymaps = {
