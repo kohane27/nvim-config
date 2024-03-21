@@ -260,19 +260,14 @@ return {
         { "g8", "<cmd>BufferLineGoToBuffer 8<CR>", description = "Buffer: Go to 8" },
         { "g9", "<cmd>BufferLineGoToBuffer 9<CR>", description = "Buffer: Go to 9" },
         { "g0", "<cmd>BufferLineGoToBuffer -1<CR>", description = "Buffer: Go to 10" },
-        {
-          "<leader>bq",
-          "<cmd>BufferLineCloseOthers<CR>",
-          description = "Buffer: Close All But Current",
-        },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Tab (for scope.nvim)                                     │
         -- ╰──────────────────────────────────────────────────────────╯
         { "<leader>th", "<cmd>tabprev<CR>", description = "Tab: Previous" },
         { "<leader>tl", "<cmd>tabnext<CR>", description = "Tab: Next" },
-        { "<leader>tc", "<cmd>tabnew<CR>", description = "Tab: New" },
-        { "<leader>tq", "<cmd>tabclose<CR>", description = "Tab: Close" },
+        { "<leader>tn", "<cmd>tabnew<CR>", description = "Tab: New" },
+        { "<leader>tc", "<cmd>tabclose<CR>", description = "Tab: Close" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ substitute.lua                                           │
@@ -465,6 +460,11 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │   Miscellaneous (leader M; real keybindings)             │
         -- ╰──────────────────────────────────────────────────────────╯
+        {
+          "<leader>mc",
+          "<cmd>BufferLineCloseOthers<CR>",
+          description = "Buffer: Close All But Current",
+        },
         {
           -- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
           "<leader>mr",
@@ -708,7 +708,7 @@ return {
           function()
             vim.api.nvim_feedkeys(":s/$/foo", "c", false)
           end,
-          description = "Substitute: End Of Line with foo",
+          description = "Substitute: Add foo to End Of Line",
           mode = { "v" },
         },
         {
