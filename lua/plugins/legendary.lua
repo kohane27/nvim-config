@@ -237,7 +237,7 @@ return {
         {
           "<leader>cd",
           function()
-            vim.api.nvim_feedkeys(":cdo s/foo/bar/gc | update", "n", true)
+            vim.api.nvim_feedkeys(":cdo s/foo/bar/gc | update", "c", false)
           end,
           description = "cdo: Execute Command on Quickfix Entries",
           filters = { filetype = "qf", "Trouble" },
@@ -428,7 +428,6 @@ return {
         {
           "<leader>ar",
           function()
-            -- vim.api.nvim_feedkeys(":ChatGPTRun ", "n", true)
             vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":ChatGPTRun <Tab>", true, true, true), "t", true)
           end,
           description = "GPT: Run Specific Actions",
@@ -654,58 +653,79 @@ return {
         {
           "<leader>MXgga",
           function()
-            vim.api.nvim_feedkeys(":g/^$/d", "n", true)
+            vim.api.nvim_feedkeys(":g/^$/d", "c", false)
           end,
           description = "g: Remove Empty Lines",
         },
         {
           "<leader>MXggb",
           function()
-            vim.api.nvim_feedkeys(":g/^foo$/d", "n", true)
+            vim.api.nvim_feedkeys(":g/^foo$/d", "c", false)
           end,
           description = "g: Delete Lines Only Contain foo",
         },
         {
           "<leader>MXggc",
           function()
-            vim.api.nvim_feedkeys(":g!/^foo$/d", "n", true)
+            vim.api.nvim_feedkeys(":g!/^foo$/d", "c", false)
           end,
-          description = "g: Delete Lines NOT are foo",
-        },
-        {
-          "<leader>MXggd",
-          function()
-            vim.api.nvim_feedkeys(":g/foo/d", "n", true)
-          end,
-          description = "g: Delete Lines Containing foo Anywhere in the Line",
+          description = "g: Delete Lines NOT foo",
         },
         {
           "<leader>MXgge",
           function()
-            vim.api.nvim_feedkeys(":g/foo/normal! A;", "n", true)
+            vim.api.nvim_feedkeys(":g/foo/normal! A;", "c", false)
           end,
-          description = "g: Run Normal Mode Commands on Line(s) Containing foo",
+          description = "g: Run Normal Mode Containing foo",
         },
         {
           "<leader>MXggf",
           function()
-            vim.api.nvim_feedkeys(":g/foo/normal! @a", "n", true)
+            vim.api.nvim_feedkeys(":g/foo/normal! @a", "c", false)
           end,
-          description = "g: Run Macro a Line(s) Containing foo",
+          description = "g: Run Macro Containing foo",
         },
         {
           "<leader>MXggh",
           function()
-            vim.api.nvim_feedkeys(":g/foo/t $", "n", true)
+            vim.api.nvim_feedkeys(":g/foo/t $", "c", false)
           end,
-          description = "g: t (copy) All foo matches to end of file",
+          description = "g: t (copy) foo to End of File",
         },
         {
           "<leader>MXggi",
           function()
-            vim.api.nvim_feedkeys(":g/foo/m $", "n", true)
+            vim.api.nvim_feedkeys(":g/foo/m $", "c", false)
           end,
-          description = "g: (m)ove all foo matches to end of file",
+          description = "g: (m)ove foo to End of File",
+        },
+
+        -- ╭─────────────────────────────────────────────────────────╮
+        -- │ Substitute                                              │
+        -- ╰─────────────────────────────────────────────────────────╯
+        {
+          "<leader>MXsel",
+          function()
+            vim.api.nvim_feedkeys(":s/$/foo", "c", false)
+          end,
+          description = "Substitute: End Of Line with foo",
+          mode = { "v" },
+        },
+        {
+          "<leader>MXsela",
+          function()
+            vim.api.nvim_feedkeys(":s/\\vfoo/&bar/gc", "c", false)
+          end,
+          description = "Substitute (very magic): 'foo' into 'foobar'",
+          mode = { "v" },
+        },
+        {
+          "<leader>MXselb",
+          function()
+            vim.api.nvim_feedkeys(":s/\\v(foo)(.*)(bar)/\\3\\2\\1/gc", "c", false)
+          end,
+          description = "Substitute (very magic): swap 'foo' with 'bar'",
+          mode = { "v" },
         },
 
         -- ╭─────────────────────────────────────────────────────────╮
@@ -719,14 +739,14 @@ return {
         {
           "<leader>MXta",
           function()
-            vim.api.nvim_feedkeys(":verbose map <C-i>", "n", true)
+            vim.api.nvim_feedkeys(":verbose map <C-i>", "c", false)
           end,
           description = "Find Keybinding Conflict",
         },
         {
           "<leader>MXld",
           function()
-            vim.api.nvim_feedkeys(":ldo s/foo/bar/gc | update", "n", true)
+            vim.api.nvim_feedkeys(":ldo s/foo/bar/gc | update", "c", false)
           end,
           description = "ldo: Execute Command on Location List Entries",
           filters = { filetype = "qf", "Trouble" },
@@ -774,14 +794,6 @@ return {
           '<cmd>%s/0 " "//g<CR>',
           description = "hledger: Remove Zero Quote Quote",
           filters = { filetype = "ledger" },
-        },
-        {
-          "<leader>MXsel",
-          function()
-            vim.api.nvim_feedkeys(":s/$/xx", "n", true)
-          end,
-          description = "Substitute The End Of Each Line",
-          mode = { "v" },
         },
       },
     })
