@@ -114,7 +114,7 @@ return {
           "<cmd>lua require('telescope.builtin').find_files()<CR>",
           description = "Telescope: Find Files in Current Directory",
         },
-        { "<leader>fd", "<cmd>Telescope frecency<CR>", description = "Telescope: Find Frecency" },
+        { "<leader>fd", "<cmd>Telescope frecency workspace=CWD<CR>", description = "Telescope: Find Frecency" },
         {
           "<leader>fz",
           '<cmd>lua require("telescope").extensions.zoxide.list()<CR>',
@@ -496,7 +496,7 @@ return {
         { "<leader>MXsr", "<cmd>SessionLoad<CR>", description = "Session: Load" },
         { "<leader>MXsR", "<cmd>SessionLoadLast<CR>", description = "Session: Load Recent Session" },
         { "<leader>MXsd", "<cmd>SessionDelete<CR>", description = "Session: Delete" },
-        { "<leader>MXse", "<cmd>GitConflictListQf<CR>", description = "Git Conflict: List" },
+        -- { "<leader>MXse", "<cmd>GitConflictListQf<CR>", description = "Git Conflict: List" },
 
         --  ╭──────────────────────────────────────────────────────────╮
         --  │ leetcode                                                 │
