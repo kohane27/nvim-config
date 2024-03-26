@@ -310,7 +310,50 @@ return {
         {
           "<leader>dh",
           "<cmd>DiffviewOpen HEAD^!<CR>",
-          description = "Diffview: Current Commit and Commit Before",
+          description = "Diffview: Current Commit and Prior Commit",
+        },
+        {
+          "<leader>dH",
+          function()
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen HEAD~3", true, true, true), "t", true)
+          end,
+          description = "Diffview: HEAD and n Prior Commits",
+        },
+        {
+          "<leader>daa",
+          function()
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen d4a7b0d", true, true, true), "t", true)
+          end,
+          description = "Diffview: Compares Changes Made by `d4a7b0d` with Current Working Directory",
+        },
+
+        {
+          "<leader>dab",
+          function()
+            vim.api.nvim_feedkeys(
+              vim.api.nvim_replace_termcodes(":DiffviewOpen d4a7b0d^!<Left><Left>", true, true, true),
+              "t",
+              true
+            )
+          end,
+          description = "Diffview: Changes Made in the Single `d4a7b0d`",
+        },
+
+        {
+          "<leader>dac",
+          function()
+            vim.api.nvim_feedkeys(
+              vim.api.nvim_replace_termcodes(
+                ":DiffviewOpen d4a7b0d..519b30e <Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>",
+                true,
+                true,
+                true
+              ),
+              "t",
+              true
+            )
+          end,
+          description = "Diffview: Changes Between 2 Commits (from `d4a7b0d` up to `519b30e`, Inclusive).",
         },
 
         {
@@ -486,6 +529,12 @@ return {
           "<leader>mt",
           "<cmd>lua MiniTrailspace.trim()<CR>",
           description = "Trim All Trailing Whitespace",
+        },
+        {
+          "<leader>mn",
+          "<cmd>'<,'>normal I    <CR>",
+          description = "nixos: format",
+          mode = { "v" },
         },
         -- ╭──────────────────────────────────────────────────────────╮
         -- │   Miscellaneous (leader M; random keybindings)           │
