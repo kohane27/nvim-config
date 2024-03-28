@@ -76,8 +76,8 @@ return {
 
             ["v"] = actions.toggle_selection + actions.move_selection_worse,
             -- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-            ["<C-A-c>"] = actions.send_to_qflist + actions.open_qflist,
-            ["<C-c>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            ["<C-c>"] = actions.send_to_qflist + actions.open_qflist,
+            -- ["<C-c>"] = actions.send_selected_to_qflist + actions.open_qflist,
 
             ["<C-u>"] = actions.move_selection_previous
               + actions.move_selection_previous
