@@ -1,11 +1,15 @@
 return {
   "kawre/leetcode.nvim",
   dependencies = {
-    "nvim-treesitter/nvim-treesitter",
     "nvim-telescope/telescope.nvim",
+    "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
+    -- optional
+    "nvim-treesitter/nvim-treesitter",
+    "rcarriga/nvim-notify",
+    "nvim-tree/nvim-web-devicons",
   },
-  event = "VeryLazy",
+  lazy = false,
   build = ":TSUpdate html",
   opts = {
     lang = "javascript",
