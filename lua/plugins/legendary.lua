@@ -549,25 +549,20 @@ return {
         --  ╭──────────────────────────────────────────────────────────╮
         --  │ leetcode                                                 │
         --  ╰──────────────────────────────────────────────────────────╯
-        { "<leader>MXLm", "<cmd>LcMenu<CR>", description = "leetcode: opens menu dashboard" },
+        { "<leader>MXLm", "<cmd>Leet Menu<CR>", description = "LeetCode: Opens Menu Dashboard" },
         {
           "<leader>MXLc",
-          "<cmd>LcConsole<CR>",
-          description = "leetcode: opens console for currently opened question",
+          "<cmd>Leet console<CR>",
+          description = "LeetCode: Opens Console For Currently Opened Question",
         },
         {
           "<leader>MXLq",
-          "<cmd>LcQuestionTabs<CR>",
-          description = "leetcode: opens a picker with all currently opened question tabs",
+          "<cmd>Leet tabs<CR>",
+          description = "LeetCode: Opens A Picker With All Currently Opened Question Tabs",
         },
-        {
-          "<leader>MXLl",
-          "<cmd>LcLanguage<CR>",
-          description = "leetcode: opens a picker to select a language for the current session",
-        },
-        { "<leader>MXLd", "<cmd>LcDescriptionToggle<CR>", description = "leetcode: toggle question description" },
-        { "<leader>MXLr", "<cmd>LcRun<CR>", description = "leetcode: run currently opened question" },
-        { "<leader>MXLs", "<cmd>LcSubmit<CR>", description = "leetcode: submit currently opened question" },
+        { "<leader>MXLd", "<cmd>Leet desc<CR>", description = "LeetCode: Toggle Question Description" },
+        { "<leader>MXLr", "<cmd>Leet run<CR>", description = "LeetCode: Run Currently Opened Question" },
+        { "<leader>MXLs", "<cmd>Leet submit<CR>", description = "LeetCode: Submit Currently Opened Question" },
 
         -- ╭─────────────────────────────────────────────────────────╮
         -- │ vim-caser                                               │
