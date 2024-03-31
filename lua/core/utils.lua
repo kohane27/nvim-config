@@ -133,11 +133,11 @@ function M.live_grep_from_project_git_root()
         "rg",
         "--follow", -- follow symbolic links
         "--hidden", -- search for hidden files
-        "--no-heading", -- don't group matches by each file
-        "--with-filename", -- print the file path with the matched lines
-        "--line-number", -- show line numbers
-        "--column", -- show column numbers
-        "--smart-case", -- smart case search
+        "--ignore-case",
+        -- "--no-heading", -- don't group matches by each file
+        -- "--with-filename", -- print the file path with the matched lines
+        -- "--line-number", -- show line numbers
+        -- "--column", -- show column numbers
 
         -- excluded patterns
         "--glob=!**/.git/*",
