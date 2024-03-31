@@ -152,6 +152,20 @@ function M.find_files_from_project_git_root()
   if is_git_repo() then
     opts = {
       cwd = get_git_root(),
+      -- hidden files and directories are searched with `--hidden`
+      find_command = {
+        "rg",
+        "--ignore-case",
+        "--files",
+        "--hidden",
+        "--glob=!**/.git/*",
+        "--glob=!**/build/*",
+        "--glob=!**/dist/*",
+        "--glob=!**/yarn.lock",
+        "--glob=!**/package-lock.json",
+      },
+      hidden = true,
+      file_ignore_patterns = { "node_modules", ".git" },
     }
   end
   require("telescope.builtin").find_files(opts)
