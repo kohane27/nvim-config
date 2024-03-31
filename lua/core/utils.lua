@@ -126,7 +126,27 @@ function M.live_grep_from_project_git_root()
   end
   local opts = {}
   if is_git_repo() then
-    opts = { cwd = get_git_root() }
+    opts = {
+      cwd = get_git_root(),
+      -- use `ripgrep`
+      vimgrep_arguments = {
+        "rg",
+        "--follow", -- follow symbolic links
+        "--hidden", -- search for hidden files
+        "--no-heading", -- don't group matches by each file
+        "--with-filename", -- print the file path with the matched lines
+        "--line-number", -- show line numbers
+        "--column", -- show column numbers
+        "--smart-case", -- smart case search
+
+        -- excluded patterns
+        "--glob=!**/.git/*",
+        -- "--glob=!**/build/*",
+        -- "--glob=!**/dist/*",
+        "--glob=!**/yarn.lock",
+        "--glob=!**/package-lock.json",
+      },
+    }
   end
   -- If in visual mode, get the selected text and add it to opts
   if vim.fn.mode() == "v" or vim.fn.mode() == "V" or vim.fn.mode() == "^V" then
@@ -152,6 +172,7 @@ function M.find_files_from_project_git_root()
   if is_git_repo() then
     opts = {
       cwd = get_git_root(),
+      hidden = true,
       -- hidden files and directories are searched with `--hidden`
       find_command = {
         "rg",
@@ -159,13 +180,11 @@ function M.find_files_from_project_git_root()
         "--files",
         "--hidden",
         "--glob=!**/.git/*",
-        "--glob=!**/build/*",
-        "--glob=!**/dist/*",
+        -- "--glob=!**/build/*",
+        -- "--glob=!**/dist/*",
         "--glob=!**/yarn.lock",
         "--glob=!**/package-lock.json",
       },
-      hidden = true,
-      file_ignore_patterns = { "node_modules", ".git" },
     }
   end
   require("telescope.builtin").find_files(opts)
