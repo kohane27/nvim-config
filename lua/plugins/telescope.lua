@@ -28,11 +28,9 @@ return {
       defaults = {
         layout_config = {
           vertical = { width = 0.9 },
-          horizontal = {
-            width = 0.9,
-            preview_cutoff = 0,
-          },
+          horizontal = { width = 0.9, preview_cutoff = 0 },
         },
+
         -- Hidden files and directories can be searched with --hidden
         find_command = { "rg", "--hidden", "--ignore-case" },
         prompt_prefix = "   ",
