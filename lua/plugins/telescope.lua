@@ -30,12 +30,13 @@ return {
           vertical = { width = 0.9 },
           horizontal = { width = 0.9, preview_cutoff = 0 },
         },
-
-        -- Hidden files and directories can be searched with --hidden
-        find_command = { "rg", "--hidden", "--ignore-case" },
         prompt_prefix = "   ",
         selection_caret = " ",
         path_display = { "smart" },
+        file_ignore_patterns = { "node_modules", "package-lock.json", "yarn.lock" },
+
+        -- NOTE: configure in `utils.lua`
+        -- find_command = { "rg", "--hidden", "--ignore-case" },
 
         mappings = {
           i = {
