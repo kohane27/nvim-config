@@ -12,7 +12,5 @@ return {
   },
   config = function(_, opts)
     require("orgmode").setup(opts)
-    -- Load treesitter grammar for org
-    require("orgmode").setup_ts_grammar()
   end,
 }
