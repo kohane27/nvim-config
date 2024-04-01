@@ -10,8 +10,8 @@ return {
       },
       ui = {
         border = "rounded",
-        height = 0.8,
-        width = 0.8,
+        height = 0.95,
+        width = 0.95,
         x = 0.5,
         y = 0.5,
       },

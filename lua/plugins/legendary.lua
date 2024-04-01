@@ -240,7 +240,7 @@ return {
             vim.api.nvim_feedkeys(":cdo s/foo/bar/gc | update", "c", false)
           end,
           description = "cdo: Execute Command on Quickfix Entries",
-          filters = { filetype = "qf", "Trouble" },
+          -- filters = { filetype = "qf", "Trouble" },
         },
 
         -- ╭──────────────────────────────────────────────────────────╮
