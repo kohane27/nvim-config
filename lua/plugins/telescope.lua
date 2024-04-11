@@ -27,8 +27,11 @@ return {
     require("telescope").setup({
       defaults = {
         layout_config = {
-          vertical = { width = 0.9 },
-          horizontal = { width = 0.9, preview_cutoff = 0 },
+          horizontal = {
+            width = 0.9,
+            preview_width = 0.6,
+            preview_cutoff = 0,
+          },
         },
         prompt_prefix = "   ",
         selection_caret = " ",
