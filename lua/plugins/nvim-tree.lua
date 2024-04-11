@@ -1,7 +1,34 @@
 return {
   "nvim-tree/nvim-tree.lua",
   lazy = false,
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = {
+    { "nvim-tree/nvim-web-devicons" },
+    {
+      "JMarkin/nvim-tree.lua-float-preview",
+      lazy = true,
+      opts = {
+        window = {
+          open_win_config = function()
+            return {
+              anchor = "NW",
+              style = "minimal",
+              relative = "editor",
+              border = "rounded",
+              row = 1,
+              col = 45,
+              width = math.floor(vim.o.columns * 0.6), -- 60% of total width
+              height = vim.o.lines - 5, -- almost full height
+            }
+          end,
+        },
+        mapping = {
+          up = {},
+          down = {},
+          toggle = { "<C-x>" },
+        },
+      },
+    },
+  },
   config = function()
     -- disable default netrw file explorer
     vim.g.loaded = 1
@@ -11,7 +38,12 @@ return {
       local function opts(desc)
         return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
       end
+
+      local floating_preview = require("float-preview")
+      floating_preview.attach_nvimtree(bufnr)
+
       local api = require("nvim-tree.api")
+
       vim.keymap.set("n", "<C-w>v", api.node.open.vertical, opts("Open: Vertical Split"))
       vim.keymap.set("n", "<C-w>s", api.node.open.horizontal, opts("Open: Horizontal Split"))
       vim.keymap.set("n", "<C-w>t", api.node.open.tab, opts("Open: New Tab"))

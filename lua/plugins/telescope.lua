@@ -70,8 +70,8 @@ return {
             ["M"] = actions.move_to_middle,
             ["G"] = actions.move_to_bottom,
 
-            ["<C-b>"] = actions.preview_scrolling_up,
             ["<C-f>"] = actions.preview_scrolling_down,
+            ["<C-b>"] = actions.preview_scrolling_up,
 
             ["v"] = actions.toggle_selection + actions.move_selection_worse,
             -- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
