@@ -180,8 +180,6 @@ function M.find_files_from_project_git_root()
         "--files",
         "--hidden",
         "--glob=!**/.git/*",
-        -- "--glob=!**/build/*",
-        -- "--glob=!**/dist/*",
         "--glob=!**/yarn.lock",
         "--glob=!**/package-lock.json",
       },
