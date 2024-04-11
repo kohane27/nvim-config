@@ -68,11 +68,11 @@ return {
       submit_n = "<Enter>",
     },
     openai_params = {
-      model = "gpt-4-1106-preview",
+      model = "gpt-4-turbo-2024-04-09",
       max_tokens = 3000,
     },
     openai_edit_params = {
-      model = "gpt-4-1106-preview",
+      model = "gpt-4-turbo-2024-04-09",
     },
     predefined_chat_gpt_prompts = "file:///" .. vim.fn.expand("~") .. "/.config/nvim/gpt_prompt.csv",
     show_quickfixes_cmd = "Trouble quickfix",

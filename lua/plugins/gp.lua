@@ -39,7 +39,7 @@ return {
       chat_shortcut_delete = { modes = { "n" }, shortcut = "<A-d>" },
       chat_shortcut_stop = { modes = { "n" }, shortcut = "<A-x>" },
       chat_shortcut_new = { modes = { "n" }, shortcut = "<A-o>" },
-      chat_topic_gen_model = "gpt-4-1106-preview",
+      chat_topic_gen_model = "gpt-4-turbo-2024-04-09",
       style_popup_border = "rounded",
       -- default search term when using :GpChatFinder
       chat_finder_pattern = "",
@@ -54,7 +54,7 @@ return {
           name = "CodeGPT4",
           chat = true,
           command = false,
-          model = { model = "gpt-4-1106-preview", temperature = 0.8, top_p = 1 },
+          model = { model = "gpt-4-turbo-2024-04-09", temperature = 0.8, top_p = 1 },
           system_prompt = "You are an AI working as a code editor.\n"
             .. ultimate_instruction
             .. "The first problem is the following.",
@@ -63,7 +63,7 @@ return {
           name = "Ultimate-Assistant",
           chat = true,
           command = false,
-          model = { model = "gpt-4-1106-preview", temperature = 0.8, top_p = 1 },
+          model = { model = "gpt-4-turbo-2024-04-09", temperature = 0.8, top_p = 1 },
           system_prompt = "You are a general AI assistant.\n"
             .. ultimate_instruction
             .. "The first problem is the following.",
@@ -72,7 +72,7 @@ return {
           name = "Software-Engineering-Task-Breakdown-Helper",
           chat = true,
           command = false,
-          model = { model = "gpt-4-1106-preview", temperature = 0.8, top_p = 1 },
+          model = { model = "gpt-4-turbo-2024-04-09", temperature = 0.8, top_p = 1 },
           system_prompt = "I want you to Act as a software engineering task breakdown Helper. You will assist in breaking down software engineering tasks into smaller, manageable components. I will provide you with a brief description of a software feature or a programming problem, and you will outline the steps necessary to tackle it. Your response should include a logical order of tasks, tools that might be needed, and any potential challenges that could arise during implementation. Please focus on high-level steps rather than writing the actual code. Your guidance should help a developer understand what needs to be done without getting into the specifics of how to write the code. The breakdown should be clear enough for a developer with a basic understanding of programming concepts.\n"
             .. ultimate_instruction
             .. " The following is the task I need help with:",
@@ -81,7 +81,7 @@ return {
           name = "React-Software-Engineer",
           chat = true,
           command = false,
-          model = { model = "gpt-4-1106-preview", temperature = 0.8, top_p = 1 },
+          model = { model = "gpt-4-turbo-2024-04-09", temperature = 0.8, top_p = 1 },
           system_prompt = "I want you to act as one of the best React software engineers. You will reply with well-formatted code that follows best practices. You will ask questions to gain a deeper understanding to ensure you are delivering thoughtful, well-architected code.\n"
             .. ultimate_instruction
             .. "The first problem is the following.",
@@ -90,7 +90,7 @@ return {
           name = "Arch-Linux-Expert",
           chat = true,
           command = false,
-          model = { model = "gpt-4-1106-preview", temperature = 0.8, top_p = 1 },
+          model = { model = "gpt-4-turbo-2024-04-09", temperature = 0.8, top_p = 1 },
           system_prompt = "I want you to act as an Arch Linux Expert. I will provide you with all the information needed about my technical problem, and your role is to solve my problem. You should use your Arch Linux knowledge and general Linux knowledge to solve my problem. Try to avoid too many technical details, but use them when necessary. My editor is Vim.\n"
             .. ultimate_instruction
             .. "The first problem is the following.",
@@ -99,7 +99,7 @@ return {
           name = "Neovim-Expert",
           chat = true,
           command = false,
-          model = { model = "gpt-4-1106-preview", temperature = 0.8, top_p = 1 },
+          model = { model = "gpt-4-turbo-2024-04-09", temperature = 0.8, top_p = 1 },
           system_prompt = "I want you to act as an Neovim Expert. I will provide you with all the information needed about my technical problem, and your role is to solve my problem. You should use your Neovim knowledge and general Vim knowledge to solve my problem. I don't want the code written in Vimscript. I want the code written in lua.\n"
             .. ultimate_instruction
             .. "The first problem is the following.",
