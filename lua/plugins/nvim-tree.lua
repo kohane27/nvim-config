@@ -15,7 +15,7 @@ return {
               relative = "editor",
               border = "rounded",
               row = 1,
-              col = 45,
+              col = require("nvim-tree.view").View.width + 1,
               width = math.floor(vim.o.columns * 0.6), -- 60% of total width
               height = vim.o.lines - 5, -- almost full height
             }
