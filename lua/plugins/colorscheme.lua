@@ -6,7 +6,12 @@ return {
   opts = {
     -- https://github.com/rebelot/kanagawa.nvim/issues/197
     overrides = function(colors)
+      local theme = colors.theme
       return {
+        -- make floating window same as kanagawa theme
+        NormalFloat = { bg = "none" },
+        FloatBorder = { bg = "none" },
+        FloatTitle = { bg = "none" },
         -- update kanagawa to handle new treesitter highlight captures
         ["@comment.todo"] = { link = "@text.todo" },
         ["@string.regexp"] = { link = "@string.regex" },
