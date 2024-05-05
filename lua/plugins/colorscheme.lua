@@ -1,12 +1,11 @@
 return {
-  -- TODO: treesitter wrong syntax error; markdown missing highlight
-  "kohane27/kanagawa.nvim",
+  "rebelot/kanagawa.nvim",
   lazy = false, -- load immediately when starting Neovim
   priority = 1000, -- Load the colorscheme before other non-lazy-loaded plugins
   opts = {
     -- https://github.com/rebelot/kanagawa.nvim/issues/197
     overrides = function(colors)
-      local theme = colors.theme
+      -- local theme = colors.theme
       return {
         -- make floating window same as kanagawa theme
         NormalFloat = { bg = "none" },
