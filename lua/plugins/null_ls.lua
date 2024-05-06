@@ -18,9 +18,6 @@ return {
       -- linting: `sqlls`
       formatting.sql_formatter,
 
-      -- linting: `pylsp`
-      formatting.black,
-
       -- Terraform
       formatting.terraform_fmt,
       diagnostics.terraform_validate,

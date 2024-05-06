@@ -5,9 +5,6 @@ return {
     -- LSP Management
     { "williamboman/mason.nvim" },
     { "williamboman/mason-lspconfig.nvim" },
-    -- LSP status updates
-    -- { "j-hui/fidget.nvim", opts = {} },
-
     {
       -- language server settings in json
       "tamago324/nlsp-settings.nvim",
@@ -41,7 +38,6 @@ return {
         "html",
         "lemminx",
         "pyright",
-        "pylsp",
         "sqlls",
         "jsonls",
         "yamlls",
@@ -52,22 +48,25 @@ return {
 
     require("mason-tool-installer").setup({
       ensure_installed = {
+        "eslint-lsp",
+        "prettier",
         "awk-language-server",
         "bash-language-server",
         "css-lsp",
         "cssmodules-language-server",
         "dockerfile-language-server",
         "emmet-ls",
-        "eslint-lsp",
         "html-lsp",
         "json-lsp",
         "lemminx",
         "lua-language-server",
-        "pyright",
-        "python-lsp-server",
+        -- sql
         "sqlls",
-        "prettier",
         "sql-formatter",
+        -- python
+        "pyright",
+        "ruff",
+        --  terraform
         "tfsec",
         "tflint",
       },
@@ -184,7 +183,44 @@ return {
       },
     })
 
-    -- 6. yamlls
+    -- 6. ruff_lsp
+    lspconfig.ruff_lsp.setup({
+      on_attach = function(client, bufnr)
+        if client.name == "ruff_lsp" then
+          -- Disable hover in favor of `Pyright`
+          client.server_capabilities.hoverProvider = false
+        end
+      end,
+      capabilities = lsp_capabilities,
+      handlers = {
+        -- Add borders to LSP popups
+        ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+        ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+      },
+      init_options = {
+        settings = {
+          args = {},
+        },
+      },
+    })
+
+    -- 7. pyright
+    lspconfig.pyright.setup({
+      settings = {
+        pyright = {
+          -- Using Ruff's import organizer
+          disableOrganizeImports = true,
+        },
+        python = {
+          analysis = {
+            -- Ignore all files for analysis to exclusively use Ruff for linting
+            ignore = { "*" },
+          },
+        },
+      },
+    })
+
+    -- 7. yamlls
     -- TODO: fix
     -- lspconfig.yamlls.setup({
     --   settings = {
