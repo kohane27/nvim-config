@@ -752,7 +752,7 @@ return {
           function()
             vim.api.nvim_feedkeys(":s/$/foo", "c", false)
           end,
-          description = "Substitute: Add foo to End Of Line",
+          description = "Visual Mode: Add `foo` to End Of Line",
           mode = { "v" },
         },
         {
@@ -760,7 +760,7 @@ return {
           function()
             vim.api.nvim_feedkeys(":s/\\vfoo/&bar/gc", "c", false)
           end,
-          description = "Substitute (very magic): 'foo' into 'foobar'",
+          description = "Visual Mode: `foo` into `foobar`",
           mode = { "v" },
         },
         {
@@ -768,7 +768,7 @@ return {
           function()
             vim.api.nvim_feedkeys(":s/\\v(foo)(.*)(bar)/\\3\\2\\1/gc", "c", false)
           end,
-          description = "Substitute (very magic): swap 'foo' with 'bar'",
+          description = "Visual Mode: swap `foo` with `bar`",
           mode = { "v" },
         },
 

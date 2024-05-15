@@ -4,6 +4,7 @@
 substitutes--.txt
 scratch_config.json
 .pre-commit-config.yaml
+.secretsignore
 
 lazy-lock.json
 
