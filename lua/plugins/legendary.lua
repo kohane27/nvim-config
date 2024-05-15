@@ -25,7 +25,7 @@ return {
         -- <leader>g
         { "<leader>gu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
 
-        { "<leader>e", '<cmd>lua require("ranger-nvim").open(true)<CR>', description = "Ranger" },
+        { "<leader>e", '<cmd>lua require("yazi").yazi(nil, vim.fn.getcwd())<CR>', description = "Yazi" },
         { "-", "<cmd>Oil --float<CR>", description = "Oil" },
 
         -- <C-KEY>
