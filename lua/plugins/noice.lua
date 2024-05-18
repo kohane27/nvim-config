@@ -57,6 +57,8 @@ return {
               { find = "^%d+ line changed;?" },
               { kind = "emsg", find = "E490" },
               { kind = "search_count" },
+              { find = "Hop" },
+              pattern = ".*Telescope-Frecency.*",
             },
           },
           opts = { skip = true },
