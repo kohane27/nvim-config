@@ -208,4 +208,21 @@ function M.markdown_preview()
   vim.fn.termopen("glow <( echo " .. sanitized_final .. ")\n")
 end
 
+function M.toggle_scratchpad()
+  -- Get the name of the current buffer
+  local buf_name = vim.api.nvim_buf_get_name(0)
+
+  -- Extract just the file name from the full path
+  local file_name = vim.fn.fnamemodify(buf_name, ":t")
+
+  -- Check if the current buffer is named 'scratchPad.md'
+  if file_name == "scratchPad.md" then
+    -- Close the current window
+    vim.cmd("close")
+  else
+    -- Run the ScratchPad command
+    vim.cmd("ScratchPad")
+  end
+end
+
 return M
