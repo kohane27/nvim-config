@@ -61,7 +61,7 @@ return {
               -- `[Telescope-Frecency] removed 10 missing entries.`
               { find = "%[Telescope%-Frecency%] removed %d+ missing entries%." },
               -- hop.nvim
-              { find = "no remaining sequence starts with %w" },
+              -- { find = "no remaining sequence starts with %w" },
             },
           },
           opts = { skip = true },
