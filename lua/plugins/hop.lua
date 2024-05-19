@@ -2,8 +2,10 @@ return {
   "smoka7/hop.nvim",
   event = "VeryLazy",
   opts = {
-    keys = "sfnjklhodweimbuyvrgtaqpcxz",
+    keys = "asdfghjklqwertyuiopzxcvbnm",
     create_hl_autocmd = false,
+    dim_unmatched = false,
+    teasing = false,
   },
   config = function(_, opts)
     local hop = require("hop")
@@ -44,7 +46,6 @@ return {
     end, { remap = true })
 
     vim.api.nvim_set_hl(0, "HopNextKey", { fg = "#000000", bg = "#CCFF88", bold = true })
-    vim.api.nvim_set_hl(0, "HopUnmatched", { sp = "#666666" })
 
     hop.setup(opts)
   end,
