@@ -16,7 +16,6 @@ return {
       -- disable = { "yaml", "json" },
       additional_vim_regex_highlighting = { "org" },
     },
-    autotag = { enable = true }, -- windwp/nvim-ts-autotag
     autopairs = { enable = true },
     indent = { enable = true, disable = { "yaml", "json" } },
     incremental_selection = {
