@@ -57,7 +57,7 @@ return {
     ls.add_snippets("markdown", {
       s({ trig = ",f", wordTrig = true }, { t("following ") }),
       s({ trig = ",ty", wordTrig = true }, { t("Thank you.") }),
-      s({ trig = ",c", wordTrig = true }, { t("Complete the TODO comment in the code please.") }),
+      s({ trig = ",todo", wordTrig = true }, { t("Complete the TODO comment in the code please.") }),
       s({ trig = ",hi", wordTrig = true }, { t("Hello! Hope you're doing well. Thank you for getting back ") }),
       s({ trig = ",input", wordTrig = true }, { t("Any input is much appreciated. Thank you.") }),
       s({ trig = ",gb", wordTrig = true }, { t("Thank you for getting back to me. I really appreciate it.") }),
