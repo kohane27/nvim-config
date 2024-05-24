@@ -6,43 +6,51 @@ return {
     vim.fn["firenvim#install"](0)
   end,
   config = function()
-    vim.cmd([[
-    let g:firenvim_config = {
-        \ 'globalSettings': {
-            \ 'alt': 'all',
-            \ '<C-w>': 'default',
-            \ '<C-n>': 'default',
-        \  },
-        \ 'localSettings': {
-            \ '.*': {
-                \ 'cmdline': 'neovim',
-                \ 'content': 'text',
-                \ 'priority': 0,
-                \ 'selector': 'textarea',
-                \ 'takeover': 'never',
-            \ },
-        \ }
-    \ }
-    if exists('g:started_by_firenvim')
+    vim.g.firenvim_config = {
+      globalSettings = { alt = "all" },
+      localSettings = {
+        [".*"] = {
+          cmdline = "neovim",
+          content = "text",
+          priority = 0,
+          selector = "textarea",
+          takeover = "never",
+        },
+      },
+    }
 
-        set ft=txt
-        " `xremap` config.yml
-        " C-w: C-KEY_BACKSPACE
-        imap <C-BS> <C-W>
+    if vim.g.started_by_firenvim then
+      vim.o.filetype = "txt"
+      -- `xremap` config.yml
+      -- C-w: C-KEY_BACKSPACE
+      vim.api.nvim_set_keymap("i", "<C-BS>", "<C-W>", { noremap = true, silent = true })
 
-        " colorscheme nightfox
-        " nightfly or material also ok
-        " set guifont=FiraCode_Nerd_Font_Mono:h12
+      -- different from `legendary.nvim`'s
+      vim.api.nvim_set_keymap("n", "<leader>q", ":wq<CR>", { noremap = true, silent = true })
 
-        " don't run null-ls
-        let g:null_ls_disable = 1
+      -- colorscheme nightfox
+      -- nightfly or material also ok
+      vim.o.guifont = "FiraCode Nerd Font Mono:h11"
 
-        " don't use auto-session
-        let g:auto_session_enabled = v:false
+      vim.g.persisting = false
+      vim.g.null_ls_disable = true
+      vim.o.showtabline = 0
+      vim.o.laststatus = 0
 
-        au BufEnter github.com_*.txt set filetype=markdown
-        au BufEnter leetcode.com_*.txt set filetype=javascript
-    endif
-]])
+      vim.api.nvim_create_autocmd("BufEnter", {
+        desc = "Generally use markdown syntax",
+        pattern = "*.txt",
+        callback = function()
+          vim.opt.filetype = "markdown"
+        end,
+      })
+
+      vim.api.nvim_create_autocmd("BufEnter", {
+        pattern = "leetcode.com_*.txt",
+        callback = function()
+          vim.opt.filetype = "javascript"
+        end,
+      })
+    end
   end,
 }

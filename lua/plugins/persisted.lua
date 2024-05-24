@@ -1,6 +1,7 @@
 return {
   "olimorris/persisted.nvim",
   lazy = false,
+  enabled = not vim.g.started_by_firenvim,
   config = function()
     require("persisted").setup({
       autoload = true, -- automatically load the session for the cwd on Neovim startup
