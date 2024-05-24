@@ -1,6 +1,7 @@
 return {
   "mrjones2014/legendary.nvim",
   event = "VeryLazy",
+  enabled = not vim.g.started_by_firenvim,
   dependencies = { "kkharji/sqlite.lua", "stevearc/dressing.nvim" },
   config = function()
     local toolbox = require("legendary.toolbox")
@@ -518,7 +519,7 @@ return {
         },
         { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Zoom: Toggle" },
 
-        { "<leader>q", "<cmd>wqa<CR>", description = "Quit" },
+        -- { "<leader>q", "<cmd>wqa<CR>", description = "Quit" },
         { "<leader>Q", "<cmd>q!<CR>", description = "Force Quit" },
         { "qq", "<cmd>Bdelete<CR>", description = "Buffer: Close" },
         -- { "Q", "<cmd>close<CR>", description = "Window: Close" },
