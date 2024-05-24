@@ -32,7 +32,7 @@ return {
         "emmet_ls",
         "awk_ls",
         "bashls",
-        "cssmodules_ls",
+        -- "cssmodules_ls",
         "dockerls",
         "eslint", -- instead of `tsserver` or `eslint_d` in `null_ls` for better linting and react-specific linting rules
         "html",
@@ -53,7 +53,7 @@ return {
         "awk-language-server",
         "bash-language-server",
         "css-lsp",
-        "cssmodules-language-server",
+        -- "cssmodules-language-server",
         "dockerfile-language-server",
         "emmet-ls",
         "html-lsp",
