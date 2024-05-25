@@ -517,7 +517,13 @@ return {
           mode = { "n", "i" },
           opts = { noremap = true, silent = true },
         },
-        { "<C-w>o", "<cmd>NeoZoomToggle<CR>", description = "Zoom: Toggle" },
+        {
+          "<C-w>o",
+          function()
+            require("mini.misc").zoom()
+          end,
+          description = "Zoom: Toggle",
+        },
 
         -- { "<leader>q", "<cmd>wqa<CR>", description = "Quit" },
         { "<leader>Q", "<cmd>q!<CR>", description = "Force Quit" },
