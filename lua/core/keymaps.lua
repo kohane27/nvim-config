@@ -16,7 +16,6 @@ end
 -- leap.lua
 -- toggleterm.lua
 -- hlslens.lua
--- gomove.lua
 -- marks.lua
 -- ufo.lua
 -- nvim-surround.lua
