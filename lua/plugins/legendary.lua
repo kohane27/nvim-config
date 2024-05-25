@@ -27,9 +27,21 @@ return {
         { "<leader>gu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
 
         { "<leader>e", "<cmd>lua require('yazi').yazi(nil, vim.fn.expand('%:p:h'))<CR>", description = "Yazi" },
+
         { "-", "<cmd>Oil --float<CR>", description = "Oil" },
+        { "X", "<cmd>ISwapWith<CR>", description = "Swap Two Adjacent Nodes" },
+        {
+          "gs",
+          function()
+            require("flash").treesitter()
+          end,
+          description = "Flash Treesitter",
+          mode = { "n", "x", "o" },
+        },
 
         -- <C-KEY>
+        { "<C-a>", require("dial.map").inc_normal(), description = "Increment" },
+        { "<C-x>", require("dial.map").dec_normal(), description = "Decrement" },
         {
           "<C-f>",
           function()
@@ -269,23 +281,6 @@ return {
         { "<leader>tl", "<cmd>tabnext<CR>", description = "Tab: Next" },
         { "<leader>tn", "<cmd>tabnew<CR>", description = "Tab: New" },
         { "<leader>tc", "<cmd>tabclose<CR>", description = "Tab: Close" },
-
-        -- ╭──────────────────────────────────────────────────────────╮
-        -- │ substitute.lua                                           │
-        -- ╰──────────────────────────────────────────────────────────╯
-        { "X", "<cmd>ISwapWith<CR>", description = "Swap" },
-
-        { "<C-a>", require("dial.map").inc_normal(), description = "Increment" },
-        { "<C-x>", require("dial.map").dec_normal(), description = "Decrement" },
-
-        {
-          "gs",
-          function()
-            require("flash").treesitter()
-          end,
-          description = "Flash Treesitter",
-          mode = { "n", "x", "o" },
-        },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ tmux.lua                                                 │
@@ -528,6 +523,7 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │   Miscellaneous (leader M; real keybindings)             │
         -- ╰──────────────────────────────────────────────────────────╯
+        -- NOTE: `<leader>ma` and `<leader>mA` taken by `mini.align`
         -- NOTE: `<leader>ms` taken by `mini.operators`
         {
           "<leader>mc",
@@ -555,12 +551,6 @@ return {
           "<leader>mt",
           "<cmd>lua MiniTrailspace.trim()<CR>",
           description = "Trim All Trailing Whitespace",
-        },
-        {
-          "<leader>mn",
-          "<cmd>'<,'>normal I    <CR>",
-          description = "nixos: format",
-          mode = { "v" },
         },
         -- ╭──────────────────────────────────────────────────────────╮
         -- │   Miscellaneous (leader M; random keybindings)           │
