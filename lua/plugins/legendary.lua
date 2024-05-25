@@ -274,12 +274,7 @@ return {
         -- │ substitute.lua                                           │
         -- ╰──────────────────────────────────────────────────────────╯
         { "X", "<cmd>ISwapWith<CR>", description = "Swap" },
-        {
-          "cx",
-          toolbox.lazy_required_fn("substitute.exchange", "operator"),
-          description = "Exchange: Operator",
-        },
-        { "cxx", toolbox.lazy_required_fn("substitute.exchange", "line"), description = "Exchange: Line" },
+
         { "<C-a>", require("dial.map").inc_normal(), description = "Increment" },
         { "<C-x>", require("dial.map").dec_normal(), description = "Decrement" },
 
@@ -533,6 +528,7 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │   Miscellaneous (leader M; real keybindings)             │
         -- ╰──────────────────────────────────────────────────────────╯
+        -- NOTE: `<leader>ms` taken by `mini.operators`
         {
           "<leader>mc",
           "<cmd>BufferLineCloseOthers<CR>",

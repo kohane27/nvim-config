@@ -84,5 +84,32 @@ return {
     --     start_with_preview = "<leader>A",
     --   },
     -- })
+    require("mini.operators").setup({
+      -- Exchange text regions
+      exchange = {
+        prefix = "cx",
+        reindent_linewise = true,
+      },
+
+      -- Sort text
+      sort = {
+        prefix = "<leader>ms",
+      },
+
+      -- Evaluate text and replace with output
+      evaluate = {
+        prefix = "",
+      },
+
+      -- Replace text with register
+      replace = {
+        prefix = "",
+      },
+
+      -- Multiply (duplicate) text
+      multiply = {
+        prefix = "",
+      },
+    })
   end,
 }
