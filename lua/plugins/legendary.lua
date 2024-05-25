@@ -26,7 +26,7 @@ return {
         -- <leader>g
         { "<leader>gu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
 
-        { "<leader>e", '<cmd>lua require("yazi").yazi(nil, vim.fn.getcwd())<CR>', description = "Yazi" },
+        { "<leader>e", "<cmd>lua require('yazi').yazi(nil, vim.fn.expand('%:p:h'))<CR>", description = "Yazi" },
         { "-", "<cmd>Oil --float<CR>", description = "Oil" },
 
         -- <C-KEY>
@@ -525,7 +525,7 @@ return {
           description = "Zoom: Toggle",
         },
 
-        -- { "<leader>q", "<cmd>wqa<CR>", description = "Quit" },
+        { "<leader>q", "<cmd>wqa<CR>", description = "Quit" },
         { "<leader>Q", "<cmd>q!<CR>", description = "Force Quit" },
         { "qq", "<cmd>Bdelete<CR>", description = "Buffer: Close" },
         -- { "Q", "<cmd>close<CR>", description = "Window: Close" },
