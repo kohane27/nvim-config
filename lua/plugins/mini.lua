@@ -43,6 +43,10 @@ return {
 
     require("mini.ai").setup({
       mappings = {
+        -- Main textobject prefixes
+        around = "a",
+        inside = "i",
+
         -- `""` to disable
         goto_left = "",
         goto_right = "",

@@ -32,39 +32,24 @@ return {
     textobjects = {
       select = {
         enable = true,
-        lookahead = true, -- jump forward to textobj, similar to targets.vim
+        lookahead = true, -- jump forward to textobj
         keymaps = {
           ["af"] = "@function.outer",
           ["if"] = "@function.inner",
           ["ac"] = "@class.outer",
           ["ic"] = "@class.inner",
 
-          -- conflict with `target.nvim`
+          -- don't like selecting the block including the symbol
           -- ["ab"] = "@block.outer",
           -- ["ib"] = "@block.inner",
-
-          -- using `target.nvim`
-          -- ["aa"] = "@parameter.outer",
-          -- ["ia"] = "@parameter.inner",
         },
       },
-      swap = {
-        enable = false,
-      },
-      move = {
-        enable = false,
-      },
-      matchup = {
-        enable = true, -- mandatory, false will disable the whole extension
-      },
-      -- lsp_interop = {
-      --   enable = true,
-      --   border = "single",
-      --   peek_definition_code = {
-      --     ["<leader>df"] = "@function.outer",
-      --     ["<leader>dF"] = "@class.outer",
-      --   },
-      -- },
+      swap = { enable = false },
+      move = { enable = false },
+
+      -- andymass/vim-matchup
+      -- mandatory, `false` will disable the whole extension
+      matchup = { enable = true },
     },
   },
   config = function(_, opts)
