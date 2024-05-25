@@ -1,5 +1,4 @@
 return {
-  -- TODO: try other mini modules
   "echasnovski/mini.nvim",
   version = false,
   config = function()
@@ -44,7 +43,7 @@ return {
 
     require("mini.ai").setup({
       mappings = {
-        -- `''` (empty string) to disable
+        -- `""` to disable
         goto_left = "",
         goto_right = "",
       },
