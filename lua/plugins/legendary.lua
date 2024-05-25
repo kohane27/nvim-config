@@ -26,7 +26,7 @@ return {
         -- <leader>g
         { "<leader>gu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
 
-        { "<leader>e", "<cmd>lua require('yazi').yazi(nil, vim.fn.expand('%:p:h'))<CR>", description = "Yazi" },
+        { "<leader>e", "<cmd>lua require('yazi').yazi()<CR>", description = "Yazi" },
 
         { "-", "<cmd>Oil --float<CR>", description = "Oil" },
         { "X", "<cmd>ISwapWith<CR>", description = "Swap Two Adjacent Nodes" },
