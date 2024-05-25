@@ -4,31 +4,7 @@ return {
   enabled = not vim.g.started_by_firenvim,
   dependencies = {
     { "nvim-tree/nvim-web-devicons" },
-    {
-      "JMarkin/nvim-tree.lua-float-preview",
-      lazy = true,
-      opts = {
-        window = {
-          open_win_config = function()
-            return {
-              anchor = "NW",
-              style = "minimal",
-              relative = "editor",
-              border = "rounded",
-              row = 1,
-              col = require("nvim-tree.view").View.width + 1,
-              width = math.floor(vim.o.columns * 0.6), -- 60% of total width
-              height = vim.o.lines - 5, -- almost full height
-            }
-          end,
-        },
-        mapping = {
-          up = {},
-          down = {},
-          toggle = { "<C-x>" },
-        },
-      },
-    },
+    { "b0o/nvim-tree-preview.lua" },
   },
   config = function()
     -- disable default netrw file explorer
@@ -39,11 +15,12 @@ return {
       local function opts(desc)
         return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
       end
-
-      local floating_preview = require("float-preview")
-      floating_preview.attach_nvimtree(bufnr)
-
       local api = require("nvim-tree.api")
+
+      local preview = require("nvim-tree-preview")
+      vim.keymap.set("n", "P", preview.watch, opts("Preview (Watch)"))
+      vim.keymap.set("n", "<Esc>", preview.unwatch, opts("Close Preview/Unwatch"))
+      vim.keymap.set("n", "<Tab>", preview.node_under_cursor, opts("Preview"))
 
       vim.keymap.set("n", "<C-w>v", api.node.open.vertical, opts("Open: Vertical Split"))
       vim.keymap.set("n", "<C-w>s", api.node.open.horizontal, opts("Open: Horizontal Split"))
@@ -62,14 +39,12 @@ return {
       vim.keymap.set("n", "yp", api.fs.copy.relative_path, opts("Copy Relative Path"))
       vim.keymap.set("n", "yP", api.fs.copy.absolute_path, opts("Copy Absolute Path"))
       vim.keymap.set("n", "<C-q>", api.tree.close, opts("Close"))
-      vim.keymap.set("n", "-", api.tree.change_root_to_parent, opts("Up"))
       vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
       vim.keymap.set("n", "f", api.live_filter.start, opts("Filter"))
       vim.keymap.set("n", "F", api.live_filter.clear, opts("Clean Filter"))
-      vim.keymap.set("n", "P", api.node.navigate.parent, opts("Parent Directory"))
+      -- vim.keymap.set("n", "P", api.node.navigate.parent, opts("Parent Directory"))
       vim.keymap.set("n", "H", api.tree.collapse_all, opts("Collapse"))
       vim.keymap.set("n", "L", api.tree.expand_all, opts("Expand All"))
-      vim.keymap.set("n", ".", api.node.run.cmd, opts("Run Command"))
       vim.keymap.set("n", "J", function()
         vim.cmd(":normal 5j")
       end, opts("move_down_fast"))
