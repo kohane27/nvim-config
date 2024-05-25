@@ -55,6 +55,28 @@ return {
       silent = true,
     })
 
+    require("mini.move").setup({
+      -- Use `""` to disable one
+      mappings = {
+        -- Move visual selection in Visual mode
+        left = "<C-h>",
+        right = "<C-l>",
+        down = "<C-j>",
+        up = "<C-k>",
+
+        -- Move current line in Normal mode
+        line_left = "",
+        line_right = "",
+        line_down = "",
+        line_up = "",
+      },
+
+      options = {
+        -- Automatically reindent selection during linewise vertical move
+        reindent_linewise = false,
+      },
+    })
+
     -- TODO: check it out
     -- require("mini.align").setup({
     --   mappings = {
