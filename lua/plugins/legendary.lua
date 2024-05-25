@@ -521,7 +521,7 @@ return {
         -- { "Q", "<cmd>close<CR>", description = "Window: Close" },
 
         -- ╭──────────────────────────────────────────────────────────╮
-        -- │   Miscellaneous (leader M; real keybindings)             │
+        -- │   Miscellaneous (leader M with real keybindings)         │
         -- ╰──────────────────────────────────────────────────────────╯
         -- NOTE: `<leader>ma` and `<leader>mA` taken by `mini.align`
         -- NOTE: `<leader>ms` taken by `mini.operators`
@@ -553,14 +553,13 @@ return {
           description = "Trim All Trailing Whitespace",
         },
         -- ╭──────────────────────────────────────────────────────────╮
-        -- │   Miscellaneous (leader M; random keybindings)           │
+        -- │   Miscellaneous (leader M with random keybindings)       │
         -- ╰──────────────────────────────────────────────────────────╯
         -- persisted.nvim
         { "<leader>MXss", "<cmd>SessionSave<CR>", description = "Session: Save" },
         { "<leader>MXsr", "<cmd>SessionLoad<CR>", description = "Session: Load" },
         { "<leader>MXsR", "<cmd>SessionLoadLast<CR>", description = "Session: Load Recent Session" },
         { "<leader>MXsd", "<cmd>SessionDelete<CR>", description = "Session: Delete" },
-        -- { "<leader>MXse", "<cmd>GitConflictListQf<CR>", description = "Git Conflict: List" },
 
         --  ╭──────────────────────────────────────────────────────────╮
         --  │ leetcode                                                 │

@@ -8,7 +8,7 @@ return {
       render = "background",
 
       ---Highlight named colors, e.g. 'green'
-      enable_named_colors = true,
+      enable_named_colors = false,
 
       ---Highlight tailwind colors, e.g. 'bg-blue-500'
       enable_tailwind = true,
