@@ -77,13 +77,13 @@ return {
       },
     })
 
-    -- TODO: check it out
-    -- require("mini.align").setup({
-    --   mappings = {
-    --     start = "<leader>a",
-    --     start_with_preview = "<leader>A",
-    --   },
-    -- })
+    require("mini.align").setup({
+      mappings = {
+        start = "<leader>ma",
+        start_with_preview = "<leader>mA",
+      },
+    })
+
     require("mini.operators").setup({
       -- Exchange text regions
       exchange = {
