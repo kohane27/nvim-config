@@ -1,20 +1,36 @@
 return {
-  -- TODO: try below:
-  -- @statement.outer
-  -- @block.inner
-  -- @block.outer
   "nvimtools/hydra.nvim",
   event = "VeryLazy",
   config = function()
     local hydra = require("hydra")
 
-    local function map(mode, lhs, rhs)
-      local options = { noremap = true, silent = true }
-      if opts then
-        options = vim.tbl_extend("force", options)
-      end
-      vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-    end
+    --  ╭──────────────────────────────────────────────────────────╮
+    --  │ Functions start with g                                   │
+    --  ╰──────────────────────────────────────────────────────────╯
+    hydra({
+      name = "changelist",
+      mode = "n",
+      body = "g;",
+      config = {
+        invoke_on_body = true,
+        on_enter = function()
+          vim.api.nvim_command("normal! g;zz")
+        end,
+      },
+      heads = {
+        { "j", "g,zz" },
+        { "k", "g;zz" },
+        { "<Esc>", nil, { exit = true, nowait = true } },
+      },
+    })
+
+    -- local function map(mode, lhs, rhs)
+    --   local options = { noremap = true, silent = true }
+    --   if opts then
+    --     options = vim.tbl_extend("force", options)
+    --   end
+    --   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+    -- end
 
     -- SmoothScroll = hydra({
     --   name = "SmoothScroll",
@@ -34,7 +50,6 @@ return {
     --  ╭──────────────────────────────────────────────────────────╮
     --  │ Functions start with ;                                   │
     --  ╰──────────────────────────────────────────────────────────╯
-
     hydra({
       name = "TODO",
       mode = "n",
@@ -108,27 +123,9 @@ return {
       },
     })
 
-    hydra({
-      name = "changelist",
-      mode = "n",
-      body = "g;",
-      config = {
-        invoke_on_body = true,
-        on_enter = function()
-          vim.api.nvim_command("normal! g;zz")
-        end,
-      },
-      heads = {
-        { "j", "g,zz" },
-        { "k", "g;zz" },
-        { "<Esc>", nil, { exit = true, nowait = true } },
-      },
-    })
-
     --  ╭──────────────────────────────────────────────────────────╮
     --  │ Code Navigation starts with ,                            │
     --  ╰──────────────────────────────────────────────────────────╯
-
     hydra({
       name = "Function's Start",
       mode = "n",
@@ -150,33 +147,6 @@ return {
           "k",
           function()
             require("nvim-treesitter.textobjects.move").goto_previous_start("@function.outer")
-          end,
-        },
-        { "<Esc>", nil, { exit = true, nowait = true } },
-      },
-    })
-
-    hydra({
-      name = "Function's End",
-      mode = "n",
-      body = ",F",
-      config = {
-        invoke_on_body = true,
-        on_enter = function()
-          require("nvim-treesitter.textobjects.move").goto_next_end("@function.outer")
-        end,
-      },
-      heads = {
-        {
-          "j",
-          function()
-            require("nvim-treesitter.textobjects.move").goto_next_end("@function.outer")
-          end,
-        },
-        {
-          "k",
-          function()
-            require("nvim-treesitter.textobjects.move").goto_previous_end("@function.outer")
           end,
         },
         { "<Esc>", nil, { exit = true, nowait = true } },
@@ -211,35 +181,6 @@ return {
     })
 
     hydra({
-      name = "Class's End",
-      mode = "n",
-      body = ",C",
-      config = {
-        invoke_on_body = true,
-        on_enter = function()
-          require("nvim-treesitter.textobjects.move").goto_next_end("@class.outer")
-        end,
-      },
-      heads = {
-        {
-          "j",
-          function()
-            require("nvim-treesitter.textobjects.move").goto_next_end("@class.outer")
-          end,
-        },
-        {
-          "k",
-          function()
-            require("nvim-treesitter.textobjects.move").goto_previous_end("@class.outer")
-          end,
-        },
-        { "<Esc>", nil, { exit = true, nowait = true } },
-      },
-    })
-
-    -- TODO: try @statement.outer
-
-    hydra({
       name = "Block's Start",
       mode = "n",
       body = ",b",
@@ -260,33 +201,6 @@ return {
           "k",
           function()
             require("nvim-treesitter.textobjects.move").goto_previous_start("@block.outer")
-          end,
-        },
-        { "<Esc>", nil, { exit = true, nowait = true } },
-      },
-    })
-
-    hydra({
-      name = "Block's End",
-      mode = "n",
-      body = ",B",
-      config = {
-        invoke_on_body = true,
-        on_enter = function()
-          require("nvim-treesitter.textobjects.move").goto_next_end("@block.outer")
-        end,
-      },
-      heads = {
-        {
-          "j",
-          function()
-            require("nvim-treesitter.textobjects.move").goto_next_end("@block.outer")
-          end,
-        },
-        {
-          "k",
-          function()
-            require("nvim-treesitter.textobjects.move").goto_previous_end("@block.outer")
           end,
         },
         { "<Esc>", nil, { exit = true, nowait = true } },
