@@ -1,7 +1,4 @@
 return {
-  -- TODO: try below
-  -- https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-bracketed.md
-
   -- TODO: try below:
   -- @statement.outer
   -- @block.inner
@@ -19,18 +16,18 @@ return {
       vim.api.nvim_set_keymap(mode, lhs, rhs, options)
     end
 
-    SmoothScroll = hydra({
-      name = "SmoothScroll",
-      mode = { "n", "x" },
-      heads = {
-        { "d", '<cmd>lua Scroll("<C-f>", 1, 1)<CR>', { private = true } },
-        { "u", '<cmd>lua Scroll("<C-b>", 1, 1)<CR>', { private = true } },
-        { "<Esc>", nil, { exit = true, nowait = true } },
-      },
-    })
+    -- SmoothScroll = hydra({
+    --   name = "SmoothScroll",
+    --   mode = { "n", "x" },
+    --   heads = {
+    --     { "d", '<cmd>lua Scroll("<C-f>", 1, 1)<CR>', { private = true } },
+    --     { "u", '<cmd>lua Scroll("<C-b>", 1, 1)<CR>', { private = true } },
+    --     { "<Esc>", nil, { exit = true, nowait = true } },
+    --   },
+    -- })
 
-    map("n", "<C-d>", '<cmd>lua Scroll("<C-f>", 1, 1)<CR><cmd>lua require("hydra").activate(SmoothScroll)<CR>')
-    map("n", "<C-u>", '<cmd>lua Scroll("<C-b>", 1, 1)<CR><cmd>lua require("hydra").activate(SmoothScroll)<CR>')
+    -- map("n", "<C-d>", '<cmd>lua Scroll("<C-f>", 1, 1)<CR><cmd>lua require("hydra").activate(SmoothScroll)<CR>')
+    -- map("n", "<C-u>", '<cmd>lua Scroll("<C-b>", 1, 1)<CR><cmd>lua require("hydra").activate(SmoothScroll)<CR>')
     -- map("x", "<C-d>", '<cmd>lua Scroll("<C-f>", 1, 1)<CR><cmd>lua require("hydra").activate(SmoothScroll)<CR>')
     -- map("x", "<C-u>", '<cmd>lua Scroll("<C-b>", 1, 1)<CR><cmd>lua require("hydra").activate(SmoothScroll)<CR>')
 
