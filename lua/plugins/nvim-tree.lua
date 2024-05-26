@@ -4,10 +4,10 @@ return {
   enabled = not vim.g.started_by_firenvim,
   dependencies = {
     { "nvim-tree/nvim-web-devicons" },
-    { "b0o/nvim-tree-preview.lua" },
+    { "b0o/nvim-tree-preview.lua", enabled = not vim.g.started_by_firenvim },
   },
   config = function()
-    -- disable default netrw file explorer
+    -- disable default `netrw` file explorer
     vim.g.loaded = 1
     vim.g.loaded_netrwPlugin = 1
 
