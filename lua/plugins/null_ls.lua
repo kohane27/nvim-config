@@ -3,7 +3,7 @@ return {
   "nvimtools/none-ls.nvim",
   event = "VeryLazy",
   enabled = not vim.g.started_by_firenvim,
-  dependencies = { "WhoIsSethDaniel/mason-tool-installer.nvim" },
+  dependencies = { "WhoIsSethDaniel/mason-tool-installer.nvim", enabled = not vim.g.started_by_firenvim },
   config = function()
     local null_ls = require("null-ls")
 

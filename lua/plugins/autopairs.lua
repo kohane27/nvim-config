@@ -1,5 +1,4 @@
 return {
-  -- integrated with cmp and treesitter
   "windwp/nvim-autopairs",
   event = "InsertEnter",
   opts = {
