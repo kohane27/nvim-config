@@ -15,6 +15,7 @@ return {
           max_timestamps = 20,
         },
       },
+      -- stylua: ignore
       keymaps = {
         -- NOTE: the following are available:
         -- J!!, K!!, H, L, gh, r
@@ -30,7 +31,6 @@ return {
 
         { "-", "<cmd>Oil --float<CR>", description = "Oil" },
         { "X", "<cmd>ISwapWith<CR>", description = "Swap Two Adjacent Nodes" },
-        -- stylua: ignore
         { "gs", function() require("flash").treesitter() end, description = "Flash Treesitter", mode = { "n", "x", "o" } },
 
         -- <C-KEY>
@@ -38,16 +38,12 @@ return {
         { "<C-x>", require("dial.map").dec_normal(), description = "Decrement" },
         {
           "<C-f>",
-          function()
-            require("nvim-tree.api").tree.toggle({ find_file = true })
-          end,
+          function() require("nvim-tree.api").tree.toggle({ find_file = true }) end,
           description = "Tree: Toggle With Focused File",
         },
         {
           "<C-S-f>",
-          function()
-            require("nvim-tree.api").tree.toggle({ find_file = false })
-          end,
+          function() require("nvim-tree.api").tree.toggle({ find_file = false }) end,
           description = "Tree: Toggle Without Focused File",
         },
         { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
@@ -55,9 +51,7 @@ return {
 
         {
           "<C-g>",
-          function()
-            require("core.utils").find_files_from_project_git_root()
-          end,
+          function() require("core.utils").find_files_from_project_git_root() end,
           description = "Telescope: Find Files",
         },
 
@@ -86,25 +80,19 @@ return {
         -- ╰──────────────────────────────────────────────────────────╯
         {
           "<leader>fg",
-          function()
-            require("core.utils").live_grep_from_project_git_root()
-          end,
+          function() require("core.utils").live_grep_from_project_git_root() end,
           description = "Telescope: Find Text",
           mode = { "n", "x" },
         },
         {
           "<leader>ft",
-          function()
-            require("telescope.builtin").live_grep({ grep_open_files = true })
-          end,
+          function() require("telescope.builtin").live_grep({ grep_open_files = true }) end,
           description = "Telescope: Find Text in Opened Tabs",
         },
         {
           "<leader>fb",
           {
-            n = function()
-              require("telescope.builtin").current_buffer_fuzzy_find()
-            end,
+            n = function() require("telescope.builtin").current_buffer_fuzzy_find() end,
             v = function()
               local text = require("core.utils").get_visual_selection()
               require("telescope.builtin").current_buffer_fuzzy_find({ default_text = text })
@@ -140,13 +128,7 @@ return {
         },
         {
           "<leader>fS",
-          function()
-            require("spectre").open({
-              cwd = vim.fn.getcwd(),
-              is_insert_mode = false,
-              is_close = true,
-            })
-          end,
+          function() require("spectre").open({ cwd = vim.fn.getcwd(), is_insert_mode = false, is_close = true, }) end,
           description = "Spectre: Search in Project",
         },
 
@@ -168,23 +150,17 @@ return {
         { "gr", "<cmd>lua vim.lsp.buf.references()<CR>", description = "LSP: Reference List" },
         {
           "gR",
-          function()
-            require("trouble").toggle("lsp_references")
-          end,
+          function() require("trouble").toggle("lsp_references") end,
           description = "LSP: Reference List",
         },
         {
           "<leader>lw",
-          function()
-            require("trouble").toggle("workspace_diagnostics")
-          end,
+          function() require("trouble").toggle("workspace_diagnostics") end,
           description = "LSP: Workspace Diagnostics",
         },
         {
           "<leader>ld",
-          function()
-            require("trouble").toggle("document_diagnostics")
-          end,
+          function() require("trouble").toggle("document_diagnostics") end,
           description = "LSP: Document Diagnostics",
         },
 
@@ -221,9 +197,7 @@ return {
         -- ╰──────────────────────────────────────────────────────────╯
         {
           "<leader>xx",
-          function()
-            require("trouble").toggle()
-          end,
+          function() require("trouble").toggle() end,
           description = "Trouble: Toggle",
         },
         {
@@ -243,9 +217,7 @@ return {
         { "<leader>co", "<cmd>copen<CR>", description = "Quickfix List" },
         {
           "<leader>cd",
-          function()
-            vim.api.nvim_feedkeys(":cdo s/foo/bar/gc | update", "c", false)
-          end,
+          function() vim.api.nvim_feedkeys(":cdo s/foo/bar/gc | update", "c", false) end,
           description = "cdo: Execute Command on Quickfix Entries",
           -- filters = { filetype = "qf", "Trouble" },
         },
@@ -299,45 +271,24 @@ return {
         },
         {
           "<leader>dH",
-          function()
-            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen HEAD~3", true, true, true), "t", true)
-          end,
+          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen HEAD~3", true, true, true), "t", true) end,
           description = "Diffview: HEAD and n Prior Commits",
         },
         {
           "<leader>daa",
-          function()
-            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen d4a7b0d", true, true, true), "t", true)
-          end,
+          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen d4a7b0d", true, true, true), "t", true) end,
           description = "Diffview: Compares Changes Made by `d4a7b0d` with Current Working Directory",
         },
 
         {
           "<leader>dab",
-          function()
-            vim.api.nvim_feedkeys(
-              vim.api.nvim_replace_termcodes(":DiffviewOpen d4a7b0d^!<Left><Left>", true, true, true),
-              "t",
-              true
-            )
-          end,
+          function() vim.api.nvim_feedkeys( vim.api.nvim_replace_termcodes(":DiffviewOpen d4a7b0d^!<Left><Left>", true, true, true), "t", true) end,
           description = "Diffview: Changes Made in the Single `d4a7b0d`",
         },
 
         {
           "<leader>dac",
-          function()
-            vim.api.nvim_feedkeys(
-              vim.api.nvim_replace_termcodes(
-                ":DiffviewOpen d4a7b0d..519b30e <Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>",
-                true,
-                true,
-                true
-              ),
-              "t",
-              true
-            )
-          end,
+          function() vim.api.nvim_feedkeys( vim.api.nvim_replace_termcodes( ":DiffviewOpen d4a7b0d..519b30e <Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>", true, true, true), "t", true) end,
           description = "Diffview: Changes Between 2 Commits (from `d4a7b0d` up to `519b30e`, Inclusive).",
         },
 
@@ -389,16 +340,12 @@ return {
         -- ╰──────────────────────────────────────────────────────────╯
         {
           "<leader>so",
-          function()
-            require("scratch.scratch_file").createScratchFileByType("md")
-          end,
+          function() require("scratch.scratch_file").createScratchFileByType("md") end,
           description = "Scratch: New File",
         },
         {
           "<leader>ss",
-          function()
-            require("core.utils").toggle_scratchpad()
-          end,
+          function() require("core.utils").toggle_scratchpad() end,
           description = "Scratch: Toggle ScratchPad",
         },
         {
@@ -412,16 +359,12 @@ return {
         -- ╰──────────────────────────────────────────────────────────╯
         {
           "<leader>sp",
-          function()
-            require("core.utils").get_current_buffer_content()
-          end,
+          function() require("core.utils").get_current_buffer_content() end,
           description = "GPT: Get Current Buffer Content",
         },
         {
           "<leader>sP",
-          function()
-            require("core.utils").get_all_buffer_content()
-          end,
+          function() require("core.utils").get_all_buffer_content() end,
           description = "GPT: Get All Buffer Content",
         },
         -- {
@@ -473,9 +416,7 @@ return {
         { "<leader>af", "<cmd>ChatGPTActAs<CR>", description = "GPT: Choose an Agent" },
         {
           "<leader>ar",
-          function()
-            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":ChatGPTRun <Tab>", true, true, true), "t", true)
-          end,
+          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":ChatGPTRun <Tab>", true, true, true), "t", true) end,
           description = "GPT: Run Specific Actions",
           mode = { "n", "v" },
         },
@@ -501,13 +442,7 @@ return {
           mode = { "n", "i" },
           opts = { noremap = true, silent = true },
         },
-        {
-          "<C-w>o",
-          function()
-            require("mini.misc").zoom()
-          end,
-          description = "Zoom: Toggle",
-        },
+        { "<C-w>o", function() require("mini.misc").zoom() end, description = "Zoom: Toggle" },
 
         { "<leader>q", "<cmd>wqa<CR>", description = "Quit" },
         { "<leader>Q", "<cmd>q!<CR>", description = "Force Quit" },
@@ -705,51 +640,37 @@ return {
         -- ╰─────────────────────────────────────────────────────────╯
         {
           "<leader>MXgga",
-          function()
-            vim.api.nvim_feedkeys(":g/^$/d", "c", false)
-          end,
+          function() vim.api.nvim_feedkeys(":g/^$/d", "c", false) end,
           description = "g: Remove Empty Lines",
         },
         {
           "<leader>MXggb",
-          function()
-            vim.api.nvim_feedkeys(":g/^foo$/d", "c", false)
-          end,
+          function() vim.api.nvim_feedkeys(":g/^foo$/d", "c", false) end,
           description = "g: Delete Lines Only Contain foo",
         },
         {
           "<leader>MXggc",
-          function()
-            vim.api.nvim_feedkeys(":g!/^foo$/d", "c", false)
-          end,
+          function() vim.api.nvim_feedkeys(":g!/^foo$/d", "c", false) end,
           description = "g: Delete Lines NOT foo",
         },
         {
           "<leader>MXgge",
-          function()
-            vim.api.nvim_feedkeys(":g/foo/normal! A;", "c", false)
-          end,
+          function() vim.api.nvim_feedkeys(":g/foo/normal! A;", "c", false) end,
           description = "g: Run Normal Mode Containing foo",
         },
         {
           "<leader>MXggf",
-          function()
-            vim.api.nvim_feedkeys(":g/foo/normal! @a", "c", false)
-          end,
+          function() vim.api.nvim_feedkeys(":g/foo/normal! @a", "c", false) end,
           description = "g: Run Macro Containing foo",
         },
         {
           "<leader>MXggh",
-          function()
-            vim.api.nvim_feedkeys(":g/foo/t $", "c", false)
-          end,
+          function() vim.api.nvim_feedkeys(":g/foo/t $", "c", false) end,
           description = "g: t (copy) foo to End of File",
         },
         {
           "<leader>MXggi",
-          function()
-            vim.api.nvim_feedkeys(":g/foo/m $", "c", false)
-          end,
+          function() vim.api.nvim_feedkeys(":g/foo/m $", "c", false) end,
           description = "g: (m)ove foo to End of File",
         },
 
@@ -758,25 +679,19 @@ return {
         -- ╰─────────────────────────────────────────────────────────╯
         {
           "<leader>MXsel",
-          function()
-            vim.api.nvim_feedkeys(":s/$/foo", "c", false)
-          end,
+          function() vim.api.nvim_feedkeys(":s/$/foo", "c", false) end,
           description = "Visual Mode: Add `foo` to End Of Line",
           mode = { "v" },
         },
         {
           "<leader>MXsela",
-          function()
-            vim.api.nvim_feedkeys(":s/\\vfoo/&bar/gc", "c", false)
-          end,
+          function() vim.api.nvim_feedkeys(":s/\\vfoo/&bar/gc", "c", false) end,
           description = "Visual Mode: `foo` into `foobar`",
           mode = { "v" },
         },
         {
           "<leader>MXselb",
-          function()
-            vim.api.nvim_feedkeys(":s/\\v(foo)(.*)(bar)/\\3\\2\\1/gc", "c", false)
-          end,
+          function() vim.api.nvim_feedkeys(":s/\\v(foo)(.*)(bar)/\\3\\2\\1/gc", "c", false) end,
           description = "Visual Mode: swap `foo` with `bar`",
           mode = { "v" },
         },
@@ -791,25 +706,19 @@ return {
         },
         {
           "<leader>MXta",
-          function()
-            vim.api.nvim_feedkeys(":verbose map <C-i>", "c", false)
-          end,
+          function() vim.api.nvim_feedkeys(":verbose map <C-i>", "c", false) end,
           description = "Find Keybinding Conflict",
         },
         {
           "<leader>MXld",
-          function()
-            vim.api.nvim_feedkeys(":ldo s/foo/bar/gc | update", "c", false)
-          end,
+          function() vim.api.nvim_feedkeys(":ldo s/foo/bar/gc | update", "c", false) end,
           description = "ldo: Execute Command on Location List Entries",
           filters = { filetype = "qf", "Trouble" },
         },
 
         {
           "<leader>MXxp",
-          function()
-            require("core.utils").markdown_preview()
-          end,
+          function() require("core.utils").markdown_preview() end,
           description = "Preview Markdown",
         },
 
