@@ -21,19 +21,20 @@ return {
       leap.leap({ target_windows = { vim.api.nvim_get_current_win() } })
     end)
 
-    -- mark cursor location before jumping
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "LeapEnter",
-      callback = function()
-        vim.cmd("normal m'")
-      end,
-    })
-    -- center cursor after jumping
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "LeapLeave",
-      callback = function()
-        vim.cmd("normal zz")
-      end,
-    })
+    -- NOTE: a bit too disorienting to `zz` after jump every time
+    -- -- mark cursor location before jumping
+    -- vim.api.nvim_create_autocmd("User", {
+    --   pattern = "LeapEnter",
+    --   callback = function()
+    --     vim.cmd("normal m'")
+    --   end,
+    -- })
+    -- -- center cursor after jumping
+    -- vim.api.nvim_create_autocmd("User", {
+    --   pattern = "LeapLeave",
+    --   callback = function()
+    --     vim.cmd("normal zz")
+    --   end,
+    -- })
   end,
 }
