@@ -3,11 +3,6 @@
 -- local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = {'qf', 'help', 'man', 'lspinfo'},
-  callback = function() vim.api.nvim_buf_set_keymap(0, 'n', 'q', ':close<CR>', { noremap = true, silent = true, buffer = true }) end
-})
-
 vim.api.nvim_create_autocmd('BufWinEnter', { pattern = '*', command = 'set formatoptions-=cro' })
 
 -- quickfix buffers are not listed in the buffer list
