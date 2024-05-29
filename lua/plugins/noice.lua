@@ -59,8 +59,6 @@ return {
               { kind = "emsg", find = "E490" },
               { kind = "search_count" },
               { find = "Hop" },
-              -- `[Telescope-Frecency] removed 10 missing entries.`
-              { find = "%[Telescope%-Frecency%] removed %d+ missing entries%." },
               -- hop.nvim
               -- { find = "no remaining sequence starts with %w" },
             },
