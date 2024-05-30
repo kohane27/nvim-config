@@ -2,7 +2,7 @@ return {
   "smoka7/hop.nvim",
   event = "VeryLazy",
   opts = {
-    keys = "asdfghjklqwertyuiopzxcvbnm",
+    keys = "jklasdfghqwertyuiopzxcvbnm",
     create_hl_autocmd = false,
     dim_unmatched = false,
     teasing = false,
