@@ -2,7 +2,7 @@ return {
   "folke/flash.nvim",
   event = "VeryLazy",
   opts = {
-    labels = "asdfghjklqwertyuiopzxcvbnm",
+    labels = "jklasdfghqwertyuiopzxcvbnm",
     highlight = {
       -- show a backdrop
       backdrop = false,
@@ -22,7 +22,7 @@ return {
       char = { enabled = false },
       -- `require("flash").treesitter()`
       treesitter = {
-        labels = "abcdefghijklmnopqrstuvwxyz",
+        labels = "jklasdfghqwertyuiopzxcvbnm",
         label = { before = true, after = false, style = "inline" },
         highlight = {
           backdrop = false,
