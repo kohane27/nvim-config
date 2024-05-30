@@ -6,6 +6,7 @@ return {
     safe_labels = {}, -- disable auto-jumping to the first match; doesn't work on one unique target
     max_phase_one_targets = 0, -- first char won't show possible matches
     max_highlighted_traversal_targets = 10,
+    labels = "jklasdfghqwertyuiopzxcvbnm/JKLASDFGHQWERTYUIOPZXCVBNM?",
   },
 
   config = function(_, opts)
