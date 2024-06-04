@@ -115,6 +115,11 @@ return {
           return os.date("%H:%M:%S")
         end, {}),
       }),
+      s({ trig = ",now", wordTrig = true }, {
+        f(function()
+          return os.date("%Y-%m-%d-%H-%M-%S")
+        end, {}),
+      }),
     }, { type = "autosnippets" })
 
     --  ╭──────────────────────────────────────────────────────────╮
