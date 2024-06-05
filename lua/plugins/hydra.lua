@@ -18,8 +18,8 @@ return {
         end,
       },
       heads = {
-        { "j", "g,zz" },
-        { "k", "g;zz" },
+        { "j", "g," },
+        { "k", "g;" },
         { "<Esc>", nil, { exit = true, nowait = true } },
       },
     })
