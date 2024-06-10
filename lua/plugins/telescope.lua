@@ -18,7 +18,8 @@ return {
     -- better `live_grep`
     { "fdschmidt93/telescope-egrepify.nvim" },
     { "jvgrootveld/telescope-zoxide" },
-    { "nvim-telescope/telescope-frecency.nvim" },
+    -- remove annoying `notify`
+    { "kohane27/telescope-frecency.nvim" },
   },
   config = function()
     local actions = require("telescope.actions")
