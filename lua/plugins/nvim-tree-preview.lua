@@ -28,6 +28,12 @@ return {
     max_width = math.floor(vim.o.columns * 0.7),
     max_height = vim.o.lines - 3,
     -- col = require("nvim-tree.view").View.width + 1,
+    wrap = false,
+    border = "rounded",
+    zindex = 100,
+    show_title = true,
+    title_pos = "top-left",
+    title_format = " %s ",
   },
   config = function(_, opts)
     local preview = require("nvim-tree-preview")
