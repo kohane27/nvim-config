@@ -52,7 +52,7 @@ return {
     })
 
     --  ╭──────────────────────────────────────────────────────────╮
-    --  │ markdown simple snippets                                 │
+    --  │ markdown text nodes                                      │
     --  ╰──────────────────────────────────────────────────────────╯
     ls.add_snippets("markdown", {
       s({ trig = ",f", wordTrig = true }, { t("following ") }),
@@ -66,7 +66,7 @@ return {
     }, { type = "autosnippets" })
 
     --  ╭──────────────────────────────────────────────────────────╮
-    --  │ markdown multi-line snippets                             │
+    --  │ markdown multi-line                                      │
     --  ╰──────────────────────────────────────────────────────────╯
     ls.add_snippets("markdown", {
       s({ trig = "```", wordTrig = true }, {
@@ -102,7 +102,7 @@ return {
     }, { type = "autosnippets" })
 
     --  ╭──────────────────────────────────────────────────────────╮
-    --  │ markdown functions                                       │
+    --  │ markdown function nodes                                  │
     --  ╰──────────────────────────────────────────────────────────╯
     ls.add_snippets("markdown", {
       s({ trig = ",date", wordTrig = true }, {
@@ -118,6 +118,11 @@ return {
       s({ trig = ",now", wordTrig = true }, {
         f(function()
           return os.date("%Y-%m-%d-%H-%M-%S")
+        end, {}),
+      }),
+      s({ trig = ",random", wordTrig = true }, {
+        f(function()
+          return require("core.utils").generate_random_chars()
         end, {}),
       }),
     }, { type = "autosnippets" })
