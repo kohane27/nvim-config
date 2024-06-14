@@ -434,7 +434,7 @@ return {
         },
 
         -- ╭──────────────────────────────────────────────────────────╮
-        -- │   Miscellaneous Keymaps                                  │
+        -- │ Miscellaneous Keymaps                                    │
         -- ╰──────────────────────────────────────────────────────────╯
         {
           "<c-s>",
@@ -450,7 +450,7 @@ return {
         -- { "Q", "<cmd>close<CR>", description = "Window: Close" },
 
         -- ╭──────────────────────────────────────────────────────────╮
-        -- │   Miscellaneous (leader M with real keybindings)         │
+        -- │ Miscellaneous (leader m with real keybindings)           │
         -- ╰──────────────────────────────────────────────────────────╯
         -- NOTE: `<leader>ma` and `<leader>mA` taken by `mini.align`
         -- NOTE: `<leader>ms` taken by `mini.operators`
@@ -482,7 +482,7 @@ return {
           description = "Trim All Trailing Whitespace",
         },
         -- ╭──────────────────────────────────────────────────────────╮
-        -- │   Miscellaneous (leader M with random keybindings)       │
+        -- │ Miscellaneous (leader m with random keybindings)         │
         -- ╰──────────────────────────────────────────────────────────╯
         -- persisted.nvim
         { "<leader>MXss", "<cmd>SessionSave<CR>", description = "Session: Save" },
