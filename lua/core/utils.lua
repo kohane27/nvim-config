@@ -225,4 +225,14 @@ function M.toggle_scratchpad()
   end
 end
 
+function M.generate_random_chars()
+  local chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+  local char = {}
+  for i = 1, 50 do
+    local rand = math.random(#chars)
+    char[i] = chars:sub(rand, rand)
+  end
+  return table.concat(char)
+end
+
 return M
