@@ -2,7 +2,7 @@ return {
   "nvim-pack/nvim-spectre",
   event = "VeryLazy",
   opts = {
-    is_block_ui_break = true, -- mapping backspace and enter key to avoid ui break
+    is_block_ui_break = true, -- mapping backspace and enter key to avoid breaking the UI
     mapping = {
       ["send_to_qf"] = {
         map = "<C-c>",
