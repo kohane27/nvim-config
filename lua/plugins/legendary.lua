@@ -123,13 +123,8 @@ return {
 
         {
           "<leader>fs",
-          '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>',
-          description = "Spectre: Search in File",
-        },
-        {
-          "<leader>fS",
-          function() require("spectre").open({ cwd = vim.fn.getcwd(), is_insert_mode = false, is_close = true, }) end,
-          description = "Spectre: Search in Project",
+          function() require('spectre').open({ search_text="\\w+ello\\b", replace_text="world", path="**"  }) end,
+          description = "Spectre: Search in Files",
         },
 
         -- ╭──────────────────────────────────────────────────────────╮
