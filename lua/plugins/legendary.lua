@@ -20,27 +20,27 @@ return {
         -- <leader> h, i, k, p, u, v, w, y, z
 
         -- <leader>g
-        { "<leader>gu", "<cmd>UndotreeToggle<CR>", description = "Undotree: Toggle" },
-        { "<leader>e", "<cmd>lua require('yazi').yazi()<CR>", description = "Yazi" },
+        { "<leader>gu", "<cmd>UndotreeToggle<CR>",                                               description = "Undotree: Toggle" },
+        { "<leader>e", "<cmd>lua require('yazi').yazi()<CR>",                                    description = "Yazi" },
 
-        { "-", "<cmd>Oil --float<CR>", description = "Oil" },
-        { "X", "<cmd>ISwapWith<CR>", description = "Swap Two Adjacent Nodes" },
-        { "gs", function() require("flash").treesitter() end, description = "Flash Treesitter", mode = { "n", "x", "o" } },
+        { "-", "<cmd>Oil --float<CR>",                                                           description = "Oil" },
+        { "X", "<cmd>ISwapWith<CR>",                                                             description = "Swap Two Adjacent Nodes" },
+        { "gs", function() require("flash").treesitter() end,                                    description = "Flash Treesitter", mode = { "n", "x", "o" } },
 
         -- <C-KEY>
-        { "<C-a>", require("dial.map").inc_normal(), description = "Increment" },
-        { "<C-x>", require("dial.map").dec_normal(), description = "Decrement" },
-        { "<C-f>", function() require("nvim-tree.api").tree.toggle({ find_file = true }) end, description = "Tree: Toggle With Focused File" },
+        { "<C-a>", require("dial.map").inc_normal(),                                             description = "Increment" },
+        { "<C-x>", require("dial.map").dec_normal(),                                             description = "Decrement" },
+        { "<C-f>", function() require("nvim-tree.api").tree.toggle({ find_file = true }) end,    description = "Tree: Toggle With Focused File" },
         { "<C-S-f>", function() require("nvim-tree.api").tree.toggle({ find_file = false }) end, description = "Tree: Toggle Without Focused File" },
-        { "<C-q>", "<cmd>LazyGit<CR>", description = "Lazygit" },
-        { "<C-t>", "<cmd>ToggleTerm<CR>", description = "New terminal" },
-        { "<C-g>", function() require("core.utils").find_files_from_project_git_root() end, description = "Telescope: Find Files" },
+        { "<C-q>", "<cmd>LazyGit<CR>",                                                           description = "Lazygit" },
+        { "<C-t>", "<cmd>ToggleTerm<CR>",                                                        description = "New terminal" },
+        { "<C-g>", function() require("core.utils").find_files_from_project_git_root() end,      description = "Telescope: Find Files" },
 
-        -- { "<C-p>", "<cmd>Legendary<CR>", description = "Legendary Command Palette", mode = { "n", "x" } },
-        { "<C-p>", function() require("core.utils").legendary_command_palette() end, description = "Legendary Command Palette", mode = { "n", "x" } },
+        -- { "<C-p>", "<cmd>Legendary<CR>",                                                      description = "Legendary Command Palette", mode = { "n", "x" } },
+        { "<C-p>", function() require("core.utils").legendary_command_palette() end,             description = "Legendary Command Palette", mode = { "n", "x" } },
 
-        -- { "<C-f>", '<C-R>"', description = "Paste Last Yanked / Deleted", mode = { "i" } },
-        { "<C-v>", "<C-R>*", description = "Paste Clipboard Content", mode = { "i", "x" } },
+        -- { "<C-f>", '<C-R>"',                                                                  description = "Paste Last Yanked / Deleted", mode = { "i" } },
+        { "<C-v>", "<C-R>*",                                                                     description = "Paste Clipboard Content", mode = { "i", "x" } },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Telescope                                                │
@@ -70,52 +70,55 @@ return {
         { "<leader>fs", function() require('spectre').open({ search_text="\\w+ello\\b", replace_text="world", path="**"  }) end, description = "Spectre: Search in Files" },
 
         -- not frequent below
-        { "<leader>fp", "<cmd>Telescope neoclip<CR>", description = "Telescope: Clipboard" },
-        { "<leader>fu", "<cmd>Telescope undo<CR>", description = "Telescope: Undo" },
-        { "<leader>fB", "<cmd>Telescope scope buffers<CR>", description = "Telescope: Tabs" },
-        { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>", description = "Telescope: Find Files in Current Directory" },
-        { "<leader>fd", "<cmd>Telescope frecency workspace=CWD<CR>", description = "Telescope: Find Frecency" },
+        { "<leader>fp", "<cmd>Telescope neoclip<CR>",                                 description = "Telescope: Clipboard" },
+        { "<leader>fu", "<cmd>Telescope undo<CR>",                                    description = "Telescope: Undo" },
+        { "<leader>fB", "<cmd>Telescope scope buffers<CR>",                           description = "Telescope: Tabs" },
+        { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>",     description = "Telescope: Find Files in Current Directory" },
+        { "<leader>fd", "<cmd>Telescope frecency workspace=CWD<CR>",                  description = "Telescope: Find Frecency" },
         { "<leader>fz", '<cmd>lua require("telescope").extensions.zoxide.list()<CR>', description = "Telescope: Zoxide" },
-        { "<leader>fr", "<cmd>Telescope resume<CR>", description = "Telescope: Resume" },
-        { "<leader>fj", "<cmd>Telescope jumplist<CR>", description = "Telescope: Jumplist" },
+        { "<leader>fr", "<cmd>Telescope resume<CR>",                                  description = "Telescope: Resume" },
+        { "<leader>fj", "<cmd>Telescope jumplist<CR>",                                description = "Telescope: Jumplist" },
 
-        { "<leader>fXc", "<cmd>Telescope command_history<CR>", description = "Telescope: Command History" },
-        { "<leader>fXs", "<cmd>Telescope search_history<CR>", description = "Telescope: Search History" },
+        { "<leader>fXc", "<cmd>Telescope command_history<CR>",                        description = "Telescope: Command History" },
+        { "<leader>fXs", "<cmd>Telescope search_history<CR>",                         description = "Telescope: Search History" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ LSP                                                      │
         -- ╰──────────────────────────────────────────────────────────╯
         -- it'll show with code action
-        { "gl", "<cmd>Lspsaga diagnostic_jump_next<CR>", description = "LSP: Line Diagnostics" },
-        -- { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", description = "LSP: Line Diagnostics" },
-        { "gL", "<cmd>Lspsaga show_buf_diagnostics<CR>", description = "LSP: Buffer Diagnostics" },
-        { "gh", "<cmd>Lspsaga hover_doc ++quiet<CR>", description = "LSP: Hover Doc (quiet)" },
-        { "gH", "<cmd>Lspsaga hover_doc ++keep<CR>", description = "LSP: Hover Doc (keep)" },
+        { "gl", "<cmd>Lspsaga diagnostic_jump_next<CR>",                                   description = "LSP: Line Diagnostics" },
+        -- { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>",                               description = "LSP: Line Diagnostics" },
+        { "gL", "<cmd>Lspsaga show_buf_diagnostics<CR>",                                   description = "LSP: Buffer Diagnostics" },
+        { "gh", "<cmd>Lspsaga hover_doc ++quiet<CR>",                                      description = "LSP: Hover Doc (quiet)" },
+        { "gH", "<cmd>Lspsaga hover_doc ++keep<CR>",                                       description = "LSP: Hover Doc (keep)" },
 
-        { "gd", "<cmd>Lspsaga goto_definition<CR>", description = "LSP: Go to Definition" },
-        { "gD", "<cmd>Lspsaga peek_definition<CR>", description = "LSP: Preview Definition" },
+        { "gd", "<cmd>Lspsaga goto_definition<CR>",                                        description = "LSP: Go to Definition" },
+        { "gD", "<cmd>Lspsaga peek_definition<CR>",                                        description = "LSP: Preview Definition" },
 
-        { "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", description = "LSP: Go to Type Definition" },
+        { "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>",                              description = "LSP: Go to Type Definition" },
 
-        { "gr", "<cmd>lua vim.lsp.buf.references()<CR>", description = "LSP: Reference List" },
-        { "gR", function() require("trouble").toggle("lsp_references") end, description = "LSP: Reference List" },
+        { "gr", "<cmd>lua vim.lsp.buf.references()<CR>",                                   description = "LSP: Reference List" },
+        { "gR", function() require("trouble").toggle("lsp_references") end,                description = "LSP: Reference List" },
         { "<leader>lw", function() require("trouble").toggle("workspace_diagnostics") end, description = "LSP: Workspace Diagnostics" },
-        { "<leader>ld", function() require("trouble").toggle("document_diagnostics") end, description = "LSP: Document Diagnostics" },
+        { "<leader>ld", function() require("trouble").toggle("document_diagnostics") end,  description = "LSP: Document Diagnostics" },
 
         -- order of importance
-        { "<leader>la", "lua require('wtf').ai()", description = "WTF: Debug diagnostic" },
-        { "<leader>lc", "<cmd>Lspsaga code_action<CR>", description = "LSP: Code Action" },
-        { "<leader>lf", "<cmd>Lspsaga finder<CR>", description = "LSP: Finder: Symbol, Definition and Implementation" },
+        { "<leader>la", "lua require('wtf').ai()",                                         description = "WTF: Debug diagnostic" },
+        { "<leader>lc", "<cmd>Lspsaga code_action<CR>",                                    description = "LSP: Code Action" },
+        { "<leader>lf", "<cmd>Lspsaga finder<CR>",                                         description = "LSP: Finder: Symbol, Definition and Implementation" },
         -- After the LSP rename is done, and if the name still exists somewhere within the project, project_replace window would pop out
-        { "<leader>lr", "<cmd>Lspsaga lsp_rename ++project<CR>", description = "LSP: Rename" },
-        { "<leader>lp", "<cmd>TSToolsRenameFile<CR>", description = "LSP: Rename Current File", filters = { filetype = "javascriptreact", "typescriptreact" } },
-        { "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", description = "LSP: Signature Help" },
-        -- { "<leader>ln", "<cmd>Navbuddy<CR>", description = "LSP: Navbuddy" },
-        { "<leader>lo", "<cmd>Lspsaga outline<CR>", description = "LSP: Symbols Outline" },
+        { "<leader>lr", "<cmd>Lspsaga lsp_rename ++project<CR>",                           description = "LSP: Rename" },
+        {
+          "<leader>lp", "<cmd>TSToolsRenameFile<CR>", description = "LSP: Rename Current File",
+          filters = { filetype = "javascriptreact", "typescriptreact" },
+        },
+        { "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>",                       description = "LSP: Signature Help" },
+        -- { "<leader>ln", "<cmd>Navbuddy<CR>",                                            description = "LSP: Navbuddy" },
+        { "<leader>lo", "<cmd>Lspsaga outline<CR>",                                        description = "LSP: Symbols Outline" },
 
-        { "<leader>lXc", "<cmd>lua vim.lsp.codelens.run()<CR>", description = "LSP: Code Lens" },
-        { "<leader>lXd", "<cmd>lua vim.lsp.buf.declaration<CR>", description = "LSP: Declaration" },
-        { "<leader>lXf", "<cmd>lua vim.lsp.buf.format()<CR>", description = "LSP: Formatting" },
+        { "<leader>lXc", "<cmd>lua vim.lsp.codelens.run()<CR>",                            description = "LSP: Code Lens" },
+        { "<leader>lXd", "<cmd>lua vim.lsp.buf.declaration<CR>",                           description = "LSP: Declaration" },
+        { "<leader>lXf", "<cmd>lua vim.lsp.buf.format()<CR>",                              description = "LSP: Formatting" },
 
         -- lesser used
         -- implementation (rarely) using `Lspsaga lsp_finder`
@@ -142,45 +145,45 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ bufferline                                               │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<C-h>", "<cmd>BufferLineCyclePrev<CR>", description = "Buffer: Move to Previous" },
-        { "<C-l>", "<cmd>BufferLineCycleNext<CR>", description = "Buffer: Move to Next" },
-        { "<A-,>", "<cmd>BufferLineMovePrev<CR>", description = "Buffer: Re-order to Previous" },
-        { "<A-.>", "<cmd>BufferLineMoveNext<CR>", description = "Buffer: Re-order to Next" },
-        { "g1", "<cmd>BufferLineGoToBuffer 1<CR>", description = "Buffer: Go to 1" },
-        { "g2", "<cmd>BufferLineGoToBuffer 2<CR>", description = "Buffer: Go to 2" },
-        { "g3", "<cmd>BufferLineGoToBuffer 3<CR>", description = "Buffer: Go to 3" },
-        { "g4", "<cmd>BufferLineGoToBuffer 4<CR>", description = "Buffer: Go to 4" },
-        { "g5", "<cmd>BufferLineGoToBuffer 5<CR>", description = "Buffer: Go to 5" },
-        { "g6", "<cmd>BufferLineGoToBuffer 6<CR>", description = "Buffer: Go to 6" },
-        { "g7", "<cmd>BufferLineGoToBuffer 7<CR>", description = "Buffer: Go to 7" },
-        { "g8", "<cmd>BufferLineGoToBuffer 8<CR>", description = "Buffer: Go to 8" },
-        { "g9", "<cmd>BufferLineGoToBuffer 9<CR>", description = "Buffer: Go to 9" },
+        { "<C-h>", "<cmd>BufferLineCyclePrev<CR>",  description = "Buffer: Move to Previous" },
+        { "<C-l>", "<cmd>BufferLineCycleNext<CR>",  description = "Buffer: Move to Next" },
+        { "<A-,>", "<cmd>BufferLineMovePrev<CR>",   description = "Buffer: Re-order to Previous" },
+        { "<A-.>", "<cmd>BufferLineMoveNext<CR>",   description = "Buffer: Re-order to Next" },
+        { "g1", "<cmd>BufferLineGoToBuffer 1<CR>",  description = "Buffer: Go to 1" },
+        { "g2", "<cmd>BufferLineGoToBuffer 2<CR>",  description = "Buffer: Go to 2" },
+        { "g3", "<cmd>BufferLineGoToBuffer 3<CR>",  description = "Buffer: Go to 3" },
+        { "g4", "<cmd>BufferLineGoToBuffer 4<CR>",  description = "Buffer: Go to 4" },
+        { "g5", "<cmd>BufferLineGoToBuffer 5<CR>",  description = "Buffer: Go to 5" },
+        { "g6", "<cmd>BufferLineGoToBuffer 6<CR>",  description = "Buffer: Go to 6" },
+        { "g7", "<cmd>BufferLineGoToBuffer 7<CR>",  description = "Buffer: Go to 7" },
+        { "g8", "<cmd>BufferLineGoToBuffer 8<CR>",  description = "Buffer: Go to 8" },
+        { "g9", "<cmd>BufferLineGoToBuffer 9<CR>",  description = "Buffer: Go to 9" },
         { "g0", "<cmd>BufferLineGoToBuffer -1<CR>", description = "Buffer: Go to 10" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Tab (for scope.nvim)                                     │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<leader>th", "<cmd>tabprev<CR>", description = "Tab: Previous" },
-        { "<leader>tl", "<cmd>tabnext<CR>", description = "Tab: Next" },
-        { "<leader>tn", "<cmd>tabnew<CR>", description = "Tab: New" },
+        { "<leader>th", "<cmd>tabprev<CR>",  description = "Tab: Previous" },
+        { "<leader>tl", "<cmd>tabnext<CR>",  description = "Tab: Next" },
+        { "<leader>tn", "<cmd>tabnew<CR>",   description = "Tab: New" },
         { "<leader>tc", "<cmd>tabclose<CR>", description = "Tab: Close" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ tmux.lua                                                 │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<A-h>", toolbox.lazy_required_fn("tmux", "move_left"), description = "Move Focus to Left" },
-        { "<A-l>", toolbox.lazy_required_fn("tmux", "move_right"), description = "Move Focus to Right" },
-        { "<A-k>", toolbox.lazy_required_fn("tmux", "move_top"), description = "Move Focus to Top" },
-        { "<A-j>", toolbox.lazy_required_fn("tmux", "move_bottom"), description = "Move Focus to Bottom" },
-        { "<C-S-h>", toolbox.lazy_required_fn("tmux", "resize_left"), description = "Resize Left" },
-        { "<C-S-l>", toolbox.lazy_required_fn("tmux", "resize_right"), description = "Resize Right" },
-        { "<C-S-k>", toolbox.lazy_required_fn("tmux", "resize_top"), description = "Resize Top" },
+        { "<A-h>", toolbox.lazy_required_fn("tmux", "move_left"),       description = "Move Focus to Left" },
+        { "<A-l>", toolbox.lazy_required_fn("tmux", "move_right"),      description = "Move Focus to Right" },
+        { "<A-k>", toolbox.lazy_required_fn("tmux", "move_top"),        description = "Move Focus to Top" },
+        { "<A-j>", toolbox.lazy_required_fn("tmux", "move_bottom"),     description = "Move Focus to Bottom" },
+        { "<C-S-h>", toolbox.lazy_required_fn("tmux", "resize_left"),   description = "Resize Left" },
+        { "<C-S-l>", toolbox.lazy_required_fn("tmux", "resize_right"),  description = "Resize Right" },
+        { "<C-S-k>", toolbox.lazy_required_fn("tmux", "resize_top"),    description = "Resize Top" },
         { "<C-S-j>", toolbox.lazy_required_fn("tmux", "resize_bottom"), description = "Resize Bottom" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Diffview.nvim                                            │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<leader>do", "<cmd>DiffviewOpen<CR>", description = "Diffview: Open" },
+        { "<leader>do", "<cmd>DiffviewOpen<CR>",        description = "Diffview: Open" },
         { "<leader>dh", "<cmd>DiffviewOpen HEAD^!<CR>", description = "Diffview: Current Commit and Prior Commit" },
         {
           "<leader>dH",
@@ -205,9 +208,9 @@ return {
           description = "Diffview: Changes Between 2 Commits (from `d4a7b0d` up to `519b30e` (inclusive)).",
         },
 
-        { "<leader>db", "<cmd>DiffviewFileHistory<CR>", description = "Diffview: File History of Current Branch" },
-        { "<leader>df", "<cmd>DiffviewFileHistory %<CR>", description = "Diffview: File History of Current File" },
-        { "<leader>dr", "<cmd>'<,'>DiffviewFileHistory<CR>", description = "Diffview: Line History of Range of Current File", mode = "v" },
+        { "<leader>db", "<cmd>DiffviewFileHistory<CR>",                 description = "Diffview: File History of Current Branch" },
+        { "<leader>df", "<cmd>DiffviewFileHistory %<CR>",               description = "Diffview: File History of Current File" },
+        { "<leader>dr", "<cmd>'<,'>DiffviewFileHistory<CR>",            description = "Diffview: Line History of Range of Current File", mode = "v" },
         { "<leader>dXl", "<cmd>Gitsigns toggle_current_line_blame<CR>", description = "Diffview: Toggle Current Line Blame" },
 
         -- { "<leader>dg", "<cmd>Gitsigns preview_hunk<CR>", description = "Diffview: Preview Hunk" },
@@ -217,16 +220,16 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Run Code                                                 │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<leader>rf", "<cmd>RunCode<CR>", description = "Run File" },
-        { "<leader>rs", "<cmd>SnipRun<CR>", description = "Run Snip" },
+        { "<leader>rf", "<cmd>RunCode<CR>",   description = "Run File" },
+        { "<leader>rs", "<cmd>SnipRun<CR>",   description = "Run Snip" },
         { "<leader>rc", "<cmd>SnipClose<CR>", description = "Close Snip" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ scratcn.nvim                                             │
         -- ╰──────────────────────────────────────────────────────────╯
         { "<leader>so", function() require("scratch.scratch_file").createScratchFileByType("md") end, description = "Scratch: New File" },
-        { "<leader>ss", function() require("core.utils").toggle_scratchpad() end, description = "Scratch: Toggle ScratchPad" },
-        { "<leader>sf", "<cmd>ScratchOpenFzf<CR>", description = "Scratch: Find File Contents" },
+        { "<leader>ss", function() require("core.utils").toggle_scratchpad() end,                     description = "Scratch: Toggle ScratchPad" },
+        { "<leader>sf", "<cmd>ScratchOpenFzf<CR>",                                                    description = "Scratch: Find File Contents" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ gp.nvim                                                  │
@@ -266,101 +269,101 @@ return {
         -- ╰──────────────────────────────────────────────────────────╯
         { "<c-s>", "<cmd>w<CR>", mode = { "n", "i" }, opts = { noremap = true, silent = true } },
         { "<C-w>o", function() require("mini.misc").zoom() end, description = "Zoom: Toggle" },
-        { "<leader>q", "<cmd>wqa<CR>", description = "Quit" },
-        { "<leader>Q", "<cmd>q!<CR>", description = "Force Quit" },
-        { "qq", "<cmd>Bdelete<CR>", description = "Buffer: Close" },
-        -- { "Q", "<cmd>close<CR>", description = "Window: Close" },
+        { "<leader>q", "<cmd>wqa<CR>",                          description = "Quit" },
+        { "<leader>Q", "<cmd>q!<CR>",                           description = "Force Quit" },
+        { "qq", "<cmd>Bdelete<CR>",                             description = "Buffer: Close" },
+        -- { "Q", "<cmd>close<CR>",                             description = "Window: Close" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Miscellaneous (leader m with real keybindings)           │
         -- ╰──────────────────────────────────────────────────────────╯
         -- NOTE: `<leader>ma` and `<leader>mA` taken by `mini.align`
         -- NOTE: `<leader>ms` taken by `mini.operators`
-        { "<leader>mc", "<cmd>BufferLineCloseOthers<CR>", description = "Buffer: Close All But Current" },
-        { "<leader>mb", "<cmd>lua require('comment-box').llbox()<CR><Esc>", description = "Comment Box: Left-aligned", mode = { "v" } },
-        { "<leader>mn", "<cmd>Noice dismiss<Esc>", description = "Noice: Dismiss" },
-        { "<leader>mt", "<cmd>lua MiniTrailspace.trim()<CR>", description = "Trim All Trailing Whitespace" },
+        { "<leader>mc", "<cmd>BufferLineCloseOthers<CR>",                                  description = "Buffer: Close All But Current" },
+        { "<leader>mb", "<cmd>lua require('comment-box').llbox()<CR><Esc>",                description = "Comment Box: Left-aligned", mode = { "v" } },
+        { "<leader>mn", "<cmd>Noice dismiss<Esc>",                                         description = "Noice: Dismiss" },
+        { "<leader>mt", "<cmd>lua MiniTrailspace.trim()<CR>",                              description = "Trim All Trailing Whitespace" },
         { "<leader>mp", function() require("core.utils").get_current_buffer_content() end, description = "GPT: Get Current Buffer Content" },
-        { "<leader>mP", function() require("core.utils").get_all_buffer_content() end, description = "GPT: Get All Buffer Content" },
-        { "<leader>md", function() require("core.utils").markdown_preview() end, description = "Preview Markdown" },
+        { "<leader>mP", function() require("core.utils").get_all_buffer_content() end,     description = "GPT: Get All Buffer Content" },
+        { "<leader>md", function() require("core.utils").markdown_preview() end,           description = "Preview Markdown" },
 
         -- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
-        { "<leader>mr", "<cmd>write | edit | TSBufEnable highlight<CR>", description = "Treesitter: Reload" },
+        { "<leader>mr", "<cmd>write | edit | TSBufEnable highlight<CR>",                   description = "Treesitter: Reload" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Miscellaneous (leader m with random keybindings)         │
         -- ╰──────────────────────────────────────────────────────────╯
         -- general
-        { "<leader>MXgea", "<cmd>ScopeMoveBuf<CR>", description = "Scope: Move Current Buffer to Specified Tab" },
+        { "<leader>MXgea", "<cmd>ScopeMoveBuf<CR>",                                                description = "Scope: Move Current Buffer to Specified Tab" },
         { "<leader>MXgeb", function() vim.api.nvim_feedkeys(":verbose map <C-i>", "c", false) end, description = "Find Keybinding Conflict" },
-        { "<leader>MXgec", "<cmd>ScrollViewToggle<CR>", description = "ScrollViewToggle: Enable" },
-        { "<leader>MXged", "<cmd>TSContextToggle<CR>", description = "TSContextToggle: Toggle" },
-        { "<leader>MXgee", "<cmd>Telescope notify<Esc>", description = "Notify: Search History" },
+        { "<leader>MXgec", "<cmd>ScrollViewToggle<CR>",                                            description = "ScrollViewToggle: Enable" },
+        { "<leader>MXged", "<cmd>TSContextToggle<CR>",                                             description = "TSContextToggle: Toggle" },
+        { "<leader>MXgee", "<cmd>Telescope notify<Esc>",                                           description = "Notify: Search History" },
 
         -- Lazy
-        { "<leader>MXlaa", "<cmd>Lazy sync<CR>", description = "Lazy: Update" },
+        { "<leader>MXlaa", "<cmd>Lazy sync<CR>",  description = "Lazy: Update" },
         { "<leader>MXlab", "<cmd>Lazy clean<CR>", description = "Lazy: Clean" },
 
         -- LSP info
-        { "<leader>MXlsc", "<cmd>LspInfo<CR>", description = "LSP: Info" },
-        { "<leader>MXlsd", "<cmd>Mason<CR>", description = "Mason: Info" },
+        { "<leader>MXlsc", "<cmd>LspInfo<CR>",          description = "LSP: Info" },
+        { "<leader>MXlsd", "<cmd>Mason<CR>",            description = "Mason: Info" },
         { "<leader>MXlse", "<cmd>MasonToolsUpdate<CR>", description = "Mason: Tool Update" },
 
         -- persisted.nvim
-        { "<leader>MXpea", "<cmd>SessionSave<CR>", description = "Session: Save" },
-        { "<leader>MXpeb", "<cmd>SessionLoad<CR>", description = "Session: Load" },
+        { "<leader>MXpea", "<cmd>SessionSave<CR>",     description = "Session: Save" },
+        { "<leader>MXpeb", "<cmd>SessionLoad<CR>",     description = "Session: Load" },
         { "<leader>MXpec", "<cmd>SessionLoadLast<CR>", description = "Session: Load Recent Session" },
-        { "<leader>MXped", "<cmd>SessionDelete<CR>", description = "Session: Delete" },
+        { "<leader>MXped", "<cmd>SessionDelete<CR>",   description = "Session: Delete" },
 
         -- global commands
-        { "<leader>MXgla", function() vim.api.nvim_feedkeys(":g/^$/d", "c", false) end, description = "g: Remove Empty Lines", },
-        { "<leader>MXglb", function() vim.api.nvim_feedkeys(":g/^foo$/d", "c", false) end, description = "g: Delete Lines Only Contain foo", },
-        { "<leader>MXglc", function() vim.api.nvim_feedkeys(":g!/^foo$/d", "c", false) end, description = "g: Delete Lines NOT foo", },
+        { "<leader>MXgla", function() vim.api.nvim_feedkeys(":g/^$/d", "c", false) end,           description = "g: Remove Empty Lines", },
+        { "<leader>MXglb", function() vim.api.nvim_feedkeys(":g/^foo$/d", "c", false) end,        description = "g: Delete Lines Only Contain foo", },
+        { "<leader>MXglc", function() vim.api.nvim_feedkeys(":g!/^foo$/d", "c", false) end,       description = "g: Delete Lines NOT foo", },
         { "<leader>MXgld", function() vim.api.nvim_feedkeys(":g/foo/normal! A;", "c", false) end, description = "g: Run Normal Mode Containing foo", },
         { "<leader>MXgle", function() vim.api.nvim_feedkeys(":g/foo/normal! @a", "c", false) end, description = "g: Run Macro Containing foo", },
-        { "<leader>MXglf", function() vim.api.nvim_feedkeys(":g/foo/t $", "c", false) end, description = "g: t (copy) foo to End of File", },
-        { "<leader>MXglg", function() vim.api.nvim_feedkeys(":g/foo/m $", "c", false) end, description = "g: (m)ove foo to End of File", },
+        { "<leader>MXglf", function() vim.api.nvim_feedkeys(":g/foo/t $", "c", false) end,        description = "g: t (copy) foo to End of File", },
+        { "<leader>MXglg", function() vim.api.nvim_feedkeys(":g/foo/m $", "c", false) end,        description = "g: (m)ove foo to End of File", },
 
         -- substitute
-        { "<leader>MXsub", "<cmd>%s/\t/  /g<CR>", description = "Convert Tabs to Spaces", },
+        { "<leader>MXsub", "<cmd>%s/\t/  /g<CR>",     description = "Convert Tabs to Spaces", },
         { "<leader>MXsuc", "<cmd>'<,'>s/ .*//gc<CR>", description = "Delete Everything After a Space", mode = { "x" }},
-        { "<leader>MXsud", "<cmd>%s/\\s\\+$//e<CR>", description = "Remove All Whitespace"},
-        { "<leader>MXsue", "<cmd>%s/[’‘]/'/g<CR>", description = "Replace All Single Curly Quotes"},
-        { "<leader>MXsuf", '<cmd>%s/[“”]/"/g<CR>', description = "Replace All Double Curly Quotes"},
-        { "<leader>MXsug", '<cmd>%s/0 " "//g<CR>', description = "hledger: Remove Zero Quote Quote", filters = { filetype = "ledger" }},
+        { "<leader>MXsud", "<cmd>%s/\\s\\+$//e<CR>",  description = "Remove All Whitespace"},
+        { "<leader>MXsue", "<cmd>%s/[’‘]/'/g<CR>",    description = "Replace All Single Curly Quotes"},
+        { "<leader>MXsuf", '<cmd>%s/[“”]/"/g<CR>',    description = "Replace All Double Curly Quotes"},
+        { "<leader>MXsug", '<cmd>%s/0 " "//g<CR>',    description = "hledger: Remove Zero Quote Quote", filters = { filetype = "ledger" }},
         { "<leader>MXsua", function() vim.api.nvim_feedkeys(":sno/foo/bar/gc", "c", false) end, description = "Substitute: (No Magic Mode) substitute `foo` with `bar`", },
         { "<leader>MXsui", function() vim.api.nvim_feedkeys(":s/\\vfoo/&bar/gc", "c", false) end, description = "Visual Mode: `foo` into `foobar`", mode = { "v" } },
         { "<leader>MXsuj", function() vim.api.nvim_feedkeys(":s/\\v(foo)(.*)(bar)/\\3\\2\\1/gc", "c", false) end, description = "Visual Mode: swap `foo` with `bar`", mode = { "v" } },
 
         -- leetcode
-        { "<leader>MXlem", "<cmd>Leet Menu<CR>", description = "LeetCode: Opens Menu Dashboard" },
+        { "<leader>MXlem", "<cmd>Leet Menu<CR>",    description = "LeetCode: Opens Menu Dashboard" },
         { "<leader>MXlec", "<cmd>Leet console<CR>", description = "LeetCode: Opens Console For Currently Opened Question" },
-        { "<leader>MXleq", "<cmd>Leet tabs<CR>", description = "LeetCode: Opens A Picker With All Currently Opened Question Tabs" },
-        { "<leader>MXled", "<cmd>Leet desc<CR>", description = "LeetCode: Toggle Question Description" },
-        { "<leader>MXler", "<cmd>Leet run<CR>", description = "LeetCode: Run Currently Opened Question" },
-        { "<leader>MXles", "<cmd>Leet submit<CR>", description = "LeetCode: Submit Currently Opened Question" },
+        { "<leader>MXleq", "<cmd>Leet tabs<CR>",    description = "LeetCode: Opens A Picker With All Currently Opened Question Tabs" },
+        { "<leader>MXled", "<cmd>Leet desc<CR>",    description = "LeetCode: Toggle Question Description" },
+        { "<leader>MXler", "<cmd>Leet run<CR>",     description = "LeetCode: Run Currently Opened Question" },
+        { "<leader>MXles", "<cmd>Leet submit<CR>",  description = "LeetCode: Submit Currently Opened Question" },
 
         -- vim-caser
-        { "<leader>MXcaa", "<Plug>CaserVUpperCase", description = "Constant case: LOREM_IPSUM", mode = { "v" } },
-        { "<leader>MXcab", "<Plug>CaserVSnakeCase", description = "Snake case: lorem_ipsum", mode = { "v" } },
-        { "<leader>MXcac", "<Plug>CaserVKebabCase", description = "Dash case: lorem-ipsum", mode = { "v" } },
-        { "<leader>MXcad", "<Plug>CaserVSpaceCase", description = "space case: lorem ipsum", mode = { "v" } },
-        { "<leader>MXcae", "<Plug>CaserVDotCase", description = "Dot case: lorem.ipsum", mode = { "v" } },
-        { "<leader>MXcaf", "<Plug>CaserVSentenceCase", description = "Sentence case: Lorem ipsum", mode = { "v" } },
-        { "<leader>MXcag", "<Plug>CaserVMixedCase", description = "Pascal case: LoremIpsum", mode = { "v" } },
-        { "<leader>MXcah", "<Plug>CaserVTitleCase", description = "Title case: Lorem Ipsum", mode = { "v" } },
+        { "<leader>MXcaa", "<Plug>CaserVUpperCase",      description = "Constant case: LOREM_IPSUM",   mode = { "v" } },
+        { "<leader>MXcab", "<Plug>CaserVSnakeCase",      description = "Snake case: lorem_ipsum",      mode = { "v" } },
+        { "<leader>MXcac", "<Plug>CaserVKebabCase",      description = "Dash case: lorem-ipsum",       mode = { "v" } },
+        { "<leader>MXcad", "<Plug>CaserVSpaceCase",      description = "space case: lorem ipsum",      mode = { "v" } },
+        { "<leader>MXcae", "<Plug>CaserVDotCase",        description = "Dot case: lorem.ipsum",        mode = { "v" } },
+        { "<leader>MXcaf", "<Plug>CaserVSentenceCase",   description = "Sentence case: Lorem ipsum",   mode = { "v" } },
+        { "<leader>MXcag", "<Plug>CaserVMixedCase",      description = "Pascal case: LoremIpsum",      mode = { "v" } },
+        { "<leader>MXcah", "<Plug>CaserVTitleCase",      description = "Title case: Lorem Ipsum",      mode = { "v" } },
         { "<leader>MXcai", "<Plug>CaserVTitleKebabCase", description = "Title dash case: Lorem-Ipsum", mode = { "v" } },
-        { "<leader>MXcaj", "<Plug>CaserVCamelCase", description = "Camel case: loremIpsum", mode = { "v" } },
+        { "<leader>MXcaj", "<Plug>CaserVCamelCase",      description = "Camel case: loremIpsum",       mode = { "v" } },
 
         -- jdtls
-        { "<leader>MXjda", "<cmd>JdtWipeDataAndRestart<CR>", filters = { filetype = "java" }, description = "jdtls: Wipe Data and Restart" },
-        { "<leader>MXjdb", "<cmd>JdtUpdateConfig<CR>", filters = { filetype = "java" }, description = "jdtls: Update Config" },
-        { "<leader>MXjdc", "<cmd>lua require'jdtls'.organize_imports()<CR>", filters = { filetype = "java" }, description = "jdtls: Organize Import" },
-        { "<leader>MXjdd", "<cmd>lua require('jdtls').extract_variable()<CR>", filters = { filetype = "java" }, description = "jdtls: Extract Variable" },
-        { "<leader>MXjde", "<cmd>lua require('jdtls').extract_variable(true)<CR>", filters = { filetype = "java" }, description = "jdtls: Extract Variable" },
-        { "<leader>MXjdf", "<cmd>lua require('jdtls').extract_constant()<CR>", filters = { filetype = "java" }, description = "jdtls: Extract Constant" },
+        { "<leader>MXjda", "<cmd>JdtWipeDataAndRestart<CR>",                            filters = { filetype = "java" }, description = "jdtls: Wipe Data and Restart" },
+        { "<leader>MXjdb", "<cmd>JdtUpdateConfig<CR>",                                  filters = { filetype = "java" }, description = "jdtls: Update Config" },
+        { "<leader>MXjdc", "<cmd>lua require'jdtls'.organize_imports()<CR>",            filters = { filetype = "java" }, description = "jdtls: Organize Import" },
+        { "<leader>MXjdd", "<cmd>lua require('jdtls').extract_variable()<CR>",          filters = { filetype = "java" }, description = "jdtls: Extract Variable" },
+        { "<leader>MXjde", "<cmd>lua require('jdtls').extract_variable(true)<CR>",      filters = { filetype = "java" }, description = "jdtls: Extract Variable" },
+        { "<leader>MXjdf", "<cmd>lua require('jdtls').extract_constant()<CR>",          filters = { filetype = "java" }, description = "jdtls: Extract Constant" },
         { "<leader>MXjdg", "<Esc><cmd>lua require('jdtls').extract_constant(true)<CR>", filters = { filetype = "java" }, description = "jdtls: Extract Constant" },
-        { "<leader>MXjdh", "<Esc><cmd>lua require('jdtls').extract_method(true)<CR>", filters = { filetype = "java" }, description = "jdtls: Extract Method" },
+        { "<leader>MXjdh", "<Esc><cmd>lua require('jdtls').extract_method(true)<CR>",   filters = { filetype = "java" }, description = "jdtls: Extract Method" },
       },
     })
   end,
