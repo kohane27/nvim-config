@@ -126,8 +126,9 @@ map("n", "<BS><BS>", '"_')
 map("x", "<BS><BS>", '"_')
 map("v", "<BS><BS>", '"_')
 
--- `cl` don't yank to default register; exception in `cutlass.nvim`
+-- don't yank to default register; exception in `cutlass.nvim`
 map("n", "cl", '"_cl')
+map("n", "cc", '"_cc')
 
 -- -- insert empty new line without entering insert mode
 map("n", "<leader>o", "o<Esc>")
