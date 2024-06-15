@@ -251,7 +251,7 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ AI                                                       │
         -- ╰──────────────────────────────────────────────────────────╯
-        -- { "<leader>ao", "<cmd>ChatGPT<CR>", description = "GPT: Open" },
+        { "<leader>ao", "<cmd>CodeCompanionChat<CR>", description = "GPT: Open" },
         -- { "<leader>ai", "<cmd>'<,'>GpImplement<CR>", description = "GPT: Implement", mode = { "v" } },
         -- same as gp.nvim
         -- { "<leader>af", "<cmd>ChatGPTActAs<CR>", description = "GPT: Choose an Agent" },
