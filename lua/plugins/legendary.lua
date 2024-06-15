@@ -128,8 +128,8 @@ return {
         -- │ Trouble.nvim                                             │
         -- ╰──────────────────────────────────────────────────────────╯
         { "<leader>xx", function() require("trouble").toggle() end, description = "Trouble: Toggle" },
-        { "<leader>xt", "<cmd>TodoTelescope keywords=TODO<CR>", description = "Trouble: Only TODO" },
-        { "<leader>xT", "<cmd>TodoTelescope<CR>", description = "Trouble: All TODO" },
+        { "<leader>xt", "<cmd>TodoTelescope keywords=TODO<CR>",     description = "Trouble: Only TODO" },
+        { "<leader>xT", "<cmd>TodoTelescope<CR>",                   description = "Trouble: All TODO" },
 
         -- ╭─────────────────────────────────────────────────────────╮
         -- │ quickfix                                                │
@@ -210,7 +210,7 @@ return {
 
         { "<leader>db", "<cmd>DiffviewFileHistory<CR>",                 description = "Diffview: File History of Current Branch" },
         { "<leader>df", "<cmd>DiffviewFileHistory %<CR>",               description = "Diffview: File History of Current File" },
-        { "<leader>dr", "<cmd>'<,'>DiffviewFileHistory<CR>",            description = "Diffview: Line History of Range of Current File", mode = "v" },
+        { "<leader>dr", "<cmd>'<,'>DiffviewFileHistory<CR>",            description = "Diffview: Line History of Selected Lines", mode = "v" },
         { "<leader>dXl", "<cmd>Gitsigns toggle_current_line_blame<CR>", description = "Diffview: Toggle Current Line Blame" },
 
         -- { "<leader>dg", "<cmd>Gitsigns preview_hunk<CR>", description = "Diffview: Preview Hunk" },
@@ -281,7 +281,7 @@ return {
         -- NOTE: `<leader>ms` taken by `mini.operators`
         { "<leader>mc", "<cmd>BufferLineCloseOthers<CR>",                                  description = "Buffer: Close All But Current" },
         { "<leader>mb", "<cmd>lua require('comment-box').llbox()<CR><Esc>",                description = "Comment Box: Left-aligned", mode = { "v" } },
-        { "<leader>mn", "<cmd>Noice dismiss<Esc>",                                         description = "Noice: Dismiss" },
+        { "<leader>mn", "<cmd>Noice dismiss<CR>",                                          description = "Noice: Dismiss" },
         { "<leader>mt", "<cmd>lua MiniTrailspace.trim()<CR>",                              description = "Trim All Trailing Whitespace" },
         { "<leader>mp", function() require("core.utils").get_current_buffer_content() end, description = "GPT: Get Current Buffer Content" },
         { "<leader>mP", function() require("core.utils").get_all_buffer_content() end,     description = "GPT: Get All Buffer Content" },
@@ -298,7 +298,7 @@ return {
         { "<leader>MXgeb", function() vim.api.nvim_feedkeys(":verbose map <C-i>", "c", false) end, description = "Find Keybinding Conflict" },
         { "<leader>MXgec", "<cmd>ScrollViewToggle<CR>",                                            description = "ScrollViewToggle: Enable" },
         { "<leader>MXged", "<cmd>TSContextToggle<CR>",                                             description = "TSContextToggle: Toggle" },
-        { "<leader>MXgee", "<cmd>Telescope notify<Esc>",                                           description = "Notify: Search History" },
+        { "<leader>MXgee", "<cmd>Telescope notify<CR>",                                            description = "Notify: Search History" },
 
         -- Lazy
         { "<leader>MXlaa", "<cmd>Lazy sync<CR>",  description = "Lazy: Update" },
@@ -316,24 +316,84 @@ return {
         { "<leader>MXped", "<cmd>SessionDelete<CR>",   description = "Session: Delete" },
 
         -- global commands
-        { "<leader>MXgla", function() vim.api.nvim_feedkeys(":g/^$/d", "c", false) end,           description = "g: Remove Empty Lines", },
-        { "<leader>MXglb", function() vim.api.nvim_feedkeys(":g/^foo$/d", "c", false) end,        description = "g: Delete Lines Only Contain foo", },
-        { "<leader>MXglc", function() vim.api.nvim_feedkeys(":g!/^foo$/d", "c", false) end,       description = "g: Delete Lines NOT foo", },
-        { "<leader>MXgld", function() vim.api.nvim_feedkeys(":g/foo/normal! A;", "c", false) end, description = "g: Run Normal Mode Containing foo", },
-        { "<leader>MXgle", function() vim.api.nvim_feedkeys(":g/foo/normal! @a", "c", false) end, description = "g: Run Macro Containing foo", },
-        { "<leader>MXglf", function() vim.api.nvim_feedkeys(":g/foo/t $", "c", false) end,        description = "g: t (copy) foo to End of File", },
-        { "<leader>MXglg", function() vim.api.nvim_feedkeys(":g/foo/m $", "c", false) end,        description = "g: (m)ove foo to End of File", },
+        {
+          "<leader>MXgla",
+          {
+            n =  function() vim.api.nvim_feedkeys(":g/^$/d", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":g/^$/d", "c", false) end,
+          },
+          description = "g: Remove Empty Lines",
+        },
+        {
+          "<leader>MXglb",
+          {
+            n = function() vim.api.nvim_feedkeys(":g/^foo$/d", "c", false) end,
+            v = function() vim.api.nvim_feedkeys(":g/^foo$/d", "c", false) end,
+          },
+          description = "g: Delete Lines Containing Only `foo`",
+        },
+        {
+          "<leader>MXglc",
+          {
+            n = function() vim.api.nvim_feedkeys(":g!/^foo$/d", "c", false) end,
+            v = function() vim.api.nvim_feedkeys(":g!/^foo$/d", "c", false) end,
+          },
+          description = "g: Delete Lines NOT `foo`",
+        },
+        {
+          "<leader>MXgld",
+          {
+            n =  function() vim.api.nvim_feedkeys(":g/\t/s//    /g", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":g/\t/s//    /g", "c", false) end,
+          },
+          description = "g: Convert Tabs to Spaces",
+        },
+        {
+          "<leader>MXgle",
+          {
+            n =  function() vim.api.nvim_feedkeys(":g/foo/normal! A;", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":g/foo/normal! A;", "c", false) end,
+          },
+          description = "g: Run Normal Mode Containing `foo` Anywhere in the Line",
+        },
+        {
+          "<leader>MXglf",
+          {
+            n =  function() vim.api.nvim_feedkeys(":g/foo/normal! @a", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":g/foo/normal! @a", "c", false) end,
+          },
+          description = "g: Run Macro `a` Containing `foo` Anywhere in the Line",
+        },
+        {
+          "<leader>MXgLg",
+          {
+            n =  function() vim.api.nvim_feedkeys(":g/foo/t $", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":g/foo/t $", "c", false) end,
+          },
+          description = "g: t (copy) Lines Containing `foo` to End of File",
+        },
+        {
+          "<leader>MXgLh",
+          {
+            n =  function() vim.api.nvim_feedkeys(":g/foo/m $", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":g/foo/m $", "c", false) end,
+          },
+          description = "g: (m)ove `foo` to End of File",
+        },
 
         -- substitute
-        { "<leader>MXsub", "<cmd>%s/\t/  /g<CR>",     description = "Convert Tabs to Spaces", },
-        { "<leader>MXsuc", "<cmd>'<,'>s/ .*//gc<CR>", description = "Delete Everything After a Space", mode = { "x" }},
-        { "<leader>MXsud", "<cmd>%s/\\s\\+$//e<CR>",  description = "Remove All Whitespace"},
-        { "<leader>MXsue", "<cmd>%s/[’‘]/'/g<CR>",    description = "Replace All Single Curly Quotes"},
-        { "<leader>MXsuf", '<cmd>%s/[“”]/"/g<CR>',    description = "Replace All Double Curly Quotes"},
-        { "<leader>MXsug", '<cmd>%s/0 " "//g<CR>',    description = "hledger: Remove Zero Quote Quote", filters = { filetype = "ledger" }},
-        { "<leader>MXsua", function() vim.api.nvim_feedkeys(":sno/foo/bar/gc", "c", false) end, description = "Substitute: (No Magic Mode) substitute `foo` with `bar`", },
-        { "<leader>MXsui", function() vim.api.nvim_feedkeys(":s/\\vfoo/&bar/gc", "c", false) end, description = "Visual Mode: `foo` into `foobar`", mode = { "v" } },
-        { "<leader>MXsuj", function() vim.api.nvim_feedkeys(":s/\\v(foo)(.*)(bar)/\\3\\2\\1/gc", "c", false) end, description = "Visual Mode: swap `foo` with `bar`", mode = { "v" } },
+         {
+          "<leader>MXsua",
+          "<cmd>%s/[’‘]/'/g<CR>",
+          description = "Substitute All Single Curly Quotes",
+        },
+        {
+          "<leader>MXsub",
+          '<cmd>%s/[“”]/"/g<CR>',
+          description = "Substitute All Double Curly Quotes",
+        },
+        { "<leader>MXsuc", function() vim.api.nvim_feedkeys(":%sno/foo/bar/gc", "c", false) end, description = "Substitute: (No Magic Mode): `foo` with `bar`", },
+        { "<leader>MXsud", function() vim.api.nvim_feedkeys(":s/\\vfoo/&bar/gc", "c", false) end, description = "Substitute: `foo` into `foobar`" },
 
         -- leetcode
         { "<leader>MXlem", "<cmd>Leet Menu<CR>",    description = "LeetCode: Opens Menu Dashboard" },
@@ -344,16 +404,16 @@ return {
         { "<leader>MXles", "<cmd>Leet submit<CR>",  description = "LeetCode: Submit Currently Opened Question" },
 
         -- vim-caser
-        { "<leader>MXcaa", "<Plug>CaserVUpperCase",      description = "Constant case: LOREM_IPSUM",   mode = { "v" } },
-        { "<leader>MXcab", "<Plug>CaserVSnakeCase",      description = "Snake case: lorem_ipsum",      mode = { "v" } },
-        { "<leader>MXcac", "<Plug>CaserVKebabCase",      description = "Dash case: lorem-ipsum",       mode = { "v" } },
-        { "<leader>MXcad", "<Plug>CaserVSpaceCase",      description = "space case: lorem ipsum",      mode = { "v" } },
-        { "<leader>MXcae", "<Plug>CaserVDotCase",        description = "Dot case: lorem.ipsum",        mode = { "v" } },
-        { "<leader>MXcaf", "<Plug>CaserVSentenceCase",   description = "Sentence case: Lorem ipsum",   mode = { "v" } },
-        { "<leader>MXcag", "<Plug>CaserVMixedCase",      description = "Pascal case: LoremIpsum",      mode = { "v" } },
-        { "<leader>MXcah", "<Plug>CaserVTitleCase",      description = "Title case: Lorem Ipsum",      mode = { "v" } },
-        { "<leader>MXcai", "<Plug>CaserVTitleKebabCase", description = "Title dash case: Lorem-Ipsum", mode = { "v" } },
-        { "<leader>MXcaj", "<Plug>CaserVCamelCase",      description = "Camel case: loremIpsum",       mode = { "v" } },
+        { "<leader>MXcaa", { v =  "<Plug>CaserVUpperCase" },     description = "Constant case: LOREM_IPSUM" },
+        { "<leader>MXcab", { v = "<Plug>CaserVSnakeCase" },      description = "Snake case: lorem_ipsum" },
+        { "<leader>MXcac", { v = "<Plug>CaserVKebabCase" },      description = "Dash case: lorem-ipsum" },
+        { "<leader>MXcad", { v = "<Plug>CaserVSpaceCase" },      description = "space case: lorem ipsum" },
+        { "<leader>MXcae", { v = "<Plug>CaserVDotCase" },        description = "Dot case: lorem.ipsum" },
+        { "<leader>MXcaf", { v = "<Plug>CaserVSentenceCase" },   description = "Sentence case: Lorem ipsum" },
+        { "<leader>MXcag", { v = "<Plug>CaserVMixedCase" },      description = "Pascal case: LoremIpsum" },
+        { "<leader>MXcah", { v = "<Plug>CaserVTitleCase" },      description = "Title case: Lorem Ipsum" },
+        { "<leader>MXcai", { v = "<Plug>CaserVTitleKebabCase" }, description = "Title dash case: Lorem-Ipsum" },
+        { "<leader>MXcaj", { v = "<Plug>CaserVCamelCase" },      description = "Camel case: loremIpsum" },
 
         -- jdtls
         { "<leader>MXjda", "<cmd>JdtWipeDataAndRestart<CR>",                            filters = { filetype = "java" }, description = "jdtls: Wipe Data and Restart" },
