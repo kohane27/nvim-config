@@ -171,14 +171,14 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ tmux.lua                                                 │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<A-h>", toolbox.lazy_required_fn("tmux", "move_left"),       description = "Move Focus to Left" },
-        { "<A-l>", toolbox.lazy_required_fn("tmux", "move_right"),      description = "Move Focus to Right" },
-        { "<A-k>", toolbox.lazy_required_fn("tmux", "move_top"),        description = "Move Focus to Top" },
-        { "<A-j>", toolbox.lazy_required_fn("tmux", "move_bottom"),     description = "Move Focus to Bottom" },
-        { "<C-S-h>", toolbox.lazy_required_fn("tmux", "resize_left"),   description = "Resize Left" },
-        { "<C-S-l>", toolbox.lazy_required_fn("tmux", "resize_right"),  description = "Resize Right" },
-        { "<C-S-k>", toolbox.lazy_required_fn("tmux", "resize_top"),    description = "Resize Top" },
-        { "<C-S-j>", toolbox.lazy_required_fn("tmux", "resize_bottom"), description = "Resize Bottom" },
+        { "<A-h>",   toolbox.lazy_required_fn("tmux", "move_left"),       description = "Move Focus to Left" },
+        { "<A-l>",   toolbox.lazy_required_fn("tmux", "move_right"),      description = "Move Focus to Right" },
+        { "<A-k>",   toolbox.lazy_required_fn("tmux", "move_top"),        description = "Move Focus to Top" },
+        { "<A-j>",   toolbox.lazy_required_fn("tmux", "move_bottom"),     description = "Move Focus to Bottom" },
+        { "<C-S-h>", toolbox.lazy_required_fn("tmux", "resize_left"),     description = "Resize Left" },
+        { "<C-S-l>", toolbox.lazy_required_fn("tmux", "resize_right"),    description = "Resize Right" },
+        { "<C-S-k>", toolbox.lazy_required_fn("tmux", "resize_top"),      description = "Resize Top" },
+        { "<C-S-j>", toolbox.lazy_required_fn("tmux", "resize_bottom"),   description = "Resize Bottom" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Diffview.nvim                                            │
@@ -301,8 +301,8 @@ return {
         { "<leader>MXgee", "<cmd>Telescope notify<CR>",                                            description = "Notify: Search History" },
 
         -- Lazy
-        { "<leader>MXlaa", "<cmd>Lazy sync<CR>",  description = "Lazy: Update" },
-        { "<leader>MXlab", "<cmd>Lazy clean<CR>", description = "Lazy: Clean" },
+        { "<leader>MXlaa", "<cmd>Lazy sync<CR>",        description = "Lazy: Update" },
+        { "<leader>MXlab", "<cmd>Lazy clean<CR>",       description = "Lazy: Clean" },
 
         -- LSP info
         { "<leader>MXlsc", "<cmd>LspInfo<CR>",          description = "LSP: Info" },
@@ -310,10 +310,10 @@ return {
         { "<leader>MXlse", "<cmd>MasonToolsUpdate<CR>", description = "Mason: Tool Update" },
 
         -- persisted.nvim
-        { "<leader>MXpea", "<cmd>SessionSave<CR>",     description = "Session: Save" },
-        { "<leader>MXpeb", "<cmd>SessionLoad<CR>",     description = "Session: Load" },
-        { "<leader>MXpec", "<cmd>SessionLoadLast<CR>", description = "Session: Load Recent Session" },
-        { "<leader>MXped", "<cmd>SessionDelete<CR>",   description = "Session: Delete" },
+        { "<leader>MXpea", "<cmd>SessionSave<CR>",      description = "Session: Save" },
+        { "<leader>MXpeb", "<cmd>SessionLoad<CR>",      description = "Session: Load" },
+        { "<leader>MXpec", "<cmd>SessionLoadLast<CR>",  description = "Session: Load Recent Session" },
+        { "<leader>MXped", "<cmd>SessionDelete<CR>",    description = "Session: Delete" },
 
         -- global commands
         {
