@@ -235,4 +235,15 @@ function M.generate_random_chars()
   return table.concat(char)
 end
 
+function M.legendary_command_palette()
+  require("legendary").find({
+    formatter = function(item, _)
+      -- remove first column
+      local values = require("legendary.ui.format").default_format(item)
+      values[1] = ""
+      return values
+    end,
+  })
+end
+
 return M
