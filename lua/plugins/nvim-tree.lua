@@ -14,12 +14,12 @@ return {
     -- stylua: ignore
     local function on_attach(bufnr)
       local function opts(desc) return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true } end
-      local api = require("nvim-tree.api")
       local preview = require("nvim-tree-preview")
-
       vim.keymap.set("n", "P",      preview.watch,                   opts("Preview (Watch)"))
       vim.keymap.set("n", "<Esc>",  preview.unwatch,                 opts("Close Preview/Unwatch"))
       vim.keymap.set("n", "<Tab>",  preview.node_under_cursor,       opts("Preview"))
+
+      local api = require("nvim-tree.api")
       vim.keymap.set("n", "<C-w>v", api.node.open.vertical,          opts("Open: Vertical Split"))
       vim.keymap.set("n", "<C-w>s", api.node.open.horizontal,        opts("Open: Horizontal Split"))
       vim.keymap.set("n", "<C-w>t", api.node.open.tab,               opts("Open: New Tab"))
