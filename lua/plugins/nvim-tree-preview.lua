@@ -1,6 +1,7 @@
 return {
   "b0o/nvim-tree-preview.lua",
   event = "VeryLazy",
+  commit = "e968df027d86797556e9bf5f1d5ffca87045150d",
   opts = {
     -- Keymaps for the preview window (does not apply to the tree window).
     -- Actions:
@@ -28,12 +29,6 @@ return {
     max_width = math.floor(vim.o.columns * 0.7),
     max_height = vim.o.lines - 3,
     -- col = require("nvim-tree.view").View.width + 1,
-    wrap = false,
-    border = "rounded",
-    zindex = 100,
-    show_title = true,
-    title_pos = "top-left",
-    title_format = " %s ",
   },
   config = function(_, opts)
     local preview = require("nvim-tree-preview")
