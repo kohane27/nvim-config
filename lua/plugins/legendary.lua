@@ -85,9 +85,12 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ LSP                                                      │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>",                               description = "LSP: Line Diagnostics" },
-        -- it'll show with code action but doesn't show cursor current diagnostic
+        { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>",                                  description = "LSP: Line Diagnostics" },
+        -- it'll show with code action but doesn't show current cursor diagnostic
         { "gL", "<cmd>Lspsaga diagnostic_jump_next<CR>",                                   description = "LSP: Line Diagnostics" },
+        { "<leader>ld", "<cmd>Trouble diagnostics toggle focus=true filter.buf=0<CR>",     description = "Trouble: Buffer Diagnostics" },
+        { "<leader>lD", "<cmd>Trouble diagnostics toggle focus=true<CR>",                  description = "Trouble: Project Diagnostics" },
+
         { "gh", "<cmd>Lspsaga hover_doc ++quiet<CR>",                                      description = "LSP: Hover Doc (quiet)" },
         { "gH", "<cmd>Lspsaga hover_doc ++keep<CR>",                                       description = "LSP: Hover Doc (keep)" },
 
@@ -95,37 +98,23 @@ return {
         { "gD", "<cmd>Lspsaga peek_definition<CR>",                                        description = "LSP: Preview Definition" },
 
         { "gr", "<cmd>lua vim.lsp.buf.references()<CR>",                                   description = "LSP: Reference List" },
-        { "gR",         function() require("trouble").toggle("lsp_references") end,        description = "LSP: Reference List" },
-        { "<leader>lw", function() require("trouble").toggle("workspace_diagnostics") end, description = "LSP: Workspace Diagnostics" },
-        { "<leader>ld", function() require("trouble").toggle("document_diagnostics") end,  description = "LSP: Document Diagnostics" },
+        { "gR", "<cmd>Trouble lsp_references toggle<CR>",                                  description = "Trouble: Reference List" },
 
         -- order of importance
-        { "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>",                              description = "LSP: Go to Type Definition" },
-        -- { "<leader>la", "lua require('wtf').ai()",                                         description = "WTF: Debug diagnostic" },
         { "<leader>lc", "<cmd>Lspsaga code_action<CR>",                                    description = "LSP: Code Action" },
-        { "<leader>lf", "<cmd>Lspsaga finder<CR>",                                         description = "LSP: Finder: Symbol, Definition and Implementation" },
-        -- After the LSP rename is done, and if the name still exists somewhere within the project, project_replace window would pop out
+        { "<leader>lf", "<cmd>Lspsaga finder<CR>",                                         description = "LSP: Symbol, Definition and Implementation" },
+        { "<leader>ls", "<cmd>Trouble symbols toggle pinned=true<CR>",                     description = "Trouble: Symbols Outline" },
         { "<leader>lr", "<cmd>Lspsaga lsp_rename ++project<CR>",                           description = "LSP: Rename" },
-        {
-          "<leader>lp", "<cmd>TSToolsRenameFile<CR>", description = "LSP: Rename Current File",
-          filters = { filetype = "javascriptreact", "typescriptreact" },
-        },
-        { "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>",                       description = "LSP: Signature Help" },
-        -- { "<leader>ln", "<cmd>Navbuddy<CR>",                                            description = "LSP: Navbuddy" },
-        { "<leader>lo", "<cmd>Trouble symbols toggle pinned=true results.win.relative=win results.win.position=right<CR>",  description = "LSP: Symbols Outline" },
+        { "<leader>lp", "<cmd>TSToolsRenameFile<CR>",                                      description = "LSP: Rename (Current File)", filters = { filetype = "javascriptreact", "typescriptreact" } },
 
         { "<leader>lXc", "<cmd>lua vim.lsp.codelens.run()<CR>",                            description = "LSP: Code Lens" },
         { "<leader>lXd", "<cmd>lua vim.lsp.buf.declaration<CR>",                           description = "LSP: Declaration" },
         { "<leader>lXf", "<cmd>lua vim.lsp.buf.format()<CR>",                              description = "LSP: Formatting" },
 
-        -- lesser used
-        -- implementation (rarely) using `Lspsaga lsp_finder`
-        -- { "<leader>li", "<cmd>lua vim.lsp.buf.implementation()<CR>", description = "LSP: Go to Implementation" },
-
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Trouble.nvim                                             │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<leader>xx", function() require("trouble").toggle() end, description = "Trouble: Toggle" },
+        { "<leader>xx", "<cmd>Trouble todo",                        description = "Trouble: Toggle" },
         { "<leader>xt", "<cmd>TodoTelescope keywords=TODO<CR>",     description = "Trouble: Only TODO" },
         { "<leader>xT", "<cmd>TodoTelescope<CR>",                   description = "Trouble: All TODO" },
 
