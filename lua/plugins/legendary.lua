@@ -382,18 +382,26 @@ return {
         },
 
         -- substitute
-         {
+        {
           "<leader>MXsua",
+          {
+            n =  function() vim.api.nvim_feedkeys(":%s/foo.*//gc", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":s/foo.*//gc", "c", false) end,
+          },
+          description = "Substitute: Everything After `foo` with Nothing",
+        },
+         {
+          "<leader>MXsub",
           "<cmd>%s/[’‘]/'/g<CR>",
-          description = "Substitute All Single Curly Quotes",
+          description = "Substitute: All Single Curly Quotes",
         },
         {
-          "<leader>MXsub",
+          "<leader>MXsuc",
           '<cmd>%s/[“”]/"/g<CR>',
           description = "Substitute All Double Curly Quotes",
         },
-        { "<leader>MXsuc", function() vim.api.nvim_feedkeys(":%sno/foo/bar/gc", "c", false) end, description = "Substitute: (No Magic Mode): `foo` with `bar`", },
-        { "<leader>MXsud", function() vim.api.nvim_feedkeys(":s/\\vfoo/&bar/gc", "c", false) end, description = "Substitute: `foo` into `foobar`" },
+        { "<leader>MXsud", function() vim.api.nvim_feedkeys(":%sno/foo/bar/gc", "c", false) end, description = "Substitute: (No Magic Mode): `foo` with `bar`", },
+        { "<leader>MXsue", function() vim.api.nvim_feedkeys(":s/\\vfoo/&bar/gc", "c", false) end, description = "Substitute: `foo` into `foobar`" },
 
         -- leetcode
         { "<leader>MXlem", "<cmd>Leet Menu<CR>",    description = "LeetCode: Opens Menu Dashboard" },
