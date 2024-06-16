@@ -14,7 +14,6 @@ return {
     local keymap = {
       ["<C-u>"] = function() neoscroll.ctrl_u({ duration = 200 }) vim.cmd("normal m'") end,
       ["<C-d>"] = function() neoscroll.ctrl_d({ duration = 200 }) vim.cmd("normal m'") end,
-      ["zz"] = function() neoscroll.zz({ half_screen_duration = 100 }) end,
     }
     local modes = { "n", "v", "x" }
     for key, func in pairs(keymap) do

@@ -12,7 +12,6 @@ return {
   config = function(_, opts)
     local leap = require("leap")
     leap.setup(opts)
-    leap.set_default_keymaps(true)
 
     -- Bidirectional search
     vim.keymap.set("n", "s", function()
