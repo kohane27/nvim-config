@@ -98,12 +98,12 @@ return {
         { "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>",                              description = "LSP: Go to Type Definition" },
 
         { "gr", "<cmd>lua vim.lsp.buf.references()<CR>",                                   description = "LSP: Reference List" },
-        { "gR", function() require("trouble").toggle("lsp_references") end,                description = "LSP: Reference List" },
+        { "gR",         function() require("trouble").toggle("lsp_references") end,        description = "LSP: Reference List" },
         { "<leader>lw", function() require("trouble").toggle("workspace_diagnostics") end, description = "LSP: Workspace Diagnostics" },
         { "<leader>ld", function() require("trouble").toggle("document_diagnostics") end,  description = "LSP: Document Diagnostics" },
 
         -- order of importance
-        { "<leader>la", "lua require('wtf').ai()",                                         description = "WTF: Debug diagnostic" },
+        -- { "<leader>la", "lua require('wtf').ai()",                                         description = "WTF: Debug diagnostic" },
         { "<leader>lc", "<cmd>Lspsaga code_action<CR>",                                    description = "LSP: Code Action" },
         { "<leader>lf", "<cmd>Lspsaga finder<CR>",                                         description = "LSP: Finder: Symbol, Definition and Implementation" },
         -- After the LSP rename is done, and if the name still exists somewhere within the project, project_replace window would pop out
@@ -208,10 +208,10 @@ return {
           description = "Diffview: Changes Between 2 Commits (from `d4a7b0d` up to `519b30e` (inclusive)).",
         },
 
-        { "<leader>db", "<cmd>DiffviewFileHistory<CR>",                 description = "Diffview: File History of Current Branch" },
-        { "<leader>df", "<cmd>DiffviewFileHistory %<CR>",               description = "Diffview: File History of Current File" },
-        { "<leader>dr", "<cmd>'<,'>DiffviewFileHistory<CR>",            description = "Diffview: Line History of Selected Lines", mode = "v" },
-        { "<leader>dXl", "<cmd>Gitsigns toggle_current_line_blame<CR>", description = "Diffview: Toggle Current Line Blame" },
+        { "<leader>db", "<cmd>DiffviewFileHistory<CR>",                         description = "Diffview: File History of Current Branch" },
+        { "<leader>df", "<cmd>DiffviewFileHistory %<CR>",                       description = "Diffview: File History of Current File" },
+        { "<leader>dr", { v = "<cmd>'<,'>DiffviewFileHistory<CR>" },            description = "Diffview: Line History of Selected Lines" },
+        { "<leader>dXl", "<cmd>Gitsigns toggle_current_line_blame<CR>",         description = "Diffview: Toggle Current Line Blame" },
 
         -- { "<leader>dg", "<cmd>Gitsigns preview_hunk<CR>", description = "Diffview: Preview Hunk" },
         -- { "<C-t>", "<cmd>DiffviewToggleFiles<CR>", description = "Diffview: Toggle File Panel", filters = { bt = { "DiffviewFiles", "DiffviewFileHistory" } } },
