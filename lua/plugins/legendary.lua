@@ -114,7 +114,7 @@ return {
         },
         { "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>",                       description = "LSP: Signature Help" },
         -- { "<leader>ln", "<cmd>Navbuddy<CR>",                                            description = "LSP: Navbuddy" },
-        { "<leader>lo", "<cmd>Lspsaga outline<CR>",                                        description = "LSP: Symbols Outline" },
+        { "<leader>lo", "<cmd>Trouble symbols toggle pinned=true results.win.relative=win results.win.position=right<CR>",  description = "LSP: Symbols Outline" },
 
         { "<leader>lXc", "<cmd>lua vim.lsp.codelens.run()<CR>",                            description = "LSP: Code Lens" },
         { "<leader>lXd", "<cmd>lua vim.lsp.buf.declaration<CR>",                           description = "LSP: Declaration" },
