@@ -85,17 +85,14 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ LSP                                                      │
         -- ╰──────────────────────────────────────────────────────────╯
-        -- it'll show with code action
-        { "gl", "<cmd>Lspsaga diagnostic_jump_next<CR>",                                   description = "LSP: Line Diagnostics" },
-        -- { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>",                               description = "LSP: Line Diagnostics" },
-        { "gL", "<cmd>Lspsaga show_buf_diagnostics<CR>",                                   description = "LSP: Buffer Diagnostics" },
+        { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>",                               description = "LSP: Line Diagnostics" },
+        -- it'll show with code action but doesn't show cursor current diagnostic
+        { "gL", "<cmd>Lspsaga diagnostic_jump_next<CR>",                                   description = "LSP: Line Diagnostics" },
         { "gh", "<cmd>Lspsaga hover_doc ++quiet<CR>",                                      description = "LSP: Hover Doc (quiet)" },
         { "gH", "<cmd>Lspsaga hover_doc ++keep<CR>",                                       description = "LSP: Hover Doc (keep)" },
 
         { "gd", "<cmd>Lspsaga goto_definition<CR>",                                        description = "LSP: Go to Definition" },
         { "gD", "<cmd>Lspsaga peek_definition<CR>",                                        description = "LSP: Preview Definition" },
-
-        { "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>",                              description = "LSP: Go to Type Definition" },
 
         { "gr", "<cmd>lua vim.lsp.buf.references()<CR>",                                   description = "LSP: Reference List" },
         { "gR",         function() require("trouble").toggle("lsp_references") end,        description = "LSP: Reference List" },
@@ -103,6 +100,7 @@ return {
         { "<leader>ld", function() require("trouble").toggle("document_diagnostics") end,  description = "LSP: Document Diagnostics" },
 
         -- order of importance
+        { "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>",                              description = "LSP: Go to Type Definition" },
         -- { "<leader>la", "lua require('wtf').ai()",                                         description = "WTF: Debug diagnostic" },
         { "<leader>lc", "<cmd>Lspsaga code_action<CR>",                                    description = "LSP: Code Action" },
         { "<leader>lf", "<cmd>Lspsaga finder<CR>",                                         description = "LSP: Finder: Symbol, Definition and Implementation" },
