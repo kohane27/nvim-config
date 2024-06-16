@@ -1,4 +1,5 @@
 return {
+      -- stylua: ignore
   -- smooth scrolling
   "karb94/neoscroll.nvim",
   event = "VeryLazy",
@@ -6,12 +7,18 @@ return {
     mappings = { "<C-u>", "<C-d>", "zz" },
     hide_cursor = false,
   },
+  -- stylua: ignore
   config = function(_, opts)
-    require("neoscroll").setup(opts)
-    local t = {}
-    t["<C-u>"] = { "scroll", { "-vim.wo.scroll", "true", "200" } }
-    t["<C-d>"] = { "scroll", { "vim.wo.scroll", "true", "200" } }
-    t["zz"] = { "zz", { "100" } }
-    require("neoscroll.config").set_mappings(t)
+    local neoscroll = require("neoscroll")
+    neoscroll.setup(opts)
+    local keymap = {
+      ["<C-u>"] = function() neoscroll.ctrl_u({ duration = 200 }) vim.cmd("normal m'") end,
+      ["<C-d>"] = function() neoscroll.ctrl_d({ duration = 200 }) vim.cmd("normal m'") end,
+      ["zz"] = function() neoscroll.zz({ half_screen_duration = 100 }) end,
+    }
+    local modes = { "n", "v", "x" }
+    for key, func in pairs(keymap) do
+      vim.keymap.set(modes, key, func)
+    end
   end,
 }
