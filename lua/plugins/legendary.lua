@@ -384,8 +384,8 @@ return {
         },
         {
           "<leader>MXsuc",
-          '<cmd>%s/[“”]/"/g<CR>',
-          description = "Substitute All Double Curly Quotes",
+          '<cmd>%s/[“”＂]/"/g<CR>',
+          description = "Substitute: All Double Curly Quotes",
         },
         { "<leader>MXsud", function() vim.api.nvim_feedkeys(":%sno/foo/bar/gc", "c", false) end, description = "Substitute: (No Magic Mode): `foo` with `bar`", },
         { "<leader>MXsue", function() vim.api.nvim_feedkeys(":s/\\vfoo/&bar/gc", "c", false) end, description = "Substitute: `foo` into `foobar`" },
