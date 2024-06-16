@@ -28,7 +28,6 @@ return {
       "grapple",
       "fzf",
       "portal",
-      "nvim-navbuddy",
     },
   },
   config = function(_, opts)
