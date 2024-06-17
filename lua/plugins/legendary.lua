@@ -214,7 +214,7 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ scratcn.nvim                                             │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<leader>so", function() require("scratch.scratch_file").createScratchFileByType("md") end, description = "Scratch: New File" },
+        { "<leader>so", "<cmd>ScratchWithName<CR>" , description = "Scratch: New File" },
         { "<leader>ss", function() require("core.utils").toggle_scratchpad() end,                     description = "Scratch: Toggle ScratchPad" },
         { "<leader>sf", "<cmd>ScratchOpenFzf<CR>",                                                    description = "Scratch: Find File Contents" },
 
