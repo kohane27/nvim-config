@@ -1,0 +1,17 @@
+{
+  "filetypes": ["md", "json", "js", "ts", "java", "py", "lua", "sh", "bash", "zsh"],
+  "filetype_details": {
+    "md": {
+      "content": [
+        "# topic: ?",
+        "",
+        "---",
+        "",
+        "🗨:",
+        ""
+      ]
+    }
+  },
+  "scratch_file_dir": "/home/hin/.cache/nvim/scratch.nvim",
+  "window_cmd": "vsplit"
+}

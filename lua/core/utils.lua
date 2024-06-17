@@ -220,8 +220,7 @@ function M.toggle_scratchpad()
     -- Close the current window
     vim.cmd("close")
   else
-    -- Run the ScratchPad command
-    vim.cmd("ScratchPad")
+    vim.cmd("vsplit $HOME/.cache/nvim/scratch.nvim/scratchPad.md")
   end
 end
 
