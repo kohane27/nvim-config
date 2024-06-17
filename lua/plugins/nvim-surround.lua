@@ -1,37 +1,30 @@
 return {
   "kylechui/nvim-surround",
-  dependencies = {
-    -- `mini.ai` fixed https://github.com/kylechui/nvim-surround/issues/153
-  },
+  version = "*",
   event = "VeryLazy",
   opts = {
-    surrounds = {
-      ["("] = false,
-      ["{"] = false,
-      ["["] = false,
-      ["<"] = false,
-    },
     aliases = {
       ["("] = ")",
       ["{"] = "}",
       ["["] = "]",
       ["<"] = ">",
+      ["S"] = { "}", "]", ")", ">", '"', "'", "`" },
     },
     keymaps = {
       insert = false,
       insert_line = false,
-      normal = "ys",
-      normal_cur = "yss",
+      normal = "S",
+      normal_cur = "SS",
       normal_line = false,
       normal_cur_line = false,
       visual = "S",
       visual_line = false,
-      delete = "ds",
-      change = "cs",
+      delete = "dS",
+      change = "cS",
+      change_line = false,
     },
   },
   config = function(_, opts)
     require("nvim-surround").setup(opts)
-    vim.keymap.set("n", "yS", "<Plug>(nvim-surround-normal)$")
   end,
 }
