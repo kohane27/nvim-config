@@ -215,12 +215,12 @@ function M.toggle_scratchpad()
   -- Extract just the file name from the full path
   local file_name = vim.fn.fnamemodify(buf_name, ":t")
 
-  -- Check if the current buffer is named 'scratchPad.md'
-  if file_name == "scratchPad.md" then
+  -- Check if the current buffer is named 'scratchpad.md'
+  if file_name == "scratchpad.md" then
     -- Close the current window
     vim.cmd("close")
   else
-    vim.cmd("vsplit $HOME/.cache/nvim/scratch.nvim/scratchPad.md")
+    vim.cmd("vsplit $HOME/.config/nvim/scratchpad.md")
   end
 end
 
