@@ -13,10 +13,8 @@ return {
       -- stylua: ignore
       keymaps = {
         -- NOTE: the following are available:
-        -- J!!, K!!, H, L, gh, r
-        -- gj, gk, mm, MM
-        -- ,
-        -- C-j, C-k, C-e, C-y
+        -- gh, gj, gk, gl, mm, MM, r
+        -- C-j, C-k
         -- <leader> h, i, k, p, u, v, w, y, z
 
         -- <leader>g
@@ -128,6 +126,19 @@ return {
           description = "cdo: Execute Command on Quickfix Entries",
           -- filters = { filetype = "qf", "Trouble" },
         },
+
+        -- ╭─────────────────────────────────────────────────────────╮
+        -- │ Grapple                                                 │
+        -- ╰─────────────────────────────────────────────────────────╯
+        { "<C-y>", "<cmd>Grapple toggle<cr>",            description = "Tag a file" },
+        { "<C-e>", "<cmd>Grapple toggle_tags<cr>",       description = "Toggle tags menu" },
+
+        { "H", "<cmd>Grapple select index=1<cr>",        description = "Select 1st tag" },
+        { "J", "<cmd>Grapple select index=2<cr>",        description = "Select 2nd tag" },
+        { "K", "<cmd>Grapple select index=3<cr>",        description = "Select 3rd tag" },
+        { "L", "<cmd>Grapple select index=4<cr>",        description = "Select 4th tag" },
+        -- { "<C-S-n>", "<cmd>Grapple cycle_tags next<cr>", description = "Go to next tag" },
+        -- { "<C-S-p>", "<cmd>Grapple cycle_tags prev<cr>", description = "Go to previous tag" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ bufferline                                               │
