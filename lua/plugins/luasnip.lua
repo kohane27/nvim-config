@@ -104,28 +104,28 @@ return {
     --  ╭──────────────────────────────────────────────────────────╮
     --  │ markdown function nodes                                  │
     --  ╰──────────────────────────────────────────────────────────╯
-    ls.add_snippets("markdown", {
-      s({ trig = ",date", wordTrig = true }, {
-        f(function()
-          return os.date("%Y-%m-%d")
-        end, {}),
-      }),
-      s({ trig = ",time", wordTrig = true }, {
-        f(function()
-          return os.date("%H:%M:%S")
-        end, {}),
-      }),
-      s({ trig = ",now", wordTrig = true }, {
-        f(function()
-          return os.date("%Y-%m-%d-%H-%M-%S")
-        end, {}),
-      }),
-      s({ trig = ",random", wordTrig = true }, {
-        f(function()
-          return require("core.utils").generate_random_chars()
-        end, {}),
-      }),
-    }, { type = "autosnippets" })
+    -- ls.add_snippets("markdown", {
+    --   s({ trig = ",date", wordTrig = true }, {
+    --     f(function()
+    --       return os.date("%Y-%m-%d")
+    --     end, {}),
+    --   }),
+    --   s({ trig = ",time", wordTrig = true }, {
+    --     f(function()
+    --       return os.date("%H:%M:%S")
+    --     end, {}),
+    --   }),
+    --   s({ trig = ",now", wordTrig = true }, {
+    --     f(function()
+    --       return os.date("%Y-%m-%d-%H-%M-%S")
+    --     end, {}),
+    --   }),
+    --   s({ trig = ",random", wordTrig = true }, {
+    --     f(function()
+    --       return require("core.utils").generate_random_chars()
+    --     end, {}),
+    --   }),
+    -- }, { type = "autosnippets" })
 
     --  ╭──────────────────────────────────────────────────────────╮
     --  │ javascript                                               │
