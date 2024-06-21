@@ -122,17 +122,23 @@ return {
     --  ╭──────────────────────────────────────────────────────────╮
     --  │ mid section                                              │
     --  ╰──────────────────────────────────────────────────────────╯
-    ins_left({
-      function()
-        return require("grapple").statusline()
-      end,
-      cond = require("grapple").exists,
-      color = { fg = colors.violet },
-    })
+    -- ins_left({
+    --   function()
+    --     return "%="
+    --   end,
+    -- })
 
     --  ╭──────────────────────────────────────────────────────────╮
     --  │ right section                                            │
     --  ╰──────────────────────────────────────────────────────────╯
+    -- ins_right({
+    --   function()
+    --     return "󰓹 " .. require("grapple").key()
+    --   end,
+    --   cond = require("grapple").exists,
+    --   color = { fg = colors.violet },
+    -- })
+
     local custom_filetype = require("lualine.components.filetype"):extend()
     local highlight = require("lualine.highlight")
     local default_status_colors = { saved = colors.violet, modified = colors.darkblue }
