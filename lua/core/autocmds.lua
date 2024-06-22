@@ -41,8 +41,10 @@ vim.api.nvim_create_autocmd('VimResized', { pattern = '*', command = 'tabdo winc
 if vim.fn.exists("$TMUX") == 1 then
   -- local host = vim.fn.hostname()
   -- print("host", host)
+
   local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
   -- print("cwd", cwd)
+
   -- local shortened_cwd = string.gsub(cwd, host, "")
   -- print("shortened_cwd", shortened_cwd)
   vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost", "BufNewFile", "BufEnter" }, {
