@@ -131,17 +131,17 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ bufferline                                               │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<C-h>", "<cmd>BufferLineCyclePrev<CR>",     description = "Buffer: Move to Previous" },
-        { "<C-l>", "<cmd>BufferLineCycleNext<CR>",     description = "Buffer: Move to Next" },
+        { "H", "<cmd>BufferLineCyclePrev<CR>",             description = "Buffer: Move to Previous" },
+        { "L", "<cmd>BufferLineCycleNext<CR>",             description = "Buffer: Move to Next" },
 
-        { "<A-,>", "<cmd>BufferLineMovePrev<CR>",      description = "Buffer: Re-order to Previous" },
-        { "<A-.>", "<cmd>BufferLineMoveNext<CR>",      description = "Buffer: Re-order to Next" },
+        { "<A-,>", "<cmd>BufferLineMovePrev<CR>",          description = "Buffer: Re-order to Previous" },
+        { "<A-.>", "<cmd>BufferLineMoveNext<CR>",          description = "Buffer: Re-order to Next" },
 
-        { "<C-y>", "<cmd>BufferLineTogglePin<CR>",     description = "Buffer: pin" },
-        { "H", "<cmd>BufferLineGoToBuffer 1<CR>",      description = "Buffer: Go to 1" },
-        { "J", "<cmd>BufferLineGoToBuffer 2<CR>",      description = "Buffer: Go to 2" },
-        { "K", "<cmd>BufferLineGoToBuffer 3<CR>",      description = "Buffer: Go to 3" },
-        { "L", "<cmd>BufferLineGoToBuffer 4<CR>",      description = "Buffer: Go to 4" },
+        { "<C-y>", "<cmd>BufferLineTogglePin<CR>",         description = "Buffer: pin" },
+        { "<C-h>", "<cmd>BufferLineGoToBuffer 1<CR>",      description = "Buffer: Go to 1" },
+        { "<C-j>", "<cmd>BufferLineGoToBuffer 2<CR>",      description = "Buffer: Go to 2" },
+        { "<C-k>", "<cmd>BufferLineGoToBuffer 3<CR>",      description = "Buffer: Go to 3" },
+        { "<C-l>", "<cmd>BufferLineGoToBuffer 4<CR>",      description = "Buffer: Go to 4" },
 
         -- { "<leader>mc", "<cmd>BufferLineCloseOthers<CR>",      description = "Buffer: Close All But Current" },
         -- BufferLinePick
