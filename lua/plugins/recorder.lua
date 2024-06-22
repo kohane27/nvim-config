@@ -9,6 +9,10 @@ return {
     mapping = {
       startStopRecording = "Q",
       playMacro = "@",
+      switchSlot = "<leader>MMWUA",
+      editMacro = "<leader>MMWUB",
+      deleteAllMacros = "<leader>MMWUC",
+      yankMacro = "<leader>MMWUD",
     },
     -- clears all macros-slots on startup
     clear = true,
