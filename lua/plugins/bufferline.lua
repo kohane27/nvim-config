@@ -10,7 +10,7 @@ return {
     require("bufferline").setup({
       options = {
         -- numbers = "none" | "ordinal" | "buffer_id" | "both"
-        numbers = "ordinal",
+        -- numbers = "ordinal",
         right_mouse_command = false,
         middle_mouse_command = false,
         modified_icon = "",
