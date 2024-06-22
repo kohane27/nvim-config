@@ -13,15 +13,14 @@ return {
       -- stylua: ignore
       keymaps = {
         -- NOTE: the following are available:
-        -- J!!, K!!, H, L, gh, r
-        -- gj, gk, mm, MM
-        -- ,
-        -- C-j, C-k, C-e, C-y
+        -- H, J!!, K!!, L
+        -- C-j, C-k
+        -- gh, gj, gk, gl, mm, MM, r
         -- <leader> h, i, k, p, u, v, w, y, z
 
         -- <leader>g
         { "<leader>gu", "<cmd>UndotreeToggle<CR>",                                               description = "Undotree: Toggle" },
-        { "<leader>e", "<cmd>lua require('yazi').yazi()<CR>",                                    description = "Yazi" },
+        { "<C-e>", "<cmd>lua require('yazi').yazi()<CR>",                                        description = "Yazi" },
 
         { "-", "<cmd>Oil --float<CR>",                                                           description = "Oil" },
         { "X", "<cmd>ISwapWith<CR>",                                                             description = "Swap Two Adjacent Nodes" },
@@ -132,10 +131,21 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ bufferline                                               │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<C-h>", "<cmd>BufferLineCyclePrev<CR>",  description = "Buffer: Move to Previous" },
-        { "<C-l>", "<cmd>BufferLineCycleNext<CR>",  description = "Buffer: Move to Next" },
-        { "<A-,>", "<cmd>BufferLineMovePrev<CR>",   description = "Buffer: Re-order to Previous" },
-        { "<A-.>", "<cmd>BufferLineMoveNext<CR>",   description = "Buffer: Re-order to Next" },
+        { "<C-h>", "<cmd>BufferLineCyclePrev<CR>",     description = "Buffer: Move to Previous" },
+        { "<C-l>", "<cmd>BufferLineCycleNext<CR>",     description = "Buffer: Move to Next" },
+
+        { "<A-,>", "<cmd>BufferLineMovePrev<CR>",      description = "Buffer: Re-order to Previous" },
+        { "<A-.>", "<cmd>BufferLineMoveNext<CR>",      description = "Buffer: Re-order to Next" },
+
+        { "<C-y>", "<cmd>BufferLineTogglePin<CR>",     description = "Buffer: pin" },
+        { "H", "<cmd>BufferLineGoToBuffer 1<CR>",      description = "Buffer: Go to 1" },
+        { "J", "<cmd>BufferLineGoToBuffer 2<CR>",      description = "Buffer: Go to 2" },
+        { "K", "<cmd>BufferLineGoToBuffer 3<CR>",      description = "Buffer: Go to 3" },
+        { "L", "<cmd>BufferLineGoToBuffer 4<CR>",      description = "Buffer: Go to 4" },
+
+        -- { "<leader>mc", "<cmd>BufferLineCloseOthers<CR>",      description = "Buffer: Close All But Current" },
+        -- BufferLinePick
+
         { "g1", "<cmd>BufferLineGoToBuffer 1<CR>",  description = "Buffer: Go to 1" },
         { "g2", "<cmd>BufferLineGoToBuffer 2<CR>",  description = "Buffer: Go to 2" },
         { "g3", "<cmd>BufferLineGoToBuffer 3<CR>",  description = "Buffer: Go to 3" },
@@ -266,7 +276,6 @@ return {
         -- ╰──────────────────────────────────────────────────────────╯
         -- NOTE: `<leader>ma` and `<leader>mA` taken by `mini.align`
         -- NOTE: `<leader>ms` taken by `mini.operators`
-        { "<leader>mc", "<cmd>BufferLineCloseOthers<CR>",                                  description = "Buffer: Close All But Current" },
         { "<leader>mb", "<cmd>lua require('comment-box').llbox()<CR><Esc>",                description = "Comment Box: Left-aligned", mode = { "v" } },
         { "<leader>mn", "<cmd>Noice dismiss<CR>",                                          description = "Noice: Dismiss" },
         { "<leader>mt", "<cmd>lua MiniTrailspace.trim()<CR>",                              description = "Trim All Trailing Whitespace" },

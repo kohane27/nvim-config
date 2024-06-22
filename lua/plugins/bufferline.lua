@@ -9,6 +9,8 @@ return {
 
     require("bufferline").setup({
       options = {
+        -- numbers = "none" | "ordinal" | "buffer_id" | "both"
+        numbers = "ordinal",
         right_mouse_command = false,
         middle_mouse_command = false,
         modified_icon = "",
@@ -35,11 +37,11 @@ return {
         truncate_names = false,
         offsets = { { filetype = "NvimTree", text = "File Explorer", text_align = "left", separator = true } },
 
-        show_buffer_icons = false, -- too flashy; need pin
-        -- get_element_icon = function(element)
-        --   local icon, hl = web_devicons.get_icon_by_filetype(element.filetype, { default = false })
-        --   return icon, hl
-        -- end,
+        show_buffer_icons = true,
+        get_element_icon = function(element)
+          local icon, hl = web_devicons.get_icon_by_filetype(element.filetype, { default = false })
+          return icon, hl
+        end,
 
         show_buffer_close_icons = false,
         show_close_icon = false,
