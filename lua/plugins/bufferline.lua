@@ -4,33 +4,38 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {
     options = {
-      buffer_close_icon = " ",
-      modified_icon = " ",
-      close_icon = " ",
-      truncate_names = false,
-      -- a/index.sh b/index.sh
-      show_duplicate_prefix = true,
-      max_prefix_length = 30,
-      max_name_length = 50,
+      themable = true,
+      numbers = "ordinal",
+      right_mouse_command = false,
+      middle_mouse_command = false,
 
-      color_icons = true,
-      show_buffer_icons = true,
-      always_show_bufferline = true,
-      show_buffer_close_icons = true,
-      show_close_icon = false,
+      -- always show file's immediate parent
+      name_formatter = function(buf)
+        local path = buf.path
+        local parts = {}
+        for part in string.gmatch(path, "[^/\\]+") do
+          table.insert(parts, part)
+        end
+
+        local len = #parts
+        if len > 1 then
+          return parts[len - 1] .. "/" .. parts[len]
+        else
+          return parts[len]
+        end
+      end,
+
+      max_name_length = 50,
+      max_prefix_length = 30,
+      truncate_names = false,
+      offsets = { { filetype = "NvimTree", text = "File Explorer", text_align = "left", separator = true } },
       get_element_icon = function(element)
         local icon, hl = require("nvim-web-devicons").get_icon_by_filetype(element.filetype, { default = false })
         return icon, hl
       end,
-      show_tab_indicators = true,
-      offsets = {
-        {
-          filetype = "NvimTree",
-          text = "File Explorer",
-          text_align = "left",
-          separator = true,
-        },
-      },
+      show_buffer_close_icons = false,
+      show_close_icon = false,
+      hover = { enabled = false },
     },
   },
   config = function(_, opts)
