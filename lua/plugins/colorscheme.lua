@@ -1,8 +1,14 @@
 return {
   "rebelot/kanagawa.nvim",
   lazy = false, -- load immediately when starting Neovim
-  priority = 1000, -- Load the colorscheme before other non-lazy-loaded plugins
+  priority = 5000, -- Load the colorscheme before other non-lazy-loaded plugins
   opts = {
+    compile = true, -- `:KanagawaCompile`
+    transparent = false, -- do not set background color
+    dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+    -- or else gutter color not matching
+    colors = { theme = { all = { ui = { bg_gutter = "none" } } } },
+
     -- https://github.com/rebelot/kanagawa.nvim/issues/197
     overrides = function(colors)
       -- local theme = colors.theme
@@ -34,11 +40,6 @@ return {
         -- ["@diff.minus"] = { link = "@text.diff.delete" },
       }
     end,
-    transparent = false, -- do not set background color
-    dimInactive = false, -- dim inactive window `:h hl-NormalNC`
-    colors = {
-      theme = { all = { ui = { bg_gutter = "none" } } },
-    },
   },
   config = function(_, opts)
     vim.opt.laststatus = 3
