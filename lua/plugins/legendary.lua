@@ -38,8 +38,8 @@ return {
         -- { "<C-p>", "<cmd>Legendary<CR>",                                                      description = "Legendary Command Palette", mode = { "n", "x" } },
         { "<C-p>", function() require("core.utils").legendary_command_palette() end,             description = "Legendary Command Palette", mode = { "n", "x" } },
 
-        -- { "<C-f>", '<C-R>"',                                                                  description = "Paste Last Yanked / Deleted", mode = { "i" } },
-        { "<C-v>", "<C-R>*",                                                                     description = "Paste Clipboard Content", mode = { "i", "x" } },
+        { "<C-f>", { i = '<C-R>"' },                                                              description = "Paste Last Yanked / Deleted", mode = { "i" } },
+        { "<C-v>", { i = "<C-R>*" },                                                              description = "Paste Clipboard Content",     mode = { "i" } },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Telescope                                                │
