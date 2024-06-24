@@ -11,26 +11,28 @@ return {
       options = {
         -- numbers = "none" | "ordinal" | "buffer_id" | "both"
         -- numbers = "ordinal",
+        -- match background color
+        style_preset = require("bufferline").style_preset.minimal,
         right_mouse_command = false,
         middle_mouse_command = false,
         modified_icon = "",
         indicator = { style = "underline" },
 
         -- always show file's immediate parent
-        -- name_formatter = function(buf)
-        --   local path = buf.path
-        --   local parts = {}
-        --   for part in string.gmatch(path, "[^/\\]+") do
-        --     table.insert(parts, part)
-        --   end
-        --
-        --   local len = #parts
-        --   if len > 1 then
-        --     return parts[len - 1] .. "/" .. parts[len]
-        --   else
-        --     return parts[len]
-        --   end
-        -- end,
+        name_formatter = function(buf)
+          local path = buf.path
+          local parts = {}
+          for part in string.gmatch(path, "[^/\\]+") do
+            table.insert(parts, part)
+          end
+
+          local len = #parts
+          if len > 1 then
+            return parts[len - 1] .. "/" .. parts[len]
+          else
+            return parts[len]
+          end
+        end,
 
         max_name_length = 50,
         max_prefix_length = 30,
