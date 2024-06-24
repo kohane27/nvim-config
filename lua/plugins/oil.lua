@@ -9,15 +9,12 @@ return {
     -- Skip the confirmation popup for simple operations
     skip_confirm_for_simple_edits = true,
     -- Selecting a new/moved/renamed file or directory will prompt you to save changes first
-    prompt_save_on_select_new_entry = true,
-    -- Oil will automatically delete hidden buffers after this delay
-    -- set to false to disable cleanup
-    -- Note: the cleanup process only starts when none of the oil buffers are currently displayed
+    prompt_save_on_select_new_entry = false,
+    -- Oil will automatically delete hidden buffers after this delay set to false to disable cleanup
     cleanup_delay_ms = 1000,
 
     use_default_keymaps = false,
     -- See :help oil-actions for a list of all available actions
-    -- Set to `false` to remove a keymap
     keymaps = {
       ["g?"] = "actions.show_help",
       ["<CR>"] = "actions.select",
