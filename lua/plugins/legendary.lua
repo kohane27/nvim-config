@@ -143,7 +143,12 @@ return {
         { "<C-k>", '<cmd>lua require("bufferline").go_to(3, true)<CR>',        description = "Buffer: Go to 3" },
         { "<C-l>", '<cmd>lua require("bufferline").go_to(4, true)<CR>',        description = "Buffer: Go to 4" },
 
-        { "<leader>mc", "<cmd>BufferLineCloseRight<CR>",                       description = "Buffer: Close All to the Right" },
+        { "<leader>bl", "<cmd>BufferLineCloseRight<CR>",                        description = "Buffer: Close All Buffers to the Right" },
+        { "<leader>bh", "<cmd>BufferLineCloseLeft<CR>",                         description = "Buffer: Close All Buffers to the Left" },
+        { "<leader>bo", "<cmd>BufferLineCloseOthers<CR>",                       description = "Buffer: Close All Other Visible Buffers" },
+        { "<leader>bp", "<cmd>BufferLinePick<CR>",                              description = "Buffer: Choose a Buffer" },
+        { "<leader>bc", "<cmd>BufferLinePickClose<CR>",                         description = "Buffer: Choose a Closing Buffer" },
+
 
         { "g1", "<cmd>BufferLineGoToBuffer 1<CR>",  description = "Buffer: Go to 1" },
         { "g2", "<cmd>BufferLineGoToBuffer 2<CR>",  description = "Buffer: Go to 2" },
@@ -278,6 +283,9 @@ return {
         { "<leader>mb", "<cmd>lua require('comment-box').llbox()<CR><Esc>",                description = "Comment Box: Left-aligned", mode = { "v" } },
         { "<leader>mn", "<cmd>Noice dismiss<CR>",                                          description = "Noice: Dismiss" },
         { "<leader>mt", "<cmd>lua MiniTrailspace.trim()<CR>",                              description = "Trim All Trailing Whitespace" },
+        { "<leader>mc", "<cmd>lua require('curl').open_curl_tab()<CR>",                    description = "Open curl (working directory)" },
+        { "<leader>mC", "<cmd>lua require('curl').open_global_tab()<CR>",                  description = "Open curl (global)" },
+
         { "<leader>mp", function() require("core.utils").get_current_buffer_content() end, description = "GPT: Get Current Buffer Content" },
         { "<leader>mP", function() require("core.utils").get_all_buffer_content() end,     description = "GPT: Get All Buffer Content" },
         { "<leader>md", function() require("core.utils").markdown_preview() end,           description = "Preview Markdown" },
