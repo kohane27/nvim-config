@@ -2,11 +2,11 @@ return {
   "ggandor/leap.nvim",
   lazy = false,
   opts = {
-    case_sensitive = false,
     safe_labels = {}, -- disable auto-jumping to the first match; doesn't work on one unique target
     max_phase_one_targets = 0, -- first char won't show possible matches
     max_highlighted_traversal_targets = 10,
     labels = "jklasdfghqwertyuiopzxcvbnm/JKLASDFGHQWERTYUIOPZXCVBNM?",
+    equivalence_classes = { " \t\r\n", "([{", ")]}", "'\"`" },
   },
 
   config = function(_, opts)
@@ -14,12 +14,10 @@ return {
     leap.setup(opts)
 
     -- Bidirectional search
-    vim.keymap.set("n", "s", function()
-      leap.leap({ target_windows = { vim.api.nvim_get_current_win() } })
-    end)
-    vim.keymap.set("x", "s", function()
-      leap.leap({ target_windows = { vim.api.nvim_get_current_win() } })
-    end)
+    vim.keymap.set("n", "s", "<Plug>(leap)")
+    vim.keymap.set("x", "s", "<Plug>(leap)")
+
+    vim.api.nvim_set_hl(0, "LeapLabel", { fg = "#000000", bg = "#CCFF88", bold = true })
 
     -- NOTE: a bit too disorienting to `zz` after jump every time
     -- -- mark cursor location before jumping
