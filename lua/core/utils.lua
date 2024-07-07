@@ -131,18 +131,21 @@ function M.live_grep_from_project_git_root()
       -- use `ripgrep`
       vimgrep_arguments = {
         "rg",
+        "--ignore-case", -- all patterns will be searched case insensitively
         "--follow", -- follow symbolic links
-        "--hidden", -- search for hidden files
-        "--ignore-case",
+        "--hidden", -- Search hidden files and directories
+        "--no-ignore", -- do NOT respect .gitignore
         -- "--no-heading", -- don't group matches by each file
         -- "--with-filename", -- print the file path with the matched lines
         -- "--line-number", -- show line numbers
         -- "--column", -- show column numbers
 
-        -- excluded patterns
         "--glob=!**/.git/*",
-        -- "--glob=!**/build/*",
-        -- "--glob=!**/dist/*",
+        "--glob=!**/node_modules/*",
+        "--glob=!**/.terraform/*",
+        "--glob=!**/build/*",
+        "--glob=!**/dist/*",
+        "--glob=!**/.DS_Store",
         "--glob=!**/yarn.lock",
         "--glob=!**/package-lock.json",
       },
@@ -173,13 +176,18 @@ function M.find_files_from_project_git_root()
     opts = {
       cwd = get_git_root(),
       hidden = true,
-      -- hidden files and directories are searched with `--hidden`
       find_command = {
         "rg",
-        "--ignore-case",
-        "--files",
-        "--hidden",
+        "--ignore-case", -- all patterns will be searched case insensitively
+        "--files", -- Print each file that would be searched without actually performing the search
+        "--hidden", -- Search hidden files and directories
+        "--no-ignore", -- do NOT respect .gitignore
         "--glob=!**/.git/*",
+        "--glob=!**/node_modules/*",
+        "--glob=!**/.terraform/*",
+        "--glob=!**/build/*",
+        "--glob=!**/dist/*",
+        "--glob=!**/.DS_Store",
         "--glob=!**/yarn.lock",
         "--glob=!**/package-lock.json",
       },
