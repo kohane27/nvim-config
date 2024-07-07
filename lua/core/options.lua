@@ -30,7 +30,7 @@ set listchars=tab:▸\ ,trail:·
 " removes pipes | that act as seperators on splits
 set fillchars+=vert:\
 set wildignore+=**/node_modules/**
-let g:python3_host_prog = '~/.pyenv/versions/3.11.6/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
 "  " make `-` part of a word
 " set iskeyword-=-
 "  " make _` part of a word
