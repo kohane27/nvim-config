@@ -284,9 +284,8 @@ return {
         { "<leader>mb", "<cmd>lua require('comment-box').llbox()<CR><Esc>",                description = "Comment Box: Left-aligned", mode = { "v" } },
         { "<leader>mn", "<cmd>Noice dismiss<CR>",                                          description = "Noice: Dismiss" },
         { "<leader>mt", "<cmd>lua MiniTrailspace.trim()<CR>",                              description = "Trim All Trailing Whitespace" },
-        { "<leader>mc", "<cmd>Rest run<CR>",                                               description = "Run rest API" },
         -- { "<leader>mc", "<cmd>lua require('curl').open_curl_tab()<CR>",                    description = "Open curl (working directory)" },
-        -- { "<leader>mC", "<cmd>lua require('curl').open_global_tab()<CR>",                  description = "Open curl (global)" },
+        { "<leader>mc", "<cmd>lua require('curl').open_global_tab()<CR>",                  description = "Open curl (global)" },
 
         { "<leader>mp", function() require("core.utils").get_current_buffer_content() end, description = "GPT: Get Current Buffer Content" },
         { "<leader>mP", function() require("core.utils").get_all_buffer_content() end,     description = "GPT: Get All Buffer Content" },
