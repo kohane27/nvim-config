@@ -70,6 +70,9 @@ return {
       view = {
         adaptive_size = true,
       },
+      filters = {
+        enable = false,
+      },
     })
   end,
 }
