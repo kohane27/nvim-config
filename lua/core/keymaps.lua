@@ -79,7 +79,7 @@ map("n", "q", "<nop>")
 map("n", "ZZ", "<nop>")
 
 -- no replace mode
-map("n", "r", "<Nop>")
+-- map("n", "r", "<Nop>") -- used by leap's remote mode
 map("n", "R", "<nop>")
 map("n", "gR", "<nop>")
 

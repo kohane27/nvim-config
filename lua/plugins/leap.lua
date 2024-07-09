@@ -14,8 +14,12 @@ return {
     leap.setup(opts)
 
     -- Bidirectional search
-    vim.keymap.set("n", "s", "<Plug>(leap)")
-    vim.keymap.set("x", "s", "<Plug>(leap)")
+    vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
+
+    -- Remote operations at a distance
+    vim.keymap.set({ "n", "o" }, "r", function()
+      require("leap.remote").action()
+    end)
 
     vim.api.nvim_set_hl(0, "LeapLabel", { fg = "#000000", bg = "#CCFF88", bold = true })
 
