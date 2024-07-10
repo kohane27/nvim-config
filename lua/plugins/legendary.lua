@@ -25,7 +25,7 @@ return {
 
         { "-", "<cmd>Oil --float<CR>",                                                           description = "Oil" },
         { "X", "<cmd>ISwapWith<CR>",                                                             description = "Swap Two Adjacent Nodes" },
-        { "gs", function() require("flash").treesitter() end,                                    description = "Flash Treesitter", mode = { "n", "x", "o" } },
+        { "R", function() require("flash").treesitter() end,                                     description = "Flash Treesitter", mode = { "n", "x", "o" } },
 
         -- <C-KEY>
         { "<C-a>", require("dial.map").inc_normal(),                                             description = "Increment" },
