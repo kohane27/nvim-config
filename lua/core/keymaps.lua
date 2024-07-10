@@ -80,7 +80,7 @@ map("n", "ZZ", "<nop>")
 
 -- no replace mode
 -- map("n", "r", "<Nop>") -- used by leap's remote mode
-map("n", "R", "<nop>")
+-- map("n", "R", "<nop>") -- used by flash's gs
 map("n", "gR", "<nop>")
 
 -- no rot13 encoding
