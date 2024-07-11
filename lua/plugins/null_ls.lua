@@ -21,7 +21,7 @@ return {
 
       -- Terraform
       formatting.terraform_fmt,
-      diagnostics.terraform_validate,
+      -- diagnostics.terraform_validate,
 
       -- Lua
       formatting.stylua,
