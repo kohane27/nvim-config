@@ -14,13 +14,14 @@ return {
       -- stylua: ignore
       keymaps = {
         -- NOTE: the following are available:
-        -- H, J!!, K!!, L
-        -- C-j, C-k
+        -- J!!, K!!, T
         -- gh, gj, gk, gl, mm, MM, r
         -- <leader> h, i, k, p, u, v, w, y, z
 
         -- <leader>g
         { "<leader>gu", "<cmd>UndotreeToggle<CR>",                                               description = "Undotree: Toggle" },
+        { "<leader>gU", "<cmd>Telescope undo<CR>",                                               description = "Telescope: Undo" },
+
         { "<C-e>", "<cmd>lua require('yazi').yazi()<CR>",                                        description = "Yazi" },
 
         { "F", "<cmd>Oil --float<CR>",                                                           description = "Oil" },
@@ -31,7 +32,6 @@ return {
         { "<C-a>", require("dial.map").inc_normal(),                                             description = "Increment" },
         { "<C-x>", require("dial.map").dec_normal(),                                             description = "Decrement" },
         { "<C-f>", function() require("nvim-tree.api").tree.toggle({ find_file = true }) end,    description = "Tree: Toggle With Focused File" },
-        { "<C-S-f>", function() require("nvim-tree.api").tree.toggle({ find_file = false }) end, description = "Tree: Toggle Without Focused File" },
         { "<C-q>", "<cmd>LazyGit<CR>",                                                           description = "Lazygit" },
         { "<C-t>", "<cmd>ToggleTerm<CR>",                                                        description = "New terminal" },
         { "<C-g>", function() require("core.utils").find_files_from_project_git_root() end,      description = "Telescope: Find Files" },
@@ -71,7 +71,6 @@ return {
 
         -- not frequent below
         { "<leader>fp", "<cmd>Telescope neoclip<CR>",                                 description = "Telescope: Clipboard" },
-        { "<leader>fu", "<cmd>Telescope undo<CR>",                                    description = "Telescope: Undo" },
         { "<leader>fB", "<cmd>Telescope scope buffers<CR>",                           description = "Telescope: Tabs" },
         { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>",     description = "Telescope: Find Files in Current Directory" },
         { "<leader>fd", "<cmd>Telescope frecency workspace=CWD<CR>",                  description = "Telescope: Find Frecency" },
