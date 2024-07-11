@@ -4,7 +4,33 @@ return {
   enabled = not vim.g.started_by_firenvim,
   dependencies = {
     { "nvim-tree/nvim-web-devicons" },
-    { "b0o/nvim-tree-preview.lua", enabled = not vim.g.started_by_firenvim },
+    {
+      "JMarkin/nvim-tree.lua-float-preview",
+      lazy = true,
+      opts = {
+        -- don't enabled by default
+        toggled_on = false,
+        window = {
+          open_win_config = function()
+            return {
+              anchor = "NW",
+              style = "minimal",
+              relative = "editor",
+              border = "rounded",
+              row = 1,
+              col = require("nvim-tree.view").View.width + 1,
+              width = math.floor(vim.o.columns * 0.6), -- 60% of total width
+              height = vim.o.lines - 5, -- almost full height
+            }
+          end,
+        },
+        mapping = {
+          up = {},
+          down = {},
+          toggle = { "P" },
+        },
+      },
+    },
   },
   config = function()
     -- disable default `netrw` file explorer
@@ -14,10 +40,9 @@ return {
     -- stylua: ignore
     local function on_attach(bufnr)
       local function opts(desc) return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true } end
-      local preview = require("nvim-tree-preview")
-      vim.keymap.set("n", "P",      preview.watch,                   opts("Preview (Watch)"))
-      vim.keymap.set("n", "<Esc>",  preview.unwatch,                 opts("Close Preview/Unwatch"))
-      vim.keymap.set("n", "<Tab>",  preview.node_under_cursor,       opts("Preview"))
+
+      local floating_preview = require("float-preview")
+      floating_preview.attach_nvimtree(bufnr)
 
       local api = require("nvim-tree.api")
       vim.keymap.set("n", "<C-w>v", api.node.open.vertical,          opts("Open: Vertical Split"))
