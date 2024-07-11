@@ -1,34 +1,14 @@
 return {
   "nvimtools/hydra.nvim",
   event = "VeryLazy",
+
+  -- stylua: ignore
   config = function()
     local hydra = require("hydra")
 
-    --  ╭──────────────────────────────────────────────────────────╮
-    --  │ Functions start with g                                   │
-    --  ╰──────────────────────────────────────────────────────────╯
-    hydra({
-      name = "changelist",
-      mode = "n",
-      body = "g;",
-      config = {
-        invoke_on_body = true,
-        on_enter = function()
-          vim.api.nvim_command("normal! g;zz")
-        end,
-      },
-      heads = {
-        { "j", "g," },
-        { "k", "g;" },
-        { "<Esc>", nil, { exit = true, nowait = true } },
-      },
-    })
-
     -- local function map(mode, lhs, rhs)
     --   local options = { noremap = true, silent = true }
-    --   if opts then
-    --     options = vim.tbl_extend("force", options)
-    --   end
+    --   if opts then options = vim.tbl_extend("force", options) end
     --   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
     -- end
 
@@ -56,9 +36,7 @@ return {
       body = ";t",
       config = {
         invoke_on_body = true,
-        on_enter = function()
-          require("todo-comments").jump_next()
-        end,
+        on_enter = function() require("todo-comments").jump_next() end,
       },
       heads = {
         { "j", '<cmd>lua require("todo-comments").jump_next()<CR>' },
@@ -73,9 +51,7 @@ return {
       body = ";g",
       config = {
         invoke_on_body = true,
-        on_enter = function()
-          vim.api.nvim_command("Gitsigns next_hunk")
-        end,
+        on_enter = function() vim.api.nvim_command("Gitsigns next_hunk") end,
       },
       heads = {
         { "j", "<cmd>Gitsigns next_hunk<CR>" },
@@ -90,11 +66,7 @@ return {
       body = ";d",
       config = {
         invoke_on_body = true,
-        on_enter = function()
-          vim.api.nvim_command(
-            "lua require('lspsaga.diagnostic'):goto_next({ severity = vim.diagnostic.severity.ERROR })"
-          )
-        end,
+        on_enter = function() vim.api.nvim_command("lua require('lspsaga.diagnostic'):goto_next({ severity = vim.diagnostic.severity.ERROR })") end,
       },
       heads = {
         { "j", "<cmd>lua require('lspsaga.diagnostic'):goto_next({ severity = vim.diagnostic.severity.ERROR })<CR>" },
@@ -103,25 +75,44 @@ return {
       },
     })
 
-    hydra({
-      name = "quickfix",
-      mode = "n",
-      body = ";c",
-      config = {
-        invoke_on_body = true,
-        on_enter = function()
-          local status, err = pcall(vim.api.nvim_command, "cnext")
-          if not status then
-            print("Error executing cnext: " .. err)
-          end
-        end,
-      },
-      heads = {
-        { "j", "<cmd>cnext<CR>zz" },
-        { "k", "<cmd>cprevious<CR>zz" },
-        { "<Esc>", nil, { exit = true, nowait = true } },
-      },
-    })
+    -- NOTE: we use hydra for current buffer stuff; with quickfix list we jump through different files;
+    -- it's a hassle to `<Esc>` all the time before executing on the target jump list
+
+    vim.keymap.set("n", ";c", "<cmd>cnext<CR>zz")
+    vim.keymap.set("n", ";C", "<cmd>cprevious<CR>zz")
+
+    -- hydra({
+    --   name = "quickfix",
+    --   mode = "n",
+    --   body = ";c",
+    --   config = {
+    --     invoke_on_body = true,
+    --     on_enter = function()
+    --       local status, err = pcall(vim.api.nvim_command, "cnext")
+    --       if not status then print("Error executing cnext: " .. err) end
+    --     end,
+    --   },
+    --   heads = {
+    --     { "j", "<cmd>cnext<CR>zz" },
+    --     { "k", "<cmd>cprevious<CR>zz" },
+    --     { "<Esc>", nil, { exit = true, nowait = true } },
+    --   },
+    -- })
+
+    -- hydra({
+    --   name = "changelist",
+    --   mode = "n",
+    --   body = "g;",
+    --   config = {
+    --     invoke_on_body = true,
+    --     on_enter = function() vim.api.nvim_command("normal! g;zz") end,
+    --   },
+    --   heads = {
+    --     { "j", "g," },
+    --     { "k", "g;" },
+    --     { "<Esc>", nil, { exit = true, nowait = true } },
+    --   },
+    -- })
 
     --  ╭──────────────────────────────────────────────────────────╮
     --  │ Code Navigation starts with ,                            │
@@ -132,23 +123,11 @@ return {
       body = ",f",
       config = {
         invoke_on_body = true,
-        on_enter = function()
-          require("nvim-treesitter.textobjects.move").goto_next_start("@function.outer")
-        end,
+        on_enter = function() require("nvim-treesitter.textobjects.move").goto_next_start("@function.outer") end,
       },
       heads = {
-        {
-          "j",
-          function()
-            require("nvim-treesitter.textobjects.move").goto_next_start("@function.outer")
-          end,
-        },
-        {
-          "k",
-          function()
-            require("nvim-treesitter.textobjects.move").goto_previous_start("@function.outer")
-          end,
-        },
+        { "j", function() require("nvim-treesitter.textobjects.move").goto_next_start("@function.outer") end },
+        { "k", function() require("nvim-treesitter.textobjects.move").goto_previous_start("@function.outer") end },
         { "<Esc>", nil, { exit = true, nowait = true } },
       },
     })
@@ -159,23 +138,11 @@ return {
       body = ",c",
       config = {
         invoke_on_body = true,
-        on_enter = function()
-          require("nvim-treesitter.textobjects.move").goto_next_start("@class.outer")
-        end,
+        on_enter = function() require("nvim-treesitter.textobjects.move").goto_next_start("@class.outer") end,
       },
       heads = {
-        {
-          "j",
-          function()
-            require("nvim-treesitter.textobjects.move").goto_next_start("@class.outer")
-          end,
-        },
-        {
-          "k",
-          function()
-            require("nvim-treesitter.textobjects.move").goto_previous_start("@class.outer")
-          end,
-        },
+        { "j", function() require("nvim-treesitter.textobjects.move").goto_next_start("@class.outer") end },
+        { "k", function() require("nvim-treesitter.textobjects.move").goto_previous_start("@class.outer") end },
         { "<Esc>", nil, { exit = true, nowait = true } },
       },
     })
@@ -186,23 +153,11 @@ return {
       body = ",b",
       config = {
         invoke_on_body = true,
-        on_enter = function()
-          require("nvim-treesitter.textobjects.move").goto_next_start("@block.outer")
-        end,
+        on_enter = function() require("nvim-treesitter.textobjects.move").goto_next_start("@block.outer") end,
       },
       heads = {
-        {
-          "j",
-          function()
-            require("nvim-treesitter.textobjects.move").goto_next_start("@block.outer")
-          end,
-        },
-        {
-          "k",
-          function()
-            require("nvim-treesitter.textobjects.move").goto_previous_start("@block.outer")
-          end,
-        },
+        { "j", function() require("nvim-treesitter.textobjects.move").goto_next_start("@block.outer") end },
+        { "k", function() require("nvim-treesitter.textobjects.move").goto_previous_start("@block.outer") end },
         { "<Esc>", nil, { exit = true, nowait = true } },
       },
     })
