@@ -148,6 +148,7 @@ function M.live_grep_from_project_git_root()
         "--glob=!**/.DS_Store",
         "--glob=!**/yarn.lock",
         "--glob=!**/package-lock.json",
+        "--glob=!**/.obsidian",
       },
     }
   end
@@ -190,6 +191,7 @@ function M.find_files_from_project_git_root()
         "--glob=!**/.DS_Store",
         "--glob=!**/yarn.lock",
         "--glob=!**/package-lock.json",
+        "--glob=!**/.obsidian",
       },
     }
   end
