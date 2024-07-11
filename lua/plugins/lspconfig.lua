@@ -67,8 +67,8 @@ return {
         "pyright",
         "ruff",
         --  terraform
-        "tfsec",
-        "tflint",
+        -- "tfsec",
+        -- "tflint",
       },
       auto_update = true,
     })
