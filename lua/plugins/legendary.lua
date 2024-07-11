@@ -23,7 +23,7 @@ return {
         { "<leader>gu", "<cmd>UndotreeToggle<CR>",                                               description = "Undotree: Toggle" },
         { "<C-e>", "<cmd>lua require('yazi').yazi()<CR>",                                        description = "Yazi" },
 
-        { "-", "<cmd>Oil --float<CR>",                                                           description = "Oil" },
+        { "F", "<cmd>Oil --float<CR>",                                                           description = "Oil" },
         { "X", "<cmd>ISwapWith<CR>",                                                             description = "Swap Two Adjacent Nodes" },
         { "R", function() require("flash").treesitter() end,                                     description = "Flash Treesitter", mode = { "n", "x", "o" } },
 
