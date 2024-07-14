@@ -1,7 +1,6 @@
 return {
   "b0o/nvim-tree-preview.lua",
   event = "VeryLazy",
-  commit = "e968df027d86797556e9bf5f1d5ffca87045150d",
   opts = {
     -- Keymaps for the preview window (does not apply to the tree window).
     -- Actions:
