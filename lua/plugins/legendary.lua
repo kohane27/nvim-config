@@ -297,26 +297,30 @@ return {
         -- │ Miscellaneous (leader m with random keybindings)         │
         -- ╰──────────────────────────────────────────────────────────╯
         -- general
-        { "<leader>MXgea", "<cmd>ScopeMoveBuf<CR>",                                                description = "Scope: Move Current Buffer to Specified Tab" },
-        { "<leader>MXgeb", function() vim.api.nvim_feedkeys(":verbose map <C-i>", "c", false) end, description = "Find Keybinding Conflict" },
-        { "<leader>MXgec", "<cmd>ScrollViewToggle<CR>",                                            description = "ScrollViewToggle: Enable" },
-        { "<leader>MXged", "<cmd>TSContextToggle<CR>",                                             description = "TSContextToggle: Toggle" },
-        { "<leader>MXgee", "<cmd>Telescope notify<CR>",                                            description = "Notify: Search History" },
+        { "<leader>MXgea", "<cmd>ScopeMoveBuf<CR>",                                                         description = "Scope: Move Current Buffer to Specified Tab" },
+        { "<leader>MXgeb", function() vim.api.nvim_feedkeys(":verbose map <C-i>", "c", false) end,          description = "Find Keybinding Conflict" },
+        { "<leader>MXgec", "<cmd>ScrollViewToggle<CR>",                                                     description = "ScrollViewToggle: Enable" },
+        { "<leader>MXged", "<cmd>TSContextToggle<CR>",                                                      description = "TSContextToggle: Toggle" },
+        { "<leader>MXgee", "<cmd>Telescope notify<CR>",                                                     description = "Notify: Search History" },
 
         -- Lazy
-        { "<leader>MXlaa", "<cmd>Lazy sync<CR>",        description = "Lazy: Update" },
-        { "<leader>MXlab", "<cmd>Lazy clean<CR>",       description = "Lazy: Clean" },
+        { "<leader>MXlaa", "<cmd>Lazy sync<CR>",                                                            description = "Lazy: Update" },
+        { "<leader>MXlab", "<cmd>Lazy clean<CR>",                                                           description = "Lazy: Clean" },
 
         -- LSP info
-        { "<leader>MXlsc", "<cmd>LspInfo<CR>",          description = "LSP: Info" },
-        { "<leader>MXlsd", "<cmd>Mason<CR>",            description = "Mason: Info" },
-        { "<leader>MXlse", "<cmd>MasonToolsUpdate<CR>", description = "Mason: Tool Update" },
+        { "<leader>MXlsc", "<cmd>LspInfo<CR>",                                                              description = "LSP: Info" },
+        { "<leader>MXlsd", "<cmd>Mason<CR>",                                                                description = "Mason: Info" },
+        { "<leader>MXlse", "<cmd>MasonToolsUpdate<CR>",                                                     description = "Mason: Tool Update" },
 
         -- persisted.nvim
-        { "<leader>MXpea", "<cmd>SessionSave<CR>",      description = "Session: Save" },
-        { "<leader>MXpeb", "<cmd>SessionLoad<CR>",      description = "Session: Load" },
-        { "<leader>MXpec", "<cmd>SessionLoadLast<CR>",  description = "Session: Load Recent Session" },
-        { "<leader>MXped", "<cmd>SessionDelete<CR>",    description = "Session: Delete" },
+        { "<leader>MXpea", "<cmd>SessionSave<CR>",                                                          description = "Session: Save" },
+        { "<leader>MXpeb", "<cmd>SessionLoad<CR>",                                                          description = "Session: Load" },
+        { "<leader>MXpec", "<cmd>SessionLoadLast<CR>",                                                      description = "Session: Load Recent Session" },
+        { "<leader>MXped", "<cmd>SessionDelete<CR>",                                                        description = "Session: Delete" },
+
+        -- ToggleTerm
+        { "<leader>mtev", "<cmd>ToggleTerm direction=vertical<CR>",                                         description = "New terminal (vertical)" },
+        { "<leader>mtef", "<cmd>ToggleTerm direction=float<CR>",                                            description = "New terminal (floating)" },
 
         -- global commands
         {
