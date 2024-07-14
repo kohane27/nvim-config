@@ -4,7 +4,7 @@ return {
   enabled = not vim.g.started_by_firenvim,
   dependencies = {
     { "nvim-tree/nvim-web-devicons" },
-    { "JMarkin/nvim-tree.lua-float-preview" },
+    { "b0o/nvim-tree-preview.lua" },
   },
   config = function()
     -- disable default `netrw` file explorer
@@ -14,11 +14,23 @@ return {
     -- stylua: ignore
     local function on_attach(bufnr)
       local function opts(desc) return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true } end
-
-      local floating_preview = require("float-preview")
-      floating_preview.attach_nvimtree(bufnr)
-
       local api = require("nvim-tree.api")
+
+      local preview = require('nvim-tree-preview')
+      vim.keymap.set('n', 'P', preview.watch, opts 'Preview (Watch)')
+      vim.keymap.set('n', '<Esc>', preview.unwatch, opts 'Close Preview/Unwatch')
+      -- Smart tab behavior: Only preview files, expand/collapse directories (recommended)
+      vim.keymap.set('n', '<Tab>', function()
+        local ok, node = pcall(api.tree.get_node_under_cursor)
+        if ok and node then
+          if node.type == 'directory' then api.node.open.edit()
+          else
+            preview.node(node, { toggle_focus = true })
+          end
+        end
+      end, opts 'Preview')
+
+
       vim.keymap.set("n", "<C-w>v", api.node.open.vertical,          opts("Open: Vertical Split"))
       vim.keymap.set("n", "<C-w>s", api.node.open.horizontal,        opts("Open: Horizontal Split"))
       vim.keymap.set("n", "<C-w>t", api.node.open.tab,               opts("Open: New Tab"))
