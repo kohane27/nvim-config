@@ -2,15 +2,21 @@ return {
   "akinsho/toggleterm.nvim",
   event = "VeryLazy",
   opts = {
-    -- size = 12,
+    size = function(term)
+      if term.direction == "horizontal" then
+        return vim.o.lines * 0.25
+      elseif term.direction == "vertical" then
+        return vim.o.columns * 0.45
+      end
+    end,
     open_mapping = [[<c-\>]],
     hide_numbers = true,
     start_in_insert = true,
-    insert_mappings = false, -- whether or not the open mapping applies in insert mode
+    insert_mappings = false,   -- whether or not the open mapping applies in insert mode
     terminal_mappings = false, -- whether or not the open mapping applies in the opened terminals
-    direction = "float", -- 'vertical' | 'horizontal' | 'tab' | 'float'
-    -- shade_terminals = true,
-    -- shading_factor = 1,
+    direction = "horizontal",  -- 'vertical' | 'horizontal' | 'tab' | 'float'
+    close_on_exit = true,      -- close the terminal window when the process exits
+    shade_terminals = false,   -- no different background color
     shade_filetypes = { "none", "fzf", "lspinfo", "mason", "lazy", "qf", "terminal", "dashboard", "spectre-panel" },
     float_opts = {
       border = "rounded",
