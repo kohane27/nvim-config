@@ -21,15 +21,16 @@ return {
     local d = ls.dynamic_node
     local r = ls.restore_node
     local l = require("luasnip.extras").lambda
-    local rep = require("luasnip.extras").rep
-    local p = require("luasnip.extras").partial
-    local m = require("luasnip.extras").match
-    local n = require("luasnip.extras").nonempty
-    local dl = require("luasnip.extras").dynamic_lambda
+    -- local rep = require("luasnip.extras").rep
+    -- local p = require("luasnip.extras").partial
+    -- local m = require("luasnip.extras").match
+    -- local n = require("luasnip.extras").nonempty
+    -- local dl = require("luasnip.extras").dynamic_lambda
     local fmt = require("luasnip.extras.fmt").fmt
-    local fmta = require("luasnip.extras.fmt").fmta
-    local types = require("luasnip.util.types")
-    local conds = require("luasnip.extras.expand_conditions")
+    -- local fmta = require("luasnip.extras.fmt").fmta
+    -- local types = require("luasnip.util.types")
+    -- local conds = require("luasnip.extras.expand_conditions")
+    local ts_utils = require("nvim-treesitter.ts_utils")
 
     -- https://github.com/L3MON4D3/LuaSnip/issues/656#issuecomment-1313310146
     -- vim.api.nvim_create_autocmd("ModeChanged", {
@@ -42,6 +43,61 @@ return {
     --     end
     --   end,
     -- })
+
+    local function get_current_function_name()
+      local current_node = ts_utils.get_node_at_cursor()
+      if not current_node then
+        return nil
+      end
+
+      local function_node = nil
+      while current_node do
+        if
+          current_node:type() == "function_declaration"
+          or current_node:type() == "arrow_function"
+          or current_node:type() == "function"
+          or current_node:type() == "method_definition"
+        then
+          function_node = current_node
+          break
+        end
+        current_node = current_node:parent()
+      end
+
+      if not function_node then
+        return nil
+      end
+
+      local function_name = nil
+      for child, _ in function_node:iter_children() do
+        if child:type() == "identifier" or child:type() == "property_identifier" then
+          function_name = vim.treesitter.get_node_text(child, 0)
+          break
+        end
+      end
+
+      -- Handle anonymous functions
+      if not function_name then
+        local parent = function_node:parent()
+        if parent and parent:type() == "variable_declarator" then
+          for child, _ in parent:iter_children() do
+            if child:type() == "identifier" then
+              function_name = vim.treesitter.get_node_text(child, 0)
+              break
+            end
+          end
+        elseif parent and parent:type() == "pair" then
+          for child, _ in parent:iter_children() do
+            if child:type() == "property_identifier" then
+              function_name = vim.treesitter.get_node_text(child, 0)
+              break
+            end
+          end
+        end
+      end
+
+      return function_name or "anonymous"
+    end
 
     -- only autosnippets for markdown
     vim.api.nvim_create_autocmd("FileType", {
@@ -131,8 +187,11 @@ return {
     --  │ javascript                                               │
     --  ╰──────────────────────────────────────────────────────────╯
     local log_snippet = s({ trig = "log", wordTrig = true }, {
-      t({ "console.log(" }),
-      i(0),
+      f(function()
+        local func_name = get_current_function_name()
+        return string.format('console.log("🔥 %s: ", ', func_name)
+      end),
+      i(1),
       t({ ");" }),
     })
 
