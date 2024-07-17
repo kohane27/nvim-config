@@ -99,6 +99,37 @@ return {
       return function_name or "anonymous"
     end
 
+    local emoji_list = {
+      "🔥",
+      "🚀",
+      "💡",
+      "⚡",
+      "🔍",
+      "🎯",
+      "🤡",
+      "🫀",
+      "🫁",
+      "🧠",
+      "🦿",
+      "💩",
+      "👻",
+      "👽",
+      "👾",
+      "🤖",
+      "🔥",
+      "❌",
+      "⭕️",
+      "💯",
+      "🐶",
+      "🐱",
+      "🐹",
+      "🦊",
+    }
+
+    local function get_random_emoji()
+      return emoji_list[math.random(#emoji_list)]
+    end
+
     -- only autosnippets for markdown
     vim.api.nvim_create_autocmd("FileType", {
       pattern = { "markdown" },
@@ -189,7 +220,8 @@ return {
     local log_snippet = s({ trig = "log", wordTrig = true }, {
       f(function()
         local func_name = get_current_function_name()
-        return string.format('console.log("🔥 %s: ", ', func_name)
+        local emoji = get_random_emoji()
+        return string.format('console.log("%s %s: ", ', emoji, func_name)
       end),
       i(1),
       t({ ");" }),
