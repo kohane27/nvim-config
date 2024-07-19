@@ -83,6 +83,7 @@ return {
         }),
       },
       sources = {
+        { name = "luasnip" },
         {
           name = "nvim_lsp",
           -- remove snippets from LSP
@@ -100,7 +101,6 @@ return {
           },
         },
         { name = "path" },
-        { name = "luasnip" },
       },
       confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
