@@ -302,6 +302,7 @@ return {
         { "<leader>MXgec", "<cmd>ScrollViewToggle<CR>",                                                     description = "ScrollViewToggle: Enable" },
         { "<leader>MXged", "<cmd>TSContextToggle<CR>",                                                      description = "TSContextToggle: Toggle" },
         { "<leader>MXgee", "<cmd>Telescope notify<CR>",                                                     description = "Notify: Search History" },
+        { "<leader>MXgef", require('gitignore').generate,                                                   description = "Generate gitignore" },
 
         -- Lazy
         { "<leader>MXlaa", "<cmd>Lazy sync<CR>",                                                            description = "Lazy: Update" },
