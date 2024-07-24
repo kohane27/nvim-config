@@ -23,7 +23,6 @@ return {
 
     vim.api.nvim_set_hl(0, "LeapLabel", { fg = "#000000", bg = "#CCFF88", bold = true })
 
-    -- NOTE: a bit too disorienting to `zz` after jump every time
     -- -- mark cursor location before jumping
     -- vim.api.nvim_create_autocmd("User", {
     --   pattern = "LeapEnter",
@@ -31,6 +30,7 @@ return {
     --     vim.cmd("normal m'")
     --   end,
     -- })
+    -- NOTE: a bit too disorienting to `zz` after jump every time
     -- -- center cursor after jumping
     -- vim.api.nvim_create_autocmd("User", {
     --   pattern = "LeapLeave",
