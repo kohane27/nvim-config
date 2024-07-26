@@ -390,6 +390,23 @@ return {
           description = "g: (m)ove `foo` to End of File",
         },
 
+        -- ex commands
+        {
+          "<leader>MXexa",
+          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":w !jq '. | length' <Left><Left>", true, true, true), "t", true) end,
+          description = "jq: Get Length",
+        },
+        {
+          "<leader>MXexb",
+          "<cmd>w! /tmp/nvim_jqp | silent !tmux split-window -h \"jqp < /tmp/nvim_jqp\"<CR>",
+          description = "jqp: Split Window",
+        },
+        {
+          "<leader>MXexc",
+          "<cmd>:w! /tmp/nvim_jqp | silent !tmux new-window \"jqp < /tmp/nvim_jqp\"<CR>",
+          description = "jqp: New Window",
+        },
+
         -- substitute
         {
           "<leader>MXsua",
