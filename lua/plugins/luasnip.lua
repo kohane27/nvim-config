@@ -221,7 +221,7 @@ return {
       f(function()
         local func_name = get_current_function_name()
         local emoji = get_random_emoji()
-        return string.format('console.log("%s %s: ", ', emoji, func_name)
+        return string.format("console.log('%s %s: ', ", emoji, func_name)
       end),
       i(1),
       t({ ");" }),
