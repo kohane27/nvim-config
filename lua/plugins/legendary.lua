@@ -106,7 +106,7 @@ return {
         { "<leader>lf", "<cmd>Lspsaga finder<CR>",                                         description = "LSP: Symbol, Definition and Implementation" },
         { "<leader>ls", "<cmd>Trouble symbols toggle pinned=true<CR>",                     description = "Trouble: Symbols Outline" },
         { "<leader>lr", "<cmd>Lspsaga lsp_rename ++project<CR>",                           description = "LSP: Rename" },
-        { "<leader>lp", "<cmd>TSToolsRenameFile<CR>",                                      description = "LSP: Rename (Current File)", filters = { filetype = "javascriptreact", "typescriptreact" } },
+        { "<leader>lp", "<cmd>TSToolsRenameFile<CR>",                                      description = "LSP: Rename (Current File)", filters = { ft = "javascriptreact", "typescriptreact" } },
 
         { "<leader>lXc", "<cmd>lua vim.lsp.codelens.run()<CR>",                            description = "LSP: Code Lens" },
         { "<leader>lXd", "<cmd>lua vim.lsp.buf.declaration<CR>",                           description = "LSP: Declaration" },
@@ -127,7 +127,7 @@ return {
           "<leader>cd",
           function() vim.api.nvim_feedkeys(":cdo s/foo/bar/gc | update", "c", false) end,
           description = "cdo: Execute Command on Quickfix Entries",
-          -- filters = { filetype = "qf", "Trouble" },
+          -- filters = { ft = "qf", "Trouble" },
         },
 
         -- ╭──────────────────────────────────────────────────────────╮
@@ -228,7 +228,7 @@ return {
         { "<leader>rc", "<cmd>SnipClose<CR>", description = "Close Snip" },
 
         -- ╭──────────────────────────────────────────────────────────╮
-        -- │ scratcn.nvim                                             │
+        -- │ scratch.nvim                                             │
         -- ╰──────────────────────────────────────────────────────────╯
         { "<leader>so", "<cmd>ScratchWithName<CR>" , description = "Scratch: New File" },
         { "<leader>ss", function() require("core.utils").toggle_scratchpad() end,                     description = "Scratch: Toggle ScratchPad" },
