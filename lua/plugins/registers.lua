@@ -7,34 +7,40 @@ return {
     require("registers").setup({
       -- Show a line at the bottom with registers that aren't filled
       show_empty = false,
+      -- Expose :Registers
+      register_user_command = false,
+      -- Show a char next to the register name
+      show_register_types = false,
+
+      -- + System Clipboard
+      -- " unnamed (yank, delete or change)
+      -- . Last Inserted Text
       -- Show registers in this order
-      show = '+"-/_=#%.0123456789abcdefghijklmnopqrstuvwxyz:',
+      show = '+.0123456789abcdefghijklmnopqrstuvwxyz',
+
       bind_keys = {
-        -- Show the window when pressing " in normal mode, applying the selected register as part of a motion
         normal = registers.show_window({ mode = "motion" }),
-        -- Show the window when pressing " in visual mode, applying the selected register as part of a motion
         visual = registers.show_window({ mode = "motion" }),
-        -- Show the window when pressing <C-R> in insert mode, inserting the selected register
         insert = registers.show_window({ mode = "insert" }),
 
-        -- Move the cursor in the registers window down
-        ctrl_n = registers.move_cursor_down(),
-        -- Move the cursor in the registers window up
-        ctrl_p = registers.move_cursor_up(),
-        -- Clear the register of the highlighted line when pressing <DEL>
-        delete = registers.clear_highlighted_register(),
-      },
-      symbols = {
-        -- The character to show when a register will be applied in a char-wise fashion
-        register_type_charwise = "",
-        -- The character to show when a register will be applied in a line-wise fashion
-        register_type_linewise = "",
-        -- The character to show when a register will be applied in a block-wise fashion
-        register_type_blockwise = "",
+        -- apply register with a delay
+        registers = registers.apply_register({ delay = 0.1 }),
+        ["<CR>"] = registers.apply_register({ delay = 0.1 }),
+        -- Close the registers window when pressing the Esc key
+        ["<Esc>"] = registers.close_window(),
+        -- Move the cursor in the registers window down when pressing <C-n>
+        ["<C-n>"] = registers.move_cursor_down(),
+        -- Move the cursor in the registers window up when pressing <C-p>
+        ["<C-p>"] = registers.move_cursor_up(),
+        -- Clear the register of the highlighted line when pressing <DeL>
+        ["<Del>"] = registers.clear_highlighted_register(),
       },
       window = {
         border = "rounded",
-        transparency = 10,
+      },
+      sign_highlights = {
+        -- not todo highlights group
+        named = "@markup.link.label",
       },
     })
   end,
