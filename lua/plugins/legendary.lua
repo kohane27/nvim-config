@@ -252,7 +252,7 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ AI                                                       │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<leader>ao", "<cmd>CodeCompanionChat<CR>", description = "GPT: Open" },
+        -- { "<leader>ao", "<cmd>CodeCompanionChat<CR>", description = "GPT: Open" },
         -- { "<leader>ai", "<cmd>'<,'>GpImplement<CR>", description = "GPT: Implement", mode = { "v" } },
         -- same as gp.nvim
         -- { "<leader>af", "<cmd>ChatGPTActAs<CR>", description = "GPT: Choose an Agent" },
@@ -324,7 +324,9 @@ return {
         { "<leader>mtev", "<cmd>ToggleTerm direction=vertical<CR>",                                         description = "New terminal (vertical)" },
         { "<leader>mtef", "<cmd>ToggleTerm direction=float<CR>",                                            description = "New terminal (floating)" },
 
-        -- global commands
+      -- ╭─────────────────────────────────────────────────────────╮
+      -- │ g commands                                              │
+      -- ╰─────────────────────────────────────────────────────────╯
         {
           "<leader>MXgla",
           {
@@ -352,8 +354,8 @@ return {
         {
           "<leader>MXgld",
           {
-            n =  function() vim.api.nvim_feedkeys(":g/\t/s//    /g", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":g/\t/s//    /g", "c", false) end,
+            n =  "<cmd>g/\t/s//    /g<CR>",
+            v =  "<cmd>g/\t/s//    /g<CR>",
           },
           description = "g: Convert Tabs to Spaces",
         },
@@ -363,7 +365,7 @@ return {
             n =  function() vim.api.nvim_feedkeys(":g/foo/normal! A;", "c", false) end,
             v =  function() vim.api.nvim_feedkeys(":g/foo/normal! A;", "c", false) end,
           },
-          description = "g: Run Normal Mode Containing `foo` Anywhere in the Line",
+          description = "g: Run Normal Mode Containing `foo`",
         },
         {
           "<leader>MXglf",
@@ -371,7 +373,7 @@ return {
             n =  function() vim.api.nvim_feedkeys(":g/foo/normal! @a", "c", false) end,
             v =  function() vim.api.nvim_feedkeys(":g/foo/normal! @a", "c", false) end,
           },
-          description = "g: Run Macro `a` Containing `foo` Anywhere in the Line",
+          description = "g: Run Macro `a` Containing `foo`",
         },
         {
           "<leader>MXgLg",
@@ -379,7 +381,7 @@ return {
             n =  function() vim.api.nvim_feedkeys(":g/foo/t $", "c", false) end,
             v =  function() vim.api.nvim_feedkeys(":g/foo/t $", "c", false) end,
           },
-          description = "g: t (copy) Lines Containing `foo` to End of File",
+          description = "g: (t)ransfer Lines Containing `foo` to End of File",
         },
         {
           "<leader>MXgLh",
@@ -389,8 +391,34 @@ return {
           },
           description = "g: (m)ove `foo` to End of File",
         },
+        {
+          "<leader>MXgLi",
+          {
+            n =  function() vim.api.nvim_feedkeys(":let @a = '' | g/foo/y A", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":let @a = '' | g/foo/y A", "c", false) end,
+          },
+          description = "g: yank lines containing `foo` to reg a",
+        },
+        {
+          "<leader>MXgLj",
+          {
+            n =  function() vim.api.nvim_feedkeys(":let @a = '' | g/foo\\|bar/y A", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":let @a = '' | g/foo\\|bar/y A", "c", false) end,
+          },
+          description = "g: yank lines containing `foo` or `bar` to reg a",
+        },
+        {
+          "<leader>MXgLk",
+          {
+            n =  function() vim.api.nvim_feedkeys(":let @a = '' | g/foo/,+2y A", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":let @a = '' | g/foo/,+2y A", "c", false) end,
+          },
+          description = "g: yank lines containing `foo` with 2 lines below it to reg a",
+        },
 
-        -- ex commands
+      -- ╭─────────────────────────────────────────────────────────╮
+      -- │ Ex commands                                             │
+      -- ╰─────────────────────────────────────────────────────────╯
         {
           "<leader>MXexa",
           function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":w !jq '. | length' <Left><Left>", true, true, true), "t", true) end,
@@ -407,7 +435,9 @@ return {
           description = "jqp: New Window",
         },
 
-        -- substitute
+      -- ╭─────────────────────────────────────────────────────────╮
+      -- │ substitute                                              │
+      -- ╰─────────────────────────────────────────────────────────╯
         {
           "<leader>MXsua",
           {
@@ -431,8 +461,22 @@ return {
           "<cmd>%s/[＂]/\"/g<CR>",
           description = "Substitute: All Weird Double Quotes",
         },
-        { "<leader>MXsue", function() vim.api.nvim_feedkeys(":%sno/foo/bar/gc", "c", false) end, description = "Substitute: (No Magic Mode): `foo` with `bar`", },
-        { "<leader>MXsuf", function() vim.api.nvim_feedkeys(":s/\\vfoo/&bar/gc", "c", false) end, description = "Substitute: `foo` into `foobar`" },
+        {
+          "<leader>MXsue",
+          {
+            n = function() vim.api.nvim_feedkeys(":%sno/foo/bar/gc", "c", false) end,
+            v = function() vim.api.nvim_feedkeys(":%sno/foo/bar/gc", "c", false) end,
+          },
+          description = "Substitute: (No Magic Mode): `foo` with `bar`",
+        },
+        {
+          "<leader>MXsuf",
+          {
+            n = function() vim.api.nvim_feedkeys(":s/\\vfoo/&bar/gc", "c", false) end,
+            v = function() vim.api.nvim_feedkeys(":s/\\vfoo/&bar/gc", "c", false) end,
+          },
+          description = "Substitute: `foo` into `foobar`",
+        },
 
         -- leetcode
         { "<leader>MXlem", "<cmd>Leet Menu<CR>",    description = "LeetCode: Opens Menu Dashboard" },
