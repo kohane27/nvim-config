@@ -28,12 +28,6 @@ vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, { pattern = '*/node_modul
 -- { pattern = '*', callback = function() vim.diagnostic.open_float(nil, { focus = false }) end
 -- })
 
--- Clear `jumplist`
-vim.api.nvim_create_autocmd('VimEnter', { pattern = '*', command = 'clearjumps' })
-
--- Clear marks
-vim.api.nvim_create_autocmd('VimEnter', { pattern = '*', command = 'delmarks a-zA-Z0-9' })
-
 -- Auto resize
 vim.api.nvim_create_autocmd('VimResized', { pattern = '*', command = 'tabdo wincmd =' })
 
@@ -53,3 +47,22 @@ if vim.fn.exists("$TMUX") == 1 then
   })
 end
 -- stylua: ignore end
+
+-- Clear `jumplist`
+vim.api.nvim_create_autocmd("VimEnter", { pattern = "*", command = "clearjumps" })
+
+-- Clear marks
+vim.api.nvim_create_autocmd("VimEnter", { pattern = "*", command = "delmarks a-zA-Z0-9" })
+
+-- clear registers
+vim.api.nvim_create_autocmd("VimEnter", {
+  pattern = "*",
+  callback = function()
+    for i = 97, 122 do -- ASCII for 'a' to 'z'
+      vim.fn.setreg(string.char(i), "")
+    end
+    for i = 48, 57 do -- ASCII for '0' to '9'
+      vim.fn.setreg(string.char(i), "")
+    end
+  end,
+})
