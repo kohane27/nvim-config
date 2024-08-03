@@ -11,6 +11,8 @@ return {
       include_legendary_cmds = false,
       -- NOTE: this takes precedence over other sort options
       sort = { frecency = { db_root = string.format("%s/legendary/", vim.fn.stdpath("data")), max_timestamps = 20 } },
+      -- `keys` spec will be automatically loaded
+      extensions = { lazy_nvim = true },
       -- stylua: ignore
       keymaps = {
         -- NOTE: the following are available:
@@ -39,7 +41,8 @@ return {
         -- { "<C-p>", "<cmd>Legendary<CR>",                                                      description = "Legendary Command Palette", mode = { "n", "x" } },
         { "<C-p>", function() require("core.utils").legendary_command_palette() end,             description = "Legendary Command Palette", mode = { "n", "x" } },
 
-        { "<C-v>", { i = '<C-R>"' },                                                              description = "Paste Clipboard Content",     mode = { "i" } },
+        { "<C-v>", { i = '<C-R>+' },                                                              description = "Paste Clipboard Content",        mode = { "i" } },
+        -- { "<C-f>", { i = '<C-R>"' },                                                              description = "Paste Unnamed Register Content", mode = { "i" } },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Telescope                                                │
@@ -468,36 +471,6 @@ return {
           },
           description = "Substitute: `foo` into `foobar`",
         },
-
-        -- leetcode
-        { "<leader>MXlem", "<cmd>Leet Menu<CR>",    description = "LeetCode: Opens Menu Dashboard" },
-        { "<leader>MXlec", "<cmd>Leet console<CR>", description = "LeetCode: Opens Console For Currently Opened Question" },
-        { "<leader>MXleq", "<cmd>Leet tabs<CR>",    description = "LeetCode: Opens A Picker With All Currently Opened Question Tabs" },
-        { "<leader>MXled", "<cmd>Leet desc<CR>",    description = "LeetCode: Toggle Question Description" },
-        { "<leader>MXler", "<cmd>Leet run<CR>",     description = "LeetCode: Run Currently Opened Question" },
-        { "<leader>MXles", "<cmd>Leet submit<CR>",  description = "LeetCode: Submit Currently Opened Question" },
-
-        -- vim-caser
-        { "<leader>MXcaa", { v =  "<Plug>CaserVUpperCase" },     description = "Constant case: LOREM_IPSUM" },
-        { "<leader>MXcab", { v = "<Plug>CaserVSnakeCase" },      description = "Snake case: lorem_ipsum" },
-        { "<leader>MXcac", { v = "<Plug>CaserVKebabCase" },      description = "Dash case: lorem-ipsum" },
-        { "<leader>MXcad", { v = "<Plug>CaserVSpaceCase" },      description = "space case: lorem ipsum" },
-        { "<leader>MXcae", { v = "<Plug>CaserVDotCase" },        description = "Dot case: lorem.ipsum" },
-        { "<leader>MXcaf", { v = "<Plug>CaserVSentenceCase" },   description = "Sentence case: Lorem ipsum" },
-        { "<leader>MXcag", { v = "<Plug>CaserVMixedCase" },      description = "Pascal case: LoremIpsum" },
-        { "<leader>MXcah", { v = "<Plug>CaserVTitleCase" },      description = "Title case: Lorem Ipsum" },
-        { "<leader>MXcai", { v = "<Plug>CaserVTitleKebabCase" }, description = "Title dash case: Lorem-Ipsum" },
-        { "<leader>MXcaj", { v = "<Plug>CaserVCamelCase" },      description = "Camel case: loremIpsum" },
-
-        -- jdtls
-        { "<leader>MXjda", "<cmd>JdtWipeDataAndRestart<CR>",                            filters = { filetype = "java" }, description = "jdtls: Wipe Data and Restart" },
-        { "<leader>MXjdb", "<cmd>JdtUpdateConfig<CR>",                                  filters = { filetype = "java" }, description = "jdtls: Update Config" },
-        { "<leader>MXjdc", "<cmd>lua require'jdtls'.organize_imports()<CR>",            filters = { filetype = "java" }, description = "jdtls: Organize Import" },
-        { "<leader>MXjdd", "<cmd>lua require('jdtls').extract_variable()<CR>",          filters = { filetype = "java" }, description = "jdtls: Extract Variable" },
-        { "<leader>MXjde", "<cmd>lua require('jdtls').extract_variable(true)<CR>",      filters = { filetype = "java" }, description = "jdtls: Extract Variable" },
-        { "<leader>MXjdf", "<cmd>lua require('jdtls').extract_constant()<CR>",          filters = { filetype = "java" }, description = "jdtls: Extract Constant" },
-        { "<leader>MXjdg", "<Esc><cmd>lua require('jdtls').extract_constant(true)<CR>", filters = { filetype = "java" }, description = "jdtls: Extract Constant" },
-        { "<leader>MXjdh", "<Esc><cmd>lua require('jdtls').extract_method(true)<CR>",   filters = { filetype = "java" }, description = "jdtls: Extract Method" },
       },
     })
   end,
