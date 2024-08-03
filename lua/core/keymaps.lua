@@ -130,7 +130,7 @@ map("v", "<BS><BS>", '"_')
 map("n", "cl", '"_cl')
 map("n", "cc", '"_cc')
 
--- -- insert empty new line without entering insert mode
+-- insert empty new line without entering insert mode
 map("n", "<leader>o", "o<Esc>")
 map("n", "<leader>O", "O<Esc>")
 

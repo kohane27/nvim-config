@@ -39,8 +39,7 @@ return {
         -- { "<C-p>", "<cmd>Legendary<CR>",                                                      description = "Legendary Command Palette", mode = { "n", "x" } },
         { "<C-p>", function() require("core.utils").legendary_command_palette() end,             description = "Legendary Command Palette", mode = { "n", "x" } },
 
-        { "<C-f>", { i = '<C-R>"' },                                                              description = "Paste Last Yanked / Deleted", mode = { "i" } },
-        { "<C-v>", { i = "<C-R>*" },                                                              description = "Paste Clipboard Content",     mode = { "i" } },
+        { "<C-v>", { i = '<C-R>"' },                                                              description = "Paste Clipboard Content",     mode = { "i" } },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Telescope                                                │
@@ -362,8 +361,8 @@ return {
         {
           "<leader>MXgle",
           {
-            n =  function() vim.api.nvim_feedkeys(":g/foo/normal! A;", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":g/foo/normal! A;", "c", false) end,
+            n =  function() vim.api.nvim_feedkeys(":g/foo/normal! A.", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":g/foo/normal! A.", "c", false) end,
           },
           description = "g: Run Normal Mode Containing `foo`",
         },
@@ -394,24 +393,16 @@ return {
         {
           "<leader>MXgLi",
           {
-            n =  function() vim.api.nvim_feedkeys(":let @a = '' | g/foo/y A", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":let @a = '' | g/foo/y A", "c", false) end,
-          },
-          description = "g: yank lines containing `foo` to reg a",
-        },
-        {
-          "<leader>MXgLj",
-          {
-            n =  function() vim.api.nvim_feedkeys(":let @a = '' | g/foo\\|bar/y A", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":let @a = '' | g/foo\\|bar/y A", "c", false) end,
+            n =  function() vim.api.nvim_feedkeys(":g/foo\\|bar/y A", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":g/foo\\|bar/y A", "c", false) end,
           },
           description = "g: yank lines containing `foo` or `bar` to reg a",
         },
         {
-          "<leader>MXgLk",
+          "<leader>MXgLj",
           {
-            n =  function() vim.api.nvim_feedkeys(":let @a = '' | g/foo/,+2y A", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":let @a = '' | g/foo/,+2y A", "c", false) end,
+            n =  function() vim.api.nvim_feedkeys(":g/foo/,+2y A", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":g/foo/,+2y A", "c", false) end,
           },
           description = "g: yank lines containing `foo` with 2 lines below it to reg a",
         },
