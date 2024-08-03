@@ -5,7 +5,7 @@ return {
   lazy = false,
   opts = {
     -- The first register is the default register/macro-slot used after startup.
-    slots = { "a", "b" },
+    slots = { "q", "r" },
     mapping = {
       startStopRecording = "Q",
       playMacro = "@",
