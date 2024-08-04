@@ -46,7 +46,4 @@ return {
       },
     },
   },
-  config = function(_, opts)
-    require("lspsaga").setup(opts)
-  end,
 }

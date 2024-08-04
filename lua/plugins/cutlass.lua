@@ -6,7 +6,4 @@ return {
     -- `nc` needed for `nvim-surround`'s `css` to work
     exclude = { "ns", "nS", "nd", "xd", "vd", "nD", "nc" },
   },
-  config = function(_, opts)
-    require("cutlass").setup(opts)
-  end,
 }

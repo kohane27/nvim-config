@@ -18,7 +18,4 @@ return {
       symbols = { " ", "x" },
     },
   },
-  config = function(_, opts)
-    require("mkdnflow").setup(opts)
-  end,
 }
