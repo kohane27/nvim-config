@@ -10,9 +10,7 @@ return {
   },
   lazy = false,
   build = ":TSUpdate html",
-  opts = {
-    lang = "javascript",
-  },
+  opts = { lang = "javascript" },
   -- stylua: ignore
   keys = {
     { "<leader>MXlem", "<cmd>Leet Menu<CR>",    desc = "LeetCode: Opens Menu Dashboard" },

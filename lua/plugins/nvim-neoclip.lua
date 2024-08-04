@@ -15,20 +15,16 @@ return {
       telescope = {
         i = {
           select = nil,
-          paste = "<cr>",
+          paste = "<CR>",
           delete = nil, -- delete an entry
         },
         n = {
           select = nil,
-          paste = "<cr>",
-          -- paste = { 'p', '<c-p>' },
+          paste = "<CR>",
           paste_behind = "P",
           delete = "d",
         },
       },
     },
   },
-  config = function(_, opts)
-    require("neoclip").setup(opts)
-  end,
 }
