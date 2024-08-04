@@ -24,7 +24,4 @@ return {
       change_line = false,
     },
   },
-  config = function(_, opts)
-    require("nvim-surround").setup(opts)
-  end,
 }

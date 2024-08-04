@@ -27,7 +27,4 @@ return {
       rust = { "cd $dir &&", "rustc $fileName &&", "$dir/$fileNameWithoutExt" },
     },
   },
-  config = function(_, opts)
-    require("code_runner").setup(opts)
-  end,
 }
