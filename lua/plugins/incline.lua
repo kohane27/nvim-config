@@ -9,7 +9,4 @@ return {
       only_win = true,
     },
   },
-  config = function(_, opts)
-    require("incline").setup(opts)
-  end,
 }

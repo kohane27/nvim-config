@@ -61,7 +61,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
     for i = 97, 122 do -- ASCII for 'a' to 'z'
       vim.fn.setreg(string.char(i), "")
     end
-    for i = 49, 57 do -- ASCII for '1' to '9' (48 is '0')
+    for i = 49, 57 do -- ASCII for '1' to '9' (except 48 which is '0')
       vim.fn.setreg(string.char(i), "")
     end
   end,
