@@ -29,8 +29,4 @@ return {
     max_height = vim.o.lines - 3,
     -- col = require("nvim-tree.view").View.width + 1,
   },
-  config = function(_, opts)
-    local preview = require("nvim-tree-preview")
-    preview.setup(opts)
-  end,
 }
