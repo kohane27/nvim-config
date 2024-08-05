@@ -150,6 +150,7 @@ return {
       s({ trig = ",gb", wordTrig = true }, { t("Thank you for getting back to me. I really appreciate it.") }),
       s({ trig = ",yt", wordTrig = true }, { t("YouTube") }),
       s({ trig = ",arch", wordTrig = true }, { t("I'm running ArchLinux.") }),
+      s({ trig = ",q", wordTrig = true }, { t("Do not ask me any questions.") }),
     }, { type = "autosnippets" })
 
     --  ╭──────────────────────────────────────────────────────────╮

@@ -52,6 +52,7 @@ return {
               { find = "^%d+ fewer lines;?" },
               { find = "No lines in buffer" },
               { find = "^%d+ lines yanked into;?" },
+              { find = "block of %d+ lines yanked" },
               { find = "^%d+ more lines?;?" },
               { find = "^%d+ line less;?" },
               { find = "^%d+ substitutions on %d+ lines" },
