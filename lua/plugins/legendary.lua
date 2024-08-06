@@ -337,14 +337,14 @@ return {
           },
           description = "g: Remove Empty Lines",
         },
-        {
-          "<leader>MXglb",
-          {
-            n = function() vim.api.nvim_feedkeys(":g/^foo$/d", "c", false) end,
-            v = function() vim.api.nvim_feedkeys(":g/^foo$/d", "c", false) end,
-          },
-          description = "g: Delete Lines Containing Only `foo`",
-        },
+        -- {
+        --   "<leader>MXglb",
+        --   {
+        --     n = function() vim.api.nvim_feedkeys(":g/^foo$/d", "c", false) end,
+        --     v = function() vim.api.nvim_feedkeys(":g/^foo$/d", "c", false) end,
+        --   },
+        --   description = "g: Delete Lines Only `foo`",
+        -- },
         {
           "<leader>MXglc",
           {
@@ -364,29 +364,39 @@ return {
         {
           "<leader>MXgle",
           {
-            n =  function() vim.api.nvim_feedkeys(":g/foo/normal! A.", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":g/foo/normal! A.", "c", false) end,
+            n =  function() vim.api.nvim_feedkeys(":g/foo/norm! A.", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":g/foo/norm! A.", "c", false) end,
           },
-          description = "g: Run Normal Mode Containing `foo`",
+          description = "g: Run Normal mode on `foo`",
         },
         {
           "<leader>MXglf",
           {
-            n =  function() vim.api.nvim_feedkeys(":g/foo/normal! @a", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":g/foo/normal! @a", "c", false) end,
+            n =  function() vim.api.nvim_feedkeys(":g/foo/norm! @a", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":g/foo/norm! @a", "c", false) end,
           },
-          description = "g: Run Macro `a` Containing `foo`",
+          description = "g: Run Macro `a` on `foo`",
         },
+
         {
           "<leader>MXgLg",
           {
             n =  function() vim.api.nvim_feedkeys(":g/foo/t $", "c", false) end,
             v =  function() vim.api.nvim_feedkeys(":g/foo/t $", "c", false) end,
           },
-          description = "g: (t)ransfer Lines Containing `foo` to End of File",
+          description = "g: (t)o `foo` to End of File",
         },
         {
           "<leader>MXgLh",
+          {
+            n =  function() vim.api.nvim_feedkeys(":g/foo/.,+2t $", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":g/foo/.,+2t $", "c", false) end,
+          },
+          description = "g: (t)o `foo` with 2 lines below to End of File",
+        },
+
+        {
+          "<leader>MXgLi",
           {
             n =  function() vim.api.nvim_feedkeys(":g/foo/m $", "c", false) end,
             v =  function() vim.api.nvim_feedkeys(":g/foo/m $", "c", false) end,
@@ -394,20 +404,29 @@ return {
           description = "g: (m)ove `foo` to End of File",
         },
         {
-          "<leader>MXgLi",
-          {
-            n =  function() vim.api.nvim_feedkeys(":g/foo\\|bar/y A", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":g/foo\\|bar/y A", "c", false) end,
-          },
-          description = "g: yank lines containing `foo` or `bar` to reg a",
-        },
-        {
           "<leader>MXgLj",
           {
-            n =  function() vim.api.nvim_feedkeys(":g/foo/,+2y A", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":g/foo/,+2y A", "c", false) end,
+            n =  function() vim.api.nvim_feedkeys(":g/foo/.,+2m $", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":g/foo/.,+2m $", "c", false) end,
           },
-          description = "g: yank lines containing `foo` with 2 lines below it to reg a",
+          description = "g: (m)ove `foo` with 2 lines below to End of File",
+        },
+
+        {
+          "<leader>MXgLk",
+          {
+            n =  function() vim.api.nvim_feedkeys(":g/foo|bar/y A", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":g/foo|bar/y A", "c", false) end,
+          },
+          description = "g: yank `foo` or `bar` to reg a",
+        },
+        {
+          "<leader>MXgLl",
+          {
+            n =  function() vim.api.nvim_feedkeys(":g/foo/.,+2y A", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":g/foo/.,+2y A", "c", false) end,
+          },
+          description = "g: yank `foo` with 2 lines below it to reg a",
         },
 
       -- ╭─────────────────────────────────────────────────────────╮
@@ -461,7 +480,7 @@ return {
             n = function() vim.api.nvim_feedkeys(":%sno/foo/bar/gc", "c", false) end,
             v = function() vim.api.nvim_feedkeys(":%sno/foo/bar/gc", "c", false) end,
           },
-          description = "Substitute: (No Magic Mode): `foo` with `bar`",
+          description = "Substitute: (No Magic): `foo` with `bar`",
         },
         {
           "<leader>MXsuf",
