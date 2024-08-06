@@ -49,6 +49,7 @@ return {
               { find = "^%d+ changes?; before #%d+" },
               { find = "^%d+ lines .ed %d+ times?$" },
               { find = "^%d+ lines yanked$" },
+              { find = "^%d+ substitutions on %d+ lines?$" },
               { find = "^%d+ fewer lines;?" },
               { find = "No lines in buffer" },
               { find = "^%d+ lines yanked into;?" },

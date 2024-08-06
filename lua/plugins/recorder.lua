@@ -7,7 +7,7 @@ return {
     -- The first register is the default register/macro-slot used after startup.
     slots = { "q", "r" },
     mapping = {
-      startStopRecording = "Q",
+      startStopRecording = "gq",
       playMacro = "@",
       switchSlot = "<leader>MMWUA",
       editMacro = "<leader>MMWUB",
