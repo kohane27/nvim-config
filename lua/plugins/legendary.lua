@@ -237,19 +237,19 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ gp.nvim                                                  │
         -- ╰──────────────────────────────────────────────────────────╯
-        -- { "<leader>sf", function() require("core.utils").gp_choose_agent() end, description = "GPT: Choose an Agent" },
-        -- { "<leader>ss", function() vim.api.nvim_exec("GpChatToggle vsplit", false) vim.api.nvim_win_set_width(0, 80) end, description = "GPT: Toggle" },
-        -- { "<leader>sg", function() require("telescope").extensions.egrepify.egrepify({ cwd = os.getenv("HOME") .. "/.local/share/nvim/gp/chats" }) end, description = "GPT: Finder" },
-        -- { "<leader>sa", "<cmd>GpAppend<CR>", description = "GPT: Append" },
-        -- {
-        --   "<leader>so",
-        --   function()
-        --     vim.api.nvim_exec("GpChatNew vsplit", false)
-        --     vim.api.nvim_win_set_width(0, 80)
-        --     vim.api.nvim_exec("GpAgent Ultimate-Assistant", false)
-        --   end,
-        --   description = "GPT: Ultimate Assistant",
-        -- },
+        { "<leader>sf", function() require("core.utils").gp_choose_agent() end, description = "GPT: Choose an Agent" },
+        { "<leader>ss", function() vim.api.nvim_exec("GpChatToggle vsplit", false) vim.api.nvim_win_set_width(0, 80) end, description = "GPT: Toggle" },
+        { "<leader>sg", function() require("telescope").extensions.egrepify.egrepify({ cwd = os.getenv("HOME") .. "/.local/share/nvim/gp/chats" }) end, description = "GPT: Finder" },
+        { "<leader>sa", "<cmd>GpAppend<CR>", description = "GPT: Append" },
+        {
+          "<leader>so",
+          function()
+            vim.api.nvim_exec("GpChatNew vsplit", false)
+            vim.api.nvim_win_set_width(0, 80)
+            vim.api.nvim_exec("GpAgent claude-3-5-sonnet-20240620-Ultimate-Assistant", false)
+          end,
+          description = "GPT: Ultimate Assistant",
+        },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ AI                                                       │
