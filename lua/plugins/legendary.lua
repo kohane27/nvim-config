@@ -275,7 +275,7 @@ return {
         { "<leader>q", "<cmd>wqa<CR>",                          description = "Quit" },
         { "<leader>Q", "<cmd>q!<CR>",                           description = "Force Quit" },
         { "qq", "<cmd>Bdelete<CR>",                             description = "Buffer: Close" },
-        -- { "Q", "<cmd>close<CR>",                             description = "Window: Close" },
+        { "Q", "<cmd>bdelete<CR>",                              description = "Buffer: Close with Layout" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Miscellaneous (leader m with real keybindings)           │
