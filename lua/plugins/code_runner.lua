@@ -6,7 +6,7 @@ return {
     focus = false,
     term = {
       position = "vertical",
-      size = vim.o.columns * 0.30,
+      size = vim.o.columns * 0.40,
       -- position = "bot",
       -- size = vim.o.lines * 0.25,
     },
