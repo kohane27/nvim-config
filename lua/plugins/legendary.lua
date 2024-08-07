@@ -17,7 +17,10 @@ return {
       keymaps = {
         -- NOTE: the following are available:
         -- J!!, K!!, T
-        -- gh, gj, gk, gl, mm, MM, r
+        -- gh, gj, gk
+        --  TODO: check what they do by default: ga, gb, gm, gn, go, gp, gs, gt, gu, gw, gy, gz
+        -- gp: Put (paste) text after the cursor and leave the cursor after it
+        -- mm, MM, r
         -- <leader> h, i, k, p, u, v, w, y, z
 
         -- <leader>g
@@ -332,8 +335,9 @@ return {
         {
           "<leader>MXgla",
           {
-            n =  function() vim.api.nvim_feedkeys(":g/^$/d", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":g/^$/d", "c", false) end,
+            n =  "<cmd>g/^$/d<CR>",
+            -- // TODO: fix
+            v =  "<cmd>'<,'>g/^$/d<CR>",
           },
           description = "g: Remove Empty Lines",
         },
@@ -348,8 +352,8 @@ return {
         {
           "<leader>MXglc",
           {
-            n = function() vim.api.nvim_feedkeys(":g!/^foo$/d", "c", false) end,
-            v = function() vim.api.nvim_feedkeys(":g!/^foo$/d", "c", false) end,
+            n = function() vim.api.nvim_feedkeys("<cmd>g!/^foo$/d", "c", false) end,
+            v = function() vim.api.nvim_feedkeys("<cmd>g!/^foo$/d", "c", false) end,
           },
           description = "g: Delete Lines NOT `foo`",
         },
@@ -364,16 +368,16 @@ return {
         {
           "<leader>MXgle",
           {
-            n =  function() vim.api.nvim_feedkeys(":g/foo/norm! A.", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":g/foo/norm! A.", "c", false) end,
+            n =  function() vim.api.nvim_feedkeys(":g/foo/norm! A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":g/foo/norm! A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>", "c", false) end,
           },
           description = "g: Run Normal mode on `foo`",
         },
         {
           "<leader>MXglf",
           {
-            n =  function() vim.api.nvim_feedkeys(":g/foo/norm! @a", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":g/foo/norm! @a", "c", false) end,
+            n =  function() vim.api.nvim_feedkeys(":g/foo/norm! @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>", "c", false) end,
+            v =  function() vim.api.nvim_feedkeys(":g/foo/norm! @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>", "c", false) end,
           },
           description = "g: Run Macro `a` on `foo`",
         },
@@ -384,7 +388,7 @@ return {
             n =  function() vim.api.nvim_feedkeys(":g/foo/t $", "c", false) end,
             v =  function() vim.api.nvim_feedkeys(":g/foo/t $", "c", false) end,
           },
-          description = "g: (t)o `foo` to End of File",
+          description = "g: (t)ransfer `foo` to End of File",
         },
         {
           "<leader>MXgLh",
@@ -392,7 +396,7 @@ return {
             n =  function() vim.api.nvim_feedkeys(":g/foo/.,+2t $", "c", false) end,
             v =  function() vim.api.nvim_feedkeys(":g/foo/.,+2t $", "c", false) end,
           },
-          description = "g: (t)o `foo` with 2 lines below to End of File",
+          description = "g: (t)ransfer `foo` with 2 lines below to End of File",
         },
 
         {
