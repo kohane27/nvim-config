@@ -34,9 +34,6 @@ map("i", "<C-k>", "<Esc>")
 map("n", "<space>", "<Nop>")
 map("x", "<space>", "<Nop>")
 
-map("n", "gj", "<Nop>")
-map("n", "gk", "<Nop>")
-
 map("n", "[[", "<Nop>")
 map("n", "]]", "<Nop>")
 map("n", ")", "<Nop>")
