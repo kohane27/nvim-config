@@ -2,16 +2,13 @@ return {
   "kdheepak/lazygit.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
   event = "VeryLazy",
-  config = function()
-    vim.cmd([[
-    let g:lazygit_floating_window_winblend = 0 " transparency of floating window
-    let g:lazygit_floating_window_scaling_factor = 0.95 " scaling factor for floating window
-    let g:lazygit_floating_window_use_plenary = 0 " use plenary.nvim to manage floating window if available
-    let g:lazygit_use_neovim_remote = 1 " fallback to 0 if neovim-remote is not installed
+  init = function()
+    vim.g.lazygit_floating_window_winblend = 0 -- transparency
+    vim.g.lazygit_floating_window_scaling_factor = 0.9
+    vim.g.lazygit_floating_window_use_plenary = 1 -- use plenary.nvim to manage floating window
+    vim.g.lazygit_use_neovim_remote = 1 -- fallback to 0 if neovim-remote is not installed
 
-    " if has('nvim') && executable('nvr')
-    "   let $GIT_EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'"
-    " endif
-    ]])
+    vim.g.lazygit_use_custom_config_file_path = 1
+    vim.g.lazygit_config_file_path = os.getenv("HOME") .. "/.config/lazygit/config.yml"
   end,
 }
