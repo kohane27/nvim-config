@@ -189,6 +189,7 @@ vim.cmd([[
 nnoremap / /\v
 cnoremap s/ s/\v
 cnoremap g/ g/\v
+cnoremap g!/ g!/\v
 cnoremap norm norm!
 
 ]])
