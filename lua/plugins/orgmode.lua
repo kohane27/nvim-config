@@ -10,7 +10,4 @@ return {
       prefix = "<leader>o",
     },
   },
-  config = function(_, opts)
-    require("orgmode").setup(opts)
-  end,
 }

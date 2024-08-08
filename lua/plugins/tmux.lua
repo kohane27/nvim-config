@@ -1,11 +1,6 @@
 return {
   "aserowy/tmux.nvim",
-  -- Only load if tmux is used
-  event = function()
-    if vim.fn.exists("$TMUX") == 1 then
-      return "VeryLazy"
-    end
-  end,
+  event = "VeryLazy",
   opts = {
     copy_sync = {
       -- all yanks (and deletes) will get redirected to system clipboard
@@ -25,7 +20,4 @@ return {
       resize_step_y = 6,
     },
   },
-  config = function(_, opts)
-    require("tmux").setup(opts)
-  end,
 }

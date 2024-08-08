@@ -12,7 +12,4 @@ return {
       -- "TerminalWithCode",        --# display results and code history in a vertical split
     },
   },
-  config = function(_, opts)
-    require("sniprun").setup(opts)
-  end,
 }
