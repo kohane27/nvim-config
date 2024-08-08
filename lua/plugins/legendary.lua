@@ -17,9 +17,8 @@ return {
       keymaps = {
         -- NOTE: the following are available:
         -- J!!, K!!, T
-        -- gh, gj, gk
-        --  TODO: check what they do by default: ga, gb, gm, gn, go, gp, gs, gt, gu, gw, gy, gz
-        -- gp: Put (paste) text after the cursor and leave the cursor after it
+        -- gh
+        --  TODO: check what they do by default: ga, gb, gm, gn, go, gs, gt, gu, gw, gy, gz
         -- mm, MM, r
         -- <leader> h, i, k, p, u, v, w, y, z
 
@@ -40,7 +39,6 @@ return {
         { "<C-q>", "<cmd>LazyGit<CR>",                                                           description = "Lazygit" },
         { "<C-t>", "<cmd>ToggleTerm<CR>",                                                        description = "New terminal" },
         { "<C-g>", function() require("core.utils").find_files_from_project_git_root() end,      description = "Telescope: Find Files" },
-
         -- { "<C-p>", "<cmd>Legendary<CR>",                                                      description = "Legendary Command Palette", mode = { "n", "x" } },
         { "<C-p>", function() require("core.utils").legendary_command_palette() end,             description = "Legendary Command Palette", mode = { "n", "x" } },
 
