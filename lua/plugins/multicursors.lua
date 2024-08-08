@@ -31,8 +31,24 @@ return {
       normal_keys = {
         ["ga"] = { method = N.find_all_matches, opts = { desc = "Find all" } },
       },
-      -- | MultiCursor | Multicursor selections. |
-      -- | MultiCursorMain | Main selection in which multicursor began. |
+
+      -- lightpurple1 from vim-visual-multi
+
+      -- Multicursor selections
+      vim.api.nvim_set_hl(0, "MultiCursor", {
+        ctermbg = 146,
+        ctermfg = 235,
+        bg = "#afafdf",
+        fg = "#262626",
+      }),
+
+      -- Main selection in which multicursor began
+      vim.api.nvim_set_hl(0, "MultiCursorMain", {
+        ctermbg = 146,
+        ctermfg = 235,
+        bg = "#afafdf",
+        fg = "#262626",
+      }),
     })
   end,
 }
