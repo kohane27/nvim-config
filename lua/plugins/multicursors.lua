@@ -8,13 +8,13 @@ return {
       mode = { "n", "v" },
       "<C-n>",
       "<cmd>MCstart<CR>",
-      desc = "Create a selection for selected text or word under the cursor",
+      desc = "Create a selection for selected text or word under cursor",
     },
     {
       mode = { "n" },
       "<C-S-n>",
       "<cmd>MCpattern<CR>",
-      desc = "Prompts for a pattern and selects every match in the buffer",
+      desc = "Prompts for a pattern and selects every match",
     },
   },
   config = function()

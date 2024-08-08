@@ -1,5 +1,5 @@
 return {
-      -- stylua: ignore
+  -- stylua: ignore
   -- smooth scrolling
   "karb94/neoscroll.nvim",
   event = "VeryLazy",
