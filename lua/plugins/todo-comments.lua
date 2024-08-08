@@ -7,7 +7,4 @@ return {
       pattern = [[.*<(KEYWORDS)\s*]], -- NOTE: match without the extra colon. You'll likely get false positives
     },
   },
-  config = function(_, opts)
-    require("todo-comments").setup(opts)
-  end,
 }
