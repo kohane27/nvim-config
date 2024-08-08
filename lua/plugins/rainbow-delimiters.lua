@@ -1,7 +1,7 @@
 return {
   "hiphish/rainbow-delimiters.nvim",
   event = "VeryLazy",
-  config = function()
+  init = function()
     vim.g.rainbow_delimiters = {
       strategy = {
         [""] = require("rainbow-delimiters").strategy["global"],

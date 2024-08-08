@@ -1,5 +1,4 @@
 return {
-  -- "smjonas/live-command.nvim",
   "chrisgrieser/nvim-recorder",
   dependencies = "rcarriga/nvim-notify",
   lazy = false,
@@ -17,7 +16,4 @@ return {
     -- clears all macros-slots on startup
     clear = true,
   },
-  config = function(_, opts)
-    require("recorder").setup(opts)
-  end,
 }
