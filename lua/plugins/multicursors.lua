@@ -11,9 +11,28 @@ return {
       "<cmd>MCstart<CR>",
       desc = "Create a selection for selected text or word under the cursor",
     },
-
-    -- create a column of cursors from visual mode
-    -- "<C-S-n>",
-    -- ":call vm#commands#add_cursor_down(0, v:count1)<cr>",
   },
+  config = function()
+    local N = require("multicursors.normal_mode")
+    -- local I = require("multicursors.insert_mode")
+    -- local E = require("multicursors.extend_mode")
+    require("multicursors").setup({
+      hint_config = {
+        float_opts = {
+          border = "rounded",
+        },
+        position = "bottom-right",
+      },
+      generate_hints = {
+        config = {
+          column_count = 1,
+        },
+      },
+      normal_keys = {
+        ["ga"] = { method = N.find_all_matches, opts = { desc = "Find all" } },
+      },
+      -- | MultiCursor | Multicursor selections. |
+      -- | MultiCursorMain | Main selection in which multicursor began. |
+    })
+  end,
 }
