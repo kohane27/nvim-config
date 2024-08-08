@@ -2,7 +2,6 @@ return {
   "smoka7/multicursors.nvim",
   event = "VeryLazy",
   dependencies = { "nvimtools/hydra.nvim" },
-  opts = {},
   cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
   keys = {
     {
@@ -11,6 +10,12 @@ return {
       "<cmd>MCstart<CR>",
       desc = "Create a selection for selected text or word under the cursor",
     },
+    {
+      mode = { "n" },
+      "<C-S-n>",
+      "<cmd>MCpattern<CR>",
+      desc = "Prompts for a pattern and selects every match in the buffer",
+    },
   },
   config = function()
     local N = require("multicursors.normal_mode")
@@ -18,18 +23,25 @@ return {
     -- local E = require("multicursors.extend_mode")
     require("multicursors").setup({
       hint_config = {
-        float_opts = {
-          border = "rounded",
-        },
+        float_opts = { border = "rounded" },
         position = "bottom-right",
       },
-      generate_hints = {
-        config = {
-          column_count = 1,
-        },
-      },
+      generate_hints = { config = { column_count = 1, max_hint_length = 30 } },
       normal_keys = {
+        ["<C-a>"] = { method = false },
         ["ga"] = { method = N.find_all_matches, opts = { desc = "Find all" } },
+        ["r"] = { method = false },
+      },
+      insert_keys = {
+        ["<C-c>"] = { method = false },
+        ["<C-BS>"] = { method = false },
+        ["<C-Right>"] = { method = false },
+        ["<C-Left>"] = { method = false },
+        ["<End>"] = { method = false },
+        ["<Home>"] = { method = false },
+      },
+      extend_keys = {
+        ["O"] = { method = false },
       },
 
       -- lightpurple1 from vim-visual-multi
