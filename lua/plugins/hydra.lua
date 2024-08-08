@@ -6,113 +6,18 @@ return {
   config = function()
     local hydra = require("hydra")
 
-    -- local function map(mode, lhs, rhs)
-    --   local options = { noremap = true, silent = true }
-    --   if opts then options = vim.tbl_extend("force", options) end
-    --   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-    -- end
-
-    -- SmoothScroll = hydra({
-    --   name = "SmoothScroll",
-    --   mode = { "n", "x" },
+    -- BUG: can't make it work with neoscroll
+    -- MyScroll = hydra({
+    --   name = "Scroll",
+    --   mode = 'n',
     --   heads = {
-    --     { "d", '<cmd>lua Scroll("<C-f>", 1, 1)<CR>', { private = true } },
-    --     { "u", '<cmd>lua Scroll("<C-b>", 1, 1)<CR>', { private = true } },
+    --     { 'j', '<C-d>', { private = true } },
+    --     { 'k', '<C-u>', { private = true } },
     --     { "<Esc>", nil, { exit = true, nowait = true } },
     --   },
     -- })
-
-    -- map("n", "<C-d>", '<cmd>lua Scroll("<C-f>", 1, 1)<CR><cmd>lua require("hydra").activate(SmoothScroll)<CR>')
-    -- map("n", "<C-u>", '<cmd>lua Scroll("<C-b>", 1, 1)<CR><cmd>lua require("hydra").activate(SmoothScroll)<CR>')
-    -- map("x", "<C-d>", '<cmd>lua Scroll("<C-f>", 1, 1)<CR><cmd>lua require("hydra").activate(SmoothScroll)<CR>')
-    -- map("x", "<C-u>", '<cmd>lua Scroll("<C-b>", 1, 1)<CR><cmd>lua require("hydra").activate(SmoothScroll)<CR>')
-
-    --  ╭──────────────────────────────────────────────────────────╮
-    --  │ Functions start with ;                                   │
-    --  ╰──────────────────────────────────────────────────────────╯
-    hydra({
-      name = "TODO",
-      mode = "n",
-      body = ";t",
-      config = {
-        invoke_on_body = true,
-        on_enter = function() require("todo-comments").jump_next() end,
-      },
-      heads = {
-        { "j", '<cmd>lua require("todo-comments").jump_next()<CR>' },
-        { "k", '<cmd>lua require("todo-comments").jump_prev()<CR>' },
-        { "<Esc>", nil, { exit = true, nowait = true } },
-      },
-    })
-
-    hydra({
-      name = "Hunk",
-      mode = "n",
-      body = ";g",
-      config = {
-        invoke_on_body = true,
-        on_enter = function() vim.api.nvim_command("Gitsigns next_hunk") end,
-      },
-      heads = {
-        { "j", "<cmd>Gitsigns next_hunk<CR>" },
-        { "k", "<cmd>Gitsigns prev_hunk<CR>" },
-        { "<Esc>", nil, { exit = true, nowait = true } },
-      },
-    })
-
-    hydra({
-      name = "Diagnostics",
-      mode = "n",
-      body = ";d",
-      config = {
-        invoke_on_body = true,
-        on_enter = function() vim.api.nvim_command("lua require('lspsaga.diagnostic'):goto_next({ severity = vim.diagnostic.severity.ERROR })") end,
-      },
-      heads = {
-        { "j", "<cmd>lua require('lspsaga.diagnostic'):goto_next({ severity = vim.diagnostic.severity.ERROR })<CR>" },
-        { "k", "<cmd>lua require('lspsaga.diagnostic'):goto_prev({ severity = vim.diagnostic.severity.ERROR })<CR>" },
-        { "<Esc>", nil, { exit = true, nowait = true } },
-      },
-    })
-
-    -- NOTE: we use hydra for current buffer stuff; with quickfix list we jump through different files;
-    -- it's a hassle to `<Esc>` all the time before executing on the target jump list
-
-    vim.keymap.set("n", ";c", "<cmd>cnext<CR>zz")
-    vim.keymap.set("n", ";C", "<cmd>cprevious<CR>zz")
-
-    -- hydra({
-    --   name = "quickfix",
-    --   mode = "n",
-    --   body = ";c",
-    --   config = {
-    --     invoke_on_body = true,
-    --     on_enter = function()
-    --       local status, err = pcall(vim.api.nvim_command, "cnext")
-    --       if not status then print("Error executing cnext: " .. err) end
-    --     end,
-    --   },
-    --   heads = {
-    --     { "j", "<cmd>cnext<CR>zz" },
-    --     { "k", "<cmd>cprevious<CR>zz" },
-    --     { "<Esc>", nil, { exit = true, nowait = true } },
-    --   },
-    -- })
-
-    -- hydra({
-    --   name = "changelist",
-    --   mode = "n",
-    --   body = "g;",
-    --   config = {
-    --     invoke_on_body = true,
-    --     on_enter = function() vim.api.nvim_command("normal! g;zz") end,
-    --   },
-    --   heads = {
-    --     { "j", "g," },
-    --     { "k", "g;" },
-    --     { "<Esc>", nil, { exit = true, nowait = true } },
-    --   },
-    -- })
+    -- vim.api.nvim_set_keymap('n', '<C-d>', '<C-d><cmd>lua require("hydra").activate(MyScroll)<CR>', { silent = true, noremap = true })
+    -- vim.api.nvim_set_keymap('n', '<C-u>', '<C-u><cmd>lua require("hydra").activate(MyScroll)<CR>', { silent = true, noremap = true })
 
     --  ╭──────────────────────────────────────────────────────────╮
     --  │ Code Navigation starts with ,                            │

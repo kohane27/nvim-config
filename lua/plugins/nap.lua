@@ -7,7 +7,7 @@ return {
     prev_prefix = ",",
     next_repeat = "gj",
     prev_repeat = "gk",
-    -- to exclude some keys from the default
+    -- exclude some keys from the default
     exclude_default_operators = {"a", "A", "b", "B", "f", "F", "t", "T", "<C-t>", "s", "z", "<C-l>", "<M-l>", "<C-q>", "<M-q>", "'"},
     operators = {
       ["d"] = {
@@ -22,10 +22,6 @@ return {
         next = { rhs = '<cmd>lua require("todo-comments").jump_next()<CR>', opts = { desc = "Next todo comment" }, },
         prev = { rhs = '<cmd>lua require("todo-comments").jump_prev()<CR>', opts = { desc = "Previous todo comment" }, },
       },
-      ["e"] = {
-        next = { rhs = "g;zz", opts = { desc = "Next changelist item" } },
-        prev = { rhs = "g,zz", opts = { desc = "Previous changelist item" } },
-      },
       ["c"] = {
         next = { rhs = "<cmd>cnext<CR>zz", opts = { desc = "Next quickfix item" } },
         prev = { rhs = "<cmd>cprevious<CR>zz", opts = { desc = "Prev quickfix item" } },
@@ -33,6 +29,10 @@ return {
       ["l"] = {
         next = { rhs = "<cmd>lnext<CR>", opts = { desc = "Next loclist item" } },
         prev = { rhs = "<cmd>lprevious<CR>", opts = { desc = "Prev loclist item" } },
+      },
+      ["e"] = {
+        next = { rhs = "g;zz", opts = { desc = "Next changelist item" } },
+        prev = { rhs = "g,zz", opts = { desc = "Previous changelist item" } },
       },
     },
   },
