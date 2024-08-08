@@ -12,7 +12,7 @@ return {
       -- NOTE: this takes precedence over other sort options
       sort = { frecency = { db_root = string.format("%s/legendary/", vim.fn.stdpath("data")), max_timestamps = 20 } },
       -- `keys` spec will be automatically loaded
-      extensions = { lazy_nvim = true },
+      extensions = { lazy_nvim = true, diffview = true },
       -- stylua: ignore
       keymaps = {
         -- NOTE: the following are available:
