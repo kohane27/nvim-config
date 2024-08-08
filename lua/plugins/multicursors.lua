@@ -30,7 +30,6 @@ return {
       normal_keys = {
         ["<C-a>"] = { method = false },
         ["ga"] = { method = N.find_all_matches, opts = { desc = "Find all" } },
-        ["r"] = { method = false },
       },
       insert_keys = {
         ["<C-c>"] = { method = false },
