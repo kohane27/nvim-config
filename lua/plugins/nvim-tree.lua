@@ -1,7 +1,6 @@
 return {
   "nvim-tree/nvim-tree.lua",
   lazy = false,
-  enabled = not vim.g.started_by_firenvim,
   dependencies = {
     { "nvim-tree/nvim-web-devicons" },
     { "b0o/nvim-tree-preview.lua" },

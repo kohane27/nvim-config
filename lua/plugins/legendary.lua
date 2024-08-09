@@ -1,7 +1,6 @@
 return {
   "mrjones2014/legendary.nvim",
   event = "VeryLazy",
-  enabled = not vim.g.started_by_firenvim,
   dependencies = { "kkharji/sqlite.lua", "stevearc/dressing.nvim" },
   -- TODO: `h legendary-keymap-tables`: search "The `legendary.toolbox` module has utilities for determining visual mode and getting marks." which may be helpful
   config = function()
