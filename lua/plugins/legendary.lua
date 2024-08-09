@@ -20,7 +20,7 @@ return {
         -- NOTE: the following are available:
         -- J!!, K!!, T
         -- gh
-        --  TODO: check what they do by default: ga, gb, gm, gn, go, gs, gt, gu, gw, gy, gz
+        --  TODO: check what they do by default: ga, gb, gm, go, gs, gt, gu, gw, gy, gz
         -- mm, MM, r
         -- <leader> h, i, k, p, u, v, w, y, z
 
