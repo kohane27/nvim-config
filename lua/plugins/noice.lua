@@ -6,7 +6,6 @@ return {
     "rcarriga/nvim-notify",
     "hrsh7th/nvim-cmp",
   },
-  enabled = not vim.g.started_by_firenvim,
   config = function()
     require("noice").setup({
       routes = {

@@ -1,7 +1,6 @@
 return {
   "olimorris/persisted.nvim",
   lazy = false,
-  enabled = not vim.g.started_by_firenvim,
   opts = {
     -- automatically load the session for the cwd on startup
     autoload = true,
