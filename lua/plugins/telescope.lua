@@ -61,7 +61,10 @@ return {
 
           n = {
             ["?"] = false,
-            ["<C-q>"] = actions.close,
+            ["<Tab>"] = false,
+            ["<S-Tab>"] = false,
+
+            ["q"] = actions.close,
             ["<CR>"] = actions.select_default,
             ["<C-w>s"] = actions.select_horizontal,
             ["<C-w>v"] = actions.select_vertical,
@@ -74,24 +77,21 @@ return {
             ["M"] = actions.move_to_middle,
             ["G"] = actions.move_to_bottom,
 
-            ["<C-f>"] = actions.preview_scrolling_down,
-            ["<C-b>"] = actions.preview_scrolling_up,
-
-            ["<Tab>"] = false,
-            ["<S-Tab>"] = false,
-
             ["v"] = actions.toggle_selection + actions.move_selection_worse,
-            ["<C-c>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            ["c"] = actions.send_selected_to_qflist + actions.open_qflist,
             -- ["V"] = actions.toggle_selection + actions.move_selection_better,
-            ["V"] = actions.send_to_qflist + actions.open_qflist,
+            ["C"] = actions.send_to_qflist + actions.open_qflist,
 
-            ["<C-u>"] = actions.move_selection_previous
+            ["f"] = actions.preview_scrolling_down,
+            ["b"] = actions.preview_scrolling_up,
+
+            ["u"] = actions.move_selection_previous
               + actions.move_selection_previous
               + actions.move_selection_previous
               + actions.move_selection_previous
               + actions.move_selection_previous,
 
-            ["<C-d>"] = actions.move_selection_next
+            ["d"] = actions.move_selection_next
               + actions.move_selection_next
               + actions.move_selection_next
               + actions.move_selection_next
