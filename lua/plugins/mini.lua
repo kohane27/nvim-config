@@ -96,24 +96,16 @@ return {
       },
 
       -- Sort text
-      sort = {
-        prefix = "",
-      },
+      sort = { prefix = "" },
 
       -- Evaluate text and replace with output
-      evaluate = {
-        prefix = "",
-      },
+      evaluate = { prefix = "" },
 
       -- Replace text with register
-      replace = {
-        prefix = "",
-      },
+      replace = { prefix = "" },
 
       -- Multiply (duplicate) text
-      multiply = {
-        prefix = "",
-      },
+      multiply = { prefix = "" },
     })
   end,
 }
