@@ -8,7 +8,7 @@ return {
     next_repeat = "gj",
     prev_repeat = "gk",
     -- exclude from defaults
-    exclude_default_operators = {"a", "A", "b", "B", "f", "F", "t", "T", "<C-t>", "s", "z", "<C-l>", "<M-l>", "<C-q>", "<M-q>", "'"},
+    exclude_default_operators = {"a", "A", "b", "B", "f", "F", "T", "<C-t>", "s", "z", "<C-l>", "<M-l>", "<C-q>", "<M-q>", "'"},
     operators = {
       ["d"] = {
         next = { rhs = "<cmd>lua require('lspsaga.diagnostic'):goto_next({ severity = vim.diagnostic.severity.ERROR })<CR>", opts = { desc = "Next diagnostic" }, },
