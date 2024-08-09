@@ -1,6 +1,7 @@
 return {
   "mrjones2014/legendary.nvim",
-  lazy = false,
+  -- NOTE: has to be `VeryLazy`
+  event = "VeryLazy",
   dependencies = { "kkharji/sqlite.lua", "stevearc/dressing.nvim" },
   config = function()
     local toolbox = require("legendary.toolbox")
