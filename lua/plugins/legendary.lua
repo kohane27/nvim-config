@@ -14,6 +14,9 @@ return {
       extensions = { lazy_nvim = true, diffview = true },
       -- stylua: ignore
       keymaps = {
+        -- NOTE: use <cmd> for normal Ex commands because it's faster for some reason
+        --       use : if you need to have visual mode
+
         -- NOTE: the following are available:
         -- J!!, K!!, T
         -- gh
@@ -42,7 +45,7 @@ return {
         { "<C-p>", function() require("core.utils").legendary_command_palette() end,             description = "Legendary Command Palette", mode = { "n", "x" } },
 
         { "<C-v>", { i = '<C-R>+' },                                                              description = "Paste Clipboard Content" },
-        -- { "<C-f>", { i = '<C-R>"' },                                                           description = "Paste Unnamed Register Content" },
+        { "<C-f>", { i = '<C-R>0' },                                                              description = "Paste Last Yanked" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Telescope                                                │
@@ -62,14 +65,15 @@ return {
           "<leader>fb",
           {
             n = function() require("telescope.builtin").current_buffer_fuzzy_find() end,
-            v = function()
-              local text = require("core.utils").get_visual_selection()
-              require("telescope.builtin").current_buffer_fuzzy_find({ default_text = text })
-            end,
+            v = function() require("telescope.builtin").current_buffer_fuzzy_find({ default_text = require("core.utils").get_visual_selection() }) end,
           },
           description = "Telescope: Find Text in Current Buffer",
         },
-        { "<leader>fs", function() require('spectre').open({ search_text="\\w+ello\\b", replace_text="world", path="**"  }) end, description = "Spectre: Search in Files" },
+        {
+          "<leader>fs",
+          function() require('spectre').open({ search_text="\\w+ello\\b", replace_text="world", path="**"  }) end,
+          description = "Spectre: Search in Files"
+        },
 
         -- not frequent below
         { "<leader>fp", "<cmd>Telescope neoclip<CR>",                                 description = "Telescope: Clipboard" },
@@ -127,6 +131,7 @@ return {
           "<leader>cd",
           function() vim.api.nvim_feedkeys(":cdo s/foo/bar/gc | update", "c", false) end,
           description = "cdo: Execute Command on Quickfix Entries",
+          -- TODO: use
           -- filters = { ft = "qf", "Trouble" },
         },
 
@@ -152,16 +157,16 @@ return {
         { "<leader>bc", "<cmd>BufferLinePickClose<CR>",                        description = "Buffer: Choose a Closing Buffer" },
 
 
-        { "g1", "<cmd>BufferLineGoToBuffer 1<CR>",  description = "Buffer: Go to 1" },
-        { "g2", "<cmd>BufferLineGoToBuffer 2<CR>",  description = "Buffer: Go to 2" },
-        { "g3", "<cmd>BufferLineGoToBuffer 3<CR>",  description = "Buffer: Go to 3" },
-        { "g4", "<cmd>BufferLineGoToBuffer 4<CR>",  description = "Buffer: Go to 4" },
-        { "g5", "<cmd>BufferLineGoToBuffer 5<CR>",  description = "Buffer: Go to 5" },
-        { "g6", "<cmd>BufferLineGoToBuffer 6<CR>",  description = "Buffer: Go to 6" },
-        { "g7", "<cmd>BufferLineGoToBuffer 7<CR>",  description = "Buffer: Go to 7" },
-        { "g8", "<cmd>BufferLineGoToBuffer 8<CR>",  description = "Buffer: Go to 8" },
-        { "g9", "<cmd>BufferLineGoToBuffer 9<CR>",  description = "Buffer: Go to 9" },
-        { "g0", "<cmd>BufferLineGoToBuffer -1<CR>", description = "Buffer: Go to 10" },
+        { "g1", function() require("bufferline").go_to(1) end,  description = "Buffer: Go to 1" },
+        { "g2", function() require("bufferline").go_to(2) end,  description = "Buffer: Go to 2" },
+        { "g3", function() require("bufferline").go_to(3) end,  description = "Buffer: Go to 3" },
+        { "g4", function() require("bufferline").go_to(4) end,  description = "Buffer: Go to 4" },
+        { "g5", function() require("bufferline").go_to(5) end,  description = "Buffer: Go to 5" },
+        { "g6", function() require("bufferline").go_to(6) end,  description = "Buffer: Go to 6" },
+        { "g7", function() require("bufferline").go_to(7) end,  description = "Buffer: Go to 7" },
+        { "g8", function() require("bufferline").go_to(8) end,  description = "Buffer: Go to 8" },
+        { "g9", function() require("bufferline").go_to(9) end,  description = "Buffer: Go to 9" },
+        { "g0", function() require("bufferline").go_to(-1)end, description = "Buffer: Go to 10" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Tab (for scope.nvim)                                     │
@@ -198,27 +203,22 @@ return {
           function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen d4a7b0d", true, true, true), "t", true) end,
           description = "Diffview: Compares Changes Made by `d4a7b0d` with Current Working Directory",
         },
-
         {
           "<leader>dab",
           function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen d4a7b0d^!<Left><Left>", true, true, true), "t", true) end,
           description = "Diffview: Changes Made in the Single `d4a7b0d`",
         },
-
         {
           "<leader>dac",
           function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen c1..c2 <Left><Left><Left><Left><Left>", true, true, true), "t", true) end,
           description = "Diffview: Changes Between 2 Commits (from `d4a7b0d` up to `519b30e` (inclusive)).",
         },
-
         { "<leader>db", "<cmd>DiffviewFileHistory<CR>",                         description = "Diffview: File History of Current Branch" },
         { "<leader>df", "<cmd>DiffviewFileHistory %<CR>",                       description = "Diffview: File History of Current File" },
-        { "<leader>dr", { v = "<cmd>'<,'>DiffviewFileHistory<CR>" },            description = "Diffview: Line History of Selected Lines" },
+        { "<leader>dr", { v = ":'<,'>DiffviewFileHistory<CR>" },                description = "Diffview: Line History of Selected Lines" },
         { "<leader>dXl", "<cmd>Gitsigns toggle_current_line_blame<CR>",         description = "Diffview: Toggle Current Line Blame" },
 
         -- { "<leader>dg", "<cmd>Gitsigns preview_hunk<CR>", description = "Diffview: Preview Hunk" },
-        -- { "<C-t>", "<cmd>DiffviewToggleFiles<CR>", description = "Diffview: Toggle File Panel", filters = { bt = { "DiffviewFiles", "DiffviewFileHistory" } } },
-        -- { "<C-r>", "<cmd>DiffviewRefresh<CR>", description = "Diffview: Refresh", filters = { bt = { "DiffviewFiles", "DiffviewFileHistory" } } },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Run Code                                                 │
@@ -255,7 +255,7 @@ return {
         -- │ AI                                                       │
         -- ╰──────────────────────────────────────────────────────────╯
         -- { "<leader>ao", "<cmd>CodeCompanionChat<CR>", description = "GPT: Open" },
-        -- { "<leader>ai", "<cmd>'<,'>GpImplement<CR>", description = "GPT: Implement", mode = { "v" } },
+        -- { "<leader>ai", ":'<,'>GpImplement<CR>", description = "GPT: Implement", mode = { "v" } },
         -- same as gp.nvim
         -- { "<leader>af", "<cmd>ChatGPTActAs<CR>", description = "GPT: Choose an Agent" },
         -- {
@@ -270,7 +270,7 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Miscellaneous                                            │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<c-s>", "<cmd>w<CR>", mode = { "n", "i" }, opts = { noremap = true, silent = true } },
+        { "<c-s>", ":w<CR>", mode = { "n", "i" }, opts = { noremap = true, silent = true } },
         { "<C-w>o", function() require("mini.misc").zoom() end, description = "Zoom: Toggle" },
         { "<leader>q", "<cmd>wqa<CR>",                          description = "Quit" },
         { "<leader>Q", "<cmd>q!<CR>",                           description = "Force Quit" },
@@ -282,18 +282,18 @@ return {
         -- ╰──────────────────────────────────────────────────────────╯
         -- NOTE: `<leader>ma` and `<leader>mA` taken by `mini.align`
         -- NOTE: `<leader>ms` taken by `mini.operators`
-        { "<leader>mb", "<cmd>lua require('comment-box').llbox()<CR><Esc>",                description = "Comment Box: Left-aligned", mode = { "v" } },
-        { "<leader>mn", "<cmd>Noice dismiss<CR>",                                          description = "Noice: Dismiss" },
-        { "<leader>mt", "<cmd>lua MiniTrailspace.trim()<CR>",                              description = "Trim All Trailing Whitespace" },
-        { "<leader>mc", "<cmd>lua require('curl').open_curl_tab()<CR>",                    description = "Open curl (working directory)" },
-        { "<leader>mC", "<cmd>lua require('curl').open_global_tab()<CR>",                  description = "Open curl (global)" },
+        { "<leader>mb", ":lua require('comment-box').llbox()<CR><Esc>",                    description = "Comment Box: Left-aligned", mode = { "v" } },
+        { "<leader>mn", function() require("noice").cmd("dismiss") end,                    description = "Noice: Dismiss" },
+        { "<leader>mt", function() require('mini.trailspace').trim() end,                  description = "Trim All Trailing Whitespace" },
+        { "<leader>mc", function() require('curl').open_curl_tab() end,                    description = "Open curl (working directory)" },
+        { "<leader>mC", function() require('curl').open_global_tab() end,                  description = "Open curl (global)" },
 
         { "<leader>mp", function() require("core.utils").get_current_buffer_content() end, description = "GPT: Get Current Buffer Content" },
         { "<leader>mP", function() require("core.utils").get_all_buffer_content() end,     description = "GPT: Get All Buffer Content" },
         { "<leader>md", function() require("core.utils").markdown_preview() end,           description = "Preview Markdown" },
 
         -- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
-        { "<leader>mr", "<cmd>write | edit | TSBufEnable highlight<CR>",                   description = "Treesitter: Reload" },
+        { "<leader>mr", ":write | edit | TSBufEnable highlight<CR>",                       description = "Treesitter: Reload" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Miscellaneous (leader m with random keybindings)         │
@@ -331,102 +331,77 @@ return {
       -- ╰─────────────────────────────────────────────────────────╯
         {
           "<leader>MXgla",
-          {
-            n =  "<cmd>g/^$/d<CR>",
-            v =  "<cmd>g/^$/d<CR>",
-          },
+          ":g/^$/d<CR>",
+          mode = { "n", "v" },
           description = "g: Remove Empty Lines",
         },
         -- {
         --   "<leader>MXglb",
-        --   {
-        --     n = function() vim.api.nvim_feedkeys(":g/^foo$/d", "c", false) end,
-        --     v = function() vim.api.nvim_feedkeys(":g/^foo$/d", "c", false) end,
-        --   },
+        --   function() vim.api.nvim_feedkeys(":g/^foo$/d", "c", false) end,
+        --   mode = { "n", "v" },
         --   description = "g: Delete Lines Only `foo`",
         -- },
         {
           "<leader>MXglc",
-          {
-            n = function() vim.api.nvim_feedkeys("<cmd>g!/^foo$/d", "c", false) end,
-            v = function() vim.api.nvim_feedkeys("<cmd>g!/^foo$/d", "c", false) end,
-          },
+          function() vim.api.nvim_feedkeys(":g!/^foo$/d", "c", false) end,
+          mode = { "n", "v" },
           description = "g: Delete Lines NOT `foo`",
         },
         {
           "<leader>MXgld",
-          {
-            n =  "<cmd>g/\t/s//    /g<CR>",
-            -- TODO: fix
-            v =  "<cmd>g/\t/s//    /g<CR>",
-          },
+          ":g/\t/s//    /g<CR>",
+          mode = { "n", "v" },
           description = "g: Convert Tabs to Spaces",
         },
         {
           "<leader>MXgle",
-          {
-            n =  function() vim.api.nvim_feedkeys(":g/foo/norm! A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":g/foo/norm! A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>", "c", false) end,
-          },
+          function() vim.api.nvim_feedkeys(":g/foo/norm! A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>", "c", false) end,
+          mode = { "n", "v" },
           description = "g: Run Normal mode on `foo`",
         },
         {
           "<leader>MXglf",
-          {
-            n =  function() vim.api.nvim_feedkeys(":g/foo/norm! @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":g/foo/norm! @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>", "c", false) end,
-          },
+         function() vim.api.nvim_feedkeys(":g/foo/norm! @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>", "c", false) end,
+          mode = { "n", "v" },
           description = "g: Run Macro `a` on `foo`",
         },
 
         {
           "<leader>MXgLg",
-          {
-            n =  function() vim.api.nvim_feedkeys(":g/foo/t $", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":g/foo/t $", "c", false) end,
-          },
+          function() vim.api.nvim_feedkeys(":g/foo/t $", "c", false) end,
+          mode = { "n", "v" },
           description = "g: (t)ransfer `foo` to End of File",
         },
         {
           "<leader>MXgLh",
-          {
-            n =  function() vim.api.nvim_feedkeys(":g/foo/.,+2t $", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":g/foo/.,+2t $", "c", false) end,
-          },
+          function() vim.api.nvim_feedkeys(":g/foo/.,+2t $", "c", false) end,
+          mode = { "n", "v" },
           description = "g: (t)ransfer `foo` with 2 lines below to End of File",
         },
 
         {
           "<leader>MXgLi",
-          {
-            n =  function() vim.api.nvim_feedkeys(":g/foo/m $", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":g/foo/m $", "c", false) end,
-          },
+          function() vim.api.nvim_feedkeys(":g/foo/m $", "c", false) end,
+          mode = { "n", "v" },
           description = "g: (m)ove `foo` to End of File",
         },
         {
           "<leader>MXgLj",
-          {
-            n =  function() vim.api.nvim_feedkeys(":g/foo/.,+2m $", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":g/foo/.,+2m $", "c", false) end,
-          },
+          function() vim.api.nvim_feedkeys(":g/foo/.,+2m $", "c", false) end,
+          mode = { "n", "v" },
           description = "g: (m)ove `foo` with 2 lines below to End of File",
         },
 
         {
           "<leader>MXgLk",
-          {
-            n =  function() vim.api.nvim_feedkeys(":g/foo|bar/y A", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":g/foo|bar/y A", "c", false) end,
-          },
+          function() vim.api.nvim_feedkeys(":g/foo|bar/y A", "c", false) end,
+          mode = { "n", "v" },
           description = "g: yank `foo` or `bar` to reg a",
         },
         {
           "<leader>MXgLl",
-          {
-            n =  function() vim.api.nvim_feedkeys(":g/foo/.,+2y A", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":g/foo/.,+2y A", "c", false) end,
-          },
+          function() vim.api.nvim_feedkeys(":g/foo/.,+2y A", "c", false) end,
+          mode = { "n", "v" },
           description = "g: yank `foo` with 2 lines below it to reg a",
         },
 
@@ -454,6 +429,7 @@ return {
       -- │ substitute                                              │
       -- ╰─────────────────────────────────────────────────────────╯
         {
+          -- TODO: fix use global /d
           "<leader>MXsua",
           {
             n =  function() vim.api.nvim_feedkeys(":%s/foo.*//gc", "c", false) end,
@@ -463,33 +439,29 @@ return {
         },
          {
           "<leader>MXsub",
-          "<cmd>%s/[’‘]/'/g<CR>",
+          ":%s/[’‘]/'/g<CR>",
           description = "Substitute: All Single Curly Quotes",
         },
         {
           "<leader>MXsuc",
-          '<cmd>%s/[“”＂]/"/g<CR>',
+          ':%s/[“”＂]/"/g<CR>',
           description = "Substitute: All Double Curly Quotes",
         },
          {
           "<leader>MXsud",
-          "<cmd>%s/[＂]/\"/g<CR>",
+          ":%s/[＂]/\"/g<CR>",
           description = "Substitute: All Weird Double Quotes",
         },
         {
           "<leader>MXsue",
-          {
-            n = function() vim.api.nvim_feedkeys(":%sno/foo/bar/gc", "c", false) end,
-            v = function() vim.api.nvim_feedkeys(":%sno/foo/bar/gc", "c", false) end,
-          },
+          function() vim.api.nvim_feedkeys(":%sno/foo/bar/gc", "c", false) end,
+          mode = { "n", "v" },
           description = "Substitute: (No Magic): `foo` with `bar`",
         },
         {
           "<leader>MXsuf",
-          {
-            n = function() vim.api.nvim_feedkeys(":s/\\vfoo/&bar/gc", "c", false) end,
-            v = function() vim.api.nvim_feedkeys(":s/\\vfoo/&bar/gc", "c", false) end,
-          },
+          function() vim.api.nvim_feedkeys(":s/\\vfoo/&bar/gc", "c", false) end,
+          mode = { "n", "v" },
           description = "Substitute: `foo` into `foobar`",
         },
       },
