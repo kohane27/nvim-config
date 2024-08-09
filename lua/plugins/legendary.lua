@@ -2,7 +2,6 @@ return {
   "mrjones2014/legendary.nvim",
   event = "VeryLazy",
   dependencies = { "kkharji/sqlite.lua", "stevearc/dressing.nvim" },
-  -- TODO: `h legendary-keymap-tables`: search "The `legendary.toolbox` module has utilities for determining visual mode and getting marks." which may be helpful
   config = function()
     local toolbox = require("legendary.toolbox")
     require("legendary").setup({
@@ -28,24 +27,23 @@ return {
         { "<leader>gu", "<cmd>UndotreeToggle<CR>",                                               description = "Undotree: Toggle" },
         { "<leader>gU", "<cmd>Telescope undo<CR>",                                               description = "Telescope: Undo" },
 
-        { "<C-e>", function() require("yazi").yazi() end,                                        description = "Yazi" },
-
         { "F", "<cmd>Oil --float<CR>",                                                           description = "Oil" },
         { "X", "<cmd>ISwapWith<CR>",                                                             description = "Swap Two Adjacent Nodes" },
         { "R", function() require("flash").treesitter() end,                                     description = "Flash Treesitter", mode = { "n", "x", "o" } },
 
         -- <C-KEY>
-        { "<C-a>", require("dial.map").inc_normal(),                                             description = "Increment" },
-        { "<C-x>", require("dial.map").dec_normal(),                                             description = "Decrement" },
-        { "<C-f>", function() require("nvim-tree.api").tree.toggle({ find_file = true }) end,    description = "Tree: Toggle With Focused File" },
+        { "<C-e>", function() require("yazi").yazi() end,                                        description = "Yazi" },
         { "<C-q>", "<cmd>LazyGit<CR>",                                                           description = "Lazygit" },
-        { "<C-t>", "<cmd>ToggleTerm<CR>",                                                        description = "New terminal" },
+        { "<C-t>", "<cmd>ToggleTerm<CR>",                                                        description = "Toggle terminal" },
+        { "<C-a>", function() require("dial.map").manipulate("increment", "normal") end,         description = "Increment" },
+        { "<C-x>", function() require("dial.map").manipulate("decrement", "normal") end,         description = "Decrement" },
+        { "<C-f>", function() require("nvim-tree.api").tree.toggle({ find_file = true }) end,    description = "Tree: Toggle With Focused File" },
         { "<C-g>", function() require("core.utils").find_files_from_project_git_root() end,      description = "Telescope: Find Files" },
         -- { "<C-p>", "<cmd>Legendary<CR>",                                                      description = "Legendary Command Palette", mode = { "n", "x" } },
         { "<C-p>", function() require("core.utils").legendary_command_palette() end,             description = "Legendary Command Palette", mode = { "n", "x" } },
 
-        { "<C-v>", { i = '<C-R>+' },                                                              description = "Paste Clipboard Content" },
-        { "<C-f>", { i = '<C-R>0' },                                                              description = "Paste Last Yanked" },
+        { "<C-v>", { i = '<C-R>+' },                                                             description = "Paste Clipboard Content" },
+        { "<C-f>", { i = '<C-R>0' },                                                             description = "Paste Last Yanked" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Telescope                                                │
@@ -76,16 +74,15 @@ return {
         },
 
         -- not frequent below
-        { "<leader>fp", "<cmd>Telescope neoclip<CR>",                                 description = "Telescope: Clipboard" },
-        { "<leader>fB", "<cmd>Telescope scope buffers<CR>",                           description = "Telescope: Tabs" },
-        { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>",     description = "Telescope: Find Files in Current Directory" },
-        { "<leader>fd", "<cmd>Telescope frecency workspace=CWD<CR>",                  description = "Telescope: Find Frecency" },
-        { "<leader>fz", '<cmd>lua require("telescope").extensions.zoxide.list()<CR>', description = "Telescope: Zoxide" },
-        { "<leader>fr", "<cmd>Telescope resume<CR>",                                  description = "Telescope: Resume" },
-        { "<leader>fj", "<cmd>Telescope jumplist<CR>",                                description = "Telescope: Jumplist" },
-
-        { "<leader>fXc", "<cmd>Telescope command_history<CR>",                        description = "Telescope: Command History" },
-        { "<leader>fXs", "<cmd>Telescope search_history<CR>",                         description = "Telescope: Search History" },
+        { "<leader>ff", function() require("telescope.builtin").find_files() end,         description = "Telescope: Find Files in Current Directory" },
+        { "<leader>fp", "<cmd>Telescope neoclip<CR>",                                     description = "Telescope: Clipboard" },
+        { "<leader>fB", "<cmd>Telescope scope buffers<CR>",                               description = "Telescope: Tabs" },
+        { "<leader>fd", "<cmd>Telescope frecency workspace=CWD<CR>",                      description = "Telescope: Find Frecency" },
+        { "<leader>fz", function() require("telescope").extensions.zoxide.list() end,     description = "Telescope: Zoxide" },
+        { "<leader>fr", function() require("telescope.builtin").resume() end,             description = "Telescope: Resume" },
+        { "<leader>fj", function() require("telescope.builtin").jumplist() end,           description = "Telescope: Jumplist" },
+        { "<leader>fXc", function() require("telescope.builtin").command_history() end,   description = "Telescope: Command History" },
+        { "<leader>fXs", function() require("telescope.builtin").search_history() end,    description = "Telescope: Search History" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ LSP                                                      │
@@ -210,12 +207,24 @@ return {
         },
         {
           "<leader>dac",
-          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen c1..c2 <Left><Left><Left><Left><Left>", true, true, true), "t", true) end,
+          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen c1..c2<Left><Left><Left><Left>", true, true, true), "t", true) end,
           description = "Diffview: Changes Between 2 Commits (from `d4a7b0d` up to `519b30e` (inclusive)).",
         },
         { "<leader>db", "<cmd>DiffviewFileHistory<CR>",                         description = "Diffview: File History of Current Branch" },
-        { "<leader>df", "<cmd>DiffviewFileHistory %<CR>",                       description = "Diffview: File History of Current File" },
-        { "<leader>dr", { v = ":'<,'>DiffviewFileHistory<CR>" },                description = "Diffview: Line History of Selected Lines" },
+        {
+          '<leader>df',
+          function()
+            if require('legendary.toolbox').is_visual_mode() then
+              -- it auto injects '<,'>
+              vim.cmd(":DiffviewFileHistory")
+            else
+              vim.cmd(':DiffviewFileHistory %')
+            end
+          end,
+          mode = { 'n', 'v' },
+          description = 'Diffview: File or Range of Current File',
+        },
+
         { "<leader>dXl", "<cmd>Gitsigns toggle_current_line_blame<CR>",         description = "Diffview: Toggle Current Line Blame" },
 
         -- { "<leader>dg", "<cmd>Gitsigns preview_hunk<CR>", description = "Diffview: Preview Hunk" },
@@ -410,19 +419,18 @@ return {
       -- │ Ex commands                                             │
       -- ╰─────────────────────────────────────────────────────────╯
         {
-          -- TODO: just use nvim_feedkeys
           "<leader>MXexa",
           function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":w !jq '. | length' <Left><Left>", true, true, true), "t", true) end,
           description = "jq: Get Length",
         },
         {
           "<leader>MXexb",
-          "<cmd>w! /tmp/nvim_jqp | silent !tmux split-window -h \"jqp < /tmp/nvim_jqp\"<CR>",
+          ":w! /tmp/nvim_jqp | silent !tmux split-window -h \"jqp < /tmp/nvim_jqp\"<CR>",
           description = "jqp: Split Window",
         },
         {
           "<leader>MXexc",
-          "<cmd>:w! /tmp/nvim_jqp | silent !tmux new-window \"jqp < /tmp/nvim_jqp\"<CR>",
+          ":w! /tmp/nvim_jqp | silent !tmux new-window \"jqp < /tmp/nvim_jqp\"<CR>",
           description = "jqp: New Window",
         },
 
@@ -430,28 +438,21 @@ return {
       -- │ substitute                                              │
       -- ╰─────────────────────────────────────────────────────────╯
         {
-          -- TODO: fix use global /d
-          "<leader>MXsua",
-          {
-            n =  function() vim.api.nvim_feedkeys(":%s/foo.*//gc", "c", false) end,
-            v =  function() vim.api.nvim_feedkeys(":s/foo.*//gc", "c", false) end,
-          },
-          description = "Substitute: Everything After `foo` with Nothing",
-        },
-         {
-          "<leader>MXsub",
-          ":%s/[’‘]/'/g<CR>",
-          description = "Substitute: All Single Curly Quotes",
+          '<leader>MXsua',
+          function()
+            if toolbox.is_visual_mode() then
+                vim.api.nvim_feedkeys(":s/\\s.*//gc", "c", false)
+            else
+                vim.api.nvim_feedkeys(":%s/\\s.*//gc", "c", false)
+            end
+          end,
+          mode = { 'n', 'v' },
+          description = 'Delete Everything After a space',
         },
         {
-          "<leader>MXsuc",
-          ':%s/[“”＂]/"/g<CR>',
-          description = "Substitute: All Double Curly Quotes",
-        },
-         {
-          "<leader>MXsud",
-          ":%s/[＂]/\"/g<CR>",
-          description = "Substitute: All Weird Double Quotes",
+          "<leader>MXsub",
+          ":%s/[’‘]/'/g | %s/[“”＂]/\"/g<CR>",
+          description = "Delete All Weird Curly Quotes",
         },
         {
           "<leader>MXsue",
