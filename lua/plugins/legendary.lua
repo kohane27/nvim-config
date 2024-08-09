@@ -1,6 +1,6 @@
 return {
   "mrjones2014/legendary.nvim",
-  event = "VeryLazy",
+  lazy = false,
   dependencies = { "kkharji/sqlite.lua", "stevearc/dressing.nvim" },
   config = function()
     local toolbox = require("legendary.toolbox")
@@ -75,11 +75,11 @@ return {
 
         -- not frequent below
         { "<leader>ff", function() require("telescope.builtin").find_files() end,         description = "Telescope: Find Files in Current Directory" },
+        { "<leader>fr", function() require("telescope.builtin").resume() end,             description = "Telescope: Resume" },
         { "<leader>fp", "<cmd>Telescope neoclip<CR>",                                     description = "Telescope: Clipboard" },
         { "<leader>fB", "<cmd>Telescope scope buffers<CR>",                               description = "Telescope: Tabs" },
         { "<leader>fd", "<cmd>Telescope frecency workspace=CWD<CR>",                      description = "Telescope: Find Frecency" },
         { "<leader>fz", function() require("telescope").extensions.zoxide.list() end,     description = "Telescope: Zoxide" },
-        { "<leader>fr", function() require("telescope.builtin").resume() end,             description = "Telescope: Resume" },
         { "<leader>fj", function() require("telescope.builtin").jumplist() end,           description = "Telescope: Jumplist" },
         { "<leader>fXc", function() require("telescope.builtin").command_history() end,   description = "Telescope: Command History" },
         { "<leader>fXs", function() require("telescope.builtin").search_history() end,    description = "Telescope: Search History" },
@@ -128,8 +128,7 @@ return {
           "<leader>cd",
           function() vim.api.nvim_feedkeys(":cdo s/foo/bar/gc | update", "c", false) end,
           description = "cdo: Execute Command on Quickfix Entries",
-          -- TODO: use
-          -- filters = { ft = "qf", "Trouble" },
+          filters = { ft = "qf", "Trouble" },
         },
 
         -- ╭──────────────────────────────────────────────────────────╮
@@ -153,17 +152,16 @@ return {
         { "<leader>bp", "<cmd>BufferLinePick<CR>",                             description = "Buffer: Choose a Buffer" },
         { "<leader>bc", "<cmd>BufferLinePickClose<CR>",                        description = "Buffer: Choose a Closing Buffer" },
 
-
-        { "g1", function() require("bufferline").go_to(1) end,  description = "Buffer: Go to 1" },
-        { "g2", function() require("bufferline").go_to(2) end,  description = "Buffer: Go to 2" },
-        { "g3", function() require("bufferline").go_to(3) end,  description = "Buffer: Go to 3" },
-        { "g4", function() require("bufferline").go_to(4) end,  description = "Buffer: Go to 4" },
-        { "g5", function() require("bufferline").go_to(5) end,  description = "Buffer: Go to 5" },
-        { "g6", function() require("bufferline").go_to(6) end,  description = "Buffer: Go to 6" },
-        { "g7", function() require("bufferline").go_to(7) end,  description = "Buffer: Go to 7" },
-        { "g8", function() require("bufferline").go_to(8) end,  description = "Buffer: Go to 8" },
-        { "g9", function() require("bufferline").go_to(9) end,  description = "Buffer: Go to 9" },
-        { "g0", function() require("bufferline").go_to(-1)end, description = "Buffer: Go to 10" },
+        { "g1", function() require("bufferline").go_to(1)  end,  description = "Buffer: Go to 1" },
+        { "g2", function() require("bufferline").go_to(2)  end,  description = "Buffer: Go to 2" },
+        { "g3", function() require("bufferline").go_to(3)  end,  description = "Buffer: Go to 3" },
+        { "g4", function() require("bufferline").go_to(4)  end,  description = "Buffer: Go to 4" },
+        { "g5", function() require("bufferline").go_to(5)  end,  description = "Buffer: Go to 5" },
+        { "g6", function() require("bufferline").go_to(6)  end,  description = "Buffer: Go to 6" },
+        { "g7", function() require("bufferline").go_to(7)  end,  description = "Buffer: Go to 7" },
+        { "g8", function() require("bufferline").go_to(8)  end,  description = "Buffer: Go to 8" },
+        { "g9", function() require("bufferline").go_to(9)  end,  description = "Buffer: Go to 9" },
+        { "g0", function() require("bufferline").go_to(-1) end,  description = "Buffer: Go to 10" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Tab (for scope.nvim)                                     │
@@ -313,8 +311,8 @@ return {
         { "<leader>MXgec", "<cmd>ScrollViewToggle<CR>",                                                     description = "ScrollViewToggle: Enable" },
         { "<leader>MXged", "<cmd>TSContextToggle<CR>",                                                      description = "TSContextToggle: Toggle" },
         { "<leader>MXgee", "<cmd>Telescope notify<CR>",                                                     description = "Notify: Search History" },
-        { "<leader>MXgef", require('gitignore').generate,                                                   description = "Generate gitignore" },
-        { "<leader>MXgeg", "<cmd>lua require('kulala').run()<CR>",                                          description = "Run kulala" },
+        { "<leader>MXgef", function() require('gitignore').generate() end,                                  description = "Generate gitignore" },
+        { "<leader>MXgeg", function() require('kulala').run() end,                                          description = "Run kulala" },
 
         -- Lazy
         { "<leader>MXlaa", "<cmd>Lazy sync<CR>",                                                            description = "Lazy: Update" },
