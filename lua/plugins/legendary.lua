@@ -353,54 +353,55 @@ return {
           mode = { "n", "v" },
           description = "g: Convert Tabs to Spaces",
         },
+
         {
           "<leader>MXgle",
-          function() vim.api.nvim_feedkeys(":g/foo/norm! A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>", "c", false) end,
+          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>", true, true, true), "t", true) end,
           mode = { "n", "v" },
           description = "g: Run Normal mode on `foo`",
         },
         {
           "<leader>MXglf",
-         function() vim.api.nvim_feedkeys(":g/foo/norm! @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>", "c", false) end,
+          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/foo/norm @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>", true, true, true), "t", true) end,
           mode = { "n", "v" },
-          description = "g: Run Macro `a` on `foo`",
+          description = "g: Run Macro `q` on `foo`",
         },
 
         {
           "<leader>MXgLg",
-          function() vim.api.nvim_feedkeys(":g/foo/t $", "c", false) end,
+          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/foo/t $<Left><Left><Left><Left>", true, true, true), "t", true) end,
           mode = { "n", "v" },
           description = "g: (t)ransfer `foo` to End of File",
         },
         {
           "<leader>MXgLh",
-          function() vim.api.nvim_feedkeys(":g/foo/.,+2t $", "c", false) end,
+          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/foo/.,+2t $<Left><Left><Left><Left><Left><Left><Left><Left>", true, true, true), "t", true) end,
           mode = { "n", "v" },
           description = "g: (t)ransfer `foo` with 2 lines below to End of File",
         },
 
         {
           "<leader>MXgLi",
-          function() vim.api.nvim_feedkeys(":g/foo/m $", "c", false) end,
+          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/foo/m $<Left><Left><Left><Left>", true, true, true), "t", true) end,
           mode = { "n", "v" },
           description = "g: (m)ove `foo` to End of File",
         },
         {
           "<leader>MXgLj",
-          function() vim.api.nvim_feedkeys(":g/foo/.,+2m $", "c", false) end,
+          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/foo/.,+2m $<Left><Left><Left><Left><Left><Left><Left><Left>", true, true, true), "t", true) end,
           mode = { "n", "v" },
           description = "g: (m)ove `foo` with 2 lines below to End of File",
         },
 
         {
           "<leader>MXgLk",
-          function() vim.api.nvim_feedkeys(":g/foo|bar/y A", "c", false) end,
+          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/foo|bar/y A<Left><Left><Left><Left><Left><Left><Left><Left>", true, true, true), "t", true) end,
           mode = { "n", "v" },
           description = "g: yank `foo` or `bar` to reg a",
         },
         {
           "<leader>MXgLl",
-          function() vim.api.nvim_feedkeys(":g/foo/.,+2y A", "c", false) end,
+          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/foo/.,+2y A<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>", true, true, true), "t", true) end,
           mode = { "n", "v" },
           description = "g: yank `foo` with 2 lines below it to reg a",
         },
