@@ -41,8 +41,8 @@ return {
         -- { "<C-p>", "<cmd>Legendary<CR>",                                                      description = "Legendary Command Palette", mode = { "n", "x" } },
         { "<C-p>", function() require("core.utils").legendary_command_palette() end,             description = "Legendary Command Palette", mode = { "n", "x" } },
 
-        { "<C-v>", { i = '<C-R>+' },                                                              description = "Paste Clipboard Content",        mode = { "i" } },
-        -- { "<C-f>", { i = '<C-R>"' },                                                              description = "Paste Unnamed Register Content", mode = { "i" } },
+        { "<C-v>", { i = '<C-R>+' },                                                              description = "Paste Clipboard Content" },
+        -- { "<C-f>", { i = '<C-R>"' },                                                           description = "Paste Unnamed Register Content" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Telescope                                                │
@@ -140,10 +140,10 @@ return {
         { "<A-.>", "<cmd>BufferLineMoveNext<CR>",                              description = "Buffer: Re-order to Next" },
 
         { "<C-y>", "<cmd>BufferLineTogglePin<CR>",                             description = "Buffer: pin" },
-        { "<C-h>", '<cmd>lua require("bufferline").go_to(1, true)<CR>',        description = "Buffer: Go to 1" },
-        { "<C-j>", '<cmd>lua require("bufferline").go_to(2, true)<CR>',        description = "Buffer: Go to 2" },
-        { "<C-k>", '<cmd>lua require("bufferline").go_to(3, true)<CR>',        description = "Buffer: Go to 3" },
-        { "<C-l>", '<cmd>lua require("bufferline").go_to(4, true)<CR>',        description = "Buffer: Go to 4" },
+        { "<C-h>", function() require("bufferline").go_to(1, true) end,        description = "Buffer: Go to 1" },
+        { "<C-j>", function() require("bufferline").go_to(2, true) end,        description = "Buffer: Go to 2" },
+        { "<C-k>", function() require("bufferline").go_to(3, true) end,        description = "Buffer: Go to 3" },
+        { "<C-l>", function() require("bufferline").go_to(4, true) end,        description = "Buffer: Go to 4" },
 
         { "<leader>bl", "<cmd>BufferLineCloseRight<CR>",                       description = "Buffer: Close All Buffers to the Right" },
         { "<leader>bh", "<cmd>BufferLineCloseLeft<CR>",                        description = "Buffer: Close All Buffers to the Left" },
