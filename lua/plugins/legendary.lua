@@ -190,30 +190,9 @@ return {
         { "<leader>do", "<cmd>DiffviewOpen<CR>",        description = "Diffview: Open" },
         { "<leader>dh", "<cmd>DiffviewOpen HEAD^!<CR>", description = "Diffview: Current Commit and Prior Commit" },
         {
-          "<leader>dH",
-          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen HEAD~3", true, true, true), "t", true) end,
-          description = "Diffview: HEAD and n Prior Commits",
-        },
-        {
-          "<leader>daa",
-          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen d4a7b0d", true, true, true), "t", true) end,
-          description = "Diffview: Compares Changes Made by `d4a7b0d` with Current Working Directory",
-        },
-        {
-          "<leader>dab",
-          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen d4a7b0d^!<Left><Left>", true, true, true), "t", true) end,
-          description = "Diffview: Changes Made in the Single `d4a7b0d`",
-        },
-        {
-          "<leader>dac",
-          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen c1..c2<Left><Left><Left><Left>", true, true, true), "t", true) end,
-          description = "Diffview: Changes Between 2 Commits (from `d4a7b0d` up to `519b30e` (inclusive)).",
-        },
-        { "<leader>db", "<cmd>DiffviewFileHistory<CR>",                         description = "Diffview: File History of Current Branch" },
-        {
           '<leader>df',
           function()
-            if require('legendary.toolbox').is_visual_mode() then
+            if toolbox.is_visual_mode() then
               -- it auto injects '<,'>
               vim.cmd(":DiffviewFileHistory")
             else
@@ -223,8 +202,28 @@ return {
           mode = { 'n', 'v' },
           description = 'Diffview: File or Range of Current File',
         },
-
-        { "<leader>dXl", "<cmd>Gitsigns toggle_current_line_blame<CR>",         description = "Diffview: Toggle Current Line Blame" },
+        {
+          "<leader>dHa",
+          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen HEAD~3", true, true, true), "t", true) end,
+          description = "Diffview: HEAD and n Prior Commits",
+        },
+        {
+          "<leader>dHb",
+          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen d4a7b0d", true, true, true), "t", true) end,
+          description = "Diffview: Compares Changes Made by `d4a7b0d` with Current Working Directory",
+        },
+        {
+          "<leader>dHc",
+          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen d4a7b0d^!<Left><Left>", true, true, true), "t", true) end,
+          description = "Diffview: Changes Made in the Single `d4a7b0d`",
+        },
+        {
+          "<leader>dHd",
+          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen c1..c2<Left><Left><Left><Left>", true, true, true), "t", true) end,
+          description = "Diffview: Changes Between 2 Commits (from `d4a7b0d` up to `519b30e` (inclusive)).",
+        },
+        { "<leader>dHh", "<cmd>DiffviewFileHistory<CR>",                         description = "Diffview: File History of Current Branch" },
+        { "<leader>dHi", "<cmd>Gitsigns toggle_current_line_blame<CR>",          description = "Diffview: Toggle Current Line Blame" },
 
         -- { "<leader>dg", "<cmd>Gitsigns preview_hunk<CR>", description = "Diffview: Preview Hunk" },
 
