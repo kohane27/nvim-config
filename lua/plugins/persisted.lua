@@ -2,26 +2,32 @@ return {
   "olimorris/persisted.nvim",
   lazy = false,
   enabled = not vim.g.started_by_firenvim,
-  config = function()
-    require("persisted").setup({
-      autoload = true, -- automatically load the session for the cwd on Neovim startup
+  opts = {
+    -- automatically load the session for the cwd on startup
+    autoload = true,
+    on_autoload_no_session = function()
+      vim.notify("No existing session to load.")
+    end,
 
-      -- There may be a need to change the working directory to quickly access files in other directories without changing the current session’s name on save.
-      follow_cwd = false, -- change session file name to match current working directory if it changes
+    -- change session file name to match current working directory if it changes
+    follow_cwd = false,
 
-      ignored_dirs = {
-        { vim.fn.hostname(), exact = true },
-        { "/", exact = true },
-      },
-    })
+    -- BUG:
+    -- ignored_dirs = {
+    --   { vim.fn.hostname(), exact = true },
+    --   { "/", exact = true },
+    -- },
+  },
 
-    -- close nvim-tree before saving
-    vim.api.nvim_create_autocmd({ "User" }, {
-      pattern = "PersistedSavePre",
-      group = vim.api.nvim_create_augroup("PersistedHooks", {}),
-      callback = function()
-        vim.cmd("NvimTreeClose")
-      end,
-    })
-  end,
+  -- BUG:
+  -- config = function()
+  --   -- close nvim-tree before saving
+  --   vim.api.nvim_create_autocmd({ "User" }, {
+  --     pattern = "PersistedSavePre",
+  --     group = vim.api.nvim_create_augroup("PersistedHooks", {}),
+  --     callback = function()
+  --       vim.cmd("NvimTreeClose")
+  --     end,
+  --   })
+  -- end,
 }
