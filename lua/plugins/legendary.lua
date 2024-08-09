@@ -26,7 +26,7 @@ return {
         { "<leader>gu", "<cmd>UndotreeToggle<CR>",                                               description = "Undotree: Toggle" },
         { "<leader>gU", "<cmd>Telescope undo<CR>",                                               description = "Telescope: Undo" },
 
-        { "<C-e>", "<cmd>lua require('yazi').yazi()<CR>",                                        description = "Yazi" },
+        { "<C-e>", function() require("yazi").yazi() end,                                        description = "Yazi" },
 
         { "F", "<cmd>Oil --float<CR>",                                                           description = "Oil" },
         { "X", "<cmd>ISwapWith<CR>",                                                             description = "Swap Two Adjacent Nodes" },
@@ -146,11 +146,11 @@ return {
         { "<C-k>", '<cmd>lua require("bufferline").go_to(3, true)<CR>',        description = "Buffer: Go to 3" },
         { "<C-l>", '<cmd>lua require("bufferline").go_to(4, true)<CR>',        description = "Buffer: Go to 4" },
 
-        { "<leader>bl", "<cmd>BufferLineCloseRight<CR>",                        description = "Buffer: Close All Buffers to the Right" },
-        { "<leader>bh", "<cmd>BufferLineCloseLeft<CR>",                         description = "Buffer: Close All Buffers to the Left" },
-        { "<leader>bo", "<cmd>BufferLineCloseOthers<CR>",                       description = "Buffer: Close All Other Visible Buffers" },
-        { "<leader>bp", "<cmd>BufferLinePick<CR>",                              description = "Buffer: Choose a Buffer" },
-        { "<leader>bc", "<cmd>BufferLinePickClose<CR>",                         description = "Buffer: Choose a Closing Buffer" },
+        { "<leader>bl", "<cmd>BufferLineCloseRight<CR>",                       description = "Buffer: Close All Buffers to the Right" },
+        { "<leader>bh", "<cmd>BufferLineCloseLeft<CR>",                        description = "Buffer: Close All Buffers to the Left" },
+        { "<leader>bo", "<cmd>BufferLineCloseOthers<CR>",                      description = "Buffer: Close All Other Visible Buffers" },
+        { "<leader>bp", "<cmd>BufferLinePick<CR>",                             description = "Buffer: Choose a Buffer" },
+        { "<leader>bc", "<cmd>BufferLinePickClose<CR>",                        description = "Buffer: Choose a Closing Buffer" },
 
 
         { "g1", "<cmd>BufferLineGoToBuffer 1<CR>",  description = "Buffer: Go to 1" },
@@ -231,9 +231,9 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ scratch.nvim                                             │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<leader>so", "<cmd>ScratchWithName<CR>" , description = "Scratch: New File" },
-        { "<leader>ss", function() require("core.utils").toggle_scratchpad() end,                     description = "Scratch: Toggle ScratchPad" },
-        { "<leader>sf", "<cmd>ScratchOpenFzf<CR>",                                                    description = "Scratch: Find File Contents" },
+        { "<leader>so", "<cmd>ScratchWithName<CR>" ,                                    description = "Scratch: New File" },
+        { "<leader>ss", function() require("core.utils").toggle_scratchpad() end,       description = "Scratch: Toggle ScratchPad" },
+        { "<leader>sf", "<cmd>ScratchOpenFzf<CR>",                                      description = "Scratch: Find File Contents" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ gp.nvim                                                  │
@@ -334,8 +334,7 @@ return {
           "<leader>MXgla",
           {
             n =  "<cmd>g/^$/d<CR>",
-            -- // TODO: fix
-            v =  "<cmd>'<,'>g/^$/d<CR>",
+            v =  "<cmd>g/^$/d<CR>",
           },
           description = "g: Remove Empty Lines",
         },
@@ -359,6 +358,7 @@ return {
           "<leader>MXgld",
           {
             n =  "<cmd>g/\t/s//    /g<CR>",
+            -- TODO: fix
             v =  "<cmd>g/\t/s//    /g<CR>",
           },
           description = "g: Convert Tabs to Spaces",
@@ -435,6 +435,7 @@ return {
       -- │ Ex commands                                             │
       -- ╰─────────────────────────────────────────────────────────╯
         {
+          -- TODO: just use nvim_feedkeys
           "<leader>MXexa",
           function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":w !jq '. | length' <Left><Left>", true, true, true), "t", true) end,
           description = "jq: Get Length",

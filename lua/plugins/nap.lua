@@ -7,7 +7,7 @@ return {
     prev_prefix = ",",
     next_repeat = "gj",
     prev_repeat = "gk",
-    -- exclude some keys from the default
+    -- exclude from defaults
     exclude_default_operators = {"a", "A", "b", "B", "f", "F", "t", "T", "<C-t>", "s", "z", "<C-l>", "<M-l>", "<C-q>", "<M-q>", "'"},
     operators = {
       ["d"] = {
