@@ -288,7 +288,6 @@ return {
         -- │ Miscellaneous (leader m with real keybindings)           │
         -- ╰──────────────────────────────────────────────────────────╯
         -- NOTE: `<leader>ma` and `<leader>mA` taken by `mini.align`
-        -- NOTE: `<leader>ms` taken by `mini.operators`
         { "<leader>mb", ":lua require('comment-box').llbox()<CR><Esc>",                    description = "Comment Box: Left-aligned", mode = { "v" } },
         { "<leader>mn", function() require("noice").cmd("dismiss") end,                    description = "Noice: Dismiss" },
         { "<leader>mt", function() require('mini.trailspace').trim() end,                  description = "Trim All Trailing Whitespace" },

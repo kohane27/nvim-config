@@ -97,7 +97,7 @@ return {
 
       -- Sort text
       sort = {
-        prefix = "<leader>ms",
+        prefix = "",
       },
 
       -- Evaluate text and replace with output
