@@ -19,14 +19,20 @@ return {
 
         -- NOTE: the following are available:
         -- J!!, K!!, T
+        -- gq: use by recorder
         -- gh
-        --  TODO: check what they do by default: ga, gb, gm, go, gs, gt, gu, gw, gy, gz
-        -- mm, MM, r
+        -- gb, go, gs, gw, gy, gz
+        -- r
         -- <leader> h, i, k, p, u, v, w, y, z
 
+        -- start with g
+        { "gt", ":write | edit | TSBufEnable highlight<CR>",                             description = "Treesitter: Reload" },
+        { "ga", function() require("core.utils").get_current_buffer_content() end,       description = "Get Current Buffer Content" },
+        { "gA", function() require("core.utils").get_all_buffer_content() end,           description = "Get All Buffer Content" },
+        { "gu", "<cmd>UndotreeToggle<CR>",                                               description = "Undotree: Toggle" },
+        { "gU", "<cmd>Telescope undo<CR>",                                               description = "Telescope: Undo" },
+
         -- <leader>g
-        { "<leader>gu", "<cmd>UndotreeToggle<CR>",                                               description = "Undotree: Toggle" },
-        { "<leader>gU", "<cmd>Telescope undo<CR>",                                               description = "Telescope: Undo" },
 
         { "F", "<cmd>Oil --float<CR>",                                                           description = "Oil" },
         { "X", "<cmd>ISwapWith<CR>",                                                             description = "Swap Two Adjacent Nodes" },
@@ -252,7 +258,7 @@ return {
           "<leader>so",
           function()
             vim.api.nvim_exec("GpChatNew vsplit", false)
-            vim.api.nvim_win_set_width(0, 80)
+            vim.api.nvim_win_set_width(0, 90)
             vim.api.nvim_exec("GpAgent claude-3-5-sonnet-20240620-Ultimate-Assistant", false)
           end,
           description = "GPT: Ultimate Assistant",
@@ -289,17 +295,10 @@ return {
         -- ╰──────────────────────────────────────────────────────────╯
         -- NOTE: `<leader>ma` and `<leader>mA` taken by `mini.align`
         { "<leader>mb", ":lua require('comment-box').llbox()<CR><Esc>",                    description = "Comment Box: Left-aligned", mode = { "v" } },
-        { "<leader>mn", function() require("noice").cmd("dismiss") end,                    description = "Noice: Dismiss" },
-        { "<leader>mt", function() require('mini.trailspace').trim() end,                  description = "Trim All Trailing Whitespace" },
         { "<leader>mc", function() require('curl').open_curl_tab() end,                    description = "Open curl (working directory)" },
         { "<leader>mC", function() require('curl').open_global_tab() end,                  description = "Open curl (global)" },
-
-        { "<leader>mp", function() require("core.utils").get_current_buffer_content() end, description = "GPT: Get Current Buffer Content" },
-        { "<leader>mP", function() require("core.utils").get_all_buffer_content() end,     description = "GPT: Get All Buffer Content" },
-        { "<leader>md", function() require("core.utils").markdown_preview() end,           description = "Preview Markdown" },
-
-        -- https://github.com/nvim-treesitter/nvim-treesitter#i-experience-weird-highlighting-issues-similar-to-78
-        { "<leader>mr", ":write | edit | TSBufEnable highlight<CR>",                       description = "Treesitter: Reload" },
+        { "<leader>mn", function() require("noice").cmd("dismiss") end,                    description = "Noice: Dismiss" },
+        { "<leader>mt", function() require('mini.trailspace').trim() end,                  description = "Trim All Trailing Whitespace" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Miscellaneous (leader m with random keybindings)         │
@@ -312,6 +311,7 @@ return {
         { "<leader>MXgee", "<cmd>Telescope notify<CR>",                                                     description = "Notify: Search History" },
         { "<leader>MXgef", function() require('gitignore').generate() end,                                  description = "Generate gitignore" },
         { "<leader>MXgeg", function() require('kulala').run() end,                                          description = "Run kulala" },
+        { "<leader>MXgeh", function() require("core.utils").markdown_preview() end,                         description = "Preview Markdown" },
 
         -- Lazy
         { "<leader>MXlaa", "<cmd>Lazy sync<CR>",                                                            description = "Lazy: Update" },
@@ -341,12 +341,6 @@ return {
           mode = { "n", "v" },
           description = "g: Remove Empty Lines",
         },
-        -- {
-        --   "<leader>MXglb",
-        --   function() vim.api.nvim_feedkeys(":g/^foo$/d", "c", false) end,
-        --   mode = { "n", "v" },
-        --   description = "g: Delete Lines Only `foo`",
-        -- },
         {
           "<leader>MXglc",
           function() vim.api.nvim_feedkeys(":g!/^foo$/d", "c", false) end,

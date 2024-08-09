@@ -22,8 +22,7 @@ return {
       annotate = false,
     },
   },
-  config = function(_, opts)
-    require("marks").setup(opts)
+  init = function()
     -- disable distracting highlights
     vim.cmd([[
     highlight MarkSignHL guibg=NONE guifg=NONE

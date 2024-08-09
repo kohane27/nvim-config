@@ -9,16 +9,16 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function() vim.api.nvim_set_keymap("n", "q", ":close<CR>", { noremap = true, silent = true }) end
 })
 
-vim.api.nvim_create_autocmd('BufWinEnter', { pattern = '*', command = 'set formatoptions-=cro' })
-
 -- quickfix buffers are not listed in the buffer list
 vim.api.nvim_create_autocmd('FileType', { pattern = 'qf', command = 'set nobuflisted' })
 
--- Highlight on yank
-autocmd("TextYankPost", { callback = function() vim.highlight.on_yank({ higroup = "IncSearch", timeout = "300" }) end })
-
 -- Enable spellcheck
 autocmd("FileType", { pattern = { "gitcommit", "text" }, callback = function() vim.opt_local.spell = true end })
+
+vim.api.nvim_create_autocmd('BufWinEnter', { pattern = '*', command = 'set formatoptions-=cro' })
+
+-- Highlight on yank
+autocmd("TextYankPost", { callback = function() vim.highlight.on_yank({ higroup = "IncSearch", timeout = "300" }) end })
 
 -- Disable diagnostics in node_modules (0 is current buffer only)
 vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, { pattern = '*/node_modules/*', callback = function() vim.diagnostic.disable(0) end })
