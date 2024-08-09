@@ -343,7 +343,7 @@ return {
         },
         {
           "<leader>MXglc",
-          function() vim.api.nvim_feedkeys(":g!/^foo$/d", "c", false) end,
+          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g!/^foo$/d<Left><Left><Left>", true, true, true), "t", true) end,
           mode = { "n", "v" },
           description = "g: Delete Lines NOT `foo`",
         },
@@ -395,13 +395,19 @@ return {
 
         {
           "<leader>MXgLk",
-          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/foo|bar/y A<Left><Left><Left><Left><Left><Left><Left><Left>", true, true, true), "t", true) end,
+          function()
+             vim.fn.setreg('a', '')
+             vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/foo/y A<Left><Left><Left><Left>", true, true, true), "t", true) 
+          end,
           mode = { "n", "v" },
-          description = "g: yank `foo` or `bar` to reg a",
+          description = "g: yank `foo` to reg a",
         },
         {
           "<leader>MXgLl",
-          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/foo/.,+2y A<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>", true, true, true), "t", true) end,
+          function()
+            vim.fn.setreg('a', '')
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/foo/.,+2y A<Left><Left><Left><Left><Left><Left><Left><Left>", true, true, true), "t", true) 
+          end,
           mode = { "n", "v" },
           description = "g: yank `foo` with 2 lines below it to reg a",
         },
@@ -442,14 +448,8 @@ return {
         },
         {
           "<leader>MXsub",
-          ":%s/[’‘]/'/g | %s/[“”＂]/\"/g<CR>",
+          ":%s/[’‘]/'/ge | %s/[“”＂]/\"/ge<CR>",
           description = "Delete All Weird Curly Quotes",
-        },
-        {
-          "<leader>MXsue",
-          function() vim.api.nvim_feedkeys(":%sno/foo/bar/gc", "c", false) end,
-          mode = { "n", "v" },
-          description = "Substitute: (No Magic): `foo` with `bar`",
         },
         {
           "<leader>MXsuf",
