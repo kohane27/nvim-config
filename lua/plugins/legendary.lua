@@ -156,16 +156,16 @@ return {
         { "<leader>bp", "<cmd>BufferLinePick<CR>",                             description = "Buffer: Choose a Buffer" },
         { "<leader>bc", "<cmd>BufferLinePickClose<CR>",                        description = "Buffer: Choose a Closing Buffer" },
 
-        { "g1", function() require("bufferline").go_to(1)  end,  description = "Buffer: Go to 1" },
-        { "g2", function() require("bufferline").go_to(2)  end,  description = "Buffer: Go to 2" },
-        { "g3", function() require("bufferline").go_to(3)  end,  description = "Buffer: Go to 3" },
-        { "g4", function() require("bufferline").go_to(4)  end,  description = "Buffer: Go to 4" },
-        { "g5", function() require("bufferline").go_to(5)  end,  description = "Buffer: Go to 5" },
-        { "g6", function() require("bufferline").go_to(6)  end,  description = "Buffer: Go to 6" },
-        { "g7", function() require("bufferline").go_to(7)  end,  description = "Buffer: Go to 7" },
-        { "g8", function() require("bufferline").go_to(8)  end,  description = "Buffer: Go to 8" },
-        { "g9", function() require("bufferline").go_to(9)  end,  description = "Buffer: Go to 9" },
-        { "g0", function() require("bufferline").go_to(-1) end,  description = "Buffer: Go to 10" },
+        { "g1", function() require("bufferline").go_to(1)  end,                description = "Buffer: Go to 1" },
+        { "g2", function() require("bufferline").go_to(2)  end,                description = "Buffer: Go to 2" },
+        { "g3", function() require("bufferline").go_to(3)  end,                description = "Buffer: Go to 3" },
+        { "g4", function() require("bufferline").go_to(4)  end,                description = "Buffer: Go to 4" },
+        { "g5", function() require("bufferline").go_to(5)  end,                description = "Buffer: Go to 5" },
+        { "g6", function() require("bufferline").go_to(6)  end,                description = "Buffer: Go to 6" },
+        { "g7", function() require("bufferline").go_to(7)  end,                description = "Buffer: Go to 7" },
+        { "g8", function() require("bufferline").go_to(8)  end,                description = "Buffer: Go to 8" },
+        { "g9", function() require("bufferline").go_to(9)  end,                description = "Buffer: Go to 9" },
+        { "g0", function() require("bufferline").go_to(-1) end,                description = "Buffer: Go to 10" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Tab (for scope.nvim)                                     │
