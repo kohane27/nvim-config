@@ -5,5 +5,6 @@ return {
     execution_message = {
       enabled = false,
     },
+    noautocmd = true, -- do not trigger formatting
   },
 }
