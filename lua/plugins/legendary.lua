@@ -1,6 +1,6 @@
 return {
   "mrjones2014/legendary.nvim",
-  -- NOTE: has to be `VeryLazy`
+  -- NOTE: has to be `VeryLazy` for some reason
   event = "VeryLazy",
   dependencies = { "kkharji/sqlite.lua", "stevearc/dressing.nvim" },
   config = function()
@@ -22,7 +22,6 @@ return {
         -- gq: use by recorder
         -- gh
         -- gb, go, gs, gw, gy, gz
-        -- r
         -- <leader> h, i, k, p, u, v, w, y, z
 
         -- start with g
@@ -123,7 +122,7 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Trouble.nvim                                             │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<leader>xx", "<cmd>Trouble todo",                        description = "Trouble: Toggle" },
+        { "<leader>xx", "<cmd>Trouble todo<CR>",                    description = "Trouble: Toggle" },
         { "<leader>xt", "<cmd>TodoTelescope keywords=TODO<CR>",     description = "Trouble: Only TODO" },
         { "<leader>xT", "<cmd>TodoTelescope<CR>",                   description = "Trouble: All TODO" },
 
@@ -135,6 +134,7 @@ return {
           "<leader>cd",
           function() vim.api.nvim_feedkeys(":cdo s/foo/bar/gc | update", "c", false) end,
           description = "cdo: Execute Command on Quickfix Entries",
+          -- only filter away the entries in Legendary; still executable in other ft
           filters = { ft = "qf", "Trouble" },
         },
 
@@ -251,7 +251,7 @@ return {
         -- │ gp.nvim                                                  │
         -- ╰──────────────────────────────────────────────────────────╯
         { "<leader>sf", function() require("core.utils").gp_choose_agent() end, description = "GPT: Choose an Agent" },
-        { "<leader>ss", function() vim.api.nvim_exec("GpChatToggle vsplit", false) vim.api.nvim_win_set_width(0, 80) end, description = "GPT: Toggle" },
+        { "<leader>ss", function() vim.api.nvim_exec("GpChatToggle vsplit", false) vim.api.nvim_win_set_width(0, 90) end, description = "GPT: Toggle" },
         { "<leader>sg", function() require("telescope").extensions.egrepify.egrepify({ cwd = os.getenv("HOME") .. "/.local/share/nvim/gp/chats" }) end, description = "GPT: Finder" },
         { "<leader>sa", "<cmd>GpAppend<CR>", description = "GPT: Append" },
         {
