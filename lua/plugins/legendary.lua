@@ -181,14 +181,14 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ tmux.lua                                                 │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<A-h>",   toolbox.lazy_required_fn("tmux", "move_left"),       description = "Move Focus to Left" },
-        { "<A-l>",   toolbox.lazy_required_fn("tmux", "move_right"),      description = "Move Focus to Right" },
-        { "<A-k>",   toolbox.lazy_required_fn("tmux", "move_top"),        description = "Move Focus to Top" },
-        { "<A-j>",   toolbox.lazy_required_fn("tmux", "move_bottom"),     description = "Move Focus to Bottom" },
-        { "<C-S-h>", toolbox.lazy_required_fn("tmux", "resize_left"),     description = "Resize Left" },
-        { "<C-S-l>", toolbox.lazy_required_fn("tmux", "resize_right"),    description = "Resize Right" },
-        { "<C-S-k>", toolbox.lazy_required_fn("tmux", "resize_top"),      description = "Resize Top" },
-        { "<C-S-j>", toolbox.lazy_required_fn("tmux", "resize_bottom"),   description = "Resize Bottom" },
+        { "<A-h>",   function() require("tmux").move_left() end,       description = "Move Focus to Left" },
+        { "<A-l>",   function() require("tmux").move_right() end,      description = "Move Focus to Right" },
+        { "<A-k>",   function() require("tmux").move_top() end,        description = "Move Focus to Top" },
+        { "<A-j>",   function() require("tmux").move_bottom() end,     description = "Move Focus to Bottom" },
+        { "<C-S-h>", function() require("tmux").resize_left() end,     description = "Resize Left" },
+        { "<C-S-l>", function() require("tmux").resize_right() end,    description = "Resize Right" },
+        { "<C-S-k>", function() require("tmux").resize_top() end,      description = "Resize Top" },
+        { "<C-S-j>", function() require("tmux").resize_bottom() end,   description = "Resize Bottom" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Diffview.nvim                                            │
