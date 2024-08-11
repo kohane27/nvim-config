@@ -410,7 +410,7 @@ return {
         },
 
       -- ╭─────────────────────────────────────────────────────────╮
-      -- │ Ex commands                                             │
+      -- │ External commands                                       │
       -- ╰─────────────────────────────────────────────────────────╯
         {
           "<leader>MXexa",
@@ -426,6 +426,11 @@ return {
           "<leader>MXexc",
           ":w! /tmp/nvim_jqp | silent !tmux new-window \"jqp < /tmp/nvim_jqp\"<CR>",
           description = "jqp: New Window",
+        },
+        {
+          "<leader>MXexd",
+          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":%!tail -n +2 | cut -d',' -f2 | sort | uniq | wc -l<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>", true, true, true), "t", true) end,
+          description = "csv: count unique in 2nd column",
         },
 
       -- ╭─────────────────────────────────────────────────────────╮
