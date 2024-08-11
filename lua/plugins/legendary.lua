@@ -1,17 +1,15 @@
 return {
   "mrjones2014/legendary.nvim",
-  -- NOTE: has to be `VeryLazy` for some reason
+  -- NOTE: has to be `VeryLazy` for commands to be registered first
   event = "VeryLazy",
   dependencies = { "kkharji/sqlite.lua", "stevearc/dressing.nvim" },
-  config = function()
-    local toolbox = require("legendary.toolbox")
-    require("legendary").setup({
-      include_builtin = false,
-      include_legendary_cmds = false,
-      -- NOTE: this takes precedence over other sort options
-      sort = { frecency = { db_root = string.format("%s/legendary/", vim.fn.stdpath("data")), max_timestamps = 20 } },
-      -- `keys` spec will be automatically loaded
-      extensions = { lazy_nvim = true, diffview = true },
+  opts = {
+    include_builtin = false,
+    include_legendary_cmds = false,
+    -- NOTE: this takes precedence over other sort options
+    sort = { frecency = { db_root = string.format("%s/legendary/", vim.fn.stdpath("data")), max_timestamps = 20 } },
+    -- `keys` spec will be automatically loaded
+    extensions = { lazy_nvim = true, diffview = true },
       -- stylua: ignore
       keymaps = {
         -- NOTE: use <cmd> for normal Ex commands because it's faster for some reason
@@ -25,7 +23,7 @@ return {
         -- <leader> h, i, k, p, u, v, w, y, z
 
         -- start with g
-        { "gt", ":write | edit | TSBufEnable highlight<CR>",                             description = "Treesitter: Reload" },
+        { "gt", "<cmd>write | edit | TSBufEnable highlight<CR>",                         description = "Treesitter: Reload" },
         { "ga", function() require("core.utils").get_current_buffer_content() end,       description = "Get Current Buffer Content" },
         { "gA", function() require("core.utils").get_all_buffer_content() end,           description = "Get All Buffer Content" },
         { "gu", "<cmd>UndotreeToggle<CR>",                                               description = "Undotree: Toggle" },
@@ -198,7 +196,7 @@ return {
         {
           '<leader>df',
           function()
-            if toolbox.is_visual_mode() then
+            if require("legendary.toolbox").is_visual_mode() then
               -- it auto injects '<,'>
               vim.cmd(":DiffviewFileHistory")
             else
@@ -437,7 +435,7 @@ return {
         {
           '<leader>MXsua',
           function()
-            if toolbox.is_visual_mode() then
+            if require("legendary.toolbox").is_visual_mode() then
                 vim.api.nvim_feedkeys(":s/\\s.*//gc", "c", false)
             else
                 vim.api.nvim_feedkeys(":%s/\\s.*//gc", "c", false)
@@ -458,6 +456,5 @@ return {
           description = "Substitute: `foo` into `foobar`",
         },
       },
-    })
-  end,
+  },
 }
