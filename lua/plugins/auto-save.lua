@@ -30,7 +30,4 @@ return {
       "portal",
     },
   },
-  config = function(_, opts)
-    require("auto-save").setup(opts)
-  end,
 }
