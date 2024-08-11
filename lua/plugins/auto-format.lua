@@ -19,7 +19,4 @@ return {
     -- synchronously format
     async = false,
   },
-  config = function(_, opts)
-    require("auto-format").setup(opts)
-  end,
 }
