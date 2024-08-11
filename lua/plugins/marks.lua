@@ -7,8 +7,8 @@ return {
       set_next = "",
       next = "",
       prev = "",
-      delete_line = "gmx",
-      delete_buf = "gmX",
+      delete_line = "mx",
+      delete_buf = "mX",
     },
     -- whether cycle back to the beginning/end of buffer
     cyclic = false,
