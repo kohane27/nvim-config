@@ -34,6 +34,10 @@ return {
         next = { rhs = "g;zz", opts = { desc = "Next changelist item" } },
         prev = { rhs = "g,zz", opts = { desc = "Previous changelist item" } },
       },
+      ["m"] = {
+        next = { rhs = "<Plug>(Marks-next)", opts = { desc = "Next mark" } },
+        prev = { rhs = "<Plug>(Marks-prev)", opts = { desc = "Previous mark" } },
+      },
     },
   },
 }
