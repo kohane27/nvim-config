@@ -18,16 +18,16 @@ return {
         -- NOTE: the following are available:
         -- J!!, K!!, T
         -- gq: use by recorder
-        -- gh
+        -- gh, gn
         -- gb, go, gs, gw, gy, gz
         -- <leader> h, i, k, p, u, v, w, y, z
 
         -- start with g
-        { "gt", "<cmd>write | edit | TSBufEnable highlight<CR>",                         description = "Treesitter: Reload" },
-        { "ga", function() require("core.utils").get_current_buffer_content() end,       description = "Get Current Buffer Content" },
-        { "gA", function() require("core.utils").get_all_buffer_content() end,           description = "Get All Buffer Content" },
-        { "gu", "<cmd>UndotreeToggle<CR>",                                               description = "Undotree: Toggle" },
-        { "gU", "<cmd>Telescope undo<CR>",                                               description = "Telescope: Undo" },
+        { "gt", "<cmd>write | edit | TSBufEnable highlight<CR>",                                 description = "Treesitter: Reload" },
+        { "ga", function() require("core.utils").get_current_buffer_content() end,               description = "Get Current Buffer Content" },
+        { "gA", function() require("core.utils").get_all_buffer_content() end,                   description = "Get All Buffer Content" },
+        { "gu", "<cmd>UndotreeToggle<CR>",                                                       description = "Undotree: Toggle" },
+        { "gU", "<cmd>Telescope undo<CR>",                                                       description = "Telescope: Undo" },
 
         -- <leader>g
 

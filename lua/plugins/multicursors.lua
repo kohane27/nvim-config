@@ -5,14 +5,20 @@ return {
   cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
   keys = {
     {
-      mode = { "n", "v" },
       "<C-n>",
+      mode = { "n", "v" },
       "<cmd>MCstart<CR>",
       desc = "Create a selection for selected text or word under cursor",
     },
     {
-      mode = { "n" },
       "<C-S-n>",
+      mode = { "n" },
+      "<cmd>MCunderCursor<CR>",
+      desc = "Select the char under the cursor and start listening for the actions.",
+    },
+    {
+      "<leader>mulABC",
+      mode = { "n" },
       "<cmd>MCpattern<CR>",
       desc = "Prompts for a pattern and selects every match",
     },
