@@ -17,9 +17,8 @@ return {
 
         -- NOTE: the following are available:
         -- J!!, K!!, T
-        -- gq: use by recorder
         -- gh, gn
-        -- gb, go, gs, gw, gy, gz
+        -- gb, go, gs, gw, gy, gz, gq
         -- <leader> h, i, k, p, u, v, w, y, z
 
         -- start with g
