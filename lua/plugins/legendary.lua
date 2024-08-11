@@ -26,7 +26,7 @@ return {
         { "ga", function() require("core.utils").get_current_buffer_content() end,               description = "Get Current Buffer Content" },
         { "gA", function() require("core.utils").get_all_buffer_content() end,                   description = "Get All Buffer Content" },
         { "gu", "<cmd>UndotreeToggle<CR>",                                                       description = "Undotree: Toggle" },
-        { "gU", "<cmd>Telescope undo<CR>",                                                       description = "Telescope: Undo" },
+        { "gU", function() require("telescope").extensions.undo.undo() end,                      description = "Telescope: Undo" },
 
         -- <leader>g
 

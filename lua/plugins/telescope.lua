@@ -127,26 +127,34 @@ return {
         undo = {
           use_delta = true,
           side_by_side = true,
+          entry_format = "$ID | $TIME",
           mappings = {
+            i = {
+              ["<CR>"] = false,
+              ["<S-CR>"] = false,
+              ["<C-CR>"] = false,
+              ["<C-y>"] = false,
+              ["<C-r>"] = false,
+            },
             n = {
+              ["u"] = require("telescope-undo.actions").restore,
               -- inside a function to prevent lazy-loading error
               ["y"] = function(bufnr)
                 return require("telescope-undo.actions").yank_larger(bufnr)
               end,
               ["Y"] = require("telescope-undo.actions").yank_deletions,
-              ["u"] = require("telescope-undo.actions").restore,
             },
           },
           layout_config = {
             preview_width = 0.8,
-            horizontal = {
-              height = 0.95,
-              width = 0.95,
-            },
-            vertical = {
-              height = 0.95,
-              width = 0.95,
-            },
+            -- horizontal = {
+            --   height = 0.95,
+            --   width = 0.95,
+            -- },
+            -- vertical = {
+            --   height = 0.95,
+            --   width = 0.95,
+            -- },
           },
         },
       },
