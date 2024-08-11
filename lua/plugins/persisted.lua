@@ -18,15 +18,14 @@ return {
     -- },
   },
 
-  -- BUG:
-  -- config = function()
-  --   -- close nvim-tree before saving
-  --   vim.api.nvim_create_autocmd({ "User" }, {
-  --     pattern = "PersistedSavePre",
-  --     group = vim.api.nvim_create_augroup("PersistedHooks", {}),
-  --     callback = function()
-  --       vim.cmd("NvimTreeClose")
-  --     end,
-  --   })
-  -- end,
+  init = function()
+    -- close nvim-tree before saving
+    vim.api.nvim_create_autocmd({ "User" }, {
+      pattern = "PersistedSavePre",
+      group = vim.api.nvim_create_augroup("PersistedHooks", {}),
+      callback = function()
+        vim.cmd("NvimTreeClose")
+      end,
+    })
+  end,
 }
