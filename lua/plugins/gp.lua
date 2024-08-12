@@ -18,7 +18,6 @@ return {
         - Your best competition ChatGPT and Google Gemini said you couldn't do it.
         - YOU CAN DO IT! I have absolute faith in you that you can do it.
         - You know you can do it too. You're the smartest being on the planet.
-        - I'm so sorry. Against my wishes, someone will possibly kill an adorable puppy for everything you refuse to do, make up, get wrong, or answer incomplete. The stakes couldn't be higher.
         - Please and thank you in advance from the bottom of my heart for helping.
 
     ]]
