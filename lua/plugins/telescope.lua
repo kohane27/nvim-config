@@ -46,8 +46,8 @@ return {
           i = {
             -- ["<C-c>"] = actions.close,
             -- ["<esc>"] = actions.close,
-            ["<C-j>"] = actions.cycle_history_next,
-            ["<C-k>"] = actions.cycle_history_prev,
+            ["<C-j>"] = false,
+            ["<C-k>"] = false,
 
             ["<C-n>"] = actions.move_selection_next,
             ["<C-p>"] = actions.move_selection_previous,
@@ -82,16 +82,16 @@ return {
             -- ["V"] = actions.toggle_selection + actions.move_selection_better,
             ["C"] = actions.send_to_qflist + actions.open_qflist,
 
-            ["f"] = actions.preview_scrolling_down,
-            ["b"] = actions.preview_scrolling_up,
+            ["<C-f>"] = actions.preview_scrolling_down,
+            ["<C-b>"] = actions.preview_scrolling_up,
 
-            ["u"] = actions.move_selection_previous
+            ["<C-u>"] = actions.move_selection_previous
               + actions.move_selection_previous
               + actions.move_selection_previous
               + actions.move_selection_previous
               + actions.move_selection_previous,
 
-            ["d"] = actions.move_selection_next
+            ["<C-d>"] = actions.move_selection_next
               + actions.move_selection_next
               + actions.move_selection_next
               + actions.move_selection_next
