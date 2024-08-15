@@ -86,6 +86,7 @@ return {
         { "<leader>fj", function() require("telescope.builtin").jumplist() end,           description = "Telescope: Jumplist" },
         { "<leader>fXc", function() require("telescope.builtin").command_history() end,   description = "Telescope: Command History" },
         { "<leader>fXs", function() require("telescope.builtin").search_history() end,    description = "Telescope: Search History" },
+        { "<leader>fXd", function() require("telescope.builtin").help_tags() end,         description = "Telescope: Help" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ LSP                                                      │
