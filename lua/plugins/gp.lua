@@ -25,7 +25,6 @@ return {
       providers = {
         anthropic = {
           endpoint = "https://api.anthropic.com/v1/messages",
-          secret = { "zsh", "-c", "command cat ~/ANTHROPIC_API_KEY" },
         },
         openai = { disable = true },
         -- ollama = { endpoint = "http://localhost:11434/v1/chat/completions", },
