@@ -43,7 +43,7 @@ return {
 
         -- ["<C-Space>"] = cmp.mapping(cmp.mapping.abort(), { "i", "c" }),
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-        ["<C-y>"] = cmp.config.disable, -- remove default mapping
+        ["<C-y>"] = require("minuet").make_cmp_map(),
         ["<C-e>"] = cmp.config.disable,
 
         -- Accept currently selected item. If none selected, `select` first item.
@@ -79,11 +79,13 @@ return {
             buffer = "[Buffer]",
             path = "[Path]",
             luasnip = "[Snippet]",
+            minuet = "[AI]",
           },
         }),
       },
       sources = {
         { name = "luasnip" },
+        -- { name = "minuet" },
         {
           name = "nvim_lsp",
           -- remove snippets from LSP
