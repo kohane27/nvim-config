@@ -177,6 +177,13 @@ return {
         { "<leader>tc", "<cmd>tabclose<CR>", description = "Tab: Close" },
 
         -- ╭──────────────────────────────────────────────────────────╮
+        -- │ neotest                                                  │
+        -- ╰──────────────────────────────────────────────────────────╯
+        { "<leader>nr", function() require("neotest").run.run() end,                   description = "Test: Run nearest test" },
+        { "<leader>nf", function() require("neotest").run.run(vim.fn.expand("%")) end, description = "Test: Run current file" },
+        { "<leader>nd", function() require("neotest").run.run({strategy = "dap"}) end, description = "Test: Debug nearest test" },
+
+        -- ╭──────────────────────────────────────────────────────────╮
         -- │ tmux.lua                                                 │
         -- ╰──────────────────────────────────────────────────────────╯
         { "<A-h>",   function() require("tmux").move_left() end,       description = "Move Focus to Left" },
