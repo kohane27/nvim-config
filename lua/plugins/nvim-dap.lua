@@ -16,8 +16,8 @@ return {
       executable = {
         command = "node",
         args = {
-          -- TODO: make it work: https://github.com/NixOS/nixpkgs/blob/a0d6390cb3e82062a35d0288979c45756e481f60/pkgs/by-name/vs/vscode-js-debug/package.nix#L79
-          os.getenv("HOME") .. "/repo/important/js-debug-dap/js-debug/src/dapDebugServer.js",
+          -- os.getenv("HOME") .. "/repo/important/js-debug-dap/js-debug/src/dapDebugServer.js",
+          os.getenv("VSCODE_JS_DEBUG_PATH") .. "/js-debug/dist/src/dapDebugServer.js",
           "${port}",
         },
       },
