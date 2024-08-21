@@ -6,6 +6,7 @@ scratch_config.json--
 scratchpad.md
 .pre-commit-config.yaml
 .secretsignore
+.avante_chat_history/
 
 lazy-lock.json
 
