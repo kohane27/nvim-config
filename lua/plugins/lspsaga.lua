@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
   opts = {
     lightbulb = {
-      enable = true,
+      enable = false,
       enable_in_insert = false,
       sign = true,
       virtual_text = false,
