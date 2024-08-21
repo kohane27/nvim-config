@@ -5,74 +5,17 @@ return {
     -- LSP Management
     { "williamboman/mason.nvim" },
     { "williamboman/mason-lspconfig.nvim" },
-    {
-      -- language server settings in json
-      "tamago324/nlsp-settings.nvim",
-    },
 
-    {
-      -- providing access to the SchemaStore catalog
-      "b0o/schemastore.nvim",
-    },
+    -- language server settings in json
+    { "tamago324/nlsp-settings.nvim" },
+
+    -- providing access to the SchemaStore catalog
+    { "b0o/schemastore.nvim" },
 
     -- Additional lua configuration
     -- { "folke/neodev.nvim" },
   },
   config = function()
-    require("mason").setup({
-      ui = {
-        border = "rounded",
-      },
-    })
-    require("mason-lspconfig").setup({
-      ensure_installed = {
-        "lua_ls",
-        -- "angularls",
-        "cssls",
-        "emmet_ls",
-        "awk_ls",
-        "bashls",
-        -- "cssmodules_ls",
-        "dockerls",
-        "eslint", -- instead of `tsserver` or `eslint_d` in `null_ls` for better linting and react-specific linting rules
-        "html",
-        "lemminx",
-        "pyright",
-        "sqlls",
-        "jsonls",
-        "yamlls",
-        "terraformls",
-      },
-      automatic_installation = true,
-    })
-
-    require("mason-tool-installer").setup({
-      ensure_installed = {
-        "eslint-lsp",
-        "prettier",
-        "awk-language-server",
-        "bash-language-server",
-        "css-lsp",
-        -- "cssmodules-language-server",
-        "dockerfile-language-server",
-        "emmet-ls",
-        "html-lsp",
-        "json-lsp",
-        "lemminx",
-        "lua-language-server",
-        -- sql
-        "sqlls",
-        "sql-formatter",
-        -- python
-        "pyright",
-        "ruff",
-        --  terraform
-        -- "tfsec",
-        -- "tflint",
-      },
-      auto_update = true,
-    })
-
     local lspconfig = require("lspconfig")
 
     -- Add additional capabilities supported by nvim-cmp
