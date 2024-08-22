@@ -448,9 +448,9 @@ return {
           '<leader>MXsua',
           function()
             if require("legendary.toolbox").is_visual_mode() then
-                vim.api.nvim_feedkeys(":s/\\s.*//gc", "c", false)
+                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":s/\\s.*//g<Left><Left><Left><Left><Left>", true, true, true), "t", true)
             else
-                vim.api.nvim_feedkeys(":%s/\\s.*//gc", "c", false)
+                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":s/\\s.*//g<Left><Left><Left><Left><Left>", true, true, true), "t", true)
             end
           end,
           mode = { 'n', 'v' },
