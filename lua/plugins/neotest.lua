@@ -10,8 +10,13 @@ return {
   },
   config = function()
     require("neotest").setup({
-      discovery = {
-        enabled = false,
+      discovery = { enabled = false },
+      status = { virtual_text = true },
+      output = { open_on_run = true },
+      quickfix = {
+        open = function()
+          require("trouble").open({ mode = "quickfix", focus = false })
+        end,
       },
       adapters = {
         require("neotest-jest")({
