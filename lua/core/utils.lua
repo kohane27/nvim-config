@@ -65,16 +65,10 @@ function M.gp_choose_agent(opts)
   opts = opts or {}
 
   local agents = {
-    {
-      description = "React Software Engineer",
-      command = "React-Software-Engineer",
-    },
-    {
-      description = "Task Breakdown Helper",
-      command = "Software-Engineering-Task-Breakdown-Helper",
-    },
-    { description = "Arch Linux Expert", command = "Arch-Linux-Expert" },
-    { description = "Neovim Expert", command = "Neovim-Expert" },
+    { description = "Arch Linux Expert",       command = "Arch-Linux-Expert" },
+    { description = "Neovim Expert",           command = "Neovim-Expert" },
+    { description = "React Software Engineer", command = "React-Software-Engineer" },
+    { description = "Task Breakdown Helper",   command = "Software-Engineering-Task-Breakdown-Helper" },
   }
 
   -- Create the picker
