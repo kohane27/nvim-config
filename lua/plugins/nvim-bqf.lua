@@ -33,6 +33,7 @@ return {
     },
     filter = {
       fzf = {
+        extra_opts = { "--bind", "ctrl-o:toggle-all", "--delimiter", "│" },
         action_for = {
           ["<c-w>v"] = "vsplit",
           ["<c-w>s"] = "split",
