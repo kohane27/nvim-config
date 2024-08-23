@@ -1,6 +1,7 @@
 return {
   "nvimtools/hydra.nvim",
   event = "VeryLazy",
+  enabled = not vim.g.started_by_firenvim,
 
   -- stylua: ignore
   config = function()

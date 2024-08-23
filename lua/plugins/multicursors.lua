@@ -1,6 +1,8 @@
 return {
   "smoka7/multicursors.nvim",
   event = "VeryLazy",
+  enabled = not vim.g.started_by_firenvim,
+
   dependencies = { "nvimtools/hydra.nvim" },
   cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
   keys = {
