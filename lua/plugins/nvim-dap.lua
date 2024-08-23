@@ -1,6 +1,7 @@
 return {
   "mfussenegger/nvim-dap",
   event = "VeryLazy",
+  enabled = not vim.g.started_by_firenvim,
   dependencies = {
     { "nvim-neotest/nvim-nio" },
     { "rcarriga/nvim-dap-ui" },
