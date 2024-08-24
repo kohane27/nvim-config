@@ -20,4 +20,6 @@ hi def link qfWarning DiagnosticWarn
 hi def link qfInfo DiagnosticInfo
 hi def link qfNote DiagnosticHint
 
+nnoremap <buffer> <CR> <CR>
+
 let b:current_syntax = 'qf'
