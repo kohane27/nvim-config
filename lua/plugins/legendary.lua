@@ -22,13 +22,16 @@ return {
         -- <leader> h, i, k, p, u, v, w, y, z
 
         -- start with g
-        { "gt", "<cmd>write | edit | TSBufEnable highlight<CR>",                                 description = "Treesitter: Reload" },
         { "ga", function() require("core.utils").get_current_buffer_content() end,               description = "Get Current Buffer Content" },
         { "gA", function() require("core.utils").get_all_buffer_content() end,                   description = "Get All Buffer Content" },
         { "gu", "<cmd>UndotreeToggle<CR>",                                                       description = "Undotree: Toggle" },
         { "gU", function() require("telescope").extensions.undo.undo() end,                      description = "Telescope: Undo" },
 
-        -- <leader>g
+        -- start with z
+        { "zr", "<cmd>write | edit | TSBufEnable highlight<CR>",                                 description = "Treesitter: Reload" },
+        { "zR", function() require("ufo").openAllFolds() end,                                    description = "Open all folds" },
+        { "zM", function() require("ufo").closeAllFolds() end,                                   description = "Close all folds" },
+        { "zk", function() require("ufo").peekFoldedLinesUnderCursor() end,                      description = "Peek folded lines under cursor" },
 
         { "F", "<cmd>Oil --float<CR>",                                                           description = "Oil" },
         { "X", "<cmd>ISwapWith<CR>",                                                             description = "Swap Two Adjacent Nodes" },
@@ -264,7 +267,7 @@ return {
           function()
             vim.api.nvim_exec("GpChatNew vsplit", false)
             vim.api.nvim_win_set_width(0, 90)
-            vim.api.nvim_exec("GpAgent claude-3-5-sonnet-20240620-Ultimate-Assistant", false)
+            vim.api.nvim_exec("GpAgent Ultimate-Assistant", false)
           end,
           description = "GPT: Ultimate Assistant",
         },
