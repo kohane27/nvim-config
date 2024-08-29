@@ -1,6 +1,7 @@
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
+  enabled = false,
   build = "make BUILD_FROM_SOURCE=true luajit",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
