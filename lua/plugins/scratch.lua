@@ -1,5 +1,6 @@
 return {
   "LintaoAmons/scratch.nvim",
+  enabled = false,
   event = "VeryLazy",
   opts = {
     scratch_file_dir = vim.fn.stdpath("cache") .. "/scratch.nvim",
