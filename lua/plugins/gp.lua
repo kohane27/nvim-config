@@ -44,10 +44,10 @@ return {
       chat_free_cursor = true,
 
       -- local chat buffer keybindings
-      chat_shortcut_respond = { modes = { "n" }, shortcut = "<A-n>" },
-      chat_shortcut_delete = { modes = { "n" }, shortcut = "<A-d>" },
-      chat_shortcut_stop = { modes = { "n" }, shortcut = "<A-x>" },
-      chat_shortcut_new = { modes = { "n" }, shortcut = "<A-o>" },
+      chat_shortcut_respond = { modes = { "n" }, shortcut = "<C-n>" },
+      chat_shortcut_delete =  { modes = { "n" }, shortcut = "<C-d>" },
+      chat_shortcut_stop =    { modes = { "n" }, shortcut = "<C-x>" },
+      chat_shortcut_new =     { modes = { "n" }, shortcut = "<C-o>" },
 
       style_popup_border = "rounded",
 
