@@ -1,14 +1,23 @@
 return {
   "mfussenegger/nvim-dap",
   event = "VeryLazy",
-  enabled = not vim.g.started_by_firenvim,
+  -- enabled = not vim.g.started_by_firenvim,
+  enabled = false,
   dependencies = {
     { "nvim-neotest/nvim-nio" },
-    { "rcarriga/nvim-dap-ui" },
-    { "theHamsta/nvim-dap-virtual-text", config = true },
+    { "rcarriga/nvim-dap-ui", config = true },
+    { "theHamsta/nvim-dap-virtual-text", opts = { virt_text_pos = "eol" } },
   },
+
+  -- stylua: ignore
   config = function()
     local dap = require("dap")
+    local dapui = require("dapui")
+
+    dap.listeners.before.attach.dapui_config = function() dapui.open() end
+    dap.listeners.before.launch.dapui_config = function() dapui.open() end
+    dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
+    dap.listeners.before.event_exited.dapui_config = function() dapui.close() end
 
     dap.adapters["pwa-node"] = {
       type = "server",
@@ -17,8 +26,9 @@ return {
       executable = {
         command = "node",
         args = {
+          os.getenv("HOME") .. "/.local/share/nvim/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
           -- os.getenv("HOME") .. "/repo/important/js-debug-dap/js-debug/src/dapDebugServer.js",
-          os.getenv("VSCODE_JS_DEBUG_PATH") .. "/js-debug/dist/src/dapDebugServer.js",
+          -- os.getenv("VSCODE_JS_DEBUG_PATH") .. "/js-debug/dist/src/dapDebugServer.js",
           "${port}",
         },
       },
