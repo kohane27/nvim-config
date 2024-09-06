@@ -1,7 +1,7 @@
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
-  enabled = false,
+  enabled = true,
   build = "make BUILD_FROM_SOURCE=true luajit",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
@@ -15,6 +15,23 @@ return {
       "MeanderingProgrammer/render-markdown.nvim",
       opts = { file_types = { "Avante" } },
       ft = { "Avante" },
+    },
+    {
+      -- support for image pasting
+      "HakonHarnes/img-clip.nvim",
+      event = "VeryLazy",
+      opts = {
+        -- recommended settings
+        default = {
+          embed_image_as_base64 = false,
+          prompt_for_file_name = false,
+          drag_and_drop = {
+            insert_mode = true,
+          },
+          -- required for Windows users
+          use_absolute_path = true,
+        },
+      },
     },
   },
   opts = {
