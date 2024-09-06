@@ -290,6 +290,7 @@ return {
         { "<leader>ss", function() vim.api.nvim_exec("GpChatToggle vsplit", false) vim.api.nvim_win_set_width(0, 90) end, description = "GPT: Toggle" },
         { "<leader>sg", function() require("telescope").extensions.egrepify.egrepify({ cwd = os.getenv("HOME") .. "/.local/share/nvim/gp/chats" }) end, description = "GPT: Finder" },
         { "<leader>sa", "<cmd>GpAppend<CR>", description = "GPT: Append" },
+        { "<leader>sgpr", "<cmd>GpChatRespond<CR>", description = "GPT: Respond" },
         {
           "<leader>so",
           function()
