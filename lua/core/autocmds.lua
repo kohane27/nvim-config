@@ -3,6 +3,15 @@
 -- local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
+
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = {"Fastfile", "Gemfile", "Rakefile"},
+  callback = function()
+    vim.bo.filetype = "ruby"
+  end,
+  desc = "Set filetype to ruby for Fastfile, Gemfile, and Rakefile"
+})
+
 -- close the following pattern with `q`
 vim.api.nvim_create_autocmd('FileType', {
   pattern = {'qf', 'help', 'man', 'lspinfo'},
