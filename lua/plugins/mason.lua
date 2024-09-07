@@ -26,6 +26,7 @@ return {
         "jsonls",
         "yamlls",
         "terraformls",
+        "nil_ls", -- nix
       },
       automatic_installation = true,
     })
