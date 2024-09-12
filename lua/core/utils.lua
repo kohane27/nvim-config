@@ -65,10 +65,10 @@ function M.gp_choose_agent(opts)
   opts = opts or {}
 
   local agents = {
-    { description = "Arch Linux Expert",       command = "Arch-Linux-Expert" },
-    { description = "Neovim Expert",           command = "Neovim-Expert" },
+    { description = "Arch Linux Expert", command = "Arch-Linux-Expert" },
+    { description = "Neovim Expert", command = "Neovim-Expert" },
     { description = "React Software Engineer", command = "React-Software-Engineer" },
-    { description = "Task Breakdown Helper",   command = "Software-Engineering-Task-Breakdown-Helper" },
+    { description = "Task Breakdown Helper", command = "Software-Engineering-Task-Breakdown-Helper" },
   }
 
   -- Create the picker
@@ -245,6 +245,10 @@ function M.legendary_command_palette()
       return values
     end,
   })
+end
+
+function M.execute_command(cmd)
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(cmd, true, true, true), "t", true)
 end
 
 return M
