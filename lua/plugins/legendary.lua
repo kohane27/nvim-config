@@ -15,6 +15,12 @@ return {
         -- NOTE: use <cmd> for normal Ex commands because it's faster for some reason
         --       use : if you need to have visual mode
 
+        -- How to use `is_visual_mode`:
+        --
+        -- 1. Need `mode = { "v" }`
+        -- 2. `is_visual_mode` works and it auto injects `'<,'>`
+        -- 3. use `t` for `nvim_replace_termcodes`
+
         -- NOTE: the following are available:
         -- J!!, K!!, T
         -- gh, gn
@@ -214,8 +220,7 @@ return {
           '<leader>df',
           function()
             if require("legendary.toolbox").is_visual_mode() then
-              -- TODO: check not really? it auto injects '<,'>
-              vim.cmd(":DiffviewFileHistory")
+              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewFileHistory<CR>", true, true, true), "t", true)
             else
               vim.cmd(':DiffviewFileHistory %')
             end
@@ -348,8 +353,19 @@ return {
         { "<leader>MXgee", "<cmd>Telescope notify<CR>",                                                     description = "Notify: Search History" },
         { "<leader>MXgef", function() require('gitignore').generate() end,                                  description = "Generate gitignore" },
         { "<leader>MXgeg", function() require('kulala').run() end,                                          description = "Run kulala" },
+
         { "<leader>MXgeh", function() require("core.utils").markdown_preview() end,                         description = "Preview Markdown" },
-        { "<leader>MXgei", "<cmd>TableModeToggle<CR>",                                                      description = "Markdown Toggle Table Mode" },
+        { "<leader>MXgei", "<cmd>TableModeToggle<CR>",                                                      description = "vim-table-mode: Toggle" },
+        {
+          "<leader>MXgej",
+          function()
+            if require("legendary.toolbox").is_visual_mode() then
+                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":Tableize/\\t", true, true, true), "t", true)
+            end
+          end,
+          mode = { "v" },
+          description = 'vim-table-mode: Tableize',
+        },
 
         -- Lazy
         { "<leader>MXlaa", "<cmd>Lazy sync<CR>",                                                            description = "Lazy: Update" },
