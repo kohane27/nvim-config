@@ -18,7 +18,8 @@ return {
         -- How to use `is_visual_mode`:
         --
         -- 1. Need `mode = { "v" }`
-        -- 2. `is_visual_mode` works and it auto injects `'<,'>`
+        -- 2. `is_visual_mode` works and it auto injects `'<,'>`, which
+        -- it must be used with `vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewFileHistory<CR>", true, true, true), "t", true)`
         -- 3. use `t` for `nvim_replace_termcodes`
 
         -- NOTE: the following are available:
@@ -72,12 +73,16 @@ return {
           description = "Telescope: Find Text in Opened Tabs",
         },
         {
-          "<leader>fb",
-          {
-            n = function() require("telescope.builtin").current_buffer_fuzzy_find() end,
-            v = function() require("telescope.builtin").current_buffer_fuzzy_find({ default_text = require("core.utils").get_visual_selection() }) end,
-          },
-          description = "Telescope: Find Text in Current Buffer",
+          '<leader>fb',
+          function()
+            if require("legendary.toolbox").is_visual_mode() then
+              require("telescope.builtin").current_buffer_fuzzy_find({ default_text = require("core.utils").get_visual_selection() })
+            else
+              require("telescope.builtin").current_buffer_fuzzy_find()
+            end
+          end,
+          mode = { 'n', 'v' },
+          description = 'Telescope: Find Text in Current Buffer',
         },
         {
           "<leader>fs",
@@ -139,9 +144,15 @@ return {
         { "<leader>co", "<cmd>copen<CR>", description = "Quickfix List" },
         {
           "<leader>cd",
-          function() vim.api.nvim_feedkeys(":cdo s/foo/bar/gc | update", "c", false) end,
+          function()
+            local current_buf = vim.api.nvim_get_current_buf()
+            local buf_type = vim.api.nvim_buf_get_option(current_buf, 'buftype')
+            local filetype = vim.api.nvim_buf_get_option(current_buf, 'filetype')
+            if buf_type == 'quickfix' or filetype == 'trouble' then
+              vim.api.nvim_feedkeys(":cdo s/foo/bar/gc | update", "t", false)
+            end
+          end,
           description = "cdo: Execute Command on Quickfix Entries",
-          -- only filter away the entries in Legendary; still executable in other ft
           filters = { ft = "qf", "Trouble" },
         },
 
@@ -220,7 +231,7 @@ return {
           '<leader>df',
           function()
             if require("legendary.toolbox").is_visual_mode() then
-              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewFileHistory<CR>", true, true, true), "t", true)
+              require("core.utils").execute_command(":DiffviewFileHistory<CR>")
             else
               vim.cmd(':DiffviewFileHistory %')
             end
@@ -230,22 +241,22 @@ return {
         },
         {
           "<leader>dHa",
-          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen HEAD~3", true, true, true), "t", true) end,
+          function() require("core.utils").execute_command(":DiffviewOpen HEAD~3") end,
           description = "Diffview: HEAD and n Prior Commits",
         },
         {
           "<leader>dHb",
-          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen d4a7b0d", true, true, true), "t", true) end,
+          function() require("core.utils").execute_command(":DiffviewOpen d4a7b0d") end,
           description = "Diffview: Compares Changes Made by `d4a7b0d` with Current Working Directory",
         },
         {
           "<leader>dHc",
-          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen d4a7b0d^!<Left><Left>", true, true, true), "t", true) end,
+          function() require("core.utils").execute_command(":DiffviewOpen d4a7b0d^!<Left><Left>") end,
           description = "Diffview: Changes Made in the Single `d4a7b0d`",
         },
         {
           "<leader>dHd",
-          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewOpen c1..c2<Left><Left><Left><Left>", true, true, true), "t", true) end,
+          function() require("core.utils").execute_command(":DiffviewOpen c1..c2<Left><Left><Left><Left>") end,
           description = "Diffview: Changes Between 2 Commits (from `d4a7b0d` up to `519b30e` (inclusive)).",
         },
         { "<leader>dHh", "<cmd>DiffviewFileHistory<CR>",                         description = "Diffview: File History of Current Branch" },
@@ -336,7 +347,17 @@ return {
         -- │ Miscellaneous (leader m with real keybindings)           │
         -- ╰──────────────────────────────────────────────────────────╯
         -- NOTE: `<leader>ma` and `<leader>mA` taken by `mini.align`
-        { "<leader>mb", ":lua require('comment-box').llbox()<CR><Esc>",                    description = "Comment Box: Left-aligned", mode = { "v" } },
+        {
+         "<leader>mb",
+         function()
+           if require("legendary.toolbox").is_visual_mode() then
+             require('comment-box').llbox()
+             require("core.utils").execute_command("<Esc>")
+           end
+         end,
+         mode = { "v" },
+         description = "Comment Box: Left-aligned"
+        },
         { "<leader>mc", function() require('curl').open_curl_tab() end,                    description = "Open curl (working directory)" },
         { "<leader>mC", function() require('curl').open_global_tab() end,                  description = "Open curl (global)" },
         { "<leader>mn", function() require("noice").cmd("dismiss") end,                    description = "Noice: Dismiss" },
@@ -360,7 +381,7 @@ return {
           "<leader>MXgej",
           function()
             if require("legendary.toolbox").is_visual_mode() then
-                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":Tableize/\\t", true, true, true), "t", true)
+              require("core.utils").execute_command(":Tableize/\\t")
             end
           end,
           mode = { "v" },
@@ -390,59 +411,115 @@ return {
       -- │ g commands                                              │
       -- ╰─────────────────────────────────────────────────────────╯
         {
-          "<leader>MXgla",
-          ":g/^$/d<CR>",
-          mode = { "n", "v" },
+          '<leader>MXgla',
+          function()
+            if require("legendary.toolbox").is_visual_mode() then
+              require("core.utils").execute_command(":g/^$/d<CR>")
+            else
+              require("core.utils").execute_command(":g/^$/d<CR>")
+            end
+          end,
+          mode = { 'n', 'v' },
           description = "g: Remove Empty Lines",
         },
         {
           "<leader>MXglc",
-          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g!/^foo$/d<Left><Left><Left>", true, true, true), "t", true) end,
+          function()
+            if require("legendary.toolbox").is_visual_mode() then
+              require("core.utils").execute_command(":g!/^foo$/d<Left><Left><Left>")
+            else
+              require("core.utils").execute_command(":g!/^foo$/d<Left><Left><Left>")
+            end
+          end,
           mode = { "n", "v" },
           description = "g: Delete Lines NOT `foo`",
         },
         {
           "<leader>MXgld",
-          ":g/\t/s//    /g<CR>",
+          function()
+            if require("legendary.toolbox").is_visual_mode() then
+              -- can't use execute_command because `t` inserts `\v`
+              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/\t/s//    /g<CR>", true, true, true), "n", true)
+            else
+              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/\t/s//    /g<CR>", true, true, true), "n", true)
+            end
+          end,
           mode = { "n", "v" },
           description = "g: Convert Tabs to Spaces",
         },
 
         {
           "<leader>MXgle",
-          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>", true, true, true), "t", true) end,
+          function()
+            if require("legendary.toolbox").is_visual_mode() then
+              require("core.utils").execute_command(":g/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+            else
+              require("core.utils").execute_command(":g/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+            end
+          end,
           mode = { "n", "v" },
           description = "g: Run Normal mode on `foo`",
         },
         {
           "<leader>MXglf",
-          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/foo/norm @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>", true, true, true), "t", true) end,
+          function()
+            if require("legendary.toolbox").is_visual_mode() then
+              require("core.utils").execute_command(":g/foo/norm @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+            else
+              require("core.utils").execute_command(":g/foo/norm @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+            end
+          end,
           mode = { "n", "v" },
           description = "g: Run Macro `q` on `foo`",
         },
 
         {
           "<leader>MXgLg",
-          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/foo/t $<Left><Left><Left><Left>", true, true, true), "t", true) end,
+          function()
+            if require("legendary.toolbox").is_visual_mode() then
+              require("core.utils").execute_command(":g/foo/t $<Left><Left><Left><Left>")
+            else
+              require("core.utils").execute_command(":g/foo/t $<Left><Left><Left><Left>")
+            end
+          end,
           mode = { "n", "v" },
           description = "g: (t)ransfer `foo` to End of File",
         },
         {
           "<leader>MXgLh",
-          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/foo/.,+2t $<Left><Left><Left><Left><Left><Left><Left><Left>", true, true, true), "t", true) end,
+          function()
+            if require("legendary.toolbox").is_visual_mode() then
+              require("core.utils").execute_command(":g/foo/.,+2t $<Left><Left><Left><Left><Left><Left><Left><Left>")
+            else
+              require("core.utils").execute_command(":g/foo/.,+2t $<Left><Left><Left><Left><Left><Left><Left><Left>")
+            end
+          end,
           mode = { "n", "v" },
           description = "g: (t)ransfer `foo` with 2 lines below to End of File",
         },
 
         {
           "<leader>MXgLi",
-          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/foo/m $<Left><Left><Left><Left>", true, true, true), "t", true) end,
+          function()
+            if require("legendary.toolbox").is_visual_mode() then
+              require("core.utils").execute_command(":g/foo/m $<Left><Left><Left><Left>")
+            else
+              require("core.utils").execute_command(":g/foo/m $<Left><Left><Left><Left>")
+            end
+          end,
           mode = { "n", "v" },
           description = "g: (m)ove `foo` to End of File",
         },
+
         {
           "<leader>MXgLj",
-          function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/foo/.,+2m $<Left><Left><Left><Left><Left><Left><Left><Left>", true, true, true), "t", true) end,
+          function()
+            if require("legendary.toolbox").is_visual_mode() then
+              require("core.utils").execute_command(":g/foo/.,+2m $<Left><Left><Left><Left><Left><Left><Left><Left>")
+            else
+              require("core.utils").execute_command(":g/foo/.,+2m $<Left><Left><Left><Left><Left><Left><Left><Left>")
+            end
+          end,
           mode = { "n", "v" },
           description = "g: (m)ove `foo` with 2 lines below to End of File",
         },
@@ -450,17 +527,26 @@ return {
         {
           "<leader>MXgLk",
           function()
-             vim.fn.setreg('a', '')
-             vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/foo/y A<Left><Left><Left><Left>", true, true, true), "t", true) 
+            vim.fn.setreg('a', '')
+            if require("legendary.toolbox").is_visual_mode() then
+              require("core.utils").execute_command(":g/foo/y A<Left><Left><Left><Left>")
+            else
+              require("core.utils").execute_command(":g/foo/y A<Left><Left><Left><Left>")
+            end
           end,
           mode = { "n", "v" },
           description = "g: yank `foo` to reg a",
         },
+
         {
           "<leader>MXgLl",
           function()
             vim.fn.setreg('a', '')
-            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/foo/.,+2y A<Left><Left><Left><Left><Left><Left><Left><Left>", true, true, true), "t", true) 
+            if require("legendary.toolbox").is_visual_mode() then
+              require("core.utils").execute_command(":g/foo/.,+2y A<Left><Left><Left><Left><Left><Left><Left><Left>")
+            else
+              require("core.utils").execute_command(":g/foo/.,+2y A<Left><Left><Left><Left><Left><Left><Left><Left>")
+            end
           end,
           mode = { "n", "v" },
           description = "g: yank `foo` with 2 lines below it to reg a",
@@ -493,28 +579,34 @@ return {
       -- ╭─────────────────────────────────────────────────────────╮
       -- │ substitute                                              │
       -- ╰─────────────────────────────────────────────────────────╯
-        -- {
-        --   '<leader>MXsua',
-        --   function()
-        --     if require("legendary.toolbox").is_visual_mode() then
-        --         vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":s/\\s.*//g<Left><Left><Left><Left><Left>", true, true, true), "t", true)
-        --     else
-        --         vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":s/\\s.*//g<Left><Left><Left><Left><Left>", true, true, true), "t", true)
-        --     end
-        --   end,
-        --   mode = { 'n', 'v' },
-        --   description = 'Delete Everything After a space',
-        -- },
         {
-          "<leader>MXsub",
-          ":%s/[’‘]/'/ge | %s/[“”＂]/\"/ge<CR>",
-          description = "Delete All Weird Curly Quotes",
+          '<leader>MXsua',
+          function()
+            if require("legendary.toolbox").is_visual_mode() then
+             require("core.utils").execute_command(":s/foo.*//g<Left><Left><Left><Left><Left>")
+            else
+              require("core.utils").execute_command(":%s/foo.*//g<Left><Left><Left><Left><Left>")
+            end
+          end,
+          mode = { 'n', 'v' },
+          description = 'Delete Everything After `foo`',
         },
         {
-          "<leader>MXsuf",
-          function() vim.api.nvim_feedkeys(":s/\\vfoo/&bar/gc", "c", false) end,
+          "<leader>MXsub",
+          function()
+            if require("legendary.toolbox").is_visual_mode() then
+             require("core.utils").execute_command(":s/foo/&bar/gc")
+            else
+              require("core.utils").execute_command(":%s/foo/&bar/gc")
+            end
+          end,
           mode = { "n", "v" },
           description = "Substitute: `foo` into `foobar`",
+        },
+        {
+          "<leader>MXsuc",
+          ":%s/[’‘]/'/ge | %s/[“”＂]/\"/ge<CR>",
+          description = "Delete All Weird Curly Quotes",
         },
       },
   },
