@@ -3,8 +3,7 @@ return {
   event = "VeryLazy",
   ft = "markdown",
   init = function()
-    -- vim.g.table_mode_disable_mappings = 1
-    -- vim.g.table_mode_disable_tableize_mappings = 0
-    -- TODO: tableize for markdown
+    vim.g.table_mode_disable_mappings = 0
+    vim.g.table_mode_disable_tableize_mappings = 1
   end,
 }
