@@ -35,7 +35,6 @@ return {
         { "gU", function() require("telescope").extensions.undo.undo() end,                      description = "Telescope: Undo" },
 
         -- start with z
-        { "zr", "<cmd>write | edit | TSBufEnable highlight<CR>",                                 description = "Treesitter: Reload" },
         { "zR", function() require("ufo").openAllFolds() end,                                    description = "Open all folds" },
         { "zM", function() require("ufo").closeAllFolds() end,                                   description = "Close all folds" },
         { "zk", function() require("ufo").peekFoldedLinesUnderCursor() end,                      description = "Peek folded lines under cursor" },
@@ -362,6 +361,19 @@ return {
         { "<leader>mC", function() require('curl').open_global_tab() end,                  description = "Open curl (global)" },
         { "<leader>mn", function() require("noice").cmd("dismiss") end,                    description = "Noice: Dismiss" },
         { "<leader>mt", function() require('mini.trailspace').trim() end,                  description = "Trim All Trailing Whitespace" },
+        { "<leader>mr", "<cmd>write | edit | TSBufEnable highlight<CR>",                   description = "Treesitter: Reload" },
+        {
+          '<leader>md',
+          function()
+            if require("legendary.toolbox").is_visual_mode() then
+             require("core.utils").execute_command(":s/foo.*//g<Left><Left><Left><Left><Left>")
+            else
+              require("core.utils").execute_command(":%s/foo.*//g<Left><Left><Left><Left><Left>")
+            end
+          end,
+          mode = { 'n', 'v' },
+          description = 'Delete Everything After `foo`',
+        },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Miscellaneous (leader m with random keybindings)         │
@@ -579,18 +591,6 @@ return {
       -- ╭─────────────────────────────────────────────────────────╮
       -- │ substitute                                              │
       -- ╰─────────────────────────────────────────────────────────╯
-        {
-          '<leader>MXsua',
-          function()
-            if require("legendary.toolbox").is_visual_mode() then
-             require("core.utils").execute_command(":s/foo.*//g<Left><Left><Left><Left><Left>")
-            else
-              require("core.utils").execute_command(":%s/foo.*//g<Left><Left><Left><Left><Left>")
-            end
-          end,
-          mode = { 'n', 'v' },
-          description = 'Delete Everything After `foo`',
-        },
         {
           "<leader>MXsub",
           function()
