@@ -216,7 +216,7 @@ function M.markdown_preview()
   vim.fn.termopen("glow <( echo " .. sanitized_final .. ")\n")
 end
 
-function M.toggle_scratchpad()
+function M.toggle_scratchpad_md()
   -- Get the name of the current buffer
   local buf_name = vim.api.nvim_buf_get_name(0)
 
@@ -229,6 +229,43 @@ function M.toggle_scratchpad()
     vim.cmd("close")
   else
     vim.cmd("vsplit $HOME/.config/nvim/scratchpad.md")
+  end
+end
+
+function M.toggle_latest_scratchpad()
+  -- Get the name of the current buffer
+  local buf_name = vim.api.nvim_buf_get_name(0)
+
+  local home = os.getenv("HOME")
+  local dir = home .. "/.cache/nvim/scratch.nvim/"
+
+  -- Check if the current buffer is a scratchpad Markdown file
+  if buf_name:match("^" .. dir .. ".+%.md$") then
+    vim.cmd("bdelete")
+  else
+    -- only consider markdown files
+    local files = vim.fn.readdir(dir, function(name)
+      return name:match("%.md$") ~= nil
+    end)
+    local latest_mtime = -1
+    local latest_file = nil
+
+    -- Iterate over the files to find the latest one
+    for _, file in ipairs(files) do
+      local file_path = dir .. file
+      local mtime = vim.fn.getftime(file_path)
+      if mtime > latest_mtime then
+        latest_mtime = mtime
+        latest_file = file_path
+      end
+    end
+
+    -- Open the latest file if it exists
+    if latest_file then
+      vim.cmd("vsplit " .. latest_file)
+    else
+      print("No files found in " .. dir)
+    end
   end
 end
 

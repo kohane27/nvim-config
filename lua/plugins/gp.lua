@@ -45,8 +45,8 @@ return {
 
       -- local chat buffer keybindings
       chat_shortcut_respond = { modes = { "n" }, shortcut = "<C-n>" },
-      chat_shortcut_stop =    { modes = { "n" }, shortcut = "<C-x>" },
-      -- chat_shortcut_new =     { modes = { "n" }, shortcut = "<C-o>" },
+      chat_shortcut_stop =    { modes = { "n" }, shortcut = "<C-S-x>" },
+      chat_shortcut_new =     { modes = { "n" }, shortcut = "<C-S-o>" },
       -- chat_shortcut_delete =  { modes = { "n" }, shortcut = "<C-d>" },
 
       style_popup_border = "rounded",
