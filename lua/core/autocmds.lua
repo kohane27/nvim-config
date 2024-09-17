@@ -3,14 +3,6 @@
 -- local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
-autocmd({"BufRead", "BufNewFile"}, {
-  pattern = {"Fastfile", "Gemfile", "Rakefile"},
-  callback = function()
-    vim.bo.filetype = "ruby"
-  end,
-  desc = "Set filetype to ruby for Fastfile, Gemfile, and Rakefile"
-})
-
 -- close the following pattern with `q`
 autocmd('FileType', {
   pattern = {'qf', 'help', 'man', 'lspinfo'},
@@ -39,27 +31,22 @@ autocmd({'BufRead', 'BufNewFile'}, { pattern = '*/node_modules/*', callback = fu
 -- Auto resize
 autocmd('VimResized', { pattern = '*', command = 'tabdo wincmd =' })
 
--- Tmux rename
-if vim.fn.exists("$TMUX") == 1 then
-  -- local host = vim.fn.hostname()
-  -- print("host", host)
+autocmd({ "BufReadPost", "FileReadPost", "BufNewFile", "BufEnter" }, {
+  pattern = "*",
+  callback = function()
+    -- tmux rename
+    if vim.fn.exists("$TMUX") == 1 then
+      local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+      local filename = vim.fn.expand("%:t")
+      vim.fn.system("tmux rename-window " .. cwd .. "/" .. filename)
+    end
+  end
+})
 
-  local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-  -- print("cwd", cwd)
-
-  -- local shortened_cwd = string.gsub(cwd, host, "")
-  -- print("shortened_cwd", shortened_cwd)
-  autocmd({ "BufReadPost", "FileReadPost", "BufNewFile", "BufEnter" }, {
-    pattern = "*",
-    callback = function() vim.fn.system("tmux rename-window " .. cwd .. "/" .. vim.fn.expand("%:t")) end,
-  })
-end
--- stylua: ignore end
-
--- Clear `jumplist`
+-- clear `jumplist`
 autocmd("VimEnter", { pattern = "*", command = "clearjumps" })
 
--- Clear marks
+-- clear marks
 autocmd("VimEnter", { pattern = "*", command = "delmarks a-zA-Z0-9" })
 
 -- clear registers
@@ -73,6 +60,14 @@ autocmd("VimEnter", {
       vim.fn.setreg(string.char(i), "")
     end
   end,
+})
+
+autocmd({"BufRead", "BufNewFile"}, {
+  pattern = {"Fastfile", "Gemfile", "Rakefile"},
+  callback = function()
+    vim.bo.filetype = "ruby"
+  end,
+  desc = "Set filetype to ruby for Fastfile, Gemfile, and Rakefile"
 })
 
 autocmd({ "BufLeave", "VimLeave" }, {
@@ -93,3 +88,5 @@ autocmd({ "BufLeave", "VimLeave" }, {
     end
   end,
 })
+
+-- stylua: ignore end
