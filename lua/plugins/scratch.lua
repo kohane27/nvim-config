@@ -1,12 +1,11 @@
 return {
   "LintaoAmons/scratch.nvim",
-  enabled = false,
+  enabled = true,
   event = "VeryLazy",
   opts = {
-    scratch_file_dir = vim.fn.stdpath("cache") .. "/scratch.nvim",
     filetypes = { "md", "json", "js", "ts", "java", "py", "lua", "sh" },
     window_cmd = "vsplit", -- 'vsplit' | 'split' | 'edit' | 'tabedit' | 'rightbelow vsplit'
-    use_telescope = true,
+    file_picker = "telescope",
     -- localKeys = {
     --   {
     --     filenameContains = { "sh" },

@@ -294,9 +294,11 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ scratch.nvim                                             │
         -- ╰──────────────────────────────────────────────────────────╯
-        -- { "<leader>so", "<cmd>ScratchWithName<CR>" ,                                    description = "Scratch: New File" },
-        -- { "<leader>ss", function() require("core.utils").toggle_scratchpad() end,       description = "Scratch: Toggle ScratchPad" },
-        -- { "<leader>sf", "<cmd>ScratchOpenFzf<CR>",                                      description = "Scratch: Find File Contents" },
+        { "<leader>so", function() require("scratch.api").createScratchFileByType("md") end,        description = "Scratch: New File" },
+        { "<leader>ss", function() require("core.utils").toggle_latest_scratchpad() end,            description = "Scratch: Toggle Latest" },
+        { "<leader>sS", function() require("core.utils").toggle_scratchpad_md() end,                description = "Scratch: Toggle scratchpad.md" },
+        { "<leader>sf", function() require("scratch.api").fzfScratch() end,                         description = "Scratch: Find File Content" },
+        -- { "<leader>sn", function() require("scratch.api").openScratch() end,                     description = "Scratch: Find File Name" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ gp.nvim                                                  │
