@@ -303,10 +303,17 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ gp.nvim                                                  │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<leader>io", function() require("core.utils").gp_chat_new_ulti() end,                                                                        description = "GPT: Ultimate Assistant" },
-        { "<leader>ii", function() vim.api.nvim_exec("GpChatToggle vsplit", false) vim.api.nvim_win_set_width(0, 90) end,                               description = "GPT: Toggle" },
-        { "<leader>if", function() require("core.utils").gp_choose_agent() end,                                                                         description = "GPT: Find an Agent" },
-        { "<leader>ig", function() require("telescope").extensions.egrepify.egrepify({ cwd = os.getenv("HOME") .. "/.local/share/nvim/gp/chats" }) end, description = "GPT: Finder" },
+        { "<leader>io", function() require("core.utils").gp_chat_new_ulti() end,                                                                           description = "GPT: Ultimate Assistant" },
+        { "<leader>ii", function() require("core.utils").gp_chat_toggle() end,                                                                             description = "GPT: Toggle" },
+        {
+          "<leader>ia",
+          function()
+            require("core.utils").gp_choose_agent()
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
+          end,
+          description = "GPT: Choose an Agent",
+        },
+        { "<leader>ig", function() require("telescope").extensions.egrepify.egrepify({ cwd = os.getenv("HOME") .. "/.local/share/nvim/gp/chats" }) end,    description = "GPT: Finder" },
         -- { "<leader>ia", "<cmd>GpAppend<CR>",                                                                                                            description = "GPT: Append" },
         -- { "<leader>igpr", "<cmd>GpChatRespond<CR>",                                                                                                     description = "GPT: Respond" },
 
