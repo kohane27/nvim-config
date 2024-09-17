@@ -106,6 +106,12 @@ function M.gp_choose_agent(opts)
     :find()
 end
 
+function M.gp_chat_new_ulti()
+  vim.api.nvim_exec("GpChatNew vsplit", false)
+  vim.api.nvim_win_set_width(0, 100)
+  vim.api.nvim_exec("GpAgent Ultimate-Assistant", false)
+end
+
 function M.live_grep_from_project_git_root()
   if vim.fn.getcwd() == os.getenv("HOME") then
     return print("Current directory is home. Exiting")
