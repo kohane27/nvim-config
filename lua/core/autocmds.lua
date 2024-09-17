@@ -3,7 +3,7 @@
 -- local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
-vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+autocmd({"BufRead", "BufNewFile"}, {
   pattern = {"Fastfile", "Gemfile", "Rakefile"},
   callback = function()
     vim.bo.filetype = "ruby"
@@ -12,32 +12,32 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 })
 
 -- close the following pattern with `q`
-vim.api.nvim_create_autocmd('FileType', {
+autocmd('FileType', {
   pattern = {'qf', 'help', 'man', 'lspinfo'},
   callback = function() vim.api.nvim_set_keymap("n", "q", ":close<CR>", { noremap = true, silent = true }) end
 })
 
 -- quickfix buffers are not listed in the buffer list
-vim.api.nvim_create_autocmd('FileType', { pattern = 'qf', command = 'set nobuflisted' })
+autocmd('FileType', { pattern = 'qf', command = 'set nobuflisted' })
 
 -- Enable spellcheck
 autocmd("FileType", { pattern = { "gitcommit", "text" }, callback = function() vim.opt_local.spell = true end })
 
-vim.api.nvim_create_autocmd('BufWinEnter', { pattern = '*', command = 'set formatoptions-=cro' })
+autocmd('BufWinEnter', { pattern = '*', command = 'set formatoptions-=cro' })
 
 -- Highlight on yank
 autocmd("TextYankPost", { callback = function() vim.highlight.on_yank({ higroup = "IncSearch", timeout = "300" }) end })
 
 -- Disable diagnostics in node_modules (0 is current buffer only)
-vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, { pattern = '*/node_modules/*', callback = function() vim.diagnostic.disable(0) end })
+autocmd({'BufRead', 'BufNewFile'}, { pattern = '*/node_modules/*', callback = function() vim.diagnostic.disable(0) end })
 
 -- Show line diagnostics automatically in hover window
--- vim.api.nvim_create_autocmd({'CursorHold', 'CursorHoldI'},
+-- autocmd({'CursorHold', 'CursorHoldI'},
 -- { pattern = '*', callback = function() vim.diagnostic.open_float(nil, { focus = false }) end
 -- })
 
 -- Auto resize
-vim.api.nvim_create_autocmd('VimResized', { pattern = '*', command = 'tabdo wincmd =' })
+autocmd('VimResized', { pattern = '*', command = 'tabdo wincmd =' })
 
 -- Tmux rename
 if vim.fn.exists("$TMUX") == 1 then
@@ -49,7 +49,7 @@ if vim.fn.exists("$TMUX") == 1 then
 
   -- local shortened_cwd = string.gsub(cwd, host, "")
   -- print("shortened_cwd", shortened_cwd)
-  vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost", "BufNewFile", "BufEnter" }, {
+  autocmd({ "BufReadPost", "FileReadPost", "BufNewFile", "BufEnter" }, {
     pattern = "*",
     callback = function() vim.fn.system("tmux rename-window " .. cwd .. "/" .. vim.fn.expand("%:t")) end,
   })
@@ -57,13 +57,13 @@ end
 -- stylua: ignore end
 
 -- Clear `jumplist`
-vim.api.nvim_create_autocmd("VimEnter", { pattern = "*", command = "clearjumps" })
+autocmd("VimEnter", { pattern = "*", command = "clearjumps" })
 
 -- Clear marks
-vim.api.nvim_create_autocmd("VimEnter", { pattern = "*", command = "delmarks a-zA-Z0-9" })
+autocmd("VimEnter", { pattern = "*", command = "delmarks a-zA-Z0-9" })
 
 -- clear registers
-vim.api.nvim_create_autocmd("VimEnter", {
+autocmd("VimEnter", {
   pattern = "*",
   callback = function()
     for i = 97, 122 do -- ASCII for 'a' to 'z'
@@ -75,7 +75,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufLeave", "VimLeave" }, {
+autocmd({ "BufLeave", "VimLeave" }, {
   pattern = "/tmp/qutebrowser-editor-*",
   callback = function(ev)
     -- check if the buffer still exists
