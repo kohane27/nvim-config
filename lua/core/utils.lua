@@ -107,9 +107,24 @@ function M.gp_choose_agent(opts)
 end
 
 function M.gp_chat_new_ulti()
+  -- Get the name of the current buffer
+  local buf_name = vim.api.nvim_buf_get_name(0)
+
+  local home = os.getenv("HOME")
+  local dir = home .. "/.local/share/nvim/gp/chats/"
+
+  -- Check if the current buffer is a Markdown file in the gp chats directory
+  if buf_name:match("^" .. dir .. ".+%.md$") then
+    vim.cmd("bdelete")
+  end
   vim.api.nvim_exec("GpChatNew vsplit", false)
   vim.api.nvim_win_set_width(0, 100)
   vim.api.nvim_exec("GpAgent Ultimate-Assistant", false)
+end
+
+function M.gp_chat_toggle()
+  vim.api.nvim_exec("GpChatToggle vsplit", false)
+  vim.api.nvim_win_set_width(0, 90)
 end
 
 function M.live_grep_from_project_git_root()
