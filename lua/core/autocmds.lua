@@ -3,7 +3,6 @@
 -- local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
-
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
   pattern = {"Fastfile", "Gemfile", "Rakefile"},
   callback = function()
@@ -72,6 +71,25 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end
     for i = 49, 57 do -- ASCII for '1' to '9' (except 48 which is '0')
       vim.fn.setreg(string.char(i), "")
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufLeave", "VimLeave" }, {
+  pattern = "/tmp/qutebrowser-editor-*",
+  callback = function(ev)
+    -- check if the buffer still exists
+    if vim.api.nvim_buf_is_valid(ev.buf) then
+      local file_content = vim.api.nvim_buf_get_lines(ev.buf, 0, -1, false)
+      local content = table.concat(file_content, "\n")
+
+      -- ensure clipboard is available
+      if vim.fn.has("clipboard") == 1 then
+        -- use system clipboard
+        vim.fn.setreg("+", content)
+        -- synchronize with system clipboard
+        vim.cmd("let @* = @+")
+      end
     end
   end,
 })
