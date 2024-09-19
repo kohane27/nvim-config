@@ -15,13 +15,11 @@ return {
     local cmp = require("cmp")
     local luasnip = require("luasnip")
 
-    -- require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.config/nvim/snippets" })
-    -- require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.local/share/nvim/lazy/friendly-snippets" } })
-
     local check_backspace = function()
       local col = vim.fn.col(".") - 1
       return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
     end
+
     require("cmp").setup({
       snippet = {
         expand = function(args)
@@ -34,21 +32,13 @@ return {
         documentation = cmp.config.window.bordered(),
       },
 
-      mapping = {
-        ["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
-        ["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
-
-        ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-        ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-
-        -- ["<C-Space>"] = cmp.mapping(cmp.mapping.abort(), { "i", "c" }),
-        ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+      mapping = cmp.mapping.preset.insert({
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-e>"] = cmp.mapping.complete(),
         ["<C-y>"] = require("minuet").make_cmp_map(),
-        ["<C-e>"] = cmp.config.disable,
-
-        -- Accept currently selected item. If none selected, `select` first item.
-        -- Set `select` to `false` to only confirm explicitly selected items.
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<C-Space>"] = cmp.config.disable,
+        ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 
         -- Tab and S-Tab for `luasnip`
         ["<Tab>"] = cmp.mapping(function(fallback)
@@ -69,7 +59,8 @@ return {
             fallback()
           end
         end, { "i", "s" }),
-      },
+      }),
+
       formatting = {
         format = require("lspkind").cmp_format({
           mode = "symbol_text",
@@ -85,7 +76,7 @@ return {
       },
       sources = {
         { name = "luasnip" },
-        -- { name = "minuet" },
+        { name = "minuet" },
         {
           name = "nvim_lsp",
           -- remove snippets from LSP
