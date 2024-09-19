@@ -110,8 +110,7 @@ function M.gp_chat_new_ulti()
   -- Get the name of the current buffer
   local buf_name = vim.api.nvim_buf_get_name(0)
 
-  local home = os.getenv("HOME")
-  local dir = home .. "/.local/share/nvim/gp/chats/"
+  local dir = vim.fn.stdpath("data") .. "/gp/chats/"
 
   -- Check if the current buffer is a Markdown file in the gp chats directory
   if buf_name:match("^" .. dir .. ".+%.md$") then
@@ -243,7 +242,7 @@ function M.toggle_scratchpad_md()
     -- Close the current window
     vim.cmd("close")
   else
-    vim.cmd("vsplit $HOME/.config/nvim/scratchpad.md")
+    vim.cmd("vsplit " .. vim.fn.stdpath("config") .. "/scratchpad.md")
   end
 end
 
@@ -251,8 +250,7 @@ function M.toggle_latest_scratchpad()
   -- Get the name of the current buffer
   local buf_name = vim.api.nvim_buf_get_name(0)
 
-  local home = os.getenv("HOME")
-  local dir = home .. "/.cache/nvim/scratch.nvim/"
+  local dir = vim.fn.stdpath("data") .. "/scratch.nvim/"
 
   -- Check if the current buffer is a scratchpad Markdown file
   if buf_name:match("^" .. dir .. ".+%.md$") then
