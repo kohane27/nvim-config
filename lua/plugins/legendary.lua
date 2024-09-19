@@ -296,7 +296,7 @@ return {
         -- ╰──────────────────────────────────────────────────────────╯
         { "<leader>so", function() require("scratch.api").createScratchFileByType("md") end,        description = "Scratch: New File" },
         { "<leader>ss", function() require("core.utils").toggle_latest_scratchpad() end,            description = "Scratch: Toggle Latest" },
-        { "<leader>sS", function() require("core.utils").toggle_scratchpad_md() end,                description = "Scratch: Toggle scratchpad.md" },
+        { "<leader>sS", function() require("core.utils").toggle_global_scratchpad_md() end,         description = "Scratch: Toggle scratchpad.md" },
         { "<leader>sf", function() require("scratch.api").fzfScratch() end,                         description = "Scratch: Find File Content" },
         -- { "<leader>sn", function() require("scratch.api").openScratch() end,                     description = "Scratch: Find File Name" },
 
