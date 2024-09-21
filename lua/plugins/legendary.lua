@@ -16,7 +16,6 @@ return {
         --       use : if you need to have visual mode
 
         -- How to use `is_visual_mode`:
-        --
         -- 1. Need `mode = { "v" }`
         -- 2. `is_visual_mode` works and it auto injects `'<,'>`, which
         -- it must be used with `vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":DiffviewFileHistory<CR>", true, true, true), "t", true)`
@@ -31,7 +30,7 @@ return {
         -- start with g
         { "ga", function() require("core.utils").get_current_buffer_content() end,               description = "Get Current Buffer Content" },
         { "gA", function() require("core.utils").get_all_buffer_content() end,                   description = "Get All Buffer Content" },
-        { "gu", "<cmd>UndotreeToggle<CR>",                                                       description = "Undotree: Toggle" },
+        { "gu", function() vim.cmd(":UndotreeToggle") end,                                       description = "Undotree: Toggle" },
         { "gU", function() require("telescope").extensions.undo.undo() end,                      description = "Telescope: Undo" },
 
         -- start with z
@@ -39,14 +38,14 @@ return {
         { "zM", function() require("ufo").closeAllFolds() end,                                   description = "Close all folds" },
         { "zk", function() require("ufo").peekFoldedLinesUnderCursor() end,                      description = "Peek folded lines under cursor" },
 
-        { "F", "<cmd>Oil --float<CR>",                                                           description = "Oil" },
-        { "X", "<cmd>ISwapWith<CR>",                                                             description = "Swap Two Adjacent Nodes" },
+        { "F", function() vim.cmd(":Oil --float") end,                                           description = "Oil" },
+        { "X", function() vim.cmd(":ISwapWith") end,                                             description = "Swap Two Adjacent Nodes" },
         { "R", function() require("flash").treesitter() end,                                     description = "Flash Treesitter", mode = { "n", "x", "o" } },
 
         -- <C-KEY>
         { "<C-e>", function() require("yazi").yazi() end,                                        description = "Yazi" },
-        { "<C-q>", "<cmd>LazyGit<CR>",                                                           description = "Lazygit" },
-        { "<C-t>", "<cmd>ToggleTerm<CR>",                                                        description = "Toggle terminal" },
+        { "<C-q>", function() vim.cmd(":LazyGit") end,                                           description = "Lazygit" },
+        { "<C-t>", function() vim.cmd(":ToggleTerm") end,                                        description = "Toggle terminal" },
         { "<C-a>", function() require("dial.map").manipulate("increment", "normal") end,         description = "Increment" },
         { "<C-x>", function() require("dial.map").manipulate("decrement", "normal") end,         description = "Decrement" },
         { "<C-f>", function() require("nvim-tree.api").tree.toggle({ find_file = true }) end,    description = "Tree: Toggle With Focused File" },
@@ -92,9 +91,9 @@ return {
         -- not frequent below
         { "<leader>ff", function() require("telescope.builtin").find_files() end,         description = "Telescope: Find Files in Current Directory" },
         { "<leader>fr", function() require("telescope.builtin").resume() end,             description = "Telescope: Resume" },
-        { "<leader>fp", "<cmd>Telescope neoclip<CR>",                                     description = "Telescope: Clipboard" },
-        { "<leader>fB", "<cmd>Telescope scope buffers<CR>",                               description = "Telescope: Tabs" },
-        { "<leader>fd", "<cmd>Telescope frecency workspace=CWD<CR>",                      description = "Telescope: Find Frecency" },
+        { "<leader>fp", function() vim.cmd(":Telescope neoclip") end,                     description = "Telescope: Clipboard" },
+        { "<leader>fB", function() vim.cmd(":Telescope scope buffers") end,               description = "Telescope: Tabs" },
+        { "<leader>fd", function() vim.cmd(":Telescope frecency workspace=CWD") end,      description = "Telescope: Find Frecency" },
         { "<leader>fz", function() require("telescope").extensions.zoxide.list() end,     description = "Telescope: Zoxide" },
         { "<leader>fj", function() require("telescope.builtin").jumplist() end,           description = "Telescope: Jumplist" },
         { "<leader>fXc", function() require("telescope.builtin").command_history() end,   description = "Telescope: Command History" },
@@ -380,16 +379,16 @@ return {
         -- │ Miscellaneous (leader m with random keybindings)         │
         -- ╰──────────────────────────────────────────────────────────╯
         -- general
-        { "<leader>MXgea", "<cmd>ScopeMoveBuf<CR>",                                                         description = "Scope: Move Current Buffer to Specified Tab" },
+        { "<leader>MXgea", function() vim.cmd(":ScopeMoveBuf") end,                                         description = "Scope: Move Current Buffer to Specified Tab" },
         { "<leader>MXgeb", function() vim.api.nvim_feedkeys(":verbose map <C-i>", "c", false) end,          description = "Find Keybinding Conflict" },
-        { "<leader>MXgec", "<cmd>ScrollViewToggle<CR>",                                                     description = "ScrollViewToggle: Enable" },
-        { "<leader>MXged", "<cmd>TSContextToggle<CR>",                                                      description = "TSContextToggle: Toggle" },
-        { "<leader>MXgee", "<cmd>Telescope notify<CR>",                                                     description = "Notify: Search History" },
+        { "<leader>MXgec", function() vim.cmd(":ScrollViewToggle") end,                                     description = "ScrollViewToggle: Enable" },
+        { "<leader>MXged", function() vim.cmd(":TSContextToggle") end,                                      description = "TSContextToggle: Toggle" },
+        { "<leader>MXgee", function() vim.cmd(":Telescope notify") end,                                     description = "Notify: Search History" },
         { "<leader>MXgef", function() require('gitignore').generate() end,                                  description = "Generate gitignore" },
         { "<leader>MXgeg", function() require('kulala').run() end,                                          description = "Run kulala" },
 
         { "<leader>MXgeh", function() require("core.utils").markdown_preview() end,                         description = "Preview Markdown" },
-        { "<leader>MXgei", "<cmd>TableModeToggle<CR>",                                                      description = "vim-table-mode: Toggle" },
+        { "<leader>MXgei", function() vim.cmd(":TableModeToggle") end,                                      description = "vim-table-mode: Toggle" },
         {
           "<leader>MXgej",
           function()
