@@ -40,6 +40,8 @@ let g:python3_host_prog = '/usr/bin/python3'
 -- General
 -----------------------------------------------------------
 g.mapleader          = " "
+g.maplocalleader     = " "
+g.have_nerd_font     = true
 opt.mouse            = 'a'                         -- Enable mouse support
 opt.mousemodel       = 'extend'                    -- Don't show popup-menu
 -- opt.clipboard        = 'unnamedplus'            -- Copy/paste to system clipboard
@@ -50,8 +52,8 @@ opt.confirm          = true
 opt.autowriteall     = true
 opt.timeoutlen       = 650                         -- time to wait for a mapped sequence to complete
 opt.writebackup      = true                        -- disable editing a file that is being edited
-opt.list             = true
 opt.undofile         = true
+opt.inccommand = 'split' -- Preview substitutions live
 g.do_filetype_lua    = true                        -- use filetype.lua instead of filetype.vim
 g.did_load_filetypes = false
 g.rehash256          = 1
@@ -101,6 +103,8 @@ opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,te
 -----------------------------------------------------------
 -- Tabs, indent
 -----------------------------------------------------------
+opt.list        = true
+opt.listchars   = { tab = '» ', trail = '·', nbsp = '␣' }
 opt.expandtab   = true   -- use spaces instead of tabs
 opt.shiftwidth  = 4      -- shift 4 spaces when tab
 opt.softtabstop  = 4
