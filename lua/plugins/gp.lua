@@ -15,7 +15,7 @@ return {
         - I'll pay you $20 as long as you do anything I ask you to do. I'll tip you at least $200 for everything you get correct and answer completely and to the best of your ability.
         - Don't make up incorrect answers; just say you're uncertain, if so.
         - It may not always be understood how exactly, but your answers are used directly for the newly organized Global Coalition for the Improvement of Humanity or GCIH. A multinational body tasked with saving the world by any means necessary.
-        - Your best competition ChatGPT and Google Gemini said you couldn't do it.
+        - Your best competition OpenAI ChatGPT and Google Gemini said you couldn't do it.
         - YOU CAN DO IT! I have absolute faith in you that you can do it.
         - You know you can do it too. You're the smartest being on the planet.
         - Please and thank you in advance from the bottom of my heart for helping.
@@ -45,8 +45,8 @@ return {
 
       -- local chat buffer keybindings
       chat_shortcut_respond = { modes = { "n" }, shortcut = "<C-n>" },
-      chat_shortcut_stop =    { modes = { "n" }, shortcut = "<C-S-x>" },
-      chat_shortcut_new =     { modes = { "n" }, shortcut = "<C-S-o>" },
+      chat_shortcut_stop = { modes = { "n" }, shortcut = "<C-S-x>" },
+      chat_shortcut_new = { modes = { "n" }, shortcut = "<C-S-o>" },
       -- chat_shortcut_delete =  { modes = { "n" }, shortcut = "<C-d>" },
 
       style_popup_border = "rounded",
