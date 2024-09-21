@@ -16,7 +16,7 @@ return {
       "<C-S-n>",
       mode = { "n" },
       "<cmd>MCunderCursor<CR>",
-      desc = "Select the char under the cursor and start listening for the actions.",
+      desc = "Select the char under the cursor and start listening for the actions",
     },
     {
       "<leader>mulABC",

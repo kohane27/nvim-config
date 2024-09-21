@@ -304,6 +304,7 @@ return {
         -- ╰──────────────────────────────────────────────────────────╯
         { "<leader>io", function() require("core.utils").gp_chat_new_ulti() end,                                                                           description = "GPT: Ultimate Assistant" },
         { "<leader>ii", function() require("core.utils").gp_chat_toggle() end,                                                                             description = "GPT: Toggle" },
+        { "<leader>if", function() require("telescope").extensions.egrepify.egrepify({ cwd = os.getenv("HOME") .. "/.local/share/nvim/gp/chats" }) end,    description = "GPT: Finder" },
         {
           "<leader>ia",
           function()
@@ -312,9 +313,17 @@ return {
           end,
           description = "GPT: Choose an Agent",
         },
-        { "<leader>ig", function() require("telescope").extensions.egrepify.egrepify({ cwd = os.getenv("HOME") .. "/.local/share/nvim/gp/chats" }) end,    description = "GPT: Finder" },
-        -- { "<leader>ia", "<cmd>GpAppend<CR>",                                                                                                            description = "GPT: Append" },
-        -- { "<leader>igpr", "<cmd>GpChatRespond<CR>",                                                                                                     description = "GPT: Respond" },
+        {
+          "<leader>ir",
+          function()
+            local current_buf = vim.api.nvim_get_current_buf()
+            local buf_type = vim.api.nvim_buf_get_option(current_buf, "buftype")
+            if buf_type == "markdown" then
+              vim.cmd("GpChatRespond")
+            end
+          end,
+          description = "GPT: Respond",
+        },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ AI                                                       │
