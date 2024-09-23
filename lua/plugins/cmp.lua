@@ -36,7 +36,7 @@ return {
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-e>"] = cmp.mapping.complete(),
-        ["<C-y>"] = require("minuet").make_cmp_map(),
+        -- ["<C-y>"] = require("minuet").make_cmp_map(),
         ["<C-Space>"] = cmp.config.disable,
         ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 
@@ -70,13 +70,13 @@ return {
             buffer = "[Buffer]",
             path = "[Path]",
             luasnip = "[Snippet]",
-            minuet = "[AI]",
+            -- minuet = "[AI]",
           },
         }),
       },
       sources = {
         { name = "luasnip" },
-        { name = "minuet" },
+        -- { name = "minuet" },
         {
           name = "nvim_lsp",
           -- remove snippets from LSP
