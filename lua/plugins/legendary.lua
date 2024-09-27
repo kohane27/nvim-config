@@ -305,14 +305,7 @@ return {
         { "<leader>io", function() require("core.utils").gp_chat_new_ulti() end,                                                                           description = "GPT: Ultimate Assistant" },
         { "<leader>ii", function() require("core.utils").gp_chat_toggle() end,                                                                             description = "GPT: Toggle" },
         { "<leader>if", function() require("telescope").extensions.egrepify.egrepify({ cwd = os.getenv("HOME") .. "/.local/share/nvim/gp/chats" }) end,    description = "GPT: Finder" },
-        {
-          "<leader>ia",
-          function()
-            require("core.utils").gp_choose_agent()
-            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
-          end,
-          description = "GPT: Choose an Agent",
-        },
+        { "<leader>ia", function() require("core.utils").gp_choose_agent() end,                                                                            description = "GPT: Choose an Agent" },
         {
           "<leader>ir",
           function()
