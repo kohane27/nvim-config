@@ -377,6 +377,8 @@ return {
           description = 'Delete Everything After `foo`',
         },
 
+        { "<leader>me", function() require("emoji").insert() end,                  description = "Insert Emoji" },
+
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Miscellaneous (leader m with random keybindings)         │
         -- ╰──────────────────────────────────────────────────────────╯
