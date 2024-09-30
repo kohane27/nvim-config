@@ -84,8 +84,8 @@ return {
         },
         {
           "<leader>fs",
-          function() require('spectre').open({ search_text="\\w+ello\\b", replace_text="world", path="**"  }) end,
-          description = "Spectre: Search in Files"
+          function() require("grug-far").open({ transient = true, prefills = { flags = "--fixed-strings" } }) end,
+          description = "grug-far: Open"
         },
 
         -- not frequent below
