@@ -13,7 +13,7 @@ return {
       desc = "Create a selection for selected text or word under cursor",
     },
     {
-      "<C-S-n>",
+      "<leader>mulABCD",
       mode = { "n" },
       "<cmd>MCunderCursor<CR>",
       desc = "Select the char under the cursor and start listening for the actions",
@@ -36,8 +36,14 @@ return {
       },
       generate_hints = { config = { column_count = 1, max_hint_length = 30 } },
       normal_keys = {
-        ["<C-a>"] = { method = false },
-        ["ga"] = { method = N.find_all_matches, opts = { desc = "Find all" } },
+        -- ["<C-a>"] = { method = false },
+        -- ["ga"] = { method = N.find_all_matches, opts = { desc = "Find all" } },
+        ["r"] = { method = false }, -- because it uses 0 register
+        ["gu"] = { method = false },
+        ["gU"] = { method = false },
+        ["Z"] = { method = false },
+        ["z"] = { method = false },
+        ["@"] = { method = false },
       },
       insert_keys = {
         ["<C-c>"] = { method = false },
@@ -49,6 +55,9 @@ return {
       },
       extend_keys = {
         ["O"] = { method = false },
+        ["r"] = { method = false },
+        ["t"] = { method = false },
+        ["y"] = { method = false },
       },
 
       -- lightpurple1 from vim-visual-multi
