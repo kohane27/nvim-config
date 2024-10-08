@@ -160,20 +160,20 @@ return {
         { "H", "<cmd>BufferLineCyclePrev<CR>",                                 description = "Buffer: Move to Previous" },
         { "L", "<cmd>BufferLineCycleNext<CR>",                                 description = "Buffer: Move to Next" },
 
-        { "<A-,>", "<cmd>BufferLineMovePrev<CR>",                              description = "Buffer: Re-order to Previous" },
-        { "<A-.>", "<cmd>BufferLineMoveNext<CR>",                              description = "Buffer: Re-order to Next" },
-
         { "<C-y>", "<cmd>BufferLineTogglePin<CR>",                             description = "Buffer: pin" },
         { "<C-h>", function() require("bufferline").go_to(1, true) end,        description = "Buffer: Go to 1" },
         { "<C-j>", function() require("bufferline").go_to(2, true) end,        description = "Buffer: Go to 2" },
         { "<C-k>", function() require("bufferline").go_to(3, true) end,        description = "Buffer: Go to 3" },
         { "<C-l>", function() require("bufferline").go_to(4, true) end,        description = "Buffer: Go to 4" },
 
-        { "<leader>bl", "<cmd>BufferLineCloseRight<CR>",                       description = "Buffer: Close All Buffers to the Right" },
-        { "<leader>bh", "<cmd>BufferLineCloseLeft<CR>",                        description = "Buffer: Close All Buffers to the Left" },
-        { "<leader>bo", "<cmd>BufferLineCloseOthers<CR>",                      description = "Buffer: Close All Other Visible Buffers" },
-        { "<leader>bp", "<cmd>BufferLinePick<CR>",                             description = "Buffer: Choose a Buffer" },
-        { "<leader>bc", "<cmd>BufferLinePickClose<CR>",                        description = "Buffer: Choose a Closing Buffer" },
+        { "<leader>bl", "<cmd>BufferLineMovePrev<CR>",                         description = "Buffer: Re-order to Previous" },
+        { "<leader>bh", "<cmd>BufferLineMoveNext<CR>",                         description = "Buffer: Re-order to Next" },
+
+        { "<leader>bcl", "<cmd>BufferLineCloseRight<CR>",                      description = "Buffer: Close All Buffers to the Right" },
+        { "<leader>bch", "<cmd>BufferLineCloseLeft<CR>",                       description = "Buffer: Close All Buffers to the Left" },
+        { "<leader>bco", "<cmd>BufferLineCloseOthers<CR>",                     description = "Buffer: Close All Other Visible Buffers" },
+        -- { "<leader>bp", "<cmd>BufferLinePick<CR>",                             description = "Buffer: Choose a Buffer" },
+        -- { "<leader>bc", "<cmd>BufferLinePickClose<CR>",                        description = "Buffer: Choose a Closing Buffer" },
 
         { "g1", function() require("bufferline").go_to(1)  end,                description = "Buffer: Go to 1" },
         { "g2", function() require("bufferline").go_to(2)  end,                description = "Buffer: Go to 2" },
