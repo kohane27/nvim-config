@@ -1,7 +1,6 @@
-local map = vim.keymap.set
-local opts = { noremap = true, silent = true }
+local map = require("core.utils").map
 
-map("n", "<CR>", ":lua require('kulala').run()<CR>", opts)
+map("n", "<CR>", ":lua require('kulala').run()<CR>")
 
 -- -- Disable spellchecking
 -- vim.opt_local.spell = false

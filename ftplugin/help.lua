@@ -4,7 +4,7 @@
 -- Press s to find the next subject, or S to find the previous subject.
 -- Press o to find the next option, or O to find the previous option.
 
-local map = vim.keymap.set
+local map = require("core.utils").map
 local opts = { noremap = true, silent = true, buffer = 0 }
 
 map("n", "<CR>", "<C-]>", opts)

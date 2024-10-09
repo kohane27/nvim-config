@@ -6,7 +6,7 @@ local autocmd = vim.api.nvim_create_autocmd
 -- close the following pattern with `q`
 autocmd('FileType', {
   pattern = {'qf', 'help', 'man', 'lspinfo'},
-  callback = function() vim.api.nvim_set_keymap("n", "q", ":close<CR>", { noremap = true, silent = true }) end
+  callback = function() vim.keymap.set("n", "q", ":close<CR>", { noremap = true, silent = true }) end
 })
 
 -- quickfix buffers are not listed in the buffer list
