@@ -3,13 +3,7 @@
 -- │ leader key is set as <space> in options.lua              │
 -- ╰──────────────────────────────────────────────────────────╯
 
-local function map(mode, lhs, rhs)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend("force", options)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
+local map = require("core.utils").map
 
 -- NOTE: Insert mode `C-g` is unmapped
 -- custom keymaps in files:

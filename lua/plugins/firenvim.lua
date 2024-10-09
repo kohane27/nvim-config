@@ -21,12 +21,14 @@ return {
 
     if vim.g.started_by_firenvim then
       vim.o.filetype = "txt"
+
+      local map = require("core.utils").map
       -- `xremap` config.yml
       -- C-w: C-KEY_BACKSPACE
-      vim.api.nvim_set_keymap("i", "<C-BS>", "<C-W>", { noremap = true, silent = true })
+      map("i", "<C-BS>", "<C-W>")
 
       -- different from `legendary.nvim`'s
-      vim.api.nvim_set_keymap("n", "<leader>q", ":wq<CR>", { noremap = true, silent = true })
+      map("n", "<leader>q", ":wq<CR>")
 
       -- colorscheme nightfox
       -- nightfly or material also ok

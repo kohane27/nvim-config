@@ -6,6 +6,7 @@ return {
   -- stylua: ignore
   config = function()
     local Hydra = require("hydra")
+    local map = require("core.utils").map
  --    local dap = require("dap")
  --
  --    DapHydra = Hydra({
@@ -60,8 +61,8 @@ return {
     --     { "<Esc>", nil, { exit = true, nowait = true } },
     --   },
     -- })
-    -- vim.api.nvim_set_keymap('n', '<C-d>', '<C-d><cmd>lua require("hydra").activate(MyScroll)<CR>', { silent = true, noremap = true })
-    -- vim.api.nvim_set_keymap('n', '<C-u>', '<C-u><cmd>lua require("hydra").activate(MyScroll)<CR>', { silent = true, noremap = true })
+    -- map('n', '<C-d>', '<C-d><cmd>lua require("hydra").activate(MyScroll)<CR>')
+    -- map('n', '<C-u>', '<C-u><cmd>lua require("hydra").activate(MyScroll)<CR>')
 
     --  ╭──────────────────────────────────────────────────────────╮
     --  │ Code Navigation starts with ,                            │

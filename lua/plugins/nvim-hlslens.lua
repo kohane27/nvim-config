@@ -9,13 +9,12 @@ return {
   config = function(_, opts)
     require("hlslens").setup(opts)
 
-    local map = vim.keymap.set
-    local opts = { noremap = true, silent = true }
+    local map = require("core.utils").map
 
-    map("n", "n", "<cmd>execute('normal! ' . v:count1 . 'n')<CR><cmd>lua require('hlslens').start()<CR>zz", opts)
-    map("n", "N", "<cmd>execute('normal! ' . v:count1 . 'N')<CR><cmd>lua require('hlslens').start()<CR>zz", opts)
+    map("n", "n", "<cmd>execute('normal! ' . v:count1 . 'n')<CR><cmd>lua require('hlslens').start()<CR>zz")
+    map("n", "N", "<cmd>execute('normal! ' . v:count1 . 'N')<CR><cmd>lua require('hlslens').start()<CR>zz")
 
-    map("n", "*", "*<cmd>lua require('hlslens').start()<CR>zz", opts)
-    map("n", "#", "#<cmd>lua require('hlslens').start()<CR>zz", opts)
+    map("n", "*", "*<cmd>lua require('hlslens').start()<CR>zz")
+    map("n", "#", "#<cmd>lua require('hlslens').start()<CR>zz")
   end,
 }
