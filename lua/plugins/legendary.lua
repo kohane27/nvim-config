@@ -166,8 +166,8 @@ return {
         { "<C-k>", function() require("bufferline").go_to(3, true) end,        description = "Buffer: Go to 3" },
         { "<C-l>", function() require("bufferline").go_to(4, true) end,        description = "Buffer: Go to 4" },
 
-        { "<leader>bl", "<cmd>BufferLineMovePrev<CR>",                         description = "Buffer: Re-order to Previous" },
-        { "<leader>bh", "<cmd>BufferLineMoveNext<CR>",                         description = "Buffer: Re-order to Next" },
+        { "<leader>bh", "<cmd>BufferLineMovePrev<CR>",                         description = "Buffer: Re-order to Previous" },
+        { "<leader>bl", "<cmd>BufferLineMoveNext<CR>",                         description = "Buffer: Re-order to Next" },
 
         { "<leader>bcl", "<cmd>BufferLineCloseRight<CR>",                      description = "Buffer: Close All Buffers to the Right" },
         { "<leader>bch", "<cmd>BufferLineCloseLeft<CR>",                       description = "Buffer: Close All Buffers to the Left" },
