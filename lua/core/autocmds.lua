@@ -31,17 +31,17 @@ autocmd({'BufRead', 'BufNewFile'}, { pattern = '*/node_modules/*', callback = fu
 -- Auto resize
 autocmd('VimResized', { pattern = '*', command = 'tabdo wincmd =' })
 
-autocmd({ "BufReadPost", "FileReadPost", "BufNewFile", "BufEnter" }, {
-  pattern = "*",
-  callback = function()
-    -- tmux rename
-    if vim.fn.exists("$TMUX") == 1 then
-      local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-      local filename = vim.fn.expand("%:t")
-      vim.fn.system("tmux rename-window " .. cwd .. "/" .. filename)
-    end
-  end
-})
+-- autocmd({ "BufReadPost", "FileReadPost", "BufNewFile", "BufEnter" }, {
+--   pattern = "*",
+--   callback = function()
+--     -- tmux rename
+--     if vim.fn.exists("$TMUX") == 1 then
+--       local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+--       local filename = vim.fn.expand("%:t")
+--       vim.fn.system("tmux rename-window " .. cwd .. "/" .. filename)
+--     end
+--   end
+-- })
 
 -- clear `jumplist`
 autocmd("VimEnter", { pattern = "*", command = "clearjumps" })
