@@ -38,7 +38,7 @@ return {
     provider = "claude",
     claude = {
       endpoint = "https://api.anthropic.com",
-      model = "claude-3-5-sonnet-20240620",
+      model = "claude-3-5-sonnet-20241022",
       proxy = "http://127.0.0.1:8888",
       -- allow_insecure = false,
     },
