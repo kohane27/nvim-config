@@ -92,7 +92,7 @@ function M.gp_choose_agent(opts)
           actions.close(prompt_bufnr)
           local command = selection.value.command
           vim.api.nvim_exec("GpChatNew vsplit", false)
-          vim.api.nvim_win_set_width(0, 80)
+          vim.api.nvim_win_set_width(0, 100)
           vim.api.nvim_exec("GpAgent " .. command, false)
         end)
         return true
