@@ -32,8 +32,8 @@ return {
       cmd_prefix = "Gp",
       curl_params = { "--proxy", "http://127.0.0.1:8888" },
 
-      chat_dir = os.getenv("HOME") .. "/Cloud/laptop/local/share/gp/chats",
-      state_dir = os.getenv("HOME") .. "/Cloud/laptop/local/share/gp/persisted",
+      chat_dir = os.getenv("HOME") .. "/Cloud/laptop/nvim/local/share/gp/chats",
+      state_dir = os.getenv("HOME") .. "/Cloud/laptop/nvim/local/share/gp/persisted",
 
       -- remove helper text
       chat_template = require("gp.defaults").short_chat_template,
