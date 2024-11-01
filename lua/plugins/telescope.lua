@@ -18,8 +18,6 @@ return {
     -- better `live_grep`
     { "fdschmidt93/telescope-egrepify.nvim" },
     { "jvgrootveld/telescope-zoxide" },
-    -- remove annoying `notify`
-    { "kohane27/telescope-frecency.nvim" },
   },
   config = function()
     local actions = require("telescope.actions")
@@ -106,10 +104,10 @@ return {
           override_file_sorter = true,
           case_mode = "smart_case", -- or "smart_case", "ignore_case", "respect_case"
         },
-        frecency = {
-          db_safe_mode = false,
-          ignore_patterns = { "*.git/*", "*/tmp/*", "*/node_modules/*" },
-        },
+        -- frecency = {
+        --   db_safe_mode = false,
+        --   ignore_patterns = { "*.git/*", "*/tmp/*", "*/node_modules/*" },
+        -- },
         zoxide = {
           mappings = {
             default = {
@@ -160,7 +158,6 @@ return {
       },
     })
     telescope.load_extension("fzf")
-    telescope.load_extension("frecency")
     telescope.load_extension("zoxide")
     telescope.load_extension("scope")
     telescope.load_extension("egrepify")

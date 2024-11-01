@@ -7,7 +7,7 @@ return {
     include_builtin = false,
     include_legendary_cmds = false,
     -- NOTE: this takes precedence over other sort options
-    sort = { frecency = { db_root = string.format("%s/legendary/", vim.fn.stdpath("data")), max_timestamps = 20 } },
+    -- sort = { frecency = { db_root = string.format("%s/legendary/", vim.fn.stdpath("data")), max_timestamps = 20 } },
     -- `keys` spec will be automatically loaded
     extensions = { lazy_nvim = true, diffview = true },
       -- stylua: ignore
@@ -93,7 +93,7 @@ return {
         { "<leader>fr", function() require("telescope.builtin").resume() end,             description = "Telescope: Resume" },
         { "<leader>fp", function() vim.cmd(":Telescope neoclip") end,                     description = "Telescope: Clipboard" },
         { "<leader>fB", function() vim.cmd(":Telescope scope buffers") end,               description = "Telescope: Tabs" },
-        { "<leader>fd", function() vim.cmd(":Telescope frecency workspace=CWD") end,      description = "Telescope: Find Frecency" },
+        -- { "<leader>fd", function() vim.cmd(":Telescope frecency workspace=CWD") end,      description = "Telescope: Find Frecency" },
         { "<leader>fz", function() require("telescope").extensions.zoxide.list() end,     description = "Telescope: Zoxide" },
         { "<leader>fj", function() require("telescope.builtin").jumplist() end,           description = "Telescope: Jumplist" },
         { "<leader>fXc", function() require("telescope.builtin").command_history() end,   description = "Telescope: Command History" },
