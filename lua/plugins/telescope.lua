@@ -17,6 +17,7 @@ return {
     { "debugloop/telescope-undo.nvim" },
     -- better `live_grep`
     { "fdschmidt93/telescope-egrepify.nvim" },
+    { "nvim-telescope/telescope-live-grep-args.nvim" },
     { "jvgrootveld/telescope-zoxide" },
   },
   config = function()
@@ -122,6 +123,18 @@ return {
           AND = true,
           permutations = true, -- imply AND & match all permutations of prompt tokens
         },
+        live_grep_args = {
+          -- enable/disable auto-quoting
+          auto_quoting = true,
+          mappings = {
+            i = {
+              ["<C-t>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = ' -t' }),
+              ["<C-i>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob " }),
+              -- freeze the current list and start a fuzzy search in the frozen list
+              ["<C-space>"] = actions.to_fuzzy_refine,
+            },
+          },
+        },
         undo = {
           use_delta = true,
           side_by_side = true,
@@ -161,6 +174,7 @@ return {
     telescope.load_extension("zoxide")
     telescope.load_extension("scope")
     telescope.load_extension("egrepify")
+    telescope.load_extension("live_grep_args")
     telescope.load_extension("undo")
     vim.api.nvim_set_hl(0, "TelescopePathSeparator", {})
   end,
