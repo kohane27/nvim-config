@@ -122,10 +122,9 @@ return {
           auto_quoting = true,
           mappings = {
             i = {
-              ["<C-t>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = ' -t' }),
-              ["<C-i>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob " }),
-              -- freeze the current list and start a fuzzy search in the frozen list
-              ["<C-space>"] = actions.to_fuzzy_refine,
+              ["<C-i>"] = require("telescope-live-grep-args.actions").quote_prompt(),
+              ["<C-k>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob '**/*.{js,ts}' " }),
+              ["<C-f>"] = actions.to_fuzzy_refine, -- freeze the current list and start a fuzzy search in the frozen list
             },
           },
         },
