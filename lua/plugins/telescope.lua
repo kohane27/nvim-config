@@ -15,8 +15,6 @@ return {
     -- ╰─────────────────────────────────────────────────────────╯
     -- undo tree
     { "debugloop/telescope-undo.nvim" },
-    -- better `live_grep`
-    { "fdschmidt93/telescope-egrepify.nvim" },
     { "nvim-telescope/telescope-live-grep-args.nvim" },
     { "jvgrootveld/telescope-zoxide" },
   },
@@ -119,10 +117,6 @@ return {
             },
           },
         },
-        egrepify = {
-          AND = true,
-          permutations = true, -- imply AND & match all permutations of prompt tokens
-        },
         live_grep_args = {
           -- enable/disable auto-quoting
           auto_quoting = true,
@@ -173,7 +167,6 @@ return {
     telescope.load_extension("fzf")
     telescope.load_extension("zoxide")
     telescope.load_extension("scope")
-    telescope.load_extension("egrepify")
     telescope.load_extension("live_grep_args")
     telescope.load_extension("undo")
     vim.api.nvim_set_hl(0, "TelescopePathSeparator", {})

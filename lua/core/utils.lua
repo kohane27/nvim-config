@@ -169,8 +169,7 @@ function M.live_grep_from_project_git_root()
   if vim.fn.mode() == "v" or vim.fn.mode() == "V" or vim.fn.mode() == "^V" then
     opts.default_text = require("core.utils").get_visual_selection()
   end
-  -- require("telescope.builtin").live_grep(opts)
-  require("telescope").extensions.egrepify.egrepify(opts)
+  require("telescope.builtin").live_grep(opts)
 end
 
 function M.find_files_from_project_git_root()
