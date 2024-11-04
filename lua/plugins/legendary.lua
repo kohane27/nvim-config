@@ -60,10 +60,16 @@ return {
         -- │ Telescope                                                │
         -- ╰──────────────────────────────────────────────────────────╯
         {
-          "<leader>fg",
-          function() require("core.utils").live_grep_from_project_git_root() end,
+          '<leader>fg',
+          function()
+            if require("legendary.toolbox").is_visual_mode() then
+              require("telescope-live-grep-args.shortcuts").grep_word_under_cursor()
+            else
+              require('telescope').extensions.live_grep_args.live_grep_args()
+            end
+          end,
+          mode = { 'n', 'v' },
           description = "Telescope: Find Text",
-          mode = { "n", "x" },
         },
         {
           "<leader>ft",
@@ -305,7 +311,19 @@ return {
         -- ╰──────────────────────────────────────────────────────────╯
         { "<leader>io", function() require("core.utils").gp_chat_new_ulti() end,                                                                           description = "GPT: Ultimate Assistant" },
         { "<leader>ii", function() require("core.utils").gp_chat_toggle() end,                                                                             description = "GPT: Toggle" },
-        { "<leader>if", function() require("telescope").extensions.egrepify.egrepify({ cwd = os.getenv("HOME") .. "/.local/share/nvim/gp/chats" }) end,    description = "GPT: Finder" },
+        -- { "<leader>if", function() require("telescope").extensions.egrepify.egrepify({ cwd = os.getenv("HOME") .. "/.local/share/nvim/gp/chats" }) end,    description = "GPT: Finder" },
+        {
+          "<leader>if",
+          function()
+            local gp_chats_dir = os.getenv("HOME") .. "/Cloud/laptop/nvim/local/share/gp/chats"
+            require('telescope').extensions.live_grep_args.live_grep_args({
+            search_dirs = { gp_chats_dir },
+            default_text = os.date("%Y-%m-%d")
+          })
+          end,
+          description = "GPT: Finder"
+        },
+
         { "<leader>ia", function() require("core.utils").gp_choose_agent() end,                                                                            description = "GPT: Choose an Agent" },
         {
           "<leader>ir",
