@@ -311,7 +311,6 @@ return {
         -- ╰──────────────────────────────────────────────────────────╯
         { "<leader>io", function() require("core.utils").gp_chat_new_ulti() end,                                                                           description = "GPT: Ultimate Assistant" },
         { "<leader>ii", function() require("core.utils").gp_chat_toggle() end,                                                                             description = "GPT: Toggle" },
-        -- { "<leader>if", function() require("telescope").extensions.egrepify.egrepify({ cwd = os.getenv("HOME") .. "/.local/share/nvim/gp/chats" }) end,    description = "GPT: Finder" },
         {
           "<leader>if",
           function()
