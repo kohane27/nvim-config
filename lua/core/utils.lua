@@ -126,51 +126,51 @@ function M.gp_chat_toggle()
   vim.api.nvim_win_set_width(0, 90)
 end
 
-function M.live_grep_from_project_git_root()
-  if vim.fn.getcwd() == os.getenv("HOME") then
-    return print("Current directory is home. Exiting")
-  end
-  local function is_git_repo()
-    vim.fn.system("git rev-parse --is-inside-work-tree")
-    return vim.v.shell_error == 0
-  end
-  local function get_git_root()
-    local dot_git_path = vim.fn.finddir(".git", ".;")
-    return vim.fn.fnamemodify(dot_git_path, ":h")
-  end
-  local opts = {}
-  if is_git_repo() then
-    opts = {
-      cwd = get_git_root(),
-      -- use `ripgrep`
-      vimgrep_arguments = {
-        "rg",
-        "--ignore-case", -- all patterns will be searched case insensitively
-        "--follow", -- follow symbolic links
-        "--hidden", -- Search hidden files and directories
-        -- "--no-ignore", -- do NOT respect .gitignore
-        -- "--no-heading", -- don't group matches by each file
-        -- "--with-filename", -- print the file path with the matched lines
-        -- "--line-number", -- show line numbers
-        -- "--column", -- show column numbers
-
-        "--glob=!**/.git/*",
-        "--glob=!**/node_modules/*",
-        "--glob=!**/.terraform/*",
-        "--glob=!**/build/*",
-        "--glob=!**/dist/*",
-        "--glob=!**/.DS_Store",
-        "--glob=!**/yarn.lock",
-        "--glob=!**/package-lock.json",
-      },
-    }
-  end
-  -- If in visual mode, get the selected text and add it to opts
-  if vim.fn.mode() == "v" or vim.fn.mode() == "V" or vim.fn.mode() == "^V" then
-    opts.default_text = require("core.utils").get_visual_selection()
-  end
-  require("telescope.builtin").live_grep(opts)
-end
+-- function M.live_grep_from_project_git_root()
+--   if vim.fn.getcwd() == os.getenv("HOME") then
+--     return print("Current directory is home. Exiting")
+--   end
+--   local function is_git_repo()
+--     vim.fn.system("git rev-parse --is-inside-work-tree")
+--     return vim.v.shell_error == 0
+--   end
+--   local function get_git_root()
+--     local dot_git_path = vim.fn.finddir(".git", ".;")
+--     return vim.fn.fnamemodify(dot_git_path, ":h")
+--   end
+--   local opts = {}
+--   if is_git_repo() then
+--     opts = {
+--       cwd = get_git_root(),
+--       -- use `ripgrep`
+--       vimgrep_arguments = {
+--         "rg",
+--         "--ignore-case", -- all patterns will be searched case insensitively
+--         "--follow", -- follow symbolic links
+--         "--hidden", -- Search hidden files and directories
+--         -- "--no-ignore", -- do NOT respect .gitignore
+--         -- "--no-heading", -- don't group matches by each file
+--         -- "--with-filename", -- print the file path with the matched lines
+--         -- "--line-number", -- show line numbers
+--         -- "--column", -- show column numbers
+--
+--         "--glob=!**/.git/*",
+--         "--glob=!**/node_modules/*",
+--         "--glob=!**/.terraform/*",
+--         "--glob=!**/build/*",
+--         "--glob=!**/dist/*",
+--         "--glob=!**/.DS_Store",
+--         "--glob=!**/yarn.lock",
+--         "--glob=!**/package-lock.json",
+--       },
+--     }
+--   end
+--   -- If in visual mode, get the selected text and add it to opts
+--   if vim.fn.mode() == "v" or vim.fn.mode() == "V" or vim.fn.mode() == "^V" then
+--     opts.default_text = require("core.utils").get_visual_selection()
+--   end
+--   require("telescope.builtin").live_grep(opts)
+-- end
 
 function M.find_files_from_project_git_root()
   if vim.fn.getcwd() == os.getenv("HOME") then
