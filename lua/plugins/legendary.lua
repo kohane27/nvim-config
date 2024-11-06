@@ -309,7 +309,7 @@ return {
             local gp_chats_dir = os.getenv("HOME") .. "/Cloud/laptop/nvim/local/share/scratch.nvim"
             require('telescope').extensions.live_grep_args.live_grep_args({
             search_dirs = { gp_chats_dir },
-            -- default_text = string.format('"%s" -tmd foo', os.date("%Y-%m-%d"))
+            default_text = '24'
           })
           end,
           description = "Scratch: Find File Content"
@@ -327,7 +327,8 @@ return {
             local gp_chats_dir = os.getenv("HOME") .. "/Cloud/laptop/nvim/local/share/gp/chats"
             require('telescope').extensions.live_grep_args.live_grep_args({
             search_dirs = { gp_chats_dir },
-            default_text = string.format('"%s" -tmd foo', os.date("%Y-%m-%d"))
+            -- default_text = string.format('"%s" -tmd foo', os.date("%Y-%m-%d"))
+            default_text = "2024"
           })
           end,
           description = "GPT: Finder"
