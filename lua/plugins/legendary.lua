@@ -303,7 +303,17 @@ return {
         { "<leader>so", function() require("scratch.api").createScratchFileByType("md") end,        description = "Scratch: New File" },
         { "<leader>ss", function() require("core.utils").toggle_latest_scratchpad() end,            description = "Scratch: Toggle Latest" },
         { "<leader>sS", function() require("core.utils").toggle_global_scratchpad_md() end,         description = "Scratch: Toggle scratchpad.md" },
-        { "<leader>sf", function() require("scratch.api").fzfScratch() end,                         description = "Scratch: Find File Content" },
+        {
+          "<leader>sf",
+          function()
+            local gp_chats_dir = os.getenv("HOME") .. "/Cloud/laptop/nvim/local/share/scratch.nvim"
+            require('telescope').extensions.live_grep_args.live_grep_args({
+            search_dirs = { gp_chats_dir },
+            -- default_text = string.format('"%s" -tmd foo', os.date("%Y-%m-%d"))
+          })
+          end,
+          description = "Scratch: Find File Content"
+        },
         -- { "<leader>sn", function() require("scratch.api").openScratch() end,                     description = "Scratch: Find File Name" },
 
         -- ╭──────────────────────────────────────────────────────────╮
