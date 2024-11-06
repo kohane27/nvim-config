@@ -126,10 +126,10 @@ return {
       },
     })
 
-    -- 6. ruff_lsp
-    lspconfig.ruff_lsp.setup({
+    -- 6. ruff
+    lspconfig.ruff.setup({
       on_attach = function(client, bufnr)
-        if client.name == "ruff_lsp" then
+        if client.name == "ruff" then
           -- Disable hover in favor of `Pyright`
           client.server_capabilities.hoverProvider = false
         end
