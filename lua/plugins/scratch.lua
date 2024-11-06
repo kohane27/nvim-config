@@ -3,7 +3,7 @@ return {
   enabled = true,
   event = "VeryLazy",
   opts = {
-    scratch_file_dir = vim.fn.stdpath("data") .. "/scratch.nvim",
+    scratch_file_dir = os.getenv("HOME") .. "/Cloud/laptop/nvim/local/share/scratch.nvim",
     filetypes = { "md", "json", "js", "ts", "java", "py", "lua", "sh" },
     window_cmd = "vsplit", -- 'vsplit' | 'split' | 'edit' | 'tabedit' | 'rightbelow vsplit'
     file_picker = "telescope",
