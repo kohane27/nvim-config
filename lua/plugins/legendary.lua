@@ -370,7 +370,7 @@ return {
         { "<C-w>o", function() require("mini.misc").zoom() end, description = "Zoom: Toggle" },
         { "<leader>q", "<cmd>wqa<CR>",                          description = "Quit" },
         { "<leader>Q", "<cmd>q!<CR>",                           description = "Force Quit" },
-        { "qq", "<cmd>Bdelete<CR>",                             description = "Buffer: Close" },
+        { "qq", function() Snacks.bufdelete() end,                             description = "Buffer: Close" },
         { "Q", "<cmd>bdelete<CR>",                              description = "Buffer: Close with Layout" },
 
         -- ╭──────────────────────────────────────────────────────────╮
