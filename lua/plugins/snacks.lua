@@ -15,17 +15,9 @@ return {
         end)
       end,
     },
-    notifier = {
-      enabled = true,
-      timeout = 3000,
-    },
+    notifier = { enabled = false },
     quickfile = { enabled = true },
-    statuscolumn = { enabled = true },
-    words = { enabled = true },
-    styles = {
-      notification = {
-        wo = { wrap = true }, -- Wrap notifications
-      },
-    },
+    statuscolumn = { enabled = false },
+    words = { enabled = false },
   },
 }
