@@ -1,37 +1,19 @@
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
-  enabled = true,
-  build = "make BUILD_FROM_SOURCE=true luajit",
+  lazy = false,
+  build = "make",
+  -- build = "make BUILD_FROM_SOURCE=true luajit",
   dependencies = {
-    "nvim-tree/nvim-web-devicons",
+    "nvim-treesitter/nvim-treesitter",
     "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
-    {
-      "grapp-dev/nui-components.nvim",
-      dependencies = { "MunifTanjim/nui.nvim" },
-    },
+    "MunifTanjim/nui.nvim",
+    "nvim-tree/nvim-web-devicons",
     {
       "MeanderingProgrammer/render-markdown.nvim",
       opts = { file_types = { "Avante" } },
       ft = { "Avante" },
-    },
-    {
-      -- support for image pasting
-      "HakonHarnes/img-clip.nvim",
-      event = "VeryLazy",
-      opts = {
-        -- recommended settings
-        default = {
-          embed_image_as_base64 = false,
-          prompt_for_file_name = false,
-          drag_and_drop = {
-            insert_mode = true,
-          },
-          -- required for Windows users
-          use_absolute_path = true,
-        },
-      },
     },
   },
   opts = {
@@ -40,8 +22,62 @@ return {
       endpoint = "https://api.anthropic.com",
       model = "claude-3-5-sonnet-20241022",
       proxy = "http://127.0.0.1:8888",
-      -- allow_insecure = false,
     },
-    hints = { enabled = false },
+    hints = { enabled = true },
+    mappings = {
+      diff = {
+        ours = "co",
+        theirs = "ct",
+        all_theirs = "ca",
+        both = "cb",
+        cursor = "cc",
+        next = "]x",
+        prev = "[x",
+      },
+      suggestion = {
+        accept = "<M-l>",
+        next = "<M-]>",
+        prev = "<M-[>",
+        dismiss = "<C-]>",
+      },
+      jump = {
+        next = "]]",
+        prev = "[[",
+      },
+      submit = {
+        normal = "<CR>",
+        insert = "<C-s>",
+      },
+      sidebar = {
+        apply_all = "A",
+        apply_cursor = "a",
+        switch_windows = "<Tab>",
+        reverse_switch_windows = "<S-Tab>",
+      },
+    },
+
+    windows = {
+      width = 50, -- default % based on available width
+      sidebar_header = {
+        enabled = true, -- true, false to enable/disable the header
+        align = "center", -- left, center, right for title
+        rounded = true,
+      },
+      input = {
+        prefix = "> ",
+        height = 8, -- Height of the input window in vertical layout
+      },
+      edit = {
+        border = "rounded",
+        start_insert = true, -- Start insert mode when opening the edit window
+      },
+      ask = {
+        floating = false, -- Open the 'AvanteAsk' prompt in a floating window
+        start_insert = true, -- Start insert mode when opening the ask window
+        border = "rounded",
+        ---@type "ours" | "theirs"
+        focus_on_apply = "ours", -- which diff to focus after applying
+      },
+    },
   },
 }
