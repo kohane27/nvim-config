@@ -23,7 +23,7 @@ return {
       model = "claude-3-5-sonnet-20241022",
       proxy = "http://127.0.0.1:8888",
     },
-    hints = { enabled = true },
+    hints = { enabled = false },
     mappings = {
       diff = {
         ours = "co",
@@ -31,22 +31,12 @@ return {
         all_theirs = "ca",
         both = "cb",
         cursor = "cc",
-        next = "]x",
-        prev = "[x",
-      },
-      suggestion = {
-        accept = "<M-l>",
-        next = "<M-]>",
-        prev = "<M-[>",
-        dismiss = "<C-]>",
+        next = ";x",
+        prev = ",x",
       },
       jump = {
-        next = "]]",
-        prev = "[[",
-      },
-      submit = {
-        normal = "<CR>",
-        insert = "<C-s>",
+        next = ";x",
+        prev = ",x",
       },
       sidebar = {
         apply_all = "A",
@@ -55,29 +45,18 @@ return {
         reverse_switch_windows = "<S-Tab>",
       },
     },
-
     windows = {
-      width = 50, -- default % based on available width
+      width = 40, -- default % based on available width
       sidebar_header = {
-        enabled = true, -- true, false to enable/disable the header
-        align = "center", -- left, center, right for title
-        rounded = true,
-      },
-      input = {
-        prefix = "> ",
-        height = 8, -- Height of the input window in vertical layout
-      },
-      edit = {
-        border = "rounded",
-        start_insert = true, -- Start insert mode when opening the edit window
-      },
-      ask = {
-        floating = false, -- Open the 'AvanteAsk' prompt in a floating window
-        start_insert = true, -- Start insert mode when opening the ask window
-        border = "rounded",
-        ---@type "ours" | "theirs"
-        focus_on_apply = "ours", -- which diff to focus after applying
+        enabled = true,
       },
     },
   },
+  config = function(_, opts)
+    require("avante").setup(opts)
+    vim.api.nvim_set_hl(0, "AvanteTitle", { fg = "#ABB2BF", bg = "#353B45" })
+    vim.api.nvim_set_hl(0, "AvanteReversedTitle", { fg = "#353B45" })
+    vim.api.nvim_set_hl(0, "AvanteSubtitle", { fg = "#ABB2BF", bg = "#353B45" })
+    vim.api.nvim_set_hl(0, "AvanteReversedSubtitle", { fg = "#353B45" })
+  end,
 }
