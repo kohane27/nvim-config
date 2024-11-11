@@ -368,10 +368,34 @@ return {
         -- ╰──────────────────────────────────────────────────────────╯
         { "<c-s>", ":w<CR>", mode = { "n", "i" }, opts = { noremap = true, silent = true } },
         { "<C-w>o", function() require("mini.misc").zoom() end,                description = "Zoom: Toggle" },
-        { "<leader>q", "<cmd>wqa<CR>",                                         description = "Quit" },
         { "<leader>Q", "<cmd>q!<CR>",                                          description = "Force Quit" },
         { "qq", function() Snacks.bufdelete() end,                             description = "Buffer: Close" },
         { "Q", "<cmd>bdelete<CR>",                                             description = "Buffer: Close with Layout" },
+        -- { "<leader>q", "<cmd>wqa<CR>",                                         description = "Quit" },
+        {
+            "<leader>q",
+            function()
+                -- Stop LSP clients specifically
+                local null_ls_found = false
+                for _, client in pairs(vim.lsp.get_active_clients()) do
+                    if client.name == "null-ls" then
+                        null_ls_found = true
+                    end
+                    vim.lsp.stop_client(client.id, true)
+                end
+
+                -- If null-ls was found, give it a tiny bit of time to clean up
+                if null_ls_found then
+                    vim.cmd("sleep 10m")  -- Sleep for 10ms
+                end
+
+                -- Save all remaining buffers and quit
+                vim.cmd('wa')
+                vim.cmd('qa!')
+            end,
+            description = "Save and quit (optimized)",
+            mode = { "n" }
+        },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Miscellaneous (leader m with real keybindings)           │
