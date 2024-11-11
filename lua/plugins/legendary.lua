@@ -367,11 +367,11 @@ return {
         -- │ Miscellaneous                                            │
         -- ╰──────────────────────────────────────────────────────────╯
         { "<c-s>", ":w<CR>", mode = { "n", "i" }, opts = { noremap = true, silent = true } },
-        { "<C-w>o", function() require("mini.misc").zoom() end, description = "Zoom: Toggle" },
-        { "<leader>q", "<cmd>wqa<CR>",                          description = "Quit" },
-        { "<leader>Q", "<cmd>q!<CR>",                           description = "Force Quit" },
+        { "<C-w>o", function() require("mini.misc").zoom() end,                description = "Zoom: Toggle" },
+        { "<leader>q", "<cmd>wqa<CR>",                                         description = "Quit" },
+        { "<leader>Q", "<cmd>q!<CR>",                                          description = "Force Quit" },
         { "qq", function() Snacks.bufdelete() end,                             description = "Buffer: Close" },
-        { "Q", "<cmd>bdelete<CR>",                              description = "Buffer: Close with Layout" },
+        { "Q", "<cmd>bdelete<CR>",                                             description = "Buffer: Close with Layout" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Miscellaneous (leader m with real keybindings)           │
