@@ -21,6 +21,10 @@ return {
     float_opts = {
       border = "rounded",
       winblend = 0,
+      width = math.floor(vim.o.columns * 0.9), -- 90% of screen width
+      height = math.floor(vim.o.lines * 0.9), -- 90% of screen height
+      row = math.floor((vim.o.lines - math.floor(vim.o.lines * 0.9)) / 2),
+      col = math.floor((vim.o.columns - math.floor(vim.o.columns * 0.9)) / 2),
       highlights = {
         border = "Normal",
         background = "Normal",
