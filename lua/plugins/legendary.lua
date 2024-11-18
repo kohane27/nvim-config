@@ -45,7 +45,7 @@ return {
         -- <C-KEY>
         { "<C-e>", function() require("yazi").yazi() end,                                        description = "Yazi" },
         { "<C-q>", function() vim.cmd(":LazyGit") end,                                           description = "Lazygit" },
-        { "<C-t>", function() vim.cmd(":ToggleTerm direction=float") end,                                        description = "Toggle terminal" },
+        { "<C-t>", function() vim.cmd(":ToggleTerm") end,                                        description = "Toggle terminal" },
         { "<C-a>", function() require("dial.map").manipulate("increment", "normal") end,         description = "Increment" },
         { "<C-x>", function() require("dial.map").manipulate("decrement", "normal") end,         description = "Decrement" },
         { "<C-f>", function() require("nvim-tree.api").tree.toggle({ find_file = true }) end,    description = "Tree: Toggle With Focused File" },

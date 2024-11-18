@@ -14,7 +14,7 @@ return {
     start_in_insert = true,
     insert_mappings = false,   -- whether or not the open mapping applies in insert mode
     terminal_mappings = false, -- whether or not the open mapping applies in the opened terminals
-    direction = "horizontal",  -- 'vertical' | 'horizontal' | 'tab' | 'float'
+    direction = "float",       -- 'vertical' | 'horizontal' | 'tab' | 'float'
     close_on_exit = true,      -- close the terminal window when the process exits
     shade_terminals = false,   -- no different background color
     shade_filetypes = { "none", "fzf", "lspinfo", "mason", "lazy", "qf", "terminal", "dashboard", "spectre-panel" },
