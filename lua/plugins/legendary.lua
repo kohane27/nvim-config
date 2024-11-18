@@ -41,6 +41,7 @@ return {
         { "F", function() vim.cmd(":Oil --float") end,                                           description = "Oil" },
         { "X", function() vim.cmd(":ISwapWith") end,                                             description = "Swap Two Adjacent Nodes" },
         { "R", function() require("flash").treesitter() end,                                     description = "Flash Treesitter", mode = { "n", "x", "o" } },
+        { ";s", "<cmd>BufferLinePick<CR>",                                                       description = "Buffer: Pick a Buffer" },
 
         -- <C-KEY>
         { "<C-e>", function() require("yazi").yazi() end,                                        description = "Yazi" },
@@ -179,8 +180,7 @@ return {
         { "<leader>bcl", "<cmd>BufferLineCloseRight<CR>",                      description = "Buffer: Close All Buffers to the Right" },
         { "<leader>bch", "<cmd>BufferLineCloseLeft<CR>",                       description = "Buffer: Close All Buffers to the Left" },
         { "<leader>bco", "<cmd>BufferLineCloseOthers<CR>",                     description = "Buffer: Close All Other Visible Buffers" },
-        -- { "<leader>bp", "<cmd>BufferLinePick<CR>",                             description = "Buffer: Choose a Buffer" },
-        -- { "<leader>bc", "<cmd>BufferLinePickClose<CR>",                        description = "Buffer: Choose a Closing Buffer" },
+        -- { "<leader>bcp", "<cmd>BufferLinePickClose<CR>",                        description = "Buffer: Choose a Closing Buffer" },
 
         { "g1", function() require("bufferline").go_to(1)  end,                description = "Buffer: Go to 1" },
         { "g2", function() require("bufferline").go_to(2)  end,                description = "Buffer: Go to 2" },

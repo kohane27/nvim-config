@@ -50,6 +50,7 @@ return {
         hover = { enabled = false },
 
         groups = { items = { groups.builtin.pinned:with({ icon = "" }) } },
+        pick = { alphabet = "jklasdfghqwertyuiopzxcvbnm" },
       },
     })
   end,
