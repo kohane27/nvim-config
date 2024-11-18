@@ -2,8 +2,8 @@ return {
   "dmmulroy/tsc.nvim",
   opts = {
     auto_open_qflist = true,
-    auto_close_qflist = false,
-    auto_focus_qflist = true,
+    auto_close_qflist = true,
+    auto_focus_qflist = false,
     auto_start_watch_mode = false,
     use_trouble_qflist = true,
     use_diagnostics = true,
