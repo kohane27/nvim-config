@@ -222,6 +222,8 @@ return {
         { "<A-l>",   function() require("tmux").move_right() end,      description = "Move Focus to Right" },
         { "<A-k>",   function() require("tmux").move_top() end,        description = "Move Focus to Top" },
         { "<A-j>",   function() require("tmux").move_bottom() end,     description = "Move Focus to Bottom" },
+
+        -- TODO: move them to hydra
         { "<C-S-h>", function() require("tmux").resize_left() end,     description = "Resize Left" },
         { "<C-S-l>", function() require("tmux").resize_right() end,    description = "Resize Right" },
         { "<C-S-k>", function() require("tmux").resize_top() end,      description = "Resize Top" },
