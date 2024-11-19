@@ -110,9 +110,9 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ LSP                                                      │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>",                                  description = "LSP: Line Diagnostics" },
+        -- { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>",                                  description = "LSP: Line Diagnostics" },
         -- it'll show with code action but doesn't show current cursor diagnostic
-        { "gL", "<cmd>Lspsaga diagnostic_jump_next<CR>",                                   description = "LSP: Line Diagnostics" },
+        { "gl", "<cmd>Lspsaga diagnostic_jump_next<CR>",                                   description = "LSP: Line Diagnostics" },
         { "<leader>ld", "<cmd>Trouble diagnostics toggle focus=true filter.buf=0<CR>",     description = "Trouble: Buffer Diagnostics" },
         { "<leader>lD", "<cmd>Trouble diagnostics toggle focus=true<CR>",                  description = "Trouble: Project Diagnostics" },
         { "<leader>lT", "<cmd>TSC<CR>",                                                    description = "Trouble: TSC" },
