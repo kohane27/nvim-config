@@ -431,6 +431,8 @@ return {
         },
 
         { "<leader>me", function() require("emoji").insert() end,                  description = "Insert Emoji" },
+        { "<leader>mfa", function() vim.cmd(":CccPick") end,                      description = "Color: Pick" },
+        { "<leader>mfb", function() vim.cmd(":CccConvert") end,                   description = "Color: Convert" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Miscellaneous (leader m with random keybindings)         │
