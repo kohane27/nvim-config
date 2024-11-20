@@ -7,6 +7,40 @@ return {
   config = function()
     local Hydra = require("hydra")
 
+    Hydra({
+      name = "Buffers",
+      mode = "n",
+      body = "<leader>b",
+      config = {
+        color = "amaranth",
+        invoke_on_body = false,
+        hint = false,
+        on_key = function()
+          -- redraw the screen so that it shows the changes immeidately
+          vim.wait(200, function()
+            vim.cmd("redraw")
+          end, 30, false)
+        end,
+      },
+      heads = {
+        { "H", "<cmd>BufferLineCyclePrev<CR>", { on_key = false } },
+        { "L", "<cmd>BufferLineCycleNext<CR>", { on_key = false } },
+
+        { "h", "<cmd>BufferLineMovePrev<CR>", { on_key = true } },
+        { "l", "<cmd>BufferLineMoveNext<CR>", { on_key = true } },
+
+        { "<C-y>", "<Cmd>BufferLineTogglePin<CR>" },
+        { "q", function() Snacks.bufdelete() end },
+        { "cl", "<cmd>BufferLineCloseRight<CR>" },
+        { "ch", "<cmd>BufferLineCloseLeft<CR>" },
+        { "co", "<cmd>BufferLineCloseOthers<CR>" },
+
+        { "<Esc>", nil, { exit = true, nowait = true } },
+      },
+    })
+  end,
+}
+
     --  ╭──────────────────────────────────────────────────────────╮
     --  │ Navigation starts with ,                                 │
     --  ╰──────────────────────────────────────────────────────────╯
@@ -101,6 +135,3 @@ return {
  --        { "<Esc>", nil, { exit = true, nowait = true } },
  --      },
  --    })
-
-  end,
-}
