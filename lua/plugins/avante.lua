@@ -12,7 +12,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     {
       "MeanderingProgrammer/render-markdown.nvim",
-      opts = { file_types = { "Avante" } },
+      opts = { file_types = { "Avante" }, latex = { enabled = false } },
       ft = { "Avante" },
     },
   },
