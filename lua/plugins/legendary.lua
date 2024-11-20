@@ -223,11 +223,10 @@ return {
         { "<A-k>",   function() require("tmux").move_top() end,        description = "Move Focus to Top" },
         { "<A-j>",   function() require("tmux").move_bottom() end,     description = "Move Focus to Bottom" },
 
-        -- TODO: move them to hydra
-        { "<C-S-h>", function() require("tmux").resize_left() end,     description = "Resize Left" },
-        { "<C-S-l>", function() require("tmux").resize_right() end,    description = "Resize Right" },
-        { "<C-S-k>", function() require("tmux").resize_top() end,      description = "Resize Top" },
-        { "<C-S-j>", function() require("tmux").resize_bottom() end,   description = "Resize Bottom" },
+        { "<C-H>", function() require("tmux").resize_left() end,     description = "Resize Left" },
+        { "<C-L>", function() require("tmux").resize_right() end,    description = "Resize Right" },
+        { "<C-K>", function() require("tmux").resize_top() end,      description = "Resize Top" },
+        { "<C-J>", function() require("tmux").resize_bottom() end,   description = "Resize Bottom" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Diffview.nvim                                            │
