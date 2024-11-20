@@ -110,21 +110,21 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ LSP                                                      │
         -- ╰──────────────────────────────────────────────────────────╯
-        -- { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>",                                  description = "LSP: Line Diagnostics" },
-        -- it'll show with code action but doesn't show current cursor diagnostic
+        { "gL", "<cmd>Lspsaga show_line_diagnostics<CR>",                                  description = "LSP: Line Diagnostics" },
+        -- it'll show with code action but doesn't show current cursor diagnostic (https://github.com/nvimdev/lspsaga.nvim/issues/1467)
         { "gl", "<cmd>Lspsaga diagnostic_jump_next<CR>",                                   description = "LSP: Line Diagnostics" },
         { "<leader>ld", "<cmd>Trouble diagnostics toggle focus=true filter.buf=0<CR>",     description = "Trouble: Buffer Diagnostics" },
         { "<leader>lD", "<cmd>Trouble diagnostics toggle focus=true<CR>",                  description = "Trouble: Project Diagnostics" },
-        { "<leader>lT", "<cmd>TSC<CR>",                                                    description = "Trouble: TSC" },
+        { "<Leader>lT", "<cmd>TSC<CR>",                                                    description = "Trouble: TSC" },
 
         { "gh", "<cmd>Lspsaga hover_doc ++quiet<CR>",                                      description = "LSP: Hover Doc (quiet)" },
         { "gH", "<cmd>Lspsaga hover_doc ++keep<CR>",                                       description = "LSP: Hover Doc (keep)" },
 
-        { "gd", "<cmd>Lspsaga goto_definition<CR>",                                        description = "LSP: Go to Definition" },
-        { "gD", "<cmd>Lspsaga peek_definition<CR>",                                        description = "LSP: Preview Definition" },
+        { "gD", "<cmd>Lspsaga goto_definition<CR>",                                        description = "LSP: Go to Definition" },
+        { "gd", "<cmd>Lspsaga peek_definition<CR>",                                        description = "LSP: Preview Definition" },
 
-        { "gr", "<cmd>lua vim.lsp.buf.references()<CR>",                                   description = "LSP: Reference List" },
-        { "gR", "<cmd>Trouble lsp_references toggle<CR>",                                  description = "Trouble: Reference List" },
+        { "gR", "<cmd>lua vim.lsp.buf.references()<CR>",                                   description = "LSP: Reference List" },
+        { "gr", "<cmd>Trouble lsp_references toggle<CR>",                                  description = "Trouble: Reference List" },
 
         -- order of importance
         { "<leader>lc", "<cmd>Lspsaga code_action<CR>",                                    description = "LSP: Code Action" },
