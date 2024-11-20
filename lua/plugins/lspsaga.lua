@@ -11,6 +11,10 @@ return {
     code_action = {
       extend_gitsigns = true,
     },
+    definition = {
+      width = 0.8,
+      height = 0.8,
+    },
     symbol_in_winbar = {
       enable = true,
       in_custom = false, -- else won't work
