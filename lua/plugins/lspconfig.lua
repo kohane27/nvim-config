@@ -102,7 +102,7 @@ return {
           },
           diagnostics = {
             -- Get the language server to recognize the `vim` global
-            globals = { "vim", "P" },
+            globals = { "vim", "P", "Snacks" },
           },
           telemetry = {
             enable = false,
