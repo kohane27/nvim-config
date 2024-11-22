@@ -111,7 +111,7 @@ return {
         -- ╰──────────────────────────────────────────────────────────╯
         -- it'll show with code action but doesn't show current cursor diagnostic (https://github.com/nvimdev/lspsaga.nvim/issues/1467)
         -- but mostly it's fine when there is only one diagnostic
-        { "gl", "<cmd>Lspsaga diagnostic_jump_next<CR>",                                   description = "LSP: Line Diagnostics" },
+        { "gl", "<cmd>normal! 0<CR><cmd>Lspsaga diagnostic_jump_next<CR>", description = "LSP: Line Diagnostics (from line start)" },
         { "gL", "<cmd>Lspsaga show_line_diagnostics<CR>",                                  description = "LSP: Line Diagnostics" },
 
         { "<leader>ld", "<cmd>Trouble diagnostics toggle focus=true filter.buf=0<CR>",     description = "Trouble: Buffer Diagnostics" },
