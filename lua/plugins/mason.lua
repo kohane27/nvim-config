@@ -11,7 +11,6 @@ return {
     require("mason-lspconfig").setup({
       ensure_installed = {
         "lua_ls",
-        -- "angularls",
         "cssls",
         "emmet_ls",
         "awk_ls",
