@@ -426,9 +426,10 @@ return {
           description = 'Delete Everything After `foo`',
         },
 
-        { "<leader>me", function() require("emoji").insert() end,                  description = "Insert Emoji" },
+        { "<leader>me", function() require("emoji").insert() end,                 description = "Insert Emoji" },
         { "<leader>mfa", function() vim.cmd(":CccPick") end,                      description = "Color: Pick" },
         { "<leader>mfb", function() vim.cmd(":CccConvert") end,                   description = "Color: Convert" },
+        { "<leader>mct", function() require("copy-tree").copy_tree() end,         description = "Tree: Copy project structure" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Miscellaneous (leader m with random keybindings)         │
