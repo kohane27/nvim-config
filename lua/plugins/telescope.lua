@@ -120,6 +120,7 @@ return {
         egrepify = {
           AND = true,
           permutations = true, -- imply AND & match all permutations of prompt tokens
+          results_ts_hl = false, -- disable treesitter highlight
         },
         -- live_grep_args = {
         --   -- enable/disable auto-quoting
