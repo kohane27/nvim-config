@@ -272,27 +272,6 @@ return {
         { "<leader>rs", "<cmd>SnipRun<CR>",   description = "Run Snip" },
         { "<leader>rc", "<cmd>SnipClose<CR>", description = "Close Snip" },
 
-        -- { "<leader>db", function() require("dap").toggle_breakpoint() end,      description = "dap: Toggle breakpoint" },
-        -- { "<leader>dc", function() require("dap").continue() end,               description = "dap: Continue" },
-        -- { "<leader>dr", function() require('dap').restart() end,                description = "dap: Restart session" },
-        -- { "<leader>de", function() require("dapui").eval() end,                 description = "dap: Eval", mode = {"n", "v"} },
-        -- { "<leader>dt", function() require("dap").terminate() end,              description = "dap: Terminate" },
-        -- { "<leader>di", function() require("dap").step_into() end,              description = "dap: Step into" },
-        -- { "<leader>do", function() require("dap").step_out() end,               description = "dap: Step out" },
-        -- { "<leader>dl", function() require("dap").step_over() end,              description = "dap: Step over" },
-
-        -- { "<leader>dc", function() require("dap").run_to_cursor() end,          description = "dap: Run to cursor" },
-        -- { "<leader>dI", function() require('dap').step_back() end,              description = "dap: step back" },
-        -- { "<leader>dl", function() require("dap").run_last() end,               description = "dap: Run last" },
-        -- { "<leader>dp", function() require("dap").pause() end,                  description = "dap: Pause" },
-        -- { "<leader>dj", function() require("dap").down() end,                   description = "dap: Down" },
-        -- { "<leader>dk", function() require("dap").up() end,                     description = "dap: Up" },
-        -- { "<leader>dg", function() require("dap").goto_() end,                  description = "dap: Go to line (No Execute)" },
-        -- { "<leader>dr", function() require("dap").repl.toggle() end,            description = "dap: Toggle REPL" },
-        -- { "<leader>ds", function() require("dap").session() end,                description = "dap: Session" },
-        -- { "<leader>dw", function() require("dap.ui.widgets").hover() end,       description = "dap: Widgets" },
-        -- { "<leader>du", function() require("dapui").toggle({ }) end,            description = "dap: UI" },
-
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ scratch.nvim                                             │
         -- ╰──────────────────────────────────────────────────────────╯
