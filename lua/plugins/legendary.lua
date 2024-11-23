@@ -61,7 +61,13 @@ return {
         -- ╰──────────────────────────────────────────────────────────╯
         {
           '<leader>fg',
-          function() require("core.utils").live_grep_from_project_git_root() end,
+          function()
+            if require("legendary.toolbox").is_visual_mode() then
+              require("core.utils").live_grep_from_project_git_root({ default_text = require("core.utils").get_visual_selection() })
+            else
+              require("core.utils").live_grep_from_project_git_root()
+            end
+          end,
           mode = { 'n', 'v' },
           description = "Telescope: Find Text",
         },
