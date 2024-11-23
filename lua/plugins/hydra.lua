@@ -5,34 +5,42 @@ return {
 
   config = function()
     local Hydra = require("hydra")
+    local dap = require("dap")
+    local dapui = require("dapui")
+
+    local default_config = {
+      invoke_on_body = true,
+      hint = {
+        type = "window",
+        position = "top-right",
+        float_opts = {
+          border = "rounded",
+        },
+        hide_on_load = false,
+        show_name = false,
+      },
+    }
 
     Hydra({
       name = "Buffers",
       mode = "n",
       body = "<leader>b",
       hint = [[
- _cl_: close right   _ch_: close left
- _co_: close others   _q_: close buffer
+ _cl_: close right
+ _ch_: close left
+ _co_: close others
+  _q_: close buffer
       ]],
-      config = {
+
+      config = vim.tbl_extend("force", default_config, {
         color = "amaranth",
-        invoke_on_body = true,
-        hint = {
-          type = "window",
-          position = "bottom",
-          float_opts = {
-            border = "rounded",
-          },
-          hide_on_load = false,
-          show_name = false,
-        },
         on_key = function()
           -- redraw the screen so that it shows the changes immeidately
           vim.wait(200, function()
             vim.cmd("redraw")
           end, 30, false)
         end,
-      },
+      }),
       -- stylua: ignore
       heads = {
         { "H", "<cmd>BufferLineCyclePrev<CR>" },
@@ -50,49 +58,47 @@ return {
         { "<Esc>", nil, { exit = true, nowait = true } },
       },
     })
+
+    Hydra({
+      name = "Debugger",
+      mode = "n",
+      body = "<leader>w",
+      hint = [[
+ _b_: breakpoint
+ _B_: breakpoint condition
+ _c_: CONTINUE until next breakpoint
+ _i_: step INTO function
+ _o_: step OUT function
+ _n_: step OVER line
+ _*_: run to cursor
+ _r_: restart session
+ _u_: toggle UI
+ _t_: terminate
+       ]],
+
+      config = vim.tbl_extend("force", default_config, {
+        color = "pink",
+        on_enter = function()
+          require("dapui").toggle()
+        end,
+      }),
+
+      -- stylua: ignore
+      heads = {
+        { "b", function() dap.toggle_breakpoint() end },
+        { "B", function() dap.set_breakpoint(vim.fn.input("Breakpoint condition: ")) end },
+        { "c", function() dap.continue() end },
+        { "i", function() dap.step_into() end },
+        { "o", function() dap.step_out() end },
+        { "n", function() dap.step_over() end },
+        { "r", function() dap.restart() end },
+        { "*", function() dap.run_to_cursor() end },
+        { "t", function() dap.terminate() end },
+        { "u", function() dapui.toggle() end },
+        { "<Esc>", nil, { exit = true, nowait = true } },
+        -- not supported by JS
+        -- { "<", function() if vim.bo.filetype ~= "dap-float" then dap.step_back() end end },
+      },
+    })
   end,
 }
-
---    local dap = require("dap")
---
---    DapHydra = Hydra({
---      name = "DEBUG",
---      mode = "n",
---      body = "<leader>d",
---
---      hint = [[
--- _b_: breakpoint   _c_: continue
--- _i_: step into   _o_: step out
---    ]],
---      config = {
---        color = "pink",
---        desc = "Debug mode",
---        invoke_on_body = true,
---        on_enter = function()
---          require("dapui").toggle()
---        end,
---        hint = {
---          float_opts = {
---            border = "rounded",
---          },
---          hide_on_load = true,
---          show_name = true,
---        },
---      },
---
---      heads = {
---        -- { "u", function() require("dapui").toggle() end },
---        { "b", function() dap.toggle_breakpoint() end },
---        { "B", function() dap.set_breakpoint(vim.fn.input("Breakpoint condition: ")) end },
---        { "c", function() dap.continue() end },
---        { "i", function() dap.step_into() end },
---        { "o", function() dap.step_out() end },
---        { "n", function() dap.step_over() end },
---        -- { "<", function() if vim.bo.filetype ~= "dap-float" then dap.step_back() end end },
---        { "x", function() dap.terminate() end },
---        { "*", function() dap.run_to_cursor() end },
---        { "e", function() require("dapui").eval() end},
---        { "?", function() if DapHydra.hint.win then DapHydra.hint:close() else DapHydra.hint:show() end end },
---        { "<Esc>", nil, { exit = true, nowait = true } },
---      },
---    })
