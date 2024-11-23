@@ -302,12 +302,8 @@ return {
         {
           "<leader>nf",
           function()
-            local gp_chats_dir = os.getenv("HOME") .. "/Cloud/laptop/nvim/local/share/scratch.nvim"
-            require("core.utils").live_grep_from_project_git_root({
-            search_dirs = { gp_chats_dir },
-            default_text = '24'
-            -- default_text = string.format('"%s"', os.date("%Y-%m-%d"))
-          })
+            local scratch_dir = os.getenv("HOME") .. "/Cloud/laptop/nvim/local/share/scratch.nvim"
+            require("core.utils").search_chats(scratch_dir)
           end,
           description = "Scratch: Find File Content"
         },
@@ -330,11 +326,7 @@ return {
           "<leader>if",
           function()
             local gp_chats_dir = os.getenv("HOME") .. "/Cloud/laptop/nvim/local/share/gp/chats"
-            require("core.utils").live_grep_from_project_git_root({
-            search_dirs = { gp_chats_dir },
-            -- default_text = string.format('"%s" -tmd foo', os.date("%Y-%m-%d"))
-            default_text = "2024"
-          })
+            require("core.utils").search_chats(gp_chats_dir)
           end,
           description = "GPT: Finder"
         },
