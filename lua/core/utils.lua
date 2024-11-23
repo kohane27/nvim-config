@@ -181,7 +181,6 @@ function M.live_grep_from_project_git_root(custom_opts)
   if custom_opts then
     opts = vim.tbl_extend("force", opts, custom_opts)
   end
-  -- require("telescope.builtin").live_grep(opts)
   require("telescope").extensions.egrepify.egrepify(opts)
 end
 
