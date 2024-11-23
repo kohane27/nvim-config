@@ -56,15 +56,18 @@ return {
     --  │ markdown text nodes                                      │
     --  ╰──────────────────────────────────────────────────────────╯
     ls.add_snippets("markdown", {
-      s({ trig = ",f", wordTrig = true }, { t("following ") }),
-      s({ trig = ",ty", wordTrig = true }, { t("Thank you.") }),
+      -- llm
       s({ trig = ",todo", wordTrig = true }, { t("Complete the TODO comment in the code please.") }),
+      s({ trig = ",q", wordTrig = true }, { t("Do not ask me any questions.") }),
+      s({ trig = ",f", wordTrig = true }, { t("following ") }),
+      s({ trig = ",F", wordTrig = true }, { t("I have the following ") }),
+
+      -- general
+      s({ trig = ",ty", wordTrig = true }, { t("Thank you.") }),
       s({ trig = ",hi", wordTrig = true }, { t("Hello! Hope you're doing well. Thank you for getting back ") }),
       s({ trig = ",input", wordTrig = true }, { t("Any input is much appreciated. Thank you.") }),
       s({ trig = ",gb", wordTrig = true }, { t("Thank you for getting back to me. I really appreciate it.") }),
       s({ trig = ",yt", wordTrig = true }, { t("YouTube") }),
-      s({ trig = ",arch", wordTrig = true }, { t("I'm running ArchLinux.") }),
-      s({ trig = ",q", wordTrig = true }, { t("Do not ask me any questions.") }),
     }, { type = "autosnippets" })
 
     --  ╭──────────────────────────────────────────────────────────╮
