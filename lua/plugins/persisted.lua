@@ -11,11 +11,11 @@ return {
     -- change session file name to match current working directory if it changes
     follow_cwd = false,
 
-    -- BUG:
-    -- ignored_dirs = {
-    --   { vim.fn.hostname(), exact = true },
-    --   { "/", exact = true },
-    -- },
+    ignored_dirs = {
+      { "/home/" .. vim.fn.hostname(), exact = true },
+      { "/", exact = true },
+      { "/tmp", exact = true },
+    },
   },
 
   init = function()
