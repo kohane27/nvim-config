@@ -314,4 +314,23 @@ function M.map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
+function M.quit()
+  -- Stop LSP clients
+  local null_ls_found = false
+  for _, client in pairs(vim.lsp.get_active_clients()) do
+    if client.name == "null-ls" then
+      null_ls_found = true
+    end
+    vim.lsp.stop_client(client.id, true)
+  end
+
+  if null_ls_found then
+    vim.cmd("sleep 10m")
+  end
+
+  -- Save all remaining buffers and quit
+  vim.cmd("wa")
+  vim.cmd("qa!")
+end
+
 return M
