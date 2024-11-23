@@ -303,7 +303,7 @@ return {
           "<leader>nf",
           function()
             local gp_chats_dir = os.getenv("HOME") .. "/Cloud/laptop/nvim/local/share/scratch.nvim"
-            require('telescope').extensions.live_grep_args.live_grep_args({
+            require("core.utils").live_grep_from_project_git_root({
             search_dirs = { gp_chats_dir },
             default_text = '24'
             -- default_text = string.format('"%s"', os.date("%Y-%m-%d"))
@@ -330,7 +330,7 @@ return {
           "<leader>if",
           function()
             local gp_chats_dir = os.getenv("HOME") .. "/Cloud/laptop/nvim/local/share/gp/chats"
-            require('telescope').extensions.live_grep_args.live_grep_args({
+            require("core.utils").live_grep_from_project_git_root({
             search_dirs = { gp_chats_dir },
             -- default_text = string.format('"%s" -tmd foo', os.date("%Y-%m-%d"))
             default_text = "2024"
