@@ -334,4 +334,30 @@ function M.quit()
   vim.cmd("qa!")
 end
 
+function M.search_chats(chat_dir)
+  local actions = require("telescope.actions")
+  local builtin = require("telescope.builtin")
+
+  builtin.find_files({
+    cwd = chat_dir,
+    attach_mappings = function(prompt_bufnr, map)
+        -- Switch to live_grep on any character input
+        -- stylua: ignore
+        for _, char in ipairs({"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+                             "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
+                             "1","2","3","4","5","6","7","8","9","0","!","@","#","$","%","^","&","*","(",")","-","_","=","+","[","]",
+                             "{","}",";",":","'","\"",",","<",".",">","/","?"}) do
+            map("i", char, function()
+                actions.close(prompt_bufnr)
+                require("core.utils").live_grep_from_project_git_root({
+                    search_dirs = { chat_dir },
+                    default_text = char
+                })
+            end)
+        end
+      return true
+    end,
+  })
+end
+
 return M
