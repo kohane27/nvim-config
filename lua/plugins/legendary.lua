@@ -381,6 +381,11 @@ return {
           mode = { 'n', 'v' },
           description = 'Delete Everything After `foo`',
         },
+        {
+          '<leader>mD',
+          function() require("hydra").activate(Debugger) end,
+          description = 'Debugger',
+        },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Miscellaneous (leader m with random keybindings)         │

@@ -59,7 +59,8 @@ return {
       },
     })
 
-    Hydra({
+    -- `Debugger` var is for `require("hydra").activate(Debugger)` in legendary.nvim
+    Debugger = Hydra({
       name = "Debugger",
       mode = "n",
       body = "<leader>w",
