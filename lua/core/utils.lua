@@ -126,25 +126,47 @@ function M.gp_chat_toggle()
   vim.api.nvim_win_set_width(0, 90)
 end
 
-function M.live_grep_from_project_git_root()
+-- ╭─────────────────────────────────────────────────────────╮
+-- │ START: grep                                             │
+-- ╰─────────────────────────────────────────────────────────╯
+local function is_in_home_directory()
   if vim.fn.getcwd() == os.getenv("HOME") then
-    return print("Current directory is home. Exiting")
+    print("Current directory is home. Exiting")
+    return true
   end
-  local function is_git_repo()
-    vim.fn.system("git rev-parse --is-inside-work-tree")
-    return vim.v.shell_error == 0
-  end
-  local function get_git_root()
-    local dot_git_path = vim.fn.finddir(".git", ".;")
-    return vim.fn.fnamemodify(dot_git_path, ":h")
-  end
+  return false
+end
+
+local function is_git_repo()
+  vim.fn.system("git rev-parse --is-inside-work-tree")
+  return vim.v.shell_error == 0
+end
+
+local function get_git_root()
+  local dot_git_path = vim.fn.finddir(".git", ".;")
+  return vim.fn.fnamemodify(dot_git_path, ":h")
+end
+
+local common_glob_patterns = {
+  "--glob=!**/.git/*",
+  "--glob=!**/node_modules/*",
+  "--glob=!**/.terraform/*",
+  "--glob=!**/build/*",
+  "--glob=!**/dist/*",
+  "--glob=!**/yarn.lock",
+  "--glob=!**/package-lock.json",
+}
+
+function M.live_grep_from_project_git_root()
   local opts = {}
+  if is_in_home_directory() then
+    return
+  end
   if is_git_repo() then
     opts = {
       cwd = get_git_root(),
-      -- use `ripgrep`
-      vimgrep_arguments = {
-        "rg",
+      vimgrep_arguments = vim.list_extend({
+        "rg", -- use `ripgrep`
         "--ignore-case", -- all patterns will be searched case insensitively
         "--follow", -- follow symbolic links
         "--hidden", -- Search hidden files and directories
@@ -153,16 +175,7 @@ function M.live_grep_from_project_git_root()
         -- "--with-filename", -- print the file path with the matched lines
         -- "--line-number", -- show line numbers
         -- "--column", -- show column numbers
-
-        "--glob=!**/.git/*",
-        "--glob=!**/node_modules/*",
-        "--glob=!**/.terraform/*",
-        "--glob=!**/build/*",
-        "--glob=!**/dist/*",
-        "--glob=!**/.DS_Store",
-        "--glob=!**/yarn.lock",
-        "--glob=!**/package-lock.json",
-      },
+      }, common_glob_patterns),
     }
   end
   -- If in visual mode, get the selected text and add it to opts
@@ -174,41 +187,30 @@ function M.live_grep_from_project_git_root()
 end
 
 function M.find_files_from_project_git_root()
-  if vim.fn.getcwd() == os.getenv("HOME") then
-    return print("Current directory is home. Exiting")
-  end
-  local function is_git_repo()
-    vim.fn.system("git rev-parse --is-inside-work-tree")
-    return vim.v.shell_error == 0
-  end
-  local function get_git_root()
-    local dot_git_path = vim.fn.finddir(".git", ".;")
-    return vim.fn.fnamemodify(dot_git_path, ":h")
-  end
   local opts = {}
+  if is_in_home_directory() then
+    return
+  end
   if is_git_repo() then
     opts = {
       cwd = get_git_root(),
       hidden = true,
-      find_command = {
+      find_command = vim.list_extend({
         "rg",
         "--ignore-case", -- all patterns will be searched case insensitively
+        "--follow", -- follow symbolic links
         "--files", -- Print each file that would be searched without actually performing the search
         "--hidden", -- Search hidden files and directories
         -- "--no-ignore", -- do NOT respect .gitignore
-        "--glob=!**/.git/*",
-        "--glob=!**/node_modules/*",
-        "--glob=!**/.terraform/*",
-        "--glob=!**/build/*",
-        "--glob=!**/dist/*",
-        "--glob=!**/.DS_Store",
-        "--glob=!**/yarn.lock",
-        "--glob=!**/package-lock.json",
-      },
+      }, common_glob_patterns),
     }
   end
   require("telescope.builtin").find_files(opts)
 end
+
+-- ╭─────────────────────────────────────────────────────────╮
+-- │ END: grep                                               │
+-- ╰─────────────────────────────────────────────────────────╯
 
 function M.markdown_preview()
   local buf = vim.api.nvim_create_buf(false, true)
