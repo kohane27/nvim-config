@@ -36,5 +36,9 @@ return {
     -- search Treesitter nodes
     -- consistent with `leap.nvim`
     vim.cmd("highlight FlashLabel guifg=#000000 guibg=#CCFF88 gui=bold,nocombine")
+
+    -- disable remote operation
+    require("core.utils").map("n", "yr", "", { noremap = true, silent = true, buffer = 0 })
+    require("core.utils").map("n", "ys", "", { noremap = true, silent = true, buffer = 0 })
   end,
 }
