@@ -183,10 +183,10 @@ vim.cmd([[
 " cnoremap <expr> <CR> getcmdtype() == ":" && index(["q", "x"], getcmdline()) >= 0 ? "<C-u>" : "<CR>"
 
 " default to use "very magic" mode
-nnoremap / /\v
-cnoremap s/ s/\v
-cnoremap g/ g/\v
-cnoremap g!/ g!/\v
+" nnoremap / /\v
+" cnoremap s/ s/\v
+" cnoremap g/ g/\v
+" cnoremap g!/ g!/\v
 cnoremap norm norm!
 
 ]])
