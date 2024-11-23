@@ -320,8 +320,8 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ gp.nvim                                                  │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<leader>io", function() require("core.utils").gp_chat_new_ulti() end,                                                                           description = "GPT: Ultimate Assistant" },
-        { "<leader>ii", function() require("core.utils").gp_chat_toggle() end,                                                                             description = "GPT: Toggle" },
+        { "<leader>io", function() require("core.utils").gp_chat_new_ulti() end,                         description = "GPT: Ultimate Assistant" },
+        { "<leader>ii", function() require("core.utils").gp_chat_toggle() end,                           description = "GPT: Toggle" },
         {
           "<leader>if",
           function()
@@ -331,7 +331,7 @@ return {
           description = "GPT: Finder"
         },
 
-        { "<leader>ia", function() require("core.utils").gp_choose_agent() end,                                                                            description = "GPT: Choose an Agent" },
+        { "<leader>ia", function() require("core.utils").gp_choose_agent() end,                          description = "GPT: Choose an Agent" },
         {
           "<leader>ir",
           function()
@@ -389,6 +389,7 @@ return {
         { "<leader>mn", function() require("noice").cmd("dismiss") end,                    description = "Noice: Dismiss" },
         { "<leader>mt", function() require('mini.trailspace').trim() end,                  description = "Trim All Trailing Whitespace" },
         { "<leader>mr", "<cmd>write | edit | TSBufEnable highlight<CR>",                   description = "Treesitter: Reload" },
+        { "<leader>me", function() require("emoji").insert() end,                          description = "Insert Emoji" },
         {
           '<leader>md',
           function()
@@ -402,22 +403,20 @@ return {
           description = 'Delete Everything After `foo`',
         },
 
-        { "<leader>me", function() require("emoji").insert() end,                 description = "Insert Emoji" },
-
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Miscellaneous (leader m with random keybindings)         │
         -- ╰──────────────────────────────────────────────────────────╯
         -- general
-        { "<leader>MXgea", function() vim.cmd(":ScopeMoveBuf") end,                                         description = "Scope: Move Current Buffer to Specified Tab" },
-        { "<leader>MXgeb", function() vim.api.nvim_feedkeys(":verbose map <C-i>", "c", false) end,          description = "Find Keybinding Conflict" },
-        { "<leader>MXgec", function() vim.cmd(":ScrollViewToggle") end,                                     description = "ScrollViewToggle: Enable" },
-        { "<leader>MXged", function() vim.cmd(":TSContextToggle") end,                                      description = "TSContextToggle: Toggle" },
-        { "<leader>MXgee", function() vim.cmd(":Telescope notify") end,                                     description = "Notify: Search History" },
-        { "<leader>MXgef", function() require('gitignore').generate() end,                                  description = "Generate gitignore" },
-        { "<leader>MXgeg", function() require('kulala').run() end,                                          description = "Run kulala" },
+        { "<leader>MXgea", function() vim.cmd(":ScopeMoveBuf") end,                                          description = "Scope: Move Current Buffer to Specified Tab" },
+        { "<leader>MXgeb", function() vim.api.nvim_feedkeys(":verbose map <C-i>", "c", false) end,           description = "Find Keybinding Conflict" },
+        { "<leader>MXgec", function() vim.cmd(":ScrollViewToggle") end,                                      description = "ScrollViewToggle: Enable" },
+        { "<leader>MXged", function() vim.cmd(":TSContextToggle") end,                                       description = "TSContextToggle: Toggle" },
+        { "<leader>MXgee", function() vim.cmd(":Telescope notify") end,                                      description = "Notify: Search History" },
+        { "<leader>MXgef", function() require('gitignore').generate() end,                                   description = "Generate gitignore" },
+        { "<leader>MXgeg", function() require('kulala').run() end,                                           description = "Run kulala" },
 
-        { "<leader>MXgeh", function() require("core.utils").markdown_preview() end,                         description = "Preview Markdown" },
-        { "<leader>MXgei", function() vim.cmd(":TableModeToggle") end,                                      description = "vim-table-mode: Toggle" },
+        { "<leader>MXgeh", function() require("core.utils").markdown_preview() end,                          description = "Preview Markdown" },
+        { "<leader>MXgei", function() vim.cmd(":TableModeToggle") end,                                       description = "vim-table-mode: Toggle" },
         {
           "<leader>MXgej",
           function()
@@ -426,19 +425,19 @@ return {
             end
           end,
           mode = { "v" },
-          description = 'vim-table-mode: Tableize',
+                                                                                                             description = 'vim-table-mode: Tableize',
         },
 
-        { "<leader>MXgk", function() require("copy-tree").copy_tree() end,                                 description = "Tree: Copy project structure" },
+        { "<leader>MXgk", function() require("copy-tree").copy_tree() end,                                   description = "Tree: Copy project structure" },
 
         -- Lazy
-        { "<leader>MXlaa", "<cmd>Lazy sync<CR>",                                                            description = "Lazy: Update" },
-        { "<leader>MXlab", "<cmd>Lazy clean<CR>",                                                           description = "Lazy: Clean" },
+        { "<leader>MXlaa", "<cmd>Lazy sync<CR>",                                                             description = "Lazy: Update" },
+        { "<leader>MXlab", "<cmd>Lazy clean<CR>",                                                            description = "Lazy: Clean" },
 
         -- LSP info
-        { "<leader>MXlsc", "<cmd>LspInfo<CR>",                                                              description = "LSP: Info" },
-        { "<leader>MXlsd", "<cmd>Mason<CR>",                                                                description = "Mason: Info" },
-        { "<leader>MXlse", "<cmd>MasonToolsUpdate<CR>",                                                     description = "Mason: Tool Update" },
+        { "<leader>MXlsc", "<cmd>LspInfo<CR>",                                                               description = "LSP: Info" },
+        { "<leader>MXlsd", "<cmd>Mason<CR>",                                                                 description = "Mason: Info" },
+        { "<leader>MXlse", "<cmd>MasonToolsUpdate<CR>",                                                      description = "Mason: Tool Update" },
 
         -- ToggleTerm
         { "<leader>MXtev", "<cmd>ToggleTerm direction=vertical<CR>",                                         description = "New terminal (vertical)" },
