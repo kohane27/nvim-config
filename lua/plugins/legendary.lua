@@ -408,7 +408,7 @@ return {
         -- ╰──────────────────────────────────────────────────────────╯
         -- general
         { "<leader>MXgea", function() vim.cmd(":ScopeMoveBuf") end,                                          description = "Scope: Move Current Buffer to Specified Tab" },
-        { "<leader>MXgeb", function() vim.api.nvim_feedkeys(":verbose map <C-i>", "c", false) end,           description = "Find Keybinding Conflict" },
+        { "<leader>MXgeb", function() vim.cmd(":enew|pu=execute('verbose map')") end,                        description = "Find Keybinding Conflict" },
         { "<leader>MXgec", function() vim.cmd(":ScrollViewToggle") end,                                      description = "ScrollViewToggle: Enable" },
         { "<leader>MXged", function() vim.cmd(":TSContextToggle") end,                                       description = "TSContextToggle: Toggle" },
         { "<leader>MXgee", function() vim.cmd(":Telescope notify") end,                                      description = "Notify: Search History" },

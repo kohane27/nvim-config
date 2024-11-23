@@ -3,7 +3,6 @@ return {
   event = "VeryLazy",
   enabled = not vim.g.started_by_firenvim,
 
-  -- stylua: ignore
   config = function()
     local Hydra = require("hydra")
 
@@ -22,6 +21,7 @@ return {
           end, 30, false)
         end,
       },
+      -- stylua: ignore
       heads = {
         { "H", "<cmd>BufferLineCyclePrev<CR>", { on_key = false } },
         { "L", "<cmd>BufferLineCycleNext<CR>", { on_key = false } },
