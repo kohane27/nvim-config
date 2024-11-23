@@ -111,7 +111,7 @@ return {
         -- ╰──────────────────────────────────────────────────────────╯
         -- it'll show with code action but doesn't show current cursor diagnostic (https://github.com/nvimdev/lspsaga.nvim/issues/1467)
         -- but mostly it's fine when there is only one diagnostic
-        { "gl", "<cmd>normal! 0<CR><cmd>Lspsaga diagnostic_jump_next<CR>", description = "LSP: Line Diagnostics (from line start)" },
+        { "gl", "<cmd>normal! 0<CR><cmd>Lspsaga diagnostic_jump_next<CR>",                 description = "LSP: Line Diagnostics (from line start)" },
         { "gL", "<cmd>Lspsaga show_line_diagnostics<CR>",                                  description = "LSP: Line Diagnostics" },
 
         { "<leader>ld", "<cmd>Trouble diagnostics toggle focus=true filter.buf=0<CR>",     description = "Trouble: Buffer Diagnostics" },
@@ -296,21 +296,30 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ scratch.nvim                                             │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<leader>so", function() require("scratch.api").createScratchFileByType("md") end,        description = "Scratch: New File" },
-        { "<leader>ss", function() require("core.utils").toggle_latest_scratchpad() end,            description = "Scratch: Toggle Latest" },
-        { "<leader>sS", function() require("core.utils").toggle_global_scratchpad_md() end,         description = "Scratch: Toggle scratchpad.md" },
+        { "<leader>no", function() require("scratch.api").createScratchFileByType("md") end,        description = "Scratch: New File" },
+        { "<leader>ns", function() require("core.utils").toggle_latest_scratchpad() end,            description = "Scratch: Toggle Latest" },
+        { "<leader>nS", function() require("core.utils").toggle_global_scratchpad_md() end,         description = "Scratch: Toggle scratchpad.md" },
         {
-          "<leader>sf",
+          "<leader>nf",
           function()
             local gp_chats_dir = os.getenv("HOME") .. "/Cloud/laptop/nvim/local/share/scratch.nvim"
             require('telescope').extensions.live_grep_args.live_grep_args({
             search_dirs = { gp_chats_dir },
             default_text = '24'
+            -- default_text = string.format('"%s"', os.date("%Y-%m-%d"))
           })
           end,
           description = "Scratch: Find File Content"
         },
-        -- { "<leader>sn", function() require("scratch.api").openScratch() end,                     description = "Scratch: Find File Name" },
+        -- { "<leader>nn", function() require("scratch.api").openScratch() end,                     description = "Scratch: Find File Name" },
+
+        -- ╭─────────────────────────────────────────────────────────╮
+        -- │ persisted.nvim                                          │
+        -- ╰─────────────────────────────────────────────────────────╯
+        { "<leader>ss", "<cmd>SessionSave<CR>",                                                          description = "Session: Save" },
+        { "<leader>sd", "<cmd>SessionDelete<CR>",                                                        description = "Session: Delete" },
+        { "<leader>sl", "<cmd>SessionLoad<CR>",                                                          description = "Session: Load" },
+        { "<leader>sL", "<cmd>SessionLoadLast<CR>",                                                      description = "Session: Load Recent Session" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ gp.nvim                                                  │
@@ -385,8 +394,6 @@ return {
          mode = { "v" },
          description = "Comment Box: Left-aligned"
         },
-        { "<leader>mc", function() require('curl').open_curl_tab() end,                    description = "Open curl (working directory)" },
-        { "<leader>mC", function() require('curl').open_global_tab() end,                  description = "Open curl (global)" },
         { "<leader>mn", function() require("noice").cmd("dismiss") end,                    description = "Noice: Dismiss" },
         { "<leader>mt", function() require('mini.trailspace').trim() end,                  description = "Trim All Trailing Whitespace" },
         { "<leader>mr", "<cmd>write | edit | TSBufEnable highlight<CR>",                   description = "Treesitter: Reload" },
@@ -404,9 +411,6 @@ return {
         },
 
         { "<leader>me", function() require("emoji").insert() end,                 description = "Insert Emoji" },
-        { "<leader>mfa", function() vim.cmd(":CccPick") end,                      description = "Color: Pick" },
-        { "<leader>mfb", function() vim.cmd(":CccConvert") end,                   description = "Color: Convert" },
-        { "<leader>mct", function() require("copy-tree").copy_tree() end,         description = "Tree: Copy project structure" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Miscellaneous (leader m with random keybindings)         │
@@ -433,6 +437,8 @@ return {
           description = 'vim-table-mode: Tableize',
         },
 
+        { "<leader>MXgk", function() require("copy-tree").copy_tree() end,                                 description = "Tree: Copy project structure" },
+
         -- Lazy
         { "<leader>MXlaa", "<cmd>Lazy sync<CR>",                                                            description = "Lazy: Update" },
         { "<leader>MXlab", "<cmd>Lazy clean<CR>",                                                           description = "Lazy: Clean" },
@@ -442,15 +448,17 @@ return {
         { "<leader>MXlsd", "<cmd>Mason<CR>",                                                                description = "Mason: Info" },
         { "<leader>MXlse", "<cmd>MasonToolsUpdate<CR>",                                                     description = "Mason: Tool Update" },
 
-        -- persisted.nvim
-        { "<leader>MXpea", "<cmd>SessionSave<CR>",                                                          description = "Session: Save" },
-        { "<leader>MXpeb", "<cmd>SessionLoad<CR>",                                                          description = "Session: Load" },
-        { "<leader>MXpec", "<cmd>SessionLoadLast<CR>",                                                      description = "Session: Load Recent Session" },
-        { "<leader>MXped", "<cmd>SessionDelete<CR>",                                                        description = "Session: Delete" },
-
         -- ToggleTerm
-        { "<leader>mtev", "<cmd>ToggleTerm direction=vertical<CR>",                                         description = "New terminal (vertical)" },
-        { "<leader>mtef", "<cmd>ToggleTerm direction=float<CR>",                                            description = "New terminal (floating)" },
+        { "<leader>MXtev", "<cmd>ToggleTerm direction=vertical<CR>",                                         description = "New terminal (vertical)" },
+        { "<leader>MXtef", "<cmd>ToggleTerm direction=horizontal<CR>",                                       description = "New terminal (horizontal)" },
+
+        -- ccc
+        { "<leader>MXfa", "<cmd>CccPick<CR>",                                                                description = "Color: Pick" },
+        { "<leader>MXfb", "<cmd>CccConvert<CR>",                                                             description = "Color: Convert" },
+
+        -- curl
+        { "<leader>MXcw", function() require('curl').open_curl_tab() end,                                    description = "Open curl (working directory)" },
+        { "<leader>MXcg", function() require('curl').open_global_tab() end,                                  description = "Open curl (global)" },
 
       -- ╭─────────────────────────────────────────────────────────╮
       -- │ g commands                                              │
