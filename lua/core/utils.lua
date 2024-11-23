@@ -250,7 +250,7 @@ function M.toggle_latest_scratchpad()
   -- Get the name of the current buffer
   local buf_name = vim.api.nvim_buf_get_name(0)
 
-  local dir = vim.fn.stdpath("data") .. "/scratch.nvim/"
+  local dir = os.getenv("HOME") .. "/Cloud/laptop/nvim/local/share/scratch.nvim/"
 
   -- Check if the current buffer is a scratchpad Markdown file
   if buf_name:match("^" .. dir .. ".+%.md$") then
