@@ -157,7 +157,7 @@ local common_glob_patterns = {
   "--glob=!**/package-lock.json",
 }
 
-function M.live_grep_from_project_git_root()
+function M.live_grep_from_project_git_root(custom_opts)
   local opts = {}
   if is_in_home_directory() then
     return
@@ -178,9 +178,8 @@ function M.live_grep_from_project_git_root()
       }, common_glob_patterns),
     }
   end
-  -- If in visual mode, get the selected text and add it to opts
-  if vim.fn.mode() == "v" or vim.fn.mode() == "V" or vim.fn.mode() == "^V" then
-    opts.default_text = require("core.utils").get_visual_selection()
+  if custom_opts then
+    opts = vim.tbl_extend("force", opts, custom_opts)
   end
   -- require("telescope.builtin").live_grep(opts)
   require("telescope").extensions.egrepify.egrepify(opts)
