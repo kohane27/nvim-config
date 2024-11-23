@@ -61,13 +61,7 @@ return {
         -- ╰──────────────────────────────────────────────────────────╯
         {
           '<leader>fg',
-          function()
-            if require("legendary.toolbox").is_visual_mode() then
-              require("telescope-live-grep-args.shortcuts").grep_word_under_cursor()
-            else
-              require('telescope').extensions.live_grep_args.live_grep_args()
-            end
-          end,
+          function() require("core.utils").live_grep_from_project_git_root() end,
           mode = { 'n', 'v' },
           description = "Telescope: Find Text",
         },

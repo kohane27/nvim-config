@@ -15,7 +15,7 @@ return {
     -- ╰─────────────────────────────────────────────────────────╯
     -- undo tree
     { "debugloop/telescope-undo.nvim" },
-    { "nvim-telescope/telescope-live-grep-args.nvim" },
+    { "fdschmidt93/telescope-egrepify.nvim" },
     { "jvgrootveld/telescope-zoxide" },
   },
   config = function()
@@ -117,17 +117,21 @@ return {
             },
           },
         },
-        live_grep_args = {
-          -- enable/disable auto-quoting
-          auto_quoting = true,
-          mappings = {
-            i = {
-              ["<C-i>"] = require("telescope-live-grep-args.actions").quote_prompt(),
-              ["<C-k>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob '**/*.{js,ts}' " }),
-              ["<C-f>"] = actions.to_fuzzy_refine, -- freeze the current list and start a fuzzy search in the frozen list
-            },
-          },
+        egrepify = {
+          AND = true,
+          permutations = true, -- imply AND & match all permutations of prompt tokens
         },
+        -- live_grep_args = {
+        --   -- enable/disable auto-quoting
+        --   auto_quoting = true,
+        --   mappings = {
+        --     i = {
+        --       ["<C-i>"] = require("telescope-live-grep-args.actions").quote_prompt(),
+        --       ["<C-k>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob '**/*.{js,ts}' " }),
+        --       ["<C-f>"] = actions.to_fuzzy_refine, -- freeze the current list and start a fuzzy search in the frozen list
+        --     },
+        --   },
+        -- },
         undo = {
           use_delta = true,
           side_by_side = true,
@@ -166,7 +170,7 @@ return {
     telescope.load_extension("fzf")
     telescope.load_extension("zoxide")
     telescope.load_extension("scope")
-    telescope.load_extension("live_grep_args")
+    telescope.load_extension("egrepify")
     telescope.load_extension("undo")
     vim.api.nvim_set_hl(0, "TelescopePathSeparator", {})
   end,
