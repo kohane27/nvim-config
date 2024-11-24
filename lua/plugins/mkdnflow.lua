@@ -1,9 +1,9 @@
 return {
-  -- `mkdnflow` conflicting with `vim-wiki`
   "jakewvincent/mkdnflow.nvim",
+  -- TODO: making <leader>ir not working
+  enabled = false,
   ft = "markdown",
   event = "VeryLazy",
-  enabled = false,
   -- lazy = false,
   opts = {
     -- links = {
