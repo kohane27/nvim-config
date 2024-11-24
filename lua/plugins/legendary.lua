@@ -28,7 +28,7 @@ return {
         -- J!!, K!!, T
         -- gh, gn
         -- gb, go, gs, gw, gy, gz, gq
-        -- <leader> h, i, k, u, v, w, y, z
+        -- <leader> e, g, h, i, k, u, v, w, y, z
 
         -- start with g
         { "ga", function() core_utils.get_current_buffer_content() end,                          description = "Get Current Buffer Content" },
@@ -44,6 +44,21 @@ return {
         -- start with ;
         -- `nap` used: d,c,g,t,e
         { ";s", "<cmd>BufferLinePick<CR>",                                                       description = "Buffer: Pick a Buffer" },
+
+        {
+          ';gd',
+          function() if toolbox.is_visual_mode() then core_utils.execute_command(":S/foo.*//g<Left><Left><Left><Left><Left>")
+            else core_utils.execute_command(":%S/foo.*//g<Left><Left><Left><Left><Left>") end end,
+          mode = { 'n', 'v' },
+                                                                                                 description = 'Delete Everything After `foo`',
+        },
+        {
+          ";gn",
+          function() if toolbox.is_visual_mode() then core_utils.execute_command(":G/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+            else core_utils.execute_command(":G/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>") end end,
+          mode = { "n", "v" },
+                                                                                                 description = "g: Run Normal mode on lines containing `foo`",
+        },
 
         { "F", function() vim.cmd(":Oil --float") end,                                           description = "Oil" },
         { "X", function() vim.cmd(":ISwapWith") end,                                             description = "Swap Two Adjacent Nodes" },
@@ -407,34 +422,6 @@ return {
         -- ccc
         { "<leader>MXfa", "<cmd>CccPick<CR>",                                                                description = "Color: Pick" },
         { "<leader>MXfb", "<cmd>CccConvert<CR>",                                                             description = "Color: Convert" },
-
-      -- ╭─────────────────────────────────────────────────────────╮
-      -- │ g commands (real keybindings)                           │
-      -- ╰─────────────────────────────────────────────────────────╯
-        {
-          '<leader>gd',
-          function()
-            if toolbox.is_visual_mode() then
-             core_utils.execute_command(":S/foo.*//g<Left><Left><Left><Left><Left>")
-            else
-              core_utils.execute_command(":%S/foo.*//g<Left><Left><Left><Left><Left>")
-            end
-          end,
-          mode = { 'n', 'v' },
-          description = 'Delete Everything After `foo`',
-        },
-        {
-          "<leader>gn",
-          function()
-            if toolbox.is_visual_mode() then
-              core_utils.execute_command(":G/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
-            else
-              core_utils.execute_command(":G/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
-            end
-          end,
-          mode = { "n", "v" },
-          description = "g: Run Normal mode on lines containing `foo`",
-        },
 
       -- ╭─────────────────────────────────────────────────────────╮
       -- │ g commands (random keybindings)                         │
