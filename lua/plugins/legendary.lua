@@ -308,8 +308,8 @@ return {
           "<leader>ir",
           function()
             local current_buf = vim.api.nvim_get_current_buf()
-            local buf_type = vim.api.nvim_buf_get_option(current_buf, "buftype")
-            if buf_type == "markdown" then
+            local filetype = vim.bo[current_buf].filetype
+            if filetype == "markdown" then
               vim.cmd("GpChatRespond")
             end
           end,
