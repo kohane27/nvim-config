@@ -42,8 +42,7 @@ return {
         { "zk", function() require("ufo").peekFoldedLinesUnderCursor() end,                      description = "Peek folded lines under cursor" },
 
         -- start with ;
-        -- `nap.nvim` used: d,c,g,t,l,e
-        -- `hydra.nvim` used: m
+        -- `nap` used: d,c,g,t,e
         { ";s", "<cmd>BufferLinePick<CR>",                                                       description = "Buffer: Pick a Buffer" },
 
         { "F", function() vim.cmd(":Oil --float") end,                                           description = "Oil" },
@@ -363,17 +362,8 @@ return {
         { "<leader>mr", "<cmd>write | edit | TSBufEnable highlight<CR>",                   description = "Treesitter: Reload" },
         { "<leader>me", function() require("emoji").insert() end,                          description = "Insert Emoji" },
 
-        {
-          '<leader>mD',
-          function() require("hydra").activate(Debugger) end,
-          description = 'Debugger',
-        },
-
-        {
-          '<leader>tt',
-          function() require("hydra").activate(Neotest) end,
-          description = 'Neotest',
-        },
+        { '<leader>mD', function() require("hydra").activate(Debugger) end,                description = 'Debugger' },
+        { '<leader>mT', function() require("hydra").activate(Neotest) end,                 description = 'Neotest' },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Miscellaneous (leader m with random keybindings)         │
@@ -386,21 +376,20 @@ return {
         { "<leader>MXgee", function() vim.cmd(":Telescope notify") end,                                      description = "Notify: Search History" },
         { "<leader>MXgef", function() require('gitignore').generate() end,                                   description = "Generate gitignore" },
         { "<leader>MXgeg", function() require('kulala').run() end,                                           description = "Run kulala" },
+        { "<leader>MXcw", function() require('curl').open_curl_tab() end,                                    description = "Open curl (working directory)" },
+        { "<leader>MXcg", function() require('curl').open_global_tab() end,                                  description = "Open curl (global)" },
 
         { "<leader>MXgeh", function() core_utils.markdown_preview() end,                                     description = "Preview Markdown" },
         { "<leader>MXgei", function() vim.cmd(":TableModeToggle") end,                                       description = "vim-table-mode: Toggle" },
         {
           "<leader>MXgej",
-          function()
-            if toolbox.is_visual_mode() then
-              core_utils.execute_command(":Tableize/\\t")
-            end
-          end,
+          function() if toolbox.is_visual_mode() then core_utils.execute_command(":Tableize/\\t") end end,
           mode = { "v" },
                                                                                                              description = 'vim-table-mode: Tableize',
         },
 
         { "<leader>MXgk", function() require("copy-tree").copy_tree() end,                                   description = "Tree: Copy project structure" },
+        { "<leader>MXsuc", ":%s/[’‘]/'/ge | %s/[“”＂]/\"/ge<CR>",                                            description = "Delete All Weird Curly Quotes" },
 
         -- Lazy
         { "<leader>MXlaa", "<cmd>Lazy sync<CR>",                                                             description = "Lazy: Update" },
@@ -418,10 +407,6 @@ return {
         -- ccc
         { "<leader>MXfa", "<cmd>CccPick<CR>",                                                                description = "Color: Pick" },
         { "<leader>MXfb", "<cmd>CccConvert<CR>",                                                             description = "Color: Convert" },
-
-        -- curl
-        { "<leader>MXcw", function() require('curl').open_curl_tab() end,                                    description = "Open curl (working directory)" },
-        { "<leader>MXcg", function() require('curl').open_global_tab() end,                                  description = "Open curl (global)" },
 
       -- ╭─────────────────────────────────────────────────────────╮
       -- │ g commands                                              │
@@ -592,26 +577,6 @@ return {
           description = "csv: count unique in 2nd column",
         },
 
-      -- ╭─────────────────────────────────────────────────────────╮
-      -- │ substitute                                              │
-      -- ╰─────────────────────────────────────────────────────────╯
-        {
-          "<leader>MXsub",
-          function()
-            if toolbox.is_visual_mode() then
-             core_utils.execute_command(":s/foo/&bar/gc")
-            else
-              core_utils.execute_command(":%s/foo/&bar/gc")
-            end
-          end,
-          mode = { "n", "v" },
-          description = "Substitute: `foo` into `foobar`",
-        },
-        {
-          "<leader>MXsuc",
-          ":%s/[’‘]/'/ge | %s/[“”＂]/\"/ge<CR>",
-          description = "Delete All Weird Curly Quotes",
-        },
       },
     })
   end,

@@ -74,7 +74,7 @@ return {
     Neotest = Hydra({
       name = "Neotest",
       mode = "n",
-      body = "<leader>tt",
+      body = "<leader>mT",
       config = vim.tbl_extend("force", default_config, {
         color = "pink",
       }),
