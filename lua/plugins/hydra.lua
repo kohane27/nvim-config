@@ -7,19 +7,58 @@ return {
     local Hydra = require("hydra")
     local dap = require("dap")
     local dapui = require("dapui")
+    local neotest = require("neotest")
 
     local default_config = {
       invoke_on_body = true,
       hint = {
         type = "window",
         position = "top-right",
-        float_opts = {
-          border = "rounded",
-        },
+        float_opts = { border = "rounded" },
         hide_on_load = false,
         show_name = false,
       },
     }
+
+
+    -- TODO: set up a command to start hydra for neotest
+    -- disable floating test
+    Neotest = Hydra({
+      name = "Test",
+      mode = "n",
+      body = "<leader>tt",
+      hint = [[
+_r_ "Run Nearest"
+_T_ "Run all files"
+_f_ "Run current file"
+_d_ "Debug nearest test"
+_l_ "Run Last"
+_s_ "Stop"
+_o_ "Show Output"
+_t_ "Toggle Summary"
+_O_ "Toggle Output Panel"
+_w_ "Toggle Watch"
+      ]],
+
+      config = vim.tbl_extend("force", default_config, {
+        color = "pink",
+      }),
+
+      -- stylua: ignore
+      heads = {
+        { "r", function() neotest.run.run() end, },
+        { "T", function() neotest.run.run(vim.uv.cwd()) end, },
+        { "f", function() neotest.run.run(vim.fn.expand("%")) end, },
+        { "d", function() neotest.run.run({ strategy = "dap" }) end, },
+        { "s", function() neotest.run.stop() end, },
+        { "l", function() neotest.run.run_last() end, },
+        { "t", function() neotest.summary.toggle() end, },
+        { "o", function() neotest.output.open({ enter = true, auto_close = true }) end, },
+        { "O", function() neotest.output_panel.toggle() end, },
+        { "w", function() neotest.watch.toggle(vim.fn.expand("%")) end, },
+        { "<Esc>", nil, { exit = true, nowait = true } },
+      },
+    })
 
     Hydra({
       name = "Buffers",
@@ -63,7 +102,8 @@ return {
     Debugger = Hydra({
       name = "Debugger",
       mode = "n",
-      body = "<leader>w",
+      -- TODO: fix
+      body = "<leader>d",
       hint = [[
  _b_: breakpoint
  _B_: breakpoint condition
