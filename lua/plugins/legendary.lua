@@ -415,9 +415,9 @@ return {
           '<leader>gd',
           function()
             if toolbox.is_visual_mode() then
-             core_utils.execute_command(":s/foo.*//g<Left><Left><Left><Left><Left>")
+             core_utils.execute_command(":S/foo.*//g<Left><Left><Left><Left><Left>")
             else
-              core_utils.execute_command(":%s/foo.*//g<Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":%S/foo.*//g<Left><Left><Left><Left><Left>")
             end
           end,
           mode = { 'n', 'v' },
@@ -427,9 +427,9 @@ return {
           "<leader>gn",
           function()
             if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":G/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
             else
-              core_utils.execute_command(":g/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":G/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -493,9 +493,9 @@ return {
           "<leader>MXglf",
           function()
             if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g/foo/norm @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":G/foo/norm @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
             else
-              core_utils.execute_command(":g/foo/norm @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":G/foo/norm @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -506,9 +506,9 @@ return {
           "<leader>MXgLg",
           function()
             if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g/foo/t $<Left><Left><Left><Left>")
+              core_utils.execute_command(":G/foo/t $<Left><Left><Left><Left>")
             else
-              core_utils.execute_command(":g/foo/t $<Left><Left><Left><Left>")
+              core_utils.execute_command(":G/foo/t $<Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -518,9 +518,9 @@ return {
           "<leader>MXgLh",
           function()
             if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g/foo/.,+2t $<Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":G/foo/.,+2t $<Left><Left><Left><Left><Left><Left><Left><Left>")
             else
-              core_utils.execute_command(":g/foo/.,+2t $<Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":G/foo/.,+2t $<Left><Left><Left><Left><Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -531,9 +531,9 @@ return {
           "<leader>MXgLi",
           function()
             if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g/foo/m $<Left><Left><Left><Left>")
+              core_utils.execute_command(":G/foo/m $<Left><Left><Left><Left>")
             else
-              core_utils.execute_command(":g/foo/m $<Left><Left><Left><Left>")
+              core_utils.execute_command(":G/foo/m $<Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -544,9 +544,9 @@ return {
           "<leader>MXgLj",
           function()
             if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g/foo/.,+2m $<Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":G/foo/.,+2m $<Left><Left><Left><Left><Left><Left><Left><Left>")
             else
-              core_utils.execute_command(":g/foo/.,+2m $<Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":G/foo/.,+2m $<Left><Left><Left><Left><Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
