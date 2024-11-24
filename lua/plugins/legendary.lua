@@ -409,7 +409,35 @@ return {
         { "<leader>MXfb", "<cmd>CccConvert<CR>",                                                             description = "Color: Convert" },
 
       -- ╭─────────────────────────────────────────────────────────╮
-      -- │ g commands                                              │
+      -- │ g commands (real keybindings)                           │
+      -- ╰─────────────────────────────────────────────────────────╯
+        {
+          '<leader>gd',
+          function()
+            if toolbox.is_visual_mode() then
+             core_utils.execute_command(":s/foo.*//g<Left><Left><Left><Left><Left>")
+            else
+              core_utils.execute_command(":%s/foo.*//g<Left><Left><Left><Left><Left>")
+            end
+          end,
+          mode = { 'n', 'v' },
+          description = 'Delete Everything After `foo`',
+        },
+        {
+          "<leader>gn",
+          function()
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+            else
+              core_utils.execute_command(":g/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+            end
+          end,
+          mode = { "n", "v" },
+          description = "g: Run Normal mode on lines containing `foo`",
+        },
+
+      -- ╭─────────────────────────────────────────────────────────╮
+      -- │ g commands (random keybindings)                         │
       -- ╰─────────────────────────────────────────────────────────╯
         {
           '<leader>MXgla',
@@ -424,18 +452,6 @@ return {
           description = "g: Remove Empty Lines",
         },
         {
-          "<leader>MXglc",
-          function()
-            if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g!/^foo$/d<Left><Left><Left>")
-            else
-              core_utils.execute_command(":g!/^foo$/d<Left><Left><Left>")
-            end
-          end,
-          mode = { "n", "v" },
-          description = "g: Delete Lines NOT `foo`",
-        },
-        {
           "<leader>MXgld",
           function()
             if toolbox.is_visual_mode() then
@@ -448,19 +464,31 @@ return {
           mode = { "n", "v" },
           description = "g: Convert Tabs to Spaces",
         },
-
         {
-          "<leader>MXgle",
+          "<leader>MXglca",
           function()
             if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":g!/^foo$/d<Left><Left><Left>")
             else
-              core_utils.execute_command(":g/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":g!/^foo$/d<Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
-          description = "g: Run Normal mode on `foo`",
+          description = "g: Delete Lines NOT exactly `foo`",
         },
+        {
+          "<leader>MXglcb",
+          function()
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g!/foo/d<Left><Left><Left>")
+            else
+              core_utils.execute_command(":g!/foo/d<Left><Left><Left>")
+            end
+          end,
+          mode = { "n", "v" },
+          description = "g: Delete Lines NOT containing `foo`",
+        },
+
         {
           "<leader>MXglf",
           function()
@@ -496,7 +524,7 @@ return {
             end
           end,
           mode = { "n", "v" },
-          description = "g: (t)ransfer `foo` with 2 lines below to End of File",
+          description = "g: (t)ransfer `foo` and 2 lines below to End of File",
         },
 
         {
@@ -522,7 +550,7 @@ return {
             end
           end,
           mode = { "n", "v" },
-          description = "g: (m)ove `foo` with 2 lines below to End of File",
+          description = "g: (m)ove `foo` and 2 lines below to End of File",
         },
 
         {
