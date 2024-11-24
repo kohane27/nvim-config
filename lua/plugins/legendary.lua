@@ -1,15 +1,18 @@
 return {
   "mrjones2014/legendary.nvim",
-  -- NOTE: has to be `VeryLazy` for commands to be registered first
+  -- NOTE: has to be `VeryLazy` or else won't work for some reason
   event = "VeryLazy",
   dependencies = { "kkharji/sqlite.lua", "stevearc/dressing.nvim" },
-  opts = {
-    include_builtin = false,
-    include_legendary_cmds = false,
-    -- NOTE: this takes precedence over other sort options
-    -- sort = { frecency = { db_root = string.format("%s/legendary/", vim.fn.stdpath("data")), max_timestamps = 20 } },
-    -- `keys` spec will be automatically loaded
-    extensions = { lazy_nvim = true, diffview = true },
+  config = function()
+    local core_utils = require("core.utils")
+    local toolbox = require("legendary.toolbox")
+    require("legendary").setup({
+      include_builtin = false,
+      include_legendary_cmds = false,
+      -- NOTE: this takes precedence over other sort options
+      -- sort = { frecency = { db_root = string.format("%s/legendary/", vim.fn.stdpath("data")), max_timestamps = 20 } },
+      -- `keys` spec will be automatically loaded
+      extensions = { lazy_nvim = true, diffview = true },
       -- stylua: ignore
       keymaps = {
         -- NOTE: use <cmd> for normal Ex commands because it's faster for some reason
@@ -28,8 +31,8 @@ return {
         -- <leader> h, i, k, p, u, v, w, y, z
 
         -- start with g
-        { "ga", function() require("core.utils").get_current_buffer_content() end,               description = "Get Current Buffer Content" },
-        { "gA", function() require("core.utils").get_all_buffer_content() end,                   description = "Get All Buffer Content" },
+        { "ga", function() core_utils.get_current_buffer_content() end,                          description = "Get Current Buffer Content" },
+        { "gA", function() core_utils.get_all_buffer_content() end,                              description = "Get All Buffer Content" },
         { "gu", function() vim.cmd(":UndotreeToggle") end,                                       description = "Undotree: Toggle" },
         { "gU", function() require("telescope").extensions.undo.undo() end,                      description = "Telescope: Undo" },
 
@@ -49,9 +52,9 @@ return {
         { "<C-a>", function() require("dial.map").manipulate("increment", "normal") end,         description = "Increment" },
         { "<C-x>", function() require("dial.map").manipulate("decrement", "normal") end,         description = "Decrement" },
         { "<C-f>", function() require("nvim-tree.api").tree.toggle({ find_file = true }) end,    description = "Tree: Toggle With Focused File" },
-        { "<C-g>", function() require("core.utils").find_files_from_project_git_root() end,      description = "Telescope: Find Files" },
+        { "<C-g>", function() core_utils.find_files_from_project_git_root() end,                 description = "Telescope: Find Files" },
         -- { "<C-p>", "<cmd>Legendary<CR>",                                                      description = "Legendary Command Palette", mode = { "n", "x" } },
-        { "<C-p>", function() require("core.utils").legendary_command_palette() end,             description = "Legendary Command Palette", mode = { "n", "x" } },
+        { "<C-p>", function() core_utils.legendary_command_palette() end,                        description = "Legendary Command Palette", mode = { "n", "x" } },
 
         { "<C-v>", { i = '<C-R>+' },                                                             description = "Paste Clipboard Content" },
         { "<C-f>", { i = '<C-R>0' },                                                             description = "Paste Last Yanked" },
@@ -62,10 +65,10 @@ return {
         {
           '<leader>fg',
           function()
-            if require("legendary.toolbox").is_visual_mode() then
-              require("core.utils").live_grep_from_project_git_root({ default_text = require("core.utils").get_visual_selection() })
+            if toolbox.is_visual_mode() then
+              core_utils.live_grep_from_project_git_root({ default_text = core_utils.get_visual_selection() })
             else
-              require("core.utils").live_grep_from_project_git_root()
+              core_utils.live_grep_from_project_git_root()
             end
           end,
           mode = { 'n', 'v' },
@@ -79,8 +82,8 @@ return {
         {
           '<leader>fb',
           function()
-            if require("legendary.toolbox").is_visual_mode() then
-              require("telescope.builtin").current_buffer_fuzzy_find({ default_text = require("core.utils").get_visual_selection() })
+            if toolbox.is_visual_mode() then
+              require("telescope.builtin").current_buffer_fuzzy_find({ default_text = core_utils.get_visual_selection() })
             else
               require("telescope.builtin").current_buffer_fuzzy_find()
             end
@@ -197,20 +200,6 @@ return {
         { "<leader>tc", "<cmd>tabclose<CR>", description = "Tab: Close" },
 
         -- ╭──────────────────────────────────────────────────────────╮
-        -- │ neotest                                                  │
-        -- ╰──────────────────────────────────────────────────────────╯
-        { "<leader>Tr", function() require("neotest").run.run() end,                                               description = "Test: Run Nearest" },
-        { "<leader>TT", function() require("neotest").run.run(vim.uv.cwd()) end,                                   description = "Test: Run all files" },
-        { "<leader>Tf", function() require("neotest").run.run(vim.fn.expand("%")) end,                             description = "Test: Run current file" },
-        { "<leader>Td", function() require("neotest").run.run({strategy = "dap"}) end,                             description = "Test: Debug nearest test" },
-        { "<leader>Tl", function() require("neotest").run.run_last() end,                                          description = "Test: Run Last" },
-        { "<leader>Ts", function() require("neotest").summary.toggle() end,                                        description = "Test: Toggle Summary" },
-        { "<leader>To", function() require("neotest").output.open({ enter = true, auto_close = true }) end,        description = "Test: Show Output" },
-        { "<leader>TO", function() require("neotest").output_panel.toggle() end,                                   description = "Test: Toggle Output Panel" },
-        { "<leader>TS", function() require("neotest").run.stop() end,                                              description = "Test: Stop" },
-        { "<leader>Tw", function() require("neotest").watch.toggle(vim.fn.expand("%")) end,                        description = "Test: Toggle Watch" },
-
-        -- ╭──────────────────────────────────────────────────────────╮
         -- │ tmux.lua                                                 │
         -- ╰──────────────────────────────────────────────────────────╯
         { "<A-h>",   function() require("tmux").move_left() end,       description = "Move Focus to Left" },
@@ -231,8 +220,8 @@ return {
         {
           '<leader>df',
           function()
-            if require("legendary.toolbox").is_visual_mode() then
-              require("core.utils").execute_command(":DiffviewFileHistory<CR>")
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":DiffviewFileHistory<CR>")
             else
               vim.cmd(':DiffviewFileHistory %')
             end
@@ -242,22 +231,22 @@ return {
         },
         {
           "<leader>dHa",
-          function() require("core.utils").execute_command(":DiffviewOpen HEAD~3") end,
+          function() core_utils.execute_command(":DiffviewOpen HEAD~3") end,
           description = "Diffview: HEAD and n Prior Commits",
         },
         {
           "<leader>dHb",
-          function() require("core.utils").execute_command(":DiffviewOpen d4a7b0d") end,
+          function() core_utils.execute_command(":DiffviewOpen d4a7b0d") end,
           description = "Diffview: Compares Changes Made by `d4a7b0d` with Current Working Directory",
         },
         {
           "<leader>dHc",
-          function() require("core.utils").execute_command(":DiffviewOpen d4a7b0d^!<Left><Left>") end,
+          function() core_utils.execute_command(":DiffviewOpen d4a7b0d^!<Left><Left>") end,
           description = "Diffview: Changes Made in the Single `d4a7b0d`",
         },
         {
           "<leader>dHd",
-          function() require("core.utils").execute_command(":DiffviewOpen c1..c2<Left><Left><Left><Left>") end,
+          function() core_utils.execute_command(":DiffviewOpen c1..c2<Left><Left><Left><Left>") end,
           description = "Diffview: Changes Between 2 Commits (from `d4a7b0d` up to `519b30e` (inclusive)).",
         },
         { "<leader>dHh", "<cmd>DiffviewFileHistory<CR>",                         description = "Diffview: File History of Current Branch" },
@@ -276,13 +265,13 @@ return {
         -- │ scratch.nvim                                             │
         -- ╰──────────────────────────────────────────────────────────╯
         { "<leader>no", function() require("scratch.api").createScratchFileByType("md") end,        description = "Scratch: New File" },
-        { "<leader>ns", function() require("core.utils").toggle_latest_scratchpad() end,            description = "Scratch: Toggle Latest" },
-        { "<leader>nS", function() require("core.utils").toggle_global_scratchpad_md() end,         description = "Scratch: Toggle scratchpad.md" },
+        { "<leader>ns", function() core_utils.toggle_latest_scratchpad() end,                       description = "Scratch: Toggle Latest" },
+        { "<leader>nS", function() core_utils.toggle_global_scratchpad_md() end,                    description = "Scratch: Toggle scratchpad.md" },
         {
           "<leader>nf",
           function()
             local scratch_dir = os.getenv("HOME") .. "/Cloud/laptop/nvim/local/share/scratch.nvim"
-            require("core.utils").search_chats(scratch_dir)
+            core_utils.search_chats(scratch_dir)
           end,
           description = "Scratch: Find File Content"
         },
@@ -299,18 +288,18 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ gp.nvim                                                  │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<leader>io", function() require("core.utils").gp_chat_new_ulti() end,                         description = "GPT: Ultimate Assistant" },
-        { "<leader>ii", function() require("core.utils").gp_chat_toggle() end,                           description = "GPT: Toggle" },
+        { "<leader>io", function() core_utils.gp_chat_new_ulti() end,                         description = "GPT: Ultimate Assistant" },
+        { "<leader>ii", function() core_utils.gp_chat_toggle() end,                           description = "GPT: Toggle" },
         {
           "<leader>if",
           function()
             local gp_chats_dir = os.getenv("HOME") .. "/Cloud/laptop/nvim/local/share/gp/chats"
-            require("core.utils").search_chats(gp_chats_dir)
+            core_utils.search_chats(gp_chats_dir)
           end,
           description = "GPT: Finder"
         },
 
-        { "<leader>ia", function() require("core.utils").gp_choose_agent() end,                          description = "GPT: Choose an Agent" },
+        { "<leader>ia", function() core_utils.gp_choose_agent() end,                          description = "GPT: Choose an Agent" },
         {
           "<leader>ir",
           function()
@@ -348,7 +337,7 @@ return {
         { "qq", function() Snacks.bufdelete() end,                             description = "Buffer: Close" },
         { "Q", "<cmd>bdelete<CR>",                                             description = "Buffer: Close with Layout" },
         -- { "<leader>q", "<cmd>wqa<CR>",                                         description = "Quit" },
-        { "<leader>q", function() require("core.utils").quit() end,            description = "Save and quit", },
+        { "<leader>q", function() core_utils.quit() end,                       description = "Save and quit", },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Miscellaneous (leader m with real keybindings)           │
@@ -357,9 +346,9 @@ return {
         {
          "<leader>mb",
          function()
-           if require("legendary.toolbox").is_visual_mode() then
+           if toolbox.is_visual_mode() then
              require('comment-box').llbox()
-             require("core.utils").execute_command("<Esc>")
+             core_utils.execute_command("<Esc>")
            end
          end,
          mode = { "v" },
@@ -372,19 +361,25 @@ return {
         {
           '<leader>md',
           function()
-            if require("legendary.toolbox").is_visual_mode() then
-             require("core.utils").execute_command(":s/foo.*//g<Left><Left><Left><Left><Left>")
+            if toolbox.is_visual_mode() then
+             core_utils.execute_command(":s/foo.*//g<Left><Left><Left><Left><Left>")
             else
-              require("core.utils").execute_command(":%s/foo.*//g<Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":%s/foo.*//g<Left><Left><Left><Left><Left>")
             end
           end,
           mode = { 'n', 'v' },
           description = 'Delete Everything After `foo`',
         },
+
         {
           '<leader>mD',
           function() require("hydra").activate(Debugger) end,
           description = 'Debugger',
+        },
+        {
+          '<leader>mT',
+          function() require("hydra").activate(Neotest) end,
+          description = 'Neotest',
         },
 
         -- ╭──────────────────────────────────────────────────────────╮
@@ -399,13 +394,13 @@ return {
         { "<leader>MXgef", function() require('gitignore').generate() end,                                   description = "Generate gitignore" },
         { "<leader>MXgeg", function() require('kulala').run() end,                                           description = "Run kulala" },
 
-        { "<leader>MXgeh", function() require("core.utils").markdown_preview() end,                          description = "Preview Markdown" },
+        { "<leader>MXgeh", function() core_utils.markdown_preview() end,                                     description = "Preview Markdown" },
         { "<leader>MXgei", function() vim.cmd(":TableModeToggle") end,                                       description = "vim-table-mode: Toggle" },
         {
           "<leader>MXgej",
           function()
-            if require("legendary.toolbox").is_visual_mode() then
-              require("core.utils").execute_command(":Tableize/\\t")
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":Tableize/\\t")
             end
           end,
           mode = { "v" },
@@ -441,10 +436,10 @@ return {
         {
           '<leader>MXgla',
           function()
-            if require("legendary.toolbox").is_visual_mode() then
-              require("core.utils").execute_command(":g/^$/d<CR>")
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g/^$/d<CR>")
             else
-              require("core.utils").execute_command(":g/^$/d<CR>")
+              core_utils.execute_command(":g/^$/d<CR>")
             end
           end,
           mode = { 'n', 'v' },
@@ -453,10 +448,10 @@ return {
         {
           "<leader>MXglc",
           function()
-            if require("legendary.toolbox").is_visual_mode() then
-              require("core.utils").execute_command(":g!/^foo$/d<Left><Left><Left>")
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g!/^foo$/d<Left><Left><Left>")
             else
-              require("core.utils").execute_command(":g!/^foo$/d<Left><Left><Left>")
+              core_utils.execute_command(":g!/^foo$/d<Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -465,7 +460,7 @@ return {
         {
           "<leader>MXgld",
           function()
-            if require("legendary.toolbox").is_visual_mode() then
+            if toolbox.is_visual_mode() then
               -- can't use execute_command because `t` inserts `\v`
               vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/\t/s//    /g<CR>", true, true, true), "n", true)
             else
@@ -479,10 +474,10 @@ return {
         {
           "<leader>MXgle",
           function()
-            if require("legendary.toolbox").is_visual_mode() then
-              require("core.utils").execute_command(":g/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
             else
-              require("core.utils").execute_command(":g/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":g/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -491,10 +486,10 @@ return {
         {
           "<leader>MXglf",
           function()
-            if require("legendary.toolbox").is_visual_mode() then
-              require("core.utils").execute_command(":g/foo/norm @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g/foo/norm @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
             else
-              require("core.utils").execute_command(":g/foo/norm @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":g/foo/norm @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -504,10 +499,10 @@ return {
         {
           "<leader>MXgLg",
           function()
-            if require("legendary.toolbox").is_visual_mode() then
-              require("core.utils").execute_command(":g/foo/t $<Left><Left><Left><Left>")
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g/foo/t $<Left><Left><Left><Left>")
             else
-              require("core.utils").execute_command(":g/foo/t $<Left><Left><Left><Left>")
+              core_utils.execute_command(":g/foo/t $<Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -516,10 +511,10 @@ return {
         {
           "<leader>MXgLh",
           function()
-            if require("legendary.toolbox").is_visual_mode() then
-              require("core.utils").execute_command(":g/foo/.,+2t $<Left><Left><Left><Left><Left><Left><Left><Left>")
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g/foo/.,+2t $<Left><Left><Left><Left><Left><Left><Left><Left>")
             else
-              require("core.utils").execute_command(":g/foo/.,+2t $<Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":g/foo/.,+2t $<Left><Left><Left><Left><Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -529,10 +524,10 @@ return {
         {
           "<leader>MXgLi",
           function()
-            if require("legendary.toolbox").is_visual_mode() then
-              require("core.utils").execute_command(":g/foo/m $<Left><Left><Left><Left>")
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g/foo/m $<Left><Left><Left><Left>")
             else
-              require("core.utils").execute_command(":g/foo/m $<Left><Left><Left><Left>")
+              core_utils.execute_command(":g/foo/m $<Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -542,10 +537,10 @@ return {
         {
           "<leader>MXgLj",
           function()
-            if require("legendary.toolbox").is_visual_mode() then
-              require("core.utils").execute_command(":g/foo/.,+2m $<Left><Left><Left><Left><Left><Left><Left><Left>")
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g/foo/.,+2m $<Left><Left><Left><Left><Left><Left><Left><Left>")
             else
-              require("core.utils").execute_command(":g/foo/.,+2m $<Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":g/foo/.,+2m $<Left><Left><Left><Left><Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -556,10 +551,10 @@ return {
           "<leader>MXgLk",
           function()
             vim.fn.setreg('a', '')
-            if require("legendary.toolbox").is_visual_mode() then
-              require("core.utils").execute_command(":g/foo/y A<Left><Left><Left><Left>")
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g/foo/y A<Left><Left><Left><Left>")
             else
-              require("core.utils").execute_command(":g/foo/y A<Left><Left><Left><Left>")
+              core_utils.execute_command(":g/foo/y A<Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -570,10 +565,10 @@ return {
           "<leader>MXgLl",
           function()
             vim.fn.setreg('a', '')
-            if require("legendary.toolbox").is_visual_mode() then
-              require("core.utils").execute_command(":g/foo/.,+2y A<Left><Left><Left><Left><Left><Left><Left><Left>")
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g/foo/.,+2y A<Left><Left><Left><Left><Left><Left><Left><Left>")
             else
-              require("core.utils").execute_command(":g/foo/.,+2y A<Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":g/foo/.,+2y A<Left><Left><Left><Left><Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -610,10 +605,10 @@ return {
         {
           "<leader>MXsub",
           function()
-            if require("legendary.toolbox").is_visual_mode() then
-             require("core.utils").execute_command(":s/foo/&bar/gc")
+            if toolbox.is_visual_mode() then
+             core_utils.execute_command(":s/foo/&bar/gc")
             else
-              require("core.utils").execute_command(":%s/foo/&bar/gc")
+              core_utils.execute_command(":%s/foo/&bar/gc")
             end
           end,
           mode = { "n", "v" },
@@ -625,5 +620,6 @@ return {
           description = "Delete All Weird Curly Quotes",
         },
       },
-  },
+    })
+  end,
 }
