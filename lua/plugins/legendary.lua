@@ -42,8 +42,7 @@ return {
         { "zk", function() require("ufo").peekFoldedLinesUnderCursor() end,                      description = "Peek folded lines under cursor" },
 
         -- start with ;
-        -- `nap.nvim` used: d,c,g,t,l,e
-        -- `hydra.nvim` used: m
+        -- `nap`: d,c,g,t,e
         { ";s", "<cmd>BufferLinePick<CR>",                                                       description = "Buffer: Pick a Buffer" },
 
         { "F", function() vim.cmd(":Oil --float") end,                                           description = "Oil" },
@@ -349,12 +348,7 @@ return {
         -- NOTE: `<leader>ma` and `<leader>mA` taken by `mini.align`
         {
          "<leader>mb",
-         function()
-           if toolbox.is_visual_mode() then
-             require('comment-box').llbox()
-             core_utils.execute_command("<Esc>")
-           end
-         end,
+         function() if toolbox.is_visual_mode() then require('comment-box').llbox() core_utils.execute_command("<Esc>") end end,
          mode = { "v" },
          description = "Comment Box: Left-aligned"
         },
@@ -363,17 +357,8 @@ return {
         { "<leader>mr", "<cmd>write | edit | TSBufEnable highlight<CR>",                   description = "Treesitter: Reload" },
         { "<leader>me", function() require("emoji").insert() end,                          description = "Insert Emoji" },
 
-        {
-          '<leader>mD',
-          function() require("hydra").activate(Debugger) end,
-          description = 'Debugger',
-        },
-
-        {
-          '<leader>tt',
-          function() require("hydra").activate(Neotest) end,
-          description = 'Neotest',
-        },
+        { '<leader>mD', function() require("hydra").activate(Debugger) end,                description = 'Debugger' },
+        { '<leader>mT', function() require("hydra").activate(Neotest) end,                 description = 'Neotest' },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Miscellaneous (leader m with random keybindings)         │
@@ -386,6 +371,8 @@ return {
         { "<leader>MXgee", function() vim.cmd(":Telescope notify") end,                                      description = "Notify: Search History" },
         { "<leader>MXgef", function() require('gitignore').generate() end,                                   description = "Generate gitignore" },
         { "<leader>MXgeg", function() require('kulala').run() end,                                           description = "Run kulala" },
+        { "<leader>MXgcw", function() require('curl').open_curl_tab() end,                                   description = "Open curl (working directory)" },
+        { "<leader>MXgcg", function() require('curl').open_global_tab() end,                                 description = "Open curl (global)" },
 
         { "<leader>MXgeh", function() core_utils.markdown_preview() end,                                     description = "Preview Markdown" },
         { "<leader>MXgei", function() vim.cmd(":TableModeToggle") end,                                       description = "vim-table-mode: Toggle" },
@@ -419,154 +406,8 @@ return {
         { "<leader>MXfa", "<cmd>CccPick<CR>",                                                                description = "Color: Pick" },
         { "<leader>MXfb", "<cmd>CccConvert<CR>",                                                             description = "Color: Convert" },
 
-        -- curl
-        { "<leader>MXcw", function() require('curl').open_curl_tab() end,                                    description = "Open curl (working directory)" },
-        { "<leader>MXcg", function() require('curl').open_global_tab() end,                                  description = "Open curl (global)" },
-
-      -- ╭─────────────────────────────────────────────────────────╮
-      -- │ g commands                                              │
-      -- ╰─────────────────────────────────────────────────────────╯
-        {
-          '<leader>MXgla',
-          function()
-            if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g/^$/d<CR>")
-            else
-              core_utils.execute_command(":g/^$/d<CR>")
-            end
-          end,
-          mode = { 'n', 'v' },
-          description = "g: Remove Empty Lines",
-        },
-        {
-          "<leader>MXglc",
-          function()
-            if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g!/^foo$/d<Left><Left><Left>")
-            else
-              core_utils.execute_command(":g!/^foo$/d<Left><Left><Left>")
-            end
-          end,
-          mode = { "n", "v" },
-          description = "g: Delete Lines NOT `foo`",
-        },
-        {
-          "<leader>MXgld",
-          function()
-            if toolbox.is_visual_mode() then
-              -- can't use execute_command because `t` inserts `\v`
-              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/\t/s//    /g<CR>", true, true, true), "n", true)
-            else
-              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/\t/s//    /g<CR>", true, true, true), "n", true)
-            end
-          end,
-          mode = { "n", "v" },
-          description = "g: Convert Tabs to Spaces",
-        },
-
-        {
-          "<leader>MXgle",
-          function()
-            if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
-            else
-              core_utils.execute_command(":g/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
-            end
-          end,
-          mode = { "n", "v" },
-          description = "g: Run Normal mode on `foo`",
-        },
-        {
-          "<leader>MXglf",
-          function()
-            if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g/foo/norm @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
-            else
-              core_utils.execute_command(":g/foo/norm @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
-            end
-          end,
-          mode = { "n", "v" },
-          description = "g: Run Macro `q` on `foo`",
-        },
-
-        {
-          "<leader>MXgLg",
-          function()
-            if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g/foo/t $<Left><Left><Left><Left>")
-            else
-              core_utils.execute_command(":g/foo/t $<Left><Left><Left><Left>")
-            end
-          end,
-          mode = { "n", "v" },
-          description = "g: (t)ransfer `foo` to End of File",
-        },
-        {
-          "<leader>MXgLh",
-          function()
-            if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g/foo/.,+2t $<Left><Left><Left><Left><Left><Left><Left><Left>")
-            else
-              core_utils.execute_command(":g/foo/.,+2t $<Left><Left><Left><Left><Left><Left><Left><Left>")
-            end
-          end,
-          mode = { "n", "v" },
-          description = "g: (t)ransfer `foo` with 2 lines below to End of File",
-        },
-
-        {
-          "<leader>MXgLi",
-          function()
-            if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g/foo/m $<Left><Left><Left><Left>")
-            else
-              core_utils.execute_command(":g/foo/m $<Left><Left><Left><Left>")
-            end
-          end,
-          mode = { "n", "v" },
-          description = "g: (m)ove `foo` to End of File",
-        },
-
-        {
-          "<leader>MXgLj",
-          function()
-            if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g/foo/.,+2m $<Left><Left><Left><Left><Left><Left><Left><Left>")
-            else
-              core_utils.execute_command(":g/foo/.,+2m $<Left><Left><Left><Left><Left><Left><Left><Left>")
-            end
-          end,
-          mode = { "n", "v" },
-          description = "g: (m)ove `foo` with 2 lines below to End of File",
-        },
-
-        {
-          "<leader>MXgLk",
-          function()
-            vim.fn.setreg('a', '')
-            if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g/foo/y A<Left><Left><Left><Left>")
-            else
-              core_utils.execute_command(":g/foo/y A<Left><Left><Left><Left>")
-            end
-          end,
-          mode = { "n", "v" },
-          description = "g: yank `foo` to reg a",
-        },
-
-        {
-          "<leader>MXgLl",
-          function()
-            vim.fn.setreg('a', '')
-            if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g/foo/.,+2y A<Left><Left><Left><Left><Left><Left><Left><Left>")
-            else
-              core_utils.execute_command(":g/foo/.,+2y A<Left><Left><Left><Left><Left><Left><Left><Left>")
-            end
-          end,
-          mode = { "n", "v" },
-          description = "g: yank `foo` with 2 lines below it to reg a",
-        },
+        -- substitutes
+        { "<leader>MXsuc", ":%s/[’‘]/'/ge | %s/[“”＂]/\"/ge<CR>",                                            description = "Delete All Weird Curly Quotes" },
 
       -- ╭─────────────────────────────────────────────────────────╮
       -- │ External commands                                       │
@@ -590,27 +431,6 @@ return {
           "<leader>MXexd",
           function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":%!tail -n +2 | cut -d',' -f2 | sort | uniq | wc -l<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>", true, true, true), "t", true) end,
           description = "csv: count unique in 2nd column",
-        },
-
-      -- ╭─────────────────────────────────────────────────────────╮
-      -- │ substitute                                              │
-      -- ╰─────────────────────────────────────────────────────────╯
-        {
-          "<leader>MXsub",
-          function()
-            if toolbox.is_visual_mode() then
-             core_utils.execute_command(":s/foo/&bar/gc")
-            else
-              core_utils.execute_command(":%s/foo/&bar/gc")
-            end
-          end,
-          mode = { "n", "v" },
-          description = "Substitute: `foo` into `foobar`",
-        },
-        {
-          "<leader>MXsuc",
-          ":%s/[’‘]/'/ge | %s/[“”＂]/\"/ge<CR>",
-          description = "Delete All Weird Curly Quotes",
         },
       },
     })

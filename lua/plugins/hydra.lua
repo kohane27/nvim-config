@@ -8,30 +8,180 @@ return {
     local dap = require("dap")
     local dapui = require("dapui")
     local neotest = require("neotest")
+    local core_utils = require("core.utils")
+    local toolbox = require("legendary.toolbox")
 
     local default_config = {
       invoke_on_body = true,
       hint = {
         type = "window",
-        position = "top-right",
-        float_opts = { border = "rounded" },
+        float_opts = { style = "minimal" },
         hide_on_load = false,
         show_name = false,
       },
     }
 
-    -- {
-    --   '<leader>md',
-    --   function()
-    --     if toolbox.is_visual_mode() then
-    --      core_utils.execute_command(":s/foo.*//g<Left><Left><Left><Left><Left>")
-    --     else
-    --       core_utils.execute_command(":%s/foo.*//g<Left><Left><Left><Left><Left>")
-    --     end
-    --   end,
-    --   mode = { 'n', 'v' },
-    --   description = 'Delete Everything After `foo`',
-    -- },
+    Hydra({
+      name = "G commands",
+      mode = "n",
+      body = "<leader>g",
+      hint = [[
+ _da_: Delete `foo` and everything after it
+ _de_: Delete Empty Lines
+ _dn_: Delete Lines NOT exactly `foo`
+ _dN_: Delete Lines NOT containing `foo`
+ _t_: Transfer `foo` to End of File
+ _T_: Transfer `foo` with 2 lines below to End of File
+ _mo_: move `foo` to End of File
+ _mO_: move `foo` with 2 lines below to End of File
+ _y_: yank `foo` to reg a
+ _Y_: yank `foo` with 2 lines below it to reg a
+ _c_: Convert Tabs to Spaces
+ _n_: Run Normal mode on `foo`
+ _ma_: Run Macro `q` on `foo`
+      ]],
+
+      config = vim.tbl_extend("force", default_config, {
+        color = "teal",
+        hint = { position = "bottom" },
+      }),
+      heads = {
+        {
+          "da",
+          function()
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":s/foo.*//g<Left><Left><Left><Left><Left>")
+            else
+              core_utils.execute_command(":%s/foo.*//g<Left><Left><Left><Left><Left>")
+            end
+          end,
+        },
+        {
+          "de",
+          function()
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g/^$/d<CR>")
+            else
+              core_utils.execute_command(":g/^$/d<CR>")
+            end
+          end,
+        },
+        {
+          "dn",
+          function()
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g!/^foo$/d<Left><Left><Left>")
+            else
+              core_utils.execute_command(":g!/^foo$/d<Left><Left><Left>")
+            end
+          end,
+        },
+        {
+          "dN",
+          function()
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g!/foo/d<Left><Left><Left>")
+            else
+              core_utils.execute_command(":g!/foo/d<Left><Left><Left>")
+            end
+          end,
+        },
+        {
+          "t",
+          function()
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g/foo/t $<Left><Left><Left><Left>")
+            else
+              core_utils.execute_command(":g/foo/t $<Left><Left><Left><Left>")
+            end
+          end,
+        },
+        {
+          "T",
+          function()
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g/foo/.,+2t $<Left><Left><Left><Left><Left><Left><Left><Left>")
+            else
+              core_utils.execute_command(":g/foo/.,+2t $<Left><Left><Left><Left><Left><Left><Left><Left>")
+            end
+          end,
+        },
+        {
+          "mo",
+          function()
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g/foo/m $<Left><Left><Left><Left>")
+            else
+              core_utils.execute_command(":g/foo/m $<Left><Left><Left><Left>")
+            end
+          end,
+        },
+        {
+          "mO",
+          function()
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g/foo/.,+2m $<Left><Left><Left><Left><Left><Left><Left><Left>")
+            else
+              core_utils.execute_command(":g/foo/.,+2m $<Left><Left><Left><Left><Left><Left><Left><Left>")
+            end
+          end,
+        },
+        {
+          "y",
+          function()
+            vim.fn.setreg("a", "")
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g/foo/y A<Left><Left><Left><Left>")
+            else
+              core_utils.execute_command(":g/foo/y A<Left><Left><Left><Left>")
+            end
+          end,
+        },
+        {
+          "Y",
+          function()
+            vim.fn.setreg("a", "")
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g/foo/.,+2y A<Left><Left><Left><Left><Left><Left><Left><Left>")
+            else
+              core_utils.execute_command(":g/foo/.,+2y A<Left><Left><Left><Left><Left><Left><Left><Left>")
+            end
+          end,
+        },
+        {
+          "c",
+          function()
+            if toolbox.is_visual_mode() then
+              -- can't use execute_command because `t` inserts `\v`
+              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/\t/s//    /g<CR>", true, true, true), "n", true)
+            else
+              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":g/\t/s//    /g<CR>", true, true, true), "n", true)
+            end
+          end,
+        },
+        {
+          "n",
+          function()
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+            else
+              core_utils.execute_command(":g/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+            end
+          end,
+        },
+        {
+          "ma",
+          function()
+            if toolbox.is_visual_mode() then
+              core_utils.execute_command(":g/foo/norm @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+            else
+              core_utils.execute_command(":g/foo/norm @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+            end
+          end,
+        },
+        { "<Esc>", nil, { exit = true, nowait = true } },
+      },
+    })
 
     Hydra({
       name = "Buffers",
@@ -74,7 +224,7 @@ return {
     Neotest = Hydra({
       name = "Neotest",
       mode = "n",
-      body = "<leader>tt",
+      body = "<leader>mT",
       config = vim.tbl_extend("force", default_config, {
         color = "pink",
       }),
