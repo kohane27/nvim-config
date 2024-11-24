@@ -121,8 +121,8 @@ return {
         { "gh", "<cmd>Lspsaga hover_doc ++quiet<CR>",                                      description = "LSP: Hover Doc (quiet)" },
         { "gH", "<cmd>Lspsaga hover_doc ++keep<CR>",                                       description = "LSP: Hover Doc (keep)" },
 
-        { "gD", "<cmd>Lspsaga goto_definition<CR>",                                        description = "LSP: Go to Definition" },
-        { "gd", "<cmd>Lspsaga peek_definition<CR>",                                        description = "LSP: Preview Definition" },
+        { "gd", "<cmd>Lspsaga goto_definition<CR>",                                        description = "LSP: Go to Definition" },
+        { "gp", "<cmd>Lspsaga peek_definition<CR>",                                        description = "LSP: Preview Definition" },
 
         { "gR", "<cmd>lua vim.lsp.buf.references()<CR>",                                   description = "LSP: Reference List" },
         { "gr", "<cmd>Trouble lsp_references toggle<CR>",                                  description = "Trouble: Reference List" },

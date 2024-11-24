@@ -158,7 +158,7 @@ end, { remap = false, expr = true })
 -- map("v", "p", ":<C-U>let @p = @+<CR>gvp:let @+ = @p<CR>")
 
 -- Paste from register 0 (last yanked)
-map("n", "gp", '"0p')
+-- map("n", "gp", '"0p')
 
 -- yank till end of line
 map("n", "Y", "y$")
