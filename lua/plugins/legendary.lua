@@ -362,18 +362,6 @@ return {
         { "<leader>mt", function() require('mini.trailspace').trim() end,                  description = "Trim All Trailing Whitespace" },
         { "<leader>mr", "<cmd>write | edit | TSBufEnable highlight<CR>",                   description = "Treesitter: Reload" },
         { "<leader>me", function() require("emoji").insert() end,                          description = "Insert Emoji" },
-        {
-          '<leader>md',
-          function()
-            if toolbox.is_visual_mode() then
-             core_utils.execute_command(":s/foo.*//g<Left><Left><Left><Left><Left>")
-            else
-              core_utils.execute_command(":%s/foo.*//g<Left><Left><Left><Left><Left>")
-            end
-          end,
-          mode = { 'n', 'v' },
-          description = 'Delete Everything After `foo`',
-        },
 
         {
           '<leader>mD',
