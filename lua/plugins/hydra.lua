@@ -20,19 +20,6 @@ return {
       },
     }
 
-    -- {
-    --   '<leader>md',
-    --   function()
-    --     if toolbox.is_visual_mode() then
-    --      core_utils.execute_command(":s/foo.*//g<Left><Left><Left><Left><Left>")
-    --     else
-    --       core_utils.execute_command(":%s/foo.*//g<Left><Left><Left><Left><Left>")
-    --     end
-    --   end,
-    --   mode = { 'n', 'v' },
-    --   description = 'Delete Everything After `foo`',
-    -- },
-
     Hydra({
       name = "Buffers",
       mode = "n",
