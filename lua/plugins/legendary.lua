@@ -380,8 +380,9 @@ return {
           function() require("hydra").activate(Debugger) end,
           description = 'Debugger',
         },
+
         {
-          '<leader>mT',
+          '<leader>tt',
           function() require("hydra").activate(Neotest) end,
           description = 'Neotest',
         },
