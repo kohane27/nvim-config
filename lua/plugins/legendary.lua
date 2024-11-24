@@ -10,7 +10,7 @@ return {
       include_builtin = false,
       include_legendary_cmds = false,
       -- NOTE: this takes precedence over other sort options
-      -- sort = { frecency = { db_root = string.format("%s/legendary/", vim.fn.stdpath("data")), max_timestamps = 20 } },
+      sort = { frecency = { db_root = string.format("%s/legendary/", vim.fn.stdpath("data")), max_timestamps = 20 } },
       -- `keys` spec will be automatically loaded
       extensions = { lazy_nvim = true, diffview = true },
       -- stylua: ignore
