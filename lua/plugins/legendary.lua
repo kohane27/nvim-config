@@ -28,7 +28,7 @@ return {
         -- J!!, K!!, T
         -- gh, gn
         -- gb, go, gs, gw, gy, gz, gq
-        -- <leader> h, i, k, p, u, v, w, y, z
+        -- <leader> h, i, k, u, v, w, y, z
 
         -- start with g
         { "ga", function() core_utils.get_current_buffer_content() end,                          description = "Get Current Buffer Content" },
@@ -40,6 +40,11 @@ return {
         { "zR", function() require("ufo").openAllFolds() end,                                    description = "Open all folds" },
         { "zM", function() require("ufo").closeAllFolds() end,                                   description = "Close all folds" },
         { "zk", function() require("ufo").peekFoldedLinesUnderCursor() end,                      description = "Peek folded lines under cursor" },
+
+        -- start with ;
+        -- `nap.nvim` used: d,c,g,t,l,e
+        -- `hydra.nvim` used: m
+        { ";s", "<cmd>BufferLinePick<CR>",                                                       description = "Buffer: Pick a Buffer" },
 
         { "F", function() vim.cmd(":Oil --float") end,                                           description = "Oil" },
         { "X", function() vim.cmd(":ISwapWith") end,                                             description = "Swap Two Adjacent Nodes" },
@@ -172,7 +177,6 @@ return {
         { "H", "<cmd>BufferLineCyclePrev<CR>",                                 description = "Buffer: Move to Previous" },
         { "L", "<cmd>BufferLineCycleNext<CR>",                                 description = "Buffer: Move to Next" },
 
-        { ";s", "<cmd>BufferLinePick<CR>",                                     description = "Buffer: Pick a Buffer" },
         { "<C-y>", "<cmd>BufferLineTogglePin<CR>",                             description = "Buffer: pin" },
 
         { "<C-h>", function() require("bufferline").go_to(1, true) end,        description = "Buffer: Go to 1" },

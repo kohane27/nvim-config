@@ -26,18 +26,18 @@ return {
         next = { rhs = '<cmd>lua require("todo-comments").jump_next()<CR>', opts = { desc = "Next todo comment" }, },
         prev = { rhs = '<cmd>lua require("todo-comments").jump_prev()<CR>', opts = { desc = "Previous todo comment" }, },
       },
-      ["l"] = {
-        next = { rhs = "<cmd>lnext<CR>", opts = { desc = "Next loclist item" } },
-        prev = { rhs = "<cmd>lprevious<CR>", opts = { desc = "Prev loclist item" } },
-      },
       ["e"] = {
         next = { rhs = "g;zz", opts = { desc = "Next changelist item" } },
         prev = { rhs = "g,zz", opts = { desc = "Previous changelist item" } },
       },
-      ["m"] = {
-        next = { rhs = "<Plug>(Marks-next)", opts = { desc = "Next mark" } },
-        prev = { rhs = "<Plug>(Marks-prev)", opts = { desc = "Previous mark" } },
-      },
+      -- ["l"] = {
+      --   next = { rhs = "<cmd>lnext<CR>", opts = { desc = "Next loclist item" } },
+      --   prev = { rhs = "<cmd>lprevious<CR>", opts = { desc = "Prev loclist item" } },
+      -- },
+      -- ["m"] = {
+      --   next = { rhs = "<Plug>(Marks-next)", opts = { desc = "Next mark" } },
+      --   prev = { rhs = "<Plug>(Marks-prev)", opts = { desc = "Previous mark" } },
+      -- },
     },
   },
 }
