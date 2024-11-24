@@ -1,8 +1,9 @@
--- `mkdnflow` conflicting with `vim-wiki`
 return {
+  -- `mkdnflow` conflicting with `vim-wiki`
   "jakewvincent/mkdnflow.nvim",
   ft = "markdown",
   event = "VeryLazy",
+  enabled = false,
   -- lazy = false,
   opts = {
     -- links = {
