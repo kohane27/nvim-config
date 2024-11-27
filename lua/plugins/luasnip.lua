@@ -52,15 +52,42 @@ return {
       end,
     })
 
-    --  ╭──────────────────────────────────────────────────────────╮
-    --  │ markdown text nodes                                      │
-    --  ╰──────────────────────────────────────────────────────────╯
+    -- ╭─────────────────────────────────────────────────────────╮
+    -- │ markdown text nodes                                     │
+    -- │ Note: Add line break: `t({ "", "" }),`                  │
+    -- ╰─────────────────────────────────────────────────────────╯
     ls.add_snippets("markdown", {
-      -- llm
+      -- LLM
       s({ trig = ",todo", wordTrig = true }, { t("Complete the TODO comment in the code please.") }),
       s({ trig = ",q", wordTrig = true }, { t("Do not ask me any questions.") }),
+      s({ trig = ",diff", wordTrig = true }, { t("What are the above differences?") }),
       s({ trig = ",f", wordTrig = true }, { t("following ") }),
-      s({ trig = ",F", wordTrig = true }, { t("I have the following ") }),
+      s({ trig = ",F", wordTrig = true }, {
+        t({ "I have the following " }),
+        i(1),
+        t({ ":", "" }),
+        t({ "", "" }),
+        t({ "```", "" }),
+        i(2),
+        t({ "", "" }),
+        t({ "```", "" }),
+      }),
+
+      s({ trig = ",err", wordTrig = true }, {
+        t({ "The above line gives the following error:", "" }),
+        t({ "", "" }),
+        t({ "```", "" }),
+        i(1),
+        t({ "", "" }),
+        t({ "```", "" }),
+      }),
+
+      s({ trig = ",cor", wordTrig = true }, {
+        t({ "Is the following correct?", "" }),
+        t({ "", "" }),
+        i(1),
+      }),
+
 
       -- general
       s({ trig = ",ty", wordTrig = true }, { t("Thank you.") }),
@@ -75,21 +102,10 @@ return {
     --  ╰──────────────────────────────────────────────────────────╯
     ls.add_snippets("markdown", {
       s({ trig = "```", wordTrig = true }, {
-        i(0),
+        i(1),
         t({ "```", "" }),
         -- t({ "", "" }),
       }),
-
-      -- s({ trig = ",f", wordTrig = true }, {
-      --   t({ "", "I have the following:" }),
-      --   -- Linebreak
-      --   t({ "", "" }),
-      --   t({ "", "" }),
-      --   t({ "```bash", "" }),
-      --   i(0),
-      --   t({ "", "" }),
-      --   t({ "```", "" }),
-      -- }),
 
       s({ trig = ",u", wordTrig = true }, {
         t({ "I'm using `" }),
@@ -97,13 +113,13 @@ return {
         t({ "`." }),
       }),
 
-      s({ trig = ",diff", wordTrig = true }, {
-        t({ "What is the difference between `" }),
-        i(1),
-        t({ "` and `" }),
-        i(2),
-        t({ "` ?" }),
-      }),
+      -- s({ trig = ",diff", wordTrig = true }, {
+      --   t({ "What is the difference between `" }),
+      --   i(1),
+      --   t({ "` and `" }),
+      --   i(2),
+      --   t({ "` ?" }),
+      -- }),
     }, { type = "autosnippets" })
 
     --  ╭──────────────────────────────────────────────────────────╮
