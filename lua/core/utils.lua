@@ -22,7 +22,14 @@ function M.get_all_buffer_content()
     -- Check if the buffer is loaded to avoid errors
     if vim.api.nvim_buf_is_loaded(bufnr) then
       local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
-      if filetype ~= "markdown" and filetype ~= "incline" and filetype ~= "toggleterm" and filetype ~= "NvimTree" then
+      if
+        filetype ~= "markdown"
+        and filetype ~= "incline"
+        and filetype ~= "toggleterm"
+        and filetype ~= "NvimTree"
+        and filetype ~= "BqfPreviewFloatWin"
+        and filetype ~= "BqfPreviewScrollBar"
+      then
         local filename = vim.api.nvim_buf_get_name(bufnr)
         -- Only proceed if the filename is not empty
         if filename ~= "" then
