@@ -28,6 +28,7 @@ return {
  _cl_: close right
  _ch_: close left
  _co_: close others
+ _ca_: close all
   _q_: close buffer
       ]],
 
@@ -50,9 +51,10 @@ return {
 
         { "<C-y>", "<Cmd>BufferLineTogglePin<CR>" },
         { "q", function() Snacks.bufdelete() end },
-        { "cl", "<cmd>BufferLineCloseRight<CR>" },
-        { "ch", "<cmd>BufferLineCloseLeft<CR>" },
-        { "co", "<cmd>BufferLineCloseOthers<CR>" },
+        { "cl", "<cmd>BufferLineCloseRight<CR>", { exit = true, nowait = true, on_key = true } },
+        { "ch", "<cmd>BufferLineCloseLeft<CR>", { exit = true, nowait = true, on_key = true } },
+        { "co", "<cmd>BufferLineCloseOthers<CR>", { exit = true, nowait = true, on_key = true } },
+        { "ca", function() Snacks.bufdelete.all() end, { exit = true, nowait = true, on_key = true } },
 
         { "<Esc>", nil, { exit = true, nowait = true } },
       },
