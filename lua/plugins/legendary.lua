@@ -153,8 +153,8 @@ return {
         { "<leader>lc", "<cmd>Lspsaga code_action<CR>",                                    description = "LSP: Code Action" },
         { "<leader>lf", "<cmd>Lspsaga finder<CR>",                                         description = "LSP: Symbol, Definition and Implementation" },
         { "<leader>ls", "<cmd>Trouble symbols toggle pinned=true<CR>",                     description = "Trouble: Symbols Outline" },
-        { "<leader>lr", "<cmd>Lspsaga lsp_rename ++project<CR>",                           description = "LSP: Rename" },
-        { "<leader>lp", "<cmd>TSToolsRenameFile<CR>",                                      description = "LSP: Rename (Current File)", filters = { ft = "javascriptreact", "typescriptreact" } },
+        { "<leader>lr", "<cmd>Lspsaga lsp_rename<CR>",                                     description = "LSP: Rename" },
+        { "<leader>lp", "<cmd>TSToolsRenameFile<CR>",                                      description = "LSP: Rename (Current File)" },
 
         { "<leader>lXc", "<cmd>lua vim.lsp.codelens.run()<CR>",                            description = "LSP: Code Lens" },
         { "<leader>lXd", "<cmd>lua vim.lsp.buf.declaration<CR>",                           description = "LSP: Declaration" },
