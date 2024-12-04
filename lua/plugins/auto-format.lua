@@ -2,6 +2,7 @@ return {
   "aidenlangley/auto-format.nvim",
   -- use only `BufReadPre` to play nicely with auto-save's `noautocmd = true`
   event = "BufReadPre",
+  enabled = false,
   opts = {
     augroup_name = "AutoFormat",
 
