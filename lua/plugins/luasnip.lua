@@ -60,6 +60,7 @@ return {
       -- LLM
       s({ trig = ",todo", wordTrig = true }, { t("Complete the TODO comment in the code please.") }),
       s({ trig = ",q", wordTrig = true }, { t("Do not ask me any questions.") }),
+      s({ trig = ",m", wordTrig = true }, { t("Does it mean that ") }),
       s({ trig = ",diff", wordTrig = true }, { t("What are the above differences?") }),
       s({ trig = ",f", wordTrig = true }, { t("following ") }),
       s({ trig = ",F", wordTrig = true }, {
