@@ -20,7 +20,7 @@ return {
       return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
     end
 
-    require("cmp").setup({
+    cmp.setup({
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
@@ -70,13 +70,13 @@ return {
             buffer = "[Buffer]",
             path = "[Path]",
             luasnip = "[Snippet]",
-            minuet = "[AI]",
+            -- minuet = "[AI]",
           },
         }),
       },
       sources = {
         { name = "luasnip" },
-        { name = "minuet" },
+        -- { name = "minuet" },
         {
           name = "nvim_lsp",
           -- remove snippets from LSP
