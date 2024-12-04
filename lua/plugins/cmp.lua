@@ -3,29 +3,19 @@ return {
   lazy = false,
   -- TODO: check out https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
   dependencies = {
-    -- LSP completion capabilities
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
-    "hrsh7th/cmp-cmdline",
-    -- pictograms
-    "onsails/lspkind.nvim",
+    "hrsh7th/cmp-nvim-lsp", -- LSP completion capabilities
+    "hrsh7th/cmp-buffer", -- words in all opened buffers
+    "hrsh7th/cmp-path", -- filepath
+    "hrsh7th/cmp-cmdline", -- source for vim's cmdline
+    "onsails/lspkind.nvim", -- pictograms
+    "lukas-reineke/cmp-rg", -- search all files in project
   },
   config = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     local lspkind = require("lspkind")
 
-    -- `/` cmdline setup.
-    cmp.setup.cmdline("/", {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = "buffer" },
-      },
-    })
-
     cmp.setup({
-
       window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
@@ -37,7 +27,7 @@ return {
           maxwidth = { menu = 50, abbr = 50 },
           ellipsis_char = "...",
           show_labelDetails = true, -- show labelDetails in menu
-          symbol_map = { gemini = "󱗻" },
+          symbol_map = { gemini = "" },
         }),
       },
 
@@ -79,7 +69,7 @@ return {
 
       sources = {
         { name = "luasnip" },
-        { name = "minuet" },
+        -- { name = "minuet" },
 
         {
           name = "nvim_lsp",
@@ -88,7 +78,7 @@ return {
             return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
           end,
         },
-
+        { name = "rg", option = { debounce = 500 } },
         {
           name = "buffer",
           option = {
@@ -109,10 +99,27 @@ return {
         -- slower response speed of LLMs
         fetching_timeout = 2000,
       },
-      -- confirm_opts = {
-      --   behavior = cmp.ConfirmBehavior.Replace,
-      --   select = false,
-      -- },
+    })
+
+    -- `/` cmdline
+    cmp.setup.cmdline("/", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = "buffer" },
+      },
+    })
+
+    -- `:` cmdline
+    cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({ { name = "path" } }, {
+        {
+          name = "cmdline",
+          option = {
+            ignore_cmds = { "Man", "!" },
+          },
+        },
+      }),
     })
   end,
 }
