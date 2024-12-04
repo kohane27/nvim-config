@@ -4,35 +4,34 @@ return {
   cmd = { "ConformInfo" },
   opts = {
     formatters_by_ft = {
+      javascript = { "prettier" },
+      javascriptreact = { "prettier" },
+      typescript = { "prettier" },
+      typescriptreact = { "prettier" },
+
       lua = { "stylua" },
-      -- Conform will run multiple formatters sequentially
-      python = { "isort", "black" },
-      -- customize format options for the filetype (:help conform.format)
-      rust = { "rustfmt" },
-      go = { "gofmt" },
-      -- Conform will run the first available formatter
-      javascript = { "prettier", stop_after_first = true },
-      javascriptreact = { "prettier", stop_after_first = true },
-      typescript = { "prettier", stop_after_first = true },
-      typescriptreact = { "prettier", stop_after_first = true },
-      terraform = { "terraform_fmt" },
-      sql = { "sql_formatter" },
       nix = { "nixfmt" },
       sh = { "shfmt" },
+      terraform = { "terraform_fmt" },
+
+      -- run multiple formatters sequentially
+      rust = { "rustfmt" },
+      go = { "gofmt" },
+      python = { "isort", "black" },
+      -- run the first available formatter
+      sql = { "sql_formatter", stop_after_first = true },
     },
     formatters = {
       shfmt = {
         prepend_args = { "--indent", "2" },
       },
-      -- prettier = {
-      --   command = os.getenv("HOME") .. "/.local/share/nvim/mason/bin/prettier",
-      -- },
     },
     default_format_opts = {
       lsp_format = "fallback",
     },
     format_on_save = {
-      timeout_ms = 500,
+      -- prettier is slow
+      timeout_ms = 5000,
       lsp_format = "fallback",
     },
   },
