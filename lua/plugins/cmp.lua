@@ -63,20 +63,17 @@ return {
 
       formatting = {
         format = require("lspkind").cmp_format({
-          mode = "symbol_text",
-          maxwidth = 50,
-          menu = {
-            nvim_lsp = "[LSP]",
-            buffer = "[Buffer]",
-            path = "[Path]",
-            luasnip = "[Snippet]",
-            -- minuet = "[AI]",
-          },
+          mode = "symbol_text", -- 'text', 'text_symbol', 'symbol_text', 'symbol'
+          maxwidth = { menu = 50, abbr = 50 },
+          ellipsis_char = "...",
+          show_labelDetails = true, -- show labelDetails in menu
+          symbol_map = { Codeium = "" },
         }),
       },
       sources = {
         { name = "luasnip" },
         -- { name = "minuet" },
+        { name = "codeium" },
         {
           name = "nvim_lsp",
           -- remove snippets from LSP
