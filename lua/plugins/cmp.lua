@@ -28,6 +28,15 @@ return {
           ellipsis_char = "...",
           show_labelDetails = true, -- show labelDetails in menu
           symbol_map = { gemini = "" },
+          menu = {
+            buffer = "[Buffer]",
+            nvim_lsp = "[LSP]",
+            rg = "[rg]",
+            luasnip = "[luasnip]",
+            minuet = "[AI]",
+            path = "[path]",
+            nvim_lsp_signature_help = "[Help]",
+          },
         }),
       },
 
