@@ -2,10 +2,17 @@ return {
   "MagicDuck/grug-far.nvim",
   event = "VeryLazy",
   opts = {
+    -- shortcuts for the actions you see at the top of the buffer
     keymaps = {
       qflist = { n = "<localleader>c" },
       close = { n = "<localleader>q" },
+      refresh = { n = "<localleader>r" },
+      syncLine = { n = "<localleader>s" },
+      syncLocations = { n = "<localleader>S" },
+      -- does not work with removed results
+      replace = { n = false },
     },
+    keymaps1 = {},
     engines = {
       ripgrep = {
         -- set individual ones to '' to disable, or set enabled = false for complete disable
