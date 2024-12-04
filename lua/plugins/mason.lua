@@ -2,6 +2,7 @@ return {
   "williamboman/mason.nvim",
   dependencies = {
     { "williamboman/mason-lspconfig.nvim" },
+    { "WhoIsSethDaniel/mason-tool-installer.nvim", opts = {} },
   },
   config = function()
     require("mason").setup({
@@ -25,7 +26,7 @@ return {
         "jsonls",
         "yamlls",
         "terraformls",
-        "nil_ls", -- nix
+        -- "nil_ls", -- nix
       },
       automatic_installation = true,
     })

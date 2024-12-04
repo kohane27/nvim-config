@@ -1,8 +1,7 @@
 return {
-  -- formatters and linters when LSP is not present
   "nvimtools/none-ls.nvim",
   event = "VeryLazy",
-  dependencies = { "WhoIsSethDaniel/mason-tool-installer.nvim" },
+  enabled = false,
   config = function()
     local null_ls = require("null-ls")
 
