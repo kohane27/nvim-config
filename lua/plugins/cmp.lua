@@ -73,7 +73,7 @@ return {
       sources = {
         { name = "luasnip" },
         -- { name = "minuet" },
-        { name = "codeium" },
+        -- { name = "codeium" },
         {
           name = "nvim_lsp",
           -- remove snippets from LSP
