@@ -6,10 +6,13 @@ return {
     "hrsh7th/nvim-cmp",
   },
   opts = {
-    provider = "claude",
+    provider = "gemini",
     proxy = "http://127.0.0.1:8888",
     notify = "error",
     provider_options = {
+      gemini = {
+        model = "gemini-1.5-flash-latest",
+      },
       claude = {
         model = "claude-3-5-haiku-20241022",
       },
