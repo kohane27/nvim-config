@@ -9,7 +9,9 @@ return {
     "rafamadriz/friendly-snippets",
   },
   config = function()
-    require("luasnip").setup({})
+    require("luasnip").setup({
+      enable_autosnippets = true,
+    })
 
     local ls = require("luasnip")
     local s = ls.snippet
@@ -88,7 +90,6 @@ return {
         t({ "", "" }),
         i(1),
       }),
-
 
       -- general
       s({ trig = ",ty", wordTrig = true }, { t("Thank you.") }),
@@ -176,11 +177,22 @@ return {
       })
     )
 
-    local common_snippets = { log_snippet, import_react, return_fragment, use_state }
     local filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" }
+    local common_snippets = { import_react, return_fragment, use_state }
     -- Loop through the filetypes and add the snippets to each one
     for _, filetype in ipairs(filetypes) do
       ls.add_snippets(filetype, common_snippets)
+    end
+
+    -- js autosnippets
+    for _, ft in ipairs(filetypes) do
+      ls.add_snippets(ft, {
+        s({ trig = "log", snippetType = "autosnippet", wordTrig = false }, {
+          t("console.log("),
+          i(1),
+          t(")"),
+        }),
+      }, { type = "autosnippets" })
     end
   end,
 }
