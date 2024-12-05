@@ -12,6 +12,7 @@ return {
   },
   config = function()
     local cmp = require("cmp")
+    local types = require("cmp.types")
     local luasnip = require("luasnip")
     local lspkind = require("lspkind")
 
@@ -47,6 +48,13 @@ return {
       },
 
       mapping = cmp.mapping.preset.insert({
+        -- Select the candidates in nvim-cmp window and also insert the text into the buffer
+        ["<C-n>"] = cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Insert }),
+        ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Insert }),
+        -- Select the candidates in nvim-cmp window but don't insert the text into the buffer
+        ["<C-j>"] = cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Select }),
+        ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Select }),
+
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         -- ["<C-e>"] = cmp.mapping.complete(),
