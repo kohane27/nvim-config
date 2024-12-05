@@ -9,6 +9,7 @@ return {
     "hrsh7th/cmp-cmdline", -- source for vim's cmdline
     "onsails/lspkind.nvim", -- pictograms
     "lukas-reineke/cmp-rg", -- search all files in project
+    "saadparwaiz1/cmp_luasnip",
   },
   config = function()
     local cmp = require("cmp")
@@ -85,18 +86,20 @@ return {
       }),
 
       -- the order of sources affects the ordering of items in the dropdown
+      -- unless we use `priority`
       sources = {
         -- { name = "minuet" },
         {
           name = "nvim_lsp",
+          priority = 1000,
           -- remove snippets from LSP
-          entry_filter = function(entry)
-            return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
-          end,
+          -- entry_filter = function(entry)
+          --   return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
+          -- end,
         },
-        { name = "rg", option = { debounce = 500, additional_arguments = "--max-depth 4" } },
         {
           name = "buffer",
+          priority = 900,
           option = {
             -- complete from all open buffers
             get_bufnrs = function()
@@ -104,10 +107,26 @@ return {
             end,
           },
         },
-
-        { name = "luasnip" },
-        { name = "path" }, -- filesystem paths
-        { name = "nvim_lsp_signature_help" }, -- display function signatures with the current parameter emphasized
+        {
+          name = "rg",
+          priority = 800,
+          option = { debounce = 500, additional_arguments = "--max-depth 4" },
+        },
+        {
+          name = "luasnip",
+          priority = 700,
+          option = { show_autosnippets = true },
+        },
+        {
+          -- filesystem paths
+          name = "path",
+          priority = 600,
+        },
+        {
+          -- display function signatures with the current parameter emphasized
+          name = "nvim_lsp_signature_help",
+          priority = 500,
+        },
       },
       performance = {
         -- slower response speed of LLMs
