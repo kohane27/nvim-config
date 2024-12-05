@@ -14,6 +14,8 @@ return {
 
     -- Additional lua configuration
     -- { "folke/neodev.nvim" },
+
+    { "j-hui/fidget.nvim", opts = {} },
   },
   config = function()
     local lspconfig = require("lspconfig")
