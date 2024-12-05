@@ -76,10 +76,9 @@ return {
         end, { "i", "s" }),
       }),
 
+      -- the order of sources affects the ordering of items in the dropdown
       sources = {
-        { name = "luasnip" },
         -- { name = "minuet" },
-
         {
           name = "nvim_lsp",
           -- remove snippets from LSP
@@ -87,7 +86,7 @@ return {
             return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
           end,
         },
-        { name = "rg", option = { debounce = 500 } },
+        { name = "rg", option = { debounce = 500, additional_arguments = "--max-depth 4" } },
         {
           name = "buffer",
           option = {
@@ -98,11 +97,9 @@ return {
           },
         },
 
-        -- filesystem paths
-        { name = "path" },
-
-        -- display function signatures with the current parameter emphasized
-        { name = "nvim_lsp_signature_help" },
+        { name = "luasnip" },
+        { name = "path" }, -- filesystem paths
+        { name = "nvim_lsp_signature_help" }, -- display function signatures with the current parameter emphasized
       },
       performance = {
         -- slower response speed of LLMs
