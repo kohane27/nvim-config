@@ -60,9 +60,10 @@ return {
     -- ╰─────────────────────────────────────────────────────────╯
     ls.add_snippets("markdown", {
       -- LLM
-      s({ trig = ",todo", wordTrig = true }, { t("Complete the TODO comment in the code please.") }),
       s({ trig = ",q", wordTrig = true }, { t("Do not ask me any questions.") }),
       s({ trig = ",m", wordTrig = true }, { t("Does it mean that ") }),
+      s({ trig = ",u", wordTrig = true }, { t("understand ") }),
+      s({ trig = ",e", wordTrig = true }, { t("Could you please explain ") }),
       s({ trig = ",diff", wordTrig = true }, { t("What are the above differences?") }),
       s({ trig = ",f", wordTrig = true }, { t("following ") }),
       s({ trig = ",F", wordTrig = true }, {
@@ -95,8 +96,6 @@ return {
       s({ trig = ",ty", wordTrig = true }, { t("Thank you.") }),
       s({ trig = ",hi", wordTrig = true }, { t("Hello! Hope you're doing well. Thank you for getting back ") }),
       s({ trig = ",input", wordTrig = true }, { t("Any input is much appreciated. Thank you.") }),
-      s({ trig = ",gb", wordTrig = true }, { t("Thank you for getting back to me. I really appreciate it.") }),
-      s({ trig = ",yt", wordTrig = true }, { t("YouTube") }),
     }, { type = "autosnippets" })
 
     --  ╭──────────────────────────────────────────────────────────╮
@@ -109,11 +108,11 @@ return {
         -- t({ "", "" }),
       }),
 
-      s({ trig = ",u", wordTrig = true }, {
-        t({ "I'm using `" }),
-        i(1),
-        t({ "`." }),
-      }),
+      -- s({ trig = ",u", wordTrig = true }, {
+      --   t({ "I'm using `" }),
+      --   i(1),
+      --   t({ "`." }),
+      -- }),
 
       -- s({ trig = ",diff", wordTrig = true }, {
       --   t({ "What is the difference between `" }),
