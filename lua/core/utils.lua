@@ -367,4 +367,23 @@ function M.search_chats(chat_dir)
   })
 end
 
+function M.copy_project_structure()
+  if is_in_home_directory() then
+    return
+  end
+  if not is_git_repo() then
+    vim.notify("Not in a git repository!", vim.log.levels.ERROR)
+    return
+  end
+
+  local root_dir = get_git_root()
+  vim.system({
+    "sh",
+    "-c",
+    string.format("cd %s && eza --tree --level=10 --all --git-ignore | wl-copy", vim.fn.shellescape(root_dir)),
+  })
+
+  vim.notify("Project structure copied to clipboard.", vim.log.levels.INFO)
+end
+
 return M

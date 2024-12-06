@@ -403,7 +403,8 @@ return {
                                                                                                              description = 'vim-table-mode: Tableize',
         },
 
-        { "<leader>MXgk", function() require("copy-tree").copy_tree() end,                                   description = "Tree: Copy project structure" },
+        { "<leader>MXgk", function() require("copy-tree").copy_tree() end,                                   description = "Tree: Copy project structure and files" },
+        { "<leader>MXgka", function() core_utils.copy_project_structure() end,                               description = "Tree: Copy project structure" },
         { "<leader>MXsuc", ":%s/[’‘]/'/ge | %s/[“”＂]/\"/ge<CR>",                                            description = "Delete All Weird Curly Quotes" },
 
         -- Lazy
