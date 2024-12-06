@@ -24,8 +24,6 @@ return {
     " To change any mapping you must first initialize the variable:
     let g:VM_maps = {}
     let g:VM_maps['Find Under'] = "<C-n>"
-    " TODO: conflict with illuminate
-    let g:VM_maps["Select Cursor Down"] = '<M-n>'
 
     " https://github.com/mg979/vim-visual-multi/issues/172
     let g:VM_maps['I BS'] = "" " disable backspace mapping
