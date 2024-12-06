@@ -43,7 +43,8 @@ return {
         -- Disable noice message capturing temporarily
         if has_noice then
           vim.opt.cmdheight = 1 -- Ensure there's space for VM messages
-          noice.disable("message")
+          -- noice.disable("message")
+          vim.cmd("Noice disable")
         end
       end,
     })
@@ -55,7 +56,8 @@ return {
       callback = function()
         if has_noice then
           vim.opt.cmdheight = 0 -- Restore original cmdheight
-          noice.enable("message")
+          -- noice.enable("message")
+          vim.cmd("Noice enable")
         end
       end,
     })
