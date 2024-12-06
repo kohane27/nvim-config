@@ -31,18 +31,32 @@ return {
     let g:VM_maps['I CtrlC'] = "" " disable backspace mapping
 ]])
 
-    -- disable noice.nvim when trigger this plugin
+    -- Create an autocommand group for VM fixes
+    vim.api.nvim_create_augroup("VM_fixes", { clear = true })
+
+    local has_noice, noice = pcall(require, "noice")
+    -- Temporarily modify message display during VM operations
     vim.api.nvim_create_autocmd("User", {
+      group = "VM_fixes",
       pattern = "visual_multi_start",
       callback = function()
-        vim.cmd("Noice disable")
+        -- Disable noice message capturing temporarily
+        if has_noice then
+          vim.opt.cmdheight = 1 -- Ensure there's space for VM messages
+          noice.disable("message")
+        end
       end,
     })
 
+    -- Restore settings when exiting VM
     vim.api.nvim_create_autocmd("User", {
+      group = "VM_fixes",
       pattern = "visual_multi_exit",
       callback = function()
-        vim.cmd("Noice enable")
+        if has_noice then
+          vim.opt.cmdheight = 0 -- Restore original cmdheight
+          noice.enable("message")
+        end
       end,
     })
   end,
