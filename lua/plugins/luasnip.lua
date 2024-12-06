@@ -62,8 +62,7 @@ return {
       -- LLM
       s({ trig = ",q", wordTrig = true }, { t("Do not ask me any questions.") }),
       s({ trig = ",m", wordTrig = true }, { t("Does it mean that ") }),
-      s({ trig = ",u", wordTrig = true }, { t("understand ") }),
-      s({ trig = ",e", wordTrig = true }, { t("Could you please explain ") }),
+      s({ trig = ",p", wordTrig = true }, { t("Could you please ") }),
       s({ trig = ",diff", wordTrig = true }, { t("What are the above differences?") }),
       s({ trig = ",f", wordTrig = true }, { t("following ") }),
       s({ trig = ",F", wordTrig = true }, {
