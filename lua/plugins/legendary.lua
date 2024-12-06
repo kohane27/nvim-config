@@ -47,15 +47,15 @@ return {
 
         {
           ';gd',
-          function() if toolbox.is_visual_mode() then core_utils.execute_command(":S/foo.*//g<Left><Left><Left><Left><Left>")
-            else core_utils.execute_command(":%S/foo.*//g<Left><Left><Left><Left><Left>") end end,
+          function() if toolbox.is_visual_mode() then core_utils.execute_command(":S/.*//g<Left><Left><Left><Left><Left>")
+            else core_utils.execute_command(":%S/.*//g<Left><Left><Left><Left><Left>") end end,
           mode = { 'n', 'v' },
                                                                                                  description = 'Delete Everything After `foo`',
         },
         {
           ";gn",
-          function() if toolbox.is_visual_mode() then core_utils.execute_command(":G/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
-            else core_utils.execute_command(":G/foo/norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>") end end,
+          function() if toolbox.is_visual_mode() then core_utils.execute_command(":G//norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+            else core_utils.execute_command(":G//norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>") end end,
           mode = { "n", "v" },
                                                                                                  description = "g: Run Normal mode on lines containing `foo`",
         },
@@ -456,9 +456,9 @@ return {
           "<leader>MXglca",
           function()
             if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g!/^foo$/d<Left><Left><Left>")
+              core_utils.execute_command(":g!/^f$/d<Left><Left><Left>")
             else
-              core_utils.execute_command(":g!/^foo$/d<Left><Left><Left>")
+              core_utils.execute_command(":g!/^f$/d<Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -468,9 +468,9 @@ return {
           "<leader>MXglcb",
           function()
             if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g!/foo/d<Left><Left><Left>")
+              core_utils.execute_command(":g!/f/d<Left><Left><Left>")
             else
-              core_utils.execute_command(":g!/foo/d<Left><Left><Left>")
+              core_utils.execute_command(":g!/f/d<Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -481,9 +481,9 @@ return {
           "<leader>MXglf",
           function()
             if toolbox.is_visual_mode() then
-              core_utils.execute_command(":G/foo/norm @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":G/f/norm @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
             else
-              core_utils.execute_command(":G/foo/norm @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":G/f/norm @q<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -494,9 +494,9 @@ return {
           "<leader>MXgLg",
           function()
             if toolbox.is_visual_mode() then
-              core_utils.execute_command(":G/foo/t $<Left><Left><Left><Left>")
+              core_utils.execute_command(":G/f/t $<Left><Left><Left><Left>")
             else
-              core_utils.execute_command(":G/foo/t $<Left><Left><Left><Left>")
+              core_utils.execute_command(":G/f/t $<Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -506,9 +506,9 @@ return {
           "<leader>MXgLh",
           function()
             if toolbox.is_visual_mode() then
-              core_utils.execute_command(":G/foo/.,+2t $<Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":G/f/.,+2t $<Left><Left><Left><Left><Left><Left><Left><Left>")
             else
-              core_utils.execute_command(":G/foo/.,+2t $<Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":G/f/.,+2t $<Left><Left><Left><Left><Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -519,9 +519,9 @@ return {
           "<leader>MXgLi",
           function()
             if toolbox.is_visual_mode() then
-              core_utils.execute_command(":G/foo/m $<Left><Left><Left><Left>")
+              core_utils.execute_command(":G/f/m $<Left><Left><Left><Left>")
             else
-              core_utils.execute_command(":G/foo/m $<Left><Left><Left><Left>")
+              core_utils.execute_command(":G/f/m $<Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -532,9 +532,9 @@ return {
           "<leader>MXgLj",
           function()
             if toolbox.is_visual_mode() then
-              core_utils.execute_command(":G/foo/.,+2m $<Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":G/f/.,+2m $<Left><Left><Left><Left><Left><Left><Left><Left>")
             else
-              core_utils.execute_command(":G/foo/.,+2m $<Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":G/f/.,+2m $<Left><Left><Left><Left><Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -546,9 +546,9 @@ return {
           function()
             vim.fn.setreg('a', '')
             if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g/foo/y A<Left><Left><Left><Left>")
+              core_utils.execute_command(":g/f/y A<Left><Left><Left><Left>")
             else
-              core_utils.execute_command(":g/foo/y A<Left><Left><Left><Left>")
+              core_utils.execute_command(":g/f/y A<Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
@@ -560,9 +560,9 @@ return {
           function()
             vim.fn.setreg('a', '')
             if toolbox.is_visual_mode() then
-              core_utils.execute_command(":g/foo/.,+2y A<Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":g/f/.,+2y A<Left><Left><Left><Left><Left><Left><Left><Left>")
             else
-              core_utils.execute_command(":g/foo/.,+2y A<Left><Left><Left><Left><Left><Left><Left><Left>")
+              core_utils.execute_command(":g/f/.,+2y A<Left><Left><Left><Left><Left><Left><Left><Left>")
             end
           end,
           mode = { "n", "v" },
