@@ -282,26 +282,18 @@ return {
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ scratch.nvim                                             │
         -- ╰──────────────────────────────────────────────────────────╯
-        { "<leader>no", function() require("scratch.api").createScratchFileByType("md") end,        description = "Scratch: New File" },
-        { "<leader>ns", function() core_utils.toggle_latest_scratchpad() end,                       description = "Scratch: Toggle Latest" },
-        { "<leader>nS", function() core_utils.toggle_global_scratchpad_md() end,                    description = "Scratch: Toggle scratchpad.md" },
+        { "<leader>so", function() require("scratch.api").createScratchFileByType("md") end,        description = "Scratch: New File" },
+        { "<leader>ss", function() core_utils.toggle_latest_scratchpad() end,                       description = "Scratch: Toggle Latest" },
+        { "<leader>sS", function() core_utils.toggle_global_scratchpad_md() end,                    description = "Scratch: Toggle scratchpad.md" },
         {
-          "<leader>nf",
+          "<leader>sf",
           function()
             local scratch_dir = os.getenv("HOME") .. "/Cloud/laptop/nvim/local/share/scratch.nvim"
             core_utils.search_chats(scratch_dir)
           end,
           description = "Scratch: Find File Content"
         },
-        -- { "<leader>nn", function() require("scratch.api").openScratch() end,                     description = "Scratch: Find File Name" },
-
-        -- ╭─────────────────────────────────────────────────────────╮
-        -- │ persisted.nvim                                          │
-        -- ╰─────────────────────────────────────────────────────────╯
-        { "<leader>ss", "<cmd>SessionSave<CR>",                                               description = "Session: Save" },
-        { "<leader>sd", "<cmd>SessionDelete<CR>",                                             description = "Session: Delete" },
-        { "<leader>sl", "<cmd>SessionLoad<CR>",                                               description = "Session: Load" },
-        { "<leader>sL", "<cmd>SessionLoadLast<CR>",                                           description = "Session: Load Recent Session" },
+        -- { "<leader>sn", function() require("scratch.api").openScratch() end,                     description = "Scratch: Find File Name" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ gp.nvim                                                  │
@@ -406,6 +398,12 @@ return {
         { "<leader>MXgk", function() require("copy-tree").copy_tree() end,                                   description = "Tree: Copy project structure and files" },
         { "<leader>MXgka", function() core_utils.copy_project_structure() end,                               description = "Tree: Copy project structure" },
         { "<leader>MXsuc", ":%s/[’‘]/'/ge | %s/[“”＂]/\"/ge<CR>",                                            description = "Delete All Weird Curly Quotes" },
+
+        -- persisted.nvim
+        { "<leader>MXSss", "<cmd>SessionSave<CR>",                                                           description = "Session: Save" },
+        { "<leader>MXSsd", "<cmd>SessionDelete<CR>",                                                         description = "Session: Delete" },
+        { "<leader>MXSsl", "<cmd>SessionLoad<CR>",                                                           description = "Session: Load" },
+        { "<leader>MXSsL", "<cmd>SessionLoadLast<CR>",                                                       description = "Session: Load Recent Session" },
 
         -- Lazy
         { "<leader>MXlaa", "<cmd>Lazy sync<CR>",                                                             description = "Lazy: Update" },
