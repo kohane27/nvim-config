@@ -29,27 +29,25 @@ return {
       { noremap = true, silent = true }
     )
 
-    -- vim.api.nvim_create_augroup("VM_noice_fix", { clear = true })
-    --
-    -- -- Temporarily modify message display during VM operations
-    -- vim.api.nvim_create_autocmd("User", {
-    --   group = "VM_noice_fix",
-    --   pattern = "visual_multi_start",
-    --   callback = function()
-    --     -- Disable noice message capturing temporarily
-    --     -- noice.disable("message")
-    --     vim.cmd("Noice disable")
-    --   end,
-    -- })
-    --
-    -- -- Restore settings when exiting VM
-    -- vim.api.nvim_create_autocmd("User", {
-    --   group = "VM_noice_fix",
-    --   pattern = "visual_multi_exit",
-    --   callback = function()
-    --     -- noice.enable("message")
-    --     vim.cmd("Noice enable")
-    --   end,
-    -- })
+    -- disable noice.vim when running vim-visual-multi
+    vim.api.nvim_create_augroup("VM_noice_fix", { clear = true })
+
+    vim.api.nvim_create_autocmd("User", {
+      group = "VM_noice_fix",
+      pattern = "visual_multi_start",
+      callback = function()
+        vim.cmd("redraw")
+        vim.cmd("silent! Noice disable")
+      end,
+    })
+
+    vim.api.nvim_create_autocmd("User", {
+      group = "VM_noice_fix",
+      pattern = "visual_multi_exit",
+      callback = function()
+        vim.cmd("silent! Noice enable")
+        vim.cmd("redraw")
+      end,
+    })
   end,
 }
