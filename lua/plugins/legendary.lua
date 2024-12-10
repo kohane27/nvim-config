@@ -346,8 +346,7 @@ return {
         { "<leader>Q", "<cmd>q!<CR>",                                          description = "Force Quit" },
         { "qq", function() Snacks.bufdelete() end,                             description = "Buffer: Close" },
         { "Q", "<cmd>bdelete<CR>",                                             description = "Buffer: Close with Layout" },
-        -- { "<leader>q", "<cmd>wqa<CR>",                                         description = "Quit" },
-        { "<leader>q", function() core_utils.quit() end,                       description = "Save and quit", },
+        { "<leader>q", "<cmd>wqa<CR>",                                         description = "Quit" },
 
         -- ╭──────────────────────────────────────────────────────────╮
         -- │ Miscellaneous (leader m with real keybindings)           │
