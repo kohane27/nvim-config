@@ -46,18 +46,18 @@ return {
         { ";s", "<cmd>BufferLinePick<CR>",                                                       description = "Buffer: Pick a Buffer" },
 
         {
-          ';gd',
+          '<leader>md',
           function() if toolbox.is_visual_mode() then core_utils.execute_command(":S/.*//g<Left><Left><Left><Left><Left>")
             else core_utils.execute_command(":%S/.*//g<Left><Left><Left><Left><Left>") end end,
           mode = { 'n', 'v' },
-                                                                                                 description = 'Delete Everything After `foo`',
+                                                                                           description = 'Delete Everything After `foo`',
         },
         {
-          ";gn",
-          function() if toolbox.is_visual_mode() then core_utils.execute_command(":G//norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>")
-            else core_utils.execute_command(":G//norm A.<Left><Left><Left><Left><Left><Left><Left><Left><Left>") end end,
+          "<leader>mn",
+          function() if toolbox.is_visual_mode() then core_utils.execute_command(":Norm A,")
+            else core_utils.execute_command(":%Norm A,") end end,
           mode = { "n", "v" },
-                                                                                                 description = "g: Run Normal mode on lines containing `foo`",
+                                                                                           description = "Run Normal mode on lines containing `foo`",
         },
 
         { "F", function() vim.cmd(":Oil --float") end,                                           description = "Oil" },
