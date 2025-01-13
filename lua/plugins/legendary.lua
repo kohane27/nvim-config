@@ -54,8 +54,8 @@ return {
         },
         {
           "<leader>mn",
-          function() if toolbox.is_visual_mode() then core_utils.execute_command(":Norm A,")
-            else core_utils.execute_command(":%Norm A,") end end,
+          function() if toolbox.is_visual_mode() then core_utils.execute_command(":Norm ")
+            else core_utils.execute_command(":%Norm ") end end,
           mode = { "n", "v" },
                                                                                            description = "Run Normal mode on lines containing `foo`",
         },
