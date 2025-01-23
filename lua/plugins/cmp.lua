@@ -8,7 +8,7 @@ return {
     "hrsh7th/cmp-path", -- filepath
     "hrsh7th/cmp-cmdline", -- source for vim's cmdline
     "onsails/lspkind.nvim", -- pictograms
-    "lukas-reineke/cmp-rg", -- search all files in project
+    -- "lukas-reineke/cmp-rg", -- search all files in project
     "saadparwaiz1/cmp_luasnip",
   },
   config = function()
@@ -33,7 +33,7 @@ return {
           menu = {
             buffer = "[Buffer]",
             nvim_lsp = "[LSP]",
-            rg = "[rg]",
+            -- rg = "[rg]",
             luasnip = "[luasnip]",
             minuet = "[AI]",
             path = "[path]",
@@ -107,11 +107,11 @@ return {
             end,
           },
         },
-        {
-          name = "rg",
-          priority = 800,
-          option = { debounce = 500, additional_arguments = "--max-depth 4" },
-        },
+        -- {
+        --   name = "rg",
+        --   priority = 800,
+        --   option = { debounce = 500, additional_arguments = "--max-depth 4" },
+        -- },
         {
           name = "luasnip",
           priority = 700,
@@ -131,6 +131,8 @@ return {
       performance = {
         -- slower response speed of LLMs
         fetching_timeout = 2000,
+        debounce = 10, -- default 60ms
+        throttle = 10, -- default 30ms
       },
     })
 
