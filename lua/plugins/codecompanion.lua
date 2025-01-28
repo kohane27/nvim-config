@@ -5,13 +5,14 @@ return {
     require("codecompanion").setup({
       display = {
         chat = {
-          show_header_separator = false, -- Show header separators in the chat buffer? Set this to false if you're using an external markdown formatting plugin
-          show_references = true, -- Show references (from slash commands and variables) in the chat buffer?
-          show_settings = true, -- Show LLM settings at the top of the chat buffer?
-          show_token_count = true, -- Show the token count for each response?
+          show_header_separator = false,
+          show_references = true,
+          show_settings = false, -- BUG: query every time leaving insert mode
+          show_token_count = false,
         },
       },
       strategies = { chat = { adapter = "openrouter" } },
+      opts = { log_level = "TRACE" },
       adapters = {
         opts = {
           allow_insecure = false,
@@ -26,21 +27,20 @@ return {
             },
             schema = {
               model = {
-                default = "deepseek/deepseek-r1",
+                default = "liquid/lfm-3b",
+                -- default = "deepseek/deepseek-r1",
               },
             },
           })
         end,
       },
       keymaps = {
-        ["<C-n>"] = "keymaps.save", -- Save the chat buffer and trigger the LLM
+        ["<C-s>"] = "keymaps.save", -- Save the chat buffer and trigger the LLM
         ["<C-x>"] = "keymaps.cancel_request",
         ["gc"] = "keymaps.clear", -- Clear the contents of the chat
         ["ga"] = "keymaps.codeblock", -- Insert a codeblock into the chat
         ["gs"] = "keymaps.save_chat", -- Save the current chat
         ["gt"] = "keymaps.add_tool", -- Add a tool to the current chat buffer
-        ["]"] = "keymaps.next", -- Move to the next header in the chat
-        ["["] = "keymaps.previous", -- Move to the previous header in the chat
       },
     })
   end,
