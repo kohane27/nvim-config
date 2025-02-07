@@ -363,7 +363,7 @@ return {
          mode = { "v" },
          description = "Comment Box: Left-aligned"
         },
-        { "<leader>mn", function() require("noice").cmd("dismiss") end,                    description = "Noice: Dismiss" },
+        { "<leader>mm", function() require("noice").cmd("dismiss") end,                    description = "Noice: Dismiss" },
         { "<leader>mt", function() require('mini.trailspace').trim() end,                  description = "Trim All Trailing Whitespace" },
         { "<leader>mr", "<cmd>write | edit | TSBufEnable highlight<CR>",                   description = "Treesitter: Reload" },
         { "<leader>me", function() require("emoji").insert() end,                          description = "Insert Emoji" },
