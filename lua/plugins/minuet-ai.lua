@@ -14,7 +14,7 @@ return {
         model = "gemini-1.5-flash-latest",
       },
       -- claude = {
-      --   model = "claude-3-5-haiku-20241022",
+      --   model = "claude-3-5-haiku-latest",
       -- },
     },
   },

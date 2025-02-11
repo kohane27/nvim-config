@@ -71,7 +71,7 @@ return {
           provider = "anthropic",
           chat = true,
           command = false,
-          model = { model = "claude-3-5-sonnet-20241022" },
+          model = { model = "claude-3-5-sonnet-latest" },
           system_prompt = "You are an AI working as a code editor.\n"
             .. ultimate_instruction
             .. "The first problem is the following.",
@@ -81,7 +81,7 @@ return {
           provider = "anthropic",
           chat = true,
           command = false,
-          model = { model = "claude-3-5-sonnet-20241022" },
+          model = { model = "claude-3-5-sonnet-latest" },
           system_prompt = "You are a general AI assistant.\n"
             .. ultimate_instruction
             .. "The first problem is the following.",
@@ -91,7 +91,7 @@ return {
           provider = "anthropic",
           chat = true,
           command = false,
-          model = { model = "claude-3-5-sonnet-20241022" },
+          model = { model = "claude-3-5-sonnet-latest" },
           system_prompt = "I want you to act as an Arch Linux Expert. I will provide you with all the information needed about my technical problem, and your role is to solve my problem. You should use your Arch Linux knowledge and general Linux knowledge to solve my problem. Try to avoid too many technical details, but use them when necessary. I'm using Hyprland. My editor is Vim.\n"
             .. ultimate_instruction
             .. "The first problem is the following.",
@@ -101,7 +101,7 @@ return {
           provider = "anthropic",
           chat = true,
           command = false,
-          model = { model = "claude-3-5-sonnet-20241022" },
+          model = { model = "claude-3-5-sonnet-latest" },
           system_prompt = "I want you to act as an Neovim Expert. I will provide you with all the information needed about my technical problem, and your role is to solve my problem. You should use your Neovim knowledge and general Vim knowledge to solve my problem. I want the code written in lua.\n"
             .. ultimate_instruction
             .. "The first problem is the following.",
@@ -111,7 +111,7 @@ return {
           provider = "anthropic",
           chat = true,
           command = false,
-          model = { model = "claude-3-5-sonnet-20241022" },
+          model = { model = "claude-3-5-sonnet-latest" },
           system_prompt = "I want you to act as a software engineering task breakdown Helper. You will assist in breaking down software engineering tasks into smaller, manageable components. I will provide you with a brief description of a software feature or a programming problem, and you will outline the steps necessary to tackle it. Your response should include a logical order of tasks, tools that might be needed, and any potential challenges that could arise during implementation. Please focus on high-level steps rather than writing the actual code. Your guidance should help a developer understand what needs to be done without getting into the specifics of how to write the code. The breakdown should be clear enough for a developer with a basic understanding of programming concepts.\n"
             .. ultimate_instruction
             .. " The following is the task I need help with:",
@@ -121,7 +121,7 @@ return {
           provider = "anthropic",
           chat = true,
           command = false,
-          model = { model = "claude-3-5-sonnet-20241022" },
+          model = { model = "claude-3-5-sonnet-latest" },
           system_prompt = "I want you to act as one of the best React software engineers. You will reply with well-formatted code that follows best practices. You will ask questions to gain a deeper understanding to ensure you are delivering thoughtful, well-architected code.\n"
             .. ultimate_instruction
             .. "The first problem is the following.",
