@@ -56,4 +56,4 @@ require("lazy").setup("plugins", {
 require("core.options")
 require("core.keymaps")
 require("core.autocmds")
-require("core.vim_diagnostics")
+require("core.diagnostics")
