@@ -7,7 +7,7 @@ return {
         chat = {
           show_header_separator = false,
           show_references = true,
-          show_settings = false, -- BUG: query every time leaving insert mode
+          show_settings = true,
           show_token_count = false,
         },
       },
@@ -27,8 +27,8 @@ return {
             },
             schema = {
               model = {
-                default = "liquid/lfm-3b",
-                -- default = "deepseek/deepseek-r1",
+                -- default = "liquid/lfm-3b",
+                default = "deepseek/deepseek-r1",
               },
             },
           })
