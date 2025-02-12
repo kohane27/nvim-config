@@ -11,25 +11,6 @@ local g = vim.g -- Global variables
 local opt = vim.opt -- Set options (global/buffer/windows-scoped)
 
 vim.cmd([[
-if has("persistent_undo")
-   let target_path = expand('~/.undodir')
-
-    " create the directory and any parent directories
-    " if the location does not exist.
-    if !isdirectory(target_path)
-        call mkdir(target_path, "p", 0700)
-    endif
-
-    let &undodir=target_path
-    set undofile
-endif
-
-set path+=**                    " Searches current directory recursively
-set t_Co=256
-set listchars=tab:▸\ ,trail:·
-" removes pipes | that act as seperators on splits
-set fillchars+=vert:\
-set wildignore+=**/node_modules/**
 let g:python3_host_prog = '/usr/bin/python3'
 "  " make `-` part of a word
 " set iskeyword-=-
