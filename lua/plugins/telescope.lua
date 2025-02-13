@@ -2,7 +2,6 @@ return {
   "nvim-telescope/telescope.nvim",
   lazy = true,
   dependencies = {
-    { "nvim-lua/popup.nvim" },
     { "nvim-lua/plenary.nvim" },
     { "romgrk/fzy-lua-native" },
     {
