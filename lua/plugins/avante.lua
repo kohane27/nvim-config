@@ -20,7 +20,7 @@ return {
     provider = "claude",
     claude = {
       endpoint = "https://api.anthropic.com",
-      model = "claude-3-5-sonnet-latest",
+      model = "claude-4-5-sonnet-latest",
       proxy = "http://127.0.0.1:8888",
     },
     hints = { enabled = false },
