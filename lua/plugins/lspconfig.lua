@@ -6,14 +6,8 @@ return {
     { "williamboman/mason.nvim" },
     { "williamboman/mason-lspconfig.nvim" },
 
-    -- language server settings in json
-    { "tamago324/nlsp-settings.nvim" },
-
     -- providing access to the SchemaStore catalog
     { "b0o/schemastore.nvim" },
-
-    -- Additional lua configuration
-    -- { "folke/neodev.nvim" },
 
     { "j-hui/fidget.nvim", opts = {} },
   },
